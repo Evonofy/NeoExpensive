@@ -1,16 +1,32 @@
 /* Seletor Universal */
 *{
-	margin: 0;
-	padding: 0;
-	list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 body{
-    background-color: 151515;
+    background-color: #151515;
 }
 
 #menu{
     width: 100%;
-    height: 30%;
-    color: black;
+    height: 7rem;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
 }
+
+#evo-expensive{
+    height: 70%;
+    padding-top: 1.3rem;
+} 
+
+#social{
+    padding-top: 1.9rem;
+}
+
+#user-interactions{
+    padding-top: 1.9rem;
+}
+
