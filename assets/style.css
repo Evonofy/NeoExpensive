@@ -9,6 +9,9 @@
 
 body{
     background-color: #151515;
+    
+    display: flex;
+    flex-direction: column;
 }
 
 /* Parâmetros do Header */
@@ -61,14 +64,50 @@ li, a{
 
 #nav-content{
     display: flex;
+    align-items: center;
+    height: 100%;
     justify-content: space-evenly;
     list-style: none;
+    position: relative;
+
     
 }
 
-#nav-content li{
+#nav-content li {
     display: flex;
+    align-self: baseline;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+#nav-content li a {
+    display: flex;
+    align-items: center;
+    height: 100%
+}
+
+#nav-content li a:hover + .ul-submenu {
+    display: flex;
+}
+
+.ul-submenu {
+    display: none;
+    background: #000;
+    position: absolute;
+    top: 4.9rem;
+
+    flex-direction: column;
+}
+
+
+#nav-content .itemdrop{
+    display: flex;
+    flex-direction: column;
+
+    font-size: 0.75rem;
     align-items: center;
     padding-top: 0.70rem;
 }
+
 
