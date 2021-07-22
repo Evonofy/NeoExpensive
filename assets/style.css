@@ -14,13 +14,27 @@ body{
     flex-direction: column;
 }
 
+li, a{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: white;
+    text-decoration: none;
+}
+
 /* Parâmetros do Header */
 #menu{
     width: 100%;
-    height: 7rem;
+    /* height: 7rem; */
     background-color: black;
     display: flex;
     justify-content: space-around;
+} 
+
+#menu a:focus {
+    outline: 3px solid #8B46A3;
+    border-radius: 1rem;
+    /* box-shadow: 0 0 0 0.2rem #8B46A3; */
 }
 
 #evo-expensive{
@@ -28,86 +42,121 @@ body{
     padding-top: 1.3rem;
     padding-left: 2rem;
     padding-right: 2rem;
-} 
-
-#social{
-    padding-top: 1.9rem;
 }
 
-.social-icons{
-    padding-left: 20px;
+
+#social,
+#user-interactions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#user-interactions{
-    padding-top: 1.9rem;
-}
-
-.interactions{
-    padding-right: 20px;
+#social a,
+#user-interactions a {
+    margin: 0 0.4rem;
 }
 
 /* Parâmetros da Navegação */
 nav{
+    height: 100%;
     width: 100%;
     height: 4.5rem;
     background-color: #232323;
     border-bottom: solid 5px #8B46A3;
 }
 
-li, a{
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: none;
-}
-
-#nav-content{
+nav a {
+    padding: 0 2rem;
+    height: 100%;
     display: flex;
     align-items: center;
-    height: 100%;
-    justify-content: space-evenly;
-    list-style: none;
-    position: relative;
+    justify-content: center;
+    color: #fafafa;
+    transition: all .2s ease;
+    text-transform: uppercase;
+}
 
+nav a:hover,
+nav a:focus {
+    color: #8B46A3;
+}
+
+nav #nav__list {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
     
 }
 
-#nav-content li {
-    display: flex;
-    align-self: baseline;
+nav #nav__list li {
+    
+    text-align: center;
+    position: relative;
+}
+
+nav #nav__list li:hover .nav__itemdrop > li,
+nav #nav__list li:focus-within .nav__itemdrop > li {
+    display: block;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
+    top: 0px;
 }
 
-#nav-content li a {
-    display: flex;
-    align-items: center;
-    height: 100%
-}
-
-#nav-content li a:hover + .ul-submenu {
-    display: flex;
-}
-
-.ul-submenu {
+.nav__itemdrop li {
     display: none;
-    background: #000;
     position: absolute;
-    top: 4.9rem;
-
-    flex-direction: column;
+    top: 0px;
 }
 
-
-#nav-content .itemdrop{
+.nav__itemdrop {
     display: flex;
     flex-direction: column;
-
-    font-size: 0.75rem;
-    align-items: center;
-    padding-top: 0.70rem;
+    position: absolute;
+    width: 100%;
+    margin-top: 0.318rem;
+    background: #000000;
+    
 }
 
+.nav__itemdrop li {
+    position: relative;
+    padding: 0.4rem;
+}
 
+.nav__itemdrop li:last-child {
+    border-bottom: solid 5px #8B46A3;
+}
+
+.nav__itemdrop li a {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    padding: 0 0.5rem;
+    display: flex;
+    text-align: left;
+    justify-content: start;
+    
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 87.5%; /* 14px */
+    }
+
+    #
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 75%; /* 12px */
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 62.50%; /* 10px */
+    }
+}
