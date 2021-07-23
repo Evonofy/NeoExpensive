@@ -1,146 +1,39 @@
-/* Seletor Universal */
-*{
+@import url("./themes/light.css");
+@import url("./themes/dark.css");
+
+/* Global Styles */
+* {
   margin: 0;
   padding: 0;
-  list-style: none;
+  box-sizing: border-box;
   outline: none;
 }
 
-:root {
-  --rgb: rgb 4s infinte
-}
+body {
+  background-color: var(--body-bg);
 
-body{
-  background-color: #151515;
-  
   display: flex;
   flex-direction: column;
-}
 
-.white {
-  
-}
-
-
-li, a{
-  font-family: "Montserrat", sans-serif;
+  color: white;
   font-weight: 500;
   font-size: 1.4rem;
-  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
   text-decoration: none;
 }
 
-@keyframes rgb {
-  100%,0%{
-    fill: rgb(255,0,0);
-  }
-  8%{
-    fill: rgb(255,127,0);
-  }
-  16%{
-    fill: rgb(255,255,0);
-  }
-  24%{
-    fill: rgb(127,255,0);
-  }
-  32%{
-    fill: rgb(0,255,0);
-  }
-  40%{
-    fill: rgb(0,255,127);
-  }
-  48%{
-    fill: rgb(0,255,255);
-  }
-  56%{
-    fill: rgb(0,127,255);
-  }
-  64%{
-    fill: rgb(0,0,255);
-  }
-  72%{
-    fill: rgb(127,0,255);
-  }
-  80%{
-    fill: rgb(255,0,255);
-  }
-  88%{
-    fill: rgb(255,0,127);
-  }
+.rgb path.toggle {
+  fill: none;
+  animation: rgb 4s infinite;
 }
-@keyframes rgbBorder {
-  100%,0%{
-    border-color: rgb(255,0,0);
-  }
-  8%{
-    border-color: rgb(255,127,0);
-  }
-  16%{
-    border-color: rgb(255,255,0);
-  }
-  24%{
-    border-color: rgb(127,255,0);
-  }
-  32%{
-    border-color: rgb(0,255,0);
-  }
-  40%{
-    border-color: rgb(0,255,127);
-  }
-  48%{
-    border-color: rgb(0,255,255);
-  }
-  56%{
-    border-color: rgb(0,127,255);
-  }
-  64%{
-    border-color: rgb(0,0,255);
-  }
-  72%{
-    border-color: rgb(127,0,255);
-  }
-  80%{
-    border-color: rgb(255,0,255);
-  }
-  88%{
-    border-color: rgb(255,0,127);
-  }
+
+.rgb {
+  animation: rgbBorder 4s infinite !important;
 }
-@keyframes rgbStroke {
-  100%,0%{
-    stroke: rgb(255,0,0);
-  }
-  8%{
-    stroke: rgb(255,127,0);
-  }
-  16%{
-    stroke: rgb(255,255,0);
-  }
-  24%{
-    stroke: rgb(127,255,0);
-  }
-  32%{
-    stroke: rgb(0,255,0);
-  }
-  40%{
-    stroke: rgb(0,255,127);
-  }
-  48%{
-    stroke: rgb(0,255,255);
-  }
-  56%{
-    stroke: rgb(0,127,255);
-  }
-  64%{
-    stroke: rgb(0,0,255);
-  }
-  72%{
-    stroke: rgb(127,0,255);
-  }
-  80%{
-    stroke: rgb(255,0,255);
-  }
-  88%{
-    stroke: rgb(255,0,127);
-  }
+
+path {
+  transition: all .2s ease;
 }
