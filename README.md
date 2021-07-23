@@ -3,11 +3,9 @@
 </h1>
 
 <h3 align="center">
-  <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md">Contribute</a>
+  <a href="https://github.com/AtomicFeasT/evo-expensive/blob/main/CONTRIBUTING.md">Contribute</a>
   <span> · </span>
-  <a href="https://discord.gg/82HzQCJCDg">Community</a>
-  <span> · </span>
-  <a href="https://github.com/FotieMConstant/dogehouse-docs">Documentation</a>
+  <a href="https://github.com/AtomicFeasT/evo-expensive/tree/main/docs/index.html">Documentation</a>
 </h3>
 
 ---
