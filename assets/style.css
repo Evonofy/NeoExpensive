@@ -10,18 +10,23 @@
     justify-content: space-around;
 } 
 
-#menu a:focus {
-    /* outline: 1.5px solid #8B46A3; */
-    border-radius: 1rem;
-    /* box-shadow: 0 0 0 0.2rem #8B46A3; */
+.rgb path.toggle {
+    fill: none;
+    animation: rgb 4s infinite;
 }
+
+nav.rgb {
+    animation: rgbBorder 4s infinite !important;
+}
+
 path {
    transition: all .2s ease;
 }
 
-#menu a:focus svg path {
+#menu a:focus-within svg path {
     stroke: #8B46A3;
 }
+
 
 #menu a:focus svg#instagram path,
 #menu a:hover svg#instagram path {
@@ -53,16 +58,17 @@ path {
 
 /* Propriedades de Posicionamento da Logo */
 #logo a {
-    padding: 1.3rem 2rem 0 2rem;
-}
+    display: flex;
+    flex-direction: row;
 
-#logo a img {
-    width: 80%;
+    align-items: center;
+    justify-content: center;
+    padding: 1.3rem 2rem 1.3rem 2rem;
 }
 
 #social a,
 #user-interactions a {
-    margin: 0 0.4rem;
+    margin: 0 0.3rem;
 }
 
 /* Parâmetros da Navegação */
@@ -71,9 +77,9 @@ nav{
     width: 100%;
     height: 4.5rem;
     background-color: #232323;
-    border-bottom: transparent solid 5px;
-    /* animation: rgb 3s infinite; */
+    
     border-bottom: solid 5px #8B46A3;
+    /* animation: rgb 3s infinite; */
 }
 
 nav a {
@@ -100,11 +106,9 @@ nav #nav__list {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
-    
 }
 
 nav #nav__list li {
-    
     text-align: center;
     position: relative;
 }
@@ -127,7 +131,7 @@ nav #nav__list li:focus-within .nav__itemdrop > li {
     flex-direction: column;
     position: absolute;
     width: 100%;
-    margin-top: 0.318rem;
+    margin-top: 0.3rem;
     background: #000000;
 }
 
@@ -209,16 +213,62 @@ nav #nav__list li:focus-within .nav__itemdrop > li {
     html {
         font-size: 87.5%; /* 14px */
     }
+
+    #logo svg {
+        width: 70%;
+        height: 70%;
+    }
+
+    svg {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media (max-width: 1024px) {
     html {
         font-size: 75%; /* 12px */
     }
+
+    #logo svg {
+        width: 50%;
+        height: 50%;
+    }
+
+    svg {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 @media (max-width: 768px) {
     html {
         font-size: 62.50%; /* 10px */
+    }
+
+    #logo svg {
+        width: 40%;
+        height: 40%;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 50%; /* 8px */
+    }
+
+    #logo svg {
+        width: 30%;
+        height: 30%;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
     }
 }
