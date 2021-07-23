@@ -1,26 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
-/* Seletor Universal */
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-body{
-    background-color: #151515;
-    
-    display: flex;
-    flex-direction: column;
-}
-
-li, a{
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 1.4rem;
-    color: white;
-    text-decoration: none;
-}
+@import url("./global.css");
 
 /* Parâmetros do Header */
 #menu{
@@ -32,24 +11,53 @@ li, a{
 } 
 
 #menu a:focus {
-    outline: 3px solid #8B46A3;
+    /* outline: 1.5px solid #8B46A3; */
     border-radius: 1rem;
     /* box-shadow: 0 0 0 0.2rem #8B46A3; */
 }
-
-#evo-expensive{
-    height: 70%;
-    padding-top: 1.3rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+path {
+   transition: all .2s ease;
 }
 
+#menu a:focus svg path {
+    stroke: #8B46A3;
+}
 
-#social,
-#user-interactions {
+#menu a:focus svg#instagram path,
+#menu a:hover svg#instagram path {
+    outline: none;
+    stroke: url("#rg");
+}
+
+#menu a:focus svg#facebook path,
+#menu a:hover svg#facebook path {
+    stroke: #4267B2;
+}
+
+#menu a:focus-within svg#twitter path,
+#menu a:hover svg#twitter path {
+    stroke: #1DA1F2;
+}
+
+#menu #logo a:focus svg path {
+    outline: none;
+    stroke: none;
+    user-select: none;
+}
+
+#menu div {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Propriedades de Posicionamento da Logo */
+#logo a {
+    padding: 1.3rem 2rem 0 2rem;
+}
+
+#logo a img {
+    width: 80%;
 }
 
 #social a,
@@ -63,6 +71,8 @@ nav{
     width: 100%;
     height: 4.5rem;
     background-color: #232323;
+    border-bottom: transparent solid 5px;
+    /* animation: rgb 3s infinite; */
     border-bottom: solid 5px #8B46A3;
 }
 
@@ -78,7 +88,10 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus {
+nav a:focus,
+nav a:hover svg path,
+nav a:focus svg path {
+    stroke: #8B46A3;
     color: #8B46A3;
 }
 
@@ -116,7 +129,6 @@ nav #nav__list li:focus-within .nav__itemdrop > li {
     width: 100%;
     margin-top: 0.318rem;
     background: #000000;
-    
 }
 
 .nav__itemdrop li {
@@ -141,12 +153,62 @@ nav #nav__list li:focus-within .nav__itemdrop > li {
     
 }
 
+.nav__itemdrop2 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    width: 100%;
+    background: #000000;
+    
+    /*  */
+}
+
+.nav__itemdrop2 li {
+    display: none
+}
+
+.nav__itemdrop li:hover .nav__itemdrop2 li,
+.nav__itemdrop li:focus-within .nav__itemdrop2 li {
+    display: block;
+}
+
+.nav__itemdrop3 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    width: 100%;
+    background: #000000;
+    /*  */
+}
+
+.nav__itemdrop li:hover .nav__itemdrop3 li,
+.nav__itemdrop li:focus-within .nav__itemdrop3 li {
+    display: none;
+}
+
+.nav__itemdrop3 li {
+    display: none;
+}
+
+.nav__itemdrop2 li:hover .nav__itemdrop3 li,
+.nav__itemdrop2 li:focus-within .nav__itemdrop3 li {
+    display: block;
+}
+
+
+
+
+
+
+
 @media (max-width: 1080px) {
     html {
         font-size: 87.5%; /* 14px */
     }
-
-    #
 }
 
 @media (max-width: 1024px) {
