@@ -2,31 +2,11 @@
   html {
     font-size: 87.5%; /* 14px */
   }
-  
-  #logo svg {
-    width: 70%;
-    height: 70%;
-  }
-  
-  svg {
-    width: 40px;
-    height: 40px;
-  }
 }
 
 @media (max-width: 1024px) {
   html {
     font-size: 75%; /* 12px */
-  }
-  
-  #logo svg {
-    width: 50%;
-    height: 50%;
-  }
-  
-  svg {
-    width: 30px;
-    height: 30px;
   }
 }
 
@@ -34,30 +14,10 @@
   html {
     font-size: 62.50%; /* 10px */
   }
-  
-  #logo svg {
-    width: 40%;
-    height: 40%;
-  }
-  
-  svg {
-    width: 20px;
-    height: 20px;
-  }
 }
 
 @media (max-width: 600px) {
   html {
     font-size: 50%; /* 8px */
-  }
-  
-  #logo svg {
-    width: 30%;
-    height: 30%;
-  }
-  
-  svg {
-    width: 20px;
-    height: 20px;
   }
 }

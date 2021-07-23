@@ -23,10 +23,6 @@ main {
   height: 100%;
 }
 
-/* svg#gradient {
-  display: none;
-} */
-
 header #menu {
   width: 100%;
   background-color: var(--header-bg);
@@ -71,11 +67,16 @@ header #menu div a:hover svg#twitter path {
 }
 
 /* Logo position */
-#logo a {
+header #menu #logo a {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+header #menu #logo svg {
+  width: 18rem;
+  height: 6rem;
 }
 
 /* Remove purple outline from EVO logo */
@@ -119,7 +120,6 @@ header nav a:focus svg path {
 
 /* Navbar list */
 header nav #nav__list {
-  list-style: none;
   display: flex;
   justify-content: space-around;
 }
@@ -209,4 +209,93 @@ header nav #nav__list li:focus-within .nav__itemdrop > li {
 
 .nav__itemdrop2 li:hover .nav__itemdrop3 {
   display: flex;
+}
+
+/* Footer */
+footer{
+  position: relative;
+  width: 100%;
+  padding: 3rem 4rem;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 5px solid #8B46A3;
+  transition: all .1s;
+}
+
+/* Footer content */
+footer #footer-body {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+footer #footer-body section {
+  padding: 1rem;
+}
+
+/* Footer paragraph */
+footer #footer-body section.about-us {
+  width: 100%;
+}
+
+footer #footer-body section.about-us p {
+  font-size: 1rem;
+  width: 60rem;
+  line-height: 1.6rem;
+  transition: all .1s;
+}
+
+footer #footer-body section.about-us h2 {
+  position: relative;
+  color: var(--accent);
+  font-weight: 300;
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+  transition: all .1s;
+}
+
+footer #footer-body section.about-us h2:before{
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #8B46A3;
+}
+
+footer section #social-media-footer {
+  display: flex;
+}
+
+/* Middle icon */
+footer #footer-body section #social-media-footer li:nth-child(2) {
+  margin: 0 0.5rem;
+}
+
+footer #footer-body section #social-media-footer li a {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.6rem;
+  padding: 0.4rem;
+  background-color: var(--body-bg); 
+}
+
+/* Change svg color on list item hover */
+footer #footer-body section #social-media-footer li a:hover svg path {
+  stroke: var(--accent);
+}
+
+footer #copyrightText { 
+  width: 100%;
+  text-align: center;
+  background: #8B46A3;
+  padding: 8px 100px;
+  color: rgb(255, 255, 255);
 }

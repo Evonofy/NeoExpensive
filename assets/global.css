@@ -17,6 +17,8 @@ html {
 body {
   background-color: var(--body-bg);
   height: 100%;
+  width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,6 +33,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 .rgb path.toggle {
   fill: none;
   animation: rgb 4s infinite;
@@ -40,6 +46,17 @@ a {
   animation: rgbBorder 4s infinite;
 }
 
+svg#gradient {
+  position: absolute;
+  left: -10000;
+}
+
 path {
   transition: all .2s ease;
+}
+
+svg {
+  width: 3.125rem;
+  height: 3.125rem;
+  transition: .2s all;
 }
