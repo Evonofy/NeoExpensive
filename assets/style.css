@@ -204,11 +204,6 @@ nav #nav__list li:focus-within .nav__itemdrop > li {
 }
 
 
-
-
-
-
-
 @media (max-width: 1080px) {
     html {
         font-size: 87.5%; /* 14px */
