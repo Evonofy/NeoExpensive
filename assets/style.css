@@ -105,29 +105,21 @@ header nav a:focus svg path {
   cursor: pointer;
 }
 
-/* Item list in navbar */
+/* Navbar list */
 header nav #nav__list {
   list-style: none;
   display: flex;
   justify-content: space-around;
 }
 
+/* All dropdowns */
+header nav #nav__list ul {
+  width: 100%;
+}
+
+/* Navbar list items */
 header nav #nav__list li {
   position: relative;
-}
-
-/* Dropdown */
-header nav #nav__list li:hover .nav__itemdrop > li,
-header nav #nav__list li:focus-within .nav__itemdrop > li {
-  display: block;
-  flex-direction: column;
-  top: 0px;
-}
-
-.nav__itemdrop li {
-  display: none;
-  position: absolute;
-  top: 0px;
 }
 
 /* First dropdown element */
@@ -137,13 +129,17 @@ header nav #nav__list li:focus-within .nav__itemdrop > li {
   position: absolute;
   background: var(--body-bg);
   border-top: 5px solid var(--accent);
-  width: 100%;
 }
 
+/* List items inside first dropdown */
 .nav__itemdrop li {
+  display: none;
+  position: absolute;
   position: relative;
+  top: 0px;
 }
 
+/* Border on the last list item of the first dropdown */
 .nav__itemdrop li:last-child {
   border-bottom: solid 5px var(--accent);
 }
@@ -159,48 +155,42 @@ header nav #nav__list li:focus-within .nav__itemdrop > li {
   justify-content: start;
 }
 
-.nav__itemdrop2 {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0px;
-  left: 100%;
-  width: 100%;
-  background: #000000;
-  
-  /*  */
-}
-
-.nav__itemdrop2 li {
-  display: none
-}
-
-.nav__itemdrop li:hover .nav__itemdrop2 li,
-.nav__itemdrop li:focus-within .nav__itemdrop2 li {
+/* Show first dropdown on hover */
+header nav #nav__list li:hover .nav__itemdrop > li,
+header nav #nav__list li:focus-within .nav__itemdrop > li {
   display: block;
+  flex-direction: column;
+  top: 0px;
 }
 
+/* Second/Third dropdown element */
+.nav__itemdrop2,
 .nav__itemdrop3 {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 0px;
   left: 100%;
-  width: 100%;
-  background: #000000;
-  /*  */
+  background: var(--drop-bg);
 }
 
-.nav__itemdrop li:hover .nav__itemdrop3 li,
-.nav__itemdrop li:focus-within .nav__itemdrop3 li {
+/* Second dropdown list items */
+.nav__itemdrop2 li {
   display: none;
 }
 
-.nav__itemdrop3 li {
-  display: none;
-}
-
-.nav__itemdrop2 li:hover .nav__itemdrop3 li,
-.nav__itemdrop2 li:focus-within .nav__itemdrop3 li {
+/* Show second dropdown on hover */
+.nav__itemdrop li:hover .nav__itemdrop2 li,
+.nav__itemdrop li:focus-within .nav__itemdrop2 li {
   display: block;
+}
+
+/* Third dropdown */
+.nav__itemdrop3 {
+  display: none;
+}
+
+.nav__itemdrop2 li:hover .nav__itemdrop3,
+.nav__itemdrop2 li:focus-within .nav__itemdrop3 {
+  display: flex;
 }
