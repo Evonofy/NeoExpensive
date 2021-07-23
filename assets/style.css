@@ -90,8 +90,8 @@ header #menu #logo a:focus svg path.toggle {
 
 /* Navbar */
 header nav {
-  background-color: var(--nav-
-  );
+  position: sticky;
+  background-color: var(--nav);
   
   border-bottom: solid 5px #8B46A3;
 }
@@ -221,6 +221,7 @@ footer {
   transition: all .1s;
 }
 
+/* Footer logo properties */
 footer #footer-body section.logo {
   width: 100%;
   display: flex;
@@ -228,6 +229,7 @@ footer #footer-body section.logo {
   justify-content: center;
 }
 
+/* Footer logo sizing */
 footer section.logo svg {
   width: 18rem;
   height: 6rem;
@@ -242,10 +244,12 @@ footer #footer-body {
   padding: 1rem 2rem;
 }
 
+/* Padding properties for everything that is not a icon */
 #footer-body section:not(.icons) {
   padding: 1rem 5rem;
 }
 
+/* Paragraph characterisctics */
 footer #footer-body section.about-us p {
   font-size: 1rem;
   max-width: 60rem;
@@ -253,6 +257,7 @@ footer #footer-body section.about-us p {
   transition: all .1s;
 }
 
+/* Header 2 characteristics */
 footer #footer-body section h2 {
   position: relative;
   color: var(--accent);
@@ -300,26 +305,31 @@ footer #footer-body section #social-media-footer li a svg {
 }
 
 /* Change svg color on list item hover */
-footer #footer-body section #social-media-footer li a:hover svg path {
+footer #footer-body section #social-media-footer li a:hover svg path, 
+footer #footer-body section #social-media-footer li a:focus svg path {
   stroke: var(--accent);
 }
 
+/* Quick links position */
 footer #footer-body section#quick-links{
   position: relative;
 }
 
+/* Quick links styles */
 footer #footer-body section#quick-links ul li a{
   color: var(--link);
   text-decoration: none;
   transition: all .2s;
 }
 
-footer #footer-body section#quick-links ul li:hover a {
+/* Quick links hover effects */
+footer #footer-body section#quick-links ul li:hover a,
+footer #footer-body section#quick-links ul li:focus-within a {
   color: var(--accent)
 }
 
-/* Copyright text properties */
 
+/* Copyright text properties */
 footer #copyrightText { 
   width: 100%;
   text-align: center;
