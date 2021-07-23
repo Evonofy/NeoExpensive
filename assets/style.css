@@ -16,12 +16,23 @@ header {
   width: 100%;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  /* align-items: stretch; */
+  height: 100%;
+}
+
+/* svg#gradient {
+  display: none;
+} */
+
 header #menu {
   width: 100%;
   background-color: var(--header-bg);
   display: flex;
   justify-content: space-around;
-  padding: 1rem;
+  padding: 0.6rem;
 }
 
 header #menu div {
@@ -80,13 +91,14 @@ header #menu #logo a:focus svg path.toggle {
 
 /* Navbar */
 header nav {
-  background-color: var(--nav-bg);
+  background-color: var(--nav-
+  );
   
   border-bottom: solid 5px #8B46A3;
 }
 
 header nav a {
-  /* add padding to make dropdown larger */
+  /* Add padding to make dropdown larger */
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -95,7 +107,7 @@ header nav a {
   transition: all .2s ease;
 }
 
-/* add purple color to link when focused */
+/* Add purple color to link when focused */
 header nav a:hover,
 header nav a:hover svg path,
 header nav a:focus,
@@ -127,8 +139,13 @@ header nav #nav__list li {
   display: flex;
   flex-direction: column;
   position: absolute;
-  background: var(--body-bg);
+  background: var(--drop-bg);
   border-top: 5px solid var(--accent);
+}
+
+
+ul.rgb {
+  animation: rgbBorder 4s infinite !important;
 }
 
 /* List items inside first dropdown */
@@ -156,7 +173,7 @@ header nav #nav__list li {
 }
 
 /* Show first dropdown on hover */
-header nav #nav__list li:hover .nav__itemdrop > li,
+header nav #nav__list li:hover .nav__itemdrop > li ,
 header nav #nav__list li:focus-within .nav__itemdrop > li {
   display: block;
   flex-direction: column;
@@ -190,7 +207,6 @@ header nav #nav__list li:focus-within .nav__itemdrop > li {
   display: none;
 }
 
-.nav__itemdrop2 li:hover .nav__itemdrop3,
-.nav__itemdrop2 li:focus-within .nav__itemdrop3 {
+.nav__itemdrop2 li:hover .nav__itemdrop3 {
   display: flex;
 }

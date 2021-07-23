@@ -9,11 +9,17 @@
   outline: none;
 }
 
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
 body {
   background-color: var(--body-bg);
-
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   color: white;
   font-weight: 500;
@@ -31,7 +37,7 @@ a {
 }
 
 .rgb {
-  animation: rgbBorder 4s infinite !important;
+  animation: rgbBorder 4s infinite;
 }
 
 path {
