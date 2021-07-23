@@ -1,269 +1,206 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* Global Styles / Themes */
 @import url("./global.css");
 
-/* Parâmetros do Header */
-#menu{
-    width: 100%;
-    /* height: 7rem; */
-    background-color: black;
-    display: flex;
-    justify-content: space-around;
-} 
+/* Reposivity Styles */
+@import url("./reponsivity.css");
 
-.rgb path.toggle {
-    fill: none;
-    animation: rgb 4s infinite;
+/* Animations */
+@import url("./animations/RGBBorder.css");
+@import url("./animations/RGBFill.css");
+
+
+/* Header Styles */
+header {
+  width: 100%;
 }
 
-nav.rgb {
-    animation: rgbBorder 4s infinite !important;
+header #menu {
+  width: 100%;
+  background-color: var(--header-bg);
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
 }
 
-path {
-   transition: all .2s ease;
+header #menu div {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
 }
 
-#menu a:focus-within svg path {
-    stroke: #8B46A3;
+/* Add spacing between icons in menu */
+header #menu div a:nth-child(2) {
+  margin: 0 1rem;
 }
 
-
-#menu a:focus svg#instagram path,
-#menu a:hover svg#instagram path {
-    outline: none;
-    stroke: url("#rg");
+/* Hover effect for all svg in header */
+header #menu div a:focus svg path {
+  stroke: #8B46A3;
 }
 
-#menu a:focus svg#facebook path,
-#menu a:hover svg#facebook path {
-    stroke: #4267B2;
+/* Custom hover effect */
+header #menu div a:focus svg#instagram path,
+header #menu div a:hover svg#instagram path {
+  stroke: url("#rgb");
 }
 
-#menu a:focus-within svg#twitter path,
-#menu a:hover svg#twitter path {
-    stroke: #1DA1F2;
+/* Custom Facebook hover */
+header #menu div a:focus svg#facebook path,
+header #menu div a:hover svg#facebook path {
+  stroke: #4267B2;
 }
 
-#menu #logo a:focus svg path {
-    outline: none;
-    stroke: none;
-    user-select: none;
+/* Custom Twitter hover */
+header #menu div a:focus svg#twitter path,
+header #menu div a:hover svg#twitter path {
+  stroke: #1DA1F2;
 }
 
-#menu div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Propriedades de Posicionamento da Logo */
+/* Logo position */
 #logo a {
-    display: flex;
-    flex-direction: row;
-
-    align-items: center;
-    justify-content: center;
-    padding: 1.3rem 2rem 1.3rem 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-#social a,
-#user-interactions a {
-    margin: 0 0.3rem;
+/* Remove purple outline from EVO logo */
+header #menu #logo a:focus svg path {
+  stroke: none
 }
 
-/* Parâmetros da Navegação */
-nav{
-    height: 100%;
-    width: 100%;
-    height: 4.5rem;
-    background-color: #232323;
-    
-    border-bottom: solid 5px #8B46A3;
-    /* animation: rgb 3s infinite; */
+/* Makes RGB in EVO logo */
+header #menu #logo a:focus svg path.toggle {
+  stroke: none;
+  animation: rgb 4s infinite;
 }
 
-nav a {
-    padding: 0 2rem;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fafafa;
-    transition: all .2s ease;
-    text-transform: uppercase;
+/* Navbar */
+header nav {
+  background-color: var(--nav-bg);
+  
+  border-bottom: solid 5px #8B46A3;
 }
 
-nav a:hover,
-nav a:focus,
-nav a:hover svg path,
-nav a:focus svg path {
-    stroke: #8B46A3;
-    color: #8B46A3;
+header nav a {
+  /* add padding to make dropdown larger */
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  color: var(--link);
+  text-transform: uppercase;
+  transition: all .2s ease;
 }
 
-nav #nav__list {
-    height: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
+/* add purple color to link when focused */
+header nav a:hover,
+header nav a:hover svg path,
+header nav a:focus,
+header nav a:focus svg path {
+  stroke: var(--accent);
+  color: var(--accent);
+  cursor: pointer;
 }
 
-nav #nav__list li {
-    text-align: center;
-    position: relative;
+/* Item list in navbar */
+header nav #nav__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
 }
 
-nav #nav__list li:hover .nav__itemdrop > li,
-nav #nav__list li:focus-within .nav__itemdrop > li {
-    display: block;
-    flex-direction: column;
-    top: 0px;
+header nav #nav__list li {
+  position: relative;
+}
+
+/* Dropdown */
+header nav #nav__list li:hover .nav__itemdrop > li,
+header nav #nav__list li:focus-within .nav__itemdrop > li {
+  display: block;
+  flex-direction: column;
+  top: 0px;
 }
 
 .nav__itemdrop li {
-    display: none;
-    position: absolute;
-    top: 0px;
+  display: none;
+  position: absolute;
+  top: 0px;
 }
 
+/* First dropdown element */
 .nav__itemdrop {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    width: 100%;
-    margin-top: 0.3rem;
-    background: #000000;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: var(--body-bg);
+  border-top: 5px solid var(--accent);
+  width: 100%;
 }
 
 .nav__itemdrop li {
-    position: relative;
-    padding: 0.4rem;
+  position: relative;
 }
 
 .nav__itemdrop li:last-child {
-    border-bottom: solid 5px #8B46A3;
+  border-bottom: solid 5px var(--accent);
 }
 
 .nav__itemdrop li a {
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    font-weight: 400;
-    margin: 0.5rem 0;
-    padding: 1rem;
-    padding: 0 0.5rem;
-    display: flex;
-    text-align: left;
-    justify-content: start;
-    
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  text-align: left;
+  justify-content: start;
 }
 
 .nav__itemdrop2 {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0px;
-    left: 100%;
-    width: 100%;
-    background: #000000;
-    
-    /*  */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0px;
+  left: 100%;
+  width: 100%;
+  background: #000000;
+  
+  /*  */
 }
 
 .nav__itemdrop2 li {
-    display: none
+  display: none
 }
 
 .nav__itemdrop li:hover .nav__itemdrop2 li,
 .nav__itemdrop li:focus-within .nav__itemdrop2 li {
-    display: block;
+  display: block;
 }
 
 .nav__itemdrop3 {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0px;
-    left: 100%;
-    width: 100%;
-    background: #000000;
-    /*  */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0px;
+  left: 100%;
+  width: 100%;
+  background: #000000;
+  /*  */
 }
 
 .nav__itemdrop li:hover .nav__itemdrop3 li,
 .nav__itemdrop li:focus-within .nav__itemdrop3 li {
-    display: none;
+  display: none;
 }
 
 .nav__itemdrop3 li {
-    display: none;
+  display: none;
 }
 
 .nav__itemdrop2 li:hover .nav__itemdrop3 li,
 .nav__itemdrop2 li:focus-within .nav__itemdrop3 li {
-    display: block;
-}
-
-
-@media (max-width: 1080px) {
-    html {
-        font-size: 87.5%; /* 14px */
-    }
-
-    #logo svg {
-        width: 70%;
-        height: 70%;
-    }
-
-    svg {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 1024px) {
-    html {
-        font-size: 75%; /* 12px */
-    }
-
-    #logo svg {
-        width: 50%;
-        height: 50%;
-    }
-
-    svg {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    html {
-        font-size: 62.50%; /* 10px */
-    }
-
-    #logo svg {
-        width: 40%;
-        height: 40%;
-    }
-
-    svg {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-@media (max-width: 600px) {
-    html {
-        font-size: 50%; /* 8px */
-    }
-
-    #logo svg {
-        width: 30%;
-        height: 30%;
-    }
-
-    svg {
-        width: 20px;
-        height: 20px;
-    }
+  display: block;
 }
