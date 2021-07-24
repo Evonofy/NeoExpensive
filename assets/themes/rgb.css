@@ -1,0 +1,36 @@
+[data-theme = "rgb"] {
+  --header-bg: #202020;
+  --body-bg: #000;
+  --accent: #6ea346;
+}
+
+[data-theme = "rgb"] #x {
+  stroke: none;
+  animation: rgb 4s infinite;
+}
+
+[data-theme = "rgb"] ul ul {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  animation: rgbBorder 4s infinite;
+}
+
+[data-theme = "rgb"] .nav__itemdrop li:not(:first-child) ul {
+  border-top: 5px solid transparent;
+}
+
+
+[data-theme = "rgb"] .nav__itemdrop li:last-child {
+  border-bottom: 5px solid transparent;
+  animation: rgbBorder 4s infinite;
+}
+
+[data-theme = "rgb"] nav {
+  stroke: none;
+  animation: rgbBorder 4s infinite;
+}
+
+[data-theme = "rgb"] footer {
+  border-top: 5px solid transparent;
+  animation: rgbBorder 4s infinite;
+}

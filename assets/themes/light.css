@@ -1,5 +1,5 @@
-.light {
+[data-theme = "light"] {
   --header-bg: #202020;
   --body-bg: #000;
-  --accent: #8B46A3;
+  --accent: #6ea346;
 }
