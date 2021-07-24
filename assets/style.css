@@ -238,8 +238,11 @@ header nav #nav__list li {
   background: var(--drop-bg);
   border-top: 5px solid var(--accent);
   opacity: 0;
-  transition: opacity 0.3s;
-  transition: transform 0.2s;
+}
+
+/* Put border top on top of the last two dropdown children */
+.nav__itemdrop li:not(:first-child) ul {
+  border-top: 5px solid var(--accent);
 }
 
 ul.rgb {
