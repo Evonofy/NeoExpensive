@@ -54,16 +54,7 @@ header #menu #hamburger menu {
   padding: 0.6rem;
 }
 
-header #menu #hamburger menu:hover {
-  color: var(--accent);
-}
-
-header #menu #hamburger menu {
-  text-decoration: none;
-  color: var(--link);
-  transition: all .2s ease;
-}
-
+/* Invisible checkbox on top of hamburger  */
 header #menu #hamburger input {
   display: block;
   width: 5rem;
@@ -78,6 +69,7 @@ header #menu #hamburger input {
   -webkit-touch-callout: none;
 }
 
+/* Hamburger menu elements */
 header #menu #hamburger span {
   display: block;
   width: 3rem;
@@ -94,24 +86,28 @@ header #menu #hamburger span {
   transition: all 0.2s;
 }
 
+/* Middle hamburger margin */
 header #menu #hamburger span:nth-child(3) {
   margin: 0.5rem 0;
 }
 
+/* Hamburger menu animation on hover */
 header #menu #hamburger menu:hover span:nth-child(2),
 header #menu #hamburger menu:hover span:nth-child(4) {
   width: 2rem;
 }
 
-header #menu #hamburger input:checked ~ span:nth-child(2),
+/* Makes top burger go to middle */
+header #menu #hamburger input:checked ~ span:nth-child(2) {
+  transform: translate(0, 8px);
+}
+
+/* Makes bottom burger go to middle */
 header #menu #hamburger input:checked ~ span:nth-child(4) {
-  display: none;
+  transform: translate(0, -8px);
 }
 
-header #menu #hamburger a input:checked + span:nth-child(4) {
-  width: 2rem;
-}
-
+/* Sidebar */
 header #menu #hamburger menu ul {
   transform-origin: 0% 0%;
   transform: translate(-150%, 0%);
