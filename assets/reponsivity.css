@@ -33,8 +33,8 @@
     display: flex;
   }
 
-  header div#menu div#hamburger a:hover span,
-  header div#menu div#hamburger a:focus-within span {
+  header div#menu div#hamburger menu:hover span,
+  header div#menu div#hamburger menu:focus-within span {
     background: var(--accent);
   }
 

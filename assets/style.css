@@ -44,22 +44,21 @@ header #menu div#hamburger {
 
 header #menu #hamburger {
   z-index: 1;
-
   user-select: none;
 }
 
-header #menu #hamburger a {
+header #menu #hamburger menu {
   cursor: pointer;
   position: relative;
 
   padding: 0.6rem;
 }
 
-header #menu #hamburger a:hover {
+header #menu #hamburger menu:hover {
   color: var(--accent);
 }
 
-header #menu #hamburger li a {
+header #menu #hamburger menu {
   text-decoration: none;
   color: var(--link);
   transition: all .2s ease;
@@ -99,8 +98,8 @@ header #menu #hamburger span:nth-child(3) {
   margin: 0.5rem 0;
 }
 
-header #menu #hamburger a:hover span:nth-child(2),
-header #menu #hamburger a:hover span:nth-child(4) {
+header #menu #hamburger menu:hover span:nth-child(2),
+header #menu #hamburger menu:hover span:nth-child(4) {
   width: 2rem;
 }
 
@@ -111,6 +110,39 @@ header #menu #hamburger input:checked ~ span:nth-child(4) {
 
 header #menu #hamburger a input:checked + span:nth-child(4) {
   width: 2rem;
+}
+
+header #menu #hamburger menu ul {
+  transform-origin: 0% 0%;
+  transform: translate(-150%, 0%);
+  top: 6rem;
+  width: 300px;
+  transition: all .2s;
+  position: absolute;
+  background: var(--header-bg);
+  border-radius: 0.2rem; 
+}
+
+header #menu #hamburger menu ul li {
+  padding: 1rem 2rem;
+}
+
+header #menu #hamburger menu ul li:hover a,
+header #menu #hamburger menu ul li:hover svg path {
+  color: var(--accent);
+  stroke: var(--accent)
+}
+
+header #menu #hamburger menu ul li a {
+  color: var(--link);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  transition: all .2s;
+}
+
+header #menu #hamburger menu input:checked ~ ul {
+  transform: translate(0%, -6%);
 }
 
 /* Hover effect for all svg in header */
