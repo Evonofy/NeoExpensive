@@ -58,15 +58,13 @@ header #menu #hamburger menu {
 header #menu #hamburger input {
   display: block;
   width: 5rem;
-  height: 4rem;
+  height: 5rem;
   position: absolute;
-  top: -7px;
-  left: -5px;
+  top: -16%;
+  left: -9%;
   cursor: pointer;
   opacity: 0;
   z-index: 2;
-
-  -webkit-touch-callout: none;
 }
 
 /* Hamburger menu elements */
