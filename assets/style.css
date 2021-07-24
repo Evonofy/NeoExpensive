@@ -58,15 +58,13 @@ header #menu #hamburger menu {
 header #menu #hamburger input {
   display: block;
   width: 5rem;
-  height: 4rem;
+  height: 5rem;
   position: absolute;
-  top: -7px;
-  left: -5px;
+  top: -16%;
+  left: -9%;
   cursor: pointer;
   opacity: 0;
   z-index: 2;
-
-  -webkit-touch-callout: none;
 }
 
 /* Hamburger menu elements */
@@ -109,9 +107,7 @@ header #menu #hamburger input:checked ~ span:nth-child(4) {
 
 /* Sidebar */
 header #menu #hamburger menu ul {
-  transform-origin: 0% 0%;
-  transform: translate(-150%, 0%);
-  top: 6rem;
+  transform: translate(-150%, -6%);
   width: 300px;
   transition: all .2s;
   position: absolute;
@@ -239,6 +235,10 @@ header nav #nav__list li {
   position: absolute;
   background: var(--drop-bg);
   border-top: 5px solid var(--accent);
+  transform: translate(0%, -10%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  transition: transform 0.2s;
 }
 
 ul.rgb {
@@ -247,7 +247,6 @@ ul.rgb {
 
 /* List items inside first dropdown */
 .nav__itemdrop li {
-  display: none;
   position: absolute;
   position: relative;
   top: 0px;
@@ -270,11 +269,10 @@ ul.rgb {
 }
 
 /* Show first dropdown on hover */
-header nav #nav__list li:hover .nav__itemdrop > li ,
-header nav #nav__list li:focus-within .nav__itemdrop > li {
-  display: block;
-  flex-direction: column;
-  top: 0px;
+header nav #nav__list li:hover .nav__itemdrop,
+header nav #nav__list li:focus-within .nav__itemdrop {
+  opacity: 1;
+  transform: none;
 }
 
 /* Second/Third dropdown element */
@@ -286,26 +284,35 @@ header nav #nav__list li:focus-within .nav__itemdrop > li {
   top: 0px;
   left: 100%;
   background: var(--drop-bg);
+  transform: translate(0%, -10%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  transition: transform 0.2s;
 }
 
-/* Second dropdown list items */
+/* Second dropdown list items
 .nav__itemdrop2 li {
   display: none;
-}
+} */
 
 /* Show second dropdown on hover */
-.nav__itemdrop li:hover .nav__itemdrop2 li,
-.nav__itemdrop li:focus-within .nav__itemdrop2 li {
-  display: block;
+.nav__itemdrop li:hover .nav__itemdrop2,
+.nav__itemdrop li:focus-within .nav__itemdrop2 {
+  transform: none;
+  opacity: 1;
 }
 
 /* Third dropdown */
 .nav__itemdrop3 {
-  display: none;
+  transform: translate(0%, -10%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  transition: transform 0.2s;
 }
 
 .nav__itemdrop2 li:hover .nav__itemdrop3 {
-  display: flex;
+  transform: none;
+  opacity: 1;
 }
 
 /* Footer */
