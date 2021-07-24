@@ -36,9 +36,81 @@ header #menu div {
   justify-content: space-between;
 }
 
-/* Add spacing between icons in menu */
-header #menu div a:nth-child(2) {
-  margin: 0 1rem;
+/* Hamburger menu */
+header #menu div#hamburger {
+  display: none;
+  position: relative;
+}
+
+header #menu #hamburger {
+  z-index: 1;
+
+  user-select: none;
+}
+
+header #menu #hamburger a {
+  cursor: pointer;
+  position: relative;
+
+  padding: 0.6rem;
+}
+
+header #menu #hamburger a:hover {
+  color: var(--accent);
+}
+
+header #menu #hamburger li a {
+  text-decoration: none;
+  color: var(--link);
+  transition: all .2s ease;
+}
+
+header #menu #hamburger input {
+  display: block;
+  width: 5rem;
+  height: 4rem;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+
+  -webkit-touch-callout: none;
+}
+
+header #menu #hamburger span {
+  display: block;
+  width: 3rem;
+  height: 4px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: all 0.2s;
+}
+
+header #menu #hamburger span:nth-child(3) {
+  margin: 0.5rem 0;
+}
+
+header #menu #hamburger a:hover span:nth-child(2),
+header #menu #hamburger a:hover span:nth-child(4) {
+  width: 2rem;
+}
+
+header #menu #hamburger input:checked ~ span:nth-child(2),
+header #menu #hamburger input:checked ~ span:nth-child(4) {
+  display: none;
+}
+
+header #menu #hamburger a input:checked + span:nth-child(4) {
+  width: 2rem;
 }
 
 /* Hover effect for all svg in header */
@@ -140,7 +212,6 @@ header nav #nav__list li {
   background: var(--drop-bg);
   border-top: 5px solid var(--accent);
 }
-
 
 ul.rgb {
   animation: rgbBorder 4s infinite !important;
