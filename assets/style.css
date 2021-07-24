@@ -234,9 +234,9 @@ header nav #nav__list li {
   display: flex;
   flex-direction: column;
   position: absolute;
+  top: -900px;
   background: var(--drop-bg);
   border-top: 5px solid var(--accent);
-  transform: translate(0%, -10%);
   opacity: 0;
   transition: opacity 0.3s;
   transition: transform 0.2s;
@@ -272,8 +272,8 @@ ul.rgb {
 /* Show first dropdown on hover */
 header nav #nav__list li:hover .nav__itemdrop,
 header nav #nav__list li:focus-within .nav__itemdrop {
-  opacity: 1;
-  transform: none;
+  top: auto;
+  animation: dropdown 0.2s forwards;
 }
 
 /* Second/Third dropdown element */
@@ -289,7 +289,6 @@ header nav #nav__list li:focus-within .nav__itemdrop {
   opacity: 0;
 }
 
-
 /* Show second dropdown on hover */
 .nav__itemdrop li:hover .nav__itemdrop2,
 .nav__itemdrop li:focus-within .nav__itemdrop2 {
@@ -298,7 +297,8 @@ header nav #nav__list li:focus-within .nav__itemdrop {
   animation: dropdown 0.2s forwards;
 }
 
-.nav__itemdrop2 li:hover .nav__itemdrop3 {
+.nav__itemdrop2 li:hover .nav__itemdrop3,
+.nav__itemdrop2 li:focus-within .nav__itemdrop3 {
   /* Brings dropdowns back to screen */
   top: 0px;
   animation: dropdown 0.2s forwards;
