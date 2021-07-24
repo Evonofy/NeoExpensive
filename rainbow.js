@@ -1,15 +1,7 @@
-const evo = document.querySelector(".toggle")
-const logo = document.querySelector("#logo svg")
-const nav = document.querySelector("nav")
-const body = document.querySelector("body")
-const itemdrop = document.querySelectorAll(".nav__itemdrop")
+const $ = document.querySelector.bind(document)
 
-evo.addEventListener("click", () => {
-  logo.classList.toggle("rgb")
-  nav.classList.toggle("rgb")
-  body.classList.toggle("dark")
-  body.classList.toggle("light")
-  
-  itemdrop[0].classList.toggle("rgb")
-  itemdrop[1].classList.toggle("rgb")
-})
+const evo = $(".toggle")
+const logo = $("#logo svg")
+const nav = $("nav")
+const body = $("body")
+const [itemdrop, itemdrop2] = document.querySelectorAll(".nav__itemdrop")
