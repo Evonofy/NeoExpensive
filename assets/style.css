@@ -7,6 +7,7 @@
 /* Animations */
 @import url("./animations/RGBBorder.css");
 @import url("./animations/RGBFill.css");
+@import url("./animations/dropdown.css");
 
 
 /* Header Styles */
@@ -281,38 +282,26 @@ header nav #nav__list li:focus-within .nav__itemdrop {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 0px;
+  /* Puts dropdown outside screen */
+  top: -900px;
   left: 100%;
   background: var(--drop-bg);
-  transform: translate(0%, -10%);
   opacity: 0;
-  transition: opacity 0.3s;
-  transition: transform 0.2s;
 }
 
-/* Second dropdown list items
-.nav__itemdrop2 li {
-  display: none;
-} */
 
 /* Show second dropdown on hover */
 .nav__itemdrop li:hover .nav__itemdrop2,
 .nav__itemdrop li:focus-within .nav__itemdrop2 {
-  transform: none;
-  opacity: 1;
-}
-
-/* Third dropdown */
-.nav__itemdrop3 {
-  transform: translate(0%, -10%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  transition: transform 0.2s;
+  /* Brings dropdowns back to screen */
+  top: 0px;
+  animation: dropdown 0.2s forwards;
 }
 
 .nav__itemdrop2 li:hover .nav__itemdrop3 {
-  transform: none;
-  opacity: 1;
+  /* Brings dropdowns back to screen */
+  top: 0px;
+  animation: dropdown 0.2s forwards;
 }
 
 /* Footer */
