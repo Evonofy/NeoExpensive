@@ -110,8 +110,7 @@ header #menu #hamburger input:checked ~ span:nth-child(4) {
 /* Sidebar */
 header #menu #hamburger menu ul {
   transform-origin: 0% 0%;
-  transform: translate(-150%, 0%);
-  top: 6rem;
+  transform: translate(-150%, -6%);
   width: 300px;
   transition: all .2s;
   position: absolute;
