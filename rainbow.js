@@ -7,6 +7,7 @@ const itemdrop = document.querySelectorAll(".nav__itemdrop")
 evo.addEventListener("click", () => {
   logo.classList.toggle("rgb")
   nav.classList.toggle("rgb")
+  body.classList.toggle("dark")
   body.classList.toggle("light")
   
   itemdrop[0].classList.toggle("rgb")

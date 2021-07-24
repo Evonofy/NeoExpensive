@@ -18,9 +18,30 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   html {
     font-size: 62.50%; /* 10px */
+  }
+
+  /* Hamburguer menu */
+  header div#menu {
+    padding: 0.6rem 3rem;
+    justify-content: space-between;
+  }
+
+  header div#menu div#hamburger {
+    display: flex;
+  }
+
+  header div#menu div#hamburger menu:hover span,
+  header div#menu div#hamburger menu:focus-within span {
+    background: var(--accent);
+  }
+
+  header #menu #social,
+  header #menu #user-interactions,
+  nav {
+    display: none;
   }
 }
 
