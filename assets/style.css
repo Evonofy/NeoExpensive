@@ -7,7 +7,11 @@
 /* Animations */
 @import url("./animations/RGBBorder.css");
 @import url("./animations/RGBFill.css");
+@import url("./animations/dropdown.css");
 
+#x {
+  fill: var(--accent);
+}
 
 /* Header Styles */
 header {
@@ -139,7 +143,7 @@ header #menu #hamburger menu input:checked ~ ul {
 
 /* Hover effect for all svg in header */
 header #menu div a:focus svg path {
-  stroke: #8B46A3;
+  stroke: var(--accent);
 }
 
 /* Custom hover effect */
@@ -178,18 +182,12 @@ header #menu #logo a:focus svg path {
   stroke: none
 }
 
-/* Makes RGB in EVO logo */
-header #menu #logo a:focus svg path.toggle {
-  stroke: none;
-  animation: rgb 4s infinite;
-}
-
 /* Navbar */
 header nav {
   position: sticky;
   background-color: var(--nav);
   
-  border-bottom: solid 5px #8B46A3;
+  border-bottom: solid 5px var(--accent);
 }
 
 header nav a {
@@ -233,12 +231,15 @@ header nav #nav__list li {
   display: flex;
   flex-direction: column;
   position: absolute;
+  top: -900px;
   background: var(--drop-bg);
   border-top: 5px solid var(--accent);
-  transform: translate(0%, -10%);
   opacity: 0;
-  transition: opacity 0.3s;
-  transition: transform 0.2s;
+}
+
+/* Put border top on top of the last two dropdown children */
+.nav__itemdrop li:not(:first-child) ul {
+  border-top: 5px solid var(--accent);
 }
 
 ul.rgb {
@@ -271,8 +272,8 @@ ul.rgb {
 /* Show first dropdown on hover */
 header nav #nav__list li:hover .nav__itemdrop,
 header nav #nav__list li:focus-within .nav__itemdrop {
-  opacity: 1;
-  transform: none;
+  top: auto;
+  animation: dropdown 0.2s forwards;
 }
 
 /* Second/Third dropdown element */
@@ -281,38 +282,26 @@ header nav #nav__list li:focus-within .nav__itemdrop {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 0px;
+  /* Puts dropdown outside screen */
+  top: -900px;
   left: 100%;
   background: var(--drop-bg);
-  transform: translate(0%, -10%);
   opacity: 0;
-  transition: opacity 0.3s;
-  transition: transform 0.2s;
 }
-
-/* Second dropdown list items
-.nav__itemdrop2 li {
-  display: none;
-} */
 
 /* Show second dropdown on hover */
 .nav__itemdrop li:hover .nav__itemdrop2,
 .nav__itemdrop li:focus-within .nav__itemdrop2 {
-  transform: none;
-  opacity: 1;
+  /* Brings dropdowns back to screen */
+  top: 0px;
+  animation: dropdown 0.2s forwards;
 }
 
-/* Third dropdown */
-.nav__itemdrop3 {
-  transform: translate(0%, -10%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  transition: transform 0.2s;
-}
-
-.nav__itemdrop2 li:hover .nav__itemdrop3 {
-  transform: none;
-  opacity: 1;
+.nav__itemdrop2 li:hover .nav__itemdrop3,
+.nav__itemdrop2 li:focus-within .nav__itemdrop3 {
+  /* Brings dropdowns back to screen */
+  top: 0px;
+  animation: dropdown 0.2s forwards;
 }
 
 /* Footer */
