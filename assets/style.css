@@ -21,7 +21,6 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  /* align-items: stretch; */
   height: 100%;
 }
 
@@ -35,7 +34,6 @@ header #menu {
 
 header #menu div {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 }
@@ -52,6 +50,10 @@ header #menu #hamburger {
 }
 
 header #menu #hamburger menu {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
   cursor: pointer;
   position: relative;
 
@@ -64,10 +66,9 @@ header #menu #hamburger input {
   width: 5rem;
   height: 5rem;
   position: absolute;
-  top: -16%;
-  left: -9%;
   cursor: pointer;
   opacity: 0;
+  align-self: center;
   z-index: 2;
 }
 
@@ -85,7 +86,7 @@ header #menu #hamburger span {
   
   transform-origin: 4px 0px;
   
-  transition: all 0.2s;
+  transition: var(--transition);
 }
 
 /* Middle hamburger margin */
@@ -93,27 +94,36 @@ header #menu #hamburger span:nth-child(3) {
   margin: 0.5rem 0;
 }
 
-/* Hamburger menu animation on hover */
-header #menu #hamburger menu:hover span:nth-child(2),
 header #menu #hamburger menu:hover span:nth-child(4) {
-  width: 2rem;
+  transition: width 0.6s;
+}
+
+/* Hamburger menu animation on hover */
+header #menu #hamburger menu:hover span:nth-child(2) {
+  width: 2.2rem;
+}
+
+header #menu #hamburger menu:hover span:nth-child(4) {
+  width: 1.6rem;
 }
 
 /* Makes top burger go to middle */
 header #menu #hamburger input:checked ~ span:nth-child(2) {
   transform: translate(0, 8px);
+  height: 1px;
 }
 
 /* Makes bottom burger go to middle */
 header #menu #hamburger input:checked ~ span:nth-child(4) {
   transform: translate(0, -8px);
+  height: 1px;
 }
 
 /* Sidebar */
 header #menu #hamburger menu ul {
-  transform: translate(-150%, -6%);
-  width: 300px;
-  transition: all .2s;
+  transform: translate(-150%, 60%);
+  width: 150px;
+  transition: var(--transition);
   position: absolute;
   background: var(--header-bg);
   border-radius: 0.2rem; 
@@ -134,11 +144,11 @@ header #menu #hamburger menu ul li a {
   display: flex;
   align-items: center;
   justify-content: start;
-  transition: all .2s;
+  transition: var(--transition);
 }
 
 header #menu #hamburger menu input:checked ~ ul {
-  transform: translate(0%, -6%);
+  transform: translate(0%, 60%);
 }
 
 /* Hover effect for all svg in header */
@@ -197,7 +207,7 @@ header nav a {
   align-items: center;
   color: var(--link);
   text-transform: uppercase;
-  transition: all .2s ease;
+  transition: var(--transition);
 }
 
 /* Add purple color to link when focused */
@@ -233,13 +243,7 @@ header nav #nav__list li {
   position: absolute;
   top: -900px;
   background: var(--drop-bg);
-  border-top: 5px solid var(--accent);
   opacity: 0;
-}
-
-/* Put border top on top of the last two dropdown children */
-.nav__itemdrop li:not(:first-child) ul {
-  border-top: 5px solid var(--accent);
 }
 
 ul.rgb {
@@ -252,6 +256,12 @@ ul.rgb {
   position: relative;
   top: 0px;
 }
+
+/* Put border top on top of the last two dropdown children */
+.nav__itemdrop li:not(:first-child) ul {
+  border-top: 5px solid var(--accent);
+}
+
 
 /* Border on the last list item of the first dropdown */
 .nav__itemdrop li:last-child {
@@ -304,6 +314,11 @@ header nav #nav__list li:focus-within .nav__itemdrop {
   animation: dropdown 0.2s forwards;
 }
 
+.nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:hover ul.nav__itemdrop3,
+.nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
+  top: -4px;
+}
+
 /* Footer */
 footer {
   position: relative;
@@ -313,7 +328,7 @@ footer {
   flex-direction: column;
   justify-content: space-evenly;
   border-top: 5px solid var(--accent);
-  transition: all .1s;
+  transition: var(--transition);
 }
 
 /* Footer logo properties */
@@ -349,7 +364,7 @@ footer #footer-body section.about-us p {
   font-size: 1rem;
   max-width: 60rem;
   line-height: 1.6rem;
-  transition: all .1s;
+  transition: var(--transition);
 }
 
 /* Header 2 characteristics */
@@ -359,7 +374,7 @@ footer #footer-body section h2 {
   font-weight: 300;
   font-size: 1.7rem;
   margin-bottom: 15px;
-  transition: all .1s;
+  transition: var(--transition);
 }
 
 /* Make all section with a h2 inside to have purple underline */
@@ -396,7 +411,7 @@ footer #footer-body section #social-media-footer li a {
 footer #footer-body section #social-media-footer li a svg {
   width: 2.5rem;
   height: 2.5rem;
-  transition: .2s all;
+  transition: var(--transition);
 }
 
 /* Change svg color on list item hover */
@@ -414,7 +429,7 @@ footer #footer-body section#quick-links{
 footer #footer-body section#quick-links ul li a{
   color: var(--link);
   text-decoration: none;
-  transition: all .2s;
+  transition: var(--transition);
 }
 
 /* Quick links hover effects */

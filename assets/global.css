@@ -13,6 +13,10 @@
   outline: none;
 }
 
+:root {
+  --transition: all 200ms;
+}
+
 html {
   width: 100vw;
   height: 100vh;

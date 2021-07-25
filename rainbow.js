@@ -16,7 +16,6 @@ const availableThemes = {
 const setTheme = ({ theme }) => {
   localStorage.setItem("theme", theme)
   document.body.setAttribute("data-theme", theme)
-
   if(!theme) {
     /** Recursively call the setTheme function to set dark as default */
     setTheme({ theme: "dark" })
@@ -40,4 +39,9 @@ const cycleTheme = () => {
   setTheme({ theme: themeArray[next] })
 }
 
-evo.addEventListener("click", cycleTheme())
+evo.addEventListener("click", () => cycleTheme())
+
+window.addEventListener("storage", event => {
+  const theme = event.newValue
+  setTheme({ theme })
+})
