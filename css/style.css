@@ -244,6 +244,7 @@ header nav #nav__list li {
   top: -900px;
   background: var(--drop-bg);
   opacity: 0;
+  border-top: 5px solid var(--accent);
 }
 
 ul.rgb {

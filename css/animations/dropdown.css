@@ -11,6 +11,5 @@
   100% {
     opacity: 1;
     transform: none;
-    border-top: 5px solid var(--accent);
   }
 }
