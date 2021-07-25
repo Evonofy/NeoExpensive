@@ -9,7 +9,7 @@
   animation: rgb 4s infinite;
 }
 
-[data-theme = "rgb"] ul ul {
+[data-theme = "rgb"] .nav__itemdrop {
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   animation: rgbBorder 4s infinite;
