@@ -14,8 +14,9 @@
 
 | Codebase              |      Description          |
 | :-------------------- | :-----------------------: |
-| [styles](assets)      |      CSS Styles           |
+| [styles](css)         |      CSS Styles           |
 | [assets](images)      |        Images             |
+| [scripts](js)         |       Scripts             |
 
 
 ---
