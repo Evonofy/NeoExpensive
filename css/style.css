@@ -152,8 +152,9 @@ header #menu #hamburger menu input:checked ~ ul {
 }
 
 /* Hover effect for all svg in header */
-header #menu div a:focus svg path {
-  stroke: var(--accent);
+header #menu div a:focus svg path,
+header #menu div a:hover svg path {
+stroke: var(--accent);
 }
 
 /* Custom hover effect */
