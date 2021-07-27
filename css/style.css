@@ -80,7 +80,7 @@ header #menu #hamburger span {
   position: relative;
   
   background: #cdcdcd;
-  border-radius: 3px;
+  border-radius: 1rem;
   
   z-index: 1;
   
@@ -94,13 +94,13 @@ header #menu #hamburger span:nth-child(3) {
   margin: 0.5rem 0;
 }
 
-header #menu #hamburger menu:hover span:nth-child(4) {
-  transition: width 0.6s;
-}
-
 /* Hamburger menu animation on hover */
 header #menu #hamburger menu:hover span:nth-child(2) {
   width: 2.2rem;
+}
+
+header #menu #hamburger menu:hover span:nth-child(4) {
+  transition: var(--transition);
 }
 
 header #menu #hamburger menu:hover span:nth-child(4) {
@@ -109,13 +109,13 @@ header #menu #hamburger menu:hover span:nth-child(4) {
 
 /* Makes top burger go to middle */
 header #menu #hamburger input:checked ~ span:nth-child(2) {
-  transform: translate(0, 8px);
+  transform: translate(0, 6px);
   height: 1px;
 }
 
 /* Makes bottom burger go to middle */
 header #menu #hamburger input:checked ~ span:nth-child(4) {
-  transform: translate(0, -8px);
+  transform: translate(0, -6px);
   height: 1px;
 }
 
@@ -126,7 +126,8 @@ header #menu #hamburger menu ul {
   transition: var(--transition);
   position: absolute;
   background: var(--header-bg);
-  border-radius: 0.2rem; 
+  border-top: 5px solid var(--accent);
+  border-bottom: 5px solid var(--accent);
 }
 
 header #menu #hamburger menu ul li {
