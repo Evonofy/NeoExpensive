@@ -1,38 +1,62 @@
-@keyframes rgbBorder {
+@keyframes rgbBackground {
   100%,0%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(255,0,0);
   }
   8%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(255,127,0);
   }
   16%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(255,255,0);
   }
   24%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(127,255,0);
   }
   32%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(0,255,0);
   }
   40%{
-    border-top-color: rgb(0,255,127);
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
+    border-color: rgb(0,255,127);
   }
   48%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(0,255,255);
   }
   56%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(0,127,255);
   }
   64%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(0,0,255);
   }
   72%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(127,0,255);
   }
   80%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(255,0,255);
   }
   88%{
+    border-top-color: rgb(255,0,0);
+    border-bottom-color: rgb(255,0,0);
     border-color: rgb(255,0,127);
   }
 }

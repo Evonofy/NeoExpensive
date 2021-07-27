@@ -34,3 +34,15 @@
   border-top: 5px solid transparent;
   animation: rgbBorder 4s infinite;
 }
+
+[data-theme = "rgb"] header #menu #hamburger menu ul {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  animation: rgbBorder 4s infinite;
+}
+
+[data-theme="rgb"] header #menu #hamburger menu:hover span, 
+[data-theme="rgb"] header #menu #hamburger menu:focus-within span {
+  background: transparent;
+  animation: rgbBackground 4s infinite;
+}

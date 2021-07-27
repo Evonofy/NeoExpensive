@@ -7,6 +7,7 @@
 /* Animations */
 @import url("./animations/RGBBorder.css");
 @import url("./animations/RGBFill.css");
+@import url("./animations/RGBBackground.css");
 @import url("./animations/dropdown.css");
 
 #x {
@@ -153,9 +154,9 @@ header #menu #hamburger menu input:checked ~ ul {
 }
 
 /* Hover effect for all svg in header */
-header #menu div a:focus svg path,
-header #menu div a:hover svg path {
-stroke: var(--accent);
+header #menu div:not(#logo) a:focus svg path,
+header #menu div:not(#logo) a:hover svg path {
+  stroke: var(--accent);
 }
 
 /* Custom hover effect */
