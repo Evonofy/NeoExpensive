@@ -318,7 +318,7 @@ header nav #nav__list li:focus-within .nav__itemdrop {
 
 .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:hover ul.nav__itemdrop3,
 .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
-  top: -6px;
+  top: -10%;
 }
 
 /* Footer */
