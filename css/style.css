@@ -1,14 +1,13 @@
 /* Global Styles / Themes */
-@import url("./global.css");
+@import url('./global.css');
 
 /* Reposivity Styles */
-@import url("./reponsivity.css");
+@import url('./reponsivity.css');
 
 /* Animations */
-@import url("./animations/RGBBorder.css");
-@import url("./animations/RGBFill.css");
-@import url("./animations/RGBBackground.css");
-@import url("./animations/dropdown.css");
+@import url('./animations/RGBBorder.css');
+@import url('./animations/RGBFill.css');
+@import url('./animations/dropdown.css');
 
 #x {
   fill: var(--accent);
@@ -79,14 +78,14 @@ header #menu #hamburger span {
   width: 3rem;
   height: 4px;
   position: relative;
-  
+
   background: #cdcdcd;
   border-radius: 1rem;
-  
+
   z-index: 1;
-  
+
   transform-origin: 4px 0px;
-  
+
   transition: var(--transition);
 }
 
@@ -138,7 +137,7 @@ header #menu #hamburger menu ul li {
 header #menu #hamburger menu ul li:hover a,
 header #menu #hamburger menu ul li:hover svg path {
   color: var(--accent);
-  stroke: var(--accent)
+  stroke: var(--accent);
 }
 
 header #menu #hamburger menu ul li a {
@@ -162,19 +161,19 @@ header #menu div:not(#logo) a:hover svg path {
 /* Custom hover effect */
 header #menu div a:focus svg#instagram path,
 header #menu div a:hover svg#instagram path {
-  stroke: url("#rgb");
+  stroke: url('#rgb');
 }
 
 /* Custom Facebook hover */
 header #menu div a:focus svg#facebook path,
 header #menu div a:hover svg#facebook path {
-  stroke: #4267B2;
+  stroke: #4267b2;
 }
 
 /* Custom Twitter hover */
 header #menu div a:focus svg#twitter path,
 header #menu div a:hover svg#twitter path {
-  stroke: #1DA1F2;
+  stroke: #1da1f2;
 }
 
 /* Logo position */
@@ -192,14 +191,14 @@ header #menu #logo svg {
 
 /* Remove purple outline from EVO logo */
 header #menu #logo a:focus svg path {
-  stroke: none
+  stroke: none;
 }
 
 /* Navbar */
 header nav {
   position: sticky;
   background-color: var(--nav);
-  
+
   border-bottom: solid 5px var(--accent);
 }
 
@@ -266,7 +265,6 @@ ul.rgb {
   border-top: 5px solid var(--accent);
 }
 
-
 /* Border on the last list item of the first dropdown */
 .nav__itemdrop li:last-child {
   border-bottom: solid 5px var(--accent);
@@ -319,7 +317,11 @@ header nav #nav__list li:focus-within .nav__itemdrop {
 }
 
 .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:hover ul.nav__itemdrop3,
-.nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
+.nav__itemdrop
+  li:not(:first-child)
+  .nav__itemdrop2
+  li:focus-within
+  ul.nav__itemdrop3 {
   top: -10%;
 }
 
@@ -353,7 +355,7 @@ footer section.logo svg {
 footer #footer-body {
   display: flex;
   justify-content: space-between;
-  flex-direction:  row;
+  flex-direction: row;
   flex-wrap: wrap;
   padding: 1rem 2rem;
 }
@@ -383,7 +385,7 @@ footer #footer-body section h2 {
 
 /* Make all section with a h2 inside to have purple underline */
 footer #footer-body section h2:before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -409,7 +411,7 @@ footer #footer-body section #social-media-footer li a {
   align-items: center;
   border-radius: 0.6rem;
   padding: 0.4rem;
-  background-color: var(--body-bg); 
+  background-color: var(--body-bg);
 }
 
 footer #footer-body section #social-media-footer li a svg {
@@ -419,18 +421,18 @@ footer #footer-body section #social-media-footer li a svg {
 }
 
 /* Change svg color on list item hover */
-footer #footer-body section #social-media-footer li a:hover svg path, 
+footer #footer-body section #social-media-footer li a:hover svg path,
 footer #footer-body section #social-media-footer li a:focus svg path {
   stroke: var(--accent);
 }
 
 /* Quick links position */
-footer #footer-body section#quick-links{
+footer #footer-body section#quick-links {
   position: relative;
 }
 
 /* Quick links styles */
-footer #footer-body section#quick-links ul li a{
+footer #footer-body section#quick-links ul li a {
   color: var(--link);
   text-decoration: none;
   transition: var(--transition);
@@ -439,12 +441,11 @@ footer #footer-body section#quick-links ul li a{
 /* Quick links hover effects */
 footer #footer-body section#quick-links ul li:hover a,
 footer #footer-body section#quick-links ul li:focus-within a {
-  color: var(--accent)
+  color: var(--accent);
 }
 
-
 /* Copyright text properties */
-footer #copyrightText { 
+footer #copyrightText {
   width: 100%;
   text-align: center;
   font-size: 0.9rem;
