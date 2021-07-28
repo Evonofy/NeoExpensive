@@ -333,6 +333,8 @@ footer {
   justify-content: space-evenly;
   border-top: 5px solid var(--accent);
   transition: var(--transition);
+
+ 
 }
 
 /* Footer logo properties */
@@ -356,6 +358,9 @@ footer #footer-body {
   flex-direction:  row;
   flex-wrap: wrap;
   padding: 1rem 2rem;
+
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.5rem;
 }
 
 /* Padding properties for everything that is not a icon */
@@ -365,7 +370,6 @@ footer #footer-body {
 
 /* Paragraph characterisctics */
 footer #footer-body section.about-us p {
-  font-size: 1rem;
   max-width: 60rem;
   line-height: 1.6rem;
   transition: var(--transition);
