@@ -374,7 +374,7 @@ footer #footer-body {
 
 /* Paragraph characterisctics */
 footer #footer-body section.about-us p {
-  max-width: 60rem;
+  max-width: 50rem;
   line-height: 1.6rem;
   transition: var(--transition);
 }
@@ -490,7 +490,7 @@ footer #copyrightText {
   font-weight: 700;
   font-size: 1rem;
   font-family: 'Josefin Sans', sans-serif;
-  background: var(--body-bg);
+  background: rgb(19, 19, 19);
   padding: 0.5rem 0;
   color: rgb(255, 255, 255);
 }
