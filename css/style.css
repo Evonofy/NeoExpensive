@@ -256,7 +256,7 @@ ul.rgb {
 /* List items inside first dropdown */
 .nav__itemdrop li {
   position: absolute;
-  position: relative;
+  /* position: relative; */
   top: 0px;
 }
 
@@ -349,18 +349,20 @@ footer #footer-body section.logo {
 
 /* Footer logo sizing */
 footer section.logo svg {
-  width: 18rem;
-  height: 6rem;
+  width: 15rem;
+  height: 7rem;
+  padding-bottom: 2.5rem;
 }
 
 /* Footer content */
 footer #footer-body {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1rem 2rem;
 
+  font-weight: 600;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.5rem;
 }
@@ -381,8 +383,8 @@ footer #footer-body section.about-us p {
 footer #footer-body section h2 {
   position: relative;
   color: var(--accent);
-  font-weight: 300;
-  font-size: 1.7rem;
+  font-weight: 600;
+  font-size: 2rem;
   margin-bottom: 15px;
   transition: var(--transition);
 }
@@ -423,6 +425,7 @@ footer #footer-body section #social-media-footer li a svg {
   height: 2.5rem;
   transition: var(--transition);
 }
+/* /// */
 
 /* Change svg color on list item hover */
 footer #footer-body section #social-media-footer li a:hover svg path,
@@ -430,15 +433,47 @@ footer #footer-body section #social-media-footer li a:focus svg path {
   stroke: var(--accent);
 }
 
+/* Contact section parameters */
+footer #footer-body section.contact{
+  line-height: 2.5rem;
+}
+
+
+footer #footer-body section.contact ul li a{
+  color: var(--link);
+  text-decoration: none;
+  
+  transition: var(--transition);
+}
+
+footer #footer-body section.contact ul li:hover a,
+footer #footer-body section.contact ul li:focus-within a{
+ color: var(--accent);
+}
+
+footer #footer-body section.contact .info{
+  position: relative;
+}
+
+footer #footer-body section.contact .info li{
+  display: flex;
+
+  flex-direction: column;
+}
+
+/* /// */
+
 /* Quick links position */
 footer #footer-body section#quick-links {
   position: relative;
+  line-height: 2.5rem;
 }
 
 /* Quick links styles */
 footer #footer-body section#quick-links ul li a {
   color: var(--link);
   text-decoration: none;
+  
   transition: var(--transition);
 }
 
@@ -452,7 +487,9 @@ footer #footer-body section#quick-links ul li:focus-within a {
 footer #copyrightText {
   width: 100%;
   text-align: center;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Josefin Sans', sans-serif;
   background: var(--body-bg);
   padding: 0.5rem 0;
   color: rgb(255, 255, 255);
