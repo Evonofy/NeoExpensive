@@ -37,6 +37,7 @@ Both fonts are free and available on Google Fonts. Clean and bold headings, read
 
 We'll be using two of its styles:
 - Montserrat Bold (`700`)
+- Josefin Sans Semibold (`600`)
 
 #### Web Embed
 
@@ -45,21 +46,27 @@ HTML's `link` method
 ```html
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
 ```
 
 CSS/SCSS `@import`
 
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
 ```
 
 CSS Rules
 
 ```scss
 font-family: 'Montserrat', sans-serif;
+font-family: 'Josefin Sans', sans-serif;
 
 // Bold
 font-weight: 700;
+
+// Semi-bold
+font-weight: 600;
 ```
 
 
