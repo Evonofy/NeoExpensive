@@ -30,4 +30,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: feature-${{ github.event.issue.id }}
+          branch: feature-issue-#${{ github.event.issue.id }}
