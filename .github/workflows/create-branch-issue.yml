@@ -21,9 +21,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       
+      - name: view issue information
+        run: |
+          echo "Entire Issue: ${{ github.event.issue }}"
+          echo "Issue body: ${{ github.event.issue.body }}"
+      
       - name: create new branch
         uses: peterjgrainger/action-create-branch@v2.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: ${{ github.event.issue.title }}
+          branch: ${{ toJson(github.event.issue.title) }}
