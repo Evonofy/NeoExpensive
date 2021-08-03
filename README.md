@@ -1,5 +1,5 @@
 <h1 align="center">
- <img height=100 src="https://github.com/AtomicFeasT/neo-expensive/blob/main/images/evo-logo.svg"/>
+ <img height=100 src="https://raw.githubusercontent.com/AtomicFeasT/neo-expensive/main/packages/web/images/evo-logo.svg"/>
 </h1>
 
 <h3 align="center">
@@ -12,12 +12,11 @@
 
 ## File Structure
 
-| Codebase              |      Description          |
+| Codebase              |        Description        |
 | :-------------------- | :-----------------------: |
-| [styles](css)         |      CSS Styles           |
-| [assets](images)      |        Images             |
-| [scripts](js)         |       Scripts             |
-
+| [packages](packages)  |         Packages          |
+| [web](packages/web)   |           Web             |
+| [workflows](.github/workflows)|Workflows          |
 
 ---
 
