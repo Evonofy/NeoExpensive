@@ -6,7 +6,10 @@ const debug = process.env.NODE_ENV !== 'production'
 module.exports = withPWA({
   pwa: {
     dest: "public",
-    runtimeCaching
+    runtimeCaching,
+    register: true,
+    sw: "/service-worker.js",
+    skipWaiting: true,
   }
 })
 
