@@ -1,4 +1,6 @@
 {
   "private": "false",
-  "workspaces": ["web"]
+  "workspaces": [
+    "packages/*"
+  ]
 }

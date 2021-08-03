@@ -3,6 +3,6 @@
   "description": "the web part of neo-expensive front-end package",
   "version": "0.0.1",
   "author": "Vitor Gouveia <vitor.gouveia@aluno.etecjrm.com.br>",
-  "private": "true",
+  "private": true,
   "license": "MIT"
 }
