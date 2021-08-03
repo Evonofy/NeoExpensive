@@ -23,7 +23,7 @@ jobs:
       
       - name: view issue information
         run: |
-          echo "Entire Issue: ${{ github.event.issue.id }}"
+          echo "Entire Issue: ${{ github.event.issue.number }}"
       
       - name: create new branch
         uses: peterjgrainger/action-create-branch@v2.0.1
