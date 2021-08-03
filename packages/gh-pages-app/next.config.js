@@ -4,6 +4,7 @@ const runtimeCaching = require("next-pwa/cache")
 const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = withPWA({
+  assetPrefix: !debug ? '/Next-gh-page-example/' : '',
   pwa: {
     dest: "public",
     runtimeCaching,
@@ -12,7 +13,3 @@ module.exports = withPWA({
     skipWaiting: true,
   }
 })
-
-// module.exports = {
-//   assetPrefix: !debug ? '/Next-gh-page-example/' : '',
-// }
