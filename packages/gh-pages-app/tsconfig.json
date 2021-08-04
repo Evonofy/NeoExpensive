@@ -21,7 +21,7 @@
     "paths": {
       "@components": ["components"],
       "@hooks": ["hooks"],
-      "@lib/*": ["lib/*"],
+      "@lib": ["lib"],
       "@pages/*": ["pages/*"],
       "@types/*": ["types/*"],
       "@public/*": ["../public/*"],

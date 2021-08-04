@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /** Reference Translation */
@@ -11,7 +12,14 @@ export interface DateTranslationType {
   date?: Date;
 }
 
-export const useTypeSafeTranslation = () => {
+type Response = {
+  translated: (
+    string: TranslationKeys,
+    options?: DateTranslationType
+  ) => ReactNode;
+};
+
+export const useTypeSafeTranslation = (): Response => {
   const { t: translate } = useTranslation();
 
   /**

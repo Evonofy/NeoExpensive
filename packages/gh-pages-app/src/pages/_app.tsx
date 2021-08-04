@@ -1,11 +1,11 @@
-import { FC, Suspense } from 'react';
-
-import { init_i18n } from '../lib/i18next';
-
+import { FC } from 'react';
 import { AppProps } from 'next/app';
-import { Head } from '../components/Head';
+
+import { init_i18n } from '@lib';
+import { Head } from '@components';
 
 const app: FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element => {
+  /** Initialize multi-language service */
   init_i18n();
 
   return (
