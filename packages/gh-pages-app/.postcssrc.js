@@ -2,6 +2,7 @@ module.exports = {
   plugins:
     process.env.NODE_ENV === 'production'
       ? {
+          purgecss: {},
           'auto-prefixer': {},
           'postcss-flexbugs-fixes': {},
           'postcss-preset-env': {

@@ -13,14 +13,13 @@
   "dependencies": {
     "next": "latest",
     "next-compose-plugins": "^2.2.1",
-    "next-images": "^1.8.1",
-    "next-pwa": "^5.2.24",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^6.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "next-pwa": "^5.2.24",
+    "next-images": "^1.8.1",
+    "@fullhuman/postcss-purgecss": "^4.0.3",
     "@types/react": "^17.0.15",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
@@ -36,6 +35,9 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "next-seo": "^4.26.0",
+    "postcss": "^8.3.6",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.2",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
