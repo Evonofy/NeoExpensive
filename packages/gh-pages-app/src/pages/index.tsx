@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { NextSeo } from 'next-seo';
 
-import logo from './icon.svg';
+import Logo from './icon.svg';
 
 const Home: FC = (): JSX.Element => {
   return (
@@ -11,7 +11,7 @@ const Home: FC = (): JSX.Element => {
         description="Homepage of EvoExpensive | For you to buy everything"
       />
       hello world
-      <img src={logo} alt="" />
+      <Logo />
     </>
   );
 };
