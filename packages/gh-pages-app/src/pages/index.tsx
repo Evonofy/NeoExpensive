@@ -1,17 +1,15 @@
 import { FC } from 'react';
-import { NextSeo } from 'next-seo';
+import { useTypeSafeTranslation } from '../hooks/useTranslation';
 
 import Logo from './icon.svg';
 
 const Home: FC = (): JSX.Element => {
+  const { t } = useTypeSafeTranslation();
+
   return (
     <>
-      <NextSeo
-        title="home"
-        description="Homepage of EvoExpensive | For you to buy everything"
-      />
-      hello world
-      <Logo />
+      <h1>{t('hello')}</h1>
+      <h1>{t('world')}</h1>
     </>
   );
 };
