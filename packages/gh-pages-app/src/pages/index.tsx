@@ -1,15 +1,19 @@
 import { FC } from 'react';
-import { useTypeSafeTranslation } from '../hooks/useTranslation';
 
-import Logo from './icon.svg';
+import { Translate } from '@components';
+import { useTypeSafeTranslation } from '@hooks';
 
 const Home: FC = (): JSX.Element => {
-  const { t } = useTypeSafeTranslation();
+  const { translated } = useTypeSafeTranslation();
 
   return (
     <>
-      <h1>{t('hello')}</h1>
-      <h1>{t('world')}</h1>
+      <h1>{translated('hello')}</h1>
+      <h1>{translated('world')}</h1>
+      <h3>
+        <Translate text="hello" />
+        <Translate text="world" />
+      </h3>
     </>
   );
 };
