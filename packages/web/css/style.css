@@ -9,6 +9,16 @@
 @import url('./animations/RGBFill.css');
 @import url('./animations/dropdown.css');
 
+:root {
+  --body-bg: #1d1d1d;
+  --header-bg: #2c2c2c;
+  --drop-bg: #000;
+  --nav-bg: #232323;
+  --accent: #8B46A3;
+  --link: #fafafa;
+  --footer-bg: #000;
+}
+
 #x {
   fill: var(--accent);
 }

@@ -1,0 +1,7 @@
+{
+  "cssVariables.lookupFiles": [
+    "node_modules/common-ui/dist/CommonUIVariable.css",
+    "css/themes/dark.css",
+    "css/style.css"
+  ]
+}
