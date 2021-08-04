@@ -15,6 +15,8 @@
     "next-compose-plugins": "^2.2.1",
     "next-images": "^1.8.1",
     "next-pwa": "^5.2.24",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^6.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -41,5 +43,11 @@
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.20.1",
     "typescript": "^4.3.5"
-  }
+  },
+  "browserslist": [
+    ">0.3%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all"
+  ]
 }
