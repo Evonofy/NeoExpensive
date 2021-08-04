@@ -2,6 +2,29 @@
   "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
   "plugins": ["stylelint-order", "stylelint-scss"],
   "rules": {
+    "at-rule-empty-line-before": [
+      "always", {
+        "except": [
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "color-no-invalid-hex": true,
+    "declaration-empty-line-before": [
+      "always", {
+        "except": [
+          "after-declaration",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment",
+          "inside-single-line-block"
+        ]
+      }
+    ],
+    "max-empty-lines": 1,
     "order/order": [
       "custom-properties",
       "declarations"
@@ -16,7 +39,20 @@
       "width",
       "height"
     ],
-    "indentation": "tab",
-    "declaration-block-trailing-semicolon": "always"
+    "declaration-block-trailing-semicolon": "always",
+    "indentation": [
+      2,
+      {
+        "except": ["block"],
+        "message": "Please use 2 spaces for indentation.",
+        "severity": "warning"
+      }
+    ],
+    "color-hex-case": [
+      "lower",
+      {
+        "message": "Lowercase letters are easier to distinguish from numbers"
+      }
+    ]
   }
 }
