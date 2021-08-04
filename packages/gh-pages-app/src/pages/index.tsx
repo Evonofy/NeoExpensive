@@ -1,6 +1,6 @@
-import { FC } from "react"
+import { FC } from 'react';
 
-import { NextSeo } from "next-seo"
+import { NextSeo } from 'next-seo';
 
 const Home: FC = () => {
   return (
@@ -11,7 +11,7 @@ const Home: FC = () => {
       />
       hello world
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

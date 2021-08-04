@@ -1,14 +1,15 @@
-import { AppProps } from "next/app"
+import { FC } from 'react';
 
-import { Head } from "../components/Head"
+import { AppProps } from 'next/app';
+import { Head } from '../components/Head';
 
-const app = ({ Component, pageProps }: AppProps) => {
+const app: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
-  <>
-    <Head />
-    <Component {...pageProps} />
-  </>
-)
-}
+    <>
+      <Head />
+      <Component {...pageProps} />
+    </>
+  );
+};
 
-export default app
+export default app;
