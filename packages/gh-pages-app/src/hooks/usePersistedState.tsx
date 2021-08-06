@@ -8,7 +8,8 @@ export function usePersistedState<T>(
 ): Response<T> {
   const [state, setState] = useState(initialState);
 
-  useEffect(() => localStorage.setItem(key, String(state)), [key, state]);
-
+  if (typeof window !== 'undefined') {
+    useEffect(() => localStorage.setItem(key, String(state)), [key, state]);
+  }
   return [state, setState];
 }
