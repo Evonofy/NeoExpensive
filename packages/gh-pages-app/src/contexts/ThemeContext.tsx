@@ -35,10 +35,13 @@ export const Theme: FC<ThemeProviderProps> = ({
   const [currentTheme, setCurrentTheme] = useState<themeKeys>('dark');
   const [currentThemeIndex, setCurrentThemeIndex] = useState<number>(0);
   const [defaultTheme, setDefaultTheme] = useState<themeKeys>(themeDefault);
-  const [localTheme, setLocalTheme] = usePersistedState<string>('', 'theme');
+  const [localTheme, setLocalTheme] = usePersistedState<themeKeys>(
+    'dark',
+    'theme'
+  );
 
   const hasNext = currentThemeIndex + 1 < themeList.length;
-  useEffect(() => setTheme(defaultTheme), []);
+  useEffect(() => setTheme(localTheme || defaultTheme), []);
 
   function setCustomThemeList(newThemeList: themeKeys[]) {
     setThemeList(newThemeList);
@@ -49,27 +52,34 @@ export const Theme: FC<ThemeProviderProps> = ({
   }
 
   function setTheme(theme: themeKeys) {
+    console.log(!!availableThemes[theme]);
     setCurrentTheme(theme);
-
+    setCurrentThemeIndex(themeList.indexOf(theme));
     setLocalTheme(theme);
     document.body.setAttribute('data-theme', theme);
+
+    if (!!availableThemes[theme] === false) {
+      setCurrentTheme(defaultTheme);
+      setCurrentThemeIndex(themeList.indexOf(defaultTheme));
+      setLocalTheme(defaultTheme);
+      document.body.setAttribute('data-theme', defaultTheme);
+    }
   }
 
   function cycle() {
     if (hasNext) {
       const next = currentThemeIndex + 1;
-      setCurrentThemeIndex(next);
       setTheme(themeList[next]);
     } else {
       const next = 0;
-      setCurrentThemeIndex(next);
       setTheme(themeList[next]);
     }
   }
 
-  // useEffect(() => {
-  //   window.addEventListener('storage', event => setTheme(event.newValue));
-  // }, []);
+  useEffect(() => {
+    // @ts-ignore
+    window.addEventListener('storage', event => setTheme(event.newValue));
+  }, []);
 
   return (
     <ThemeContext.Provider

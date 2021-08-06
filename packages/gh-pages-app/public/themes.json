@@ -1,6 +1,6 @@
 {
-  "light": true,
-  "dark": true,
-  "rgb": true,
-  "contrast": true
+  "light": "light",
+  "dark": "dark",
+  "rgb": "rgb",
+  "contrast": "contrast"
 }
