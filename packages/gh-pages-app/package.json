@@ -9,7 +9,7 @@
     "export": "next export",
     "i18": "ts-node --project scripts/tsconfig.json scripts/syncTranslations.ts",
     "lint": "eslint . --ext .js,.ts,.tsx,.scss",
-    "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && ls && cd .. && cd .. && git add .  && git commit -m \"Deploy Next.js to gh-pages\" && git push origin gh-pages"
+    "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cd .. && cd .. && git branch gh-pages && git add . && git commit -m \"Deploy Next.js to gh-pages\" && git push origin gh-pages"
   },
   "dependencies": {
     "i18next": "^20.3.5",
