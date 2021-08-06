@@ -20,4 +20,4 @@ const imagePlugin = withImages({
   esModule: true
 });
 
-module.exports = withPlugins([pwaPlugin, imagePlugin]);
+module.exports = withPlugins([imagePlugin]);

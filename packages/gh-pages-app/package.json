@@ -12,7 +12,6 @@
     "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
-    "@types/use-persisted-state": "^0.3.0",
     "i18next": "^20.3.5",
     "i18next-browser-languagedetector": "^6.1.2",
     "i18next-http-backend": "^1.3.0",
@@ -20,8 +19,7 @@
     "next-compose-plugins": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.11.4",
-    "use-persisted-state": "^0.3.3"
+    "react-i18next": "^11.11.4"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",

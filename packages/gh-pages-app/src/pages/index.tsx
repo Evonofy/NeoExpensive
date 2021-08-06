@@ -1,7 +1,16 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
+
+import { ThemeContext } from '@contexts';
 
 const Home: FC = (): JSX.Element => {
-  return <small>hello world</small>;
+  const { cycle } = useContext(ThemeContext);
+
+  return (
+    <section>
+      <span>a</span>
+      <button onClick={() => cycle()}>cycle</button>
+    </section>
+  );
 };
 
 export default Home;

@@ -22,8 +22,9 @@
       "@components": ["components"],
       "@hooks": ["hooks"],
       "@lib": ["lib"],
+      "@contexts": ["contexts"],
       "@pages/*": ["pages/*"],
-      "@types/*": ["types/*"],
+      "@appTypes/*": ["types/*"],
       "@public/*": ["../public/*"],
       "@locales/*": ["../public/locales/*"]
     }
