@@ -2,6 +2,7 @@
   "name": "@neo/a",
   "private": true,
   "version": "0.0.1",
+  "homepage": "https://atomicfeast.github.io/neo-expensive/next",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -9,6 +10,7 @@
     "export": "next export",
     "i18": "ts-node --project scripts/tsconfig.json scripts/syncTranslations.ts",
     "lint": "eslint . --ext .js,.ts,.tsx,.scss",
+    "deploy:github": "gh-pages -d out",
     "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && cd .. && cd .. && git branch gh-pages && git add . && git commit -m \"Deploy Next.js to gh-pages\" && git push origin gh-pages"
   },
   "dependencies": {
@@ -40,6 +42,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.2.3",
     "lodash": "^4.17.21",
     "next-images": "^1.8.1",
     "next-pwa": "^5.2.24",
