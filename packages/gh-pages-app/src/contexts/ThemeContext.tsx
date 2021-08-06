@@ -52,7 +52,6 @@ export const Theme: FC<ThemeProviderProps> = ({
   }
 
   function setTheme(theme: themeKeys) {
-    console.log(!!availableThemes[theme]);
     setCurrentTheme(theme);
     setCurrentThemeIndex(themeList.indexOf(theme));
     setLocalTheme(theme);

@@ -3,7 +3,7 @@ module.exports = {
     process.env.NODE_ENV === 'production'
       ? {
           purgecss: {},
-          'auto-prefixer': {},
+          autoprefixer: {},
           'postcss-flexbugs-fixes': {},
           'postcss-preset-env': {
             autoprefixer: {
