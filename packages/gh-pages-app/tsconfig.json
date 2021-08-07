@@ -22,6 +22,7 @@
       "@components": ["components"],
       "@hooks": ["hooks"],
       "@lib": ["lib"],
+      "@services": ["services"],
       "@contexts": ["contexts"],
       "@pages/*": ["pages/*"],
       "@appTypes/*": ["types/*"],
