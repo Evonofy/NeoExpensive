@@ -1,3 +1,4 @@
 {
-  "http://localhost:3333": true
+  "user": true,
+  "item": true
 }
