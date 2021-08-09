@@ -16,7 +16,7 @@ type Response = {
   translated: (
     string: TranslationKeys,
     options?: DateTranslationType
-  ) => ReactNode;
+  ) => TranslationKeys;
 };
 
 export const useTypeSafeTranslation = (): Response => {
