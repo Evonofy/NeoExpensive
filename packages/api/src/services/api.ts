@@ -1,20 +1,11 @@
-import { config } from 'dotenv';
-import { resolve } from 'path';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-import axios from 'axios';
+export let api: AxiosInstance;
 
-const isTest = process.env.NODE_ENV === 'testing';
+export const configure = ({ baseURL }: AxiosRequestConfig = {}) => {
+  api = axios.create({
+    baseURL
+  });
 
-let path: string = '';
-
-isTest
-  ? (path = resolve(__dirname, '..', '..', '.env.test'))
-  : (path = resolve(__dirname, '..', '..', '.env'));
-
-config({ path });
-
-const baseURL = process.env.API_URL;
-
-export const api = axios.create({
-  baseURL
-});
+  return api;
+};

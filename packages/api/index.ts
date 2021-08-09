@@ -1,9 +1,12 @@
-import { useFetch } from './src/lib';
+import { useFetch } from './src/hooks';
+import { api, configure } from './src/services';
 
-const api = {
-  useFetch
+const API = {
+  useFetch,
+  api,
+  configure
 };
 
-export default api;
+export default API;
 
-export { useFetch };
+export { useFetch, api, configure };
