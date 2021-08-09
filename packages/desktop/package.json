@@ -9,5 +9,34 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^13.1.8"
+  },
+   "build": {
+    "appId": "com.florescer.neoexpensive",
+    "productName": "Neo Expensive",
+    "files": [
+      "dist/"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "snap",
+        "tar.gz",
+        "rpm"
+      ],
+      "category": "Development"
+    },
+    "directories": {
+      "buildResources": "build",
+      "output": "release"
+    }
   }
 }
