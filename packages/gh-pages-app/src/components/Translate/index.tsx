@@ -23,3 +23,18 @@ export const Translate: FC<TranslationProps> = ({
 
   return <>{translatedText}</>;
 };
+
+export interface ComplexTranslateProps {
+  text: TranslationKeys;
+  children: (data: { translatedText: TranslationKeys }) => JSX.Element;
+}
+
+export const ComplexTranslate: FC<ComplexTranslateProps> = ({
+  children,
+  text
+}) => {
+  const { translated } = useTypeSafeTranslation();
+  const translatedText = translated(text);
+
+  return <>{children({ translatedText })}</>;
+};

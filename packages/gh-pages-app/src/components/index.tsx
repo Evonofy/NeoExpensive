@@ -1,2 +1,2 @@
 export { Head } from './Head';
-export { Translate } from './Translate';
+export { Translate, ComplexTranslate } from './Translate';
