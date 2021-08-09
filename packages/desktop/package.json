@@ -1,0 +1,13 @@
+{
+  "name": "@neo/desktop",
+  "version": "0.0.1",
+  "description": "A electron desktop wrapper for neo expensive",
+  "main": "index.js",
+  "scripts": {
+    "dev": "electron ."
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^13.1.8"
+  }
+}
