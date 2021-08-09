@@ -2,14 +2,14 @@
   "name": "@neo/api",
   "version": "0.0.1",
   "private": true,
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
     "swr": "^0.5.6"
   },
   "scripts": {
-    "test": "jest --watchAll --verbose --coverage"
+    "test": "NODE_ENV=test jest --watchAll --verbose --coverage"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
@@ -17,6 +17,7 @@
     "@types/prettier": "^2.3.2",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
+    "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -24,6 +25,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.6",
     "prettier": "^2.3.2",
-    "ts-jest": "^27.0.4"
+    "ts-jest": "^27.0.4",
+    "typescript": "^4.3.5"
   }
 }
