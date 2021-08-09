@@ -1,4 +1,4 @@
-import { FC, useCallback, useContext, useState } from 'react';
+import { FC, useContext } from 'react';
 
 import { ThemeContext } from '@contexts';
 import { useFetch } from '@hooks';
@@ -11,7 +11,7 @@ const Home: FC = (): JSX.Element => {
   };
 
   const { data } = useFetch<UserType>('users');
-
+  console.log(data);
   if (!data) {
     return <p>loading</p>;
   }
