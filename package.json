@@ -1,5 +1,5 @@
 {
-  "name": "@neo/a",
+  "name": "@neo/expensive",
   "private": true,
   "workspaces": [
     "packages/*"
