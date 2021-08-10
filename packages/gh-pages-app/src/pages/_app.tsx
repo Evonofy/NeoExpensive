@@ -14,7 +14,7 @@ const app: FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <>
       <Theme themeDefault="dark" themes={['dark', 'light', 'rgb', 'contrast']}>
-        <Head />
+        <Head /> 
         <Component {...pageProps} />
       </Theme>
     </>
