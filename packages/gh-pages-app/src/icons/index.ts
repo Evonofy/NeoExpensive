@@ -1,0 +1,1 @@
+export { SvgSolidNeoExpensive } from './SolidNeoExpensive';
