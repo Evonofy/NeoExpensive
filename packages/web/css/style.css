@@ -497,11 +497,13 @@ footer #footer-body section#quick-links ul li:focus-within a {
 /* Copyright text properties */
 footer #copyrightText {
   width: 100%;
+  background-color: black;
+  color: rgb(255, 255, 255);
+
+  padding: 0.5rem 0;
+
   text-align: center;
   font-weight: 700;
   font-size: 1rem;
   font-family: 'Josefin Sans', sans-serif;
-  /* background: rgb(19, 19, 19); */
-  padding: 0.5rem 0;
-  color: rgb(255, 255, 255);
 }
