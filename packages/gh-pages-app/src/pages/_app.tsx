@@ -4,7 +4,7 @@ import { AppProps } from 'next/app';
 import { Theme } from '@contexts';
 
 import { init_i18n } from '@lib';
-import { Head, Screen } from '@components';
+import { Head } from '@components';
 
 import './global.scss';
 
@@ -17,7 +17,6 @@ const app: FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element => {
     <>
       <Theme themeDefault="dark" themes={['dark', 'light', 'rgb', 'contrast']}>
         <Head />
-        <Screen />
         <Component {...pageProps} />
       </Theme>
     </>
