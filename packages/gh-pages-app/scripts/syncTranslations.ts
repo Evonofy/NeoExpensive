@@ -1,6 +1,6 @@
 // @ts-ignore
 // @ts-nocheck
-import config from '../.prettierrc.js';
+import config from './config';
 import english from '../public/locales/en/translation.json';
 import * as fs from 'fs';
 import { join } from 'path';
