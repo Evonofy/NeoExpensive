@@ -1,36 +1,37 @@
 import {
   app,
   BrowserWindow,
-  Menu,
-  MenuItemConstructorOptions,
   nativeImage,
-  shell
+  Menu,
+  shell,
+  MenuItemConstructorOptions
 } from 'electron';
-
 import { autoUpdater } from 'electron-updater';
+import * as path from 'path';
+import * as url from 'url';
 
-import { getWindowBounds, setWindowBounds } from '../src/hooks';
+import i18n from '../i18n';
+import {
+  getWindowBounds,
+  setWindowBounds
+} from '../src/utils/windowBoundsController';
 
-import path from 'path';
-import url from 'url';
+let mainWindow: Electron.BrowserWindow | null;
+let splash: Electron.BrowserWindow | null;
 
-let mainWindow: Electron.BrowserWindow;
+function createWindow() {
+  const icon = nativeImage.createFromPath(`${app.getAppPath()}/build/icon.png`);
 
-const createWindow = () => {
-  const icon = nativeImage.createFromPath(
-    `${app.getAppPath()}/assets/icon-1024x.png`
-  );
-
-  /** When in system dock */
-  app.dock && app.dock.setIcon(icon);
+  if (app.dock) {
+    app.dock.setIcon(icon);
+  }
 
   mainWindow = new BrowserWindow({
-    /** Returns the window bounds */
     ...getWindowBounds(),
     icon,
     minWidth: 1000,
     minHeight: 600,
-    frame: false,
+    frame: true,
     transparent: true,
     webPreferences: {
       nodeIntegration: true,
@@ -38,40 +39,88 @@ const createWindow = () => {
     }
   });
 
-  const isDev = process.env.NODE_ENV === 'development';
-  const next_url = process.env.NEXT_URL;
+  splash = new BrowserWindow({
+    width: 286,
+    height: 286,
+    transparent: true,
+    frame: false,
+    resizable: false,
+    alwaysOnTop: true
+  });
 
-  /** if the app is in development, load the next.js app via url */
-  mainWindow.loadURL(
-    'https://esquemaflorescer.github.io/neo-expensive/packages/web/'
-  );
-  // isDev
-  //   ? mainWindow.loadURL(next_url)
-  //   : /** if not in development, load the static html file */
-  //     mainWindow.loadURL(
-  //       url.format({
-  //         pathname: path.join(__dirname, 'renderer/index.html'),
-  //         protocol: 'file:',
-  //         slashes: true
-  //       })
-  //     );
+  splash.loadURL('http://localhost:3000/splash');
+  mainWindow.loadURL('http://localhost:3000');
+  // mainWindow.loadURL(
+  //   'https://esquemaflorescer.github.io/neo-expensive/packages/web/'
+  // );
+  // if (process.env.NODE_ENV === 'development') {
+  //   mainWindow.loadURL('http://localhost:4000')
+  // } else {
+  //   mainWindow.loadURL(
+  //     url.format({
+  //       pathname: path.join(__dirname, 'renderer/index.html'),
+  //       protocol: 'file:',
+  //       slashes: true
+  //     })
+  //   )
+  // }
 
-  mainWindow.on('close', () => setWindowBounds(mainWindow?.getBounds()));
+  /** create custom rule for darwin */
 
-  mainWindow.on('closed', () => (mainWindow = null));
-};
+  mainWindow.on('close', () => {
+    setWindowBounds(mainWindow?.getBounds());
+  });
 
-const createMenu = async () => {
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
+}
+
+async function createMenu() {
+  await i18n.loadNamespaces('applicationMenu');
+
   const template: MenuItemConstructorOptions[] = [
+    {
+      label: 'Rocketredis',
+      submenu: [
+        {
+          label: i18n.t('applicationMenu:newConnection'),
+          accelerator: 'CmdOrCtrl+N',
+          click: () => {
+            mainWindow?.webContents.send('newConnection');
+          }
+        },
+        {
+          type: 'separator'
+        },
+        {
+          label: i18n.t('applicationMenu:exit'),
+          role: 'quit',
+          accelerator: 'CmdOrCtrl+Q'
+        }
+      ]
+    },
+    {
+      label: 'View',
+      submenu: [
+        { role: 'reload' },
+        { role: 'forceReload' },
+        { role: 'toggleDevTools' },
+        { type: 'separator' },
+        { role: 'resetZoom' },
+        { role: 'zoomIn' },
+        { role: 'zoomOut' },
+        { type: 'separator' },
+        { role: 'togglefullscreen' }
+      ]
+    },
     {
       role: 'help',
       submenu: [
         {
           label: 'Learn More',
           click: () => {
-            shell.openExternal(
-              'https://github.com/EsquemaFlorescer/neo-expensive'
-            );
+            shell.openExternal('https://github.com/diego3g/rocketredis/');
           }
         }
       ]
@@ -80,7 +129,7 @@ const createMenu = async () => {
 
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
-};
+}
 
 app.on('ready', () => {
   createWindow();

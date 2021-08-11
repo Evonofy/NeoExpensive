@@ -1,6 +1,6 @@
-const path = require('path');
+const path = require('path')
 
-const rootPath = path.resolve(__dirname, '..');
+const rootPath = path.resolve(__dirname, '..')
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -36,4 +36,4 @@ module.exports = {
     __dirname: false,
     __filename: false
   }
-};
+}

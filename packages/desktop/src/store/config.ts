@@ -1,5 +1,5 @@
-import Store from 'electron-store';
-import { JSONSchemaType } from 'json-schema-typed';
+import Store from 'electron-store'
+import { JSONSchemaType } from 'json-schema-typed'
 
 const schema = {
   useMacOSWindowActionButtons: {
@@ -15,11 +15,11 @@ const schema = {
       height: 700
     }
   }
-};
+}
 
 const config = new Store({
   schema,
   watch: true
-});
+})
 
-export { schema, config };
+export { schema, config }
