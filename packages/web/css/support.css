@@ -61,12 +61,13 @@ main section h1.faq-and-terms{
 }
 
 main section div button.collapsible {
-    width: 90%;
+    width: 80%;
     background-color: var(--accent);
+    box-shadow: 0px 3px 8px #000;
     color: white;
     
     font-size: 1.3rem;
-    padding: 1.2rem;
+    padding: 1.2rem 1rem;
     cursor: pointer;
     
     border: none;
@@ -92,20 +93,25 @@ main section div button.collapsible {
 }
 
 main section div div.content {
-    width: 90%;
+    width: 80%;
     background-color:#232323;
+    box-shadow: 0px 3px 8px #000;
     
     font-size: 1rem;
     line-height: 1.7rem;
     
-    padding: 0rem;
-    margin-top: 0.5rem;
+    padding: 0rem 1rem;
     margin-bottom: 0.8rem;
     max-height: 0;
     
     transition: max-height 0.2s ease-out;
     overflow: hidden;
     
+}
+
+main section div div.content p{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 main section div div.content a{
