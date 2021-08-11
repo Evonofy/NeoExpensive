@@ -16,7 +16,7 @@ import {
   setWindowBounds
 } from '../src/utils/windowBoundsController';
 
-let mainWindow: Electron.BrowserWindow | null;
+export let mainWindow: Electron.BrowserWindow | null;
 let splash: Electron.BrowserWindow | null;
 
 function createWindow() {
@@ -31,7 +31,7 @@ function createWindow() {
     icon,
     minWidth: 1000,
     minHeight: 600,
-    frame: true,
+    frame: false,
     transparent: true,
     webPreferences: {
       nodeIntegration: true,
@@ -39,30 +39,31 @@ function createWindow() {
     }
   });
 
-  splash = new BrowserWindow({
-    width: 286,
-    height: 286,
-    transparent: true,
-    frame: false,
-    resizable: false,
-    alwaysOnTop: true
-  });
+  // splash = new BrowserWindow({
+  //   width: 286,
+  //   height: 286,
+  //   transparent: true,
+  //   frame: false,
+  //   resizable: false,
+  //   alwaysOnTop: true
+  // });
 
-  splash.loadURL('http://localhost:3000/splash');
-  mainWindow.loadURL('http://localhost:3000');
+  mainWindow.loadURL('http://localhost:4000');
+  // splash.loadURL('http://localhost:3000/splash');
+  // mainWindow.loadURL('http://localhost:3000');
   // mainWindow.loadURL(
   //   'https://esquemaflorescer.github.io/neo-expensive/packages/web/'
   // );
   // if (process.env.NODE_ENV === 'development') {
   //   mainWindow.loadURL('http://localhost:4000')
   // } else {
-  //   mainWindow.loadURL(
-  //     url.format({
-  //       pathname: path.join(__dirname, 'renderer/index.html'),
-  //       protocol: 'file:',
-  //       slashes: true
-  //     })
-  //   )
+  // mainWindow.loadURL(
+  //   url.format({
+  //     pathname: path.join(__dirname, 'renderer/index.html'),
+  //     protocol: 'file:',
+  //     slashes: true
+  //   })
+  // )
   // }
 
   /** create custom rule for darwin */
@@ -74,6 +75,19 @@ function createWindow() {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
+
+  mainWindow.webContents.session.webRequest.onHeadersReceived(
+    { urls: ['*://*/*'] },
+    (d, c) => {
+      if (d.responseHeaders!['X-Frame-Options']) {
+        delete d.responseHeaders!['X-Frame-Options'];
+      } else if (d.responseHeaders!['x-frame-options']) {
+        delete d.responseHeaders!['x-frame-options'];
+      }
+
+      c({ cancel: false, responseHeaders: d.responseHeaders });
+    }
+  );
 }
 
 async function createMenu() {

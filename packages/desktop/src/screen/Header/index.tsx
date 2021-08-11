@@ -1,63 +1,64 @@
-import React, { useCallback, useMemo, memo } from 'react'
-import { FiX, FiMinus, FiMaximize2, FiSquare } from 'react-icons/fi'
+import React, { useCallback, useMemo, memo } from 'react';
+import { FiX, FiMinus, FiMaximize2, FiSquare } from 'react-icons/fi';
 
-import { remote } from 'electron'
-import os from 'os'
+import { remote } from 'electron';
+import os from 'os';
 
-import { useConfig } from '../../hooks/useConfig'
+import { useConfig } from '../../hooks/useConfig';
 import {
   Container,
   WindowActions,
   MacActionButton,
   DefaultActionButton
-} from './styles'
+} from './styles';
 
 const Header: React.FC = () => {
   const handleCloseWindow = useCallback(() => {
-    const window = remote.getCurrentWindow()
+    const window = remote.getCurrentWindow();
 
-    window.close()
-  }, [])
+    window.close();
+  }, []);
 
   const handleMaximize = useCallback(() => {
-    const window = remote.getCurrentWindow()
+    const window = remote.getCurrentWindow();
 
-    const isMacSystem = os.platform() === 'darwin'
+    const isMacSystem = os.platform() === 'darwin';
     if (isMacSystem) {
-      return window.setFullScreen(!window.isFullScreen())
+      return window.setFullScreen(!window.isFullScreen());
     }
 
-    const { width: currentWidth, height: currentHeight } = window.getBounds()
+    const { width: currentWidth, height: currentHeight } = window.getBounds();
 
     const {
       width: maxWidth,
       height: maxHeight
-    } = remote.screen.getPrimaryDisplay().workAreaSize
+    } = remote.screen.getPrimaryDisplay().workAreaSize;
 
-    const isMaximized = currentWidth === maxWidth && currentHeight === maxHeight
+    const isMaximized =
+      currentWidth === maxWidth && currentHeight === maxHeight;
 
     if (!isMaximized) {
-      window.maximize()
+      window.maximize();
     } else {
-      window.unmaximize()
+      window.unmaximize();
     }
-  }, [])
+  }, []);
 
   const handleMinimize = useCallback(() => {
-    const window = remote.getCurrentWindow()
+    const window = remote.getCurrentWindow();
 
-    window.minimize()
-  }, [])
+    window.minimize();
+  }, []);
 
-  const useMacOSWindowActionButtons = useConfig('useMacOSWindowActionButtons')
+  const useMacOSWindowActionButtons = useConfig('useMacOSWindowActionButtons');
 
   const shouldUseMacOSWindowActions = useMemo(() => {
-    return useMacOSWindowActionButtons || os.platform() === 'darwin'
-  }, [useMacOSWindowActionButtons])
+    return useMacOSWindowActionButtons || os.platform() === 'darwin';
+  }, [useMacOSWindowActionButtons]);
 
   return (
     <Container>
-      <strong>Rocket Redis</strong>
+      <strong>dwandw044234j32n4234n2342</strong>
 
       {shouldUseMacOSWindowActions ? (
         <WindowActions position="left" shouldShowIconsOnHover>
@@ -85,7 +86,7 @@ const Header: React.FC = () => {
         </WindowActions>
       )}
     </Container>
-  )
-}
+  );
+};
 
-export default memo(Header)
+export default memo(Header);
