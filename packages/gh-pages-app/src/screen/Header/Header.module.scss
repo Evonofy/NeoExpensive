@@ -1,0 +1,110 @@
+.container {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #252131;
+
+  strong {
+    font-size: 13px;
+    font-weight: 400;
+    color: #e1e1e6;
+  }
+}
+
+.WindowActions {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  &[data-position="left"] {
+    left: 16px;
+
+    &:hover svg {
+      display: block;
+    }
+  }
+
+  &[data-position="right"] {
+    right: 16px;
+  }
+}
+
+.MacActionButton {
+  -webkit-app-region: no-drag;
+  border: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & + button {
+    margin-left: 8px;
+  }
+
+  /* stylelint-disable no-descending-specificity */
+  svg {
+    width: 8px;
+    height: 8px;
+    opacity: 0.9;
+    display: none;
+  }
+
+  &:hover svg {
+    display: block;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &[data-fn='close'] {
+    background: #e96379;
+  }
+
+  &[data-fn='minimize'] {
+    background: #e7de79;
+  }
+
+  &[data-fn='maximize'] {
+    background: #67e480;
+  }
+}
+
+.DefaultActionButton {
+  background: transparent;
+  -webkit-app-region: no-drag;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e1e1e6;
+
+  & + button {
+    margin-left: 12px;
+  }
+
+  &:hover svg {
+    color: #fafafa;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
