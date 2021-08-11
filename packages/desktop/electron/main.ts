@@ -1,16 +1,7 @@
-import {
-  app,
-  BrowserWindow,
-  nativeImage,
-  Menu,
-  shell,
-  MenuItemConstructorOptions
-} from 'electron';
-import { autoUpdater } from 'electron-updater';
-import * as path from 'path';
-import * as url from 'url';
+import { app, BrowserWindow, nativeImage } from 'electron';
 
-import i18n from '../i18n';
+import { autoUpdater } from 'electron-updater';
+
 import {
   getWindowBounds,
   setWindowBounds
@@ -20,12 +11,14 @@ export let mainWindow: Electron.BrowserWindow | null;
 let splash: Electron.BrowserWindow | null;
 
 function createWindow() {
+  /** 1024x icon */
   const icon = nativeImage.createFromPath(`${app.getAppPath()}/build/icon.png`);
 
   if (app.dock) {
     app.dock.setIcon(icon);
   }
 
+  /** Main app window */
   mainWindow = new BrowserWindow({
     ...getWindowBounds(),
     icon,
@@ -39,116 +32,57 @@ function createWindow() {
     }
   });
 
-  // splash = new BrowserWindow({
-  //   width: 286,
-  //   height: 286,
-  //   transparent: true,
-  //   frame: false,
-  //   resizable: false,
-  //   alwaysOnTop: true
-  // });
+  /* TODO: apply custom tray */
 
+  /** Splash Screen */
+  splash = new BrowserWindow({
+    width: 286,
+    height: 286,
+    transparent: true,
+    frame: false,
+    resizable: false,
+    alwaysOnTop: true
+  });
+
+  /** Load react app via URL to get custom titlebar */
+  splash.loadURL('http://localhost:3000/splash');
   mainWindow.loadURL('http://localhost:4000');
-  // splash.loadURL('http://localhost:3000/splash');
-  // mainWindow.loadURL('http://localhost:3000');
-  // mainWindow.loadURL(
-  //   'https://esquemaflorescer.github.io/neo-expensive/packages/web/'
-  // );
-  // if (process.env.NODE_ENV === 'development') {
-  //   mainWindow.loadURL('http://localhost:4000')
-  // } else {
-  // mainWindow.loadURL(
-  //   url.format({
-  //     pathname: path.join(__dirname, 'renderer/index.html'),
-  //     protocol: 'file:',
-  //     slashes: true
-  //   })
-  // )
-  // }
-
-  /** create custom rule for darwin */
 
   mainWindow.on('close', () => {
     setWindowBounds(mainWindow?.getBounds());
   });
 
+  /* Quit app when all windows are closed */
+  app.on('window-all-closed', () => {
+    /* If in MacOS, app remains active until client closes it with CMD + Q */
+    if (process.platform !== 'darwin') {
+      app.quit();
+    }
+  });
+
+  /* When app closes, remove the old instance */
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
 
+  /* Allow for iframes to work */
   mainWindow.webContents.session.webRequest.onHeadersReceived(
     { urls: ['*://*/*'] },
-    (d, c) => {
-      if (d.responseHeaders!['X-Frame-Options']) {
-        delete d.responseHeaders!['X-Frame-Options'];
-      } else if (d.responseHeaders!['x-frame-options']) {
-        delete d.responseHeaders!['x-frame-options'];
+    ({ responseHeaders }, callback) => {
+      if (responseHeaders!['X-Frame-Options']) {
+        delete responseHeaders!['X-Frame-Options'];
+      } else if (responseHeaders!['x-frame-options']) {
+        delete responseHeaders!['x-frame-options'];
       }
 
-      c({ cancel: false, responseHeaders: d.responseHeaders });
+      callback({ cancel: false, responseHeaders });
     }
   );
-}
-
-async function createMenu() {
-  await i18n.loadNamespaces('applicationMenu');
-
-  const template: MenuItemConstructorOptions[] = [
-    {
-      label: 'Rocketredis',
-      submenu: [
-        {
-          label: i18n.t('applicationMenu:newConnection'),
-          accelerator: 'CmdOrCtrl+N',
-          click: () => {
-            mainWindow?.webContents.send('newConnection');
-          }
-        },
-        {
-          type: 'separator'
-        },
-        {
-          label: i18n.t('applicationMenu:exit'),
-          role: 'quit',
-          accelerator: 'CmdOrCtrl+Q'
-        }
-      ]
-    },
-    {
-      label: 'View',
-      submenu: [
-        { role: 'reload' },
-        { role: 'forceReload' },
-        { role: 'toggleDevTools' },
-        { type: 'separator' },
-        { role: 'resetZoom' },
-        { role: 'zoomIn' },
-        { role: 'zoomOut' },
-        { type: 'separator' },
-        { role: 'togglefullscreen' }
-      ]
-    },
-    {
-      role: 'help',
-      submenu: [
-        {
-          label: 'Learn More',
-          click: () => {
-            shell.openExternal('https://github.com/diego3g/rocketredis/');
-          }
-        }
-      ]
-    }
-  ];
-
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
 }
 
 app.on('ready', () => {
   createWindow();
   autoUpdater.checkForUpdatesAndNotify();
-  createMenu();
 });
 
 app.allowRendererProcessReuse = true;
