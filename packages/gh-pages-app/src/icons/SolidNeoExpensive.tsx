@@ -8,7 +8,7 @@ export const SvgSolidNeoExpensive: FC<SVGProps<SVGSVGElement>> = (
       <svg
         width={props.width}
         height={props.height}
-        viewBox={`0 0 ${props.width} ${props.height}`}
+        viewBox={`0 0 ${props.width} ${props.width}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         {...props}

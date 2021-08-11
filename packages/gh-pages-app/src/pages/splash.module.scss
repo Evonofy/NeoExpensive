@@ -1,17 +1,74 @@
 .splash {
-  width: 286;
-  height: 286;
+  width: 286px;
+  height: 286px;
   padding: 1rem;
-  background: red;
+  background: rgb(44, 44, 44);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   .icon {
     width: 100%;
+    margin-bottom: 1rem;
+
+    path {
+      fill: unset;
+      animation: rgb infinite 4s;
+    }
   }
 
   .tip {
+    text-align: center;
     width: 100%;
-    color: #fafafa;
+
+    h6 {
+      font-size: 0.8rem;
+      color: #8b46a3;
+    }
+
+    small {
+      font-size: 0.6rem;
+      color: #fafafa;
+    }
+  }
+}
+
+@keyframes rgb {
+  100%,0%{
+    fill: rgb(255,0,0);
+  }
+  8%{
+    fill: rgb(255,127,0);
+  }
+  16%{
+    fill: rgb(255,255,0);
+  }
+  24%{
+    fill: rgb(127,255,0);
+  }
+  32%{
+    fill: rgb(0,255,0);
+  }
+  40%{
+    fill: rgb(0,255,127);
+  }
+  48%{
+    fill: rgb(0,255,255);
+  }
+  56%{
+    fill: rgb(0,127,255);
+  }
+  64%{
+    fill: rgb(0,0,255);
+  }
+  72%{
+    fill: rgb(127,0,255);
+  }
+  80%{
+    fill: rgb(255,0,255);
+  }
+  88%{
+    fill: rgb(255,0,127);
   }
 }
