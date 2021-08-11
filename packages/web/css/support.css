@@ -1,0 +1,109 @@
+/* Main section client support properties */
+main section#client-support{
+    width: 90%;
+
+    margin-top: 5rem;
+    padding-bottom: 5rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Double card property */
+main section div.double-card{
+    width: 100%;
+    background: #232323;
+    box-shadow: 0px 3px 8px #000;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Headers styling at double card #1 */
+main section div.double-card h1.client-h1{
+    margin-bottom: 1rem;
+
+    font-size: 3rem;
+    border-bottom: 3px solid var(--accent);
+}
+
+main section div.double-card h2.client-h2{
+    padding-bottom: 0.5rem;
+
+    font-size: 2.5rem;
+}
+
+main section div.double-card h3.client-h3{
+    padding-bottom: 1rem;
+    
+    font-size: 1.8rem;
+    
+}
+
+main section div.double-card h3.client-h3 span.span-purple{
+    color: #8B46A3;
+}
+
+/* Start of second card */
+main section h1.faq-and-terms{
+    margin-bottom: 2rem;
+
+    font-size: 3rem;
+    border-bottom: 3px solid var(--accent);
+}
+
+main section div button.collapsible {
+    width: 90%;
+    background-color: var(--accent);
+    color: white;
+    
+    font-size: 1.3rem;
+    padding: 1.2rem;
+    cursor: pointer;
+
+    border: none;
+    text-align: left;
+    outline: none;
+    
+  }
+  
+  .active, main section div button.collapsible:hover {
+    background-color: #8c46a3cc;
+  }
+  
+  .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: normal;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  main section div div.content {
+    width: 90%;
+    background-color:#232323;
+
+    font-size: 1rem;
+    line-height: 1.7rem;
+
+    padding: 0rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+    max-height: 0;
+    
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
+    
+  }
