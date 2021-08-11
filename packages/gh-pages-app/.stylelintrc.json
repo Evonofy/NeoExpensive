@@ -41,12 +41,7 @@
     ],
     "declaration-block-trailing-semicolon": "always",
     "indentation": [
-      2,
-      {
-        "except": ["block"],
-        "message": "Please use 2 spaces for indentation.",
-        "severity": "warning"
-      }
+      2
     ],
     "color-hex-case": [
       "lower",

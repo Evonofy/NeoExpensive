@@ -1,0 +1,17 @@
+.splash {
+  width: 286;
+  height: 286;
+  padding: 1rem;
+  background: red;
+  display: flex;
+  flex-direction: column;
+
+  .icon {
+    width: 100%;
+  }
+
+  .tip {
+    width: 100%;
+    color: #fafafa;
+  }
+}
