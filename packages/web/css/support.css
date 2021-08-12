@@ -33,6 +33,7 @@ main section h1.faq-and-terms{
     margin-bottom: 2rem;
     
     font-size: 2.5rem;
+    text-shadow: 3px 4px 7px black;
     border-bottom: 3px solid var(--accent);
 }
 
@@ -106,6 +107,7 @@ main section div.double-card h1.client-h1{
     margin-bottom: 1rem;
     
     font-size: 2rem;
+    text-shadow: 3px 4px 7px black;
     border-bottom: 3px solid var(--accent);
 }
 
