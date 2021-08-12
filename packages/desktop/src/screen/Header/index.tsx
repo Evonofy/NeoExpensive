@@ -84,13 +84,13 @@ const Header: React.FC = () => {
         </WindowActions>
       ) : (
         <WindowActions position="right">
-          <DefaultActionButton onClick={handleMinimize}>
+          <DefaultActionButton role="minus" onClick={handleMinimize}>
             <FiMinus />
           </DefaultActionButton>
-          <DefaultActionButton onClick={handleMaximize}>
+          <DefaultActionButton role="fullscreen" onClick={handleMaximize}>
             <FiSquare />
           </DefaultActionButton>
-          <DefaultActionButton onClick={handleCloseWindow}>
+          <DefaultActionButton role="close" onClick={handleCloseWindow}>
             <FiX />
           </DefaultActionButton>
         </WindowActions>

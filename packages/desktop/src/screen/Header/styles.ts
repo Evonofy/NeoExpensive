@@ -147,13 +147,18 @@ export const MacActionButton = styled.button<MacActionButtonProps>`
   }
 `;
 
-export const DefaultActionButton = styled.button`
+interface DefaultActionButton {
+  role: 'close' | 'minus' | 'fullscreen';
+}
+
+export const DefaultActionButton = styled.button<DefaultActionButton>`
   background: transparent;
   -webkit-app-region: no-drag;
   border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   color: ${props => props.theme.colors.grey};
 
   & + button {
@@ -171,4 +176,19 @@ export const DefaultActionButton = styled.button`
   &:focus {
     outline: 0;
   }
+
+  ${props =>
+    props.role === 'close'
+      ? css`
+          svg {
+            width: 22px !important;
+            height: 22px !important;
+          }
+        `
+      : css`
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        `}
 `;
