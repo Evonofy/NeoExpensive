@@ -52,7 +52,8 @@ main section div button.collapsible {
     
 }
 
-.active, main section div button.collapsible:hover {
+.active, main section div button.collapsible:hover,
+.active, main section div button.collapsible:focus  {
     background-color: #8c46a3cc;
 }
 
