@@ -26,8 +26,8 @@ function createWindow() {
     icon,
     minWidth: 1000,
     minHeight: 600,
-    frame: true,
-    transparent: false,
+    frame: false,
+    transparent: true,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true
@@ -49,7 +49,7 @@ function createWindow() {
   });
 
   /** Load react app via URL to get custom titlebar */
-  // splash.loadURL('http://localhost:3000/splash');
+  splash.loadURL('http://localhost:3000/splash');
   mainWindow.loadURL('http://localhost:4000');
 
   mainWindow.on('close', () => {

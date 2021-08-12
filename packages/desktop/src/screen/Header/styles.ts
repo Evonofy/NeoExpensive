@@ -18,14 +18,21 @@ export const Container = styled.header`
 
   strong {
     font-size: 13px;
-    font-weight: 400;
-    color: ${props => props.theme.colors.grey};
+    font-weight: 600;
+    color: ${props => props.theme.colors.white};
   }
+`;
+
+interface NeoProps {
+  position: 'left' | 'right';
+}
+
+export const Neo = styled.div<NeoProps>`
+  position: absolute;
+  width: 16px;
+  height: 16px;
 
   svg {
-    position: absolute;
-    right: 16px;
-
     path {
       fill: none;
       animation: rgb 4s infinite;
@@ -71,6 +78,15 @@ export const Container = styled.header`
       fill: rgb(255, 0, 127);
     }
   }
+
+  ${props =>
+    props.position === 'left'
+      ? css`
+          left: 16px;
+        `
+      : css`
+          right: 16px;
+        `};
 `;
 
 interface WindowActionsProps {
