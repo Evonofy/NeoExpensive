@@ -29,6 +29,7 @@ main section div.double-card{
 
 /* First section properties */
 main section h1.faq-and-terms{
+    margin-top: 0.8rem;
     margin-bottom: 2rem;
     
     font-size: 2.5rem;
@@ -100,6 +101,7 @@ main section div div.content a:hover{
 
 /* Second section properties*/
 main section div.double-card h1.client-h1{
+    padding-top: 0.8rem;
     margin-bottom: 1rem;
     
     font-size: 2rem;
