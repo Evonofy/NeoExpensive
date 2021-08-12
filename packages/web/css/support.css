@@ -33,7 +33,7 @@ main section h1.faq-and-terms{
     margin-bottom: 2rem;
     
     font-size: 2.5rem;
-    text-shadow: 3px 4px 7px black;
+    text-shadow: 3px 4px 10px black;
     border-bottom: 3px solid var(--accent);
 }
 
@@ -107,7 +107,7 @@ main section div.double-card h1.client-h1{
     margin-bottom: 1rem;
     
     font-size: 2rem;
-    text-shadow: 3px 4px 7px black;
+    text-shadow: 3px 4px 10px black;
     border-bottom: 3px solid var(--accent);
 }
 
@@ -115,14 +115,14 @@ main section div.double-card h2.client-h2{
     padding-bottom: 0.5rem;
     
     font-size: 2rem;
-    text-shadow: 3px 4px 7px black;
+    text-shadow: 3px 4px 10px black;
 }
 
 main section div.double-card h3.client-h3{
     padding-bottom: 1rem;
     
     font-size: 1.5rem;
-    text-shadow: 3px 4px 7px black;
+    text-shadow: 3px 4px 10px black;
     
 }
 
