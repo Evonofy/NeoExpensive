@@ -5,7 +5,6 @@ import Header from './Header';
 import KeyContent from './KeyContent';
 import KeyList from './KeyList';
 import { Container, Content, CurrentConnection } from './styles';
-import { mainWindow } from '../../electron/main';
 
 const screen: React.FC = () => {
   return (
@@ -13,7 +12,7 @@ const screen: React.FC = () => {
       <Header />
       <Content>
         <iframe
-          src="https://www.google.com"
+          src="http://localhost:3000"
           width="100%"
           height="100%"
           frameBorder={0}

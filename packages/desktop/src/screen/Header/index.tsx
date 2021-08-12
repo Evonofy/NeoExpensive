@@ -58,7 +58,7 @@ const Header: React.FC = () => {
 
   return (
     <Container>
-      <strong>dwandw044234j32n4234n2342</strong>
+      <strong>Rocket Redis</strong>
 
       {shouldUseMacOSWindowActions ? (
         <WindowActions position="left" shouldShowIconsOnHover>

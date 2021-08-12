@@ -1,18 +1,16 @@
-import React from 'react'
-import { render } from 'react-dom'
-import Modal from 'react-modal'
+import React from 'react';
+import { render } from 'react-dom';
+import Modal from 'react-modal';
 
-import { RecoilRoot } from 'recoil'
-import { ThemeProvider } from 'styled-components'
+import { RecoilRoot } from 'recoil';
+import { ThemeProvider } from 'styled-components';
 
-import AppProvider from './context'
-import Screen from './screen'
-import { GlobalStyle } from './styles/GlobalStyle'
-import { defaultTheme } from './styles/theme'
+import AppProvider from './context';
+import Screen from './screen';
+import { GlobalStyle } from './styles/GlobalStyle';
+import { defaultTheme } from './styles/theme';
 
-import '../i18n'
-
-Modal.setAppElement('#root')
+Modal.setAppElement('#root');
 
 const App = () => {
   return (
@@ -24,7 +22,7 @@ const App = () => {
         <GlobalStyle />
       </ThemeProvider>
     </RecoilRoot>
-  )
-}
+  );
+};
 
-render(<App />, document.getElementById('root'))
+render(<App />, document.getElementById('root'));

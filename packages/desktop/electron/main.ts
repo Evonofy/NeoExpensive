@@ -12,7 +12,9 @@ let splash: Electron.BrowserWindow | null;
 
 function createWindow() {
   /** 1024x icon */
-  const icon = nativeImage.createFromPath(`${app.getAppPath()}/build/icon.png`);
+  const icon = nativeImage.createFromPath(
+    `${app.getAppPath()}/assets/bigsur-logo.png`
+  );
 
   if (app.dock) {
     app.dock.setIcon(icon);
@@ -38,6 +40,7 @@ function createWindow() {
   splash = new BrowserWindow({
     width: 286,
     height: 286,
+    icon,
     transparent: true,
     frame: false,
     resizable: false,
