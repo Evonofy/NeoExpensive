@@ -81,7 +81,7 @@
   },
   "build": {
     "appId": "com.florescer.neoexpensive",
-    "productName": "Rocket Redis",
+    "productName": "Neo Expensive",
     "files": [
       "dist/"
     ],
@@ -100,7 +100,7 @@
       "category": "Development"
     },
     "directories": {
-      "buildResources": "build",
+      "buildResources": "assets",
       "output": "release"
     }
   }

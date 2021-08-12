@@ -12,7 +12,9 @@ let splash: Electron.BrowserWindow | null;
 
 function createWindow() {
   /** 1024x icon */
-  const icon = nativeImage.createFromPath(`${app.getAppPath()}/build/icon.png`);
+  const icon = nativeImage.createFromPath(
+    `${app.getAppPath()}/assets/bigsur-logo.png`
+  );
 
   if (app.dock) {
     app.dock.setIcon(icon);
@@ -24,8 +26,8 @@ function createWindow() {
     icon,
     minWidth: 1000,
     minHeight: 600,
-    frame: false,
-    transparent: true,
+    frame: true,
+    transparent: false,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true
@@ -38,6 +40,8 @@ function createWindow() {
   splash = new BrowserWindow({
     width: 286,
     height: 286,
+    icon,
+    show: false,
     transparent: true,
     frame: false,
     resizable: false,
@@ -45,7 +49,7 @@ function createWindow() {
   });
 
   /** Load react app via URL to get custom titlebar */
-  splash.loadURL('http://localhost:3000/splash');
+  // splash.loadURL('http://localhost:3000/splash');
   mainWindow.loadURL('http://localhost:4000');
 
   mainWindow.on('close', () => {
