@@ -90,15 +90,15 @@ const Header: React.FC = () => {
         </Neo>
       )}
       {shouldUseMacOSWindowActions ? (
-        <WindowActions position="left" shouldShowIconsOnHover>
+        <WindowActions position="left">
           <MacActionButton color="close" onClick={handleCloseWindow}>
-            <FiX strokeWidth="4px" />
+            <FiX className="close" strokeWidth="4px" />
           </MacActionButton>
           <MacActionButton color="minimize" onClick={handleMinimize}>
-            <FiMinus strokeWidth="3px" />
+            <FiMinus className="minimize" strokeWidth="3px" />
           </MacActionButton>
           <MacActionButton color="maximize" onClick={handleMaximize}>
-            <FiMaximize2 strokeWidth="3px" />
+            <FiMaximize2 className="maximize" strokeWidth="3px" />
           </MacActionButton>
         </WindowActions>
       ) : (
