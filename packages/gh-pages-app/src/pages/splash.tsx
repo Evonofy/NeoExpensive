@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { SvgSolidNeoExpensive } from '@icons';
 
-import styles from '@styles/splash.module.scss';
+import styles from './splash.module.scss';
 
 const Splash: FC = (): JSX.Element => {
   return (

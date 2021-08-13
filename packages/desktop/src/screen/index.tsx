@@ -7,9 +7,9 @@ import { Container, Content } from './styles';
 const screen: FC = () => {
   return (
     <Container>
-      <Header title="Neo Expensive" />
+      <Header title="faedadawdawdwa" />
       <Content>
-        <Next url="http://localhost:3333" />
+        <Next url="https://esquemaflorescer.github.io/neo-expensive/packages/web/" />
       </Content>
     </Container>
   );
