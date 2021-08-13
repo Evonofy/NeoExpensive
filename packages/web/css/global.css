@@ -25,6 +25,32 @@
   --accent: #8B46A3;
   --link: #fafafa;
   --footer-bg: #000;
+  
+  --spacing-4: 1.250rem;
+  --gray-900: #0B0E11;
+  --gray-600: #323D4D;
+  --gray-500: rgb(80, 80, 80);
+  --xxl: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: var(--spacing-4);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-900);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: var(--xxl);
+  border: 7px solid transparent;
+  background-clip: content-box;
+  background-color: var(--gray-500);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
+  cursor: pointer;
 }
 
 /* Global Styles */
@@ -54,7 +80,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  
   color: white;
   font-weight: 700;
   font-size: 1.4rem;
