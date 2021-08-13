@@ -127,5 +127,5 @@ main section div.double-card h3.client-h3{
 }
 
 main section div.double-card h3.client-h3 span.span-purple{
-    color: #8B46A3;
+    color: var(--accent);
 }
