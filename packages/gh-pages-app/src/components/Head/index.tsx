@@ -33,12 +33,20 @@ export const Head = () => {
       />
 
       <link
-        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Montserrat:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&family=Montserrat:wght@700&display=swap"
         rel="stylesheet"
       />
 
-      {/* <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
-      <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="black" /> */}
+      <meta
+        name="theme-color"
+        media="(prefers-color-scheme: light)"
+        content="white"
+      />
+      <meta
+        name="theme-color"
+        media="(prefers-color-scheme: dark)"
+        content="black"
+      />
 
       <meta name="application-name" content="Neo Expensive" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,22 +58,10 @@ export const Head = () => {
       <meta name="msapplication-tap-highlight" content="no" />
       <meta name="theme-color" content="#8B46A3" />
 
-      <link rel="apple-touch-icon" href="/icons/touch-icon-180x180.png" />
-      <link
-        rel="apple-touch-icon"
-        sizes="152x152"
-        href="/static/icons/touch-icon-ipad.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/static/icons/touch-icon-iphone-retina.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="167x167"
-        href="/static/icons/touch-icon-ipad-retina.png"
-      />
+      <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180x180.png" />
+      <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon152.png" />
+      <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon167.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/icons/icons180.png" />
 
       <link
         rel="icon"
@@ -94,17 +90,17 @@ export const Head = () => {
 
       {/* Twitter configuration */}
       <meta name="twitter:card" content="Home" />
-      <meta name="twitter:url" content="https://yourdomain.com" />
+      <meta
+        name="twitter:url"
+        content="https://esquemaflorescer.github.io/neo-expensive/packages/web/"
+      />
       <meta name="twitter:title" content="NeoExpensive" />
       <meta
         name="twitter:description"
         content="NeoExpensive E-Commerce Website"
       />
-      <meta
-        name="twitter:image"
-        content="https://yourdomain.com/static/icons/android-chrome-192x192.png"
-      />
-      <meta name="twitter:creator" content="@DavidWShadow" />
+      <meta name="twitter:image" content="/icons/pwa-192x192.png" />
+      <meta name="twitter:creator" content="@VitorAvalanche" />
 
       {/* Facebook configuration */}
       <meta property="og:type" content="website" />
@@ -114,46 +110,46 @@ export const Head = () => {
         content="NeoExpensive E-Commerce Website"
       />
       <meta property="og:site_name" content="NeoExpensive" />
-      <meta property="og:url" content="https://yourdomain.com" />
       <meta
-        property="og:image"
-        content="https://yourdomain.com/static/icons/apple-touch-icon.png"
+        property="og:url"
+        content="https://esquemaflorescer.github.io/neo-expensive/packages/web/"
       />
+      <meta property="og:image" content="/icons/apple-touch-icon-180x180.png" />
 
       {/* Apple Splash Screen configuration */}
       <link
         rel="apple-touch-startup-image"
-        href="/static/images/apple_splash_2048.png"
+        href="/icons/splash2048-2732.jpg"
         sizes="2048x2732"
       />
       <link
         rel="apple-touch-startup-image"
-        href="/static/images/apple_splash_1668.png"
+        href="/icons/splash1668-2224.jpg"
         sizes="1668x2224"
       />
       <link
         rel="apple-touch-startup-image"
-        href="/static/images/apple_splash_1536.png"
+        href="/icons/splash1536-2048.jpg"
         sizes="1536x2048"
       />
       <link
         rel="apple-touch-startup-image"
-        href="/static/images/apple_splash_1125.png"
+        href="/icons/splash1125-2436.jpg"
         sizes="1125x2436"
       />
       <link
         rel="apple-touch-startup-image"
-        href="/static/images/apple_splash_1242.png"
+        href="/icons/splash1242-2208.jpg"
         sizes="1242x2208"
       />
       <link
         rel="apple-touch-startup-image"
-        href="/static/images/apple_splash_750.png"
+        href="/icons/splash750-1334.jpg"
         sizes="750x1334"
       />
       <link
         rel="apple-touch-startup-image"
-        href="/static/images/apple_splash_640.png"
+        href="/icons/splash640-1136.jpg"
         sizes="640x1136"
       />
 
