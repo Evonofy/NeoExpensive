@@ -19,8 +19,6 @@
     "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "@screen": ["screen"],
-      "@store": ["store"],
       "@components": ["components"],
       "@icons": ["icons"],
       "@hooks": ["hooks"],
