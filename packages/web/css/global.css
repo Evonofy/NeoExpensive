@@ -1,10 +1,32 @@
+/* Fonts */
+@import url('../fonts/Montserrat/Montserrat-ExtraBold.ttf');
+@import url('../fonts/Josefin-Sans/JosefinSans-Medium.ttf');
+
+/* Themes */
 @import url("./themes/light.css");
 @import url("./themes/dark.css");
 @import url("./themes/rgb.css");
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+/* Reposivity Styles */
+@import url('./reponsivity.css');
+
+/* Animations */
+@import url('./animations/RGBBorder.css');
+@import url('./animations/RGBFill.css');
+@import url('./animations/dropdown.css');
+
+/* Header and Footer Styles */
+@import url('./layout.css');
+
+:root {
+  --body-bg: #1d1d1d;
+  --header-bg: #2c2c2c;
+  --drop-bg: #000;
+  --nav-bg: #232323;
+  --accent: #8B46A3;
+  --link: #fafafa;
+  --footer-bg: #000;
+}
 
 /* Global Styles */
 * {
@@ -33,7 +55,7 @@ body {
   justify-content: space-between;
 
   color: white;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1.4rem;
   font-family: "Montserrat", sans-serif;
 }
