@@ -1,6 +1,6 @@
-main{
-  height: 100%;
-  
+@import url("./animations/typewriter.css");
+
+main {
   display: flex;
   flex-direction: column;
 
@@ -8,11 +8,11 @@ main{
   justify-content: flex-start;
 }
 
-main section#banner {
+main #banner {
   display: flex;
   width: 100%;
   padding: 6rem 5rem;
-  background-color: #673279;
+  background-color: #5c2c6b;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
@@ -20,26 +20,10 @@ main section#banner {
 }
 
 main section#banner div.wrapper {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
-}
-
-@media (max-width: 500px) {
-  main section#banner div.wrapper {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-  }
-
-  main section#banner div.dynamic {
-    margin-left: 0px;
-    margin-top: -30px;
-  }
-  
-  main section#banner div.dynamic li span {
-    font-size: 4rem;
-  }
 }
 
 main section#banner .static {
@@ -49,7 +33,7 @@ main section#banner .static {
 }
 
 main section#banner .dynamic {
-  margin-left: 15px;
+  margin-left: 1.6rem;
   height: 90px;
   line-height: 90px;
   overflow: hidden;
@@ -65,15 +49,10 @@ main section#banner .dynamic li {
   animation: slide 20s steps(4) infinite;
 }
 
-@keyframes slide {
-  100%{
-    top: -360px;
-  }
-}
-
 main section#banner .dynamic li span {
   position: relative;
   margin: 5px 0;
+  font-weight: 600;
   line-height: 90px;
 }
 
@@ -84,32 +63,14 @@ main section#banner .dynamic li span::after {
   top: 1px;
   height: 100%;
   width: 100%;
-  background: #673279;
+  background: #5c2c6b;
   border-left: 2px solid #fafafa;
   animation: typing 5s steps(21) infinite
 }
 
-@keyframes typing {
-  20%, 70%{
-    left: calc(100% + 30px);
-  }
-  100%{
-    left: 0;
-  }
-}
-
-main section div#banner-content{
-  width: 100%;
-  height: 100%;
-
-  display: grid;
-  place-content: center;
-  text-align: center;
-}
-
 main section#content{
   width: 100%;
-  height: auto;
+  /* height: auto; */
   
   display: flex;
   text-align: left;
@@ -119,8 +80,8 @@ main section#content{
 }
 
 main section#content p#about-us-text{
-  /* margin-top: 4rem; */
-  padding: 4rem 9rem;
+  /* margin-bottom: 4rem; */
+  padding: 4rem 6rem;
 
   line-height: 2rem;
   font-size: 1.4rem;
@@ -128,47 +89,3 @@ main section#content p#about-us-text{
   font-family: 'Source Code Pro', monospace;
 }
 
-/* Typewriter effect */
-h1#typewriter {
-  font-size: clamp(1rem, 3vw + 0.7rem, 4rem);
-  font-family: 'Fira Code', monospace;
-  position: relative;
-  width: max-content;
-}
-
-h1#typewriter::before,
-h1#typewriter::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-h1#typewriter::before {
-  background: #673279;
-  animation: typewriter var(--typewriterSpeed)
-    steps(var(--typewriterCharacters)) 1s forwards;
-}
-
-h1#typewriter::after {
-  width: 0.125em;
-  background: white;
-  padding-left: 0.3rem;
-  animation: typewriter var(--typewriterSpeed)
-      steps(var(--typewriterCharacters)) 1s forwards,
-    blink 900ms steps(var(--typewriterCharacters)) infinite;
-}
-
-@keyframes typewriter {
-  to {
-    left: 100%;
-  }
-}
-
-@keyframes blink {
-  to {
-    background: transparent;
-  }
-}
