@@ -1,24 +1,18 @@
-import React from 'react'
+import React, { FC, useEffect } from 'react';
 
-import ConnectionsList from './ConnectionsList'
-import Header from './Header'
-import KeyContent from './KeyContent'
-import KeyList from './KeyList'
-import { Container, Content, CurrentConnection } from './styles'
+import Header from './Header';
+import { Next } from './Next';
+import { Container, Content } from './styles';
 
-const screen: React.FC = () => {
+const screen: FC = () => {
   return (
     <Container>
-      <Header />
+      <Header title="Neo Expensive" />
       <Content>
-        <ConnectionsList />
-        <CurrentConnection>
-          <KeyList />
-          <KeyContent />
-        </CurrentConnection>
+        <Next url="http://localhost:3333" />
       </Content>
     </Container>
-  )
-}
+  );
+};
 
-export default screen
+export default screen;

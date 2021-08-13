@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { defaultTheme } from '../../styles/theme'
+import { defaultTheme } from '../../styles/theme';
 
 export const Container = styled.header`
   width: 100%;
@@ -18,14 +18,80 @@ export const Container = styled.header`
 
   strong {
     font-size: 13px;
-    font-weight: 400;
-    color: ${props => props.theme.colors.grey};
+    font-weight: 600;
+    color: ${props => props.theme.colors.white};
   }
-`
+`;
+
+interface NeoProps {
+  position: 'left' | 'right';
+}
+
+export const Neo = styled.div<NeoProps>`
+  position: absolute;
+  width: 16px;
+  height: 16px;
+
+  svg {
+    path {
+      fill: none;
+      animation: rgb 4s infinite;
+    }
+  }
+
+  @keyframes rgb {
+    100%,
+    0% {
+      fill: rgb(255, 0, 0);
+    }
+    8% {
+      fill: rgb(255, 127, 0);
+    }
+    16% {
+      fill: rgb(255, 255, 0);
+    }
+    24% {
+      fill: rgb(127, 255, 0);
+    }
+    32% {
+      fill: rgb(0, 255, 0);
+    }
+    40% {
+      fill: rgb(0, 255, 127);
+    }
+    48% {
+      fill: rgb(0, 255, 255);
+    }
+    56% {
+      fill: rgb(0, 127, 255);
+    }
+    64% {
+      fill: rgb(0, 0, 255);
+    }
+    72% {
+      fill: rgb(127, 0, 255);
+    }
+    80% {
+      fill: rgb(255, 0, 255);
+    }
+    88% {
+      fill: rgb(255, 0, 127);
+    }
+  }
+
+  ${props =>
+    props.position === 'left'
+      ? css`
+          left: 16px;
+        `
+      : css`
+          right: 16px;
+        `};
+`;
 
 interface WindowActionsProps {
-  position: 'left' | 'right'
-  shouldShowIconsOnHover?: boolean
+  position: 'left' | 'right';
+  shouldShowIconsOnHover?: boolean;
 }
 
 export const WindowActions = styled.div<WindowActionsProps>`
@@ -50,17 +116,17 @@ export const WindowActions = styled.div<WindowActionsProps>`
         display: block;
       }
     `}
-`
+`;
 
 interface MacActionButtonProps {
-  color: 'close' | 'minimize' | 'maximize'
+  color: 'close' | 'minimize' | 'maximize';
 }
 
 const colors = {
   close: defaultTheme.colors.red,
   minimize: defaultTheme.colors.yellow,
   maximize: defaultTheme.colors.green
-}
+};
 
 export const MacActionButton = styled.button<MacActionButtonProps>`
   background: ${props => colors[props.color]};
@@ -95,7 +161,7 @@ export const MacActionButton = styled.button<MacActionButtonProps>`
   &:focus {
     outline: 0;
   }
-`
+`;
 
 export const DefaultActionButton = styled.button`
   background: transparent;
@@ -104,6 +170,7 @@ export const DefaultActionButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   color: ${props => props.theme.colors.grey};
 
   & + button {
@@ -121,4 +188,19 @@ export const DefaultActionButton = styled.button`
   &:focus {
     outline: 0;
   }
-`
+
+  ${props =>
+    props.role === 'close'
+      ? css`
+          svg {
+            width: 22px !important;
+            height: 22px !important;
+          }
+        `
+      : css`
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        `}
+`;
