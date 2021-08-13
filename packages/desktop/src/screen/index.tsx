@@ -1,27 +1,15 @@
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 
-import ConnectionsList from './ConnectionsList';
 import Header from './Header';
-import KeyContent from './KeyContent';
-import KeyList from './KeyList';
-import { Container, Content, CurrentConnection } from './styles';
+import { Next } from './Next';
+import { Container, Content } from './styles';
 
-const screen: React.FC = () => {
+const screen: FC = () => {
   return (
     <Container>
-      <Header />
+      <Header title="Neo Expensive" />
       <Content>
-        <iframe
-          src="http://localhost:3000"
-          width="100%"
-          height="100%"
-          frameBorder={0}
-        ></iframe>
-        {/* <ConnectionsList />
-        <CurrentConnection>
-          <KeyList />
-          <KeyContent />
-        </CurrentConnection> */}
+        <Next url="http://localhost:3333" />
       </Content>
     </Container>
   );

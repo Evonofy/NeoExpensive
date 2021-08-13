@@ -163,11 +163,7 @@ export const MacActionButton = styled.button<MacActionButtonProps>`
   }
 `;
 
-interface DefaultActionButton {
-  role: 'close' | 'minus' | 'fullscreen';
-}
-
-export const DefaultActionButton = styled.button<DefaultActionButton>`
+export const DefaultActionButton = styled.button`
   background: transparent;
   -webkit-app-region: no-drag;
   border: 0;

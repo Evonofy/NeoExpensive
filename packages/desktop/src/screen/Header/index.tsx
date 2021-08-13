@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, memo } from 'react';
+import React, { FC, useCallback, useMemo, memo } from 'react';
 import { FiX, FiMinus, FiMaximize2, FiSquare } from 'react-icons/fi';
 import { remote } from 'electron';
 import os from 'os';
@@ -11,7 +11,11 @@ import {
   DefaultActionButton
 } from './styles';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  title: string;
+}
+
+const Header: FC<HeaderProps> = ({ title }) => {
   const handleCloseWindow = useCallback(() => {
     const window = remote.getCurrentWindow();
 
@@ -57,7 +61,7 @@ const Header: React.FC = () => {
 
   return (
     <Container>
-      <strong>Neo Expensive</strong>
+      <strong>{title}</strong>
       {shouldUseMacOSWindowActions ? (
         <Neo position="right">
           <svg
@@ -103,13 +107,13 @@ const Header: React.FC = () => {
         </WindowActions>
       ) : (
         <WindowActions position="right">
-          <DefaultActionButton role="minus" onClick={handleMinimize}>
+          <DefaultActionButton onClick={handleMinimize}>
             <FiMinus />
           </DefaultActionButton>
-          <DefaultActionButton role="fullscreen" onClick={handleMaximize}>
+          <DefaultActionButton onClick={handleMaximize}>
             <FiSquare />
           </DefaultActionButton>
-          <DefaultActionButton role="close" onClick={handleCloseWindow}>
+          <DefaultActionButton onClick={handleCloseWindow}>
             <FiX />
           </DefaultActionButton>
         </WindowActions>
