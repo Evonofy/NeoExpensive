@@ -43,6 +43,8 @@
 html {
   width: 100vw;
   height: 100vh;
+  scroll-behavior: smooth;
+  scroll-padding: 25rem;
 }
 
 body {
