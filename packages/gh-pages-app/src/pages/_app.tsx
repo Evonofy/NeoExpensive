@@ -7,6 +7,7 @@ import { init_i18n } from '@lib';
 import { Head, Layout } from '@components';
 
 import './global.scss';
+import '../themes/dark.scss';
 
 const app: FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element => {
   /** Initialize multi-language service */

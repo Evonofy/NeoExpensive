@@ -1,11 +1,27 @@
 import { FC } from 'react';
 
-import { SVGFacebook } from '@icons';
+import {
+  SVGFacebook,
+  SVGInstagram,
+  SVGTwitter,
+  SVGNeoExpensive,
+  SVGSearch,
+  SVGUser,
+  SVGCart
+} from '@icons';
+
+import styles from './Header.module.scss';
 
 export const Header: FC = () => {
   return (
-    <>
-      <SVGFacebook color="blue" strokeWidth="5px" width={70} height={70} />
-    </>
+    <header className={styles.container}>
+      <SVGFacebook color="blue" strokeWidth="4px" width={70} />
+      <SVGInstagram color="purple" strokeWidth="5px" width={70} />
+      <SVGTwitter color="purple" strokeWidth="5px" width={70} />
+      <SVGNeoExpensive color="blue" />
+      <SVGSearch color="blue" />
+      <SVGUser />
+      <SVGCart />
+    </header>
   );
 };

@@ -1,6 +1,6 @@
 import { FC, SVGProps } from 'react';
 
-export const SVGFacebook: FC<SVGProps<SVGSVGElement>> = ({
+export const SVGSearch: FC<SVGProps<SVGSVGElement>> = ({
   width = '70',
   height = '70',
   color = '#fafafa',
@@ -15,21 +15,14 @@ export const SVGFacebook: FC<SVGProps<SVGSVGElement>> = ({
       fill="none"
     >
       <path
-        d="M35 61.25C49.4975 61.25 61.25 49.4975 61.25 35C61.25 20.5025 49.4975 8.75 35 8.75C20.5025 8.75 8.75 20.5025 8.75 35C8.75 49.4975 20.5025 61.25 35 61.25Z"
+        d="M31.7187 54.6875C44.404 54.6875 54.6874 44.404 54.6874 31.7187C54.6874 19.0334 44.404 8.74994 31.7187 8.74994C19.0334 8.74994 8.75 19.0334 8.75 31.7187C8.75 44.404 19.0334 54.6875 31.7187 54.6875Z"
         stroke={color}
         stroke-width={strokeWidth}
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
-        d="M45.9377 24.0628H41.5627C39.8223 24.0628 38.1531 24.7542 36.9224 25.9849C35.6916 27.2156 35.0002 28.8848 35.0002 30.6253V61.2503"
-        stroke={color}
-        stroke-width={strokeWidth}
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M26.25 39.3752H43.75"
+        d="M47.9597 47.9611L61.249 61.2503"
         stroke={color}
         stroke-width={strokeWidth}
         stroke-linecap="round"
