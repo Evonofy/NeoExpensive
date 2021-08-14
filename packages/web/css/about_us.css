@@ -12,7 +12,9 @@ main #banner {
   display: flex;
   width: 100%;
   padding: 6rem 5rem;
-  background-color: #5c2c6b;
+  background: #5c2c6b;
+  /* background: rgb(92,11,138);
+  background: linear-gradient(90deg, rgba(92,11,138,1) 0%, rgba(118,9,121,1) 35%, rgba(81,0,255,1) 100%); */
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
@@ -80,8 +82,8 @@ main section#content{
 }
 
 main section#content p#about-us-text{
-  /* margin-bottom: 4rem; */
-  padding: 4rem 6rem;
+  margin: 0rem 2rem;
+  padding: 4rem 15rem;
 
   line-height: 2rem;
   font-size: 1.4rem;
@@ -89,3 +91,9 @@ main section#content p#about-us-text{
   font-family: 'Source Code Pro', monospace;
 }
 
+@media (max-width: 400px) {
+
+  main section#content p#about-us-text{
+    padding: 4rem 4rem;
+  }
+}

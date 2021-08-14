@@ -73,6 +73,7 @@
     display: none;
   }
 
+  /* About-Us Responsivity */
   main section#banner div.wrapper {
     justify-content: center;
     align-items: center;
@@ -109,4 +110,6 @@
   main section#banner div.dynamic li span {
     font-size: 1.6rem;
   }
+
 }
+
