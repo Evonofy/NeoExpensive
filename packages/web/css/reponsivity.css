@@ -38,7 +38,7 @@
 }
 
 @media (min-width: 1200px) {
-  main {
+  main.about {
     height: 100%;
   }
 }
@@ -46,10 +46,6 @@
 @media (max-width: 800px) {
   html {
     font-size: 62.50%; /* 10px */
-  }
-
-  main {
-    height: auto;
   }
 
   main banner {
