@@ -1,0 +1,65 @@
+svg {
+  cursor: pointer;
+
+  /* Selects every tag inside <svg> that is not a rect */
+  *:not(rect) {
+    stroke: var(--white);
+    transition: all 200ms ease;
+  }
+
+  &:hover, &:focus {
+    *:not(rect) {
+      stroke: var(--accent);
+    }
+  }
+
+  /* special rule for neo logo */
+  &[data-icon="neo"] {
+    *:not(rect) {
+      stroke: none;
+    }
+    
+    &:hover {
+      *:not(rect) {
+        stroke: none;
+      }
+    }
+  }
+  
+  /* special rules for social media icons */
+  &[data-icon="facebook"] {
+    &:hover {
+      *:not(rect) {
+        stroke: var(--facebook);
+      }
+    }
+  }
+
+  &[data-icon="twitter"] {
+    &:hover {
+      *:not(rect) {
+        stroke: var(--twitter);
+      }
+    }
+  }
+  
+  &[data-icon="instagram"] {
+    *:not(rect:first-child) {
+      stroke: var(--white);
+    }
+    
+    :is(circle:last-child) {
+      fill: var(--white);
+    }
+
+    &:hover {
+      :is(circle:last-child) {
+        fill: var(--instagram) !important;
+      }
+
+      *:not(rect:first-child) {
+        stroke: var(--instagram);
+      }
+    }
+  }
+}

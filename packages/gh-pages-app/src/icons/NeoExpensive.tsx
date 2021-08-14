@@ -7,6 +7,7 @@ export const SVGNeoExpensive: FC<SVGProps<SVGSVGElement>> = ({
 }): JSX.Element => {
   return (
     <svg
+      data-icon="neo"
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
