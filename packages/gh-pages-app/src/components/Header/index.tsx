@@ -10,6 +10,8 @@ import {
   SVGCart
 } from '@icons';
 
+import { Link } from '../';
+
 import styles from './Header.module.scss';
 
 export const Header: FC = () => {
@@ -17,35 +19,36 @@ export const Header: FC = () => {
     <header className={styles.container}>
       <div id="menu" className={styles.menu}>
         <div className="social">
-          <a href="#facebook">
+          <Link name="Facebook" url="#facebook">
             <SVGFacebook />
-          </a>
-          <a href="#instagram">
+          </Link>
+          <Link name="Instagram" url="#instagram">
             <SVGInstagram />
-          </a>
-          <a href="#twitter">
+          </Link>
+          <Link name="Twitter" url="#twitter">
             <SVGTwitter />
-          </a>
+          </Link>
         </div>
 
         <div className="logo">
-          <a href="#neo">
+          <Link name="Neo Expensive" url="#">
             <SVGNeoExpensive />
-          </a>
+          </Link>
         </div>
 
         <div className="user">
-          <a href="#search">
+          <Link name="Search" url="#search">
             <SVGSearch />
-          </a>
-          <a href="#user">
+          </Link>
+          <Link name="user" url="#user">
             <SVGUser />
-          </a>
-          <a href="#cart">
+          </Link>
+          <Link name="cart" url="#cart">
             <SVGCart />
-          </a>
+          </Link>
         </div>
       </div>
+
       <nav></nav>
     </header>
   );
