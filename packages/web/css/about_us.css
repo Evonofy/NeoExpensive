@@ -82,8 +82,8 @@ main section#content{
 }
 
 main section#content p#about-us-text{
-  margin: 0rem 2rem;
-  padding: 4rem 15rem;
+  margin: 0rem 20rem;
+  padding: 4rem 0rem;
 
   line-height: 2rem;
   font-size: 1.4rem;
@@ -94,6 +94,15 @@ main section#content p#about-us-text{
 @media (max-width: 400px) {
 
   main section#content p#about-us-text{
+    padding: 4rem 2rem;
+    margin: 0rem 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+
+  main section#content p#about-us-text{
+    margin: 0rem 2rem;
     padding: 4rem 4rem;
   }
 }
