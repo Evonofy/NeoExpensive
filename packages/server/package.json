@@ -1,0 +1,23 @@
+{
+  "name": "@neo/server",
+  "version": "0.0.1",
+  "description": "The back-end code for neo-expensive",
+  "main": "build/index.js",
+  "repository": "https://github.com/EsquemaFlorescer/neo-expensive",
+  "author": "vitor gouveia",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development tsnd --transpile-only --respawn --ignore-watch node_modules -r tsconfig-paths/register src/index.ts"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.6.1",
+    "dotenv": "^10.0.0",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.10.1"
+  }
+}
