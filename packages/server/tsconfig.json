@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "sourceMap": false,
     "target": "es2017",
     "module": "commonjs",
     "allowJs": true,
@@ -8,10 +11,16 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "rootDir": ".",
-    "baseUrl": "./src",
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
+    "resolveJsonModule": true,
     "paths": {
-      "@infra/*": ["infra/*"]
+      "@infra/*": ["src/infra/*"]
     }
   },
   "exclude": ["node_modules"],
