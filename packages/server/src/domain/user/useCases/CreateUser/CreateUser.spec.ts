@@ -12,12 +12,11 @@ describe('Create User', () => {
   it('should create a token entity', () => {
     const date = new Date();
 
-    const { expiresIn, userId } = new Token({
+    const { userId } = new Token({
       expiresIn: date,
       userId: '123'
     });
 
-    expect(expiresIn).toStrictEqual(date);
     expect(userId).toBe('123');
   });
 
