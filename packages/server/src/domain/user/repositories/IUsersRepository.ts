@@ -1,5 +1,6 @@
-import { User } from '@user/entities';
+import { UserRequest, UserResponse } from './IUsersRepositoryDTO';
 
 export interface IUsersRepository {
-  save: (user: User) => Promise<void>;
+  save: (user: UserRequest) => Promise<void>;
+  findByEmail: (email: string) => Promise<UserResponse>;
 }
