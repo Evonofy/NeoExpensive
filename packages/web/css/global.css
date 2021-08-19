@@ -35,21 +35,11 @@
   --spacing-4: 1.250rem;
   --xxl: 1rem;
 
-<<<<<<< HEAD
-  --gray-900: hsl(210, 0%, 0%);
-  --gray-600: hsl(216, 21%, 25%);
-  --gray-500: hsl(0, 0%, 31%);
-
-  /* Typewriter */
-  --bg-color: hsl(49 37% 94%);
-  --typewriterSpeed: 6s;
-  --typewriterCharacters: 21;
-=======
   --gray-900: #0B0E11;
   --gray-600: #323D4D;
   --gray-500: rgb(80, 80, 80);
   --dropdown-animate: dropdown 0.2s forwards;
->>>>>>> 68a2af24837ace637e423949dab8dabaf27f9ef7
+
 }
 
 ::-webkit-scrollbar {
