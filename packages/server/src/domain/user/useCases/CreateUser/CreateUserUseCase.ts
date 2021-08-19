@@ -4,20 +4,35 @@ import { IUsersRepository } from '@user/repositories';
 import { User } from '@user/entities';
 
 export class CreateUserUseCase {
-  constructor(private usersRepository: IUsersRepository) {}
+  constructor(private usersRepository: IUsersRepository, private user: User) {}
 
-  async execute({
-    name,
-    email,
-    password
-  }: CreateUserRequestDTO): Promise<CreateUserResponseDTO> {
-    const user = new User({
-      name,
-      email,
-      password
-    });
+  validateEmail(email: string) {
+    /* checks if the current e-mail is valid */
+    if (!this.user.isValidEmail(email)) {
+      throw new Error('This e-mail is not valid.');
+    }
+  }
 
-    // await this.usersRepository.save(user);
+  async userAlreadyExists(email: string) {
+    /* checks if the user already exists */
+    const userAlreadyExists = await this.usersRepository.findByEmail(email);
+
+    if (userAlreadyExists) {
+      console.log('a');
+      throw new Error('User already exists.');
+    }
+  }
+
+  async execute(data: CreateUserRequestDTO): Promise<CreateUserResponseDTO> {
+    const { email } = data;
+
+    this.validateEmail(email);
+
+    await this.userAlreadyExists(email);
+
+    const user = new User(data);
+
+    await this.usersRepository.save(user);
 
     return {
       user
