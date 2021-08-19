@@ -9,19 +9,62 @@ main {
 }
 
 main #banner {
-  display: flex;
+  
   width: 100%;
-  padding: 6rem 5rem;
-  background: #5c2c6b;
-  /* background: rgb(92,11,138);
-  background: linear-gradient(90deg, rgba(92,11,138,1) 0%, rgba(118,9,121,1) 35%, rgba(81,0,255,1) 100%); */
-  align-items: center;
-  justify-content: center;
+  height: 100vh;
+
+  /* padding: 6rem 5rem; */
+  padding-bottom: 1rem;
+
+  background: linear-gradient(90deg, rgba(92,11,138,1) 0%, rgba(118,9,121,1) 35%, rgba(81,0,255,1) 100%); 
   font-size: 1.2rem;
   box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.75);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-main section#banner div.wrapper {
+main section#content{
+  width: 100%;
+  height: auto; 
+  
+  display: flex;
+  text-align: left;
+  justify-content: center;
+  
+  padding: 100px;
+  background-color: var(--bg-color);
+}
+
+main section#content p#about-us-text{
+  /* margin: 0rem 20rem; */
+  /* padding: 4rem 0rem; */
+
+  /* line-height: 2rem; */
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: 'Source Code Pro', monospace;
+} 
+
+@media (max-width: 400px) {
+
+  main section#content p#about-us-text{
+    padding: 4rem 2rem;
+    margin: 0rem 2rem;
+  }
+}
+
+@media (max-width: 800px) {
+
+  main section#content p#about-us-text{
+    margin: 0rem 2rem;
+    padding: 4rem 4rem;
+  }
+}
+
+/* Typewriter Effect */
+/* main section#banner div.wrapper {
   font-family: 'Source Code Pro', monospace;
   font-weight: 600;
   display: inline-flex;
@@ -69,40 +112,4 @@ main section#banner .dynamic li span::after {
   border-left: 2px solid #fafafa;
   animation: typing 5s steps(21) infinite
 }
-
-main section#content{
-  width: 100%;
-  /* height: auto; */
-  
-  display: flex;
-  text-align: left;
-  justify-content: center;
-  
-  background-color: var(--bg-color);
-}
-
-main section#content p#about-us-text{
-  margin: 0rem 20rem;
-  padding: 4rem 0rem;
-
-  line-height: 2rem;
-  font-size: 1.4rem;
-  font-weight: 400;
-  font-family: 'Source Code Pro', monospace;
-}
-
-@media (max-width: 400px) {
-
-  main section#content p#about-us-text{
-    padding: 4rem 2rem;
-    margin: 0rem 2rem;
-  }
-}
-
-@media (max-width: 800px) {
-
-  main section#content p#about-us-text{
-    margin: 0rem 2rem;
-    padding: 4rem 4rem;
-  }
-}
+*/
