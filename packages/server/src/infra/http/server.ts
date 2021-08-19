@@ -1,4 +1,4 @@
-import express, { Express, Router } from 'express';
+import { Express, Router } from 'express';
 
 import { ErrorMiddleware } from './middlewares/error';
 
@@ -9,7 +9,6 @@ interface ServerProps {
 }
 
 export const server = ({ port, app, router }: ServerProps) => {
-  app.use(express.json());
   app.use(router);
   app.use(ErrorMiddleware);
 

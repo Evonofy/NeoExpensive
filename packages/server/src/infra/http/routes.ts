@@ -1,10 +1,7 @@
 import { Router } from 'express';
 
+import { user } from '@domain/user';
+
 export const router = Router();
 
-router.get('/user', (_, response) => {
-  throw new Error('not found');
-  return response.status(400).json({
-    message: 'find'
-  });
-});
+router.post('/user', user.createUser);

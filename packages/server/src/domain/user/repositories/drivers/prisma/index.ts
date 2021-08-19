@@ -1,0 +1,1 @@
+export { PrismaUsersRepository } from './PrismaUsersRepository';
