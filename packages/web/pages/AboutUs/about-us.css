@@ -51,7 +51,7 @@ main {
 }
 
 .layer1{
-  background-image: url('/packages/web/images/waves-top.svg');
+  background-image: url('../../images/waves-top.svg');
  
 }
 
@@ -65,7 +65,7 @@ main {
 }
 
 .layer2{
-  background-image: url('/packages/web/images/waves-bottom.svg');
+  background-image: url('../..//images/waves-bottom.svg');
 
 }
 
