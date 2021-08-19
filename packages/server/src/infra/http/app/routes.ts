@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { user } from '@domain/user';
+import { user } from '@user';
 
 export const router = Router();
 

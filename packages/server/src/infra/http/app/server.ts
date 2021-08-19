@@ -1,6 +1,6 @@
 import { Express, Router } from 'express';
 
-import { ErrorMiddleware } from './middlewares/error';
+import { ErrorMiddleware } from '../middlewares/error';
 
 interface ServerProps {
   port: string;
