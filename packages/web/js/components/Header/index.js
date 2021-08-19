@@ -77,7 +77,116 @@ class HeaderNavbar extends HTMLElement {
   createNavbar() {
     const navbar = document.createElement('nav');
 
-    navbar.innerHTML = `eeeeee`;
+    navbar.innerHTML = `
+      <ul id="nav__list">
+        <li class="nav__listitem">
+          <a href="#">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.875 35.9375H6.25C5.4212 35.9375 4.62634 35.6083 4.04029 35.0222C3.45424 34.4362 3.125 33.6413 3.125 32.8125V18.75C3.125 17.9212 3.45424 17.1263 4.04029 16.5403C4.62634 15.9542 5.4212 15.625 6.25 15.625H21.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.875 42.1875H12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M40.625 14.0625H34.375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M40.625 20.3125H34.375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M45.3125 7.8125H29.6875C28.8246 7.8125 28.125 8.51206 28.125 9.375V40.625C28.125 41.4879 28.8246 42.1875 29.6875 42.1875H45.3125C46.1754 42.1875 46.875 41.4879 46.875 40.625V9.375C46.875 8.51206 46.1754 7.8125 45.3125 7.8125Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17.1875 35.9375V42.1875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            Informática
+          </a>
+          
+          <!-- Itemdrop starts, ul & li is created inside an existing li to create hierarchy that later on creates a dropdown logic -->
+          <ul class="nav__itemdrop">
+            <li>
+              <a href="#">Peças(Hardware)</a>
+              <ul class="nav__itemdrop2">
+                <li><a href="#">Processadores</a></li>
+                <li><a href="#">Placas De Vídeo</a></li>
+                <li><a href="#">Placas mãe</a></li>
+                <li><a href="#">Memórias</a></li>
+                <li><a href="#">Disco rígido hd/ssd</a></li>
+                <li><a href="#">fontes</a></li>
+              </ul>
+            </li>
+            
+            <li>
+              <a href="#">Periféricos e Acessórios</a>
+              <ul class="nav__itemdrop2">
+                <li><a href="#">Fones de Ouvido</a></li>
+                <li><a href="#">Teclados</a></li>
+                <li><a href="#">Mouses</a></li>
+                <li><a href="#">Controles</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Computadores Montados</a>
+            </li>
+          </ul>
+        </li>
+        
+        <!-- Platforms -->
+        <li class="nav__listitem">
+          <a href="#">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.6875 21.0938H35.9375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.0625 21.0938H20.3125" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17.1875 17.9688V24.2188" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M33.5973 10.8867L16.4071 10.9375C14.0193 10.9377 11.7078 11.779 9.87845 13.3137C8.0491 14.8484 6.8188 16.9784 6.40351 19.3299L6.40518 19.3302L3.209 35.7682C3.00712 36.9136 3.17564 38.0935 3.69007 39.1366C4.2045 40.1797 5.03806 41.0317 6.06968 41.5687C7.1013 42.1057 8.27727 42.2999 9.42679 42.1231C10.5763 41.9462 11.6395 41.4075 12.462 40.5852L12.4617 40.5849L20.9061 31.25L33.5973 31.1992C36.2909 31.1992 38.8742 30.1292 40.7789 28.2245C42.6836 26.3199 43.7536 23.7366 43.7536 21.043C43.7536 18.3494 42.6836 15.7661 40.7789 13.8614C38.8742 11.9567 36.2909 10.8867 33.5973 10.8867V10.8867Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M43.5993 19.2793L46.7928 35.7682C46.9947 36.9136 46.8262 38.0935 46.3118 39.1366C45.7973 40.1797 44.9638 41.0316 43.9322 41.5687C42.9005 42.1057 41.7246 42.2999 40.575 42.123C39.4255 41.9462 38.3623 41.4075 37.5398 40.5851L37.5402 40.5848L29.1016 31.2172" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            Plataformas
+          </a>
+          
+          <!-- Itemdrop starts, ul & li is created inside an existing li to create hierarchy that later on creates a dropdown logic -->
+          <ul class="nav__itemdrop">
+            <li>
+              <a href="#">Xbox</a>
+              <ul class="nav__itemdrop2">
+                <li>
+                  <a href="#">Consoles</a>
+                  <ul class="nav__itemdrop3">
+                    <li><a href="#">Xbox One</a></li>
+                    <li><a href="#">Xbox Series S</a></li>
+                    <li><a href="#">Xbox Series X</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Acessórios</a></li>
+                <li><a href="#">Jogos</a></li>
+              </ul>
+              
+            </li>
+            
+            <li>
+              <a href="#">Playstation</a>
+              <ul class="nav__itemdrop2">
+                <li>
+                  <a href="#">Consoles</a>
+                  <ul class="nav__itemdrop3">
+                    <li><a href="#">Playstation 4</a></li>
+                    <li><a href="#">Playstation 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Acessórios</a></li>
+                <li><a href="#">Jogos</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Nintendo</a>
+              <ul class="nav__itemdrop2">
+                <li>
+                  <a href="#">Consoles</a>
+                  <ul class="nav__itemdrop3">
+                    <li><a href="#">Switch</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Acessórios</a></li>
+                <li><a href="#">Jogos</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        
+        <!-- Support -->
+        <li class="nav__listitem">
+          <a href="./pages/Support">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 31.25C29.3147 31.25 32.8125 27.7522 32.8125 23.4375C32.8125 19.1228 29.3147 15.625 25 15.625C20.6853 15.625 17.1875 19.1228 17.1875 23.4375C17.1875 27.7522 20.6853 31.25 25 31.25Z" stroke="white" stroke-width="2" stroke-miterlimit="10"></path><path d="M12.4607 38.9402C13.6377 36.6262 15.432 34.683 17.6451 33.3257C19.8582 31.9684 22.4038 31.25 24.9999 31.25C27.5961 31.25 30.1416 31.9684 32.3547 33.3257C34.5678 34.6829 36.3622 36.6262 37.5392 38.9402" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M34.375 10.9375H43.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M39.0625 6.25V15.625" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M43.518 22.0426C44.1387 25.9499 43.5062 29.9534 41.7112 33.4791C39.9163 37.0049 37.0511 39.8717 33.5264 41.6686C30.0016 43.4655 25.9985 44.1003 22.0908 43.4818C18.1831 42.8633 14.5716 41.0234 11.774 38.2259C8.9765 35.4283 7.1366 31.8168 6.51814 27.9091C5.89968 24.0014 6.53441 19.9983 8.33134 16.4736C10.1283 12.9489 12.9951 10.0836 16.5208 8.2887C20.0466 6.49376 24.0501 5.86129 27.9574 6.48195" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            Suporte
+          </a>
+        </li>
+        
+        <!-- About Us -->
+        <li class="nav__listitem">
+          <a href="./pages/AboutUs">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.1875 31.25C22.7966 31.25 27.3438 26.7029 27.3438 21.0938C27.3438 15.4846 22.7966 10.9375 17.1875 10.9375C11.5784 10.9375 7.03125 15.4846 7.03125 21.0938C7.03125 26.7029 11.5784 31.25 17.1875 31.25Z" stroke="white" stroke-width="2" stroke-miterlimit="10"></path><path d="M30.354 11.3158C31.7509 10.9222 33.216 10.8326 34.6504 11.0529C36.0849 11.2732 37.4555 11.7983 38.67 12.5929C39.8844 13.3876 40.9145 14.4332 41.6908 15.6594C42.4671 16.8856 42.9716 18.264 43.1703 19.7016C43.3691 21.1393 43.2574 22.6028 42.8429 23.9936C42.4284 25.3845 41.7207 26.6704 40.7674 27.7646C39.8141 28.8589 38.6373 29.7362 37.3164 30.3375C35.9955 30.9387 34.5611 31.2498 33.1098 31.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.12427 38.554C4.71047 36.2978 6.81624 34.4563 9.26382 33.1851C11.7114 31.9138 14.4289 31.2501 17.1869 31.25C19.945 31.2499 22.6625 31.9134 25.1102 33.1844C27.5579 34.4555 29.6638 36.2968 31.2502 38.553" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M33.1099 31.25C35.8681 31.248 38.5863 31.9107 41.0342 33.1819C43.482 34.4531 45.5875 36.2955 47.1724 38.553" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            Quem Somos
+          </a>
+        </li>
+      </ul>
+    `;
 
     return navbar;
   }
@@ -86,6 +195,16 @@ class HeaderNavbar extends HTMLElement {
     const style = document.createElement('style');
 
     style.textContent = `
+      ul {
+        list-style-type: none;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       a {
         text-decoration: none;
       }
@@ -133,26 +252,156 @@ class HeaderNavbar extends HTMLElement {
       
       #menu div:not(#logo) a:focus svg path,
       #menu div:not(#logo) a:hover svg path {
-        transition: all .2s;
+        transition: var(--transition);
         stroke: var(--accent);
       }
       
       #menu div a:focus svg#instagram path,
       #menu div a:hover svg#instagram path {
-        transition: all .2s;
+        transition: var(--transition);
         stroke: url('#rgb');
       }
       
       #menu div a:focus svg#facebook path,
       #menu div a:hover svg#facebook path {
-        transition: all .2s;
+        transition: var(--transition);
         stroke: #4267b2;
       }
       
       #menu div a:focus svg#twitter path,
       #menu div a:hover svg#twitter path {
-        transition: all .2s;
+        transition: var(--transition);
         stroke: #1da1f2;
+      }
+
+      nav {
+        position: sticky;
+        background: var(--nav);
+
+        border-bottom: solid 5px var(--accent);
+      }
+
+      nav a {
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        color: var(--link);
+        text-transform: uppercase;
+        transition: var(--transition);
+      }
+
+      svg path {
+        transition: var(--transition);
+      }
+      
+      nav a:hover,
+      nav a:hover svg path,
+      nav a:focus,
+      nav a:focus svg path {
+        stroke: var(--accent);
+        transition: var(--transition);
+        color: var(--accent);
+        cursor: pointer;
+      }
+
+      nav #nav__list {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-evenly;
+      }
+
+      nav #nav__list ul {
+        width: 100%;
+      }
+
+      nav #nav__list li {
+        position: relative;
+      }
+
+      nav .nav__itemdrop {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: -900px;
+        background: var(--drop-bg);
+        opacity: 0;
+        border-top: 5px solid var(--accent);
+      }
+
+      nav .nav__itemdrop li {
+        position: absolute;
+        top: 0px;
+      }
+      
+      nav .nav__itemdrop li:not(:first-child) ul {
+        border-top: 5px solid var(--accent);
+      }
+
+      nav .nav__itemdrop li:last-child {
+        border-bottom: 5px solid var(--accent);
+      }
+
+      nav .nav__itemdrop li a {
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        display: flex;
+        text-align: left;
+        justify-content: start;
+      }
+
+      nav #nav__list li:hover .nav__itemdrop,
+      nav #nav__list li:focus-within .nav__itemdrop {
+        top: auto;
+        animation: dropdown 0.2s forwards;
+      }
+      
+      nav .nav__itemdrop2,
+      nav .nav__itemdrop3 {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: -900px;
+        left: 100%;
+        background: var(--drop-bg);
+        opacity: 0;
+      }
+
+      nav .nav__itemdrop li:hover .nav__itemdrop2,
+      nav .nav__itemdrop li:focus-within .nav__itemdrop2 {
+        top: 0;
+        opacity: 1;
+        animation: dropdown 0.2s forwards;
+      }
+      
+      nav .nav__itemdrop2 li:hover .nav__itemdrop3,
+      nav .nav__itemdrop2 li:focus-within .nav__itemdrop3 {
+        top: 0px;
+        animation: dropdown 0.2s forwards;
+      }
+      
+      nav .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:hover ul.nav__itemdrop3,
+      nav .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
+        top: -10%;
+        animation: dropdown 0.2s forwards;
+      }
+
+      @keyframes dropdown { 
+        0% {
+          opacity: 0;
+          transform: translate(0, -10%);
+        }
+        99% {
+          opacity: 1;
+          transform: none;
+        }
+        
+        100% {
+          opacity: 1;
+          transform: none;
+        }
       }
     `;
 
