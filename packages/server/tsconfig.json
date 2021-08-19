@@ -6,7 +6,7 @@
     "target": "es2017",
     "module": "commonjs",
     "allowJs": true,
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
@@ -14,24 +14,27 @@
     "removeComments": true,
     "noUnusedLocals": true,
     "emitDecoratorMetadata": true,
-    "types": [
-      "jest", "node"
-    ],
     "typeRoots": [
       "./node_modules/@types",
       "../../node_modules/@types",
       "./src/@types"
     ],
+    "types": [
+      "node", "jest"
+    ],
     "resolveJsonModule": true,
     "paths": {
-      "@user/repositories/*": ["src/domain/user/repositories/*"],
-      "@user/entities": ["src/domain/user/entities"],
-      "@user/repositories": ["src/domain/user/repositories"],
-      "@domain/*": ["src/domain/*"],
-      "@infra/*": ["src/infra/*"],
-      "@user/entities/*": ["src/domain/user/entities/*"],
+      "@infra/*": [
+        "src/infra/*"
+      ],
+      "@user": ["src/domain/user"],
+      "@user/*": ["src/domain/user/*"]
     }
   },
-  "exclude": ["node_modules"],
-  "include": ["src/**/*.ts"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
 }
