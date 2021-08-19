@@ -1,3 +1,7 @@
+body{
+  height: auto;
+}
+
 main {
   display: flex;
   flex-direction: column;

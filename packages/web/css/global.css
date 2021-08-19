@@ -82,6 +82,7 @@ html {
 }
 
 body {
+  height: 100%;
   background-color: var(--body-bg);
   overflow-x: hidden;
   display: flex;
