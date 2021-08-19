@@ -72,33 +72,6 @@
   nav {
     display: none;
   }
-
-  /* About-Us Responsivity */
-  main section#banner div.wrapper {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-  }
-  
-  main section#banner div.dynamic {
-    margin-left: 0px;
-    margin-top: -30px;
-    height: 8rem;
-  }
-
-  main section#banner {
-    padding: 2rem 5rem;
-  }
-  
-  main section#banner div.static,
-  main section#banner div.dynamic li span {
-    font-size: 2rem;
-  }
-
-  main section#content p#about-us-text {
-    padding: 2rem 9rem;
-  }
 }
 
 @media (max-width: 600px) {
