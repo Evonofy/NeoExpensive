@@ -32,9 +32,14 @@ main section#content{
   display: flex;
   text-align: left;
   justify-content: center;
+  flex-direction: column;
   
   padding: 100px;
   background-color: var(--bg-color);
+}
+
+main section h1.about-titles{
+  text-align: center;
 }
 
 main section#content p#about-us-text{
