@@ -38,6 +38,7 @@
   --gray-900: #0B0E11;
   --gray-600: #323D4D;
   --gray-500: rgb(80, 80, 80);
+  --dropdown-animate: dropdown 0.2s forwards;
 }
 
 ::-webkit-scrollbar {

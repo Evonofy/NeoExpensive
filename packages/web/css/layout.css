@@ -308,11 +308,7 @@
   }
   
   .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:hover ul.nav__itemdrop3,
-  .nav__itemdrop
-    li:not(:first-child)
-    .nav__itemdrop2
-    li:focus-within
-    ul.nav__itemdrop3 {
+  .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
     top: -10%;
   }
   
