@@ -10,7 +10,7 @@
   "scripts": {
     "migrate": "prisma db push",
     "dev": "NODE_ENV=development tsnd --transpile-only --respawn --ignore-watch node_modules -r tsconfig-paths/register src/index.ts",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "@prisma/client": "^2.29.1",

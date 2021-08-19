@@ -1,7 +1,6 @@
-import { app } from '@infra/http/app';
+import { prisma } from '@infra/prisma';
 
-it('should do ok', () => {
-  console.log(app);
-
-  console.log('h1u');
+it('should do ok', async () => {
+  const user = await prisma.user.findMany();
+  console.log(JSON.stringify(user));
 });
