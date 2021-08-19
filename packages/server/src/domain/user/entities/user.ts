@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 import { Token } from './token';
 
 interface UserProps {
@@ -17,18 +19,12 @@ export class User {
   public password: string;
   public token: Token;
 
-  constructor(props: UserProps) {
-    const { name, email, password } = props;
+  constructor(props: UserProps, id?: string) {
+    Object.assign(this, props);
 
-    this.id = '123';
-
-    this.name = name;
-    this.email = email;
-    this.password = password;
-    this.token = new Token({
-      userId: this.id,
-      expiresIn: new Date()
-    });
+    if (!id) {
+      this.id = uuid();
+    }
 
     this.created_at = new Date();
     this.updated_at = new Date();
