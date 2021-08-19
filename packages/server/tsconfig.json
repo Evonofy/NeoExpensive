@@ -24,7 +24,12 @@
     ],
     "resolveJsonModule": true,
     "paths": {
-      "@infra/*": ["src/infra/*"]
+      "@user/repositories/*": ["src/domain/user/repositories/*"],
+      "@user/entities": ["src/domain/user/entities"],
+      "@user/repositories": ["src/domain/user/repositories"],
+      "@domain/*": ["src/domain/*"],
+      "@infra/*": ["src/infra/*"],
+      "@user/entities/*": ["src/domain/user/entities/*"],
     }
   },
   "exclude": ["node_modules"],
