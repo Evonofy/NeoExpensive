@@ -1,16 +1,27 @@
 import { Request, Response } from 'express';
 
-import { CreateUserRequestDTO } from './CreateUserDTO';
+import { Controller } from '@infra/http/interface/Controller';
+import { ok, clientError } from '@infra/http/interface/HttpResponse';
+
+import { CreateUserRequestDTO, CreateUserResponseDTO } from './CreateUserDTO';
 import { CreateUserUseCase } from './CreateUserUseCase';
 
-export class CreateUserController {
+export class CreateUserController implements Controller {
   constructor(private createUserUseCase: CreateUserUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const caseRequest: CreateUserRequestDTO = request.body;
+    try {
+      const data: CreateUserRequestDTO = request.body;
 
-    const caseResponse = await this.createUserUseCase.execute(caseRequest);
+      const caseReponse = await this.createUserUseCase.execute(data);
 
-    return response.json({ ...caseResponse });
+      const { body, statusCode } = ok<CreateUserResponseDTO>(caseReponse);
+
+      return response.status(statusCode).json(body);
+    } catch (error) {
+      const { body, statusCode } = clientError(error);
+
+      return response.status(statusCode).json(body);
+    }
   }
 }
