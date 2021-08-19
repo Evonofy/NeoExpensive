@@ -8,10 +8,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "migrate": "prisma db push",
     "dev": "NODE_ENV=development tsnd --transpile-only --respawn --ignore-watch node_modules -r tsconfig-paths/register src/index.ts",
     "test": "jest"
   },
   "dependencies": {
+    "@prisma/client": "^2.29.1",
     "express": "^4.17.1"
   },
   "devDependencies": {
@@ -20,6 +22,7 @@
     "@types/node": "^16.6.1",
     "dotenv": "^10.0.0",
     "jest": "^27.0.6",
+    "prisma": "^2.29.1",
     "ts-jest": "^27.0.5",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.10.1"
