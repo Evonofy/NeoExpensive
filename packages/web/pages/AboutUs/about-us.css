@@ -1,3 +1,7 @@
+body{
+  height: auto;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -11,7 +15,7 @@ main {
   width: 100%;
   height: auto;
 
-  background: linear-gradient(-45deg, #646464, #666666, #494949, #000000);
+  background: linear-gradient(-45deg, hsl(0, 0%, 0%), hsl(0, 0%, 10%), hsl(0, 0%, 15%), hsl(0, 0%, 20%));
   
   font-size: 1.2rem;
   box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.75);
@@ -69,14 +73,26 @@ main {
 
 }
 
+#layer3{
+  aspect-ratio: 900/300;
+  width: 100%;
+  height: auto;
+  background-color: hsl(0, 0%, 5%);;
+  background-repeat: no-repeat;
+  background-position:  top 15rem right 0px;
+  margin-bottom: clamp(-20rem, -90rem + 10vw, -30rem);
+  background-size: cover;
+}
+
+
 #banner h1{
-  font-size: 4.5em;
+  font-size: clamp(0.5rem, -0.875rem + 8.333vw, 5rem);
   background: linear-gradient(-45deg, #ee7752, #d42f2f, #560cce, #e90677);
 	background-size: 400% 400%;
   animation: gradient 15s ease infinite;
  -webkit-background-clip: text;
- background-clip: text;
- color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 #content{
@@ -88,11 +104,14 @@ main {
   justify-content: center;
   flex-direction: column;
   
+  background-color: hsl(0, 0%, 5%);
+
   padding: 5rem 20rem;
-  background-color: var(--body-color);
+  
 }
 
 .about-titles{
+  font-size: clamp(0.1rem, 1.3rem + 1vw, 1.7rem);
   margin: 1rem 0rem;
 }
 
