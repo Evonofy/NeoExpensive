@@ -18,7 +18,8 @@ class HeaderNavbar extends HTMLElement {
   }
 
   getLink(route) {
-    const isGithub = window.location.host === 'github.com';
+    const isGithub =
+      window.location.host === 'esquemaflorescer.github.io' || 'github.com';
 
     let path = String(route).toLocaleLowerCase();
 
