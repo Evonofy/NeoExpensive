@@ -213,7 +213,7 @@ class Footer extends HTMLElement {
 
         font-weight: 300;
         font-family: 'Josefin Sans', sans-serif;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
       }
 
       #footer-body .logo {
@@ -233,7 +233,7 @@ class Footer extends HTMLElement {
       }
 
       .about-us p {
-        max-width: 30rem;
+        max-width: 45rem;
         line-height: 1.6rem;
         text-overflow: clip;
         transition: var(--transition);
@@ -261,7 +261,6 @@ class Footer extends HTMLElement {
 
       #social-media-footer {
         display: flex;
-        padding: 1.2rem 0;
       }
 
       #social-media-footer li:nth-child(2) {
@@ -334,6 +333,12 @@ class Footer extends HTMLElement {
         font-weight: 400;
         font-size: 1rem;
         font-family: 'Josefin Sans', sans-serif;
+      }
+
+      @media (max-width: 1700px){
+        footer #footer-body{
+          flex-direction: column;
+        }
       }
 
       @media (max-width: 400px) {
