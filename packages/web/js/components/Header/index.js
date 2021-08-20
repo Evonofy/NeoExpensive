@@ -1,4 +1,5 @@
 import { getLink } from '../../utils/getLink.js';
+import { theme } from '../../index.js';
 
 class HeaderNavbar extends HTMLElement {
   constructor() {
@@ -17,6 +18,14 @@ class HeaderNavbar extends HTMLElement {
     header.appendChild(menu);
     header.appendChild(navbar);
     shadow.appendChild(header);
+
+    const neo = shadow.querySelector('#x');
+
+    neo.addEventListener('click', event => {
+      event.preventDefault();
+
+      theme.cycleTheme();
+    });
   }
 
   redirect(route) {

@@ -8,3 +8,5 @@ window.addEventListener(
   'storage',
   event => (theme = new Theme(event.newValue))
 );
+
+export { theme };
