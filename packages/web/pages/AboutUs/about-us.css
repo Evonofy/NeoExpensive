@@ -74,7 +74,6 @@ main {
   background-image: url('../../images/waves-bottom.svg');
 }
 
-
 #banner h1{
   font-size: clamp(2rem, 6vw, 10rem);
   background: linear-gradient(-45deg, #ee7752, #d42f2f, #560cce, #e90677);
