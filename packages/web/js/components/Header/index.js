@@ -23,8 +23,14 @@ class HeaderNavbar extends HTMLElement {
 
     neo.addEventListener('click', event => {
       event.preventDefault();
-
       theme.cycleTheme();
+      this.dispatchEvent(
+        new CustomEvent('render', {
+          detail: {
+            theme: theme.theme
+          }
+        })
+      );
     });
   }
 
@@ -449,7 +455,7 @@ class HeaderNavbar extends HTMLElement {
         position: sticky;
         background: var(--nav);
 
-        border-bottom: solid 5px var(--accent);
+        border-bottom: 5px solid var(--accent);
       }
 
       nav a {
@@ -585,6 +591,46 @@ class HeaderNavbar extends HTMLElement {
         }
       }
 
+      @keyframes rgbBorder {
+        100%,
+        0% {
+          border-color: rgb(255, 0, 0);
+        }
+        8% {
+          border-color: rgb(255, 127, 0);
+        }
+        16% {
+          border-color: rgb(255, 255, 0);
+        }
+        24% {
+          border-color: rgb(127, 255, 0);
+        }
+        32% {
+          border-color: rgb(0, 255, 0);
+        }
+        40% {
+          border-color: rgb(0, 255, 127);
+        }
+        48% {
+          border-color: rgb(0, 255, 255);
+        }
+        56% {
+          border-color: rgb(0, 127, 255);
+        }
+        64% {
+          border-color: rgb(0, 0, 255);
+        }
+        72% {
+          border-color: rgb(127, 0, 255);
+        }
+        80% {
+          border-color: rgb(255, 0, 255);
+        }
+        88% {
+          border-color: rgb(255, 0, 127);
+        }
+      }
+
       @keyframes dropdown { 
         0% {
           opacity: 0;
@@ -640,6 +686,80 @@ class HeaderNavbar extends HTMLElement {
       }
     }
     `;
+
+    const setRGB = old => {
+      style.textContent = `
+          ${old}
+          nav {
+            border-bottom: 5px solid transparent;
+            animation: rgbBorder 4s infinite;
+          }
+
+          nav .nav__itemdrop {
+            border-top: 5px solid transparent;
+            animation: rgbBorder 4s infinite;
+          }
+          
+          #menu #hamburger menu ul {
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            animation: rgbBorder 4s infinite;
+          }
+          
+          nav .nav__itemdrop li:not(:first-child) ul {
+            border-top: 5px solid transparent;
+            animation: rgbBorder 4s infinite;
+          }
+          
+          nav .nav__itemdrop li:last-child {
+            border-bottom: 5px solid transparent;
+            animation: rgbBorder 4s infinite;
+          }
+
+          nav #nav__list li:hover .nav__itemdrop,
+          nav #nav__list li:focus-within .nav__itemdrop {
+            top: auto;
+            animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
+          }
+
+          nav .nav__itemdrop li:hover .nav__itemdrop2,
+          nav .nav__itemdrop li:focus-within .nav__itemdrop2 {
+            top: 0;
+            opacity: 1;
+            animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
+          }
+
+          nav .nav__itemdrop2 li:hover .nav__itemdrop3,
+          nav .nav__itemdrop2 li:focus-within .nav__itemdrop3 {
+            top: 0px;
+            animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
+          }
+
+          nav .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:hover ul.nav__itemdrop3,
+          nav .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
+            top: -10%;
+            animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
+          }
+        `;
+    };
+
+    let old = style.textContent;
+
+    this.addEventListener('render', () => {
+      let isRGB = window.document.body.getAttribute('data-theme') === 'rgb';
+
+      if (isRGB) {
+        setRGB(old);
+      }
+    });
+
+    (() => {
+      let isRGB = window.document.body.getAttribute('data-theme') === 'rgb';
+
+      if (isRGB) {
+        setRGB(old);
+      }
+    })();
 
     return style;
   }

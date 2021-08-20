@@ -1,7 +1,9 @@
 import { Theme } from './themes/index.js';
 
 /** Global theme */
-var theme = new Theme();
+const localTheme = localStorage.getItem('theme');
+
+var theme = new Theme(localTheme);
 
 /** When localStorage changes, change the theme */
 window.addEventListener(

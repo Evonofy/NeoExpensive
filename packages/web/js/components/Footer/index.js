@@ -328,7 +328,7 @@ class Footer extends HTMLElement {
         font-family: 'Josefin Sans', sans-serif;
       }
 
-      @media (max-width: 400px) {
+      @media (max-width: 668px) {
         footer #footer-body {
           justify-content: space-between; 
           align-items: start;
@@ -338,7 +338,78 @@ class Footer extends HTMLElement {
       @container (max-width: 1900px) {
         flex-direction: column;
       }
+
+      @keyframes rgbBorder {
+        100%,
+        0% {
+          border-color: rgb(255, 0, 0);
+        }
+        8% {
+          border-color: rgb(255, 127, 0);
+        }
+        16% {
+          border-color: rgb(255, 255, 0);
+        }
+        24% {
+          border-color: rgb(127, 255, 0);
+        }
+        32% {
+          border-color: rgb(0, 255, 0);
+        }
+        40% {
+          border-color: rgb(0, 255, 127);
+        }
+        48% {
+          border-color: rgb(0, 255, 255);
+        }
+        56% {
+          border-color: rgb(0, 127, 255);
+        }
+        64% {
+          border-color: rgb(0, 0, 255);
+        }
+        72% {
+          border-color: rgb(127, 0, 255);
+        }
+        80% {
+          border-color: rgb(255, 0, 255);
+        }
+        88% {
+          border-color: rgb(255, 0, 127);
+        }
+      }
+
     `;
+
+    const setRGB = old => {
+      style.textContent = `
+        ${old}
+        footer {
+          border-top: 5px solid transparent;
+          animation: rgbBorder 4s infinite;
+        }
+      `;
+    };
+
+    let old = style.textContent;
+
+    window.document
+      .querySelector('header-navbar')
+      .addEventListener('render', () => {
+        let isRGB = window.document.body.getAttribute('data-theme') === 'rgb';
+
+        if (isRGB) {
+          setRGB(old);
+        }
+      });
+
+    (() => {
+      let isRGB = window.document.body.getAttribute('data-theme') === 'rgb';
+
+      if (isRGB) {
+        setRGB(old);
+      }
+    })();
 
     return style;
   }
