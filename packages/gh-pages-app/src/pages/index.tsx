@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Translate } from '@components';
+import { Translate, ComplexTranslate } from '@components';
 import { FacebookLogo } from 'phosphor-react';
 const Home: FC = (): JSX.Element => {
   return (

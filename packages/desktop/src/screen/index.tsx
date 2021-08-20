@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 
 import Header from './Header';
 import { Next } from './Next';
@@ -7,9 +7,9 @@ import { Container, Content } from './styles';
 const screen: FC = () => {
   return (
     <Container>
-      <Header title="faedadawdawdwa" />
+      <Header title="Neo Expensive" />
       <Content>
-        <Next url="https://esquemaflorescer.github.io/neo-expensive/packages/web/" />
+        <Next url="http://localhost:3000" />
       </Content>
     </Container>
   );
