@@ -6,9 +6,6 @@
 @import url("./themes/dark.css");
 @import url("./themes/rgb.css");
 
-/* Reposivity Styles */
-@import url('./reponsivity.css');
-
 /* Animations */
 @import url('./animations/RGBBorder.css');
 @import url('./animations/RGBFill.css');

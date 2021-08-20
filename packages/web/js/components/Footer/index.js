@@ -43,7 +43,7 @@ class Footer extends HTMLElement {
   createBody() {
     const body = document.createElement('section');
 
-    body.id = "footer-body"
+    body.id = 'footer-body';
 
     body.innerHTML = `
       <section class="base-section about-us">
