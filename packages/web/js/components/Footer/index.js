@@ -1,3 +1,5 @@
+import { getLink } from '../../utils/getLink.js';
+
 class Footer extends HTMLElement {
   constructor() {
     super();
@@ -26,18 +28,8 @@ class Footer extends HTMLElement {
     return footer;
   }
 
-  getLink(route) {
-    const isGithub = window.location.host === 'github.com';
-
-    let path = String(route).toLocaleLowerCase();
-
-    if (isGithub) {
-      return `/neo-expensive/packages/web${path}`;
-    } else if (path === '/') {
-      return `/packages/web`;
-    } else {
-      return `/packages/web/pages${path}`;
-    }
+  redirect(route) {
+    return getLink(route);
   }
 
   createBody() {
@@ -121,19 +113,19 @@ class Footer extends HTMLElement {
 
         <ul>
           <li>
-            <a href=${this.getLink('/Support/index.html#jump-to-faq')}>
+            <a href=${this.redirect('/Support/index.html#jump-to-faq')}>
             Dúvidas Frequentes
             </a>
           </li>
 
           <li>
-            <a href=${this.getLink('/Support/index.html#jump-to-terms')}>
+            <a href=${this.redirect('/Support/index.html#jump-to-terms')}>
               Termos de Uso
             </a>
           </li>
 
           <li>
-            <a href=${this.getLink('/Support/index.html#jump-to-help')}>
+            <a href=${this.redirect('/Support/index.html#jump-to-help')}>
               Ajuda
             </a>
           </li>
