@@ -38,7 +38,31 @@
 </head>
 
 <body>
-  <header-navbar></header-navbar>
+  <header-navbar>
+    <style>
+      @media (max-width: 800px) {
+        div#menu {
+          padding: 0.6rem 0;
+          justify-content: space-around;
+        }
+
+        div#menu div#hamburger {
+          display: flex;
+        }
+
+        div#menu div#hamburger menu:hover span,
+        div#menu div#hamburger menu:focus-within span {
+          background: var(--accent);
+        }
+
+        div#menu div#social,
+        div#menu div#user-interactions,
+        nav {
+          display: none;
+        }
+      }
+    </style>
+  </header-navbar>
   
   <!-- Main content in the page center -->
   <main>

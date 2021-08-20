@@ -339,7 +339,7 @@ class HeaderNavbar extends HTMLElement {
       }
 
       #menu #hamburger menu ul {
-        transform: translate(-150%, 60%);
+        transform: translate(-300%, 60%);
         width: 150px;
         transition: var(--transition);
         position: absolute;
@@ -541,24 +541,10 @@ class HeaderNavbar extends HTMLElement {
         animation: dropdown 0.2s forwards;
       }
 
-      @media (min-width: 1080px) {
-        nav #nav__list li:hover .nav__itemdrop {
-        nav #nav__list li:focus-within .nav__itemdrop {
-          top: 100%;
-        }
-
-        .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within .nav {
-          top: -10%;
-        }
-      }
-
       @media (max-width: 800px) {
-        header {
-          display: none !important;
-        }
         div#menu {
-          padding: 0.6rem 0;
-          justify-content: space-around;
+          padding: 0.6rem 4rem;
+          justify-content: space-between;
         }
 
         div#menu div#hamburger {
@@ -568,6 +554,10 @@ class HeaderNavbar extends HTMLElement {
         div#menu div#hamburger menu:hover span,
         div#menu div#hamburger menu:focus-within span {
           background: var(--accent);
+        }
+
+        div#menu div#logo svg {
+          width: 70%;
         }
 
         div#menu div#social,
