@@ -386,14 +386,19 @@ class Footer extends HTMLElement {
 
     `;
 
+    const rgbStyle = `
+      footer {
+        border-top: 5px solid transparent;
+        animation: rgbBorder 4s infinite;
+      }
+    `;
+
     const setRGB = old => {
-      style.textContent = `
-        ${old}
-        footer {
-          border-top: 5px solid transparent;
-          animation: rgbBorder 4s infinite;
-        }
-      `;
+      style.textContent = `${old}${rgbStyle}`;
+    };
+
+    const removeRGB = old => {
+      style.textContent = `${old}`;
     };
 
     let old = style.textContent;
@@ -405,6 +410,8 @@ class Footer extends HTMLElement {
 
         if (isRGB) {
           setRGB(old);
+        } else {
+          removeRGB(old);
         }
       });
 
@@ -413,6 +420,8 @@ class Footer extends HTMLElement {
 
       if (isRGB) {
         setRGB(old);
+      } else {
+        removeRGB(old);
       }
     })();
 

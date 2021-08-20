@@ -687,60 +687,65 @@ class HeaderNavbar extends HTMLElement {
     }
     `;
 
+    const rgbStyle = `
+      nav {
+        border-bottom: 5px solid transparent;
+        animation: rgbBorder 4s infinite;
+      }
+
+      nav .nav__itemdrop {
+        border-top: 5px solid transparent;
+        animation: rgbBorder 4s infinite;
+      }
+      
+      #menu #hamburger menu ul {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        animation: rgbBorder 4s infinite;
+      }
+      
+      nav .nav__itemdrop li:not(:first-child) ul {
+        border-top: 5px solid transparent;
+        animation: rgbBorder 4s infinite;
+      }
+      
+      nav .nav__itemdrop li:last-child {
+        border-bottom: 5px solid transparent;
+        animation: rgbBorder 4s infinite;
+      }
+
+      nav #nav__list li:hover .nav__itemdrop,
+      nav #nav__list li:focus-within .nav__itemdrop {
+        top: auto;
+        animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
+      }
+
+      nav .nav__itemdrop li:hover .nav__itemdrop2,
+      nav .nav__itemdrop li:focus-within .nav__itemdrop2 {
+        top: 0;
+        opacity: 1;
+        animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
+      }
+
+      nav .nav__itemdrop2 li:hover .nav__itemdrop3,
+      nav .nav__itemdrop2 li:focus-within .nav__itemdrop3 {
+        top: 0px;
+        animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
+      }
+
+      nav .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:hover ul.nav__itemdrop3,
+      nav .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
+        top: -10%;
+        animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
+      }
+    `;
+
     const setRGB = old => {
-      style.textContent = `
-          ${old}
-          nav {
-            border-bottom: 5px solid transparent;
-            animation: rgbBorder 4s infinite;
-          }
+      style.textContent = `${old}${rgbStyle}`;
+    };
 
-          nav .nav__itemdrop {
-            border-top: 5px solid transparent;
-            animation: rgbBorder 4s infinite;
-          }
-          
-          #menu #hamburger menu ul {
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
-            animation: rgbBorder 4s infinite;
-          }
-          
-          nav .nav__itemdrop li:not(:first-child) ul {
-            border-top: 5px solid transparent;
-            animation: rgbBorder 4s infinite;
-          }
-          
-          nav .nav__itemdrop li:last-child {
-            border-bottom: 5px solid transparent;
-            animation: rgbBorder 4s infinite;
-          }
-
-          nav #nav__list li:hover .nav__itemdrop,
-          nav #nav__list li:focus-within .nav__itemdrop {
-            top: auto;
-            animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
-          }
-
-          nav .nav__itemdrop li:hover .nav__itemdrop2,
-          nav .nav__itemdrop li:focus-within .nav__itemdrop2 {
-            top: 0;
-            opacity: 1;
-            animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
-          }
-
-          nav .nav__itemdrop2 li:hover .nav__itemdrop3,
-          nav .nav__itemdrop2 li:focus-within .nav__itemdrop3 {
-            top: 0px;
-            animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
-          }
-
-          nav .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:hover ul.nav__itemdrop3,
-          nav .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
-            top: -10%;
-            animation: dropdown 0.2s forwards, rgbBorder 4s infinite;
-          }
-        `;
+    const removeRGB = old => {
+      style.textContent = `${old}`;
     };
 
     let old = style.textContent;
@@ -750,6 +755,8 @@ class HeaderNavbar extends HTMLElement {
 
       if (isRGB) {
         setRGB(old);
+      } else {
+        removeRGB(old);
       }
     });
 
@@ -758,6 +765,8 @@ class HeaderNavbar extends HTMLElement {
 
       if (isRGB) {
         setRGB(old);
+      } else {
+        removeRGB(old);
       }
     })();
 
