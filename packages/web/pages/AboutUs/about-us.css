@@ -9,14 +9,14 @@ main {
 
   align-items: center;
   justify-content: flex-start;
-  background-color: hsl(0, 0%, 5%);
+  background-color: var(--dark-900);
 }
 
 #banner {
   width: 100%;
   height: 45rem;
 
-  background: linear-gradient(-45deg, hsl(0, 0%, 0%), hsl(0, 0%, 10%), hsl(0, 0%, 15%), hsl(0, 0%, 20%));
+  background: linear-gradient(-45deg, var(--dark-900), var(--dark-800), var(--dark-750), var(--dark-700));
   
   font-size: 1.2rem;
   box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.75);
@@ -107,59 +107,6 @@ main {
   margin-bottom: 1.5rem;
   font-size: 1.4rem;
   font-weight: 400;
-  font-family: 'Source Code Pro', monospace;
+  font-family: var(--ff-source-code-pro);
 } 
 
-
-
-/* @import url("./animations/typewriter.css"); */
-/* Typewriter Effect */
-/* main section#banner div.wrapper {
-  font-family: 'Source Code Pro', monospace;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-}
-
-main section#banner .static {
-  font-size: 3rem;
-  color: #fafafa;
-  font-weight: 400;
-}
-
-main section#banner .dynamic {
-  margin-left: 1.6rem;
-  height: 90px;
-  line-height: 90px;
-  overflow: hidden;
-}
-
-main section#banner .dynamic li {
-  list-style: none;
-  color: #FC6D6D;
-  font-size: 3rem;
-  font-weight: 500;
-  position: relative;
-  top: 0;
-  animation: slide 20s steps(4) infinite;
-}
-
-main section#banner .dynamic li span {
-  position: relative;
-  margin: 5px 0;
-  font-weight: 600;
-  line-height: 90px;
-}
-
-main section#banner .dynamic li span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 1px;
-  height: 100%;
-  width: 100%;
-  background: #5c2c6b;
-  border-left: 2px solid #fafafa;
-  animation: typing 5s steps(21) infinite
-}
-*/

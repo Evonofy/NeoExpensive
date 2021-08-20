@@ -13,8 +13,8 @@ main section#client-support{
 /* Double card property */
 main section div.double-card{
     width: 100%;
-    background: #232323;
-    box-shadow: 0px 3px 8px #000;
+    background: var(--dark-750);
+    box-shadow: 0px 3px 8px var(--dark-900);
     
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -33,14 +33,14 @@ main section h1.faq-and-terms{
     margin-bottom: 2rem;
     
     font-size: 2.5rem;
-    text-shadow: 3px 4px 10px black;
+    text-shadow: 3px 4px 10px var(--dark-900);
     border-bottom: 3px solid var(--accent);
 }
 
 main section div button.collapsible {
     width: 80%;
     background-color: var(--accent);
-    box-shadow: 0px 3px 8px #000;
+    box-shadow: 0px 3px 8px var(--dark-900);
     color: white;
     
     font-size: 1.5rem;
@@ -60,7 +60,7 @@ main section div button.collapsible {
 
 .collapsible:after {
     content: '\002B';
-    color: white;
+    color: var(--light-100);
     font-weight: normal;
     float: right;
     margin-left: 5px;
@@ -72,8 +72,8 @@ main section div button.collapsible {
 
 main section div div.content {
     width: 80%;
-    background-color:#232323;
-    box-shadow: 0px 3px 8px #000;
+    background-color: var(--dark-750);
+    box-shadow: 0px 3px 8px var(--dark-900);
     
     font-size: 1.2rem;
     font-weight: 400;
@@ -89,7 +89,7 @@ main section div div.content {
 }
 
 main section div div.content p{
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: (--ff-josefin-sans);
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -109,7 +109,7 @@ main section div.double-card h1.client-h1{
     margin-bottom: 1rem;
     
     font-size: 2rem;
-    text-shadow: 3px 4px 10px black;
+    text-shadow: 3px 4px 10px var(--dark-900);
     border-bottom: 3px solid var(--accent);
 }
 
@@ -117,14 +117,14 @@ main section div.double-card h2.client-h2{
     padding-bottom: 0.5rem;
     
     font-size: 2rem;
-    text-shadow: 3px 4px 10px black;
+    text-shadow: 3px 4px 10px var(--dark-900);
 }
 
 main section div.double-card h3.client-h3{
     padding-bottom: 1rem;
     
     font-size: 1.5rem;
-    text-shadow: 3px 4px 10px black;
+    text-shadow: 3px 4px 10px var(--dark-900);
     
 }
 

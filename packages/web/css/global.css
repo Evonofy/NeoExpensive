@@ -1,5 +1,5 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&family=Source+Code+Pro:wght@300;400;500;600&family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&family=Source+Sans+Pro:ital,wght@0,400;1,300;1,400&family=Source+Code+Pro:wght@300;400;500;600&family=Montserrat:wght@700&display=swap');
 
 /* Themes */
 @import url("./themes/light.css");
@@ -15,26 +15,37 @@
 @import url('./animations/dropdown.css');
 
 :root {
-  /* Top Colors */
+  /* Main Colors */
   --header-bg: #2c2c2c;
   --body-bg: #1d1d1d;
   --nav-bg: #232323;
   --drop-bg: #000;
-  
-  /* Text Colors */
-  --accent: hsl(285, 40%, 46%);
-  --link: hsl(0, 0%, 98%);
 
-  /* Bottom Colors */
-  --footer-bg: hsl(0, 0%, 0%);
-  
-  /* Other */
-  --spacing-4: 1.250rem;
-  --xxl: 1rem;
+  /* General Colors */
+  --dark-900: hsl(0, 0%, 0%);
+  --dark-800: hsl(0, 0%, 10%);
+  --dark-750: hsl(0, 0%, 15%);
+  --dark-700: hsl(0, 0%, 20%);
+
+  --light-100: hsl(100, 100%, 100%);
 
   --gray-900: #0B0E11;
   --gray-600: #323D4D;
   --gray-500: rgb(80, 80, 80);
+
+  --accent: hsl(285, 40%, 46%);
+  --link: hsl(0, 0%, 98%);
+
+  /* Font Families */
+  --ff-montserrat: 'Montserrat', sans-serif;
+  --ff-josefin-sans: 'Josefin Sans', sans-serif;
+  --ff-source-code-pro: 'Source Code Pro', monospace;
+  --ff-source-sans-pro: 'Source Sans Pro', sans-serif;
+
+  /* Other */
+  --spacing-4: 1.250rem;
+  --xxl: 1rem;
+
   --dropdown-animate: dropdown 0.2s forwards;
 
 }
@@ -89,7 +100,7 @@ body {
   color: white;
   font-weight: 700;
   font-size: 1.4rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--ff-montserrat);
 }
 
 a {
