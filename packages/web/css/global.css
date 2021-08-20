@@ -6,16 +6,10 @@
 @import url("./themes/dark.css");
 @import url("./themes/rgb.css");
 
-/* Reposivity Styles */
-@import url('./reponsivity.css');
-
 /* Animations */
 @import url('./animations/RGBBorder.css');
 @import url('./animations/RGBFill.css');
 @import url('./animations/dropdown.css');
-
-/* Header and Footer Styles */
-@import url('./layout.css');
 
 :root {
   /* Main Colors */
@@ -135,4 +129,11 @@ svg {
   width: 3.125rem;
   height: 3.125rem;
   transition: .2s all;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,33 +1,6 @@
-@media (min-width: 1080px) {
-  header nav ul#nav__list li:hover .nav__itemdrop,
-  header nav ul#nav__list li:focus-within .nav__itemdrop {
-    top: 100%;
-  }
-
-  .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
-    top: -10%;
-  }
-}
-
-@media (max-width: 1900px) {
-  footer div#footer-body{
-    flex-direction: column;
-  }
-    
-}
-
 @media (max-width: 1080px) {
   html {
     font-size: 87.5%; /* 14px */
-  }
-
-  footer div#footer-body {
-    padding: 1rem;
-    flex-direction: column;
-  }
-
-  footer #footer-body section:not(.icons) {
-    padding: 1.5rem 2rem;
   }
 }
 
@@ -51,27 +24,6 @@
   main banner {
     padding: 2rem 5rem;
   }
-
-  /* Hamburguer menu */
-  header div#menu {
-    padding: 0.6rem 3rem;
-    justify-content: space-between;
-  }
-
-  header div#menu div#hamburger {
-    display: flex;
-  }
-
-  header div#menu div#hamburger menu:hover span,
-  header div#menu div#hamburger menu:focus-within span {
-    background: var(--accent);
-  }
-
-  header #menu #social,
-  header #menu #user-interactions,
-  nav {
-    display: none;
-  }
 }
 
 @media (max-width: 600px) {
@@ -79,7 +31,7 @@
     font-size: 60%; /* 8px */
   }
 
-   main section#banner div.static,
+  main section#banner div.static,
   main section#banner div.dynamic li span {
     font-size: 1.6rem;
   }
