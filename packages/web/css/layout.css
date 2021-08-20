@@ -17,7 +17,7 @@
   
   header #menu {
     width: 100%;
-    background-color: #000000;
+    background-color: var(--dark-900);
     display: flex;
     justify-content: space-around;
     padding: 0.6rem;
@@ -316,7 +316,7 @@
   footer {
     position: relative;
     width: 100%;
-    background: var(--footer-bg);
+    background: var(--dark-900);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -350,7 +350,7 @@
     padding: 1rem 2rem;
   
     font-weight: 300;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: var(--ff-josefin-sans);
     font-size: 1.5rem;
   }
   
@@ -473,14 +473,14 @@
   /* Copyright text properties */
   footer #copyrightText {
     width: 100%;
-    background-color: black;
-    color: rgb(255, 255, 255);
+    background-color: var(--dark-900);
+    color: var(--light-100);
   
     padding: 0.5rem 0;
   
     text-align: center;
     font-weight: 400;
     font-size: 1rem;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: var(--ff-josefin-sans);
   }
   
