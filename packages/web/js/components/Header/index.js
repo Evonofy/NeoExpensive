@@ -29,6 +29,44 @@ class HeaderNavbar extends HTMLElement {
     menu.id = 'menu';
 
     menu.innerHTML = `
+      <div id="hamburger">
+        <menu>
+          <input type="checkbox" name="menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="sidebar">
+            <li>
+              <!-- Info -->
+                <a href="#">
+                  <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.875 35.9375H6.25C5.4212 35.9375 4.62634 35.6083 4.04029 35.0222C3.45424 34.4362 3.125 33.6413 3.125 32.8125V18.75C3.125 17.9212 3.45424 17.1263 4.04029 16.5403C4.62634 15.9542 5.4212 15.625 6.25 15.625H21.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.875 42.1875H12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M40.625 14.0625H34.375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M40.625 20.3125H34.375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M45.3125 7.8125H29.6875C28.8246 7.8125 28.125 8.51206 28.125 9.375V40.625C28.125 41.4879 28.8246 42.1875 29.6875 42.1875H45.3125C46.1754 42.1875 46.875 41.4879 46.875 40.625V9.375C46.875 8.51206 46.1754 7.8125 45.3125 7.8125Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17.1875 35.9375V42.1875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  Informática
+                </a>
+            </li>
+            <li>
+              <!-- Platforms -->
+                <a href="#">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.6875 21.0938H35.9375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.0625 21.0938H20.3125" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17.1875 17.9688V24.2188" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M33.5973 10.8867L16.4071 10.9375C14.0193 10.9377 11.7078 11.779 9.87845 13.3137C8.0491 14.8484 6.8188 16.9784 6.40351 19.3299L6.40518 19.3302L3.209 35.7682C3.00712 36.9136 3.17564 38.0935 3.69007 39.1366C4.2045 40.1797 5.03806 41.0317 6.06968 41.5687C7.1013 42.1057 8.27727 42.2999 9.42679 42.1231C10.5763 41.9462 11.6395 41.4075 12.462 40.5852L12.4617 40.5849L20.9061 31.25L33.5973 31.1992C36.2909 31.1992 38.8742 30.1292 40.7789 28.2245C42.6836 26.3199 43.7536 23.7366 43.7536 21.043C43.7536 18.3494 42.6836 15.7661 40.7789 13.8614C38.8742 11.9567 36.2909 10.8867 33.5973 10.8867V10.8867Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M43.5993 19.2793L46.7928 35.7682C46.9947 36.9136 46.8262 38.0935 46.3118 39.1366C45.7973 40.1797 44.9638 41.0316 43.9322 41.5687C42.9005 42.1057 41.7246 42.2999 40.575 42.123C39.4255 41.9462 38.3623 41.4075 37.5398 40.5851L37.5402 40.5848L29.1016 31.2172" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    Plataformas
+                </a>
+            </li>
+            <li>
+              <!-- Support -->
+                <a href="#">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 31.25C29.3147 31.25 32.8125 27.7522 32.8125 23.4375C32.8125 19.1228 29.3147 15.625 25 15.625C20.6853 15.625 17.1875 19.1228 17.1875 23.4375C17.1875 27.7522 20.6853 31.25 25 31.25Z" stroke="white" stroke-width="2" stroke-miterlimit="10"></path><path d="M12.4607 38.9402C13.6377 36.6262 15.432 34.683 17.6451 33.3257C19.8582 31.9684 22.4038 31.25 24.9999 31.25C27.5961 31.25 30.1416 31.9684 32.3547 33.3257C34.5678 34.6829 36.3622 36.6262 37.5392 38.9402" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M34.375 10.9375H43.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M39.0625 6.25V15.625" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M43.518 22.0426C44.1387 25.9499 43.5062 29.9534 41.7112 33.4791C39.9163 37.0049 37.0511 39.8717 33.5264 41.6686C30.0016 43.4655 25.9985 44.1003 22.0908 43.4818C18.1831 42.8633 14.5716 41.0234 11.774 38.2259C8.9765 35.4283 7.1366 31.8168 6.51814 27.9091C5.89968 24.0014 6.53441 19.9983 8.33134 16.4736C10.1283 12.9489 12.9951 10.0836 16.5208 8.2887C20.0466 6.49376 24.0501 5.86129 27.9574 6.48195" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    Suporte
+                </a>
+            </li>
+            <li>
+              <!-- About Us -->
+                <a href="../AboutUs/">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.1875 31.25C22.7966 31.25 27.3438 26.7029 27.3438 21.0938C27.3438 15.4846 22.7966 10.9375 17.1875 10.9375C11.5784 10.9375 7.03125 15.4846 7.03125 21.0938C7.03125 26.7029 11.5784 31.25 17.1875 31.25Z" stroke="white" stroke-width="2" stroke-miterlimit="10"></path><path d="M30.354 11.3158C31.7509 10.9222 33.216 10.8326 34.6504 11.0529C36.0849 11.2732 37.4555 11.7983 38.67 12.5929C39.8844 13.3876 40.9145 14.4332 41.6908 15.6594C42.4671 16.8856 42.9716 18.264 43.1703 19.7016C43.3691 21.1393 43.2574 22.6028 42.8429 23.9936C42.4284 25.3845 41.7207 26.6704 40.7674 27.7646C39.8141 28.8589 38.6373 29.7362 37.3164 30.3375C35.9955 30.9387 34.5611 31.2498 33.1098 31.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.12427 38.554C4.71047 36.2978 6.81624 34.4563 9.26382 33.1851C11.7114 31.9138 14.4289 31.2501 17.1869 31.25C19.945 31.2499 22.6625 31.9134 25.1102 33.1844C27.5579 34.4555 29.6638 36.2968 31.2502 38.553" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M33.1099 31.25C35.8681 31.248 38.5863 31.9107 41.0342 33.1819C43.482 34.4531 45.5875 36.2955 47.1724 38.553" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    Quem Somos
+                </a>
+            </li>
+          /ul>
+        </menu>
+      </div>
       <div id="social">
         <a href="#facebook">
           <svg id="facebook" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 43.75C35.3553 43.75 43.75 35.3553 43.75 25C43.75 14.6447 35.3553 6.25 25 6.25C14.6447 6.25 6.25 14.6447 6.25 25C6.25 35.3553 14.6447 43.75 25 43.75Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M32.8125 17.1877H29.6875C28.4443 17.1877 27.252 17.6816 26.3729 18.5607C25.4939 19.4398 25 20.632 25 21.8752V43.7502" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18.75 28.1252H31.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -59,10 +97,12 @@ class HeaderNavbar extends HTMLElement {
       </div>
 
       <div id="user-interactions">
-        <a href="#search"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.6562 39.0625C31.7172 39.0625 39.0625 31.7172 39.0625 22.6562C39.0625 13.5953 31.7172 6.25 22.6562 6.25C13.5953 6.25 6.25 13.5953 6.25 22.6562C6.25 31.7172 13.5953 39.0625 22.6562 39.0625Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M34.2566 34.2579L43.7489 43.7502" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <a href="#search">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.6562 39.0625C31.7172 39.0625 39.0625 31.7172 39.0625 22.6562C39.0625 13.5953 31.7172 6.25 22.6562 6.25C13.5953 6.25 6.25 13.5953 6.25 22.6562C6.25 31.7172 13.5953 39.0625 22.6562 39.0625Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M34.2566 34.2579L43.7489 43.7502" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </a>
         
-        <a href="#user"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 31.25C31.9036 31.25 37.5 25.6536 37.5 18.75C37.5 11.8464 31.9036 6.25 25 6.25C18.0964 6.25 12.5 11.8464 12.5 18.75C12.5 25.6536 18.0964 31.25 25 31.25Z" stroke="white" stroke-width="2" stroke-miterlimit="10"></path><path d="M6.05249 42.1857C7.97351 38.8606 10.7357 36.0996 14.0616 34.18C17.3876 32.2605 21.1601 31.25 25.0002 31.25C28.8403 31.25 32.6128 32.2606 35.9386 34.1803C39.2645 36.0999 42.0267 38.8609 43.9476 42.1861" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <a href="#user">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 31.25C31.9036 31.25 37.5 25.6536 37.5 18.75C37.5 11.8464 31.9036 6.25 25 6.25C18.0964 6.25 12.5 11.8464 12.5 18.75C12.5 25.6536 18.0964 31.25 25 31.25Z" stroke="white" stroke-width="2" stroke-miterlimit="10"></path><path d="M6.05249 42.1857C7.97351 38.8606 10.7357 36.0996 14.0616 34.18C17.3876 32.2605 21.1601 31.25 25.0002 31.25C28.8403 31.25 32.6128 32.2606 35.9386 34.1803C39.2645 36.0999 42.0267 38.8609 43.9476 42.1861" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </a>
         
         <a href="#cart">
@@ -222,6 +262,112 @@ class HeaderNavbar extends HTMLElement {
         display: flex;
         justify-content: space-around;
         padding: 0.6rem;
+      }
+
+      div#menu div#hamburger {
+        display: none;
+        position: relative;
+      }
+
+      #menu #hamburger {
+        z-index: 1;
+        user-select: none;
+      }
+
+      #menu #hamburger menu {
+        display: flex;
+        flex-direction: column;
+        
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+      
+        padding: 0.6rem;
+      }
+
+      #menu #hamburger input {
+        display: block;
+        width: 5rem;
+        height: 5rem;
+        position: absolute;
+        cursor: pointer;
+        opacity: 0;
+        align-self: center;
+        z-index: 2;
+      }
+
+      #menu #hamburger span {
+        display: block;
+        width: 3rem;
+        height: 4px;
+        position: relative;
+        
+        background: #cdcdcd;
+        border-radius: 1rem;
+        
+        z-index: 1;
+      
+        transform-origin: 4px 0px;
+        
+        transition: var(--transition);
+      }
+
+      #menu #hamburger span:nth-child(3) {
+        margin: 0.5rem 0;
+      }
+
+      #menu #hamburger menu:hover span:nth-child(2) {
+        width: 2.2rem
+      }
+
+      #menu #hamburger menu:hover span:nth-child(4) {
+        transition: var(--transition);
+      }
+      
+      #menu #hamburger menu:hover span:nth-child(4) {
+        width: 1.6rem;
+      }
+
+      #menu #hamburger input:checked ~ span:nth-child(2) {
+        transform: translate(0, 6px);
+        height: 1px;
+      }
+      
+      #menu #hamburger input:checked ~ span:nth-child(4) {
+        transform: translate(0, -6px);
+        height: 1px;
+      }
+
+      #menu #hamburger menu ul {
+        transform: translate(-150%, 60%);
+        width: 150px;
+        transition: var(--transition);
+        position: absolute;
+        background: var(--header-bg);
+        border-top: 5px solid var(--accent);
+        border-bottom: 5px solid var(--accent);
+      }
+      
+      #menu #hamburger menu ul li {
+        padding: 1rem 2rem;
+      }
+
+      #menu #hamburger menu ul li:hover a,
+      #menu #hamburger menu ul li:hover svg path {
+        color: var(--accent);
+        stroke: var(--accent);
+      }
+      
+      #menu #hamburger menu ul li a {
+        color: var(--link);
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        transition: var(--transition);
+      }
+
+      #menu #hamburger menu input:checked ~ ul {
+        transform: translate(0%, 60%);
       }
 
       #menu div {
@@ -393,6 +539,42 @@ class HeaderNavbar extends HTMLElement {
       nav .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within ul.nav__itemdrop3 {
         top: -10%;
         animation: dropdown 0.2s forwards;
+      }
+
+      @media (min-width: 1080px) {
+        nav #nav__list li:hover .nav__itemdrop {
+        nav #nav__list li:focus-within .nav__itemdrop {
+          top: 100%;
+        }
+
+        .nav__itemdrop li:not(:first-child) .nav__itemdrop2 li:focus-within .nav {
+          top: -10%;
+        }
+      }
+
+      @media (max-width: 800px) {
+        header {
+          display: none !important;
+        }
+        div#menu {
+          padding: 0.6rem 0;
+          justify-content: space-around;
+        }
+
+        div#menu div#hamburger {
+          display: flex;
+        }
+
+        div#menu div#hamburger menu:hover span,
+        div#menu div#hamburger menu:focus-within span {
+          background: var(--accent);
+        }
+
+        div#menu div#social,
+        div#menu div#user-interactions,
+        nav {
+          display: none;
+        }
       }
 
       @keyframes dropdown { 

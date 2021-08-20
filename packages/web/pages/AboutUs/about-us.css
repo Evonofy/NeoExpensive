@@ -69,15 +69,14 @@ main {
 }
 
 .layer2{
-  background-image: url('../..//images/waves-bottom.svg');
-
+  background-image: url('../../images/waves-bottom.svg');
 }
 
 #layer3{
   aspect-ratio: 900/300;
   width: 100%;
   height: auto;
-  background-color: hsl(0, 0%, 5%);;
+  background-color: hsl(0, 0%, 5%);
   background-repeat: no-repeat;
   background-position:  top 15rem right 0px;
   margin-bottom: clamp(-20rem, -90rem + 10vw, -30rem);
