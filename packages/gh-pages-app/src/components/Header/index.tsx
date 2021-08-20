@@ -9,8 +9,10 @@ import {
   SVGUser,
   SVGCart
 } from '@icons';
+import { Link } from '@components';
+import { Navbar } from './Navbar';
 
-import { Link } from '../';
+import pages from './pages.json';
 
 import styles from './Header.module.scss';
 
@@ -49,7 +51,7 @@ export const Header: FC = () => {
         </div>
       </div>
 
-      <nav></nav>
+      <Navbar pages={pages} />
     </header>
   );
 };
