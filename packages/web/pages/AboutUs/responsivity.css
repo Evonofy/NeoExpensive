@@ -1,71 +1,43 @@
-@media (max-width: 400px) {
-
-  #content{
-    padding: 2rem 1rem;
-
-  }
-
-  div.spacer1{
-    aspect-ratio: 900/300;
-    width: 100%;
-    height: auto;
-    background-repeat: no-repeat;
-    background-position:  bottom 2rem right 0px;
-    background-size: cover;
-  }
-
-  div div.spacer2{
-    aspect-ratio: 900/300;
-    width: 100%;
-    height: auto;
-    background-repeat: no-repeat;
-    background-position:  top 2.5rem right 0px;
-    background-size: cover;
-  }
-
-  svg#layer3{
-    aspect-ratio: 900/300;
-    width: 100%;
-    height: auto;
-    background-repeat: no-repeat;
-    background-position:  top 15rem right 0px;
-    margin-bottom: clamp(-10rem, -25rem + 10vw, 2.5rem);
-    background-size: cover;
-  }
-  
-}
-
 @media (max-width: 800px) {
+
+  section#banner{
+    height: 30rem;
+  }
 
   main section#content{
     margin: 0rem 2rem;
     padding: 4rem 4rem;
   }
 
-  div.spacer1{
-    aspect-ratio: 900/300;
-    width: 100%;
-    height: auto;
-    background-repeat: no-repeat;
-    background-position:  bottom 2rem right 0px;
-    background-size: cover;
+  #banner h1{
+    font-size: 3rem;
   }
 
-  div.spacer2{
-    aspect-ratio: 900/300;
-    width: 100%;
-    height: auto;
-    background-repeat: no-repeat;
-    background-position:  top 1rem right 0px;
-    background-size: cover;
+  div.wave-top{
+    background-position: top -60rem right 0rem;
   }
 
-  main svg#layer3{
-    aspect-ratio: 900/300;
-    width: 100%;
-    height: auto;
-    background-repeat: no-repeat;
-    background-position:  bottom 5rem right 0px;
-    background-size: cover;
+  div.wave-bot{
+    background-position: bottom -10rem right 0rem;
   }
+}
+
+@media (max-width: 400px) {
+
+  section#banner{
+    height: 20rem;
+  }
+
+  #content{
+    padding: 2rem 1rem;
+  }
+
+  div.wave-top{
+    background-position: top -70rem right 0rem;
+  }
+
+  div.wave-bot{
+    background-position: bottom -5rem right 0rem;
+  }
+  
 }
