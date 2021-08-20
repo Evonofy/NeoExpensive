@@ -20,12 +20,14 @@ class HeaderNavbar extends HTMLElement {
   getLink(route) {
     const isGithub = window.location.host === 'github.com';
 
+    let path = String(route).toLocaleLowerCase();
+
     if (isGithub) {
-      return `/neo-expensive/packages/web${route}`;
-    } else if (route === '/') {
+      return `/neo-expensive/packages/web${path}`;
+    } else if (path === '/') {
       return `/packages/web`;
     } else {
-      return `/packages/web/pages${route}`;
+      return `/packages/web/pages${path}`;
     }
   }
 
