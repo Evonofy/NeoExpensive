@@ -1,5 +1,11 @@
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Main section client support properties */
-main section#client-support{
+#client-support{
     width: 90%;
     
     margin-top: 1.5rem;
@@ -11,7 +17,7 @@ main section#client-support{
 }
 
 /* Double card property */
-main section div.double-card{
+.double-card{
     width: 100%;
     background: var(--dark-750);
     box-shadow: 0px 3px 8px var(--dark-900);
@@ -28,22 +34,22 @@ main section div.double-card{
 }
 
 /* First section properties */
-main section h1.faq-and-terms{
+.faq-and-terms{
     margin-top: 0.8rem;
     margin-bottom: 2rem;
     
-    font-size: 2.5rem;
+    font-size: clamp(1.6rem, 4vw, 3rem);
     text-shadow: 3px 4px 10px var(--dark-900);
     border-bottom: 3px solid var(--accent);
 }
 
-main section div button.collapsible {
+.collapsible {
     width: 80%;
     background-color: var(--accent);
     box-shadow: 0px 3px 8px var(--dark-900);
     color: white;
     
-    font-size: 1.5rem;
+    font-size: clamp(.8rem, 5vw, 1.7rem);
     padding: 1.2rem 1rem;
     cursor: pointer;
     
@@ -53,8 +59,8 @@ main section div button.collapsible {
     
 }
 
-.active, main section div button.collapsible:hover,
-.active, main section div button.collapsible:focus  {
+.active, .collapsible:hover,
+.active, .collapsible:focus  {
     background-color: #8c46a3cc;
 }
 
@@ -70,12 +76,12 @@ main section div button.collapsible {
     content: "\2212";
 }
 
-main section div div.content {
+.content {
     width: 80%;
     background-color: var(--dark-750);
     box-shadow: 0px 3px 8px var(--dark-900);
     
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     font-weight: 400;
     line-height: 1.8rem;
     
@@ -88,46 +94,46 @@ main section div div.content {
     
 }
 
-main section div div.content p{
+.content p{
     font-family: (--ff-josefin-sans);
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-main section div div.content a{
+.content a{
     color: var(--accent);
     text-decoration: none;
 }
 
-main section div div.content a:hover{
+.content a:hover{
     color: #8c46a3cc;
 }
 
 /* Second section properties*/
-main section div.double-card h1.client-h1{
+.double-card h1.client-h1{
     padding-top: 0.8rem;
     margin-bottom: 1rem;
     
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 5vw, 2.5rem);
     text-shadow: 3px 4px 10px var(--dark-900);
     border-bottom: 3px solid var(--accent);
 }
 
-main section div.double-card h2.client-h2{
+.double-card h2.client-h2{
     padding-bottom: 0.5rem;
     
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
     text-shadow: 3px 4px 10px var(--dark-900);
 }
 
-main section div.double-card h3.client-h3{
+.double-card h3.client-h3{
     padding-bottom: 1rem;
     
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
     text-shadow: 3px 4px 10px var(--dark-900);
     
 }
 
-main section div.double-card h3.client-h3 span.span-purple{
+.double-card h3.client-h3 span.span-purple{
     color: var(--accent);
 }
