@@ -1,3 +1,9 @@
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Main section client support properties */
 #client-support{
     width: 90%;
