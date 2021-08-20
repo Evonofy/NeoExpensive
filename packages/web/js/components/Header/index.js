@@ -453,7 +453,7 @@ class HeaderNavbar extends HTMLElement {
 
       nav {
         position: sticky;
-        background: var(--nav);
+        background: var(--nav-bg);
 
         border-bottom: 5px solid var(--accent);
       }
