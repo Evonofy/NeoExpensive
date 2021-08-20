@@ -40,8 +40,6 @@ class HeaderNavbar extends HTMLElement {
   createMenu() {
     const menu = document.createElement('div');
 
-    const isGithub = window.location.host === 'github.com';
-
     menu.id = 'menu';
 
     menu.innerHTML = `
