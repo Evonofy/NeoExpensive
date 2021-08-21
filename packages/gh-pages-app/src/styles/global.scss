@@ -1,7 +1,10 @@
+@import "base";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background 400ms;
 }
 
 html {
@@ -12,7 +15,7 @@ html {
 body {
   width: 100%;
   height: 100%;
-  font-family: "Inter", sans-serif;
+  font-family: "Lexend", sans-serif;
 }
 
 #__next {
@@ -22,14 +25,4 @@ body {
 
 a {
   text-decoration: none;
-}
-
-:root {
-  --white: #fff;
-  --nav-bg: #232323;
-  --accent: #8b46a3;
-  --facebook: #4267b2;
-  --twitter: #1da1f2;
-  --instagram: url("#rgb");
-  --sm-transition: all 200ms ease;
 }

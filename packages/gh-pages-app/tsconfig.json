@@ -24,6 +24,7 @@
       "@hooks": ["hooks"],
       "@lib": ["lib"],
       "@services": ["services"],
+      "@styles/*": ["styles/*"],
       "@contexts": ["contexts"],
       "@pages/*": ["pages/*"],
       "@appTypes/*": ["types/*"],

@@ -1,0 +1,33 @@
+/* stylelint-disable custom-property-empty-line-before, at-rule-empty-line-before, no-descending-specificity */
+@import "themes/dark";
+@import "themes/light";
+
+@import "measurement/sizes";
+
+:root {
+  --facebook: #4267b2;
+  --twitter: #1da1f2;
+  --instagram: url("#rgb");
+
+  --sm-transition: all 200ms;
+}
+
+::-webkit-scrollbar {
+  width: var(--spacing-4);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-900);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: var(--xxl);
+  border: 7.5px solid transparent;
+  background-clip: content-box;
+  background-color: var(--gray-700);
+
+  &:hover {
+    background-color: var(--gray-600);
+    cursor: pointer;
+  }
+}

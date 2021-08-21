@@ -6,11 +6,11 @@ import { Theme } from '@contexts';
 import { init_i18n } from '@lib';
 import { Head, Layout } from '@components';
 
-import './global.scss';
-import '../themes/dark.scss';
-import './Icon.scss';
+import '@styles/global.scss';
+import '@styles/themes/dark.scss';
+import '@styles/icon.scss';
 
-const app: FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element => {
+const app: FC<AppProps> = ({ Component, pageProps }): JSX.Element => {
   /** Initialize multi-language service */
   init_i18n();
   return (

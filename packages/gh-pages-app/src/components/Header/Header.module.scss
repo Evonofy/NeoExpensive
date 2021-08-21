@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  background: var(--header-top-bg);
+  background: var(--menu-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@
 
 .menu {
   width: 100%;
-  padding: 0.6rem;
+  padding: var(--spacing-8);
   display: grid;
   grid-template-areas:
       "social logo user"
@@ -19,7 +19,7 @@
 
   /* every icon that is NOT the neo logo */
   svg:not([data-icon="neo"]) {
-    width: 50px;
+    width: var(--heading-2);
   }
 
   /* aligns all div's content to center */
@@ -31,7 +31,9 @@
     /* access every div that is NOT the logo div */
     &:not(.logo) {
       /* get the middle svg icon */
-      margin: 0 2rem;
+      a:nth-child(even) {
+        margin: 0 var(--spacing-8);
+      }
     }
   }
 

@@ -12,17 +12,17 @@ svg {
     *:not(rect) {
       stroke: none;
     }
-    
-    &:hover {
-      *:not(rect) {
-        stroke: none;
-      }
-    }
   }
 
   &:hover, &:focus {
     *:not(rect:first-of-type) {
       stroke: var(--accent);
+    }
+
+    &[data-icon="neo"] {
+      *:not(rect) {
+        stroke: none;
+      }
     }
   }
   
