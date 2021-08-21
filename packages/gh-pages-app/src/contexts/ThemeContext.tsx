@@ -11,7 +11,7 @@ type ThemeContextType = {
   currentThemeIndex: number;
   defaultTheme: string;
   hasNext: boolean;
-  localTheme: string;
+  // localTheme: string;
   configureDefaultTheme: (customTheme: themeKeys) => void;
   setCustomThemeList: (customTheme: themeKeys[]) => void;
   cycle: () => void;
@@ -32,16 +32,19 @@ export const Theme: FC<ThemeProviderProps> = ({
   children
 }): JSX.Element => {
   const [themeList, setThemeList] = useState<themeKeys[]>(themes);
-  const [currentTheme, setCurrentTheme] = useState<themeKeys>('dark');
+  const [currentTheme, setCurrentTheme] = useState<themeKeys | ''>('');
   const [currentThemeIndex, setCurrentThemeIndex] = useState<number>(0);
   const [defaultTheme, setDefaultTheme] = useState<themeKeys>(themeDefault);
-  const [localTheme, setLocalTheme] = usePersistedState<themeKeys>(
-    'dark',
-    'theme'
-  );
-
+  // const [localTheme, setLocalTheme] = usePersistedState<themeKeys>(
+  //   'dark',
+  //   'theme'
+  // );
+  if (typeof window !== 'undefined') {
+    console.log(localStorage.getItem('theme'));
+  }
   const hasNext = currentThemeIndex + 1 < themeList.length;
-  useEffect(() => setTheme(localTheme || defaultTheme), []);
+  // @ts-ignore
+  useEffect(() => setTheme(localStorage.getItem('theme')), []);
 
   function setCustomThemeList(newThemeList: themeKeys[]) {
     setThemeList(newThemeList);
@@ -54,15 +57,17 @@ export const Theme: FC<ThemeProviderProps> = ({
   function setTheme(theme: themeKeys) {
     setCurrentTheme(theme);
     setCurrentThemeIndex(themeList.indexOf(theme));
-    setLocalTheme(theme);
+    // setLocalTheme(theme);
+    localStorage.setItem('theme', theme);
     document.body.setAttribute('data-theme', theme);
-
-    if (!!availableThemes[theme] === false) {
-      setCurrentTheme(defaultTheme);
-      setCurrentThemeIndex(themeList.indexOf(defaultTheme));
-      setLocalTheme(defaultTheme);
-      document.body.setAttribute('data-theme', defaultTheme);
-    }
+    // if (!!availableThemes[theme] === false) {
+    //   console.log('deu ruim');
+    //   setCurrentTheme(defaultTheme);
+    //   setCurrentThemeIndex(themeList.indexOf(defaultTheme));
+    //   // setLocalTheme(defaultTheme);
+    //   localStorage.setItem('theme', defaultTheme);
+    //   document.body.setAttribute('data-theme', defaultTheme);
+    // }
   }
 
   function cycle() {
@@ -91,8 +96,8 @@ export const Theme: FC<ThemeProviderProps> = ({
         configureDefaultTheme,
         setCustomThemeList,
         cycle,
-        setTheme,
-        localTheme
+        setTheme
+        // localTheme
       }}
     >
       {children}
