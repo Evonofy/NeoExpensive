@@ -14,7 +14,7 @@
   position: relative;
   
   a {
-    padding: var(--spacing-7);
+    padding: var(--spacing-7) var(--spacing-4);
     display: flex;
     font-weight: bold;
     align-items: center;
@@ -44,7 +44,14 @@
     }
   }
 
+  /* stylelint-disable */
   &:nth-child(1) {
+    svg {
+      circle {
+        fill: var(--white);
+      }
+    }
+
     &:hover, &:focus {
       svg {
         circle:last-child {
@@ -54,4 +61,5 @@
       }
     }
   }
+  /* stylelint-enable */
 }
