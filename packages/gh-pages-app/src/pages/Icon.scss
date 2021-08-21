@@ -2,15 +2,9 @@ svg {
   cursor: pointer;
 
   /* Selects every tag inside <svg> that is not a rect */
-  *:not(rect) {
+  *:not(rect:first-of-type) {
     stroke: var(--white);
     transition: var(--sm-transition);
-  }
-
-  &:hover, &:focus {
-    *:not(rect) {
-      stroke: var(--accent);
-    }
   }
 
   /* special rule for neo logo */
@@ -23,6 +17,12 @@ svg {
       *:not(rect) {
         stroke: none;
       }
+    }
+  }
+
+  &:hover, &:focus {
+    *:not(rect:first-of-type) {
+      stroke: var(--accent);
     }
   }
   

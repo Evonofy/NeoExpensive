@@ -25,35 +25,31 @@
     svg {
       width: 3.125rem;
       height: 3.125rem;
-
-      *:is(circle:last-child) {
-        fill: var(--white);
-      }
     }
   }
 
-  &:hover {
+  &:hover, &:focus {
     a {
       color: var(--accent);
 
       svg {
-        *:not(rect) {
+        *:not(rect:first-of-type) {
           stroke: var(--accent);
+        }
+
+        :is(rect:last-child) {
+          fill: var(--accent);
         }
       }
     }
   }
 
   &:nth-child(1) {
-    &:hover {
+    &:hover, &:focus {
       svg {
-        :is(circle:last-child) {
+        circle:last-child {
           stroke: transparent;
-          fill: var(--accent) !important;
-        }
-
-        *:not(rect, circle) {
-          stroke: var(--accent);
+          fill: var(--accent);
         }
       }
     }
