@@ -64,11 +64,11 @@ export const Navbar: FC<NavbarProps> = ({ pages }) => {
             const isCurrentPage = currentPage === page.name;
 
             if (isCurrentPage) {
-              return <NavbarItem active={true} page={page} />;
+              return <NavbarItem key={page.id} active={true} page={page} />;
             }
           }
 
-          return <NavbarItem page={page} />;
+          return <NavbarItem key={page.id} page={page} />;
         })}
       </ul>
     </nav>
