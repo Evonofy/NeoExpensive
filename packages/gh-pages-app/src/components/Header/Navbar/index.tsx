@@ -1,13 +1,8 @@
-import { FC, ForwardRefExoticComponent, RefAttributes } from 'react';
+import { FC, RefAttributes } from 'react';
+import { IconProps } from 'phosphor-react';
 
-import {
-  DesktopTower,
-  GameController,
-  IconProps,
-  UserCirclePlus,
-  Users
-} from 'phosphor-react';
 import { Link } from '@components';
+import { SVGComputer, SVGController, SVGUserAdd, SVGUsers } from '@icons';
 
 import styles from './Navbar.module.scss';
 
@@ -29,23 +24,23 @@ interface NavbarProps {
 export const NavbarItem: FC<NavbarItemProps> = ({ page, active = false }) => {
   const { id, name, url } = page;
 
-  let icon: IconProps & React.RefAttributes<SVGSVGElement>;
+  let icon: IconProps & RefAttributes<SVGSVGElement>;
 
   switch (url) {
     case 'info':
-      icon = <DesktopTower />;
+      icon = <SVGComputer />;
       break;
 
     case 'platforms':
-      icon = <GameController />;
+      icon = <SVGController />;
       break;
 
     case 'support':
-      icon = <UserCirclePlus />;
+      icon = <SVGUserAdd />;
       break;
 
     case 'about':
-      icon = <Users />;
+      icon = <SVGUsers />;
       break;
   }
 

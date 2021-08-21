@@ -19,7 +19,7 @@ import styles from './Header.module.scss';
 export const Header: FC = () => {
   return (
     <header className={styles.container}>
-      <div id="menu" className={styles.menu}>
+      <div className={styles.menu}>
         <div className="social">
           <Link name="Facebook" url="#facebook">
             <SVGFacebook />

@@ -2,8 +2,8 @@ import { FC, SVGProps } from 'react';
 
 export const SVGNeoExpensive: FC<SVGProps<SVGSVGElement>> = ({
   color = '#8B46A3',
-  width = '300',
-  height = '113'
+  width = '307',
+  height = '94'
 }): JSX.Element => {
   return (
     <svg

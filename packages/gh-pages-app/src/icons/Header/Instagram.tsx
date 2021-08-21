@@ -1,12 +1,12 @@
-import { FC, SVGProps } from 'react';
+import { FC, RefAttributes } from 'react';
 
-import { InstagramLogo } from 'phosphor-react';
+import { IconProps, InstagramLogo } from 'phosphor-react';
 
-export const SVGInstagram: FC<SVGProps<SVGSVGElement>> = ({
+export const SVGInstagram: FC<IconProps & RefAttributes<SVGSVGElement>> = ({
   width = '70',
   height = '70',
   color = '#fafafa',
-  strokeWidth = '4'
+  weight = 'light'
 }): JSX.Element => {
   return (
     <>
@@ -15,7 +15,7 @@ export const SVGInstagram: FC<SVGProps<SVGSVGElement>> = ({
         width={width}
         height={height}
         color={color}
-        strokeWidth={strokeWidth}
+        weight={weight}
       />
       <svg style={{ position: 'absolute' }} width="0" height="0">
         <radialGradient id="rgb" r="150%" cx="30%" cy="107%">
