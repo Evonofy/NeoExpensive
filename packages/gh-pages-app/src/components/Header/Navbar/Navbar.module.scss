@@ -1,7 +1,61 @@
 .navbarContainer {
   width: 100%;
+  border-bottom: var(--accent);
+  background: var(--nav-bg);
+
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+  }
 }
 
 .navbarItem {
-  padding: 1rem 2rem;
+  position: relative;
+  
+  a {
+    padding: 1rem 2rem;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    color: var(--white);
+    text-transform: uppercase;
+    transition: var(--sm-transition);
+    
+    svg {
+      width: 3.125rem;
+      height: 3.125rem;
+
+      *:is(circle:last-child) {
+        fill: var(--white);
+      }
+    }
+  }
+
+  &:hover {
+    a {
+      color: var(--accent);
+
+      svg {
+        *:not(rect) {
+          stroke: var(--accent);
+        }
+      }
+    }
+  }
+
+  &:nth-child(1) {
+    &:hover {
+      svg {
+        :is(circle:last-child) {
+          stroke: transparent;
+          fill: var(--accent) !important;
+        }
+
+        *:not(rect, circle) {
+          stroke: var(--accent);
+        }
+      }
+    }
+  }
 }

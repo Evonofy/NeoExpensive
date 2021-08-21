@@ -4,7 +4,7 @@ svg {
   /* Selects every tag inside <svg> that is not a rect */
   *:not(rect) {
     stroke: var(--white);
-    transition: all 200ms ease;
+    transition: var(--sm-transition);
   }
 
   &:hover, &:focus {
