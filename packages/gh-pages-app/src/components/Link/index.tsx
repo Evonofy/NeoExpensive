@@ -10,7 +10,7 @@ interface LinkProps {
 export const Link: FC<LinkProps> = ({ url, name, children }): JSX.Element => {
   return (
     <Anchor href={url}>
-      <a aria-label={name} rel="noopener noreferrer">
+      <a aria-label={name.replace(' ', '-')} rel="noopener noreferrer">
         {children}
       </a>
     </Anchor>

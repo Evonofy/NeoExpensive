@@ -1,5 +1,12 @@
-import { FC } from 'react';
+import { FC, ForwardRefExoticComponent, RefAttributes } from 'react';
 
+import {
+  DesktopTower,
+  GameController,
+  IconProps,
+  UserCirclePlus,
+  Users
+} from 'phosphor-react';
 import { Link } from '@components';
 
 import styles from './Navbar.module.scss';
@@ -22,10 +29,31 @@ interface NavbarProps {
 export const NavbarItem: FC<NavbarItemProps> = ({ page, active = false }) => {
   const { id, name, url } = page;
 
+  let icon: IconProps & React.RefAttributes<SVGSVGElement>;
+
+  switch (url) {
+    case 'info':
+      icon = <DesktopTower />;
+      break;
+
+    case 'platforms':
+      icon = <GameController />;
+      break;
+
+    case 'support':
+      icon = <UserCirclePlus />;
+      break;
+
+    case 'about':
+      icon = <Users />;
+      break;
+  }
+
   return (
     <li data-active={active} key={id} className={styles.navbarItem}>
       <Link name={name} url={url}>
-        <button>{name}</button>
+        {icon}
+        {name}
       </Link>
     </li>
   );
