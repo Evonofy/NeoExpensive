@@ -1,0 +1,1 @@
+export { MailTrapMailService } from './MailTrapMailService';

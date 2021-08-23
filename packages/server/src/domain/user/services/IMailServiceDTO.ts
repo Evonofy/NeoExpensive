@@ -4,6 +4,7 @@ interface IAddress {
 }
 
 export interface IMessage {
+  isNoReply: boolean;
   to: IAddress;
   subject: string;
   body: string;
