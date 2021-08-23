@@ -11,23 +11,24 @@ generator client {
 }
 
 model User {
-  id         String   @id
-  created_at DateTime
-  updated_at DateTime
-  name       String
-  email      String   @unique
-  password   String
-  token      Token?
+  id            String        @id
+  created_at    DateTime
+  updated_at    DateTime
+  name          String
+  email         String        @unique
+  password      String
+  refresh_token RefreshToken?
 
   @@map("users")
 }
 
-model Token {
+model RefreshToken {
   id        String @id
-  userId    String
-  expiresIn String
+  expiresIn Int
+  payload   String
 
-  user User @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
 
-  @@map("tokens")
+  @@map("refresh_token")
 }
