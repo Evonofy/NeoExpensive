@@ -1,4 +1,4 @@
-import { BullQueueService } from '@user/services/queue/drivers/Bull';
+import { BullQueueService } from '@user/services/queue/drivers/bull';
 
 const queue = new BullQueueService();
 

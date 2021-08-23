@@ -1,6 +1,18 @@
-import { User, Token } from '@user/entities';
+import { User } from '@user/entities';
+import { MockUsersRepository } from '@user/repositories/drivers/mock';
+import { MockQueueService } from '@user/services/queue/drivers/mock';
+import { CreateUserUseCase } from './CreateUserUseCase';
 
-import { createUserUseCase, CreateUserRequestDTO } from '.';
+import { CreateUserRequestDTO } from '.';
+
+const user = new User(null);
+const usersRepository = new MockUsersRepository();
+const queueService = new MockQueueService();
+const createUserUseCase = new CreateUserUseCase(
+  usersRepository,
+  queueService,
+  user
+);
 
 const createUserDTO: CreateUserRequestDTO = {
   name: 'vitor',
@@ -9,25 +21,6 @@ const createUserDTO: CreateUserRequestDTO = {
 };
 
 describe('Create User', () => {
-  it('should create a token entity', () => {
-    const date = new Date();
-
-    const { userId } = new Token({
-      expiresIn: date,
-      userId: '123'
-    });
-
-    expect(userId).toBe('123');
-  });
-
-  it('should create a user entity', () => {
-    const user = new User(createUserDTO);
-
-    expect(user.name).toBe(createUserDTO.name);
-    expect(user.email).toBe(createUserDTO.email);
-    expect(user.password).toBe(createUserDTO.password);
-  });
-
   it('should create a user', async () => {
     const { user } = await createUserUseCase.execute(createUserDTO);
 

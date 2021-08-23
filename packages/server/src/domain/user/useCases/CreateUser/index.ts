@@ -3,7 +3,7 @@ import { CreateUserUseCase } from './CreateUserUseCase';
 import { CreateUserController } from './CreateUserController';
 
 import { PrismaUsersRepository } from '@user/repositories/drivers/prisma';
-import { BullQueueService } from '@user/services/queue/drivers/Bull';
+import { BullQueueService } from '@user/services/queue/drivers/bull';
 import { prisma } from '@infra/prisma';
 import { User } from '@user/entities';
 
