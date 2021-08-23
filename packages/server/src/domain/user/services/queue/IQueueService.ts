@@ -1,6 +1,6 @@
-import { Name, Options } from './IQueueServiceDTO';
+import { Name, Options, allHandleProps } from './IQueueServiceDTO';
 
 export interface IQueueService {
-  add: (name: Name, data: object, options?: Options) => void;
+  add: (name: Name, data: allHandleProps, options?: Options) => Promise<void>;
   process: () => void;
 }

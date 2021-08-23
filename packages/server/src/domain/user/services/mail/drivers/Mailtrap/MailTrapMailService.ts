@@ -27,7 +27,7 @@ export class MailTrapMailService implements IMailService {
         address: sender.noReply.email
       };
     }
-
+    console.log('e-mail enviado.');
     /* send the e-mail */
     // await this.transporter.sendMail({
     //   to: {

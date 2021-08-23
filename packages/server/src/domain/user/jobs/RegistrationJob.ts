@@ -1,7 +1,16 @@
-export const RegistrationJob = {
+import { BaseJOB, mailService } from './JobDTO';
+
+export const RegistrationJob: BaseJOB = {
   key: 'RegistrationMail',
-  options: {},
-  handle: async () => {
-    console.log('hei');
+  handle: async ({ name, email }) => {
+    await mailService.sendMail({
+      to: {
+        name,
+        email
+      },
+      subject: 'Platform is available!',
+      body: 'Welcome to the platform',
+      isNoReply: false
+    });
   }
 };

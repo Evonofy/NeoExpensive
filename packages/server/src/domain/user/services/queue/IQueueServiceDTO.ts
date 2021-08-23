@@ -9,3 +9,8 @@ export interface Options {
 }
 
 export type Name = Paths<typeof Jobs>;
+
+export interface allHandleProps {
+  name?: string;
+  email?: string;
+}

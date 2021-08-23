@@ -43,17 +43,7 @@ export class CreateUserUseCase {
 
     const { name } = user;
 
-    this.queueService.add('RegistrationMail', {});
-
-    // await this.mailService.sendMail({
-    //   to: {
-    //     name,
-    //     email
-    //   },
-    //   subject: 'Platform is available!',
-    //   body: 'Welcome to the platform',
-    //   isNoReply: false
-    // });
+    await this.queueService.add('RegistrationMail', { name, email });
 
     return {
       user
