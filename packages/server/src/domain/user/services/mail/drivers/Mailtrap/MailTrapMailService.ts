@@ -3,7 +3,7 @@ import config, { sender } from '@infra/mail';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 
-import { IMailService, IMessage } from '@user/services';
+import { IMailService, IMessage } from '@user/services/mail';
 
 export class MailTrapMailService implements IMailService {
   private transporter: Mail;
@@ -29,15 +29,6 @@ export class MailTrapMailService implements IMailService {
     }
 
     /* send the e-mail */
-    console.log({
-      to: {
-        name: to.name,
-        email: to.email
-      },
-      from,
-      subject,
-      html: body
-    });
     // await this.transporter.sendMail({
     //   to: {
     //     name: to.name,

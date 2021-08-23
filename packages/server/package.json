@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "migrate": "prisma db push",
+    "queue": "tsnd --transpile-only --respawn --exit-child --ignore-watch node_modules -r tsconfig-paths/register src/queue.ts",
     "dev": "NODE_ENV=development tsnd --transpile-only --respawn --exit-child --ignore-watch node_modules -r tsconfig-paths/register src/index.ts",
     "test:reset": "prisma migrate reset -f",
     "test:push": "prisma db push",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "@prisma/client": "^2.29.1",
+    "bull": "^3.29.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "nodemailer": "^6.6.3",
@@ -31,6 +33,7 @@
     "@babel/node": "^7.14.9",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-typescript": "^7.15.0",
+    "@types/bull": "^3.15.3",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.6.1",

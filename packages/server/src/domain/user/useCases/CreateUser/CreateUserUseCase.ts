@@ -1,7 +1,8 @@
 import { CreateUserRequestDTO, CreateUserResponseDTO } from './CreateUserDTO';
 import { IUsersRepository } from '@user/repositories';
 
-import { IMailService } from '@user/services';
+import { IMailService } from '@user/services/mail';
+import { IQueueService } from '@user/services/queue';
 
 import { User } from '@user/entities';
 
@@ -9,6 +10,7 @@ export class CreateUserUseCase {
   constructor(
     private usersRepository: IUsersRepository,
     private mailService: IMailService,
+    private queueService: IQueueService,
     private user: User
   ) {}
 
@@ -37,19 +39,21 @@ export class CreateUserUseCase {
 
     const user = new User(data);
 
-    await this.usersRepository.save(user);
+    // await this.usersRepository.save(user);
 
     const { name } = user;
 
-    await this.mailService.sendMail({
-      to: {
-        name,
-        email
-      },
-      subject: 'Platform is available!',
-      body: 'Welcome to the platform',
-      isNoReply: false
-    });
+    this.queueService.add('RegistrationMail', {});
+
+    // await this.mailService.sendMail({
+    //   to: {
+    //     name,
+    //     email
+    //   },
+    //   subject: 'Platform is available!',
+    //   body: 'Welcome to the platform',
+    //   isNoReply: false
+    // });
 
     return {
       user
