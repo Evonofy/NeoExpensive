@@ -14,6 +14,7 @@ import {
 interface queueType {
   bull: Queue.Queue<any>;
   name: Name;
+  options: Options;
   handle: (data: allHandleProps) => Promise<void>;
 }
 
@@ -26,23 +27,28 @@ export class BullQueueService implements IQueueService {
     this.queues = Object.values(jobs).map(job => ({
       bull: new Queue(job.key, url),
       name: job.key,
-      handle: job.handle
+      handle: job.handle,
+      options: job.options
     }));
   }
 
-  async add(name: Name, data: allHandleProps, options: Options) {
+  async add(name: Name, { data }: allHandleProps, options: Options) {
     const queue = this.queues.find(queue => queue.name === name);
 
     if (!queue) {
       throw new Error('Could not find this queue!');
     }
 
-    return queue.bull.add(data);
+    return queue.bull.add(data, options || queue.options);
   }
 
   process() {
     return this.queues.forEach(queue => {
       queue.bull.process(queue.handle);
+
+      queue.bull.on('failed', (job, error) => {
+        console.log(error);
+      });
 
       queue.bull.on('completed', job => {
         const { finishedOn, processedOn, attemptsMade, queue, id } = job;

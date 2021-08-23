@@ -21,8 +21,10 @@ const sender = {
 const config = {
   host,
   port,
-  user,
-  pass
+  auth: {
+    user,
+    pass
+  }
 };
 
 export default config;

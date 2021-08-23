@@ -2,7 +2,8 @@ import { BaseJOB, mailService } from './JobDTO';
 
 export const RegistrationJob: BaseJOB = {
   key: 'RegistrationMail',
-  handle: async ({ name, email }) => {
+  handle: async ({ data }) => {
+    const { name, email } = data;
     await mailService.sendMail({
       to: {
         name,

@@ -1,7 +1,6 @@
 import { CreateUserRequestDTO, CreateUserResponseDTO } from './CreateUserDTO';
 import { IUsersRepository } from '@user/repositories';
 
-import { IMailService } from '@user/services/mail';
 import { IQueueService } from '@user/services/queue';
 
 import { User } from '@user/entities';
@@ -9,7 +8,6 @@ import { User } from '@user/entities';
 export class CreateUserUseCase {
   constructor(
     private usersRepository: IUsersRepository,
-    private mailService: IMailService,
     private queueService: IQueueService,
     private user: User
   ) {}
@@ -35,7 +33,7 @@ export class CreateUserUseCase {
 
     this.validateEmail(email);
 
-    await this.userAlreadyExists(email);
+    // await this.userAlreadyExists(email);
 
     const user = new User(data);
 
@@ -43,7 +41,7 @@ export class CreateUserUseCase {
 
     const { name } = user;
 
-    await this.queueService.add('RegistrationMail', { name, email });
+    this.queueService.add('RegistrationMail', { data: { name, email } });
 
     return {
       user
