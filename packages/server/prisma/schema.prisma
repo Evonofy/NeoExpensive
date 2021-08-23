@@ -18,11 +18,16 @@ model User {
   email      String   @unique
   password   String
   token      Token?
+
+  @@map("users")
 }
 
 model Token {
   id        String @id
   userId    String
   expiresIn String
-  user      User   @relation(fields: [userId], references: [id])
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("tokens")
 }
