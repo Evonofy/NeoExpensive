@@ -1,3 +1,5 @@
+import { Token } from '@user/entities';
+
 export interface CreateUserRequestDTO {
   name: string;
   email: string;
@@ -5,5 +7,6 @@ export interface CreateUserRequestDTO {
 }
 
 export interface CreateUserResponseDTO {
-  user: CreateUserRequestDTO;
+  message: string;
+  token: Token;
 }

@@ -15,6 +15,8 @@ export class CreateUserController implements Controller {
 
       const caseReponse = await this.createUserUseCase.execute(data);
 
+      response.header('Authorization', caseReponse.token.payload);
+
       const { body, statusCode } = ok<CreateUserResponseDTO>(caseReponse);
 
       return response.status(statusCode).json(body);

@@ -1,9 +1,9 @@
 import { CreateUserRequestDTO, CreateUserResponseDTO } from './CreateUserDTO';
-import { IUsersRepository } from '@user/repositories';
 
+import { IUsersRepository } from '@user/repositories';
 import { IQueueService } from '@user/services/queue';
 
-import { User } from '@user/entities';
+import { User, Token } from '@user/entities';
 
 export class CreateUserUseCase {
   constructor(
@@ -29,22 +29,40 @@ export class CreateUserUseCase {
   }
 
   async execute(data: CreateUserRequestDTO): Promise<CreateUserResponseDTO> {
-    const { email } = data;
+    let { name, email, password } = data;
 
+    /* verifies if the e-mail is valid */
     this.validateEmail(email);
 
+    /* chekcs if the user already exists */
     await this.userAlreadyExists(email);
 
-    const user = new User(data);
+    /* create user entity */
+    const user = new User({
+      name,
+      email,
+      password
+    });
 
-    await this.usersRepository.save(user);
+    /* create token entity */
+    const token = new Token({
+      type: 'access',
+      payload: { user },
+      expiresIn: '15m'
+    });
 
-    const { name } = user;
-
-    this.queueService.add('RegistrationMail', { data: { name, email } });
+    /* send an e-mail to the user */
+    this.queueService.add('RegistrationMail', {
+      data: {
+        name,
+        email,
+        token
+      }
+    });
 
     return {
-      user
+      message: 'Activate your account.',
+      token
     };
   }
 }

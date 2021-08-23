@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
-import { Token } from './token';
+import { hashSync } from 'bcrypt';
 
 interface UserProps {
   name: string;
@@ -17,7 +17,6 @@ export class User {
   public name: string;
   public email: string;
   public password: string;
-  public token: Token;
 
   constructor(props: UserProps, id?: string) {
     Object.assign(this, props);
@@ -25,6 +24,9 @@ export class User {
     if (!id) {
       this.id = uuid();
     }
+
+    /* only run hash function if props are different from null */
+    this.password = props !== null && hashSync(this.password, 10);
 
     this.created_at = new Date();
     this.updated_at = new Date();

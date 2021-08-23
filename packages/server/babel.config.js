@@ -15,7 +15,8 @@ module.exports = {
       'module-resolver',
       {
         alias: {
-          '@infra': './src/infra'
+          '@infra': './src/infra',
+          '@user': './src/domain/user'
         }
       }
     ]
