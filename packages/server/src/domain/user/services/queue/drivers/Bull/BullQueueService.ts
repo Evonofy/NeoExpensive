@@ -4,12 +4,17 @@ import { config } from '@infra/redis';
 
 import * as jobs from '@user/jobs';
 
-import { IQueueService, Name, Options } from '@user/services/queue';
+import {
+  IQueueService,
+  Name,
+  Options,
+  allHandleProps
+} from '@user/services/queue';
 
 interface queueType {
   bull: Queue.Queue<any>;
-  name: string;
-  handle: () => Promise<void>;
+  name: Name;
+  handle: (data: allHandleProps) => Promise<void>;
 }
 
 export class BullQueueService implements IQueueService {
@@ -25,7 +30,7 @@ export class BullQueueService implements IQueueService {
     }));
   }
 
-  async add(name: Name, data: object, options: Options) {
+  async add(name: Name, data: allHandleProps, options: Options) {
     const queue = this.queues.find(queue => queue.name === name);
 
     if (!queue) {
