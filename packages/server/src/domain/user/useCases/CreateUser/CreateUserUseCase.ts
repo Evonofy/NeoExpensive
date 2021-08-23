@@ -33,11 +33,11 @@ export class CreateUserUseCase {
 
     this.validateEmail(email);
 
-    // await this.userAlreadyExists(email);
+    await this.userAlreadyExists(email);
 
     const user = new User(data);
 
-    // await this.usersRepository.save(user);
+    await this.usersRepository.save(user);
 
     const { name } = user;
 
