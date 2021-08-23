@@ -1,3 +1,4 @@
+import { Token } from '@user/entities';
 import { Paths } from '@user/types';
 
 import Jobs from './jobs.json';
@@ -14,5 +15,6 @@ export interface allHandleProps {
   data: {
     name?: string;
     email?: string;
+    token?: Token;
   };
 }

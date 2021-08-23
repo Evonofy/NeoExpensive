@@ -1,0 +1,1 @@
+export { RegistrationMailTemplate } from './RegistrationMailTemplate';
