@@ -12,8 +12,8 @@ generator client {
 
 model User {
   id            String        @id
-  created_at    DateTime
-  updated_at    DateTime
+  created_at    Int
+  updated_at    Int
   name          String
   email         String        @unique
   password      String
