@@ -8,7 +8,7 @@ import { IUsersRepository } from '@user/repositories';
 import { User } from '@user/entities';
 import { JwtPayload } from 'jsonwebtoken';
 
-interface Payload extends JwtPayload {
+export interface Payload extends JwtPayload {
   payload: {
     name: string;
     email: string;

@@ -11,7 +11,7 @@
     "migrate": "prisma db push",
     "queue": "tsnd --transpile-only --respawn --exit-child --ignore-watch node_modules -r tsconfig-paths/register src/queue.ts",
     "dev": "NODE_ENV=development tsnd --transpile-only --respawn --exit-child --ignore-watch node_modules -r tsconfig-paths/register src/index.ts",
-    "reset": "prisma migrate reset -f",
+    "reset": "prisma migrate reset -f && prisma db push",
     "push": "prisma db push",
     "test:jest": "jest --detectOpenHandles",
     "test": "npm-run-all test:*",
@@ -21,7 +21,7 @@
     "start": "node build/index.js"
   },
   "dependencies": {
-    "@prisma/client": "^2.29.1",
+    "@prisma/client": "^2.30.0",
     "bcrypt": "^5.0.1",
     "bull": "^3.29.0",
     "dayjs": "^1.10.6",
@@ -48,7 +48,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "dotenv": "^10.0.0",
     "jest": "^27.0.6",
-    "prisma": "^2.29.1",
+    "prisma": "^2.30.0",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.5",
     "ts-node-dev": "^1.1.8",
