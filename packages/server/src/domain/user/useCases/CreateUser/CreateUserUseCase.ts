@@ -2,13 +2,15 @@ import { CreateUserRequestDTO, CreateUserResponseDTO } from './CreateUserDTO';
 
 import { IUsersRepository } from '@user/repositories';
 import { IQueueService } from '@user/services/queue';
+import { ActivateTokenProvider } from '@user/providers';
 
-import { User, Token } from '@user/entities';
+import { User } from '@user/entities';
 
 export class CreateUserUseCase {
   constructor(
     private usersRepository: IUsersRepository,
     private queueService: IQueueService,
+    private activateTokenProvider: ActivateTokenProvider,
     private user: User
   ) {}
 
@@ -34,7 +36,7 @@ export class CreateUserUseCase {
     /* verifies if the e-mail is valid */
     this.validateEmail(email);
 
-    /* chekcs if the user already exists */
+    /* checks if the user already exists */
     await this.userAlreadyExists(email);
 
     /* create user entity */
@@ -45,11 +47,7 @@ export class CreateUserUseCase {
     });
 
     /* create token entity */
-    const token = new Token({
-      type: 'access',
-      payload: { user },
-      expiresIn: '15m'
-    });
+    const token = await this.activateTokenProvider.execute(user, user.id);
 
     /* send an e-mail to the user */
     this.queueService.add('RegistrationMail', {
@@ -61,8 +59,9 @@ export class CreateUserUseCase {
     });
 
     return {
-      message: 'Activate your account.',
-      token
+      message:
+        'Just 1 step for full account activation. Activate your account with the token below.',
+      activate_token: token
     };
   }
 }

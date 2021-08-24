@@ -8,6 +8,12 @@ interface UserProps {
   password: string;
 }
 
+interface Options {
+  id?: string;
+  created_at?: Date;
+  isHashed?: boolean;
+}
+
 export class User {
   public readonly id: string;
 
@@ -18,18 +24,28 @@ export class User {
   public email: string;
   public password: string;
 
-  constructor(props: UserProps, id?: string) {
+  constructor(props: UserProps, { id, created_at, isHashed }: Options = {}) {
     Object.assign(this, props);
 
     if (!id) {
       this.id = uuid();
     }
 
-    /* only run hash function if props are different from null */
-    this.password = props !== null && hashSync(this.password, 10);
+    if (!created_at) {
+      this.created_at = new Date();
+    }
 
-    this.created_at = new Date();
+    this.id = id;
+    this.created_at = created_at;
+
     this.updated_at = new Date();
+
+    if (isHashed) {
+      this.password = props.password;
+    } else {
+      /* only run hash function if props are different from null */
+      this.password = props !== null && hashSync(this.password, 10);
+    }
   }
 
   public isValidEmail(email: string) {

@@ -4,6 +4,7 @@ import { CreateUserController } from './CreateUserController';
 
 import { PrismaUsersRepository } from '@user/repositories/drivers/prisma';
 import { BullQueueService } from '@user/services/queue/drivers/bull';
+import { ActivateTokenProvider } from '@user/providers';
 import { prisma } from '@infra/prisma';
 import { User } from '@user/entities';
 
@@ -13,6 +14,8 @@ const user = new User(null);
 /* creates an instance of the queue service */
 const queueService = new BullQueueService();
 
+const accessTokenProvider = new ActivateTokenProvider();
+
 /** creates an instance of the user repository */
 const usersRepository = new PrismaUsersRepository(prisma);
 
@@ -20,6 +23,7 @@ const usersRepository = new PrismaUsersRepository(prisma);
 const createUserUseCase = new CreateUserUseCase(
   usersRepository,
   queueService,
+  accessTokenProvider,
   user
 );
 
