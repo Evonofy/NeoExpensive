@@ -12,6 +12,12 @@ export class MockUsersRepository implements IUsersRepository {
     return user;
   }
 
+  async findById(id: string): Promise<UserResponse> {
+    const user = this.users.find(user => user.id === id);
+
+    return user;
+  }
+
   async save(user: UserRequest): Promise<void> {
     this.users.push(user);
   }
