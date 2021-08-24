@@ -23,6 +23,7 @@ export class User {
   public name: string;
   public email: string;
   public password: string;
+  public username: string;
 
   constructor(props: UserProps, { id, created_at, isHashed }: Options = {}) {
     Object.assign(this, props);
@@ -39,6 +40,7 @@ export class User {
       this.created_at = Number(created_at);
     }
 
+    this.username = `${this.name}#${this.randomNumber(4)}`;
     this.updated_at = Number(new Date().getTime());
 
     if (isHashed) {
@@ -47,6 +49,16 @@ export class User {
       /* only run hash function if props are different from null */
       this.password = props !== null && hashSync(this.password, 10);
     }
+  }
+
+  public randomNumber(numberLength: 1 | 2 | 3 | 4) {
+    const chars = '0123456789';
+
+    const number = [...Array(numberLength)]
+      .map(i => chars[Math.floor(Math.random() * chars.length)])
+      .join('');
+
+    return number;
   }
 
   public isValidEmail(email: string) {

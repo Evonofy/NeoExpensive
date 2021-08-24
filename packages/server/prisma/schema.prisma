@@ -16,6 +16,7 @@ model User {
   updated_at    Int
   name          String
   email         String        @unique
+  username      String        @unique
   password      String
   refresh_token RefreshToken?
 

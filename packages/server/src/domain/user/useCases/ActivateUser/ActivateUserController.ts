@@ -18,6 +18,8 @@ export class ActivateUserController implements Controller {
 
       const caseResponse = await this.activateUserUseCase.execute(data);
 
+      response.header('Authorization', caseResponse.access_token);
+
       const { body, statusCode } = ok<ActivateUserResponseDTO>(caseResponse);
 
       return response.status(statusCode).json(body);
