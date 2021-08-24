@@ -12,7 +12,7 @@ export function ok<T>(DTO: T): HttpResponse {
 
 export function created<T>(DTO: T): HttpResponse {
   return {
-    statusCode: 200,
+    statusCode: 201,
     body: DTO
   };
 }
@@ -30,6 +30,7 @@ export function unauthorized(error: Error): HttpResponse {
   return {
     statusCode: 401,
     body: {
+      name: error.name,
       error: error.message
     }
   };

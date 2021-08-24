@@ -18,6 +18,7 @@ export const ErrorMiddleware = (
   }
 
   return response.status(status).json({
+    name: error.name,
     message: error.message
   });
 };
