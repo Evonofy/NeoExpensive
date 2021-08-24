@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
 import { Controller } from '@infra/http/interface/Controller';
-import { ok, clientError } from '@infra/http/interface/HttpResponse';
+import { created, clientError } from '@infra/http/interface/HttpResponse';
 
 import { CreateUserRequestDTO, CreateUserResponseDTO } from './CreateUserDTO';
 import { CreateUserUseCase } from './CreateUserUseCase';
@@ -17,7 +17,7 @@ export class CreateUserController implements Controller {
 
       response.header('Authorization', caseReponse.activate_token);
 
-      const { body, statusCode } = ok<CreateUserResponseDTO>(caseReponse);
+      const { body, statusCode } = created<CreateUserResponseDTO>(caseReponse);
 
       return response.status(statusCode).json(body);
     } catch (error) {
