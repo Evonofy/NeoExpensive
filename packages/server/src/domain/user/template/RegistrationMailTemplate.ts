@@ -12,7 +12,7 @@ export const RegistrationMailTemplate = ({
       <h1>Hello ${name}, you're one step from entering our platform!</h1>
       <p>Please, click this link to verify your account!</p>
       <button>
-        <a>${token}</a>
+        <a href="${process.env.API_URL}">verify</a>
       </button>
     </div>
   `;
