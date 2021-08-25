@@ -5,7 +5,10 @@ import {
 
 import { AccessTokenProvider, ActivateTokenProvider } from '@user/providers';
 import { IUsersRepository } from '@user/repositories';
+import { IQueueService } from '@user/services/queue';
+
 import { User } from '@user/entities';
+
 import { JwtPayload } from 'jsonwebtoken';
 
 export interface Payload extends JwtPayload {
@@ -21,9 +24,10 @@ export interface Payload extends JwtPayload {
 
 export class ActivateUserUseCase {
   constructor(
+    private usersRepository: IUsersRepository,
     private activateTokenProvider: ActivateTokenProvider,
     private accessTokenProvider: AccessTokenProvider,
-    private usersRepository: IUsersRepository
+    private queueService: IQueueService
   ) {}
 
   getAuthHeader(data: string) {
@@ -48,7 +52,6 @@ export class ActivateUserUseCase {
     /* checks if the token has the correct signature */
     const { payload } = this.activateTokenProvider.validate(token) as Payload;
     let { id, created_at, ...rest } = payload;
-
     delete payload.updated_at;
 
     const userAlreadyExists = await this.usersRepository.findById(id);
@@ -68,6 +71,13 @@ export class ActivateUserUseCase {
     delete user.password;
 
     const { accessToken } = await this.accessTokenProvider.execute({ id });
+
+    this.queueService.add('ActivationMail', {
+      data: {
+        name: user.name,
+        email: user.email
+      }
+    });
 
     return {
       message: 'Your account was fully activated!',
