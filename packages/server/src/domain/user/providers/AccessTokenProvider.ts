@@ -18,7 +18,7 @@ export class AccessTokenProvider {
 
       return validatedToken;
     } catch (error) {
-      throw new Error('This activate user account token is not valid.');
+      throw new Error('This access user account token is not valid.');
     }
   }
 }
