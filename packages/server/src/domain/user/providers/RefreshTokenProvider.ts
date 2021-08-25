@@ -5,7 +5,7 @@ import { prisma } from '@infra/prisma';
 
 export class RefreshTokenProvider {
   async execute(userId: string) {
-    const expiresIn = dayjs().add(15, 'minute').unix();
+    const expiresIn = dayjs().add(7, 'days').unix();
 
     const refreshToken = await prisma.refreshToken.create({
       data: {
