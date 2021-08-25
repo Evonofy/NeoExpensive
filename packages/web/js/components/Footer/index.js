@@ -334,6 +334,10 @@ class Footer extends HTMLElement {
       }
 
       @media (max-width: 400px) {
+        #footer-body section:not(.icons) {
+          padding: 0;
+        }
+
         footer #footer-body {
           justify-content: space-between; 
           align-items: start;
