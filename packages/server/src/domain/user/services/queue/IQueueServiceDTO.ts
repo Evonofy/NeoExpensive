@@ -1,7 +1,4 @@
-import { Token } from '@user/entities';
-import { Paths } from '@user/types';
-
-import Jobs from './jobs.json';
+import { jobs } from './jobs';
 
 export interface Options {
   attemps: number;
@@ -9,12 +6,12 @@ export interface Options {
   priority: number;
 }
 
-export type Name = Paths<typeof Jobs>;
+export type Name = jobs;
 
 export interface allHandleProps {
   data: {
     name?: string;
     email?: string;
-    token?: Token;
+    token?: string;
   };
 }
