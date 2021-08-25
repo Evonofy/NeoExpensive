@@ -11,8 +11,11 @@ export class AuthUserController implements Controller {
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {
-      const data: AuthUserRequestDTO = request.body;
+      let data: AuthUserRequestDTO = request.body;
 
+      const token = request.headers['authorization'];
+
+      data = { ...data, token };
       const caseResponse = await this.authUserUseCase.execute(data);
 
       const { body, statusCode } = ok<AuthUserResponseDTO>(caseResponse);

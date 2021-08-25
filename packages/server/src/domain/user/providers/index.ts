@@ -1,3 +1,3 @@
-export { GenerateRefreshToken } from './GenerateRefreshToken';
+export { RefreshTokenProvider } from './RefreshTokenProvider';
 export { AccessTokenProvider } from './AccessTokenProvider';
 export { ActivateTokenProvider } from './ActivateTokenProvider';
