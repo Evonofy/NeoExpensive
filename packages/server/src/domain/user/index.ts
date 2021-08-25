@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { createUserController } from './useCases/CreateUser';
 import { activateUserController } from './useCases/ActivateUser';
 import { authUserController } from './useCases/AuthUser';
+import { refreshUserTokenController } from './useCases/RefreshUserToken';
 
 /* export all the drivers from here */
 
@@ -17,5 +18,9 @@ export const user = {
 
   login: async (request: Request, response: Response) => {
     return authUserController.handle(request, response);
+  },
+
+  refreshToken: async (request: Request, response: Response) => {
+    return refreshUserTokenController.handle(request, response);
   }
 };

@@ -67,14 +67,11 @@ export class ActivateUserUseCase {
     await this.usersRepository.save(user);
     delete user.password;
 
-    const access_token = await this.accessTokenProvider.execute(
-      { id },
-      user.id
-    );
+    const { accessToken } = await this.accessTokenProvider.execute({ id });
 
     return {
       message: 'Your account was fully activated!',
-      access_token,
+      accessToken,
       user
     };
   }

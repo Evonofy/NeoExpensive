@@ -7,5 +7,5 @@ export type ActivateUserRequestDTO = string;
 export interface ActivateUserResponseDTO extends BaseResponse {
   message: string;
   user: User;
-  access_token: string;
+  accessToken: string;
 }
