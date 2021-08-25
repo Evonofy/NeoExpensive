@@ -5,5 +5,5 @@ import {
 
 export interface IRefreshTokenRepository {
   find: (id: RefreshTokenRequest) => Promise<RefreshTokenResponse>;
-  clean: () => Promise<void>;
+  clean: (userId: string) => Promise<void>;
 }

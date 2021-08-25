@@ -75,7 +75,7 @@ export class AuthUserUseCase {
     }
 
     /* delete all refresh tokens */
-    await this.refreshTokenRepository.clean();
+    await this.refreshTokenRepository.clean(user.id);
 
     if (!user) {
       throw new Error('Wrong credentials.');

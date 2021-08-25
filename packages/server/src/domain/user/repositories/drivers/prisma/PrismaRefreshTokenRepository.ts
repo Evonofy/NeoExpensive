@@ -19,7 +19,11 @@ export class PrismaRefreshTokenRepository implements IRefreshTokenRepository {
     return refreshToken;
   }
 
-  async clean(): Promise<void> {
-    await this.prismaClient.refreshToken.deleteMany();
+  async clean(userId: string): Promise<void> {
+    await this.prismaClient.refreshToken.deleteMany({
+      where: {
+        userId
+      }
+    });
   }
 }
