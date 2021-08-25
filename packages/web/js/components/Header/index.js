@@ -351,20 +351,19 @@ class HeaderNavbar extends HTMLElement {
 
       
       #menu #hamburger input:checked ~ span:nth-child(2) {
-        transform: translate(0, 8px);
-        border-radius: 1rem;
-        height: 1px;
+        transform: translate(0, 4px);
+      }
+
+      #menu #hamburger input:checked ~ span:nth-child(3) {
+        margin: 0;
       }
       
       #menu #hamburger input:checked ~ span:nth-child(4) {
-        transform: translate(0, -8px);
-        border-radius: 1rem;
-        height: 1px;
+        transform: translate(0, -4px);
       }
 
       #menu #hamburger menu ul {
         transform: translate(-300%, 60%);
-        width: 150px;
         transition: var(--transition);
         position: absolute;
         background: var(--header-bg);
