@@ -276,7 +276,7 @@ class HeaderNavbar extends HTMLElement {
       header {
         z-index: 1;
         width: 100%;
-        overflow: hidden;
+        
       }
 
       #menu {
@@ -286,6 +286,7 @@ class HeaderNavbar extends HTMLElement {
         display: flex;
         justify-content: space-around;
         padding: 0.6rem;
+        
       }
 
       div#menu div#hamburger {
