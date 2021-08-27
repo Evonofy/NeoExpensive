@@ -21,6 +21,8 @@ class HeaderNavbar extends HTMLElement {
 
     const neo = shadow.querySelector('#x');
 
+
+
     neo.addEventListener('click', event => {
       event.preventDefault();
       theme.cycleTheme();
@@ -274,6 +276,7 @@ class HeaderNavbar extends HTMLElement {
       header {
         z-index: 1;
         width: 100%;
+        overflow: hidden;
       }
 
       #menu {
@@ -774,3 +777,5 @@ class HeaderNavbar extends HTMLElement {
 }
 
 customElements.define('header-navbar', HeaderNavbar);
+
+
