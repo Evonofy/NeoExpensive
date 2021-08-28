@@ -114,3 +114,8 @@ main {
   margin-bottom: 1.5rem;
 } 
 
+#the-team{
+  width: 100%;
+  height: 30rem;
+  background-color: var(--dark-800);
+}
