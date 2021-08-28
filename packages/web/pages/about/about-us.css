@@ -14,7 +14,7 @@ main {
 
 #banner {
   width: 100%;
-  height: 100vh;
+  height: 46rem;
 
   background: linear-gradient(-45deg, var(--dark-900), var(--dark-800), var(--dark-750), var(--dark-700));
   
@@ -100,17 +100,22 @@ main {
 }
 
 .about-titles{
-  font-size: clamp(0.1rem, 1.3rem + 1vw, 1.7rem);
-  font-family: var(--ff-source-sans-pro);
+  font-size: clamp(0.1rem, 1.3rem + 1vw, 2.2rem);
+  font-family: var(--ff-josefin-sans);
   margin: 1rem 0rem;
 }
 
 #about-us-text{
-  
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: 300;
-  font-family: var(--ff-source-sans-pro);
+  font-size: clamp(1rem, 2vw, 1.7rem);
+  font-weight: 500;
+  font-family: var(--ff-cormorant-garamond);
+  letter-spacing: 1.5px;
 
   margin-bottom: 1.5rem;
 } 
 
+#the-team{
+  width: 100%;
+  height: 30rem;
+  background-color: var(--dark-800);
+}
