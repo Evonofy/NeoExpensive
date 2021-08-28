@@ -13,7 +13,6 @@ export class MockUsersRepository implements IUsersRepository {
   }
 
   async findById(id: string): Promise<UserResponse> {
-    console.log(this.users);
     const user = this.users.find(user => user.id === id);
 
     return user;
@@ -23,12 +22,13 @@ export class MockUsersRepository implements IUsersRepository {
     type: 'email' | 'username',
     login: string
   ): Promise<UserResponse> {
-    console.log(this.users);
     let user: UserResponse;
 
     user = this.users.find(user => user.email === login);
 
-    user = !!user === false && this.users.find(user => user.username === login);
+    if (!!user === false) {
+      user = this.users.find(user => user.username === login);
+    }
 
     return user;
   }
