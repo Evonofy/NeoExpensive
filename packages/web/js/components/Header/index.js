@@ -462,6 +462,7 @@ class HeaderNavbar extends HTMLElement {
         display: flex;
         align-items: center;
         color: var(--link);
+        font-size: var(--paragraph);
         text-transform: uppercase;
         transition: var(--transition);
       }
