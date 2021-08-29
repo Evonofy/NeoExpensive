@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import dayjs from 'dayjs';
 
 import { sign, verify } from 'jsonwebtoken';
