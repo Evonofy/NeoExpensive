@@ -12,7 +12,7 @@ import { prisma } from '@infra/prisma';
 const user = new User(null);
 const usersRepository = new PrismaUsersRepository(prisma);
 const refreshTokenRepository = new PrismaRefreshTokenRepository(prisma);
-const refreshTokenProvider = new RefreshTokenProvider();
+const refreshTokenProvider = new RefreshTokenProvider(refreshTokenRepository);
 const accessTokenProvider = new AccessTokenProvider();
 
 const authUserUseCase = new AuthUserUseCase(
