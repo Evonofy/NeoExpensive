@@ -1,8 +1,15 @@
 import { Name, Options, allHandleProps } from '@user/services/queue';
 
 /* Job configuration */
-import { MailTrapMailService } from '@user/services/mail/drivers/mailtrap';
-const mailService = new MailTrapMailService();
+import { IMailService } from '@user/services/mail';
+let mailService: IMailService;
+export class JobConfig {
+  constructor(private mailService: IMailService) {}
+
+  async execute() {
+    mailService = this.mailService;
+  }
+}
 
 export { mailService };
 

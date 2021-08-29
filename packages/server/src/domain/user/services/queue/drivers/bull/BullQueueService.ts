@@ -11,6 +11,9 @@ import {
   allHandleProps
 } from '@user/services/queue';
 
+import { IMailService } from '@user/services/mail';
+import { JobConfig } from '@user/jobs/JobDTO';
+
 interface queueType {
   bull: Queue.Queue<any>;
   name: Name;
@@ -21,7 +24,9 @@ interface queueType {
 export class BullQueueService implements IQueueService {
   private queues: queueType[];
 
-  constructor() {
+  constructor(private mailService: IMailService) {
+    new JobConfig(this.mailService);
+
     const { url } = config;
 
     this.queues = Object.values(jobs).map(job => ({
