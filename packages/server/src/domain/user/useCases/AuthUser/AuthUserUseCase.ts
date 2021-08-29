@@ -48,6 +48,10 @@ export class AuthUserUseCase {
     /* login via email & username */
     const loginUser = await this.userExists(login);
 
+    if (!loginUser) {
+      throw new Error('Wrong credentials.');
+    }
+
     const comparePassword = await this.user.comparePassword(
       password,
       loginUser.password
