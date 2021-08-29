@@ -1,17 +1,22 @@
 import { User } from '@user/entities';
 
 import { MockUsersRepository } from '@user/repositories/drivers/mock';
+import { MockQueueService } from '@user/services/queue/drivers/mock';
 import { ActivateTokenProvider, AccessTokenProvider } from '@user/providers';
 import { ActivateUserUseCase } from './ActivateUserUseCase';
 import { ActivateUserRequestDTO } from './ActivateUserDTO';
+import { MockMailService } from '@user/services/mail/drivers/mock';
 
+const mailService = new MockMailService();
 const usersRepository = new MockUsersRepository();
 const activateTokenProvider = new ActivateTokenProvider();
 const accessTokenProvider = new AccessTokenProvider();
+const queueService = new MockQueueService(mailService);
 const activateUserUseCase = new ActivateUserUseCase(
+  usersRepository,
   activateTokenProvider,
   accessTokenProvider,
-  usersRepository
+  queueService
 );
 
 const userMock = new User({
@@ -51,12 +56,12 @@ describe('Activate User', () => {
   it('should activate a user account', async () => {
     const { activateUserDTO } = await getUser();
 
-    const { message, access_token, user } = await activateUserUseCase.execute(
+    const { message, accessToken, user } = await activateUserUseCase.execute(
       `Bearer ${activateUserDTO}`
     );
 
     expect(message).toBe('Your account was fully activated!');
-    expect(typeof access_token).toBe('string');
+    expect(typeof accessToken).toBe('string');
 
     expect(user.id).toBe(userMock.id);
     expect(user.name).toBe(userMock.name);
