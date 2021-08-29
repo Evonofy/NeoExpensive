@@ -4,6 +4,7 @@ import {
 } from './IRefreshTokenRepositoryDTO';
 
 export interface IRefreshTokenRepository {
-  find: (id: RefreshTokenRequest) => Promise<RefreshTokenResponse>;
+  create: (refreshToken: RefreshTokenRequest) => Promise<RefreshTokenResponse>;
+  find: (id: string) => Promise<RefreshTokenResponse>;
   clean: (userId: string) => Promise<void>;
 }

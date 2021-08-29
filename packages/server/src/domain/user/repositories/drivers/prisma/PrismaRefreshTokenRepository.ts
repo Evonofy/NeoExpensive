@@ -9,7 +9,19 @@ import { IRefreshTokenRepository } from '@user/repositories';
 export class PrismaRefreshTokenRepository implements IRefreshTokenRepository {
   constructor(private prismaClient: PrismaClient) {}
 
-  async find(id: RefreshTokenRequest): Promise<RefreshTokenResponse> {
+  async create({
+    ...rest
+  }: RefreshTokenRequest): Promise<RefreshTokenResponse> {
+    const refreshToken = await this.prismaClient.refreshToken.create({
+      data: {
+        ...rest
+      }
+    });
+
+    return refreshToken;
+  }
+
+  async find(id: string): Promise<RefreshTokenResponse> {
     const refreshToken = await this.prismaClient.refreshToken.findUnique({
       where: {
         id
