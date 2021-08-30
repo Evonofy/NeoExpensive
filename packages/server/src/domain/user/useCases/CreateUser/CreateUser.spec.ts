@@ -3,15 +3,13 @@ import { MockUsersRepository } from '@user/repositories/drivers/mock';
 import { MockQueueService } from '@user/services/queue/drivers/mock';
 import { ActivateTokenProvider } from '@user/providers';
 import { CreateUserUseCase } from './CreateUserUseCase';
-import { MockMailService } from '@user/services/mail/drivers/mock';
 
 import { CreateUserRequestDTO } from '.';
 import { Payload } from '../ActivateUser/ActivateUserUseCase';
 
 const user = new User(null);
-const mailService = new MockMailService();
 const usersRepository = new MockUsersRepository();
-const queueService = new MockQueueService(mailService);
+const queueService = new MockQueueService();
 const activateTokenProvider = new ActivateTokenProvider();
 const createUserUseCase = new CreateUserUseCase(
   usersRepository,
