@@ -47,7 +47,15 @@ export class ActivateUserUseCase {
   async execute(
     data: ActivateUserRequestDTO
   ): Promise<ActivateUserResponseDTO> {
-    const token = this.getAuthHeader(data);
+    const { header, query } = data;
+
+    let token = '';
+
+    if (!!query === true) {
+      token = query;
+    } else {
+      token = this.getAuthHeader(header);
+    }
 
     /* checks if the token has the correct signature */
     const { payload } = this.activateTokenProvider.validate(token) as Payload;

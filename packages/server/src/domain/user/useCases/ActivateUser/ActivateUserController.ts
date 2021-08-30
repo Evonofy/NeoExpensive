@@ -3,10 +3,7 @@ import { Request, Response } from 'express';
 import { Controller } from '@infra/http/interface/Controller';
 import { ok, clientError } from '@infra/http/interface/HttpResponse';
 
-import {
-  ActivateUserRequestDTO,
-  ActivateUserResponseDTO
-} from './ActivateUserDTO';
+import { ActivateUserResponseDTO } from './ActivateUserDTO';
 import { ActivateUserUseCase } from './ActivateUserUseCase';
 
 export class ActivateUserController implements Controller {
@@ -14,11 +11,15 @@ export class ActivateUserController implements Controller {
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {
-      const data: ActivateUserRequestDTO = request.headers['authorization'];
+      const header: string = request.headers['authorization'];
+      const query = request.query.token;
 
-      const caseResponse = await this.activateUserUseCase.execute(data);
+      const caseResponse = await this.activateUserUseCase.execute({
+        query: query.toString(),
+        header
+      });
 
-      response.header('Authorization', caseResponse.access_token);
+      response.header('Authorization', caseResponse.accessToken);
 
       const { body, statusCode } = ok<ActivateUserResponseDTO>(caseResponse);
 
