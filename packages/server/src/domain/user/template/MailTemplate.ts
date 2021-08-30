@@ -28,6 +28,7 @@ export const BaseMailTemplate = (email: string, { icon }: iconsProps) => {
           `;
       break;
   }
+  console.log(process.env.APP_URL);
   return `
     <style>
       * {
@@ -67,6 +68,12 @@ export const BaseMailTemplate = (email: string, { icon }: iconsProps) => {
         padding: 1rem;
       }
 
+      nav a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
       nav img {
         width: 30%;
         transition: all 200ms;
@@ -104,6 +111,7 @@ export const BaseMailTemplate = (email: string, { icon }: iconsProps) => {
       }
 
       p {
+        text-align: center;
         color: #dedede;
         font-weight: lighter;
         margin: 0.6rem 0;
@@ -111,6 +119,7 @@ export const BaseMailTemplate = (email: string, { icon }: iconsProps) => {
       }
 
       button {
+        cursor: pointer;
         outline: 0;
         border: 0;
         border-radius: 6px;
@@ -119,6 +128,11 @@ export const BaseMailTemplate = (email: string, { icon }: iconsProps) => {
         font-weight: bold;
         background: #8B46A3;
         padding: 0.6rem 2rem;
+        transition: all 200ms;
+      }
+
+      button:hover {
+        filter: brightness(130%);
       }
 
       @media (max-width: 500px) {
@@ -129,7 +143,9 @@ export const BaseMailTemplate = (email: string, { icon }: iconsProps) => {
     </style>
     <main>
       <nav>
-        <img src="https://raw.githubusercontent.com/AtomicFeasT/neo-expensive/main/packages/web/images/evo-logo.svg" />
+        <a href=${process.env.APP_URL}>
+          <img src="https://raw.githubusercontent.com/AtomicFeasT/neo-expensive/main/packages/web/images/evo-logo.svg" />
+        </a>
       </nav>
 
       <section>
