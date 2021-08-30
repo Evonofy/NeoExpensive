@@ -28,7 +28,6 @@ export const BaseMailTemplate = (email: string, { icon }: iconsProps) => {
           `;
       break;
   }
-  console.log(process.env.APP_URL);
   return `
     <style>
       * {
