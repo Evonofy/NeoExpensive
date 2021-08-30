@@ -1,3 +1,5 @@
+import { BaseMailTemplate } from './MailTemplate';
+
 interface RegistrationMailProps {
   name: string;
   token: string;
@@ -8,12 +10,19 @@ export const RegistrationMailTemplate = ({
   token
 }: RegistrationMailProps) => {
   return `
-    <div>
-      <h1>Hello ${name}, you're one step from entering our platform!</h1>
-      <p>Please, click this link to verify your account!</p>
-      <button>
-        <a href="${process.env.API_URL}">verify</a>
-      </button>
-    </div>
+    ${BaseMailTemplate(
+      `
+        <h1>Hello ${name}!</h1>
+        <p>
+          You're one step from <strong>full</strong> account activation and Neo Expensive platform access!
+        </p>
+        <button>
+          <a href="${process.env.API_URL}/user/activate?token=${token}">Activate</a>
+        </button>
+      `,
+      {
+        icon: 'alert'
+      }
+    )}
   `;
 };

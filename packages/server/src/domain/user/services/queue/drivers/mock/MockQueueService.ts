@@ -7,9 +7,6 @@ import {
 
 import * as jobs from '@user/jobs';
 
-import { IMailService } from '@user/services/mail';
-import { JobConfig } from '@user/jobs/JobDTO';
-
 interface QueueProps {
   name: Name;
 }
@@ -17,9 +14,7 @@ interface QueueProps {
 export class MockQueueService implements IQueueService {
   private queues: QueueProps[] = [];
 
-  constructor(private mailService: IMailService) {
-    new JobConfig(this.mailService);
-
+  constructor() {
     this.queues = Object.values(jobs).map(job => ({
       name: job.key
     }));
