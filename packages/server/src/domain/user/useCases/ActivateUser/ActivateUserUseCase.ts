@@ -51,8 +51,8 @@ export class ActivateUserUseCase {
 
     let token = '';
 
-    if (!!query === true) {
-      token = query;
+    if (!!query.token === true) {
+      token = query.token as string;
     } else {
       token = this.getAuthHeader(header);
     }

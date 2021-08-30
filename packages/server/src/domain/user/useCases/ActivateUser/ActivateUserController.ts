@@ -11,11 +11,11 @@ export class ActivateUserController implements Controller {
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {
-      const header: string = request.headers['authorization'];
-      const query = request.query.token;
+      const header = request.headers['authorization'];
+      const query = request.query;
 
       const caseResponse = await this.activateUserUseCase.execute({
-        query: query.toString(),
+        query,
         header
       });
 
