@@ -15,7 +15,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: var(--spacing-4);
+  /* use flexible units */
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {

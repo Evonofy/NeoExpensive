@@ -10,6 +10,9 @@
 html {
   width: 100vw;
   height: 100vh;
+
+  /* REM */
+  font-size: clamp(0.5rem, 0.3889rem + 0.8889vw, 1.5rem);
 }
 
 body {
