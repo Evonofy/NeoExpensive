@@ -55,7 +55,7 @@ export const init_i18n = () => {
     .init({
       detection: DETECTION_OPTIONS,
       fallbackLng: 'en',
-      debug: !__prod__,
+      debug: false,
       interpolation: {
         escapeValue: false,
         format: (value, format, lng) => {
