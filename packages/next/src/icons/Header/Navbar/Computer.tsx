@@ -9,6 +9,12 @@ export const SVGComputer: FC<IconProps & RefAttributes<SVGSVGElement>> = ({
   weight = 'light'
 }): JSX.Element => {
   return (
-    <DesktopTower width={width} height={height} color={color} weight={weight} />
+    <DesktopTower
+      data-icon="computer"
+      width={width}
+      height={height}
+      color={color}
+      weight={weight}
+    />
   );
 };

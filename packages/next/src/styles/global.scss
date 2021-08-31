@@ -28,4 +28,54 @@ body {
 
 a {
   text-decoration: none;
+
+  &:focus {
+    outline: 0;
+    border: 0;
+
+    svg {
+      *:not(rect:first-of-type) {
+        stroke: var(--accent);
+      }
+
+      &[data-icon="neo"] {
+        *:not(rect) {
+          stroke: none;
+        }
+
+        .x {
+          fill: red;
+        }
+      }
+
+      &[data-icon="computer"] {
+        circle:last-child {
+          stroke: transparent;
+          fill: var(--accent);
+        }
+      }
+
+      &[data-icon="facebook"] {
+        *:not(rect) {
+          stroke: var(--facebook);
+        }
+      }
+
+      &[data-icon="twitter"] {
+        *:not(rect) {
+          stroke: var(--twitter);
+        }
+      }
+  
+      &[data-icon="instagram"] {
+        :is(circle:last-child) {
+          fill: var(--instagram) !important;
+        }
+
+        *:not(rect:first-child) {
+          stroke: var(--instagram);
+        }
+      }
+    }
+  }
 }
