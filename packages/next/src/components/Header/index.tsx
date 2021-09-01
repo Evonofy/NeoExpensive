@@ -7,10 +7,15 @@ import {
   SVGNeoExpensive,
   SVGSearch,
   SVGUser,
-  SVGCart
+  SVGCart,
+  SVGComputer,
+  SVGController,
+  SVGUserAdd,
+  SVGUsers
 } from '@icons';
 import { Link } from '@components';
-import { Navbar } from './Navbar';
+import { Navbar, NavbarItem } from './Navbar';
+import { Dropdown, DropdownItem } from './Navbar/Dropdown';
 
 import pages from './pages.json';
 
@@ -51,7 +56,16 @@ export const Header: FC = () => {
         </div>
       </div>
 
-      <Navbar pages={pages} />
+      <Navbar>
+        <ul>
+          <NavbarItem title="Informática" icon={SVGComputer}>
+            <Dropdown>a</Dropdown>
+          </NavbarItem>
+          <NavbarItem title="Informática" icon={SVGComputer} />
+          <NavbarItem title="Informática" icon={SVGComputer} />
+          <NavbarItem title="Informática" icon={SVGComputer} />
+        </ul>
+      </Navbar>
     </header>
   );
 };

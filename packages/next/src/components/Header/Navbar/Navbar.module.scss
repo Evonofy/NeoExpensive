@@ -12,6 +12,12 @@
 
 .navbarItem {
   position: relative;
+
+  &:hover {
+    .dropdownContainer {
+      top: 0;
+    }
+  }
   
   a {
     padding: var(--spacing-7) var(--spacing-4);

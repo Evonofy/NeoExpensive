@@ -5,12 +5,25 @@ interface LinkProps {
   url: string;
   name: string;
   children: ReactNode;
+  className?: string;
+  onClick?: () => void;
+  onMouseOver?: () => void;
+  onMouseLeave?: () => void;
 }
 
-export const Link: FC<LinkProps> = ({ url, name, children }): JSX.Element => {
+export const Link: FC<LinkProps> = ({
+  url,
+  name,
+  children,
+  ...rest
+}): JSX.Element => {
   return (
     <Anchor href={url}>
-      <a aria-label={name.replace(' ', '-')} rel="noopener noreferrer">
+      <a
+        {...rest}
+        aria-label={name.replace(' ', '-')}
+        rel="noopener noreferrer"
+      >
         {children}
       </a>
     </Anchor>

@@ -2,7 +2,21 @@
   {
     "id": 1,
     "name": "informática",
-    "url": "info"
+    "url": "info",
+    "dropdown": [
+      {
+        "id": 0,
+        "title": "xbox"
+      },
+      {
+        "id": 1,
+        "title": "playstation"
+      },
+      {
+        "id": 2,
+        "title": "nintendo"
+      }
+    ]
   },
   {
     "id": 2,
