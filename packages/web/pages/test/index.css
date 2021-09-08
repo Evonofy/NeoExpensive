@@ -64,6 +64,7 @@
 /* ### */
 /* ### */
 .nav{
+  margin-bottom: auto; /* Fixes nav in the header (Same goes for footer but margin-top) Ps. Needs min-height: 100vh */
   background: var(--nav-bg);
   
   border-bottom: 5px solid var(--accent);
