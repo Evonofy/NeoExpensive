@@ -1,14 +1,14 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&family=Source+Sans+Pro:ital,wght@0,400;1,300;1,400&family=Source+Code+Pro:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@300;400;700&display=swap');
-
-/* Themes */
+/* 
+Themes
 @import url("./themes/light.css");
 @import url("./themes/dark.css");
 @import url("./themes/rgb.css");
 
-/* Animations */
+Animations
 @import url('./animations/RGBBorder.css');
-@import url('./animations/RGBFill.css');
+@import url('./animations/RGBFill.css'); */
 @import url('../../css/animations/dropdown.css');
 
 :root {
@@ -117,6 +117,8 @@ path{
 }
 
 svg{
+  flex-shrink: 0;
+
   width: 3.125rem;
   height: 3.125rem;
   transition: .2s all;

@@ -1,4 +1,8 @@
-@media (max-width: 400px) {
+/* Footer Media */
+/* ### */
+/* ### */
+@media (max-width: 400px){ 
+
   .footer-wrap{
     justify-content: space-between; 
     align-items: start;
@@ -6,14 +10,70 @@
 } 
 
 @media (max-width: 768px){
+
   .footer-logo-svg{
     width: 10.5em;
     height: 5em;
   }
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1450px){
   .footer-wrap{
     flex-direction: column;
   }
 }
+/* ### */
+/* ### */
+
+/* ### */
+/* ### */
+/* Hamburguer Media */
+@media (max-width: 425px){
+
+  .header-logo svg.header-svg{
+    width: 7em;
+    height: 5em;
+  }
+
+
+  body div#hamburguer-wrap{
+    padding: 0.6rem 2em;
+  }
+}
+
+/* ### */
+/* ### */
+
+
+/* ### */
+/* ### */
+@media (max-width: 850px){
+
+  header.header{
+    display: none;
+  }
+
+  div#hamburguer-wrap{
+    display: flex;
+    padding: 0.6rem 4rem;
+    justify-content: space-between;
+  }
+
+  .hamburguer-content{
+    display: flex;
+  }
+
+  nav{
+    display: none;
+  }
+}
+
+@media (min-width: 768px){
+  #hamburguer-wrap{
+    display: none;
+  }
+}
+
+/* ### */
+/* ### */
+
