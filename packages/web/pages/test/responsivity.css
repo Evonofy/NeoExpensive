@@ -1,23 +1,19 @@
 @media (max-width: 400px) {
-  #footer-body section:not(.icons) {
-    padding: 0;
-  }
-  
-  footer .footer-wrap{
+  .footer-wrap{
     justify-content: space-between; 
     align-items: start;
   }
 } 
 
-@media (max-width: 1700px){
-  footer .footer-wrap{
-    flex-direction: column;
+@media (max-width: 768px){
+  .footer-logo-svg{
+    width: 10.5em;
+    height: 5em;
   }
 }
 
-@media (max-width: 1900px) {
-  footer .footer-wrap{
+@media (max-width: 1450px) {
+  .footer-wrap{
     flex-direction: column;
   }
-  
 }

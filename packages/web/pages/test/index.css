@@ -126,7 +126,7 @@ nav a:focus svg path{
 }
 
 .nav-item-drop_1 li a{
-  font-size: clamp(0.5em, 2vw, 0.8em);
+  font-size: clamp(0.7em, 1vw, 1em);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -230,11 +230,18 @@ svg#gradient{
   flex-direction: row;
   flex-wrap: wrap;
   
-  padding: 2em 2em;
+  padding: 1em;
+}
+
+.footer-about-us{
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+
 }
 
 .footer-title{
-  font-size: 1.5em;
+  font-size: clamp(1em, 2vw, 1.5em);
   font-weight: 500;
   
   color: var(--accent);
@@ -246,7 +253,7 @@ svg#gradient{
   margin-bottom: 15px;
 }
 
-/* .footer-title:before {
+.footer-title:before {
   content: "";
   position: absolute;
   
@@ -256,10 +263,12 @@ svg#gradient{
   height: 2px;
   left: 0;
   bottom: -2px;
-} */
+}
 
 .footer-paragraph{
-  max-width: 45rem;
+  max-width: 50ch;
+
+  font-size: clamp(0.8em, 2vw, 1em);
   
   transition: var(--transition);
   
@@ -286,7 +295,9 @@ svg#gradient{
 .footer-contact-us{
   line-height: 2.5rem;
 
-  padding: 0em 2em;
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .footer-contact-us a{
@@ -302,12 +313,18 @@ svg#gradient{
   color: var(--accent);
 }
 
+.info{
+  font-size: clamp(0.8em, 2vw, 1em);
+}
+
 .footer-quick-links {
   position: relative;
   
   line-height: 2.5rem;
 
-  padding: 0em 2em;
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .footer-quick-links ul li a {
@@ -323,13 +340,17 @@ svg#gradient{
   color: var(--accent);
 }
 
+.links-list{
+  font-size: clamp(0.8em, 2vw, 1em);
+}
+
 .footer-logo{
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   
-  padding-top: 1em;
+  padding: 1em 0em;
 }
 
 .footer-logo-svg {
