@@ -1,0 +1,23 @@
+@media (max-width: 400px) {
+  #footer-body section:not(.icons) {
+    padding: 0;
+  }
+  
+  footer .footer-wrap{
+    justify-content: space-between; 
+    align-items: start;
+  }
+} 
+
+@media (max-width: 1700px){
+  footer .footer-wrap{
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1900px) {
+  footer .footer-wrap{
+    flex-direction: column;
+  }
+  
+}
