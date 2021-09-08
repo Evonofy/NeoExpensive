@@ -182,7 +182,7 @@ nav a:focus svg path{
 
 .nav-item-drop_1 li:not(:first-child) .nav-item-drop_2 li:hover ul.nav-item-drop_3,
 .nav-item-drop_1 li:not(:first-child) .nav-item-drop_2 li:focus-within ul.nav-item-drop_3{
-  top: -10%;
+  top: -9%;
   animation: dropdown 0.2s forwards;
 }
 /* ### */
