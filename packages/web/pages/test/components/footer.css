@@ -152,6 +152,11 @@ svg#gradient{
   stroke: none;
 }
 
+.footer-logo-anchor:focus #x,
+.footer-logo-anchor:hover #x{
+  animation: rgb 4s infinite;
+}
+
 .copyright {
   font-family: var(--ff-josefin-sans);
   font-size: 1rem;
