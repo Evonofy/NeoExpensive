@@ -96,6 +96,20 @@
   animation: stickyHeader 300ms forwards;
 }
 
+.scrollUp {
+  position: fixed;
+  animation: disappear 300ms forwards;
+}
+
+@keyframes disappear {
+  from {
+    top: 0;
+  }
+  to {
+    top: -200px;
+  }
+}
+
 @keyframes stickyHeader {
   from {
     top: -200px;

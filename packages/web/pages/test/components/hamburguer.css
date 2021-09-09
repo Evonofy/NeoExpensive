@@ -1,6 +1,8 @@
 #hamburguer-wrap{
+  width: 100%;
   background: #000;
   
+  z-index: 10;
   display: flex;
   justify-content: space-around;
 
@@ -8,14 +10,13 @@
 }
 
 .hamburger-content{
-  width: 100%;
-
   display: flex;
   align-items: center;
   /* justify-content: center; */
 
   justify-content: space-between;
 
+  width: 100%;
   z-index: 1;
   user-select: none;
 }
@@ -104,7 +105,7 @@
 }
 
 #hamburguer-menu ul li{
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
 }
 
 #hamburguer-menu ul li:hover a,
