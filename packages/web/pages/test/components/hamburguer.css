@@ -53,8 +53,10 @@
 
 .🍔{
   display: block;
+  /* use responsive units */
   width: 3rem;
   height: 4px;
+  /* use responsive units */
   position: relative;
   
   background: #cdcdcd;
@@ -67,6 +69,10 @@
   transition: var(--transition);
 }
 
+#hamburguer-menu:hover span {
+  background: var(--accent);
+}
+
 #hamburguer-menu:hover .🍔:nth-child(2){
   width: 2.2rem;
 }
@@ -75,9 +81,8 @@
   margin: 0.5rem 0;
 }
 
-#hamburguer-menu:hover .🍔:nth-child(4){
+#hamburguer-menu:hover .🍔:nth-child(4) {
   width: 1.6rem;
-
   transition: var(--transition);
 }
 
