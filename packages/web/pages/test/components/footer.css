@@ -42,7 +42,7 @@ svg#gradient{
   margin-bottom: 15px;
 }
 
-.footer-title:before {
+.footer-title:before{
   content: "";
   position: absolute;
   
@@ -72,12 +72,12 @@ svg#gradient{
   margin-left: -0.2em;
 }
 
-#social-media-footer li:nth-child(2) {
+#social-media-footer li:nth-child(2){
   margin: 0 0.5rem;
 }
 
 #social-media-footer li a:hover svg path,
-#social-media-footer li a:focus svg path {
+#social-media-footer li a:focus svg path{
   stroke: var(--accent);
 }
 
@@ -98,7 +98,7 @@ svg#gradient{
 }
 
 .footer-contact-us ul li:hover a,
-.footer-contact-us ul li:focus-within a {
+.footer-contact-us ul li:focus-within a{
   color: var(--accent);
 }
 
@@ -106,7 +106,7 @@ svg#gradient{
   font-size: clamp(0.8em, 2vw, 1em);
 }
 
-.footer-quick-links {
+.footer-quick-links{
   position: relative;
   
   line-height: 2.5rem;
@@ -116,7 +116,7 @@ svg#gradient{
   padding-right: 2em;
 }
 
-.footer-quick-links ul li a {
+.footer-quick-links ul li a{
   text-decoration: none;
   
   color: var(--link);
@@ -142,7 +142,7 @@ svg#gradient{
   padding: 1em 0em;
 }
 
-.footer-logo-svg {
+.footer-logo-svg{
   width: 15em;
   height: 5em;
 }
@@ -157,7 +157,7 @@ svg#gradient{
   animation: rgb 4s infinite;
 }
 
-.copyright {
+.copyright{
   font-family: var(--ff-josefin-sans);
   font-size: 1rem;
   font-weight: 400;
