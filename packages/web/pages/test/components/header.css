@@ -1,6 +1,6 @@
 .header-wrapper{
   width: 100%;
-  
+
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -94,7 +94,7 @@
 
 .nav a{
   font-family: var(--ff-montserrat);
-  font-size: clamp(0.7em, 1vw, 1em);
+  font-size: clamp(0.7em, 2vw, 1em);
   font-weight: 400;
   text-transform: uppercase;
   
