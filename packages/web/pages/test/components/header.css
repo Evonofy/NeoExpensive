@@ -74,7 +74,7 @@
 /* ### */
 /* ### */
 .nav{
-  position: fixed;
+  /* position: fixed; */
 
   background: var(--nav-bg);
   border-bottom: 5px solid var(--accent);
