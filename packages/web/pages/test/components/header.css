@@ -29,6 +29,16 @@
   stroke: var(--accent);
 }
 
+.header-anchor:focus svg path,
+.header-anchor:hover svg path{
+  stroke: none;
+}
+
+.header-anchor:focus #x,
+.header-anchor:focus #x{
+  animation: rgb 4s infinite;
+}
+
 /* ### */
 /* ### */
 .header-svg{
@@ -72,7 +82,7 @@
 
 .nav a{
   font-family: var(--ff-montserrat);
-  font-size: var(--paragraph);
+  font-size: clamp(0.7em, 1vw, 1em);
   font-weight: 400;
   text-transform: uppercase;
   
@@ -86,10 +96,14 @@
   padding: 1rem 2rem;
 }
 
-nav a:hover,
-nav a:hover svg path,
-nav a:focus,
-nav a:focus svg path{
+.nav a:focus{
+  color: var(--accent);
+}
+
+a:hover,
+a:hover svg path,
+a:focus,
+a:focus svg path{
   color: var(--accent);
   stroke: var(--accent);
   
@@ -122,12 +136,12 @@ nav a:focus svg path{
   
 }
 
-.nav-item-drop_1 li:last-child {
+.nav-item-drop_1 li:last-child{
   border-bottom: 5px solid var(--accent);
 }
 
 .nav-item-drop_1 li a{
-  font-size: clamp(0.7em, 1vw, 1em);
+  font-size: clamp(0.7em, 1vw, 0.8em);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -137,6 +151,11 @@ nav a:focus svg path{
   justify-content: start;
   
   margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.nav-item-drop_1 li a:focus{
+  color: var(--accent);
   padding: 0.5rem;
 }
 

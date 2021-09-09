@@ -1,14 +1,14 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&family=Source+Sans+Pro:ital,wght@0,400;1,300;1,400&family=Source+Code+Pro:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@300;400;700&display=swap');
-/* 
-Themes
-@import url("./themes/light.css");
-@import url("./themes/dark.css");
-@import url("./themes/rgb.css");
 
-Animations
-@import url('./animations/RGBBorder.css');
-@import url('./animations/RGBFill.css'); */
+/* Themes */
+/* @import url("./themes/light.css"); */
+/* @import url("./themes/dark.css"); */
+/* @import url("./themes/rgb.css"); */
+
+/* Animations */
+/* @import url('./animations/RGBBorder.css'); */
+@import url('../../css/animations/RGBFill.css');
 @import url('../../css/animations/dropdown.css');
 
 :root {
@@ -76,7 +76,7 @@ Animations
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: none;
+  /* outline: none; */
 }
 
 html{
@@ -132,6 +132,11 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#x:focus,
+#x:hover{
+  animation: rgb 4s infinite;
 }
 
 /* .rgb{
