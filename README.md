@@ -7,9 +7,7 @@
 
 
 <h3 align="center">
-  <a href="https://github.com/AtomicFeasT/neo-expensive/blob/main/CONTRIBUTING.md">Contribute</a>
-  <span> · </span>
-  <a href="https://github.com/AtomicFeasT/neo-expensive/tree/main/docs/index.html">Documentation</a>
+  <a href="https://github.com/EsquemaFlorescer/neo-expensive/blob/main/CONTRIBUTING.md">Contribute</a>
 </h3>
 
 ---
@@ -26,8 +24,8 @@
 
 ## NeoExpensive Desktop
 
-still in development...
-
+[Layout](https://www.figma.com/file/FPDU6Ekw6eKzZlmiB6OhrB/Layout?node-id=0%3A1)
+[Wireframe](https://www.figma.com/file/QyGjS7EPhR3LkcinvEafvM/Wireframe?node-id=307%3A34)
 ---
 
 ## Code reviewers
