@@ -132,7 +132,7 @@
   display: flex;
   align-items: center;
   
-  padding: 1rem 2rem;
+  padding: 1rem 0.7rem;
 }
 
 .nav a:focus{
@@ -158,7 +158,7 @@ a:focus svg path{
 }
 
 .nav-unordered-list ul{
-  width: 90%;
+  width: 100%;
 }
 .nav-unordered-list li{
   position: relative;
@@ -180,7 +180,7 @@ a:focus svg path{
 }
 
 .nav-item-drop_1 li a{
-  font-size: clamp(0.7em, 1vw, 0.8em);
+  font-size: clamp(0.6em, 1vw, 0.8em);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -241,7 +241,7 @@ a:focus svg path{
 
 .nav-item-drop_1 li:not(:first-child) .nav-item-drop_2 li:hover ul.nav-item-drop_3,
 .nav-item-drop_1 li:not(:first-child) .nav-item-drop_2 li:focus-within ul.nav-item-drop_3{
-  top: -9%;
+  top: -10%;
   animation: dropdown 0.2s forwards;
 }
 /* ### */

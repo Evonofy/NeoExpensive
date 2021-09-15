@@ -1,3 +1,13 @@
+/* 
+####### 
+HEADER
+####### */
+@media (max-width: 1920px){
+  .nav a{
+    padding: 1rem 1.20rem;  
+  }
+}
+
 /* Footer Media */
 /* ### */
 /* ### */
