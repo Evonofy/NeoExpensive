@@ -1,45 +1,23 @@
-/* 
-####### 
-HEADER
-####### */
-@media (max-width: 1920px){
-  .nav a{
-    padding: 1rem 1.20rem;  
-  }
-}
-
-/* Footer Media */
-/* ### */
-/* ### */
-@media (max-width: 400px){ 
-
+@media (max-width: 400px){
+  /* 
+  ######
+  FOOTER 
+  ######*/
   .footer-wrap{
     justify-content: space-between; 
     align-items: start;
   }
-} 
-
-@media (max-width: 768px){
-
-  .footer-logo-svg{
-    width: 10.5em;
-    height: 5em;
-  }
+  /* 
+  ######
+  ###### 
+  ###### */
 }
 
-@media (max-width: 1450px){
-  .footer-wrap{
-    flex-direction: column;
-  }
-}
-/* ### */
-/* ### */
-
-/* ### */
-/* ### */
-/* Hamburguer Media */
 @media (max-width: 425px){
-
+  /* 
+  ######
+  HAMBURGUER 
+  ######*/
   .header-logo svg.hamburguer-header-svg{
     width: 5em;
     height: 5em;
@@ -87,20 +65,48 @@ HEADER
   #🔳:checked ~ .🍔:nth-child(4){
     transform: translate(0, -3px);
   }
+  /* 
+  ######
+  ###### 
+  ###### */
 }
 
-/* ### */
-/* ### */
+@media (max-width: 768px){
+  /* 
+  ######
+  FOOTER 
+  ######*/
+  .footer-logo-svg{
+    width: 10.5em;
+    height: 5em;
+  }
+  /* 
+  ######
+  ###### 
+  ###### */
+}
 
-
-/* ### */
-/* ### */
-@media (max-width: 849px){
-
+@media (max-width: 850px){
+  /* 
+  ######
+  HEADER 
+  ######*/
   header.header{
     display: none;
   }
 
+  nav{
+    display: none;
+  }
+  /* 
+  ######
+  ###### 
+  ###### */
+
+  /* 
+  ######
+  HAMBURGUER 
+  ######*/
   #hamburguer-wrap{
     display: flex;
     padding: 0.6rem 4rem;
@@ -110,10 +116,10 @@ HEADER
   .hamburguer-content{
     display: flex;
   }
-
-  nav{
-    display: none;
-  }
+  /* 
+  ######
+  ###### 
+  ###### */
 }
 
 @media (min-width: 850px){
@@ -121,9 +127,48 @@ HEADER
     display: none;
   }
 
-
 }
 
-/* ### */
-/* ### */
+@media (max-width: 1450px){
+  /* 
+  ######
+  HEADER 
+  ###### */
+  header .nav a{
+    padding: 1rem 0rem;  
+  }
 
+  .nav-item-drop_1 li a{
+    padding: 0.5rem;
+  }
+  /* 
+  ######
+  ###### 
+  ###### */
+
+  /* 
+  ######
+  FOOTER 
+  ######*/
+  .footer-wrap{
+    flex-direction: column;
+  }
+  /* 
+  ######
+  ###### 
+  ###### */
+}
+
+@media (max-width: 1920px){
+  /* 
+  ######
+  HEADER 
+  ###### */
+  .nav a{
+    padding: 1rem 1.20rem;  
+  }
+  /* 
+  ######
+  ###### 
+  ###### */
+}
