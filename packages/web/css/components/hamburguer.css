@@ -4,10 +4,6 @@
   border-bottom: 5px solid var(--accent);
   
   z-index: 10;
-  display: flex;
-  justify-content: space-around;
-
-  padding: 0.6rem;
 }
 
 .hamburger-content{
@@ -139,7 +135,7 @@
 
 .hamburguer-header-svg{
   width: 7em;
-  height: 7em;
+  height: 5em;
 }
 
 
