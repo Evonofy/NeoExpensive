@@ -1,47 +1,49 @@
-@media (max-width: 900px) {
-
-}
-
-@media (max-width: 800px) {
-
-  section#banner{
-    height: 17rem;
-  }
-
-  main section#content{
-    margin: 0rem 2rem;
-    padding: 2rem 2rem;
-  }
-
-  #banner h1{
-    font-size: 3rem;
-  }
-
-  div.wave-top{
-    background-position: top -80rem right 0rem;
-  }
-
-  div.wave-bot{
-    background-position: bottom -5rem right 0rem;
-  }
-}
-
 @media (max-width: 400px) {
-
+  /* 
+  ######
+  BANNER
+  ###### */
   section#banner{
     height: 12rem;
   }
-
-  #content{
-    padding: 2rem 1rem;
-  }
-
+  
   div.wave-top{
     background-position: top -70rem right 0rem;
   }
-
+  
   div.wave-bot{
     background-position: bottom -5rem right 0rem;
   }
-  
+  /* 
+  ######
+  ######
+  ###### */
 }
+
+
+@media (max-width: 800px) {
+  /* 
+  ######
+  BANNER
+  ###### */
+  section#banner{
+    height: 17rem;
+  }
+  
+  #banner h1{
+    font-size: 3rem;
+  }
+  
+  div.wave-top{
+    background-position: top -80rem right 0rem;
+  }
+  
+  div.wave-bot{
+    background-position: bottom -5rem right 0rem;
+  }
+  /* 
+  ######
+  ######
+  ###### */
+}
+

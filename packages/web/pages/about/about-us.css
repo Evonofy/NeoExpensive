@@ -12,6 +12,10 @@ main {
   background-color: var(--dark-900);
 }
 
+/* 
+######
+BANNER
+###### */
 #banner {
   width: 100%;
   height: 46rem;
@@ -25,18 +29,6 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
 }
 
 /* Waves Placements and Properties */
@@ -84,7 +76,16 @@ main {
   background-attachment: fixed;
   color: transparent;
 }
+/* 
+######
+######
+###### */
 
+
+/* 
+######
+MAIN CONTENT
+###### */
 #content{
   width: 100%;
   max-width: 90ch;
@@ -94,28 +95,47 @@ main {
   text-align: left;
   justify-content: center;
   flex-direction: column;
-  
-  padding: 5rem 15rem;
+
+  padding: clamp(3rem, 8vmax, 3rem);
   
 }
 
 .about-titles{
   font-size: clamp(0.1rem, 1.3rem + 1vw, 2.2rem);
   font-family: var(--ff-josefin-sans);
+  color: var(--accent);
   margin: 1rem 0rem;
 }
 
 #about-us-text{
-  font-size: clamp(1rem, 2vw, 1.7rem);
-  font-weight: 500;
-  font-family: var(--ff-cormorant-garamond);
+  font-size: clamp(1.2rem, 1.1000rem + 0.5000vw, 1.7rem);
+  font-weight: 300;
+  font-family: var(--ff-josefin-sans);
   letter-spacing: 1.5px;
 
   margin-bottom: 1.5rem;
 } 
+/* 
+######
+######
+###### */
 
+/* 
+######
+THE TEAM
+###### */
 #the-team{
   width: 100%;
   height: 30rem;
+
   background-color: var(--dark-800);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-wrap{
+  background: var(--dark-750);
+  border-radius: 0.5em;
 }

@@ -8,6 +8,7 @@
 
 
 /* Animations */
+@import url('../animations/gradient.css');
 @import url('../animations/RGBBorder.css');
 @import url('../animations/RGBFill.css');
 @import url('../animations/dropdown.css');
