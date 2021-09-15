@@ -1,6 +1,7 @@
 #hamburguer-wrap{
   width: 100%;
   background: #000;
+  border-bottom: 5px solid var(--accent);
   
   z-index: 10;
   display: flex;
@@ -136,6 +137,9 @@
   transform: translate(0%, 60%);
 }
 
-
+.hamburguer-header-svg{
+  width: 7em;
+  height: 7em;
+}
 
 

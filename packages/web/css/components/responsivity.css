@@ -30,14 +30,52 @@
 /* Hamburguer Media */
 @media (max-width: 425px){
 
-  .header-logo svg.header-svg{
-    width: 7em;
+  .header-logo svg.hamburguer-header-svg{
+    width: 5em;
     height: 5em;
   }
 
+  div#hamburguer-wrap{
+    padding: 1em;
+  }
 
-  body div#hamburguer-wrap{
-    padding: 0.6rem 2em;
+  .hamburguer-user-control{
+    width: 1.45em;
+    height: 1.45em;
+  }
+
+  .🍔{
+    width: 2rem;
+    height: 3px;
+  }
+
+  #hamburguer-menu:hover span {
+    background: var(--accent);
+  }
+  
+  #hamburguer-menu:hover .🍔:nth-child(2){
+    width: 1.7rem;
+  }
+  
+  .🍔:nth-child(3){
+    margin: 0.5rem 0;
+  }
+  
+  #hamburguer-menu:hover .🍔:nth-child(4) {
+    width: 1.3rem;
+    transition: var(--transition);
+  }
+  
+  #🔳:checked ~ .🍔:nth-child(2){
+    transform: translate(0, 3px);
+  }
+  
+  #🔳:checked ~ .🍔:nth-child(3){
+    margin: 0;
+  }
+  
+  #🔳:checked ~ .🍔:nth-child(4){
+    transform: translate(0, -3px);
   }
 }
 
@@ -47,13 +85,13 @@
 
 /* ### */
 /* ### */
-@media (max-width: 850px){
+@media (max-width: 849px){
 
   header.header{
     display: none;
   }
 
-  div#hamburguer-wrap{
+  #hamburguer-wrap{
     display: flex;
     padding: 0.6rem 4rem;
     justify-content: space-between;
@@ -68,10 +106,12 @@
   }
 }
 
-@media (min-width: 768px){
+@media (min-width: 850px){
   #hamburguer-wrap{
     display: none;
   }
+
+
 }
 
 /* ### */
