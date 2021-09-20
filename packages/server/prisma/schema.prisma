@@ -11,16 +11,47 @@ generator client {
 }
 
 model User {
-  id            String        @id
-  created_at    Int
-  updated_at    Int
-  name          String
-  email         String        @unique
-  username      String        @unique
-  password      String
-  refresh_token RefreshToken?
+  id       String  @id
+  name     String
+  email    String  @unique
+  username String? @unique
+  password String
+
+  refreshToken RefreshToken?
+  wishList     WishList[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("users")
+}
+
+model WishList {
+  id Int @id @default(autoincrement())
+
+  itemId Int
+  item   Item @relation(fields: [itemId], references: [id])
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("wishlist")
+}
+
+model Item {
+  id       Int    @id @default(autoincrement())
+  name     String
+  category String
+
+  WishList WishList[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("items")
 }
 
 model RefreshToken {
@@ -29,6 +60,9 @@ model RefreshToken {
 
   userId String
   user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("refresh_token")
 }

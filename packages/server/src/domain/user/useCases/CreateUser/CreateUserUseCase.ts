@@ -14,30 +14,22 @@ export class CreateUserUseCase {
     private user: User
   ) {}
 
-  validateEmail(email: string) {
-    /* checks if the current e-mail is valid */
-    if (!this.user.isValidEmail(email)) {
+  async execute(data: CreateUserRequestDTO): Promise<CreateUserResponseDTO> {
+    let { name, email, password } = data;
+
+    /* verifies if the e-mail is valid */
+    const isValidEmail = this.user.isValidEmail(email);
+
+    if (!isValidEmail) {
       throw new Error('This e-mail is not valid.');
     }
-  }
 
-  async userAlreadyExists(email: string) {
     /* checks if the user already exists */
     const userAlreadyExists = await this.usersRepository.findByEmail(email);
 
     if (userAlreadyExists) {
       throw new Error('User already exists.');
     }
-  }
-
-  async execute(data: CreateUserRequestDTO): Promise<CreateUserResponseDTO> {
-    let { name, email, password } = data;
-
-    /* verifies if the e-mail is valid */
-    this.validateEmail(email);
-
-    /* checks if the user already exists */
-    await this.userAlreadyExists(email);
 
     /* create user entity */
     const user = new User({
@@ -47,10 +39,10 @@ export class CreateUserUseCase {
     });
 
     /* create token entity */
-    const token = await this.activateTokenProvider.execute(user, user.id);
+    const token = await this.activateTokenProvider.execute({ user }, user.id);
 
     /* send an e-mail to the user */
-    this.queueService.add('RegistrationMail', {
+    await this.queueService.add('RegistrationMail', {
       data: {
         name,
         email,

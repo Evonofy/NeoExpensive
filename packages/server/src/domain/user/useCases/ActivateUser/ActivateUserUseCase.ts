@@ -8,19 +8,7 @@ import { IUsersRepository } from '@user/repositories';
 import { IQueueService } from '@user/services/queue';
 
 import { User } from '@user/entities';
-
-import { JwtPayload } from 'jsonwebtoken';
-
-export interface Payload extends JwtPayload {
-  payload: {
-    name: string;
-    email: string;
-    password: string;
-    id: string;
-    created_at: Date;
-    updated_at: Date;
-  };
-}
+import { useToken } from '@user/hooks';
 
 export class ActivateUserUseCase {
   constructor(
@@ -30,37 +18,23 @@ export class ActivateUserUseCase {
     private queueService: IQueueService
   ) {}
 
-  getAuthHeader(data: string) {
-    if (!!data === false) {
-      throw new Error('Please supply a jwt token.');
-    }
-
-    const authHeader = data.split(' ')[1];
-
-    if (!authHeader) {
-      throw new Error('Your token must have the Bearer prefix.');
-    }
-
-    return authHeader;
-  }
-
   async execute(
     data: ActivateUserRequestDTO
   ): Promise<ActivateUserResponseDTO> {
-    const { header, query } = data;
+    const { header, queryToken } = data;
 
     let token = '';
 
-    if (!!query === true && !!query.token === true) {
-      token = query.token as string;
+    /* decides if it uses the token from the url query or the authorization header */
+    if (queryToken) {
+      token = queryToken;
     } else {
-      token = this.getAuthHeader(header);
+      token = useToken(header);
     }
 
     /* checks if the token has the correct signature */
-    const { payload } = this.activateTokenProvider.validate(token) as Payload;
-    let { id, created_at, ...rest } = payload;
-    delete payload.updated_at;
+    const { user: payload } = this.activateTokenProvider.validate(token);
+    const { id, ...userProps } = payload;
 
     const userAlreadyExists = await this.usersRepository.findById(id);
 
@@ -69,18 +43,18 @@ export class ActivateUserUseCase {
       throw new Error('This user already exists.');
     }
 
-    let user = new User(rest, {
+    let user = new User(userProps, {
       id,
-      created_at,
       isHashed: true
     });
 
     await this.usersRepository.save(user);
+
     delete user.password;
 
     const { accessToken } = await this.accessTokenProvider.execute({ id });
 
-    this.queueService.add('ActivationMail', {
+    await this.queueService.add('ActivationMail', {
       data: {
         name: user.name,
         email: user.email

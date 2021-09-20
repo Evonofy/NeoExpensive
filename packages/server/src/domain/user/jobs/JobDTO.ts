@@ -1,8 +1,9 @@
 import { Name, Options, allHandleProps } from '@user/services/queue';
 
 /* Job configuration */
-import { MailTrapMailService } from '@user/services/mail/drivers/mailtrap';
-let mailService = new MailTrapMailService();
+// import { MailTrapMailService } from '@user/services/mail/drivers/mailtrap';
+import { MockMailService } from '@user/services/mail/drivers/mock';
+let mailService = new MockMailService();
 
 export { mailService };
 

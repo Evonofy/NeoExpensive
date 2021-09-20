@@ -12,6 +12,5 @@ export interface AuthUserRequestDTO {
 
 export interface AuthUserResponseDTO extends BaseResponse {
   user: UserORM;
-  accessToken: string;
   refreshToken: RefreshTokenORM;
 }

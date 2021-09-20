@@ -1,49 +1,43 @@
+import { UserRequest, UserResponse } from '../../IUsersRepositoryDTO';
+import { IUsersRepository } from '../../IUsersRepository';
+
 import { PrismaClient } from '@infra/prisma';
 
-import { UserRequest, UserResponse } from '../../IUsersRepositoryDTO';
-import { IUsersRepository } from '@user/repositories';
-
 export class PrismaUsersRepository implements IUsersRepository {
-  constructor(private prismaClient: PrismaClient) {}
+  constructor(private client: PrismaClient) {}
 
-  async findByEmail(email: string): Promise<UserResponse> {
-    const user = await this.prismaClient.user.findUnique({
+  findByEmail = async (email: string): Promise<UserResponse> => {
+    return await this.client.user.findUnique({
       where: {
         email
       }
     });
+  };
 
-    return user;
-  }
-
-  async findById(id: string): Promise<UserResponse> {
-    const user = await this.prismaClient.user.findUnique({
+  findById = async (id: string): Promise<UserResponse> => {
+    return await this.client.user.findUnique({
       where: {
         id
       }
     });
+  };
 
-    return user;
-  }
-
-  async findByLogin(
+  findByLogin = async (
     type: 'email' | 'username',
     login: string
-  ): Promise<UserResponse> {
-    const user = await this.prismaClient.user.findUnique({
+  ): Promise<UserResponse> => {
+    return await this.client.user.findUnique({
       where: {
         [type]: login
       }
     });
+  };
 
-    return user;
-  }
-
-  async save(user: UserRequest): Promise<void> {
-    await this.prismaClient.user.create({
+  save = async (user: UserRequest): Promise<void> => {
+    await this.client.user.create({
       data: {
         ...user
       }
     });
-  }
+  };
 }

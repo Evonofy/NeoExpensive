@@ -9,7 +9,7 @@ import {
 export const router = Router();
 
 router.post('/user', user.createUser);
-router.post('/user/activate', activateTokenAuth, user.activateUser);
+router.post('/user/activate', user.activateUser);
 router.post('/login', user.login);
 router.post('/logout', user.logout);
 router.post('/user/token/refresh', user.refreshToken);

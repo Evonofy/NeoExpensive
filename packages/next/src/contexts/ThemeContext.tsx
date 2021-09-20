@@ -35,12 +35,11 @@ export const Theme: FC<ThemeProviderProps> = ({
   const [currentTheme, setCurrentTheme] = useState<themeKeys | ''>('');
   const [currentThemeIndex, setCurrentThemeIndex] = useState<number>(0);
   const [defaultTheme, setDefaultTheme] = useState<themeKeys>(themeDefault);
-  // const [localTheme, setLocalTheme] = usePersistedState<themeKeys>(
-  //   'dark',
-  //   'theme'
-  // );
+  const [localTheme, setLocalTheme] = usePersistedState<themeKeys>(
+    'dark',
+    'theme'
+  );
   if (typeof window !== 'undefined') {
-    console.log(localStorage.getItem('theme'));
   }
   const hasNext = currentThemeIndex + 1 < themeList.length;
   // @ts-ignore
@@ -61,7 +60,6 @@ export const Theme: FC<ThemeProviderProps> = ({
     localStorage.setItem('theme', theme);
     document.body.setAttribute('data-theme', theme);
     // if (!!availableThemes[theme] === false) {
-    //   console.log('deu ruim');
     //   setCurrentTheme(defaultTheme);
     //   setCurrentThemeIndex(themeList.indexOf(defaultTheme));
     //   // setLocalTheme(defaultTheme);

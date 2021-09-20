@@ -86,9 +86,6 @@ export class AuthUserUseCase {
     }
 
     const { refreshToken } = await this.refreshTokenProvider.execute(user.id);
-    const { accessToken } = await this.accessTokenProvider.execute({
-      id: user.id
-    });
 
     /* remove password from final response */
     delete user.password;
@@ -96,7 +93,6 @@ export class AuthUserUseCase {
     return {
       message: 'User authenticated with success!',
       user,
-      accessToken,
       refreshToken
     };
   }

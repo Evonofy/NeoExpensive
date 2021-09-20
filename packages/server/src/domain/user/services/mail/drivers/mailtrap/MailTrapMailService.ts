@@ -28,17 +28,17 @@ export class MailTrapMailService implements IMailService {
       };
     }
     /* send the e-mail */
-    await this.transporter.sendMail({
-      to: {
-        name: to.name,
-        address: to.email
-      },
+    // await this.transporter.sendMail({
+    //   to: {
+    //     name: to.name,
+    //     address: to.email
+    //   },
 
-      from,
-      subject,
+    //   from,
+    //   subject,
 
-      /* the html here should be the path */
-      html: body
-    });
+    //   /* the html here should be the path */
+    //   html: body
+    // });
   }
 }

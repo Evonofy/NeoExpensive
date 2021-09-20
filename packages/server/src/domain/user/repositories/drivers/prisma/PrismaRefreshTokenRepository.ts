@@ -1,41 +1,37 @@
-import { PrismaClient } from '@infra/prisma';
-
 import {
   RefreshTokenRequest,
   RefreshTokenResponse
 } from '../../IRefreshTokenRepositoryDTO';
-import { IRefreshTokenRepository } from '@user/repositories';
+import { IRefreshTokenRepository } from '../../IRefreshTokenRepository';
+
+import { PrismaClient } from '@infra/prisma';
 
 export class PrismaRefreshTokenRepository implements IRefreshTokenRepository {
-  constructor(private prismaClient: PrismaClient) {}
+  constructor(private client: PrismaClient) {}
 
-  async create({
-    ...rest
-  }: RefreshTokenRequest): Promise<RefreshTokenResponse> {
-    const refreshToken = await this.prismaClient.refreshToken.create({
+  create = async (
+    refreshToken: RefreshTokenRequest
+  ): Promise<RefreshTokenResponse> => {
+    return await this.client.refreshToken.create({
       data: {
-        ...rest
+        ...refreshToken
       }
     });
+  };
 
-    return refreshToken;
-  }
-
-  async find(id: string): Promise<RefreshTokenResponse> {
-    const refreshToken = await this.prismaClient.refreshToken.findUnique({
+  find = async (id: string): Promise<RefreshTokenResponse> => {
+    return await this.client.refreshToken.findUnique({
       where: {
         id
       }
     });
+  };
 
-    return refreshToken;
-  }
-
-  async clean(userId: string): Promise<void> {
-    await this.prismaClient.refreshToken.deleteMany({
+  clean = async (userId: string): Promise<void> => {
+    await this.client.refreshToken.deleteMany({
       where: {
         userId
       }
     });
-  }
+  };
 }

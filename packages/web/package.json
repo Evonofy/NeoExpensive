@@ -4,5 +4,8 @@
   "version": "0.0.1",
   "author": "Vitor Gouveia <vitor.gouveia@aluno.etecjrm.com.br>",
   "private": true,
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "surge": "^0.23.0"
+  }
 }

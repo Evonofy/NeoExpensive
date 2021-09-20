@@ -1,27 +1,32 @@
 import 'dotenv/config';
-import dayjs from 'dayjs';
 
-import { sign, verify } from 'jsonwebtoken';
+import { Jwt, sign, verify } from 'jsonwebtoken';
+
+interface Payload extends Jwt {
+  user: {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+    username: string;
+  };
+}
 
 export class ActivateTokenProvider {
   private activate_token_secret = process.env.ACTIVATE_TOKEN_SECRET;
 
   async execute(payload: object, userId: string) {
-    const expiresIn = dayjs().add(15, 'minute').unix();
-
-    const activateToken = sign({ payload }, this.activate_token_secret, {
-      expiresIn,
+    const activateToken = sign({ ...payload }, this.activate_token_secret, {
+      expiresIn: '15m',
       subject: userId
     });
 
     return activateToken;
   }
 
-  validate(token: string) {
+  validate(token: string): Payload {
     try {
-      const validatedToken = verify(token, this.activate_token_secret);
-
-      return validatedToken;
+      return verify(token, this.activate_token_secret) as Payload;
     } catch (error) {
       throw new Error('This activate user account token is not valid.');
     }

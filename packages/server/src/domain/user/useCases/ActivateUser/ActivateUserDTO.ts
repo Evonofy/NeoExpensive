@@ -1,10 +1,9 @@
 import { BaseResponse } from '@infra/http/interface/Response';
-import { ParsedQs } from 'qs';
 import { User } from '@user/entities';
 
 export interface ActivateUserRequestDTO {
   header: string;
-  query?: ParsedQs;
+  queryToken?: string;
 }
 
 export interface ActivateUserResponseDTO extends BaseResponse {
