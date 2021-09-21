@@ -1,48 +1,30 @@
 /* Animations */
-@import url('../animations/gradient.css');
 @import url('../animations/RGBBorder.css');
 @import url('../animations/RGBFill.css');
-@import url('../animations/dropdown.css');
+@import url('../animations/FadeIn.css');
 
 @import url('./_reset.css');
 @import url('../fonts/_fonts.css');
 
 @import url('../colors/_colors.css');
 
+[data-reset] {
+  padding: 0;
+  margin: 0;
+
+  color: inherit;
+  background: transparent;
+
+  display: grid;
+  place-items: center;
+}
+
+a, button {
+  transition: all 200ms;
+  cursor: pointer;
+}
+
 :root {
-  /* Main Colors */
-  --header-bg: #2c2c2c;
-  --body-bg: #1d1d1d;
-  --nav-bg: #232323;
-  --drop-bg: #000;
-
-  /* General Colors */
-  --dark-900: hsl(0, 0%, 0%);
-  --dark-800: hsl(0, 0%, 10%);
-  --dark-750: hsl(0, 0%, 15%);
-  --dark-700: hsl(0, 0%, 20%);
-
-  --light-100: hsl(100, 100%, 100%);
-
-  --gray-900: #0b0e11;
-  --gray-600: #323d4d;
-  --gray-500: rgb(80, 80, 80);
-
-  --accent: hsl(285, 40%, 46%);
-  --link: hsl(0, 0%, 98%);
-  --paragraph: clamp(0.9rem, -0.1rem + 1.6013vw, 1.5rem);
-
-  /* Font Families */
-  --ff-montserrat: 'Montserrat', sans-serif;
-  --ff-josefin-sans: 'Josefin Sans', sans-serif;
-  --ff-source-code-pro: 'Source Code Pro', monospace;
-  --ff-source-sans-pro: 'Source Sans Pro', sans-serif;
-  --ff-cormorant-garamond: 'Cormorant Garamond', serif;
-
-  /* Other */
-  --spacing-4: 1.25rem;
-  --xxl: 1rem;
-
   --dropdown-animate: dropdown 0.2s forwards;
 
   --transition: all 200ms;
@@ -83,18 +65,7 @@ html {
 }
 
 body {
-  font-family: var(--ff-montserrat);
-  font-size: 1.4rem;
-  font-weight: 700;
-
-  background-color: var(--body-bg);
-  overflow-x: hidden;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  color: white;
+  background-color: var(--gray-800);
 }
 
 ul {

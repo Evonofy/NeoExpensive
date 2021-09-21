@@ -1,21 +1,91 @@
-/* ### */
-/* ### */
-.main-section{
-  padding: 10em 4em;
-}
+@import url("./css/global/global.css");
 
-.section-title{
-  font-size: clamp(1.5em, 2vw, 2.5em);
-  font-family: var(--ff-josefin-sans);
-  font-weight: 400;
+header {
+  width: 100%;
   
-  margin: 0.25em 0em;
+  background: var(--gray-900);
+
+  display: flex;
+
+  place-items: center;
+  justify-content: space-between;
+  
+  --header-padding: clamp(1rem, 1vw, 2rem);
+  padding: var(--header-padding) calc(var(--header-padding) * 3);
+
+  border-bottom: 2px solid var(--accent-100);
 }
 
-.section-paragraph{
-  font-size: clamp(1em, 2vw, 1.35em);
-  font-family: var(--ff-josefin-sans);
-  font-weight: 300;
+header div {
+  display: flex;
+
+  gap: .5rem;
 }
-/* ### */
-/* ### */
+
+ul {
+  font-size:  clamp(0.7rem, 0.6400rem + 0.3000vw, 1rem);
+
+  display: flex;
+  align-items: center;
+  
+  gap: clamp(0.6em, 1vw, 2em);
+}
+
+li a {
+  position: relative;
+}
+
+li a:hover, 
+li a:focus { 
+  color: var(--accent-100);
+}
+ 
+li a:focus::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: -0.5rem;
+  transform: translateX(-100%);
+  
+  width: 1.25rem;
+  height: clamp(0.08rem, 1vw, 0.15rem);
+  
+  background: var(--accent-100);
+  border-radius: 0.2rem;
+
+  animation: fadeIn 200ms forwards;
+}
+
+svg {
+  width: clamp(1rem, 2vw, 2.5rem);
+  height: auto;
+}
+
+a:not([data-logo]) svg path,
+button svg path {
+  stroke: var(--gray-200);
+}
+
+a:hover svg path,
+a:focus svg path,
+button:hover svg path,
+button:focus svg path {
+  stroke: var(--accent-100);
+}
+
+[data-logo] {
+  --data-logo-padding: clamp(.5rem, 1vw, 2rem);
+  padding: 0 var(--data-logo-padding);
+
+  display: inline;
+}
+
+[data-logo] svg {
+  width: clamp(1rem, 2vw, 2rem);
+}
+
+a[data-logo]:hover svg path,
+a[data-logo]:focus svg path {
+  stroke: none;
+}

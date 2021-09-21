@@ -11,5 +11,5 @@
   --gray-500: hsl(var(--gray), 19%, 41%);
   --gray-700: hsl(var(--gray), 8%, 17%);
   --gray-800: hsl(var(--gray), 6%, 10%);
-  --gray-900: hsl(var(--gray), 10%, 10%);
+  --gray-900: hsl(var(--gray), 10%, 8%);
 }
