@@ -41,7 +41,7 @@ a, button {
 }
 
 ::-webkit-scrollbar {
-  width: var(--spacing-4);
+  width: .5rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,7 +49,7 @@ a, button {
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: var(--xxl);
+  border-radius: 1rem;
   border: 7px solid transparent;
   background-clip: content-box;
   background-color: var(--gray-500);
