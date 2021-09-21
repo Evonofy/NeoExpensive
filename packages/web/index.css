@@ -11,7 +11,7 @@ header {
   justify-content: space-between;
   
   --header-padding: clamp(1rem, 1vw, 2rem);
-  padding: var(--header-padding) calc(var(--header-padding) * 3);
+  padding: var(--header-padding) clamp(1rem, 3vw, 4rem);
 
   border-bottom: 2px solid var(--accent-100);
 }
