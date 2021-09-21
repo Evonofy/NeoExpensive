@@ -3,10 +3,10 @@
 @import url('../animations/RGBFill.css');
 @import url('../animations/FadeIn.css');
 
-@import url('./_reset.css');
-@import url('../fonts/_fonts.css');
+@import url('./reset.css');
+@import url('../fonts/fonts.css');
+@import url('../colors/colors.css');
 
-@import url('../colors/_colors.css');
 
 [data-reset] {
   padding: 0;
