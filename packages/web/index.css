@@ -54,6 +54,15 @@ li a {
 
 li a:hover, 
 li a:focus { 
+  /* width: 100%;
+
+  color: var(--gray-100);
+
+  background: var(--accent-100);
+  border-radius: .3rem;
+
+  padding: .3rem; */
+
   color: var(--accent-100);
 }
  
