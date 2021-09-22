@@ -1,8 +1,8 @@
 /* ### */
 /* ### */
 /* Footer */
-svg#gradient{
-  position: absolute;
+footer {
+  margin-top: auto;
 }
 
 .footer-wrap{
