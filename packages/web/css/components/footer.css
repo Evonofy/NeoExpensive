@@ -1,171 +1,142 @@
-/* ### */
-/* ### */
-/* Footer */
-footer {
-  margin-top: auto;
-}
+/* 
+######
+FOOTER
+###### */
 
-.footer-wrap{
-  font-family: var(--ff-josefin-sans);
-  font-size: 1.5rem;
-  font-weight: 300;
+footer {
+  background: hsl(200, 10%, 8%);
   
-  background: black;
-  border-top: 5px solid var(--accent);
-  
+  border-top: 2px solid var(--accent-100);
+
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  
-  padding: 1em;
-}
 
-.footer-about-us{
-  padding-top: 2em;
-  padding-left: 2em;
-  padding-right: 2em;
-
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-top: auto;
 }
 
 .footer-title{
-  font-size: clamp(1em, 2vw, 1.3em);
+  font-size: clamp(0.9rem, 0.7800rem + 0.6000vw, 1.5rem);
   font-weight: 500;
   line-height: 1.5em;
   
-  color: var(--accent);
+  color: var(--accent-100);
   
   position: relative;
-  
-  transition: var(--transition);
-  
-  margin-bottom: 15px;
+
+  margin-bottom: 1em;
 }
 
-.footer-title:before{
+.footer-title:after{
   content: "";
   position: absolute;
   
-  background: var(--accent);
+  background: var(--accent-100);
   
-  width: 50px;
+  width: 25px;
   height: 2px;
   left: 0;
   bottom: -2px;
 }
 
-.footer-paragraph{
+.footer-about-us,
+.footer-contact-us,
+.footer-quick-links { 
+  margin: 0rem 1rem;
+}
+
+.footer-paragraph {
   max-width: 50ch;
 
-  font-size: clamp(0.8em, 2vw, 1em);
-  
-  transition: var(--transition);
-  
-  padding-top: 0.2em;
-  padding-bottom: 0.7em;
-  
-}
+  font-size: clamp(0.7rem, 0.6100rem + 0.4500vw, 1.15rem);
 
-#social-media-footer {
-  display: flex;
-  
-  margin-left: -0.2em;
-}
-
-#social-media-footer li:nth-child(2){
-  margin: 0 0.5rem;
-}
-
-#social-media-footer li a:hover svg path,
-#social-media-footer li a:focus svg path{
-  stroke: var(--accent);
-}
-
-.footer-contact-us{
-  line-height: 2.5rem;
-
-  padding-top: 2em;
-  padding-left: 2em;
-  padding-right: 2em;
-}
-
-.footer-contact-us a{
-  text-decoration: none;
-  
-  color: var(--link);
-  
-  transition: var(--transition);
+  margin-bottom: .5rem;
 }
 
 .footer-contact-us ul li:hover a,
 .footer-contact-us ul li:focus-within a{
-  color: var(--accent);
+  color: var(--accent-100);
 }
 
-.info{
-  font-size: clamp(0.8em, 2vw, 1em);
-}
+.links-list li a:focus::after,
+.contact-list li a:focus::after {
+  content: "";
+  position: absolute;
 
-.footer-quick-links{
-  position: relative;
+  left: 50%;
+  bottom: -0.2rem;
+  transform: translateX(-100%);
   
-  line-height: 2.5rem;
-
-  padding-top: 2em;
-  padding-left: 2em;
-  padding-right: 2em;
-}
-
-.footer-quick-links ul li a{
-  text-decoration: none;
+  width: 1.5rem;
+  height: clamp(0.08rem, 1vw, 0.10rem);
   
-  color: var(--link);
-  
-  transition: var(--transition);
+  background: var(--accent-100);
+  border-radius: 0.2rem;
+
+  animation: fadeIn 200ms forwards;
 }
 
-.footer-quick-links ul li:hover a,
-.footer-quick-links ul li:focus-within a{
-  color: var(--accent);
+.contact-list { 
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  gap: .5rem;
 }
 
-.links-list{
-  font-size: clamp(0.8em, 2vw, 1em);
+.links-list { 
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  gap: .5rem;
 }
 
 .footer-logo{
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  padding: 1em 0em;
 }
 
 .footer-logo-svg{
-  width: 15em;
-  height: 5em;
+  width: clamp(7rem, 5.4000rem + 8.0000vw, 15rem);
+  height: auto;
+
+  margin: 1rem 0rem;
 }
 
-.footer-logo-anchor:focus svg path,
-.footer-logo-anchor:hover svg path{
+a.footer-logo-anchor:hover svg path, 
+a.footer-logo-anchor:focus svg path {
+  stroke: none; 
+  color: none;
+}
+a.footer-logo-anchor svg path, 
+a.footer-logo-anchor svg path {
+  stroke: none; 
+  color: none;
+}
+
+div a svg path.xPensive { 
   stroke: none;
 }
 
-.footer-logo-anchor:focus #x,
-.footer-logo-anchor:hover #x{
-  animation: rgb 4s infinite;
-}
-
 .copyright{
-  font-family: var(--ff-josefin-sans);
-  font-size: 1rem;
+  width: 100%; 
+
+  font-size: clamp(0.7rem, 0.6400rem + 0.3000vw, 1rem);
   font-weight: 400;
   text-align: center;
   
   border-top: 1px solid #fff;
-  background: black;
-  color: rgb(255, 255, 255);
-  
   padding: 0.7em 0em;
 }
+/* 
+######
+######
+###### */
