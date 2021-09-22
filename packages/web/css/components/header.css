@@ -137,7 +137,6 @@ li a:focus::after {
   opacity: 0;
   transition: 0.25s ease;
   min-width: 200px;
-  z-index: 5;
 }
 
 .dropdown-menu.active .dropdown-menu__content {
@@ -169,6 +168,8 @@ li a:focus::after {
 
 .top-section,
 .bottom-section {
+  z-index: 50;
+
   padding: 2rem;
 }
 
