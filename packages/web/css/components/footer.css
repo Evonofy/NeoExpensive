@@ -20,7 +20,7 @@ footer {
 }
 
 .footer-title{
-  font-size: clamp(0.7rem, 0.6400rem + 0.3000vw, 1rem);
+  font-size: clamp(0.9rem, 0.7800rem + 0.6000vw, 1.5rem);
   font-weight: 500;
   line-height: 1.5em;
   
@@ -43,7 +43,13 @@ footer {
   bottom: -2px;
 }
 
-.footer-paragraph{
+.footer-about-us,
+.footer-contact-us,
+.footer-quick-links { 
+  margin: 0rem 1rem;
+}
+
+.footer-paragraph {
   max-width: 50ch;
 
   font-size: clamp(0.7rem, 0.6100rem + 0.4500vw, 1.15rem);
@@ -66,7 +72,7 @@ footer {
   transform: translateX(-100%);
   
   width: 1.5rem;
-  height: clamp(0.08rem, 1vw, 0.15rem);
+  height: clamp(0.08rem, 1vw, 0.10rem);
   
   background: var(--accent-100);
   border-radius: 0.2rem;
@@ -99,10 +105,10 @@ footer {
 }
 
 .footer-logo-svg{
-  width: 15em;
-  height: 4em;
+  width: clamp(7rem, 5.4000rem + 8.0000vw, 15rem);
+  height: auto;
 
-  margin-bottom: 1rem;
+  margin: 1rem 0rem;
 }
 
 a.footer-logo-anchor:hover svg path, 
@@ -123,7 +129,7 @@ div a svg path.xPensive {
 .copyright{
   width: 100%; 
 
-  font-size: 1rem;
+  font-size: clamp(0.7rem, 0.6400rem + 0.3000vw, 1rem);
   font-weight: 400;
   text-align: center;
   

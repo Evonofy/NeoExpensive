@@ -36,6 +36,18 @@ ul {
   margin-top: .30rem;
 }
 
+/* Test */
+nav ul li {
+  width: 7rem;
+  text-align: center;
+}
+
+nav img { 
+  width: 5rem;
+  height: auto;
+}
+/* ###### */
+
 li a {
   position: relative;
 }
@@ -63,10 +75,10 @@ li a:focus::after {
 }
 
 [data-logo] {
-  --data-logo-margin: clamp(.5rem, 1vw, 2rem);
-  margin: 0 var(--data-logo-margin);
+  /* --data-logo-margin: clamp(.5rem, 1vw, 2rem); */
+  /* margin: 0 var(--data-logo-margin); */
 
-  display: inline-block;
+  /* display: inline-block; */
   /* display: inline; */
 }
 
