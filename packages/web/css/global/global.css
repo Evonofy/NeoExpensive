@@ -7,7 +7,22 @@
 @import url('../fonts/fonts.css');
 @import url('../colors/colors.css');
 
+@import url('../components/header.css');
+
 @import url('../components/footer.css');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--gray-800);
+}
 
 [data-reset] {
   padding: 0;
@@ -20,15 +35,10 @@
   place-items: center;
 }
 
-a, button {
+a,
+button {
   transition: all 200ms;
   cursor: pointer;
-}
-
-:root {
-  --dropdown-animate: dropdown 0.2s forwards;
-
-  --transition: all 200ms;
 }
 
 ::selection {
@@ -42,7 +52,7 @@ a, button {
 }
 
 ::-webkit-scrollbar {
-  width: .5rem;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -61,29 +71,6 @@ a, button {
   cursor: pointer;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  
-  background-color: var(--gray-800);
-}
-
-ul {
-  list-style: none;
-  list-style-type: none;
-}
-
-a {
-  outline: 0;
-  text-decoration: none;
-}
-
 path {
   transition: all 0.2s ease;
 }
@@ -91,7 +78,42 @@ path {
 svg {
   flex-shrink: 0;
 
-  width: 3.125rem;
-  height: 3.125rem;
+  width: clamp(1rem, 2vw, 2.5rem);
+  height: auto;
+
   transition: 0.2s all;
+}
+
+a:not([data-logo]) svg path,
+button svg path {
+  stroke: var(--gray-200);
+}
+
+a:hover svg path,
+a:focus svg path,
+button:hover svg path,
+button:focus svg path {
+  stroke: var(--accent-100);
+}
+
+[data-logo] {
+  --data-logo-padding: clamp(0.5rem, 1vw, 2rem);
+  padding: 0 var(--data-logo-padding);
+
+  display: inline;
+}
+
+[data-logo] svg {
+  width: clamp(1rem, 2vw, 2rem);
+}
+
+a[data-logo]:hover svg path,
+a[data-logo]:focus svg path {
+  stroke: none;
+}
+
+button {
+  padding: 1rem 1.8rem;
+
+  border-radius: 0.2rem;
 }
