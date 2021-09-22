@@ -89,9 +89,20 @@ path {
 }
 
 svg {
-  flex-shrink: 0;
+  width: clamp(1rem, 2vw, 2.5rem);
+  height: auto;
 
-  width: 3.125rem;
-  height: 3.125rem;
-  transition: 0.2s all;
+  transition: all 0.2s ease;
+}
+
+a:not([data-logo]) svg path,
+button svg path {
+  stroke: var(--gray-200);
+}
+
+a:hover svg path,
+a:focus svg path,
+button:hover svg path,
+button:focus svg path {
+  stroke: var(--accent-100);
 }
