@@ -18,7 +18,6 @@ var menuItems = [].slice.call(document.querySelectorAll('.menu__item')),
   selectedMenu = undefined,
   subBg = document.querySelector('.dropdown__bg'),
   subBgBtm = document.querySelector('.dropdown__bg-bottom'),
-  subArr = document.querySelector('.arrow'),
   subCnt = document.querySelector('.dropdown__wrap'),
   header = document.querySelector('header'),
   closeDropdownTimeout,
@@ -73,10 +72,6 @@ var menuItems = [].slice.call(document.querySelectorAll('.menu__item')),
     subBgBtm.style.top = menuSubTop.height + 'px';
     console.log(menuSubBtm);
 
-    //- Set Arrow position
-    subArr.style.opacity = 1;
-    subArr.style.left = menuMeta.left + menuMeta.width / 2 - 10 + 'px';
-
     //- Set sub menu style
     subCnt.style.opacity = 1;
     subCnt.style.left =
@@ -100,7 +95,7 @@ var menuItems = [].slice.call(document.querySelectorAll('.menu__item')),
     //- set sub menu background opacity
     subBg.style.opacity = 0;
     //- set arrow opacity
-    subArr.style.opacity = 0;
+    // subArr.style.opacity = 0;
 
     // unset selected menu
     selectedMenu = undefined;

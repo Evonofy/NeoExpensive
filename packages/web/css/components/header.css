@@ -99,21 +99,8 @@ li a:focus::after {
   top: 100%;
 }
 
-.dropdown__bg,
-.arrow {
+.dropdown__bg {
   position: absolute;
-}
-
-.arrow {
-  width: 20px;
-  height: 20px;
-  transform: rotate(45deg);
-  border-radius: 0.2rem;
-  background: var(--gray-600);
-  top: -2px;
-  opacity: 0;
-  transition: 0.25s ease;
-  pointer-events: none;
 }
 
 .dropdown__bg {
