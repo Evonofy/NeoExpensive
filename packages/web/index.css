@@ -4,7 +4,7 @@
 ######
 HEADER
 ###### */
-header {
+/* header {
   width: 100%;
   
   background: var(--gray-900);
@@ -36,17 +36,8 @@ ul {
   margin-top: .30rem;
 }
 
-/* Test */
-nav ul li {
-  width: 7rem;
-  text-align: center;
-}
 
-nav img { 
-  width: 5rem;
-  height: auto;
-}
-/* ###### */
+
 
 li a {
   position: relative;
@@ -54,14 +45,14 @@ li a {
 
 li a:hover, 
 li a:focus { 
-  /* width: 100%;
+  width: 100%;
 
   color: var(--gray-100);
 
   background: var(--accent-100);
   border-radius: .3rem;
 
-  padding: .3rem; */
+  padding: .3rem;
 
   color: var(--accent-100);
 }
@@ -81,24 +72,8 @@ li a:focus::after {
   border-radius: 0.2rem;
 
   animation: fadeIn 200ms forwards;
-}
+} */
 
-[data-logo] {
-  /* --data-logo-margin: clamp(.5rem, 1vw, 2rem); */
-  /* margin: 0 var(--data-logo-margin); */
-
-  /* display: inline-block; */
-  /* display: inline; */
-}
-
-[data-logo] svg {
-  width: clamp(1rem, 2vw, 2rem);
-}
-
-a[data-logo]:hover svg path,
-a[data-logo]:focus svg path {
-  stroke: none;
-}
 /* 
 ######
 ######

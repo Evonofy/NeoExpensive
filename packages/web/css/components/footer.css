@@ -58,7 +58,9 @@ footer {
 }
 
 .footer-contact-us ul li:hover a,
-.footer-contact-us ul li:focus-within a{
+.footer-contact-us ul li:focus-within a,
+.footer-quick-links ul li:hover a,
+.footer-quick-links ul li:focus-within a {
   color: var(--accent-100);
 }
 
