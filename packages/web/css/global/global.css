@@ -42,13 +42,13 @@ button {
 }
 
 ::selection {
-  color: var(--accent);
-  background: hsl(285, 40%, 60%);
+  color: var(--accent-100);
+  background: hsla(285, 60%, 50%, 0.1);
 }
 
 ::-webkit-selection {
-  color: var(--accent);
-  background: hsl(285, 37%, 60%);
+  color: var(--accent-100);
+  background: hsla(285, 60%, 50%, 0.1);
 }
 
 ::-webkit-scrollbar {
