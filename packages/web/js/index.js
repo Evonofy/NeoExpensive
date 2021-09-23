@@ -18,12 +18,12 @@ var menuItems = [].slice.call(document.querySelectorAll('.menu__item')),
   selectedMenu = undefined,
   subBg = document.querySelector('.dropdown__bg'),
   subBgBtm = document.querySelector('.dropdown__bg-bottom'),
-  subArr = document.querySelector('.dropdown__arrow'),
+  subArr = document.querySelector('.arrow'),
   subCnt = document.querySelector('.dropdown__wrap'),
   header = document.querySelector('header'),
   closeDropdownTimeout,
   startCloseTimeout = function () {
-    closeDropdownTimeout = setTimeout(() => closeDropdown(), 50);
+    closeDropdownTimeout = setTimeout(() => closeDropdown(), 200);
   },
   stopCloseTimeout = function () {
     clearTimeout(closeDropdownTimeout);

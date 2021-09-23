@@ -97,8 +97,7 @@ button:focus svg path {
 }
 
 [data-logo] {
-  --data-logo-padding: clamp(0.5rem, 1vw, 2rem);
-  padding: 0 var(--data-logo-padding);
+  padding: 0 clamp(0.5rem, 1vw, 2rem);
 
   display: inline;
 }

@@ -1,9 +1,6 @@
 header {
   width: 100%;
 
-  position: relative;
-  perspective: 2000px;
-
   background: var(--gray-900);
 
   display: flex;
@@ -13,12 +10,12 @@ header {
 
   position: relative;
 
-  --header-padding: clamp(1rem, 1vw, 2rem);
-  padding: var(--header-padding) clamp(1rem, 3vw, 4rem);
+  padding: clamp(1rem, 1vw, 2rem) clamp(1rem, 3vw, 4rem);
 
   border-bottom: 2px solid var(--accent-100);
 
   transform-style: preserve3d;
+
   perspective: 3000px;
   position: relative;
 }
@@ -47,7 +44,7 @@ nav li a {
   padding: 0.3rem;
 }
 
-nav img { 
+nav img {
   width: 5rem;
   height: auto;
 }
@@ -65,7 +62,7 @@ li a {
 
 nav li a:hover {
   color: var(--gray-100);
-  
+
   background: var(--accent-100);
 }
 
@@ -95,7 +92,7 @@ li a:focus::after {
   display: none;
 }
 
-.dropdown-holder {
+.dropdown {
   position: absolute;
   width: 100%;
   left: 0;
@@ -103,11 +100,11 @@ li a:focus::after {
 }
 
 .dropdown__bg,
-.dropdown__arrow {
+.arrow {
   position: absolute;
 }
 
-.dropdown__arrow {
+.arrow {
   width: 20px;
   height: 20px;
   transform: rotate(45deg);
@@ -156,7 +153,7 @@ li a:focus::after {
   opacity: 1;
 }
 
-#product .dropdown-menu__content {
+#info .dropdown-menu__content {
   width: 640px;
 }
 
@@ -164,15 +161,14 @@ li a:focus::after {
   width: 400px;
 }
 
-.info-dropdown {
-  width: 100%;
+#info .dropdown-menu__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.info-dropdown .top-section {
+#info .top-section {
   width: 100%;
 
   display: grid;
@@ -182,16 +178,16 @@ li a:focus::after {
 .top-section,
 .bottom-section {
   z-index: 50;
-
   padding: 2rem;
 }
 
-.bottom-section,
-.bottom-section section {
+.bottom-section {
   width: 100%;
 }
 
-.info-dropdown .bottom-section section {
+#info .bottom-section {
+  width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,16 +195,16 @@ li a:focus::after {
   color: var(--gray-100);
 }
 
-.info-dropdown .bottom-section section button {
+#info .bottom-section button {
   color: var(--gray-100);
   background: var(--accent-100);
 }
 
-.info-dropdown .bottom-section section button:hover {
+#info .bottom-section button:hover {
   background: var(--accent-300);
 }
 
-.info-dropdown .card {
+#info .card {
   width: 100%;
   display: grid;
 
@@ -220,11 +216,11 @@ li a:focus::after {
   row-gap: 1rem;
 }
 
-.info-dropdown .card h2 {
+#info .card h2 {
   font-size: clamp(0.6rem, 2vw, 0.8rem);
 }
 
-.info-dropdown .card img {
+#info .card img {
   width: clamp(0.8rem, 5vw, 50px);
   height: auto;
 
@@ -235,16 +231,16 @@ li a:focus::after {
   grid-area: img;
 }
 
-.info-dropdown .card h1 {
+#info .card h1 {
   grid-area: title;
 }
 
-.info-dropdown .card ul {
+#info .card ul {
   flex-direction: column;
   grid-area: description;
 }
 
-.info-dropdown .card ul li {
+#info .card ul li {
   width: 100%;
   text-align: left;
 }
