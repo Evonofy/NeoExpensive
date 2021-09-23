@@ -62,22 +62,34 @@ var menuItems = [].slice.call(document.querySelectorAll('.menu__item')),
     //- Set current menu to active
     menuSub.classList.add('active');
 
+    const isSmall = window.innerWidth <= 1440;
+
+    const dropdown = {
+      opacity: 1,
+      left: isSmall
+        ? '50%'
+        : menuMeta.left - (subMeta.width / 2 - menuMeta.width / 2) + 'px',
+      transform: isSmall ? 'translateX(-50%)' : '',
+      width: `${subMeta.width}px`,
+      height: `${subMeta.height}px`
+    };
+
     //- Set dropdown menu background style to match current submenu style
-    subBg.style.opacity = 1;
-    subBg.style.left =
-      menuMeta.left - (subMeta.width / 2 - menuMeta.width / 2) + 'px';
-    subBg.style.width = subMeta.width + 'px';
-    subBg.style.height = subMeta.height + 'px';
+    subBg.style.opacity = dropdown.opacity;
+    subBg.style.left = dropdown.left;
+    subBg.style.transform = dropdown.transform;
+    subBg.style.width = dropdown.width;
+    subBg.style.height = dropdown.height;
+
     //- Set dropdown menu bottom section background position
     subBgBtm.style.top = menuSubTop.height + 'px';
-    console.log(menuSubBtm);
 
     //- Set sub menu style
-    subCnt.style.opacity = 1;
-    subCnt.style.left =
-      menuMeta.left - (subMeta.width / 2 - menuMeta.width / 2) + 'px';
-    subCnt.style.width = subMeta.width + 'px';
-    subCnt.style.height = subMeta.height + 'px';
+    subCnt.style.opacity = dropdown.opacity;
+    subCnt.style.left = dropdown.left;
+    subCnt.style.transform = dropdown.transform;
+    subCnt.style.width = dropdown.width;
+    subCnt.style.height = dropdown.height;
 
     //- Set current sub menu style
     menuSub.style.opacity = 1;
@@ -121,6 +133,7 @@ menuItems.forEach(el => {
 
 //- Binding mouse event to each sub menus
 menuSubs.forEach(el => {
+  el.addEventListener('click', () => stopCloseTimeout(), false);
   el.addEventListener('mouseenter', () => stopCloseTimeout(), false);
   el.addEventListener('mouseleave', () => startCloseTimeout(), false);
 });
