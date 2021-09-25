@@ -13,9 +13,9 @@ export default {
 
   color: {
     gray: {
-      700: `hsl(${gray.hue}, ${gray.saturation}, 30)`,
-      800: `hsl(${gray.hue}, ${gray.saturation}, 15)`,
-      900: `hsl(${gray.hue}, ${gray.saturation}, 10)`
+      700: `hsl(${gray.hue}, ${gray.saturation}%, 30%)`,
+      800: `hsl(${gray.hue}, ${gray.saturation}%, 15%)`,
+      900: `hsl(${gray.hue}, ${gray.saturation}%, 10%)`
     },
 
     accent: {

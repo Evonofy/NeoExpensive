@@ -12,5 +12,7 @@ export default createGlobalStyle`
   #__next {
     width: 100%;
     height: 100%;
+    
+    background: ${props => props.theme.color.gray[700]};
   }
 `;
