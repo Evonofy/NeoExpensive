@@ -1,24 +1,19 @@
-import { default as Anchor } from 'next/link';
-import { FC, ReactNode } from 'react';
+import Anchor from 'next/link';
+import { AnchorHTMLAttributes, FC, ReactNode } from 'react';
 
-interface LinkProps {
-  url: string;
+interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;
   children: ReactNode;
-  className?: string;
-  onClick?: () => void;
-  onMouseOver?: () => void;
-  onMouseLeave?: () => void;
 }
 
 export const Link: FC<LinkProps> = ({
-  url,
+  href,
   name,
   children,
   ...rest
 }): JSX.Element => {
   return (
-    <Anchor href={url}>
+    <Anchor href={href}>
       <a
         {...rest}
         aria-label={name.replace(' ', '-')}
