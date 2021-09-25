@@ -1,16 +1,17 @@
 import { FC } from 'react';
 
-import { Translate, ComplexTranslate } from '@components';
-import { FacebookLogo } from 'phosphor-react';
-const Home: FC = (): JSX.Element => {
+import { useClamp } from '@hooks';
+
+type HomeProps = {
+  rootFontSize: number;
+  setRootFontSize: number;
+};
+
+const Home: FC<HomeProps> = ({ rootFontSize }) => {
+  console.log(useClamp('1rem', '3rem', rootFontSize));
   return (
     <section>
-      <h1>
-        <Translate text="world" />
-      </h1>
-      <FacebookLogo width={70} height={70} />
-      <h1>BBBBBBBBBB</h1>
-      <h1>aaaaaa</h1>
+      <h1>test</h1>
     </section>
   );
 };

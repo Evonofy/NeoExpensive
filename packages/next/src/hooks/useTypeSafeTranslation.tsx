@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /** Reference Translation */
-import translations from '@locales/en/translation.json';
+import translations from '@locales/en-US/translation.json';
 import { Paths } from '../types/utils';
 
 export type TranslationKeys = Paths<typeof translations>;
