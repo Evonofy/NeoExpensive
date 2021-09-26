@@ -18,6 +18,7 @@ export const Link: FC<LinkProps> = ({
         {...rest}
         aria-label={name.replace(' ', '-')}
         rel="noopener noreferrer"
+        data-reset
       >
         {children}
       </a>

@@ -4,11 +4,9 @@ import { ThemeProvider } from 'styled-components';
 
 import { Theme } from '@contexts';
 import { init_i18n } from '@lib';
-import { Head } from '@components';
-import Dark from '@styles/themes/dark';
+import { Head, Layout } from '@components';
 import Global from '@styles/global';
-
-const clampBuilder = () => {};
+import Dark from '@styles/themes/dark';
 
 const app: FC<AppProps> = ({ Component, pageProps }): JSX.Element => {
   const [rootFontSize, setRootFontSize] = useState(16);
@@ -29,7 +27,9 @@ const app: FC<AppProps> = ({ Component, pageProps }): JSX.Element => {
       {/** Initialize Theme context */}
       <Theme themeDefault="dark" themes={['dark', 'light', 'rgb', 'contrast']}>
         <Head />
-        <Component {...pageProps} {...{ rootFontSize, setRootFontSize }} />
+        <Layout {...{ rootFontSize, setRootFontSize }}>
+          <Component {...pageProps} {...{ rootFontSize, setRootFontSize }} />
+        </Layout>
         <Global />
       </Theme>
     </ThemeProvider>
