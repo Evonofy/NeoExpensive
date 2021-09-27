@@ -62,6 +62,7 @@ footer {
 .footer-quick-links ul li:hover a,
 .footer-quick-links ul li:focus-within a {
   color: var(--accent-100);
+  position: relative;
 }
 
 .links-list li a:focus::after,

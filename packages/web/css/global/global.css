@@ -91,7 +91,7 @@ button svg path {
 
 a:hover svg path,
 a:focus svg path,
-button:hover svg path,
+button:hover svg path, 
 button:focus svg path {
   stroke: var(--accent-100);
 }

@@ -80,3 +80,10 @@ li a:focus::after {
 
   animation: fadeIn 200ms forwards;
 }
+
+button:hover a,
+button:focus a { 
+  color: var(--gray-100);
+
+  background: var(--accent-100);
+} 
