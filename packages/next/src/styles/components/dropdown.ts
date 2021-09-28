@@ -4,7 +4,31 @@ export const DropdownContainer = styled.div`
   position: absolute;
   width: 100%;
   left: 0;
-  top: 10%;
+  top: 8%;
+
+  .dropdown__bg {
+    position: absolute;
+  }
+
+  .dropdown__bg {
+    /* z-index: -1; */
+    background: ${props => props.theme.color.gray[700]};
+    opacity: 0;
+    position: absolute;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.25s ease;
+  }
+
+  .dropdown__bg-bottom {
+    background-color: ${props => props.theme.color.gray[900]};
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 300px;
+    height: 700px;
+    transition: 0.3s ease;
+  }
 
   .dropdown__wrap {
     overflow: hidden;
@@ -118,24 +142,4 @@ export const DropdownContainer = styled.div`
     width: 100%;
     text-align: left;
   }
-`;
-
-export const Background = styled.div`
-  position: absolute;
-  background: ${props => props.theme.color.gray[700]};
-  opacity: 0;
-  position: absolute;
-  border-radius: 5px;
-  overflow: hidden;
-  transition: 0.25s ease;
-`;
-
-export const BackgroundBottom = styled.div`
-  background-color: ${props => props.theme.color.gray[900]};
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 300px;
-  height: 700px;
-  transition: 0.3s ease;
 `;

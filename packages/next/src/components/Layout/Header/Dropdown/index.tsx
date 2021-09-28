@@ -1,17 +1,13 @@
 import { FC } from 'react';
 
-import {
-  DropdownContainer,
-  Background,
-  BackgroundBottom
-} from '@styles/components/dropdown';
+import { DropdownContainer } from '@styles/components/dropdown';
 
 export const Dropdown: FC = () => {
   return (
     <DropdownContainer className="dropdown">
-      <Background className="dropdown__bg">
-        <BackgroundBottom className="dropdown__bg-bottom"></BackgroundBottom>
-      </Background>
+      <div className="dropdown__bg">
+        <div className="dropdown__bg-bottom"></div>
+      </div>
 
       <section className="dropdown__wrap">
         <div className="dropdown-menu" id="info" data-sub="info">

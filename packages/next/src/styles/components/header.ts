@@ -66,20 +66,21 @@ export const NavbarList = styled.ul<NavbarListProps>`
     text-align: center;
 
     cursor: pointer;
-    padding: 0.3rem 0;
 
     transition: background 200ms ease;
 
-    &:hover {
-      color: #fff;
-      background: ${({ theme }) => theme.color.accent[200]};
-    }
-
-    border-radius: 0.3rem;
-
     a {
+      border-radius: 0.3rem;
+      padding: 0.3rem 0;
       width: 100%;
       height: 100%;
+
+      &:hover,
+      &:focus {
+        outline: 0;
+        color: #fff;
+        background: ${({ theme }) => theme.color.accent[200]};
+      }
     }
   }
 `;

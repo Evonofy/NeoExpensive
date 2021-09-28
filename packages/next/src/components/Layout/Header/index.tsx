@@ -38,7 +38,7 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
         clearTimeout(closeDropdownTimeout);
       },
       openDropdown = function (el) {
-        dropdownContainer.style.zIndex = '1';
+        // dropdownContainer.style.zIndex = '1';
         console.log(el);
         //- get menu ID
         var menuId = el.getAttribute('data-sub');
@@ -109,7 +109,6 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
         header.classList.add('dropdown-active');
       },
       closeDropdown = function () {
-        dropdownContainer.style.zIndex = '-1';
         //- Remove active class from all menu items
         menuItems.forEach(el => el.classList.remove('active'));
         //- Remove active class from all sub menus
@@ -126,6 +125,7 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
         selectedMenu = undefined;
 
         header.classList.remove('dropdown-active');
+        // dropdownContainer.style.zIndex = '-1';
       };
 
     //- Binding mouse event to each menu items
