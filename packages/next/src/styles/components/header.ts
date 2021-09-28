@@ -18,6 +18,8 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
 
   background: ${props => props.theme.color.gray[900]};
 
+  position: relative;
+
   svg {
     width: ${props => props.svgWidth};
     height: auto;

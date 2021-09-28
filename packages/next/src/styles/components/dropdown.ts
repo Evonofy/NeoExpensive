@@ -1,10 +1,54 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const hide = css`
+  @keyframes hide {
+    0% {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    99% {
+      opacity: 0;
+    }
+
+    100% {
+      z-index: -1;
+    }
+  }
+`;
+
+const show = css`
+  @keyframes show {
+    0% {
+      z-index: 1;
+    }
+
+    1% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+`;
 
 export const DropdownContainer = styled.div`
   position: absolute;
   width: 100%;
   left: 0;
-  top: 8%;
+  top: 100%;
+
+  &.show {
+    ${show}
+    animation: show 0.25s ease;
+  }
+
+  &.hide {
+    ${hide}
+    animation: hide 0.25s ease;
+    z-index: -1;
+  }
 
   .dropdown__bg {
     position: absolute;

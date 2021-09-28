@@ -20,7 +20,7 @@ type HeaderProps = {
 
 export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
   useEffect(() => {
-    var menuItems = [].slice.call(document.querySelectorAll('.menu__item')),
+    var menuItems = [].slice.call(document.querySelectorAll('.menu__item a')),
       menuSubs: any = [].slice.call(
         document.querySelectorAll('.dropdown-menu')
       ),
@@ -32,13 +32,17 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
       dropdownContainer: any = document.querySelector('.dropdown'),
       closeDropdownTimeout,
       startCloseTimeout = function () {
-        closeDropdownTimeout = setTimeout(() => closeDropdown(), 200);
+        closeDropdownTimeout = setTimeout(() => {
+          closeDropdown();
+        }, 200);
       },
       stopCloseTimeout = function () {
         clearTimeout(closeDropdownTimeout);
       },
       openDropdown = function (el) {
-        // dropdownContainer.style.zIndex = '1';
+        dropdownContainer.classList.remove('hide');
+        dropdownContainer.classList.add('show');
+
         console.log(el);
         //- get menu ID
         var menuId = el.getAttribute('data-sub');
@@ -125,23 +129,31 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
         selectedMenu = undefined;
 
         header.classList.remove('dropdown-active');
-        // dropdownContainer.style.zIndex = '-1';
+        dropdownContainer.classList.add('hide');
+        dropdownContainer.classList.remove('show');
       };
 
     //- Binding mouse event to each menu items
     menuItems.forEach(el => {
       //- mouse enter event
-      el.addEventListener(
-        'mouseenter',
-        function () {
-          stopCloseTimeout();
-          openDropdown(this);
-        },
-        false
-      );
+      el.addEventListener('mouseenter', function () {
+        stopCloseTimeout();
+        openDropdown(this);
+      });
+
+      el.addEventListener('focus', function () {
+        stopCloseTimeout();
+        openDropdown(this);
+      });
+
+      el.addEventListener('blur', () => {
+        startCloseTimeout();
+      });
 
       //- mouse leave event
-      el.addEventListener('mouseleave', () => startCloseTimeout(), false);
+      el.addEventListener('mouseleave', () => {
+        startCloseTimeout();
+      });
     });
 
     //- Binding mouse event to each sub menus
@@ -172,14 +184,14 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
       </div>
 
       <Navbar {...{ rootFontSize }}>
-        <NavbarItem className="menu__item" data-sub="info">
-          <Link name="info" href="#">
+        <NavbarItem className="menu__item">
+          <Link name="info" href="#" data-sub="info">
             Informática
           </Link>
         </NavbarItem>
 
-        <NavbarItem className="menu__item" data-sub="developer">
-          <Link name="consoles" href="#">
+        <NavbarItem className="menu__item">
+          <Link name="consoles" href="#" data-sub="developer">
             Consoles
           </Link>
         </NavbarItem>
