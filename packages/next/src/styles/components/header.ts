@@ -24,6 +24,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
   }
 
   li {
+    color: ${props => props.theme.color.gray[100]};
     font-size: ${props => props.fontSize};
   }
 
@@ -70,6 +71,7 @@ export const NavbarList = styled.ul<NavbarListProps>`
     transition: background 200ms ease;
 
     &:hover {
+      color: #fff;
       background: ${({ theme }) => theme.color.accent[200]};
     }
 

@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, LiHTMLAttributes, ReactNode } from 'react';
 import SiteNav, { ContentGroup } from 'react-site-nav';
 
 import { useClamp } from '@hooks';
@@ -22,6 +22,8 @@ export const Navbar: FC<NavbarProps> = ({ children, rootFontSize }) => {
   );
 };
 
-export const NavbarItem: FC = ({ children }) => {
-  return <li>{children}</li>;
+interface NavbarItemProps extends LiHTMLAttributes<HTMLLIElement> {}
+
+export const NavbarItem: FC<NavbarItemProps> = ({ children, ...rest }) => {
+  return <li {...rest}>{children}</li>;
 };

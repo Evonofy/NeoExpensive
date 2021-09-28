@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import {
   Facebook,
   Instagram,
@@ -11,6 +11,7 @@ import {
 import { useClamp } from '@hooks';
 import { Link } from '@components';
 import { Navbar, NavbarItem } from './Navbar';
+import { Dropdown } from './Dropdown';
 import { HeaderContainer, X } from '@styles/components/header';
 
 type HeaderProps = {
@@ -18,9 +19,148 @@ type HeaderProps = {
 };
 
 export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
+  useEffect(() => {
+    var menuItems = [].slice.call(document.querySelectorAll('.menu__item')),
+      menuSubs: any = [].slice.call(
+        document.querySelectorAll('.dropdown-menu')
+      ),
+      selectedMenu = undefined,
+      subBg: any = document.querySelector('.dropdown__bg'),
+      subBgBtm: any = document.querySelector('.dropdown__bg-bottom'),
+      subCnt: any = document.querySelector('.dropdown__wrap'),
+      header = document.querySelector('header'),
+      dropdownContainer: any = document.querySelector('.dropdown'),
+      closeDropdownTimeout,
+      startCloseTimeout = function () {
+        closeDropdownTimeout = setTimeout(() => closeDropdown(), 200);
+      },
+      stopCloseTimeout = function () {
+        clearTimeout(closeDropdownTimeout);
+      },
+      openDropdown = function (el) {
+        dropdownContainer.style.zIndex = '1';
+        console.log(el);
+        //- get menu ID
+        var menuId = el.getAttribute('data-sub');
+        //- get related sub menu
+        var menuSub: any = document.querySelector(
+          '.dropdown-menu[data-sub="' + menuId + '"]'
+        );
+        //- get menu sub content
+        var menuSubCnt = menuSub.querySelector('.dropdown-menu__content');
+        //- get bottom section of current sub
+        var menuSubBtm = menuSubCnt
+          .querySelector('.bottom-section')
+          .getBoundingClientRect();
+        //- get height of top section
+        var menuSubTop = menuSubCnt
+          .querySelector('.top-section')
+          .getBoundingClientRect();
+        //- get menu position
+        var menuMeta = el.getBoundingClientRect();
+        //- get sub menu position
+        var subMeta = menuSubCnt.getBoundingClientRect();
+
+        //- set selected menu
+        selectedMenu = menuId;
+
+        //- Remove active Menu
+        menuItems.forEach(el => el.classList.remove('active'));
+        //- Set current menu to active
+        el.classList.add('active');
+
+        //- Remove active sub menu
+        menuSubs.forEach(el => el.classList.remove('active'));
+        //- Set current menu to active
+        menuSub.classList.add('active');
+
+        const isSmall = window.innerWidth <= 1440;
+
+        const dropdown = {
+          opacity: 1,
+          left: isSmall
+            ? '50%'
+            : menuMeta.left - (subMeta.width / 2 - menuMeta.width / 2) + 'px',
+          transform: isSmall ? 'translateX(-50%)' : '',
+          width: `${subMeta.width}px`,
+          height: `${subMeta.height}px`
+        };
+
+        //- Set dropdown menu background style to match current submenu style
+        subBg.style.opacity = dropdown.opacity;
+        subBg.style.left = dropdown.left;
+        subBg.style.transform = dropdown.transform;
+        subBg.style.width = dropdown.width;
+        subBg.style.height = dropdown.height;
+
+        //- Set dropdown menu bottom section background position
+        subBgBtm.style.top = menuSubTop.height + 'px';
+
+        //- Set sub menu style
+        subCnt.style.opacity = dropdown.opacity;
+        subCnt.style.left = dropdown.left;
+        subCnt.style.transform = dropdown.transform;
+        subCnt.style.width = dropdown.width;
+        subCnt.style.height = dropdown.height;
+
+        //- Set current sub menu style
+        menuSub.style.opacity = 1;
+
+        header.classList.add('dropdown-active');
+      },
+      closeDropdown = function () {
+        dropdownContainer.style.zIndex = '-1';
+        //- Remove active class from all menu items
+        menuItems.forEach(el => el.classList.remove('active'));
+        //- Remove active class from all sub menus
+        menuSubs.forEach(el => {
+          el.classList.remove('active');
+          el.style.opacity = 0;
+        });
+        //- set sub menu background opacity
+        subBg.style.opacity = 0;
+        //- set arrow opacity
+        // subArr.style.opacity = 0;
+
+        // unset selected menu
+        selectedMenu = undefined;
+
+        header.classList.remove('dropdown-active');
+      };
+
+    //- Binding mouse event to each menu items
+    menuItems.forEach(el => {
+      //- mouse enter event
+      el.addEventListener(
+        'mouseenter',
+        function () {
+          stopCloseTimeout();
+          openDropdown(this);
+        },
+        false
+      );
+
+      //- mouse leave event
+      el.addEventListener('mouseleave', () => startCloseTimeout(), false);
+    });
+
+    //- Binding mouse event to each sub menus
+    menuSubs.forEach(el => {
+      el.addEventListener('click', () => {
+        stopCloseTimeout();
+        console.log('a');
+      });
+      el.addEventListener('mouseenter', () => stopCloseTimeout(), false);
+      el.addEventListener('mouseleave', () => startCloseTimeout(), false);
+    });
+
+    subBg.addEventListener('mouseenter', () => stopCloseTimeout());
+    subBg.addEventListener('mouseleave', () => startCloseTimeout());
+  }, []);
+
   return (
     <HeaderContainer
-      blockPadding={useClamp('1rem', '2rem', rootFontSize)}
+      blockPadding={useClamp('1rem', '1.5rem', rootFontSize)}
       sidePadding={useClamp('1rem', '4rem', rootFontSize)}
       svgWidth={useClamp('0.5rem', '2rem', rootFontSize)}
       fontSize={useClamp('0.5rem', '1rem', rootFontSize)}
@@ -32,13 +172,13 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
       </div>
 
       <Navbar {...{ rootFontSize }}>
-        <NavbarItem>
+        <NavbarItem className="menu__item" data-sub="info">
           <Link name="info" href="#">
             Informática
           </Link>
         </NavbarItem>
 
-        <NavbarItem>
+        <NavbarItem className="menu__item" data-sub="developer">
           <Link name="consoles" href="#">
             Consoles
           </Link>
@@ -71,6 +211,8 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
           </Link>
         </NavbarItem>
       </Navbar>
+
+      <Dropdown />
 
       <div>
         <Search />

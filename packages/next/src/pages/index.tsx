@@ -8,8 +8,7 @@ type HomeProps = {
   setRootFontSize: number;
 };
 
-const Home: FC<HomeProps> = ({ rootFontSize }) => {
-  console.log(useClamp('1rem', '3rem', rootFontSize));
+const Home: FC<HomeProps> = () => {
   return (
     <HomeContainer>
       <h1>test</h1>

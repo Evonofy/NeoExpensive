@@ -81,17 +81,19 @@ export default createGlobalStyle`
       margin-right: -4px;
     }
 
+    &:hover:not([data-icon="logo"]), &:focus:not([data-icon="logo"]) {
+      cursor: pointer;
+      stroke: ${props => props.theme.color.accent[200]};
+    }
+    
     &[data-icon="logo"] {
       stroke: none;
 
       &:hover {
-        fill: ${props => props.theme.color.accent[200]};
+        path {
+          fill: ${props => props.theme.color.accent[300]};
+        }
       }
-    }
-
-    &:hover, &:focus {
-      cursor: pointer;
-      stroke: ${props => props.theme.color.accent[200]};
     }
   }
 
