@@ -1,37 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const hide = css`
-  @keyframes hide {
-    0% {
-      opacity: 1;
-      z-index: 1;
-    }
-
-    99% {
-      opacity: 0;
-    }
-
-    100% {
-      z-index: -1;
-    }
-  }
-`;
-
-const show = css`
-  @keyframes show {
-    0% {
-      z-index: 1;
-    }
-
-    1% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-`;
+import { hide, show } from '../animations/dropdown';
 
 export const DropdownContainer = styled.div`
   position: absolute;
@@ -40,13 +9,11 @@ export const DropdownContainer = styled.div`
   top: 100%;
 
   &.show {
-    ${show}
-    animation: show 0.25s ease;
+    animation: ${show} 0.25s ease;
   }
 
   &.hide {
-    ${hide}
-    animation: hide 0.25s ease;
+    animation: ${hide} 0.25s ease;
     z-index: -1;
   }
 
@@ -135,6 +102,39 @@ export const DropdownContainer = styled.div`
     justify-content: space-between;
 
     color: ${props => props.theme.color.gray[100]};
+  }
+
+  #info .bottom-section a {
+    ${props => css`
+      position: relative;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+
+        background: ${props.theme.color.gray[200]};
+
+        width: 0%;
+        height: 2px;
+        border-radius: 2px;
+
+        left: 0;
+
+        bottom: -0.2rem;
+        transition: all 200ms;
+      }
+
+      &:hover,
+      &:focus {
+        outline: 0;
+        color: ${props.theme.color.gray[100]};
+
+        &::after {
+          width: 100%;
+        }
+      }
+    `}
   }
 
   #info .bottom-section button {

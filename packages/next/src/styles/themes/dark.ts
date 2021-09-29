@@ -15,7 +15,7 @@ export default {
 
     accent: {
       /* lighter */
-      100: `hsl(${accent.hue}, ${accent.saturation}%, 70%)`,
+      100: `hsl(${accent.hue}, ${accent.saturation}%, 60%)`,
       /* normal */
       200: `hsl(${accent.hue}, ${accent.saturation}%, 50%)`,
       /* darker */

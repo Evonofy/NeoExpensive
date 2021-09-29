@@ -224,7 +224,7 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
         </NavbarItem>
       </Navbar>
 
-      <Dropdown />
+      <Dropdown rootFontSize={rootFontSize} />
 
       <div>
         <Search />

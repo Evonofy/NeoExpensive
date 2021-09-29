@@ -1,8 +1,13 @@
 import { FC } from 'react';
 
+import { Button } from '@components';
 import { DropdownContainer } from '@styles/components/dropdown';
 
-export const Dropdown: FC = () => {
+interface DropdownProps {
+  rootFontSize: number;
+}
+
+export const Dropdown: FC<DropdownProps> = ({ rootFontSize }) => {
   return (
     <DropdownContainer className="dropdown">
       <div className="dropdown__bg">
@@ -64,7 +69,9 @@ export const Dropdown: FC = () => {
             <div className="bottom-section">
               <a href="#pcs">Computadores Montados</a>
 
-              <button>Monte seu pc</button>
+              <Button rootFontSize={rootFontSize} variant="primary">
+                Monte seu pc
+              </Button>
             </div>
           </div>
         </div>
