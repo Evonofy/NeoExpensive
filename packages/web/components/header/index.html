@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header Component</title>
+
+  <link rel="stylesheet" href="./index.css">
+  <script defer src="./index.js"></script>
+</head>
+<body>
+  <template>
+    <header>
+      <div class="social-icons">
+        <a data-reset href="#facebook">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M25 43.75C35.3553 43.75 43.75 35.3553 43.75 25C43.75 14.6447 35.3553 6.25 25 6.25C14.6447 6.25 6.25 14.6447 6.25 25C6.25 35.3553 14.6447 43.75 25 43.75Z"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M32.8125 17.1877H29.6875C28.4443 17.1877 27.252 17.6816 26.3729 18.5607C25.4939 19.4398 25 20.632 25 21.8752V43.7502"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M18.75 28.1252H31.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+    
+        <a data-reset href="#instagram">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M25 32.8125C29.3147 32.8125 32.8125 29.3147 32.8125 25C32.8125 20.6853 29.3147 17.1875 25 17.1875C20.6853 17.1875 17.1875 20.6853 17.1875 25C17.1875 29.3147 20.6853 32.8125 25 32.8125Z"
+              stroke="white" stroke-width="2" stroke-miterlimit="10" />
+            <path
+              d="M33.5938 7.03125H16.4062C11.2286 7.03125 7.03125 11.2286 7.03125 16.4062V33.5938C7.03125 38.7714 11.2286 42.9688 16.4062 42.9688H33.5938C38.7714 42.9688 42.9688 38.7714 42.9688 33.5938V16.4062C42.9688 11.2286 38.7714 7.03125 33.5938 7.03125Z"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+    
+        <a data-reset href="#twitter">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9.37502 39.0625C9.37502 39.0625 17.1875 37.5 18.75 32.8125C18.75 32.8125 6.25002 28.125 9.37502 10.9375C9.37502 10.9375 15.625 18.75 25 20.3125V17.1881C25.0002 15.3931 25.6184 13.6529 26.7506 12.26C27.8829 10.8672 29.4602 9.90661 31.2173 9.53985C32.9744 9.17309 34.8043 9.42249 36.3991 10.2461C37.994 11.0697 39.2567 12.4174 39.9749 14.0624L46.875 14.0625L40.625 20.3125C40.625 31.25 32.8125 42.1875 18.75 42.1875C12.5 42.1875 9.37502 39.0625 9.37502 39.0625Z"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    
+      <nav>
+        <ul>
+          <li class="menu__item" data-sub="info"><a href="#">Informática</a></li>
+          <li class="menu__item" data-sub="developer"><a href="#">Consoles</a></li>
+    
+          <a data-reset data-logo href="#">
+            <svg width="44" height="44" viewBox="0 0 44 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M35.1043 20.532L42.3958 12.6669C43.3306 11.6586 43.3306 10.0086 42.3958 9.00023L35.5972 1.66682C34.6624 0.658473 33.1327 0.658473 32.1979 1.66682L24.9064 9.5319C24.6855 9.77023 24.5495 10.1002 24.5665 10.4486L24.5665 19.6153C24.5665 20.3487 25.0934 20.917 25.7732 20.917L34.2715 20.917C34.5774 20.917 34.8664 20.7887 35.1043 20.532ZM19.0936 9.5319L11.8021 1.66682C10.8673 0.658473 9.33758 0.658473 8.40277 1.66682L1.60416 9.00023C0.669353 10.0086 0.669353 11.6586 1.60416 12.6669L8.89567 20.532C9.11663 20.7703 9.42257 20.917 9.7455 20.8987L18.2438 20.8987C18.9236 20.8987 19.4505 20.3303 19.4505 19.597L19.4505 10.4302C19.4505 10.1002 19.3315 9.78857 19.0936 9.5319ZM8.89568 26.8021L1.60416 34.6672C0.669354 35.6755 0.669354 37.3255 1.60416 38.3339L8.40278 45.6673C9.33759 46.6756 10.8673 46.6756 11.8021 45.6673L19.0936 37.8022C19.3146 37.5638 19.4505 37.2338 19.4335 36.8855L19.4335 27.7187C19.4335 26.9854 18.9066 26.4171 18.2268 26.4171L9.7285 26.4171C9.42257 26.4171 9.13363 26.5454 8.89568 26.8021ZM34.2375 26.4171L25.7392 26.4171C25.0594 26.4171 24.5325 26.9854 24.5325 27.7187V36.8855C24.5325 37.2155 24.6515 37.5639 24.8724 37.8022L32.1809 45.6856C33.1157 46.6939 34.6454 46.6939 35.5802 45.6856L42.3788 38.3522C43.3136 37.3438 43.3136 35.6938 42.3788 34.6855L35.0873 26.8204C34.8664 26.5454 34.5774 26.4171 34.2375 26.4171Z"
+                fill="#9A4BB4" />
+            </svg>
+          </a>
+    
+          <li><a href="./pages/support/">Suporte</a></li>
+          <li><a href="./pages/about/">Quem Somos</a></li>
+        </ul>
+      </nav>
+    
+      <div class="dropdown">
+        <div class="dropdown__bg">
+          <div class="dropdown__bg-bottom"></div>
+        </div>
+    
+        <section class="dropdown__wrap">
+          <div class="dropdown-menu" id="info" data-sub="info">
+            <div class="dropdown-menu__content">
+              <div class="top-section">
+                <div class="card">
+                  <img src="./images/info.svg">
+                  <h2>Peças (HARDWARE)</h2>
+                  <ul>
+                    <li><a href="#">Processadores</a></li>
+                    <li><a href="#">Placas De Vídeo</a></li>
+                    <li><a href="#">Placas mãe</a></li>
+                    <li><a href="#">Memórias</a></li>
+                    <li><a href="#">Disco rígido hd/ssd</a></li>
+                    <li><a href="#">fontes</a></li>
+                  </ul>
+                </div>
+    
+                <div class="card">
+                  <img src="./images/platforms.svg" alt="">
+                  <h2>Periféricos e Acessórios</h2>
+                  <ul>
+                    <li><a href="#">Fones de Ouvido</a></li>
+                    <li><a href="#">Teclados</a></li>
+                    <li><a href="#">Mouses</a></li>
+                    <li><a href="#">Controles</a></li>
+                  </ul>
+                </div>
+              </div>
+    
+              <div class="bottom-section">
+                <a href="#pcs">
+                  Computadores Montados
+                </a>
+    
+                <button>Monte seu pc</button>
+              </div>
+            </div>
+          </div>
+    
+          <div class="dropdown-menu" id="developer" data-sub="developer">
+            <div class="dropdown-menu__content">
+              <div class="top-section">
+                dwad34433423434w34adwa
+              </div>
+              <div class="bottom-section">
+                dswadaw23423423423423423423423waedwa
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    
+      <div class="user-controls">
+        <button id="search" data-reset>
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22.6562 39.0625C31.7172 39.0625 39.0625 31.7172 39.0625 22.6562C39.0625 13.5953 31.7172 6.25 22.6562 6.25C13.5953 6.25 6.25 13.5953 6.25 22.6562C6.25 31.7172 13.5953 39.0625 22.6562 39.0625Z"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M34.2566 34.2579L43.7489 43.7502" stroke="white" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+    
+        <button id="user" data-reset>
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M25 31.25C31.9036 31.25 37.5 25.6536 37.5 18.75C37.5 11.8464 31.9036 6.25 25 6.25C18.0964 6.25 12.5 11.8464 12.5 18.75C12.5 25.6536 18.0964 31.25 25 31.25Z"
+              stroke="white" stroke-width="2" stroke-miterlimit="10" />
+            <path
+              d="M6.05249 42.1857C7.97351 38.8606 10.7357 36.0996 14.0616 34.18C17.3876 32.2605 21.1601 31.25 25.0002 31.25C28.8403 31.25 32.6128 32.2606 35.9386 34.1803C39.2645 36.0999 42.0267 38.8609 43.9476 42.1861"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+    
+        <a href="#" class="" id="cart" data-reset>
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M35.9375 35.9375H13.6364L8.18782 5.97049C8.12236 5.61047 7.93262 5.28485 7.65169 5.05039C7.37075 4.81593 7.01644 4.6875 6.65052 4.6875H3.125"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M15.625 43.75C17.7824 43.75 19.5312 42.0011 19.5312 39.8438C19.5312 37.6864 17.7824 35.9375 15.625 35.9375C13.4676 35.9375 11.7188 37.6864 11.7188 39.8438C11.7188 42.0011 13.4676 43.75 15.625 43.75Z"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M35.9375 43.75C38.0949 43.75 39.8438 42.0011 39.8438 39.8438C39.8438 37.6864 38.0949 35.9375 35.9375 35.9375C33.7801 35.9375 32.0312 37.6864 32.0312 39.8438C32.0312 42.0011 33.7801 43.75 35.9375 43.75Z"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M12.2159 28.125H36.7385C37.4704 28.125 38.179 27.8681 38.7409 27.3992C39.3027 26.9303 39.6822 26.2791 39.8131 25.559L42.1875 12.5H9.375"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </header>
+  </template>
+</body>
+</html>
