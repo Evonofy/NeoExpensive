@@ -146,14 +146,14 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
         openDropdown(this);
       });
 
-      // el.addEventListener('blur', () => {
-      //   startCloseTimeout();
-      // });
+      el.addEventListener('blur', () => {
+        startCloseTimeout();
+      });
 
-      // //- mouse leave event
-      // el.addEventListener('mouseleave', () => {
-      //   startCloseTimeout();
-      // });
+      //- mouse leave event
+      el.addEventListener('mouseleave', () => {
+        startCloseTimeout();
+      });
     });
 
     //- Binding mouse event to each sub menus
@@ -163,11 +163,11 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
         console.log('a');
       });
       el.addEventListener('mouseenter', () => stopCloseTimeout(), false);
-      // el.addEventListener('mouseleave', () => startCloseTimeout(), false);
+      el.addEventListener('mouseleave', () => startCloseTimeout(), false);
     });
 
     subBg.addEventListener('mouseenter', () => stopCloseTimeout());
-    // subBg.addEventListener('mouseleave', () => startCloseTimeout());
+    subBg.addEventListener('mouseleave', () => startCloseTimeout());
   }, []);
 
   return (
