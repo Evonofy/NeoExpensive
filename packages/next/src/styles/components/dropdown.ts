@@ -72,29 +72,95 @@ export const DropdownContainer = styled.div`
   /* 
   ============ INFO DROPDOWN ============
 */
-  #info .dropdown-menu__content {
-    width: 640px;
-  }
 
   #developer .dropdown-menu__content {
     width: 400px;
   }
+`;
 
-  #info .dropdown-menu__content {
+interface InfoDropdownProps {
+  titleSize: string;
+}
+
+export const Info = styled.div<InfoDropdownProps>`
+  .dropdown-menu__content {
+    width: 640px;
+
+    row-gap: 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  #info .top-section {
+  .top-section {
     width: 100%;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+
+    .card {
+      width: 100%;
+      display: grid;
+
+      grid-template-areas:
+        'img title'
+        'img description';
+      grid-template-columns: min-content auto;
+      grid-template-rows: min-content;
+      row-gap: 0.4rem;
+
+      h1 {
+        grid-area: title;
+      }
+
+      h2 {
+        font-size: ${props => props.titleSize};
+      }
+
+      ul {
+        display: flex;
+
+        flex-direction: column;
+        row-gap: 0.2rem;
+        grid-area: description;
+
+        li {
+          width: 100%;
+          text-align: left;
+
+          &:hover {
+            a {
+              color: ${props => props.theme.color.gray[100]};
+            }
+          }
+
+          a {
+            color: ${props => props.theme.color.gray[300]};
+            font-size: calc(${props => props.titleSize} * 0.9);
+
+            &:focus {
+              color: ${props => props.theme.color.gray[100]};
+            }
+          }
+        }
+      }
+
+      img {
+        width: clamp(0.8rem, 5vw, 50px);
+        height: auto;
+
+        padding: 0.6rem;
+        border-radius: 0.4rem;
+        border: 1px solid ${props => props.theme.color.gray[200]};
+        background: ${props => props.theme.color.gray[700]};
+        grid-area: img;
+      }
+    }
   }
 
-  #info .bottom-section {
+  .bottom-section {
     width: 100%;
 
     display: flex;
@@ -102,88 +168,53 @@ export const DropdownContainer = styled.div`
     justify-content: space-between;
 
     color: ${props => props.theme.color.gray[100]};
-  }
 
-  #info .bottom-section a {
-    ${props => css`
-      position: relative;
+    button {
+      color: ${props => props.theme.color.gray[100]};
+      background: ${props => props.theme.color.accent[200]};
 
-      &::after {
-        content: '';
-
-        position: absolute;
-
-        background: ${props.theme.color.gray[200]};
-
-        width: 0%;
-        height: 2px;
-        border-radius: 2px;
-
-        left: 0;
-
-        bottom: -0.2rem;
-        transition: all 200ms;
+      &:hover {
+        background: ${props => props.theme.color.accent[300]};
       }
+    }
 
-      &:hover,
-      &:focus {
-        outline: 0;
-        color: ${props.theme.color.gray[100]};
+    a {
+      ${props => css`
+        position: relative;
 
         &::after {
-          width: 100%;
+          content: '';
+
+          position: absolute;
+
+          background: ${props.theme.color.gray[200]};
+
+          width: 0%;
+          height: 2px;
+          border-radius: 2px;
+
+          left: 0;
+
+          bottom: -0.2rem;
+          transition: all 200ms;
         }
-      }
-    `}
+
+        &:hover,
+        &:focus {
+          outline: 0;
+          color: ${props.theme.color.gray[100]};
+
+          &::after {
+            width: 100%;
+          }
+        }
+      `}
+    }
   }
+`;
 
-  #info .bottom-section button {
-    color: ${props => props.theme.color.gray[100]};
-    background: ${props => props.theme.color.accent[200]};
-  }
-
-  #info .bottom-section button:hover {
-    background: ${props => props.theme.color.accent[300]};
-  }
-
-  #info .card {
-    width: 100%;
-    display: grid;
-
-    grid-template-areas:
-      'img title'
-      'img description';
-    grid-template-columns: min-content auto;
-    grid-template-rows: min-content;
-    row-gap: 1rem;
-  }
-
-  #info .card h2 {
-    font-size: clamp(0.6rem, 2vw, 0.8rem);
-  }
-
-  #info .card img {
-    width: clamp(0.8rem, 5vw, 50px);
-    height: auto;
-
-    padding: 0.6rem;
-    border-radius: 0.4rem;
-    border: 1px solid ${props => props.theme.color.gray[200]};
-    background: ${props => props.theme.color.gray[700]};
-    grid-area: img;
-  }
-
-  #info .card h1 {
-    grid-area: title;
-  }
-
-  #info .card ul {
-    flex-direction: column;
-    grid-area: description;
-  }
-
-  #info .card ul li {
-    width: 100%;
-    text-align: left;
+export const Developer = styled.div`
+  .dropdown_menu__content {
+    width: 400px;
   }
 `;

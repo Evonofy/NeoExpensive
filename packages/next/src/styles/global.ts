@@ -37,6 +37,10 @@ export default createGlobalStyle`
     background: ${props => props.theme.color.gray[800]};
   }
 
+  :focus {
+    outline: 0;
+  }
+
   ul {
     list-style: none;
   }

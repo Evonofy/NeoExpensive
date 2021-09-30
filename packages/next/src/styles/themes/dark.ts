@@ -7,6 +7,7 @@ export default {
     gray: {
       100: `hsl(${gray.hue}, ${gray.saturation}%, 80%)`,
       200: `hsl(${gray.hue}, ${gray.saturation}%, 60%)`,
+      300: `hsl(${gray.hue}, ${gray.saturation}%, 50%)`,
       500: `hsl(${gray.hue}, ${gray.saturation}%, 30%)`,
       700: `hsl(${gray.hue}, ${gray.saturation}%, 20%)`,
       800: `hsl(${gray.hue}, ${gray.saturation}%, 10%)`,

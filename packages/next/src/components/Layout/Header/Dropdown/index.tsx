@@ -1,7 +1,8 @@
 import { FC } from 'react';
 
+import { useClamp } from '@hooks';
 import { Button } from '@components';
-import { DropdownContainer } from '@styles/components/dropdown';
+import { DropdownContainer, Info } from '@styles/components/dropdown';
 
 interface DropdownProps {
   rootFontSize: number;
@@ -15,7 +16,12 @@ export const Dropdown: FC<DropdownProps> = ({ rootFontSize }) => {
       </div>
 
       <section className="dropdown__wrap">
-        <div className="dropdown-menu" id="info" data-sub="info">
+        <Info
+          titleSize={useClamp('0.6rem', '1.1rem', rootFontSize)}
+          className="dropdown-menu"
+          id="info"
+          data-sub="info"
+        >
           <div className="dropdown-menu__content">
             <div className="top-section">
               <div className="card">
@@ -23,22 +29,34 @@ export const Dropdown: FC<DropdownProps> = ({ rootFontSize }) => {
                 <h2>Peças (HARDWARE)</h2>
                 <ul>
                   <li>
-                    <a href="#">Processadores</a>
+                    <a tabIndex={2} href="#">
+                      Processadores
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Placas De Vídeo</a>
+                    <a tabIndex={2} href="#">
+                      Placas De Vídeo
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Placas mãe</a>
+                    <a tabIndex={2} href="#">
+                      Placas mãe
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Memórias</a>
+                    <a tabIndex={2} href="#">
+                      Memórias
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Disco rígido hd/ssd</a>
+                    <a tabIndex={2} href="#">
+                      Disco rígido hd/ssd
+                    </a>
                   </li>
                   <li>
-                    <a href="#">fontes</a>
+                    <a tabIndex={2} href="#">
+                      fontes
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -51,16 +69,24 @@ export const Dropdown: FC<DropdownProps> = ({ rootFontSize }) => {
                 <h2>Periféricos e Acessórios</h2>
                 <ul>
                   <li>
-                    <a href="#">Fones de Ouvido</a>
+                    <a tabIndex={2} href="#">
+                      Fones de Ouvido
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Teclados</a>
+                    <a tabIndex={2} href="#">
+                      Teclados
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Mouses</a>
+                    <a tabIndex={2} href="#">
+                      Mouses
+                    </a>
                   </li>
                   <li>
-                    <a href="#">Controles</a>
+                    <a tabIndex={2} href="#">
+                      Controles
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -74,7 +100,7 @@ export const Dropdown: FC<DropdownProps> = ({ rootFontSize }) => {
               </Button>
             </div>
           </div>
-        </div>
+        </Info>
 
         <div className="dropdown-menu" id="developer" data-sub="developer">
           <div className="dropdown-menu__content">
