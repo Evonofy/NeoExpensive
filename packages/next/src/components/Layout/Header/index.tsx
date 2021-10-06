@@ -14,6 +14,7 @@ import { HeaderContainer, X } from '@styles/components/header';
 
 import { Navbar, NavbarItem } from './Navbar';
 import { Dropdown, DropdownScript } from './Dropdown';
+import { UserDropdown } from './Dropdown/user';
 
 type HeaderProps = {
   rootFontSize: number;
@@ -24,9 +25,12 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
     DropdownScript();
   }, []);
 
+  const headerBlockPadding = useClamp('1rem', '1.5rem', rootFontSize);
+  const XLogoSize = useClamp('1rem', '2rem', rootFontSize);
+
   return (
     <HeaderContainer
-      blockPadding={useClamp('1rem', '1.5rem', rootFontSize)}
+      blockPadding={headerBlockPadding}
       sidePadding={useClamp('1rem', '4rem', rootFontSize)}
       svgWidth={useClamp('0.5rem', '2rem', rootFontSize)}
       fontSize={useClamp('0.5rem', '1rem', rootFontSize)}
@@ -38,19 +42,27 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
       </div>
 
       <Navbar {...{ rootFontSize }}>
-        <NavbarItem className="menu__item">
-          <Link tabIndex={1} name="info" href="#" data-sub="info">
-            Informática
-          </Link>
+        <NavbarItem
+          href="#"
+          name="info"
+          dataSub="info"
+          tabIndex={1}
+          className="menu__item"
+        >
+          Informática
         </NavbarItem>
 
-        <NavbarItem className="menu__item">
-          <Link tabIndex={3} name="consoles" href="#" data-sub="developer">
-            Consoles
-          </Link>
+        <NavbarItem
+          href="#"
+          name="consoles"
+          dataSub="developer"
+          tabIndex={3}
+          className="menu__item"
+        >
+          Consoles
         </NavbarItem>
 
-        <X data-reset width={useClamp('1rem', '2rem', rootFontSize)}>
+        <X data-reset width={XLogoSize}>
           <svg
             data-icon="logo"
             width="44"
@@ -66,25 +78,34 @@ export const Header: FC<HeaderProps> = ({ rootFontSize }) => {
           </svg>
         </X>
 
-        <NavbarItem>
-          <Link name="support" href="#">
-            Suporte
-          </Link>
+        <NavbarItem name="support" href="#" tabIndex={4}>
+          Suporte
         </NavbarItem>
-        <NavbarItem>
-          <Link name="about" href="#">
-            Quem Somos
-          </Link>
+        <NavbarItem name="about" href="#" tabIndex={5}>
+          Quem Somos
         </NavbarItem>
       </Navbar>
 
       <Dropdown rootFontSize={rootFontSize} />
 
-      <div>
-        <Search />
-        <User />
-        <ShoppingCart />
-      </div>
+      <Navbar {...{ rootFontSize }}>
+        <NavbarItem isIconNav href="#" tabIndex={6} name="search">
+          <Search />
+        </NavbarItem>
+
+        <NavbarItem isIconNav href="#" tabIndex={7} name="user">
+          <User />
+
+          <UserDropdown
+            XSizePadding={XLogoSize}
+            headerBlockPadding={headerBlockPadding}
+          />
+        </NavbarItem>
+
+        <NavbarItem isIconNav href="#" tabIndex={8} name="shoppingcart">
+          <ShoppingCart />
+        </NavbarItem>
+      </Navbar>
     </HeaderContainer>
   );
 };

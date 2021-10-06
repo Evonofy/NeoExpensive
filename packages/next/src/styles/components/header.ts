@@ -69,19 +69,31 @@ export const NavbarList = styled.ul<NavbarListProps>`
 
     cursor: pointer;
 
-    transition: background 200ms ease;
+    &[data-short='true'] {
+      width: auto;
+    }
 
     a {
       border-radius: 0.3rem;
       padding: 0.3rem 0;
       width: 100%;
       height: 100%;
+      transition: background 200ms ease;
 
       &:hover,
       &:focus {
         outline: 0;
         color: #fff;
         background: ${({ theme }) => theme.color.accent[200]};
+      }
+
+      &[data-appearance] {
+        &:hover,
+        &:focus {
+          outline: 0;
+          color: unset !important;
+          background: unset !important;
+        }
       }
     }
   }
