@@ -12,7 +12,7 @@
     "@neo/lint": "*"
   },
   "scripts": {
-    "commit": "git-cz"
+    "commit": "cz"
   },
   "config": {
     "commitizen": {

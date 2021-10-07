@@ -6,6 +6,7 @@
   "private": true,
   "license": "MIT",
   "devDependencies": {
+    "sass": "^1.42.1",
     "surge": "^0.23.0"
   }
 }

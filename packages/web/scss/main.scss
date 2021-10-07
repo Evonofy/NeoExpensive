@@ -1,0 +1,5 @@
+// * Use all _index.scss ifrom all folders n the main SCSS
+@use '../scss/base' as *;
+@use '../scss/themes' as *;
+@use '../scss/layout' as *;
+@use '../scss/animations' as *;
