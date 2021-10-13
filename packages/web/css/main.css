@@ -345,10 +345,6 @@ header button:focus path:not(.X) {
     background: var(--accent-100);
   }
 }
-/* 
-######
-FOOTER
-###### */
 footer {
   display: flex;
   justify-content: space-evenly;
