@@ -1,28 +1,16 @@
 // * Source: https://piccalil.li/blog/a-modern-css-reset/
-/* Box Sizing Rules */
+/* Box Sizing Rules, Removes Defaults Margins And Paddings*/
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-/* Remove Default Margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
   margin: 0;
+  padding: 0;
 }
 
 /* Remove List Styles On UL, OL Elements With A List Role, Which Suggests Default Styling Will Be Removed */
-ul[role='list'],
-ol[role='list'] {
+ul[role=list],
+ol[role=list] {
   list-style: none;
 }
 
@@ -33,6 +21,8 @@ html:focus-within {
 
 /* Set Core Body Defaults */
 body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -41,6 +31,10 @@ body {
 /* A Elements That Don't Have A Class Get Default Styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Make Images Easier To Work With */
@@ -56,6 +50,21 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+[data-reset] {
+  color: inherit;
+
+  display: grid;
+  place-items: center;
+  
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  padding: 0;
+  margin: 0;
 }
 
 /* Remove All Animations, Transitions And Smooth Scroll For People That Prefer Not To See Them */

@@ -1,0 +1,10 @@
+[data-theme="dark"] {
+  --color-primary: red;
+  /* color contrasts */
+  --color-bg: black;
+  --color-contrast-lower: hsl(240, 6%, 15%);
+  --color-contrast-low: hsl(252, 4%, 25%);
+  --color-contrast-medium: hsl(240, 1%, 57%);
+  --color-contrast-high: hsl(0, 0%, 89%);
+  --color-contrast-higher: white;
+}
