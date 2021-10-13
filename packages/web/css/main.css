@@ -1,0 +1,257 @@
+/* Box Sizing Rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove Default Margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove List Styles On UL, OL Elements With A List Role, Which Suggests Default Styling Will Be Removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set Core Root Defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set Core Body Defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A Elements That Don't Have A Class Get Default Styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make Images Easier To Work With */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit Fonts For Inputs And Buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove All Animations, Transitions And Smooth Scroll For People That Prefer Not To See Them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --accent: 285;
+  --gray: 200;
+  --accent-100: hsl(var(--accent), 40%, 50%);
+  --accent-200: hsl(var(--accent), 40%, 40%);
+  --accent-300: hsl(var(--accent), 40%, 30%);
+  --gray-100: hsl(0, 0%, 90%);
+  --gray-200: hsl(0, 0%, 70%);
+  --gray-500: hsl(var(--gray), 19%, 41%);
+  --gray-600: hsl(var(--gray), 10%, 18%);
+  --gray-700: hsl(var(--gray), 10%, 15%);
+  --gray-800: hsl(var(--gray), 10%, 10%);
+  --gray-900: hsl(var(--gray), 10%, 8%);
+}
+
+:root {
+  --ff-bebas: "Bebas Neue", cursive;
+  --ff-montserrat: "Montserrat", sans-serif;
+  --ff-josefin: "Josefin Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  color: var(--gray-100);
+}
+
+h1 {
+  font-family: var(--ff-bebas);
+}
+
+h2,
+h3 {
+  font-family: var(--ff-montserrat);
+}
+
+li,
+a,
+p,
+small {
+  color: var(--gray-200);
+  font-family: var(--ff-josefin);
+}
+
+/* 
+* Use All (Imports) Files From Base To Here
+*/
+/* 
+* Use All (Imports) Files From Themess To Here
+*/
+/* 
+* Use All (Imports) Files From Layout To Here
+*/
+@keyframes rgb {
+  100%, 0% {
+    fill: red;
+  }
+  8% {
+    fill: #ff7f00;
+  }
+  16% {
+    fill: yellow;
+  }
+  24% {
+    fill: chartreuse;
+  }
+  32% {
+    fill: lime;
+  }
+  40% {
+    fill: springgreen;
+  }
+  48% {
+    fill: aqua;
+  }
+  56% {
+    fill: #007fff;
+  }
+  64% {
+    fill: blue;
+  }
+  72% {
+    fill: #7f00ff;
+  }
+  80% {
+    fill: fuchsia;
+  }
+  88% {
+    fill: #ff007f;
+  }
+}
+@keyframes rgbBackground {
+  100%, 0% {
+    background: red;
+  }
+  8% {
+    background: #ff7f00;
+  }
+  16% {
+    background: yellow;
+  }
+  24% {
+    background: chartreuse;
+  }
+  32% {
+    background: lime;
+  }
+  40% {
+    border-top-color: springgreen;
+  }
+  48% {
+    background: aqua;
+  }
+  56% {
+    background: #007fff;
+  }
+  64% {
+    background: blue;
+  }
+  72% {
+    background: #7f00ff;
+  }
+  80% {
+    background: fuchsia;
+  }
+  88% {
+    background: #ff007f;
+  }
+}
+@keyframes rgbBorder {
+  100%, 0% {
+    border-color: red;
+  }
+  8% {
+    border-color: #ff7f00;
+  }
+  16% {
+    border-color: yellow;
+  }
+  24% {
+    border-color: chartreuse;
+  }
+  32% {
+    border-color: lime;
+  }
+  40% {
+    border-color: springgreen;
+  }
+  48% {
+    border-color: aqua;
+  }
+  56% {
+    border-color: #007fff;
+  }
+  64% {
+    border-color: blue;
+  }
+  72% {
+    border-color: #7f00ff;
+  }
+  80% {
+    border-color: fuchsia;
+  }
+  88% {
+    border-color: #ff007f;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+/* 
+* Use All (Imports) Files From Animations To Here
+*/
+
+/*# sourceMappingURL=main.css.map */
