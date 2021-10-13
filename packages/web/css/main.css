@@ -120,6 +120,7 @@ a,
 p,
 small {
   color: var(--gray-100);
+  font-weight: 400;
   font-family: var(--ff-josefin);
 }
 
@@ -279,6 +280,10 @@ small {
   height: 5em;
 }
 
+header {
+  display: none;
+}
+
 @media (min-width: 850px) {
   header {
     width: 100%;
@@ -315,51 +320,26 @@ header button:focus path {
     display: flex;
     gap: 0.5rem;
   }
-  header ul {
-    font-size: clamp(0.85rem, 0.82rem + 0.15vw, 1rem);
+}
+@media (min-width: 850px) {
+  nav ul {
+    font-size: clamp(0.95rem, 0.91rem + 0.2vw, 1.15rem);
     display: flex;
     align-items: center;
     gap: clamp(0.6em, 1vw, 2em);
   }
-
-  nav li a {
-    padding: 0.3rem;
-    border-radius: 0.3rem;
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-
-  nav li a:hover,
-span:hover {
-    color: var(--gray-100);
-    background: var(--accent-100);
-  }
-
-  li a:focus::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -0.5rem;
-    transform: translateX(-100%);
-    width: 1.25rem;
-    height: clamp(0.08rem, 1vw, 0.15rem);
-    background: var(--accent-100);
-    border-radius: 0.2rem;
-    animation: fadeIn 200ms forwards;
-  }
-
-  button:hover a,
-button:focus a {
-    color: var(--gray-100);
-    background: var(--accent-100);
-  }
-}
-@media (min-width: 850px) {
   nav li {
-    width: 7rem;
+    width: 8rem;
     text-align: center;
-    position: relative;
+  }
+  nav li a {
+    font-weight: 300;
+    padding: 0.35rem;
+    border-radius: 0.25rem;
+  }
+  nav li a:hover, nav li a:focus {
+    color: var(--gray-100);
+    background: var(--accent-100);
   }
 }
 /* 
@@ -514,7 +494,7 @@ div a svg path.xPensive {
     padding: 1rem;
     content: "";
     position: absolute;
-    top: calc(100% + 0.65rem);
+    top: calc(100% + 0.75rem);
     left: 50%;
     opacity: 0.1;
     transform: translateX(-50%) rotateX(-90deg);
@@ -526,7 +506,7 @@ div a svg path.xPensive {
     border-bottom-color: var(--gray-700);
     content: "";
     position: absolute;
-    top: -0.95rem;
+    top: -1rem;
     left: 50%;
     transform: translateX(-50%);
   }
