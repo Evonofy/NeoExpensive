@@ -1,0 +1,12 @@
+[data-theme="light"] {
+  /* Color Contrasts */
+  
+  --color-bg: hsl(0, 0%, 95%);
+  --color-header-footer: hsl(0, 0%, 90%);
+
+  --color-contrast-lower: hsl(0, 0%, 95%);
+  --color-contrast-low: hsl(240, 1%, 83%);
+  --color-contrast-medium: hsl(240, 1%, 48%);
+  --color-contrast-high: hsl(240, 4%, 20%);
+  --color-contrast-higher: hsl(200, 10%, 10%);
+}
