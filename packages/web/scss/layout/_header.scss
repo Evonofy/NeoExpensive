@@ -65,7 +65,8 @@
     position: relative;
   }
   
-  nav li a:hover {
+  nav li a:hover,
+  span:hover {
     color: var(--gray-100);
     
     background: var(--accent-100);
