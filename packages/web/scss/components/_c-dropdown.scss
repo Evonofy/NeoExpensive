@@ -1,0 +1,36 @@
+@media (min-width: 850px) {
+  .dropdown {
+    display: flex;
+    // flex-direction: column; 
+    
+    
+    &--item {
+      position: relative;
+    }
+    
+    &--submenu { 
+      width: 13rem;
+
+      display: flex;
+      flex-direction: column;
+      
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+  
+      margin-top: 2.5em;
+      
+      &--item {
+        text-align: center;
+        text-decoration: none;
+        
+        list-style: none;
+
+        width: 100%;
+      }
+    }
+    
+  }
+  
+}
