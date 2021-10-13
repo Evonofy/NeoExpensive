@@ -12,7 +12,7 @@ header {
     place-items: center;
     justify-content: space-between;
     
-    background: var(--gray-900);
+    background: var(--color-header-footer);
     border-bottom: 2px solid var(--accent-100);
     
     padding: clamp(1rem, 1vw, 2rem) clamp(1rem, 3vw, 4rem);
@@ -33,10 +33,14 @@ header {
     button:focus {
       outline: none;
 
-      path {
+      path:not(.X) {
         stroke: var(--accent-100);
         transition: all 200ms ease;
       }
+    }
+
+    path:not(.X) {
+      stroke: var(--color-contrast-high);
     }
     
     svg {

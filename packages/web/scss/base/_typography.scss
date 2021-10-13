@@ -8,7 +8,7 @@ h1,
 h2,
 h3 {
   font-weight: 700;
-  color: var(--gray-100);
+  color: var(--color-contrast-high);
 }
 
 h1 {
@@ -24,7 +24,7 @@ li,
 a,
 p,
 small {
-  color: var(--gray-100);
-  font-weight: 400;
   font-family: var(--ff-josefin);
+  font-weight: 400;
+  color: var(--color-contrast-high);
 }

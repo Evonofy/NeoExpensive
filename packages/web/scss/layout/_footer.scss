@@ -4,14 +4,14 @@ FOOTER
 ###### */
 
 footer {
-  background: hsl(200, 10%, 8%);
-  
-  border-top: 2px solid var(--accent-100);
-
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
+
+  background: var(--color-header-footer);
+  
+  border-top: 2px solid var(--accent-100);
 
   padding-top: 2rem;
   padding-left: 2rem;
