@@ -19,7 +19,6 @@
       }
     }
 
-    
     &--submenu { 
       width: 30rem;
       
@@ -35,22 +34,21 @@
       
       content: '';
       position: absolute;
-      top: calc(100% + .65rem);
+      top: calc(100% + .75rem);
       left: 50%;
 
       opacity: .1;
-
+      
       transform: translateX(-50%) rotateX(-90deg);
-      // transform-origin: bottom center;
       transform-origin: top center;
       transition: all 200ms ease-in;
-      // visibility: hidden;
+     
       &::after {
         border: .5rem solid transparent;
         border-bottom-color: var(--gray-700);
         content: '';
         position: absolute;
-        top: -.95rem;
+        top: -1rem;
         left: 50%;
 
         transform: translateX(-50%);
