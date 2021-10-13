@@ -499,7 +499,9 @@ div a svg path.xPensive {
     position: relative;
   }
   .dropdown--item:hover .dropdown--submenu, .dropdown--item:focus-within .dropdown--submenu {
+    opacity: 1;
     transform: translateX(-50%) rotateX(0deg);
+    transition-timing-function: ease-out;
   }
   .dropdown--submenu {
     width: 30rem;
@@ -512,10 +514,21 @@ div a svg path.xPensive {
     padding: 1rem;
     content: "";
     position: absolute;
-    top: calc(100% + 0.5rem);
+    top: calc(100% + 0.65rem);
     left: 50%;
+    opacity: 0.1;
     transform: translateX(-50%) rotateX(-90deg);
     transform-origin: top center;
+    transition: all 200ms ease-in;
+  }
+  .dropdown--submenu::after {
+    border: 0.5rem solid transparent;
+    border-bottom-color: var(--gray-700);
+    content: "";
+    position: absolute;
+    top: -0.95rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .dropdown--submenu--wrapper {
     display: flex;
