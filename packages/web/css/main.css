@@ -119,6 +119,7 @@ li,
 a,
 p,
 small {
+  font-size: 1.15rem;
   font-family: var(--ff-josefin);
   font-weight: 400;
   color: var(--color-contrast-high);
@@ -345,29 +346,36 @@ header button:focus path:not(.X) {
     background: var(--accent-100);
   }
 }
-footer {
+.footer {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 1.35rem;
   background: var(--color-header-footer);
   border-top: 2px solid var(--accent-100);
-  padding-top: 2rem;
+  padding-top: 3rem;
   padding-left: 2rem;
   padding-right: 2rem;
   margin-top: auto;
 }
-
-.footer-title {
-  font-size: clamp(0.9rem, 0.78rem + 0.6vw, 1.5rem);
+@media (max-width: 850px) {
+  .footer {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+.footer--title {
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
   font-weight: 500;
   line-height: 1.5em;
   color: var(--accent-100);
   position: relative;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
-
-.footer-title:after {
+.footer--title::after {
   content: "";
   position: absolute;
   background: var(--accent-100);
@@ -376,97 +384,47 @@ footer {
   left: 0;
   bottom: -2px;
 }
-
-.footer-about-us,
-.footer-contact-us,
-.footer-quick-links {
-  margin: 0rem 1rem;
-}
-
-.footer-paragraph {
+.footer--paragraph {
+  font-size: clamp(1rem, 0.97rem + 0.15vw, 1.15rem);
   max-width: 50ch;
-  font-size: clamp(0.7rem, 0.61rem + 0.45vw, 1.15rem);
   margin-bottom: 0.5rem;
 }
-
-.footer-contact-us ul li:hover a,
-.footer-contact-us ul li:focus-within a,
-.footer-quick-links ul li:hover a,
-.footer-quick-links ul li:focus-within a {
+.footer--aboutus, .footer--contact-us, .footer--quicklinks {
+  margin: 0rem 1rem;
+}
+.footer--quicklinks li, .footer--contact-us li {
+  font-size: clamp(0.9rem, 0.83rem + 0.35vw, 1.25rem);
+  list-style: none;
+}
+.footer--quicklinks li:hover a, .footer--contact-us li:hover a {
   color: var(--accent-100);
-  position: relative;
+  transition: all 200ms ease;
 }
-
-.links-list li a:focus::after,
-.contact-list li a:focus::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -0.2rem;
-  transform: translateX(-100%);
-  width: 1.5rem;
-  height: clamp(0.08rem, 1vw, 0.1rem);
-  background: var(--accent-100);
-  border-radius: 0.2rem;
-  animation: fadeIn 200ms forwards;
-}
-
-.contact-list {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+.footer--links-list, .footer--contact-list {
   gap: 0.5rem;
 }
-
-.links-list {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.footer-logo {
+.footer--logo {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.footer-logo-svg {
+.footer--logo--svg {
   width: clamp(7rem, 5.4rem + 8vw, 15rem);
   height: auto;
   margin: 1rem 0rem;
 }
-
-a.footer-logo-anchor:hover svg path,
-a.footer-logo-anchor:focus svg path {
-  stroke: none;
-  color: none;
-}
-
-a.footer-logo-anchor svg path,
-a.footer-logo-anchor svg path {
-  stroke: none;
-  color: none;
-}
-
-div a svg path.xPensive {
-  stroke: none;
-}
-
-.copyright {
-  width: 100%;
-  font-size: clamp(0.7rem, 0.64rem + 0.3vw, 1rem);
+.footer--copyright {
   font-weight: 400;
   text-align: center;
+  width: 100%;
   border-top: 1px solid #fff;
   padding: 0.7em 0em;
 }
+.footer--copyright--text {
+  font-size: clamp(0.85rem, 0.82rem + 0.15vw, 1rem);
+}
 
-/* 
-######
-######
-###### */
 /* 
 * Forwards All (Imports) Files From Layout To Here
 */
@@ -483,7 +441,7 @@ div a svg path.xPensive {
     transition-timing-function: ease-out;
   }
   .dropdown--submenu {
-    width: 30rem;
+    width: 35rem;
     display: flex;
     align-items: baseline;
     justify-content: space-evenly;
@@ -513,11 +471,23 @@ div a svg path.xPensive {
     display: flex;
     flex-direction: column;
   }
+  .dropdown--submenu--title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dropdown--submenu--title--image {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
   .dropdown--submenu--item {
     text-align: left;
     text-decoration: none;
     width: 100%;
     list-style: none;
+  }
+  .dropdown--submenu--anchor {
+    font-size: 1.45rem;
   }
 }
 /* 
