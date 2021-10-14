@@ -285,7 +285,7 @@ header {
   display: none;
 }
 
-@media (min-width: 850px) {
+@media (min-width: 950px) {
   header {
     width: 100%;
     display: flex;
@@ -359,7 +359,7 @@ header button:focus path:not(.X) {
   padding-right: 2rem;
   margin-top: auto;
 }
-@media (max-width: 850px) {
+@media (max-width: 1025px) {
   .footer {
     display: flex;
     justify-content: flex-start;
@@ -428,7 +428,7 @@ header button:focus path:not(.X) {
 /* 
 * Forwards All (Imports) Files From Layout To Here
 */
-@media (min-width: 850px) {
+@media (min-width: 950px) {
   .dropdown {
     display: flex;
   }
@@ -441,7 +441,7 @@ header button:focus path:not(.X) {
     transition-timing-function: ease-out;
   }
   .dropdown--submenu {
-    width: 35rem;
+    width: 37rem;
     display: flex;
     align-items: baseline;
     justify-content: space-evenly;
@@ -488,6 +488,10 @@ header button:focus path:not(.X) {
   }
   .dropdown--submenu--anchor {
     font-size: 1.45rem;
+  }
+  .dropdown--submenu--spacing {
+    text-align: center;
+    justify-content: space-between;
   }
 }
 /* 

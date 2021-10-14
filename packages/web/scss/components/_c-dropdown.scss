@@ -1,4 +1,4 @@
-@media (min-width: 850px) {
+@media (min-width: 950px) {
   
   .dropdown {
     display: flex;
@@ -20,7 +20,8 @@
     }
     
     &--submenu { 
-      width: 35rem;
+      // width: max-content;
+      width: 37rem;
       
       display: flex;
       align-items: baseline;
@@ -83,6 +84,11 @@
       &--anchor {
         font-size: 1.45rem;
         
+      }
+
+      &--spacing {
+        text-align: center;
+        justify-content: space-between;
       }
     }
     
