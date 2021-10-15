@@ -57,6 +57,7 @@
       
       &--wrapper {
         display: flex;
+        align-items: center;
         flex-direction: column;
         
       }
@@ -80,15 +81,24 @@
         
         list-style: none;
       }
+
+      &--item--console {
+        text-align: center;
+        text-decoration: none;
+        
+        // width: 100%;
+        
+        list-style: none;
+      }
       
       &--anchor {
         font-size: 1.45rem;
         
       }
 
-      &--spacing {
+      &--align--center {
         text-align: center;
-        justify-content: space-between;
+        
       }
     }
     
