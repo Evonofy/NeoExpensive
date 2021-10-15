@@ -1,0 +1,65 @@
+// * Product Search Input
+
+.header--search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: .5rem;
+
+
+  margin: 1rem 1.75rem; 
+  // margin-top: 1rem;
+
+  &--margin--none {
+    margin: 0;
+  }
+   
+  &--label {
+    width: 100%;
+    position: relative;
+    
+    &--text {
+      width: max-content;
+
+      font-weight: bold;
+      white-space: nowrap;
+      
+      background: var(--color-header-footer);
+      
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      
+      transform-origin: 0 0;
+      transform: translate(0,0);
+      transition: transform 120ms ease-in;
+      
+      padding: 0 .5rem;
+      margin: .60rem;
+      
+    }
+    
+    &--input {
+      width: 100%;
+
+      color: var(--gray-200);
+
+      background: var(--color-header-footer);
+      border-radius: .5rem;
+      border: 2px solid var(--gray-100);
+      outline: 0;
+      
+      padding: .5rem;
+      
+      &:focus,
+      &:not(:placeholder-shown) {
+        & + .header--search--label--text {
+          transform: translate(.25rem, -80%) scale(.9);
+          color: var(--accent-100);
+        }
+      }
+    }
+
+  }
+}
