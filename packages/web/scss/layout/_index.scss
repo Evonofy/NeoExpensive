@@ -1,8 +1,9 @@
 /* 
 * Forwards All (Imports) Files From Layout To Here
 */
-@forward '../layout/hamburger.scss';
-@forward '../layout/header.scss';
-@forward '../layout/navigation.scss';
+@forward '../layout/d-header.scss';
+@forward '../layout/d-navigation.scss';
+@forward '../layout/h-header.scss';
+@forward '../layout/h-navigation.scss';
 @forward '../layout/footer.scss';
 
