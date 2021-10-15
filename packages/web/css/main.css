@@ -243,6 +243,25 @@ small {
   margin-top: 1rem;
 }
 
+.hamburger--header--button--span {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  transform: translateX(100%);
+  background: var(--gray-100);
+  border-radius: 0.25 0 0 0.25em;
+  border: 0;
+  padding: 1rem 0.5rem;
+}
+
+.hamburger--nav {
+  background: var(--gray-100);
+  position: absolute;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform 300ms cubic-biezier(0.5, 0, 0.5, 1);
+}
+
 .footer {
   display: flex;
   justify-content: space-evenly;
