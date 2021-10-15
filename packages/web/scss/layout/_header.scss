@@ -1,11 +1,11 @@
 // @import url('./dropdown.css');
-header {
+.desktop--header {
   display: none;
 }
 
 @media (min-width: 950px) {
   
-  header {
+  .desktop--header {
     width: 100%;
     
     display: flex;
