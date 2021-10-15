@@ -375,6 +375,7 @@ small {
     list-style: none;
   }
   .dropdown--submenu--item--console {
+    width: 8rem;
     text-align: center;
     text-decoration: none;
     list-style: none;
