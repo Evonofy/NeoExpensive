@@ -1,12 +1,10 @@
-@media (min-width: 850px) {
+@media (min-width: 950px) {
   nav {
     ul {
       font-size: clamp(0.95rem, 0.9100rem + 0.2000vw, 1.15rem);
     
       display: flex;
-      align-items: center;
-      gap: clamp(0.6em, 1vw, 2em);
-      
+      align-items: center;      
     }
 
     li {
