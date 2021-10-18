@@ -61,33 +61,29 @@
 
   
   &--list {
-    margin: 0 1rem;
+    margin-top: 1.5rem;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
 
     &--wrapper {
-
-
       display: flex;
       align-items: center;
       gap: 1rem;
-
-      
 
       &--image {
         width: 30px;
         height: 30px;
 
-        filter: invert(1);
         opacity: .65;
       }
     }
   }
 
   &--item {
-    
     list-style: none;
     text-transform: uppercase;
 
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 
     position: relative;
   }
