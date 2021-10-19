@@ -18,7 +18,7 @@
     background: var(--gray-100);
     border-radius: 1rem;
 
-    transition: transform 250ms ease-in-out;
+    transition: transform 200ms ease-in-out, opacity 200ms linear;
   }
   
   &--span::before,
@@ -28,11 +28,25 @@
     left: 0;
   }
   
-  &--span::before { bottom: .8rem; }
-  &--span::after { top: .8rem;}
+  &--span::before { bottom: 11px; }
+  &--span::after { top: 11px;}
 }
 
 .nav--open {
+  .hamburger--header--button--span {
+    // transform-origin: bottom;
+    transform: rotate(45deg);
+  
+    &:before {
+      opacity: 0;
+    }
+
+    &:after {
+      // transform-origin: top;
+      transform: rotate(90deg) translate(-11px);
+    }
+  }
+
   .hamburger--nav {
     z-index: 999;
     opacity: 1;
@@ -53,7 +67,7 @@
   position: absolute;
   top: 50%;
   // left: 0;
-  left: 1.45rem;
+  left: 1.5rem;
 
   opacity: 0;
   visibility: hidden;
@@ -70,7 +84,7 @@
     border-left-color: transparent;
     border-image: initial;
     border-bottom-color: var(--gray-700);
-    
+
     content: "";
     position: absolute;
     top: -1rem;
