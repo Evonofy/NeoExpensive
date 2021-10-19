@@ -511,6 +511,69 @@ small {
     color: var(--accent-100);
   }
 }
+@media (min-width: 950px) {
+  .user--controls--customer {
+    position: relative;
+  }
+  .user--controls--customer:hover .user--controls--customer--choices, .user--controls--customer:focus-within .user--controls--customer--choices {
+    transform: translateX(-50%) rotateX(0deg);
+    opacity: 1;
+  }
+  .user--controls--customer--choices {
+    width: max-content;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 130%;
+    transform: translateX(-50%) rotateX(-90deg);
+    transform-origin: top center;
+    transition: all 200ms ease-in;
+    opacity: 0.1;
+    background: var(--gray-700);
+    outline: 0;
+    border: 0;
+    border-radius: 0.45em;
+    padding: 0.85rem;
+  }
+  .user--controls--customer--choices::after {
+    border: 0.5rem solid transparent;
+    border-bottom-color: var(--gray-700);
+    content: "";
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .user--controls--customer--choices--item {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  .user--controls--customer--choices--button {
+    font-family: var(--ff-josefin);
+    font-weight: 300;
+    color: white;
+    text-transform: uppercase;
+    background: var(--gray-700);
+    border: 0;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .user--controls--customer--choices--button:hover, .user--controls--customer--choices--button:focus-within {
+    color: var(--accent-100);
+    transition: all 200ms ease-in;
+    border-radius: 0.25rem;
+  }
+  .user--controls--customer--choices--icon {
+    width: 30px;
+    height: 30px;
+    opacity: 0.65;
+  }
+}
 .header--search {
   display: flex;
   align-items: center;
