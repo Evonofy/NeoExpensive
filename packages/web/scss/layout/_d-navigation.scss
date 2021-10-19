@@ -1,31 +1,23 @@
 @media (min-width: 950px) {
-    .desktop--nav {
-      .dropdown {
-        font-size: clamp(0.95rem, 0.9100rem + 0.2000vw, 1.15rem);
+  .desktop--nav {
+    
+    a {
+      font-weight: 300;
+      padding: 0.35rem;
+      border-radius: 0.25rem;
       
-        display: flex;
-        align-items: center;      
+      &:hover, 
+      &:focus {
+        color: var(--gray-100);
+        background: var(--accent-100);
       }
-  
-      .dropdown--item,
-      .navigation--item {
-        width: 8rem;
-        text-align: center;
-        
-        a {
-          font-weight: 300;
-          padding: 0.35rem;
-          border-radius: 0.25rem;
-         
-          &:hover, 
-          &:focus {
-            color: var(--gray-100);
-            background: var(--accent-100);
-          }
-        }
-  
-      }
-  
     }
     
+  }
+  
+  .navigation--item {
+    width: 8rem;
+    text-align: center;
+    border-radius: 0.25rem;
+  }
 }
