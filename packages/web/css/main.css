@@ -260,7 +260,7 @@ small {
   height: 3.5px;
   background: var(--gray-100);
   border-radius: 1rem;
-  transition: transform 250ms ease-in-out;
+  transition: transform 200ms ease-in-out, opacity 200ms linear;
 }
 .hamburger--header--button--span::before, .hamburger--header--button--span::after {
   content: "";
@@ -268,12 +268,21 @@ small {
   left: 0;
 }
 .hamburger--header--button--span::before {
-  bottom: 0.8rem;
+  bottom: 11px;
 }
 .hamburger--header--button--span::after {
-  top: 0.8rem;
+  top: 11px;
 }
 
+.nav--open .hamburger--header--button--span {
+  transform: rotate(45deg);
+}
+.nav--open .hamburger--header--button--span:before {
+  opacity: 0;
+}
+.nav--open .hamburger--header--button--span:after {
+  transform: rotate(90deg) translate(-11px);
+}
 .nav--open .hamburger--nav {
   z-index: 999;
   opacity: 1;
@@ -288,7 +297,7 @@ small {
   content: "";
   position: absolute;
   top: 50%;
-  left: 1.45rem;
+  left: 1.5rem;
   opacity: 0;
   visibility: hidden;
   transition: opacity 300ms ease-in-out;
