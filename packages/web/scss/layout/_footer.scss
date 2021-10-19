@@ -21,8 +21,6 @@
   padding-right: 2rem;
   margin-top: auto;
   
-  
-  
   &--title {
     font-size: clamp(1rem, 0.9000rem + 0.5000vw, 1.5rem);
     
@@ -55,6 +53,12 @@
     max-width: 50ch;
     
     margin-bottom: .5rem;
+  }
+
+  &--social--icons {
+    display: flex;
+    justify-content: flex-start;
+    opacity: .65;
   }
   
   &--aboutus,
@@ -100,14 +104,13 @@
   }
   
   &--copyright {
-    
     font-weight: 400;
     text-align: center;
     
     width: 100%; 
     
     border-top: 1px solid #fff;
-    padding: 0.7em 0em;
+    padding: 0.7em 0;
     
     &--text {
       font-size: clamp(0.85rem, 0.8200rem + 0.1500vw, 1rem);

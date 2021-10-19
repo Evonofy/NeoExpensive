@@ -1,9 +1,20 @@
+// * Desktop Dropdown 
+
 @media (min-width: 950px) {
   
   .dropdown {
+    font-size: clamp(0.95rem, 0.9100rem + 0.2000vw, 1.15rem);
+    
     display: flex;
+    align-items: center;    
     
     &--item {
+      text-align: center;
+      
+      width: 8rem;
+      
+      border-radius: 0.25rem;
+      
       position: relative;
       
       &:hover,
@@ -12,10 +23,13 @@
           opacity: 1;
           
           transform: translateX(-50%) rotateX(0deg);
-          // visibility: visible;
+    
           transition-timing-function: ease-out;
         }
       }
+      
+      
+      
     }
     
     &--submenu { 
@@ -73,6 +87,14 @@
           height: 2.75rem;
           opacity: .65;
         }
+        
+        &--link {
+          font-size: 1.35rem;
+          
+          &:hover {
+            color: var(--accent-100);
+          }
+        }
       }
       
       &--item {
@@ -96,27 +118,23 @@
         text-align: center;
       }
       
-      &--anchor {
-        font-size: 1.45rem;
-      }
-      
       &--section {
         width: 100%;
-
+        
         display: flex;
         align-items: center;
-
+        
         background: var(--gray-800);
         border-radius: .5rem;
-
+        
         padding: .95rem;
         margin-top: .75rem;
-
+        
         &--paragraph {
           text-align: left;
           font-size: 1rem;
         }
-
+        
         &--cta {
           color: var(--accent-100);
         }

@@ -55,7 +55,7 @@ select {
   color: inherit;
   display: grid;
   place-items: center;
-  background: transparent;
+  background: transparent !important;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -202,27 +202,20 @@ small {
   }
 }
 @media (min-width: 950px) {
-  .desktop--nav .dropdown {
-    font-size: clamp(0.95rem, 0.91rem + 0.2vw, 1.15rem);
-    display: flex;
-    align-items: center;
-  }
-  .desktop--nav .dropdown--item,
-.desktop--nav .navigation--item {
-    width: 8rem;
-    text-align: center;
-  }
-  .desktop--nav .dropdown--item a,
-.desktop--nav .navigation--item a {
+  .desktop--nav a {
     font-weight: 300;
     padding: 0.35rem;
     border-radius: 0.25rem;
   }
-  .desktop--nav .dropdown--item a:hover, .desktop--nav .dropdown--item a:focus,
-.desktop--nav .navigation--item a:hover,
-.desktop--nav .navigation--item a:focus {
+  .desktop--nav a:hover, .desktop--nav a:focus {
     color: var(--gray-100);
     background: var(--accent-100);
+  }
+
+  .navigation--item {
+    width: 8rem;
+    text-align: center;
+    border-radius: 0.25rem;
   }
 }
 @media (min-width: 950px) {
@@ -317,7 +310,7 @@ small {
   transform: translateX(-50%);
 }
 .hamburger--nav--list {
-  margin: 1.5rem 0;
+  margin: 0.75rem 0;
   padding: 0 1.75rem;
 }
 .hamburger--nav--list--wrapper {
@@ -380,6 +373,11 @@ small {
   max-width: 50ch;
   margin-bottom: 0.5rem;
 }
+.footer--social--icons {
+  display: flex;
+  justify-content: flex-start;
+  opacity: 0.65;
+}
 .footer--aboutus, .footer--contact-us, .footer--quicklinks {
   margin: 0rem 1rem;
 }
@@ -410,7 +408,7 @@ small {
   text-align: center;
   width: 100%;
   border-top: 1px solid #fff;
-  padding: 0.7em 0em;
+  padding: 0.7em 0;
 }
 .footer--copyright--text {
   font-size: clamp(0.85rem, 0.82rem + 0.15vw, 1rem);
@@ -421,9 +419,14 @@ small {
 */
 @media (min-width: 950px) {
   .dropdown {
+    font-size: clamp(0.95rem, 0.91rem + 0.2vw, 1.15rem);
     display: flex;
+    align-items: center;
   }
   .dropdown--item {
+    text-align: center;
+    width: 8rem;
+    border-radius: 0.25rem;
     position: relative;
   }
   .dropdown--item:hover .dropdown--submenu, .dropdown--item:focus-within .dropdown--submenu {
@@ -476,6 +479,12 @@ small {
     height: 2.75rem;
     opacity: 0.65;
   }
+  .dropdown--submenu--title--link {
+    font-size: 1.35rem;
+  }
+  .dropdown--submenu--title--link:hover {
+    color: var(--accent-100);
+  }
   .dropdown--submenu--item {
     text-align: left;
     text-decoration: none;
@@ -490,9 +499,6 @@ small {
   }
   .dropdown--submenu--align--center {
     text-align: center;
-  }
-  .dropdown--submenu--anchor {
-    font-size: 1.45rem;
   }
   .dropdown--submenu--section {
     width: 100%;
