@@ -118,7 +118,7 @@ li,
 a,
 p,
 small {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-family: var(--ff-josefin);
   font-weight: 400;
   color: var(--color-contrast-high);
@@ -311,7 +311,7 @@ small {
 }
 .hamburger--nav--list {
   margin: 0.75rem 0;
-  padding: 0 1.75rem;
+  padding: 0 1.55rem;
 }
 .hamburger--nav--list--wrapper {
   display: flex;
@@ -323,11 +323,25 @@ small {
   height: 30px;
   opacity: 0.65;
 }
+.hamburger--nav--list--hr {
+  height: 0.3rem;
+  background: var(--gray-100);
+  border-radius: 1rem;
+  opacity: 0.65;
+  margin: 0.65rem 0;
+}
 .hamburger--nav--item {
   list-style: none;
   text-transform: uppercase;
-  margin: 1rem 0;
+  margin-top: 1.35rem;
+  margin-bottom: 1rem;
   position: relative;
+}
+.hamburger--nav--item--button {
+  color: var(--gray-200);
+  text-transform: uppercase;
+  background: none;
+  border: 0;
 }
 
 .footer {
