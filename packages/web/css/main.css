@@ -572,7 +572,8 @@ small {
     align-items: center;
     flex-direction: row;
   }
-  .user--controls--customer--choices--button {
+  .user--controls--customer--choices--button, .user--controls--customer--choices--link {
+    font-size: 1.15rem;
     font-family: var(--ff-josefin);
     font-weight: 300;
     color: white;
@@ -583,7 +584,7 @@ small {
     margin-top: 0.3rem;
     padding: 0.25rem 0.5rem;
   }
-  .user--controls--customer--choices--button:hover, .user--controls--customer--choices--button:focus-within {
+  .user--controls--customer--choices--button:hover, .user--controls--customer--choices--button:focus-within, .user--controls--customer--choices--link:hover, .user--controls--customer--choices--link:focus-within {
     color: var(--accent-100);
     transition: all 200ms ease-in;
     border-radius: 0.25rem;
