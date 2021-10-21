@@ -1,6 +1,6 @@
-// * Product Search Input
+// * Product Hamburger Search Input
 
-.header--search {
+.hamburger--header--search {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,6 +8,10 @@
   gap: 1rem;
 
   margin: 1rem 1.75rem; 
+
+  &--button {
+    
+  }
 
   &--margin--none {
     margin: 0;
@@ -51,7 +55,7 @@
       
       &:focus,
       &:not(:placeholder-shown) {
-        & + .header--search--label--text {
+        & + .hamburger--header--search--label--text {
           transform: translate(.25rem, -80%) scale(.9);
           color: var(--accent-100);
         }

@@ -76,9 +76,9 @@
               <a href="" class="hamburger--nav--item--link">Quem Somos</a>
             </li>
           </div>
-
+          
           <hr class="hamburger--nav--list--hr">
-
+          
           <div class="hamburger--nav--list--wrapper">
             <img class="hamburger--nav--list--wrapper--image" src="./images/user-controls/palette.svg" alt="">
             <li class="hamburger--nav--item">
@@ -98,7 +98,7 @@
             </li>
           </div>
         </ul>
-
+        
         
       </nav>
       
@@ -129,16 +129,16 @@
       
     </div>
     
-    <div class="header--search">
+    <div class="hamburger--header--search">
       
-      <label class="header--search--label">
-        <input class="header--search--label--input" type="text" placeholder=" " />
-        <span class="header--search--label--text">Pesquise Por Produtos!</span>
+      <label class="hamburger--header--search--label">
+        <input class="hamburger--header--search--label--input" type="text" placeholder=" " />
+        <span class="hamburger--header--search--label--text">Pesquise Por Produtos!</span>
       </label>
       
       
-      <button class="header--search--button" data-reset>
-        <svg class="header--search--svg" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <button class="hamburger--header--search--button" data-reset>
+        <svg class="hamburger--header--search--svg" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
           d="M22.6562 39.0625C31.7172 39.0625 39.0625 31.7172 39.0625 22.6562C39.0625 13.5953 31.7172 6.25 22.6562 6.25C13.5953 6.25 6.25 13.5953 6.25 22.6562C6.25 31.7172 13.5953 39.0625 22.6562 39.0625Z"
           stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -354,10 +354,24 @@
       </ul>
     </nav>
     
-    
     <div class="user--controls">
+
+      <div class="user--controls--header--search">
+        <button class="user--controls--header--search--button" data-reset>
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.6562 39.0625C31.7172 39.0625 39.0625 31.7172 39.0625 22.6562C39.0625 13.5953 31.7172 6.25 22.6562 6.25C13.5953 6.25 6.25 13.5953 6.25 22.6562C6.25 31.7172 13.5953 39.0625 22.6562 39.0625Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M34.2566 34.2579L43.7489 43.7502" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
       
-      <button class="user--controls--search" data-reset>
+        <div class="user--controls--header--search--data">
+          
+          <label class="user--controls--header--search--data--label">
+            <input class="user--controls--header--search--data--label--input" type="text" placeholder=" " />
+            <span class="user--controls--header--search--data--label--text">Pesquise Por Seu Produto!</span>
+          </label>
+        </div>
+        
+      </div>
+      
+      <!-- <button class="user--controls--search" data-reset>
         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
           d="M22.6562 39.0625C31.7172 39.0625 39.0625 31.7172 39.0625 22.6562C39.0625 13.5953 31.7172 6.25 22.6562 6.25C13.5953 6.25 6.25 13.5953 6.25 22.6562C6.25 31.7172 13.5953 39.0625 22.6562 39.0625Z"
@@ -365,18 +379,11 @@
           <path d="M34.2566 34.2579L43.7489 43.7502" stroke="white" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round" />
         </svg>
-      </button>
+      </button> -->
       
       <div class="user--controls--customer">
         <button class="user--controls--customer--button" data-reset>
-          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-            d="M25 31.25C31.9036 31.25 37.5 25.6536 37.5 18.75C37.5 11.8464 31.9036 6.25 25 6.25C18.0964 6.25 12.5 11.8464 12.5 18.75C12.5 25.6536 18.0964 31.25 25 31.25Z"
-            stroke="white" stroke-width="2" stroke-miterlimit="10" />
-            <path
-            d="M6.05249 42.1857C7.97351 38.8606 10.7357 36.0996 14.0616 34.18C17.3876 32.2605 21.1601 31.25 25.0002 31.25C28.8403 31.25 32.6128 32.2606 35.9386 34.1803C39.2645 36.0999 42.0267 38.8609 43.9476 42.1861"
-            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 31.25C31.9036 31.25 37.5 25.6536 37.5 18.75C37.5 11.8464 31.9036 6.25 25 6.25C18.0964 6.25 12.5 11.8464 12.5 18.75C12.5 25.6536 18.0964 31.25 25 31.25Z" stroke="white" stroke-width="2" stroke-miterlimit="10" /><path d="M6.05249 42.1857C7.97351 38.8606 10.7357 36.0996 14.0616 34.18C17.3876 32.2605 21.1601 31.25 25.0002 31.25C28.8403 31.25 32.6128 32.2606 35.9386 34.1803C39.2645 36.0999 42.0267 38.8609 43.9476 42.1861" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
         </button>
         
         <div class="user--controls--customer--choices">

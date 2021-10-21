@@ -594,7 +594,7 @@ small {
     opacity: 0.65;
   }
 }
-.header--search {
+.hamburger--header--search {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -602,14 +602,14 @@ small {
   gap: 1rem;
   margin: 1rem 1.75rem;
 }
-.header--search--margin--none {
+.hamburger--header--search--margin--none {
   margin: 0;
 }
-.header--search--label {
+.hamburger--header--search--label {
   width: 100%;
   position: relative;
 }
-.header--search--label--text {
+.hamburger--header--search--label--text {
   width: max-content;
   font-weight: bold;
   white-space: nowrap;
@@ -623,7 +623,7 @@ small {
   padding: 0 0.5rem;
   margin: 0.6rem;
 }
-.header--search--label--input {
+.hamburger--header--search--label--input {
   width: 100%;
   color: var(--gray-200);
   background: var(--color-header-footer);
@@ -632,11 +632,76 @@ small {
   outline: 0;
   padding: 0.5rem;
 }
-.header--search--label--input:focus + .header--search--label--text, .header--search--label--input:not(:placeholder-shown) + .header--search--label--text {
+.hamburger--header--search--label--input:focus + .hamburger--header--search--label--text, .hamburger--header--search--label--input:not(:placeholder-shown) + .hamburger--header--search--label--text {
   transform: translate(0.25rem, -80%) scale(0.9);
   color: var(--accent-100);
 }
 
+@media (min-width: 950px) {
+  .user--controls--header--search {
+    position: relative;
+  }
+  .user--controls--header--search:hover .user--controls--header--search--data, .user--controls--header--search:focus-within .user--controls--header--search--data {
+    transform: translateX(-50%) rotateX(0deg);
+    opacity: 1;
+  }
+  .user--controls--header--search--data {
+    width: max-content;
+    background: var(--gray-700);
+    border-radius: 0.75em;
+    padding: 1.2rem;
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translateX(-50%) rotateX(-90deg);
+    transform-origin: top center;
+    transition: all 200ms ease-in;
+    opacity: 0.1;
+  }
+  .user--controls--header--search--data::after {
+    border: 0.5rem solid transparent;
+    border-bottom-color: var(--gray-700);
+    content: "";
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .user--controls--header--search--data--label {
+    position: relative;
+    line-height: 1.6;
+  }
+  .user--controls--header--search--data--label--text {
+    width: max-content;
+    font-weight: bold;
+    white-space: nowrap;
+    background: var(--gray-700);
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    transform-origin: 0 0;
+    transform: translate(0, 0);
+    transition: transform 120ms ease-in;
+    padding: 0 0.5rem;
+    margin-left: 0.3rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+  }
+  .user--controls--header--search--data--label--input {
+    color: var(--color-contrast-high);
+    width: 100%;
+    background: var(--gray-700);
+    border: 0;
+    border-radius: 0.5rem;
+    border: 2px solid var(--gray-100);
+    outline: 0;
+    padding: 0.2rem 0.5rem;
+  }
+  .user--controls--header--search--data--label--input:focus + .user--controls--header--search--data--label--text, .user--controls--header--search--data--label--input:not(:placeholder-shown) + .user--controls--header--search--data--label--text {
+    transform: translate(0.25rem, -80%) scale(0.9);
+    color: var(--accent-100);
+  }
+}
 /* 
 * Forwards All Files From Components To Here
 */
