@@ -669,6 +669,7 @@ small {
     transform: translateX(-50%);
   }
   .user--controls--header--search--data--label {
+    width: 14rem;
     position: relative;
     line-height: 1.6;
   }
@@ -696,7 +697,7 @@ small {
     border-radius: 0.5rem;
     border: 2px solid var(--gray-100);
     outline: 0;
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem 0.8rem;
   }
   .user--controls--header--search--data--label--input:focus + .user--controls--header--search--data--label--text, .user--controls--header--search--data--label--input:not(:placeholder-shown) + .user--controls--header--search--data--label--text {
     transform: translate(0.25rem, -80%) scale(0.9);
