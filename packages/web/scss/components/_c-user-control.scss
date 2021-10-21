@@ -56,7 +56,9 @@
         flex-direction: row;
       }
       
-      &--button {
+      &--button,
+      &--link {
+        font-size: 1.15rem;
         font-family: var(--ff-josefin);
         font-weight: 300;
         color: white;
