@@ -429,7 +429,10 @@ small {
 }
 
 /* 
-* Forwards All (Imports) Files From Layout To Here
+* Forwards All Files From Layout To Here
+*/
+/* 
+* Forwards All Files From Pages To Here
 */
 @media (min-width: 950px) {
   .dropdown {
