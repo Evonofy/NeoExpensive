@@ -431,6 +431,32 @@ small {
 /* 
 * Forwards All Files From Layout To Here
 */
+@media (min-width: 950px) {
+  .login--body {
+    display: grid;
+    place-content: center;
+  }
+
+  .login--form {
+    width: 50vh;
+    height: 50vh;
+    background: var(--gray-100);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .login--form--header {
+    text-align: center;
+  }
+}
+@media (min-width: 950px) {
+  main--banner {
+    width: 100%;
+    height: 20vh;
+    background-image: url(../../images/banners/low-poly-grid-haikei.svg);
+  }
+}
 /* 
 * Forwards All Files From Pages To Here
 */
