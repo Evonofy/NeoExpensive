@@ -35,7 +35,7 @@
     &--submenu { 
       flex-direction: column;
       
-      background: var(--gray-700);
+      background: var(--color-contrast-lower);
       border-radius: 1em;
       
       padding: 1rem;
@@ -54,7 +54,7 @@
       
       &::after {
         border: .5rem solid transparent;
-        border-bottom-color: var(--gray-700);
+        border-bottom-color: var(--color-contrast-lower);
         content: '';
         position: absolute;
         top: -1rem;
