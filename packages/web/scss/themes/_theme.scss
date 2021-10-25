@@ -1,10 +1,11 @@
 :root, [data-theme="default"] {
   /* Color Contrasts */
 
-  --color-bg: hsl(200, 10%, 10%);
+  --color-background: hsl(200, 10%, 10%);
   --color-header-footer: hsl(200, 10%, 8%);
 
-  --color-contrast-lower: hsl(240, 6%, 15%);
+  --color-contrast-lowest: hsl(200, 10%, 8%);
+  --color-contrast-lower: hsl(200, 10%, 15%);
   --color-contrast-low: hsl(252, 4%, 25%);
   --color-contrast-medium: hsl(240, 1%, 55%);
   --color-contrast-high: hsl(200, 0%, 70%);
@@ -12,7 +13,7 @@
 }
 
 [data-theme] {
-  background-color: var(--color-bg) !important;
+  background-color: var(--color-background) !important;
   color: var(--color-contrast-high) !important;
 }
 

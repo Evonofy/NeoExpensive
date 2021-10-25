@@ -8,16 +8,32 @@
     width: 50vh;
     height: 50vh;
 
-    background: var(--gray-100);
+    background: var(--color-contrast-lower);
+    box-shadow: 4px 2px 20px black;
+    border: 2px solid var(--accent-100);
+
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
 
     // padding: 5rem;
     &--header {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      margin: 5vh 0;
+
+      h1 {
+        font-family: var(--ff-montserrat);
+        font-size: 3rem;
+        color: var(--color-contrast-higher);
+        text-align: center;
+        text-transform: uppercase;
+      }
     }
   }
 
