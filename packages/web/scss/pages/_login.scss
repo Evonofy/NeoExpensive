@@ -3,38 +3,193 @@
     display: grid;
     place-content: center;
   }
-
+  
   .login--form {
     width: 50vh;
     height: 50vh;
-
+    
     background: var(--color-contrast-lower);
     box-shadow: 4px 2px 20px black;
     border: 2px solid var(--accent-100);
-
-
+    
+    
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
-
-    // padding: 5rem;
-    &--header {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      
-      margin: 5vh 0;
-
-      h1 {
-        font-family: var(--ff-montserrat);
-        font-size: 3rem;
-        color: var(--color-contrast-higher);
-        text-align: center;
-        text-transform: uppercase;
-      }
+  }
+  
+  .login--form--header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 3.5vh;
+    margin-bottom: 3vh;
+    
+    &--heading {
+      font-family: var(--ff-montserrat);
+      font-size: 3rem;
+      color: var(--color-contrast-higher);
+      text-align: center;
+      text-transform: uppercase;
     }
   }
+  
+  .login--form--email {
+    position: relative;
+    margin-bottom: 1rem;
+    
+    &--input {
+      font-family: var(--ff-montserrat);
+      font-size: 1.1rem;
+      color: var(--color-contrast-higher);
+      
+      background: var(--color-contrast-low);
+      border: 0;
+      border-radius: 0.25rem;
+      
+      padding: .3rem 2.8rem;
+      line-height: 1.7;
+      
+      &::placeholder {
+        font-size: 1.2rem;
+        margin-top: .25rem;
+        font-family: var(--ff-montserrat);
+      }
+    }
+    
+    &--image {
+      width: 2rem;
+      height: 2rem;
+      
+      content: '';
+      position: absolute;
+      top: 7%;
+      left: 2%;
+      
+      opacity: .65;
+    }
+  }
+  
+  .login--form--password {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 1.5rem;
+    
+    &--input {
+      font-family: var(--ff-montserrat);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--color-contrast-higher);
+      
+      background: var(--color-contrast-low);
+      border: 0;
+      border-radius: 0.25rem;
+      
+      padding: .3rem 2.8rem;
+      
+      &::placeholder {
+        font-size: 1.2rem;
+        margin-top: .25rem;
+        font-family: var(--ff-montserrat);
+      }
+    }
+    
+    &--image {
+      width: 2rem;
+      height: 2rem;
+      
+      content: '';
+      position: absolute;
+      top: 7%;
+      left: 2%;
+      
+      opacity: .65;
+    }
+    
+    &--checkbox {
+      margin-top: .5rem;
+      
+      #checkbox--input, 
+      #checkbox--label {
+        cursor: pointer;
+      }
+      
+      #checkbox--label {
+        font-family: var(--ff-montserrat);
+        user-select: none;
+      }
+      
+    }
+  }
+  
+  .login--form--submit {
+    font-family: var(--ff-montserrat);
+    color: var(--gray-100);
+    
+    background: var(--accent-100);
+    border: 0;
+    border-radius: 0.25rem;
+    
+    padding: .35rem 8.25rem;
+    
+    transition: all 200ms ease-in;
+    
+    &:hover,
+    &:focus {
+      background: var(--accent-200);
+    }
+  }
+  
+  .login--form--icons {
+    display: flex;
+    gap: 2rem;
+    
+    margin-top: 1rem;
+    
+    &--google,
+    &--discord,
+    &--facebook {
+      width: 3rem;
+      height: 3rem;
+      
+      border-radius: .25rem;
+      padding: .5rem;
+      
+      cursor: pointer;
+      
+      transition: all 200ms ease-in;
+    }
+    
+    &--google {
+      background: hsl(0, 0%, 100%);
+      
+      &:hover,
+      &:focus {
+        opacity: .65;
+      }
+    }
+    
+    &--discord {
+      background: hsl(227, 58%, 65%);
+      
+      &:hover,
+      &:focus {
+        opacity: .65;
+      }
+    }
+    
+    &--facebook {
+      background: hsl(234, 48%, 41%);
+      
+      &:hover,
+      &:focus {
+        opacity: .65;
+      }
+    }
 
+  }
+  
 }
