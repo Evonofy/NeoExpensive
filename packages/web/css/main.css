@@ -473,7 +473,6 @@ small {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3.5vh;
   margin-bottom: 3vh;
 }
 .login--form--header--heading {
