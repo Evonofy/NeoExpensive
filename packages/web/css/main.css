@@ -447,155 +447,223 @@ small {
 /* 
 * Forwards All Files From Layout To Here
 */
-@media (min-width: 950px) {
-  .login--body {
-    display: grid;
-    place-content: center;
-  }
+.login--body {
+  display: grid;
+  place-content: center;
+}
 
+.login--form {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 950px) {
   .login--form {
-    width: 50vh;
-    height: 50vh;
+    width: 32.5rem;
+    height: 35rem;
     background: var(--color-contrast-lower);
     box-shadow: 4px 2px 20px black;
     border: 2px solid var(--accent-100);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
+}
 
-  .login--form--header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3.5vh;
-    margin-bottom: 3vh;
-  }
-  .login--form--header--heading {
-    font-family: var(--ff-montserrat);
-    font-size: 3rem;
-    color: var(--color-contrast-higher);
-    text-align: center;
-    text-transform: uppercase;
-  }
+.login--form--header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.5vh;
+  margin-bottom: 3vh;
+}
+.login--form--header--heading {
+  font-family: var(--ff-montserrat);
+  font-size: 3rem;
+  color: var(--color-contrast-higher);
+  text-align: center;
+  text-transform: uppercase;
+}
 
-  .login--form--email {
-    position: relative;
-    margin-bottom: 1rem;
-  }
+.login--form--email {
+  position: relative;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-bottom: 2.5rem;
+}
+.login--form--email--input {
+  font-family: var(--ff-montserrat);
+  font-size: 1.1rem;
+  color: var(--color-contrast-higher);
+  background: var(--color-contrast-low);
+  border: 0;
+  border-radius: 0.25rem;
+  padding: 0.3rem 2rem;
+  line-height: 1.7;
+}
+@media (min-width: 950px) {
   .login--form--email--input {
-    font-family: var(--ff-montserrat);
-    font-size: 1.1rem;
-    color: var(--color-contrast-higher);
-    background: var(--color-contrast-low);
-    border: 0;
-    border-radius: 0.25rem;
     padding: 0.3rem 2.8rem;
-    line-height: 1.7;
   }
-  .login--form--email--input::placeholder {
-    font-size: 1.2rem;
-    margin-top: 0.25rem;
-    font-family: var(--ff-montserrat);
-  }
+}
+.login--form--email--input::placeholder {
+  font-size: 1.2rem;
+  margin-top: 0.25rem;
+  font-family: var(--ff-montserrat);
+}
+.login--form--email--input:focus {
+  outline: 0;
+  box-shadow: 0 0 20px black;
+}
+.login--form--email--image {
+  width: 1.5rem;
+  height: 1.5rem;
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 1.5%;
+  opacity: 0.65;
+}
+@media (min-width: 950px) {
   .login--form--email--image {
     width: 2rem;
     height: 2rem;
-    content: "";
-    position: absolute;
-    top: 7%;
-    left: 2%;
-    opacity: 0.65;
+    top: 6.5%;
+    left: 1.5%;
   }
+}
 
-  .login--form--password {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-bottom: 1.5rem;
-  }
+.login--form--password {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.login--form--password--input {
+  font-family: var(--ff-montserrat);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-contrast-higher);
+  background: var(--color-contrast-low);
+  border: 0;
+  border-radius: 0.25rem;
+  padding: 0.3rem 2rem;
+}
+@media (min-width: 950px) {
   .login--form--password--input {
-    font-family: var(--ff-montserrat);
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--color-contrast-higher);
-    background: var(--color-contrast-low);
-    border: 0;
-    border-radius: 0.25rem;
     padding: 0.3rem 2.8rem;
   }
-  .login--form--password--input::placeholder {
-    font-size: 1.2rem;
-    margin-top: 0.25rem;
-    font-family: var(--ff-montserrat);
-  }
+}
+.login--form--password--input::placeholder {
+  font-size: 1.2rem;
+  margin-top: 0.25rem;
+  font-family: var(--ff-montserrat);
+}
+.login--form--password--input:focus {
+  outline: 0;
+  box-shadow: 0 0 20px black;
+}
+.login--form--password--image {
+  width: 1.5rem;
+  height: 1.5rem;
+  content: "";
+  position: absolute;
+  top: 11%;
+  left: 1.5%;
+  opacity: 0.65;
+}
+@media (min-width: 950px) {
   .login--form--password--image {
     width: 2rem;
     height: 2rem;
-    content: "";
-    position: absolute;
-    top: 7%;
-    left: 2%;
-    opacity: 0.65;
-  }
-  .login--form--password--checkbox {
-    margin-top: 0.5rem;
-  }
-  .login--form--password--checkbox #checkbox--input,
-.login--form--password--checkbox #checkbox--label {
-    cursor: pointer;
-  }
-  .login--form--password--checkbox #checkbox--label {
-    font-family: var(--ff-montserrat);
-    user-select: none;
-  }
-
-  .login--form--submit {
-    font-family: var(--ff-montserrat);
-    color: var(--gray-100);
-    background: var(--accent-100);
-    border: 0;
-    border-radius: 0.25rem;
-    padding: 0.35rem 8.25rem;
-    transition: all 200ms ease-in;
-  }
-  .login--form--submit:hover, .login--form--submit:focus {
-    background: var(--accent-200);
-  }
-
-  .login--form--icons {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1rem;
-  }
-  .login--form--icons--google, .login--form--icons--discord, .login--form--icons--facebook {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    transition: all 200ms ease-in;
-  }
-  .login--form--icons--google {
-    background: white;
-  }
-  .login--form--icons--google:hover, .login--form--icons--google:focus {
-    opacity: 0.65;
-  }
-  .login--form--icons--discord {
-    background: #7288da;
-  }
-  .login--form--icons--discord:hover, .login--form--icons--discord:focus {
-    opacity: 0.65;
-  }
-  .login--form--icons--facebook {
-    background: #36409b;
-  }
-  .login--form--icons--facebook:hover, .login--form--icons--facebook:focus {
-    opacity: 0.65;
+    top: 5%;
+    left: 1.5%;
   }
 }
+
+.login--form--password--options {
+  margin-top: 0.5rem;
+}
+.login--form--password--options #checkbox--input,
+.login--form--password--options #checkbox--label {
+  accent-color: var(--accent-100);
+  cursor: pointer;
+}
+.login--form--password--options #checkbox--label {
+  font-size: 0.8rem;
+  font-family: var(--ff-montserrat);
+  font-weight: 300;
+  user-select: none;
+  margin-right: 1.5rem;
+}
+@media (min-width: 950px) {
+  .login--form--password--options #checkbox--label {
+    font-size: 1rem;
+    margin-left: 0.3rem;
+  }
+}
+.login--form--password--options .forgot--pass {
+  font-size: 0.8rem;
+  font-family: var(--ff-montserrat);
+  font-weight: 300;
+  margin-left: 1.5rem;
+}
+@media (min-width: 950px) {
+  .login--form--password--options .forgot--pass {
+    font-size: 1rem;
+    margin-left: 0.3rem;
+  }
+}
+
+.login--form--submit {
+  font-family: var(--ff-montserrat);
+  color: var(--gray-100);
+  background: var(--accent-100);
+  border: 0;
+  border-radius: 0.25rem;
+  padding: 0.35rem 7.4rem;
+  transition: all 200ms ease-in;
+}
+@media (min-width: 950px) {
+  .login--form--submit {
+    padding: 0.35rem 8.25rem;
+  }
+}
+.login--form--submit:hover, .login--form--submit:focus {
+  background: var(--accent-200);
+}
+
+.login--form--icons {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+.login--form--icons--google, .login--form--icons--discord, .login--form--icons--facebook {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+.login--form--icons--google {
+  background: white;
+}
+.login--form--icons--google:hover, .login--form--icons--google:focus {
+  opacity: 0.65;
+}
+.login--form--icons--discord {
+  background: #7288da;
+}
+.login--form--icons--discord:hover, .login--form--icons--discord:focus {
+  opacity: 0.65;
+}
+.login--form--icons--facebook {
+  background: #36409b;
+}
+.login--form--icons--facebook:hover, .login--form--icons--facebook:focus {
+  opacity: 0.65;
+}
+
 @media (min-width: 950px) {
   .main--banner {
     width: 100%;
