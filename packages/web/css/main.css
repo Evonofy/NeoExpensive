@@ -448,19 +448,137 @@ small {
     flex-direction: column;
     align-items: center;
   }
+
   .login--form--header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5vh 0;
+    margin-top: 3.5vh;
+    margin-bottom: 3vh;
   }
-  .login--form--header h1 {
+  .login--form--header--heading {
     font-family: var(--ff-montserrat);
     font-size: 3rem;
     color: var(--color-contrast-higher);
     text-align: center;
     text-transform: uppercase;
+  }
+
+  .login--form--email {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .login--form--email--input {
+    font-family: var(--ff-montserrat);
+    font-size: 1.1rem;
+    color: var(--color-contrast-higher);
+    background: var(--color-contrast-low);
+    border: 0;
+    border-radius: 0.25rem;
+    padding: 0.3rem 2.8rem;
+    line-height: 1.7;
+  }
+  .login--form--email--input::placeholder {
+    font-size: 1.2rem;
+    margin-top: 0.25rem;
+    font-family: var(--ff-montserrat);
+  }
+  .login--form--email--image {
+    width: 2rem;
+    height: 2rem;
+    content: "";
+    position: absolute;
+    top: 7%;
+    left: 2%;
+    opacity: 0.65;
+  }
+
+  .login--form--password {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  .login--form--password--input {
+    font-family: var(--ff-montserrat);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-contrast-higher);
+    background: var(--color-contrast-low);
+    border: 0;
+    border-radius: 0.25rem;
+    padding: 0.3rem 2.8rem;
+  }
+  .login--form--password--input::placeholder {
+    font-size: 1.2rem;
+    margin-top: 0.25rem;
+    font-family: var(--ff-montserrat);
+  }
+  .login--form--password--image {
+    width: 2rem;
+    height: 2rem;
+    content: "";
+    position: absolute;
+    top: 7%;
+    left: 2%;
+    opacity: 0.65;
+  }
+  .login--form--password--checkbox {
+    margin-top: 0.5rem;
+  }
+  .login--form--password--checkbox #checkbox--input,
+.login--form--password--checkbox #checkbox--label {
+    cursor: pointer;
+  }
+  .login--form--password--checkbox #checkbox--label {
+    font-family: var(--ff-montserrat);
+    user-select: none;
+  }
+
+  .login--form--submit {
+    font-family: var(--ff-montserrat);
+    color: var(--gray-100);
+    background: var(--accent-100);
+    border: 0;
+    border-radius: 0.25rem;
+    padding: 0.35rem 8.25rem;
+    transition: all 200ms ease-in;
+  }
+  .login--form--submit:hover, .login--form--submit:focus {
+    background: var(--accent-200);
+  }
+
+  .login--form--icons {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  .login--form--icons--google, .login--form--icons--discord, .login--form--icons--facebook {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 200ms ease-in;
+  }
+  .login--form--icons--google {
+    background: white;
+  }
+  .login--form--icons--google:hover, .login--form--icons--google:focus {
+    opacity: 0.65;
+  }
+  .login--form--icons--discord {
+    background: #7288da;
+  }
+  .login--form--icons--discord:hover, .login--form--icons--discord:focus {
+    opacity: 0.65;
+  }
+  .login--form--icons--facebook {
+    background: #36409b;
+  }
+  .login--form--icons--facebook:hover, .login--form--icons--facebook:focus {
+    opacity: 0.65;
   }
 }
 @media (min-width: 950px) {
