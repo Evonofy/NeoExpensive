@@ -1,4 +1,3 @@
-// @import url('./dropdown.css');
 .desktop--header {
   display: none;
 }
@@ -17,9 +16,6 @@
     
     padding: clamp(1rem, 1vw, 2rem) clamp(1rem, 3vw, 4rem);
     
-    // transform-style: preserve3d;
-    // perspective: 3000px;
-    
     position: relative;
     
     *:hover,
@@ -32,13 +28,13 @@
     button:hover,
     button:focus {
       outline: none;
-
+      
       path:not(.X) {
         stroke: var(--accent-100);
         transition: all 200ms ease;
       }
     }
-
+    
     path:not(.X) {
       stroke: var(--color-contrast-high);
     }
@@ -52,7 +48,6 @@
       display: flex;
       gap: .5rem;
     }
-   
+    
   }
-
 }
