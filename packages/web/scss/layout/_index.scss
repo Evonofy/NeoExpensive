@@ -1,9 +1,9 @@
 /* 
 * Forwards All Files From Layout To Here
 */
-@forward '../layout/d-header.scss';
-@forward '../layout/d-navigation.scss';
-@forward '../layout/h-header.scss';
-@forward '../layout/h-navigation.scss';
+@forward '../layout/desktop/header.scss';
+@forward '../layout/desktop/navigation';
+@forward '../layout/mobile/header';
+@forward '../layout/mobile/navigation';
 @forward '../layout/footer.scss';
 
