@@ -475,6 +475,11 @@ small {
   align-items: center;
   margin-bottom: 3vh;
 }
+@media (min-width: 950px) {
+  .login--form--header {
+    margin-top: 3.5vh;
+  }
+}
 .login--form--header--heading {
   font-family: var(--ff-montserrat);
   font-size: 3rem;
