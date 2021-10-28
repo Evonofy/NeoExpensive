@@ -1,3 +1,6 @@
+/* 
+* Use All (Imports) Files From Animations To Here
+*/
 /* Box Sizing Rules, Removes Defaults Margins And Paddings*/
 *,
 *::before,
@@ -166,7 +169,7 @@ small {
   .desktop--header {
     width: 100%;
     display: flex;
-    place-items: center;
+    align-items: center;
     justify-content: space-between;
     background: var(--color-contrast-lowest);
     border-bottom: 2px solid var(--accent-100);
