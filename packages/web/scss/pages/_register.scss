@@ -1,0 +1,268 @@
+.register--body {
+  display: grid;
+  place-content: center;
+}
+
+.register--form {
+  width: 100%;
+  // height: 70vh;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  @media (min-width: 950px) {
+    width: 32.5rem;
+    height: 35rem;
+    
+    background: var(--color-contrast-lower);
+    box-shadow: 4px 2px 20px black;
+    border: 2px solid var(--accent-100);
+  }
+  
+}
+
+.register--form--header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  // margin-top: 3.5vh;
+  margin-bottom: 3vh;
+  
+  @media (min-width: 950px) {
+    margin-top: 3.5vh;
+  }
+
+  &--heading {
+    font-family: var(--ff-montserrat);
+    font-size: 3rem;
+    color: var(--color-contrast-higher);
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.register--form--email {
+  position: relative;
+  
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  margin-bottom: 2.5rem;
+  
+  &--input {
+    font-family: var(--ff-montserrat);
+    font-size: 1.1rem;
+    color: var(--color-contrast-higher);
+    
+    background: var(--color-contrast-low);
+    border: 0;
+    border-radius: 0.25rem;
+    
+    padding: .3rem 2rem;
+    line-height: 1.7;
+    
+    @media (min-width: 950px) {
+      padding: .3rem 2.8rem;
+    }
+    
+    &::placeholder {
+      font-size: 1.2rem;
+      margin-top: .25rem;
+      font-family: var(--ff-montserrat);
+    }
+    
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 20px black;
+    }
+  }
+  
+  &--image {
+    width: 1.5rem;
+    height: 1.5rem;
+    
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 1.5%;
+    
+    opacity: .65;
+    
+    @media (min-width: 950px) {
+      width: 2rem;
+      height: 2rem;
+      
+      top: 6.5%;
+      left: 1.5%;
+    }
+  }
+}
+
+.register--form--password {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 1.5rem;
+  
+  &--input {
+    font-family: var(--ff-montserrat);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-contrast-higher);
+    
+    background: var(--color-contrast-low);
+    border: 0;
+    border-radius: 0.25rem;
+    
+    padding: .3rem 2rem;
+    
+    @media (min-width: 950px) {
+      padding: .3rem 2.8rem;
+    }
+    
+    &::placeholder {
+      font-size: 1.2rem;
+      margin-top: .25rem;
+      font-family: var(--ff-montserrat);
+    }
+    
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 20px black;
+    }
+  }
+  
+  &--image {
+    width: 1.5rem;
+    height: 1.5rem;
+    
+    content: '';
+    position: absolute;
+    top: 11%;
+    left: 1.5%;
+    
+    opacity: .65;
+    
+    @media (min-width: 950px) {
+      width: 2rem;
+      height: 2rem;
+      
+      top: 5%;
+      left: 1.5%;
+    }
+  }
+}
+
+.register--form--password--options {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: .5rem;
+  
+  #checkbox--input, 
+  #checkbox--label {
+    accent-color: var(--accent-100);
+    cursor: pointer;
+  }
+  
+  #checkbox--label {
+    font-size: .8rem;
+    font-family: var(--ff-montserrat);
+    font-weight: 300;
+    user-select: none;
+    
+    margin-right: 1.5rem;
+    
+    @media (min-width: 950px) {
+      font-size: 1rem;
+      margin-left: .3rem;
+    }
+  }
+  
+  .forgot--pass {
+    font-size: .8rem;
+    font-family: var(--ff-montserrat);
+    font-weight: 300;
+    
+    margin-left: 1.5rem;
+    
+    @media (min-width: 950px) {
+      font-size: 1rem;
+      margin-left: .3rem;
+    }
+  }
+}
+
+.register--form--submit {
+  font-family: var(--ff-montserrat);
+  color: var(--gray-100);
+  
+  background: var(--accent-100);
+  border: 0;
+  border-radius: 0.25rem;
+  
+  padding: .35rem 7.4rem;
+  
+  transition: all 200ms ease-in;
+  
+  @media (min-width: 950px) {
+    padding: .35rem 8.25rem;
+  }
+  
+  &:hover,
+  &:focus {
+    background: var(--accent-200);
+  }
+}
+
+.register--form--icons {
+  display: flex;
+  gap: 2rem;
+  
+  margin-top: 2.5rem;
+  
+  &--google,
+  &--discord,
+  &--facebook {
+    width: 3rem;
+    height: 3rem;
+    
+    border-radius: .25rem;
+    padding: .5rem;
+    
+    cursor: pointer;
+    
+    transition: all 200ms ease-in;
+  }
+  
+  &--google {
+    background: hsl(0, 0%, 100%);
+    
+    &:hover,
+    &:focus {
+      opacity: .65;
+    }
+  }
+  
+  &--discord {
+    background: hsl(227, 58%, 65%);
+    
+    &:hover,
+    &:focus {
+      opacity: .65;
+    }
+  }
+  
+  &--facebook {
+    background: hsl(234, 48%, 41%);
+    
+    &:hover,
+    &:focus {
+      opacity: .65;
+    }
+  }
+  
+}
+
