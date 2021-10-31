@@ -1,4 +1,4 @@
-// * Use all _index.scss ifrom all folders in the main SCSS
+// * Use all _index.scss from all folders in the main SCSS
 @use '../scss/abstracts' as *;
 @use '../scss/base' as *;
 @use '../scss/themes' as *;
@@ -6,3 +6,7 @@
 @use '../scss/pages' as *;
 @use '../scss/components' as *;
 @use '../scss/animations' as *;
+
+body {
+  background: red !important;
+}
