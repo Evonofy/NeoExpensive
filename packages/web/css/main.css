@@ -381,7 +381,6 @@ small {
 
 .footer--quicklinks li,
 .footer--contact-us li {
-  font-size: clamp(0.9rem, 0.83rem + 0.35vw, 1.25rem);
   list-style: none;
 }
 .footer--quicklinks li:hover a,
@@ -396,7 +395,6 @@ small {
 }
 
 .footer--title {
-  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
   font-weight: 500;
   line-height: 1.5em;
   color: var(--accent-100);
@@ -414,7 +412,6 @@ small {
 }
 
 .footer--aboutus .footer--paragraph {
-  font-size: clamp(1rem, 0.97rem + 0.15vw, 1.15rem);
   max-width: 50ch;
   margin-bottom: 0.5rem;
 }
@@ -431,7 +428,6 @@ small {
   justify-content: center;
 }
 .footer--logo--svg {
-  width: clamp(7rem, 5.4rem + 8vw, 15rem);
   height: auto;
   margin: 1rem 0rem;
 }
@@ -443,10 +439,6 @@ small {
   border-top: 1px solid #fff;
   padding: 0.7em 0;
 }
-.footer--copyright--text {
-  font-size: clamp(0.85rem, 0.82rem + 0.15vw, 1rem);
-}
-
 /* 
 * Forwards All Files From Layout To Here
 */
@@ -688,7 +680,6 @@ small {
 */
 @media (min-width: 950px) {
   .dropdown {
-    font-size: clamp(0.95rem, 0.91rem + 0.2vw, 1.15rem);
     display: flex;
     align-items: center;
   }
@@ -711,7 +702,7 @@ small {
     padding: 1rem;
     content: "";
     position: absolute;
-    top: calc(100% + 0.75rem);
+    top: calc(100% + .75rem);
     left: 50%;
     z-index: 1;
     opacity: 0.1;
