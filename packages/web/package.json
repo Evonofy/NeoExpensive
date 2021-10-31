@@ -7,7 +7,8 @@
   "license": "MIT",
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
-    "postcss": "^8.3.9",
-    "sass": "^1.42.1"
-  }
+    "dart-sass": "^1.25.0",
+    "postcss": "^8.3.9"
+  },
+  "dependencies": {}
 }
