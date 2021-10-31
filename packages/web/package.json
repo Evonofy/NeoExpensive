@@ -5,6 +5,11 @@
   "author": "Vitor Gouveia <vitor.gouveia@aluno.etecjrm.com.br>",
   "private": true,
   "license": "MIT",
+  "scripts": {
+    "commit": "cz",
+    "css": "dart-sass --watch scss/main.scss:css/main.css",
+    "css:mini": "dart-sass --watch scss/main.scss:css/main.min.css --style compressed"
+  },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "dart-sass": "^1.25.0",
