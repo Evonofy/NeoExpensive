@@ -6,42 +6,147 @@
     display: grid;
     place-content: center;
   }
-
+  
   .register--body--wrapper {
     display: flex;
-
+    
     border-radius: 1rem;
     margin: 2rem;
-
   }
-
+  
   .register--illustration {
+    width: 50%;
     height: 90vh;
-
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
+    background: var(--accent-100);
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
-    background: var(--accent-100);
-
+    
     &--header {
       max-width: 30ch;
-
+      
       color: var(--color-contrast-higher);
       font-family: var(--ff-montserrat);
       font-size: 1.8rem;
       text-align: center;
+      margin: 2rem;
     }
-
+    
     &--image {
-      width: 50vw;
-      filter: contrast(100%);
+      width: 40rem;
+      filter: contrast(120%);
       border-radius: 1rem;
       padding: .5rem;
-      margin: 1rem;
+      margin: .5rem;
     }
   }
+  
+  .register--form--wrapper {
+    width: 50%;
+    
+    background: var(--color-contrast-lower);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    
+    padding: 3rem;
+  }
+  
+  .register--form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .register--form--heading {
+    margin-top: 3rem;
+    
+    &--image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      margin-bottom: 1rem;
+    }
+    
+    &--header {
+      font-size: 2.75rem;
+    }
+    
+  }
+  
+  .register--form--name--last {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    margin-top: 2rem;
+    
+    .register--form--name,
+    .register--form--last {
+      width: 100%;
+      outline: 0;
+      border: 0;
+      border-radius: 1rem;
+      
+      padding: .5rem;
+    }
+
+  }
+  
+  .register--form--name--wrapper {
+    position: relative;
+  }
+  
+  .register--form--name {
+    margin-right: 1rem;
+    
+    &--label {
+      font-size: 1.35rem;
+      
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 10px;
+
+      transition: all 200ms ease-out;
+    }
+    
+    &:focus ~ .register--form--name--label  {
+      color: var(--accent-100);
+      transform: scale(0.9);
+      transition: all 200ms ease-out;
+    }
+    
+  }
+  
+  .register--form--last--wrapper {
+    position: relative;
+  }
+  
+  .register--form--last {
+    margin-left: 1rem;
+    
+    &--label {
+      font-size: 1.3rem;
+      
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 20px;
+      
+      transition: all 200ms ease-out;
+    }
+    
+    &:focus ~ .register--form--last--label  {
+      color: var(--accent-100);
+      transform: scale(0.9);
+      transition: all 200ms ease-out;
+    }
+  }
+  
 }
