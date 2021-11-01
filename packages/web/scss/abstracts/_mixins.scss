@@ -1,3 +1,5 @@
+@use '../abstracts/breakpoints.scss' as *;
+
 // Class Mixins
 @mixin flex {
   display: flex;
@@ -16,6 +18,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
 
 // Media Queries 
 
