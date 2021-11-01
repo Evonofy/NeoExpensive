@@ -1,0 +1,189 @@
+@-webkit-keyframes fillRGB {
+  100%, 0% {
+    fill: red;
+  }
+  8% {
+    fill: #ff7f00;
+  }
+  16% {
+    fill: yellow;
+  }
+  24% {
+    fill: chartreuse;
+  }
+  32% {
+    fill: lime;
+  }
+  40% {
+    fill: springgreen;
+  }
+  48% {
+    fill: cyan;
+  }
+  56% {
+    fill: #007fff;
+  }
+  64% {
+    fill: blue;
+  }
+  72% {
+    fill: #7f00ff;
+  }
+  80% {
+    fill: magenta;
+  }
+  88% {
+    fill: #ff007f;
+  }
+}
+
+@keyframes fillRGB {
+  100%, 0% {
+    fill: red;
+  }
+  8% {
+    fill: #ff7f00;
+  }
+  16% {
+    fill: yellow;
+  }
+  24% {
+    fill: chartreuse;
+  }
+  32% {
+    fill: lime;
+  }
+  40% {
+    fill: springgreen;
+  }
+  48% {
+    fill: cyan;
+  }
+  56% {
+    fill: #007fff;
+  }
+  64% {
+    fill: blue;
+  }
+  72% {
+    fill: #7f00ff;
+  }
+  80% {
+    fill: magenta;
+  }
+  88% {
+    fill: #ff007f;
+  }
+}
+
+@-webkit-keyframes strokeRGB {
+  100%,
+  0% {
+    stroke: red;
+  }
+  8% {
+    stroke: #ff7f00;
+  }
+  16% {
+    stroke: yellow;
+  }
+  24% {
+    stroke: chartreuse;
+  }
+  32% {
+    stroke: lime;
+  }
+  40% {
+    stroke: springgreen;
+  }
+  48% {
+    stroke: cyan;
+  }
+  56% {
+    stroke: #007fff;
+  }
+  64% {
+    stroke: blue;
+  }
+  72% {
+    stroke: #7f00ff;
+  }
+  80% {
+    stroke: magenta;
+  }
+  88% {
+    stroke: #ff007f;
+  }
+}
+
+@keyframes strokeRGB {
+  100%,
+  0% {
+    stroke: red;
+  }
+  8% {
+    stroke: #ff7f00;
+  }
+  16% {
+    stroke: yellow;
+  }
+  24% {
+    stroke: chartreuse;
+  }
+  32% {
+    stroke: lime;
+  }
+  40% {
+    stroke: springgreen;
+  }
+  48% {
+    stroke: cyan;
+  }
+  56% {
+    stroke: #007fff;
+  }
+  64% {
+    stroke: blue;
+  }
+  72% {
+    stroke: #7f00ff;
+  }
+  80% {
+    stroke: magenta;
+  }
+  88% {
+    stroke: #ff007f;
+  }
+}
+
+/* stylelint-disable custom-property-empty-line-before */
+[data-theme="rgb"] {
+  /* Body */
+  --body-bg: #464646;
+  /* Navbar */
+  --menu-bg: #747474;
+  --nav-bg: #8a3a3a;
+  /* Global */
+  --white: #b8b8b8;
+  --accent: #8b46a3;
+}
+
+[data-theme="rgb"] svg[data-icon="neo"] .x {
+  -webkit-animation: fillRGB 4s infinite;
+          animation: fillRGB 4s infinite;
+}
+
+[data-theme="rgb"] svg[data-icon="facebook"] *:not(rect:first-of-type) {
+  -webkit-animation: strokeRGB 4s infinite;
+          animation: strokeRGB 4s infinite;
+}
+
+[data-theme="rgb"] svg[data-icon="twitter"] *, [data-theme="rgb"] svg[data-icon="instagram"] * {
+  -webkit-animation: strokeRGB 4s infinite;
+          animation: strokeRGB 4s infinite;
+}
+
+[data-theme="rgb"] svg[data-icon="twitter"] :is(circle:last-of-type), [data-theme="rgb"] svg[data-icon="instagram"] :is(circle:last-of-type) {
+  -webkit-animation: fillRGB 4s infinite;
+          animation: fillRGB 4s infinite;
+}
