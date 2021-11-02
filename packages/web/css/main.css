@@ -665,6 +665,11 @@ small {
   opacity: 0.65;
 }
 
+body {
+  display: grid;
+  place-content: center;
+}
+
 @media (min-width: 992px) {
   body {
     display: grid;
@@ -674,12 +679,11 @@ small {
   .register--body--wrapper {
     display: flex;
     border-radius: 1rem;
-    margin: 2rem;
+    margin: 1rem;
   }
 
   .register--illustration {
     width: 50%;
-    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -694,14 +698,13 @@ small {
     font-family: var(--ff-montserrat);
     font-size: 1.8rem;
     text-align: center;
-    margin: 2rem;
+    margin: 1rem;
   }
   .register--illustration--image {
-    width: 40rem;
+    width: 35rem;
     filter: contrast(120%);
     border-radius: 1rem;
     padding: 0.5rem;
-    margin: 0.5rem;
   }
 
   .register--form--wrapper {
@@ -709,7 +712,7 @@ small {
     background: var(--color-contrast-lower);
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    padding: 2.3rem;
+    padding: 3rem;
   }
 
   .register--form {
@@ -841,7 +844,6 @@ small {
     transition: all 250ms ease-out;
   }
   .register--form--email--pass .register--form--email--label {
-    font-size: 1.35rem;
     content: "";
     position: absolute;
     top: 15px;
@@ -869,7 +871,6 @@ small {
     transition: all 250ms ease-out;
   }
   .register--form--email--pass .register--form--pass--label {
-    font-size: 1.35rem;
     content: "";
     position: absolute;
     top: 15px;
@@ -891,6 +892,7 @@ small {
 .register--form--pass,
 .register--form--pass--label {
     font-family: var(--ff-montserrat);
+    font-size: 1rem;
   }
 
   .divider {
@@ -929,7 +931,9 @@ small {
     gap: 1rem;
     border-radius: 0.5rem;
     background: #4285F4;
-    padding: 4px 8px;
+    padding: 0 8px;
+    padding-top: 4px;
+    padding-bottom: 2.75px;
     margin-left: 5px;
     transition: all 200ms ease-in-out;
   }
