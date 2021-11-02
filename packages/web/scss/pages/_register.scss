@@ -9,29 +9,9 @@ body {
   margin: .75rem;
 }
 
+
 .register--illustration {
-  width: 100%;
-
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-
-  background: var(--accent-100);
-  border-radius: 1rem;
-  padding: 1rem;
-
-  &--image {
-    width: 4 0rem;
-  }
-
-  &--header {
-    font-size: clamp(1.75rem, 5vw, 2.75rem);
-    text-align: center;
-
-    margin: 1rem 0
-    // max-width: 20ch;
-  }
+  display: none;
 }
 
 .register--form--heading {
@@ -40,12 +20,247 @@ body {
   justify-content: center;
   align-items: center;
   gap: .5rem;
-
+  
   &--image { 
-    margin-top: 1rem;
+    // margin-top: 1rem;
   }
 }
 
+.register--form--name,
+.register--form--last,
+.register--form--email,
+.register--form--pass {
+  width: 100%;
+  color: var(--color-contrast-higher);
+  
+  background: var(--color-contrast-low);
+  outline: 0;
+  border: 0;
+  border-radius: 1.2rem;
+  
+  padding: .70rem;
+}
+
+.register--form--name--wrapper {
+  position: relative;
+}
+
+.register--form--name {
+  
+  &:hover,
+  &:focus-within {
+    border-color: rgba(0,0,0,0.1);
+    background-color: var(--color-contrast-lower);
+    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+    box-shadow: 0 0 0 3px var(--accent-100);
+    
+    transition: all 250ms ease-out;
+  }
+  
+  &--label {
+    font-size: 1.35rem;
+    
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 15px;
+    z-index: 999;
+    transition: all 200ms ease-out;
+  }
+}
+
+.register--form--last--wrapper {
+  position: relative;
+}
+
+.register--form--last {
+  
+  &:hover,
+  &:focus-within {
+    border-color: rgba(0,0,0,0.1);
+    background-color: var(--color-contrast-lower);
+    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+    box-shadow: 0 0 0 3px var(--accent-100);
+    
+    transition: all 250ms ease-out;
+  }
+  
+  &--label {
+    font-size: 1.35rem;
+    
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 15px;
+    z-index: 999;
+    transition: all 200ms ease-out;
+  }
+}
+
+.register--form--email--wrapper {
+  position: relative;
+}
+
+.register--form--email {
+  
+  &:hover,
+  &:focus-within {
+    border-color: rgba(0,0,0,0.1);
+    background-color: var(--color-contrast-lower);
+    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+    box-shadow: 0 0 0 3px var(--accent-100);
+    
+    transition: all 250ms ease-out;
+  }
+  
+  &--label {
+    font-size: 1.35rem;
+    
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 15px;
+    z-index: 999;
+    transition: all 200ms ease-out;
+  }
+}
+
+.register--form--pass--wrapper {
+  position: relative;
+}
+
+.register--form--pass {
+  
+  &:hover,
+  &:focus-within {
+    border-color: rgba(0,0,0,0.1);
+    background-color: var(--color-contrast-lower);
+    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+    box-shadow: 0 0 0 3px var(--accent-100);
+    
+    transition: all 250ms ease-out;
+  }
+  
+  &--label {
+    font-size: 1.35rem;
+    
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 15px;
+    z-index: 999;
+    transition: all 200ms ease-out;
+  }
+}
+
+.register--form--name,
+.register--form--name--label,
+.register--form--last,
+.register--form--last--label,
+.register--form--email,
+.register--form--email--label,
+.register--form--pass,
+.register--form--pass--label {
+  font-family: var(--ff-montserrat);
+  font-size: 1rem;
+  
+  margin-top: 2.5rem;
+}
+
+.register--button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  
+  &--link {
+    color: var(--color-contrast-higher);
+    line-height: 1.6;
+    
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    
+    border-radius: .5rem;
+    background: var(--accent-100);
+    
+    padding: .5rem;
+    
+    transition: all 200ms ease-in-out;
+    
+    &:hover {
+      color: var(--color-contrast-higher);
+      background: var(--accent-100);
+      
+      opacity: .65;
+      
+      transition: all 200ms ease-in-out;
+    }
+  }
+}
+
+.divider {
+  text-align: center;
+  position: relative;
+  
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  
+  &::after {
+    width: 40%;
+    height: 2px;
+    
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    background: var(--color-contrast-higher);
+    opacity: .65;
+  }
+  
+  &::before {
+    width: 40%;
+    height: 2px;
+    
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    
+    background: var(--color-contrast-higher);
+    opacity: .65;
+  }
+}
+
+.sign--in--link {
+  color: var(--color-contrast-higher);
+  line-height: 1.6;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  
+  border-radius: .5rem;
+  background: #4285F4;
+  
+  padding: 0 8px;
+  padding-top: 4px;
+  padding-bottom: 2.75px;
+  margin-left: 5px;
+  
+  transition: all 200ms ease-in-out;
+  
+  &:hover {
+    color: var(--color-contrast-lowest);
+    background: hsl(217, 89%, 61%, 0.8);
+    
+    transition: all 200ms ease-in-out;
+  }
+}
 
 // Large
 @include lg {
@@ -100,7 +315,7 @@ body {
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     
-    padding: 2.5rem;
+    padding: 2rem;
   }
   
   .register--form {
@@ -254,7 +469,6 @@ body {
     
     
     .register--form--email {
-      margin-top: 3rem;
       transition: all 250ms ease-out;
       
       &:hover,
@@ -270,7 +484,7 @@ body {
       &--label {        
         content: '';
         position: absolute;
-        top: 15px;
+        top: -30px;
         left: 15px;
         
         transition: all 200ms ease-out;
@@ -290,7 +504,6 @@ body {
     }
     
     .register--form--pass {
-      margin-top: 3rem;
       transition: all 250ms ease-out;
       
       &:hover,
@@ -306,7 +519,7 @@ body {
       &--label {
         content: '';
         position: absolute;
-        top: 15px;
+        top: -30px;
         left: 15px;
         
         transition: all 200ms ease-out;
@@ -337,8 +550,7 @@ body {
     text-align: center;
     position: relative;
     
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     
     &::after {
       width: 45%;
@@ -392,16 +604,16 @@ body {
       transition: all 200ms ease-in-out;
     }
   }
-
+  
   .register--button {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-
+    
     &--link {
       color: var(--color-contrast-higher);
       line-height: 1.6;
-
+      
       width: 100%;
       
       display: flex;
@@ -420,12 +632,12 @@ body {
       &:hover {
         color: var(--color-contrast-higher);
         background: var(--accent-100);
-
+        
         opacity: .65;
         
         transition: all 200ms ease-in-out;
       }
     }
   }
-
+  
 }

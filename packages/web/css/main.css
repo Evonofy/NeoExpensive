@@ -675,22 +675,7 @@ body {
 }
 
 .register--illustration {
-  width: 100%;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  background: var(--accent-100);
-  border-radius: 1rem;
-  padding: 1rem;
-}
-.register--illustration--image {
-  width: 4 0rem;
-}
-.register--illustration--header {
-  font-size: clamp(1.75rem, 5vw, 2.75rem);
-  text-align: center;
-  margin: 1rem 0;
+  display: none;
 }
 
 .register--form--heading {
@@ -700,8 +685,188 @@ body {
   align-items: center;
   gap: 0.5rem;
 }
-.register--form--heading--image {
-  margin-top: 1rem;
+.register--form--name,
+.register--form--last,
+.register--form--email,
+.register--form--pass {
+  width: 100%;
+  color: var(--color-contrast-higher);
+  background: var(--color-contrast-low);
+  outline: 0;
+  border: 0;
+  border-radius: 1.2rem;
+  padding: 0.7rem;
+}
+
+.register--form--name--wrapper {
+  position: relative;
+}
+
+.register--form--name:hover, .register--form--name:focus-within {
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--color-contrast-lower);
+  -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+  box-shadow: 0 0 0 3px var(--accent-100);
+  transition: all 250ms ease-out;
+}
+.register--form--name--label {
+  font-size: 1.35rem;
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 15px;
+  z-index: 999;
+  transition: all 200ms ease-out;
+}
+
+.register--form--last--wrapper {
+  position: relative;
+}
+
+.register--form--last:hover, .register--form--last:focus-within {
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--color-contrast-lower);
+  -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+  box-shadow: 0 0 0 3px var(--accent-100);
+  transition: all 250ms ease-out;
+}
+.register--form--last--label {
+  font-size: 1.35rem;
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 15px;
+  z-index: 999;
+  transition: all 200ms ease-out;
+}
+
+.register--form--email--wrapper {
+  position: relative;
+}
+
+.register--form--email:hover, .register--form--email:focus-within {
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--color-contrast-lower);
+  -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+  box-shadow: 0 0 0 3px var(--accent-100);
+  transition: all 250ms ease-out;
+}
+.register--form--email--label {
+  font-size: 1.35rem;
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 15px;
+  z-index: 999;
+  transition: all 200ms ease-out;
+}
+
+.register--form--pass--wrapper {
+  position: relative;
+}
+
+.register--form--pass:hover, .register--form--pass:focus-within {
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--color-contrast-lower);
+  -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+  box-shadow: 0 0 0 3px var(--accent-100);
+  transition: all 250ms ease-out;
+}
+.register--form--pass--label {
+  font-size: 1.35rem;
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 15px;
+  z-index: 999;
+  transition: all 200ms ease-out;
+}
+
+.register--form--name,
+.register--form--name--label,
+.register--form--last,
+.register--form--last--label,
+.register--form--email,
+.register--form--email--label,
+.register--form--pass,
+.register--form--pass--label {
+  font-family: var(--ff-montserrat);
+  font-size: 1rem;
+  margin-top: 2.5rem;
+}
+
+.register--button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.register--button--link {
+  color: var(--color-contrast-higher);
+  line-height: 1.6;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background: var(--accent-100);
+  padding: 0.5rem;
+  transition: all 200ms ease-in-out;
+}
+.register--button--link:hover {
+  color: var(--color-contrast-higher);
+  background: var(--accent-100);
+  opacity: 0.65;
+  transition: all 200ms ease-in-out;
+}
+
+.divider {
+  text-align: center;
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.divider::after {
+  width: 40%;
+  height: 2px;
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+  background: var(--color-contrast-higher);
+  opacity: 0.65;
+}
+.divider::before {
+  width: 40%;
+  height: 2px;
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  background: var(--color-contrast-higher);
+  opacity: 0.65;
+}
+
+.sign--in--link {
+  color: var(--color-contrast-higher);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background: #4285F4;
+  padding: 0 8px;
+  padding-top: 4px;
+  padding-bottom: 2.75px;
+  margin-left: 5px;
+  transition: all 200ms ease-in-out;
+}
+.sign--in--link:hover {
+  color: var(--color-contrast-lowest);
+  background: rgba(67, 135, 244, 0.8);
+  transition: all 200ms ease-in-out;
 }
 
 @media (min-width: 992px) {
@@ -748,7 +913,7 @@ body {
     background: var(--color-contrast-lower);
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    padding: 2.5rem;
+    padding: 2rem;
   }
 
   .register--form {
@@ -866,7 +1031,6 @@ body {
     position: relative;
   }
   .register--form--email--pass .register--form--email {
-    margin-top: 3rem;
     transition: all 250ms ease-out;
   }
   .register--form--email--pass .register--form--email:hover, .register--form--email--pass .register--form--email:focus-within {
@@ -879,7 +1043,7 @@ body {
   .register--form--email--pass .register--form--email--label {
     content: "";
     position: absolute;
-    top: 15px;
+    top: -30px;
     left: 15px;
     transition: all 200ms ease-out;
   }
@@ -893,7 +1057,6 @@ body {
     position: relative;
   }
   .register--form--email--pass .register--form--pass {
-    margin-top: 3rem;
     transition: all 250ms ease-out;
   }
   .register--form--email--pass .register--form--pass:hover, .register--form--email--pass .register--form--pass:focus-within {
@@ -906,7 +1069,7 @@ body {
   .register--form--email--pass .register--form--pass--label {
     content: "";
     position: absolute;
-    top: 15px;
+    top: -30px;
     left: 15px;
     transition: all 200ms ease-out;
   }
@@ -931,8 +1094,7 @@ body {
   .divider {
     text-align: center;
     position: relative;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
   .divider::after {
     width: 45%;
