@@ -8,7 +8,7 @@
   "scripts": {
     "commit": "cz",
     "css": "dart-sass --watch --no-stop-on-error scss/main.scss:css/main.css",
-    "css:mini": "dart-sass --watch scss/main.scss:css/main.min.css --style compressed"
+    "css:mini": "dart-sass --watch --no-stop-on-error scss/main.scss:css/main.min.css --style compressed"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",

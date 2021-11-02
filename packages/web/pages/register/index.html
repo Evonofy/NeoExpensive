@@ -60,17 +60,36 @@
             <label for="name" class="register--form--name--label">Nome</label>
           </div>
           
-          <div class="register--form--name--wrapper">
-            <input type="text" class="register--form--last" name="sobrenome" id='sobrenome' required />
-            <label for="name" class="register--form--last--label">Sobrenome</label>
+          <div class="register--form--last--wrapper">
+            <input type="text" class="register--form--last" name="lastname" id='lastname' required />
+            <label for="lastname" class="register--form--last--label">Sobrenome</label>
           </div>
-
+          
         </div>
         
-        <input type="email" class="register--form--email">
-        <input type="password" class="register--form--pass">
+        <div class="register--form--email--pass">
+          
+          <div class="register--form--email--wrapper">
+            <input type="email" class="register--form--email" name="email" id='email' required >
+            <label for="email" class="register--form--email--label">Email</label>
+          </div>
+          
+          <div class="register--form--pass--wrapper">
+            <input type="password" class="register--form--pass" name="pass" id='pass' required>
+            <label for="pass" class="register--form--pass--label">Senha</label>
+          </div>
+          
+        </div>
       </form>
+
+      <p class="divider">Ou</p>
       
+      <div class="sign--in--with--google">
+        
+        <a href="#" class="sign--in--link">
+          <img src="../../images/google_signin_buttons/web/vector/btn_google_dark_normal_ios.svg" alt="" class="sign--in--image">
+          Entrar com Google</a>
+    </div>
     </div>
     
     
