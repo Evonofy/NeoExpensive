@@ -709,7 +709,7 @@ small {
     background: var(--color-contrast-lower);
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    padding: 3rem;
+    padding: 2.3rem;
   }
 
   .register--form {
@@ -734,31 +734,44 @@ small {
   .register--form--name--last {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin-top: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
   }
   .register--form--name--last .register--form--name,
 .register--form--name--last .register--form--last {
     width: 100%;
+    color: var(--color-contrast-higher);
+    background: var(--color-contrast-low);
     outline: 0;
     border: 0;
-    border-radius: 1rem;
-    padding: 0.5rem;
+    border-radius: 1.2rem;
+    padding: 0.7rem;
   }
 
   .register--form--name--wrapper {
+    display: flex;
+    justify-content: flex-start;
     position: relative;
   }
 
   .register--form--name {
-    margin-right: 1rem;
+    transition: all 250ms ease-out;
+  }
+  .register--form--name:hover, .register--form--name:focus-within {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--color-contrast-lower);
+    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+    box-shadow: 0 0 0 3px var(--accent-100);
+    transition: all 250ms ease-out;
   }
   .register--form--name--label {
     font-size: 1.35rem;
     content: "";
     position: absolute;
     top: -30px;
-    left: 10px;
+    left: 15px;
     transition: all 200ms ease-out;
   }
   .register--form--name:focus ~ .register--form--name--label {
@@ -768,24 +781,162 @@ small {
   }
 
   .register--form--last--wrapper {
+    display: flex;
+    justify-content: flex-end;
     position: relative;
   }
 
   .register--form--last {
-    margin-left: 1rem;
+    transition: all 250ms ease-out;
+  }
+  .register--form--last:hover, .register--form--last:focus-within {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--color-contrast-lower);
+    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+    box-shadow: 0 0 0 3px var(--accent-100);
+    transition: all 250ms ease-out;
   }
   .register--form--last--label {
     font-size: 1.3rem;
     content: "";
     position: absolute;
     top: -30px;
-    left: 20px;
+    left: 15px;
     transition: all 200ms ease-out;
   }
   .register--form--last:focus ~ .register--form--last--label {
     color: var(--accent-100);
     transform: scale(0.9);
     transition: all 200ms ease-out;
+  }
+
+  .register--form--email--pass {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .register--form--email--pass .register--form--email,
+.register--form--email--pass .register--form--pass {
+    width: 100%;
+    color: var(--color-contrast-higher);
+    background: var(--color-contrast-low);
+    outline: 0;
+    border: 0;
+    border-radius: 1.2rem;
+    padding: 0.7rem;
+  }
+  .register--form--email--pass .register--form--email--wrapper {
+    width: 100%;
+    position: relative;
+  }
+  .register--form--email--pass .register--form--email {
+    margin-top: 3rem;
+    transition: all 250ms ease-out;
+  }
+  .register--form--email--pass .register--form--email:hover, .register--form--email--pass .register--form--email:focus-within {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--color-contrast-lower);
+    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+    box-shadow: 0 0 0 3px var(--accent-100);
+    transition: all 250ms ease-out;
+  }
+  .register--form--email--pass .register--form--email--label {
+    font-size: 1.35rem;
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: all 200ms ease-out;
+  }
+  .register--form--email--pass .register--form--email:focus ~ .register--form--email--label {
+    color: var(--accent-100);
+    transform: scale(0.9);
+    transition: all 200ms ease-out;
+  }
+  .register--form--email--pass .register--form--pass--wrapper {
+    width: 100%;
+    position: relative;
+  }
+  .register--form--email--pass .register--form--pass {
+    margin-top: 3rem;
+    transition: all 250ms ease-out;
+  }
+  .register--form--email--pass .register--form--pass:hover, .register--form--email--pass .register--form--pass:focus-within {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--color-contrast-lower);
+    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
+    box-shadow: 0 0 0 3px var(--accent-100);
+    transition: all 250ms ease-out;
+  }
+  .register--form--email--pass .register--form--pass--label {
+    font-size: 1.35rem;
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: all 200ms ease-out;
+  }
+  .register--form--email--pass .register--form--pass:focus ~ .register--form--pass--label {
+    color: var(--accent-100);
+    transform: scale(0.9);
+    transition: all 200ms ease-out;
+  }
+
+  .register--form--name,
+.register--form--name--label,
+.register--form--last,
+.register--form--last--label,
+.register--form--email,
+.register--form--email--label,
+.register--form--pass,
+.register--form--pass--label {
+    font-family: var(--ff-montserrat);
+  }
+
+  .divider {
+    text-align: center;
+    position: relative;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .divider::after {
+    width: 45%;
+    height: 2px;
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    background: var(--color-contrast-higher);
+    opacity: 0.65;
+  }
+  .divider::before {
+    width: 45%;
+    height: 2px;
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    background: var(--color-contrast-higher);
+    opacity: 0.65;
+  }
+
+  .sign--in--link {
+    color: var(--color-contrast-higher);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.5rem;
+    background: #4285F4;
+    padding: 4px 8px;
+    margin-left: 5px;
+    transition: all 200ms ease-in-out;
+  }
+  .sign--in--link:hover {
+    color: var(--color-contrast-lowest);
+    background: rgba(67, 135, 244, 0.8);
+    transition: all 200ms ease-in-out;
   }
 }
 @media (min-width: 950px) {
