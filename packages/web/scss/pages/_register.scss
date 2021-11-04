@@ -1,6 +1,6 @@
 @use '../abstracts/mixins.scss' as *;
 
-body {
+.register--body {
   display: grid;
   place-content: center;
 }
@@ -262,9 +262,9 @@ body {
   }
 }
 
-// Large
+// Tablets and small desktops
 @include lg {
-  body {
+  .register--body {
     display: grid;
     place-content: center;
   }
