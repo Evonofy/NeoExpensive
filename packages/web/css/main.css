@@ -1165,12 +1165,7 @@ small {
   }
 }
 @media (min-width: 992px) {
-  section {
-    --section-padding: clamp(2em, 2vw, 5em);
-    padding: var(--section-padding);
-  }
-
-  .support--section--one {
+  .support--header {
     height: 80vh;
     display: flex;
     align-items: center;
@@ -1178,23 +1173,35 @@ small {
     background: var(--color-contrast-lower);
     border-bottom-left-radius: 30% 10%;
     border-bottom-right-radius: 30% 10%;
+    --section-padding: 3em;
+    padding: var(--section-padding);
+  }
+
+  .support--section {
+    height: 90vh;
+    background: var(--color-contrast-lower);
+    --section-padding: 3em;
+    padding: var(--section-padding);
+  }
+
+  .support--section--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
   }
 
   .support--section--left {
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
   }
   .support--section--left--h1 {
     font-size: 3.5rem;
   }
-  .support--section--left--paragraph {
-    font-size: 2rem;
-    max-width: 25ch;
-    margin-bottom: 1rem;
-  }
-  .support--section--left--paragraph span {
+  .support--section--left span {
     background-image: linear-gradient(90deg, purple, red);
     border-radius: 0.25rem;
     padding: 0.2rem;
@@ -1215,35 +1222,66 @@ small {
   .support--section--left--input:hover, .support--section--left--input:focus-within {
     background-size: 100% 4px;
   }
-
-  .support--section--right--image--wrapper {
+  .support--section--left--wrapper {
     display: flex;
-    justify-content: flex-end;
-  }
-  .support--section--right--image--wrapper .support--section--right--image {
-    width: 80%;
-  }
-
-  .support--section--two {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
     flex-direction: column;
-    gap: 1.5rem;
-    background: var(--color-background);
+    justify-content: center;
+    align-items: flex-end;
   }
-  .support--section--two--title {
+
+  .support--section--right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .support--section--right--h1 {
+    font-size: 3.5rem;
+  }
+  .support--section--right span {
+    background-image: linear-gradient(90deg, purple, red);
+    border-radius: 0.25rem;
+    padding: 0.2rem;
+  }
+  .support--section--right--input {
+    color: var(--color-contrast-highest);
+    font-size: 1.35rem;
+    background-color: var(--color-contrast-lowest);
+    background-image: linear-gradient(var(--color-contrast-higher), var(--color-contrast-higher));
+    background-size: 0% 4px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    outline: 0;
+    border: 0;
+    padding: 0.45rem;
+    transition: all 150ms ease-in;
+  }
+  .support--section--right--input:hover, .support--section--right--input:focus-within {
+    background-size: 100% 4px;
+  }
+  .support--section--right--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .support--section--title {
+    text-align: center;
     font-size: 4rem;
   }
 
-  .support--section--two--card--wrapper {
-    width: 100%;
-    height: auto;
+  .support--section--paragraph {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .support--section--image--wrapper {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 1rem;
+    justify-content: flex-end;
+  }
+  .support--section--image--wrapper .support--section--image {
+    width: 80%;
   }
 
   .support--section--card {
@@ -1259,14 +1297,12 @@ small {
     padding: 3rem;
   }
   .support--section--card--h1 {
+    font-size: 2rem;
     width: 8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-  }
-  .support--section--card--h1 h1 {
-    font-size: 2rem;
   }
   .support--section--card--h1::after {
     width: 100%;
@@ -1288,6 +1324,82 @@ small {
 
   #support--section--card--link:hover .support--section--card--svg {
     transform: rotateY(360deg);
+  }
+
+  .support--section--accordion {
+    font-size: 1.5rem;
+    color: #444;
+    text-align: left;
+    width: 100%;
+    background-color: #eee;
+    cursor: pointer;
+    border: none;
+    border-radius: 1rem;
+    outline: none;
+    padding: 18px;
+    transition: all 400ms ease;
+  }
+
+  .active,
+.support--section--accordion:hover {
+    width: 100%;
+    color: var(--color-contrast-higher);
+    background-color: var(--color-contrast-lowest);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: all 400ms ease;
+  }
+
+  .support--section--panel {
+    width: 100%;
+    max-height: 0;
+    background-color: var(--color-contrast-higher);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 0 18px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  .support--section--panel p {
+    color: var(--color-contrast-lowest);
+    padding: 1rem 0;
+  }
+
+  .support--contact--card {
+    width: 100%;
+    background: var(--color-contrast-lowest);
+    padding: 1rem;
+  }
+
+  .align-left {
+    text-align: left;
+  }
+
+  .main-background {
+    background: var(--color-background);
+  }
+
+  .margin-top {
+    margin-top: 10rem;
+  }
+
+  .max-width {
+    max-width: 25ch;
+  }
+
+  .center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-start {
+    align-items: flex-start;
+  }
+
+  .reduced--width {
+    width: 80%;
   }
 }
 @media (min-width: 950px) {
