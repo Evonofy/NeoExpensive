@@ -2,19 +2,27 @@
 
 @include lg {
 
+section {
+  --section-padding: clamp(2em, 2vw, 5em);
+  padding: var(--section-padding);
+  // margin: var(--section-padding);
+}
+
 .support--section--one {
   height: 80vh;
 
   display: flex;
+  @include space-around;
 
   background: var(--color-contrast-lower);
-
-  padding: 5em;
+  border-bottom-left-radius: 30% 10%;
+  border-bottom-right-radius: 30% 10%;
 }
 
 .support--section--left {
   display: flex;
-  flex-direction: column;
+  @include column;
+
   justify-content: center;
   align-items: flex-start;
 
@@ -24,7 +32,7 @@
 
   &--paragraph {
     font-size: 2rem;
-    
+
     max-width: 25ch;
 
     margin-bottom: 1rem;
@@ -62,5 +70,84 @@
     
   }
 } 
+
+.support--section--right--image--wrapper {
+  // width: 50%;
+  display: flex;
+  justify-content: flex-end;
+
+  .support--section--right--image {
+    width: 80%;
+  }
+}
+
+// Second Section 
+.support--section--two {
+  height: 80vh;
+
+  display: flex;
+  @include space-evenly;
+  gap: 1.5rem;
+  background: var(--color-background);
+
+  // padding: 0 5rem;
+}
+
+.support--section--card {
+  max-width: 100%;
+  height: auto;
+
+  display: flex;
+  @include items-center;
+  @include column;
+  @include space-around;
+
+  gap: 2rem; 
+  background: var(--color-contrast-low);
+  border-radius: 1rem;
+  border: solid 4px var(--accent-100);
+
+  // padding: clamp(2rem, 5vw, 7rem);
+  // padding: 4rem;
+  padding: clamp(2rem, 1.4000vw + 3.0000vw, 5rem);;
+
+  &--h1 {
+    font-size: clamp(1.75rem, 2vw, 7rem);
+    position: relative;
+
+    &::after {
+      width: 100%;
+      height: 20%;
+
+      background: var(--color-contrast-higher);
+      border-radius: 1rem;
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10%;
+    }
+  }
+
+  &--svg {
+    width: 100%;
+    height: auto;
+
+    // padding: 1rem;
+    margin-top: 1rem;
+    transform-style: preserve-3d;
+    transition: transform 700ms ease-in-out;
+
+   
+  }
+}
+
+#support--section--card--link {
+  &:hover {
+    .support--section--card--svg {
+      transform: rotateY(360deg);
+    }
+  }
+  
+}
 
 }

@@ -4,7 +4,7 @@
   display: none;
 }
 
-@media (min-width: 950px) {
+@include lg {
   
   .desktop--header {
     width: 100%;
