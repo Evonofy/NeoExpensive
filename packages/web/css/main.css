@@ -1164,6 +1164,12 @@ small {
     transition: all 200ms ease-in-out;
   }
 }
+@media (min-width: 992px) {
+  .support--section--one {
+    height: 90vh;
+    background: var(--color-contrast-lower);
+  }
+}
 @media (min-width: 950px) {
   .main--banner {
     width: 100%;

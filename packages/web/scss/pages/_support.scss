@@ -1,0 +1,10 @@
+@use '../abstracts/mixins.scss' as *;
+
+@include lg {
+  
+.support--section--one {
+  height: 90vh;
+  background: var(--color-contrast-lower);
+}
+
+}
