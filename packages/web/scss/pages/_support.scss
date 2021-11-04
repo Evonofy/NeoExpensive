@@ -1,10 +1,66 @@
 @use '../abstracts/mixins.scss' as *;
 
 @include lg {
-  
+
 .support--section--one {
-  height: 90vh;
+  height: 80vh;
+
+  display: flex;
+
   background: var(--color-contrast-lower);
+
+  padding: 5em;
 }
+
+.support--section--left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  &--h1 {
+    font-size: 3.5rem;
+  }
+
+  &--paragraph {
+    font-size: 2rem;
+    
+    max-width: 25ch;
+
+    margin-bottom: 1rem;
+    span {
+      background-image: linear-gradient(90deg, purple, red);
+      border-radius: .25rem;
+      
+      padding: .2rem;
+    }
+  }
+
+  &--input {
+    color: var(--color-contrast-highest);
+    font-size: 1.35rem;
+
+    background-color: var(--color-contrast-lowest);
+    background-image: linear-gradient(var(--color-contrast-higher), var(--color-contrast-higher));
+    background-size: 0% 4px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    // background: var(--color-contrast-lowest);
+    outline: 0;
+    border: 0;
+    // border-bottom: solid 1px red;
+
+    padding: .45rem;
+
+    transition: all 150ms ease-in;
+
+    &:hover,
+    &:focus-within {
+      background-size: 100% 4px;
+    }
+
+    
+  }
+} 
 
 }
