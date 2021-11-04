@@ -1,153 +1,176 @@
 @use '../abstracts/mixins.scss' as *;
 
 @include lg {
-
-section {
-  --section-padding: clamp(2em, 2vw, 5em);
-  padding: var(--section-padding);
-  // margin: var(--section-padding);
-}
-
-.support--section--one {
-  height: 80vh;
-
-  display: flex;
-  @include space-around;
-
-  background: var(--color-contrast-lower);
-  border-bottom-left-radius: 30% 10%;
-  border-bottom-right-radius: 30% 10%;
-}
-
-.support--section--left {
-  display: flex;
-  @include column;
-
-  justify-content: center;
-  align-items: flex-start;
-
-  &--h1 {
-    font-size: 3.5rem;
+  
+  section {
+    --section-padding: clamp(2em, 2vw, 5em);
+    padding: var(--section-padding);
+    // margin: var(--section-padding);
   }
-
-  &--paragraph {
-    font-size: 2rem;
-
-    max-width: 25ch;
-
-    margin-bottom: 1rem;
-    span {
-      background-image: linear-gradient(90deg, purple, red);
-      border-radius: .25rem;
-      
-      padding: .2rem;
-    }
-  }
-
-  &--input {
-    color: var(--color-contrast-highest);
-    font-size: 1.35rem;
-
-    background-color: var(--color-contrast-lowest);
-    background-image: linear-gradient(var(--color-contrast-higher), var(--color-contrast-higher));
-    background-size: 0% 4px;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    // background: var(--color-contrast-lowest);
-    outline: 0;
-    border: 0;
-    // border-bottom: solid 1px red;
-
-    padding: .45rem;
-
-    transition: all 150ms ease-in;
-
-    &:hover,
-    &:focus-within {
-      background-size: 100% 4px;
-    }
-
+  
+  .support--section--one {
+    height: 80vh;
     
+    display: flex;
+    @include space-around;
+    
+    background: var(--color-contrast-lower);
+    border-bottom-left-radius: 30% 10%;
+    border-bottom-right-radius: 30% 10%;
   }
-} 
-
-.support--section--right--image--wrapper {
-  // width: 50%;
-  display: flex;
-  justify-content: flex-end;
-
-  .support--section--right--image {
-    width: 80%;
-  }
-}
-
-// Second Section 
-.support--section--two {
-  height: 80vh;
-
-  display: flex;
-  @include space-evenly;
-  gap: 1.5rem;
-  background: var(--color-background);
-
-  // padding: 0 5rem;
-}
-
-.support--section--card {
-  max-width: 100%;
-  height: auto;
-
-  display: flex;
-  @include items-center;
-  @include column;
-  @include space-around;
-
-  gap: 2rem; 
-  background: var(--color-contrast-low);
-  border-radius: 1rem;
-  border: solid 4px var(--accent-100);
-
-  // padding: clamp(2rem, 5vw, 7rem);
-  // padding: 4rem;
-  padding: clamp(2rem, 1.4000vw + 3.0000vw, 5rem);;
-
-  &--h1 {
-    font-size: clamp(1.75rem, 2vw, 7rem);
-    position: relative;
-
-    &::after {
-      width: 100%;
-      height: 20%;
-
-      background: var(--color-contrast-higher);
-      border-radius: 1rem;
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -10%;
+  
+  .support--section--left {
+    display: flex;
+    @include column;
+    
+    justify-content: center;
+    align-items: flex-start;
+    
+    &--h1 {
+      font-size: 3.5rem;
     }
-  }
-
-  &--svg {
-    width: 100%;
-    height: auto;
-
-    // padding: 1rem;
-    margin-top: 1rem;
-    transform-style: preserve-3d;
-    transition: transform 700ms ease-in-out;
-
-   
-  }
-}
-
-#support--section--card--link {
-  &:hover {
-    .support--section--card--svg {
-      transform: rotateY(360deg);
+    
+    &--paragraph {
+      font-size: 2rem;
+      
+      max-width: 25ch;
+      
+      margin-bottom: 1rem;
+      span {
+        background-image: linear-gradient(90deg, purple, red);
+        border-radius: .25rem;
+        
+        padding: .2rem;
+      }
+    }
+    
+    &--input {
+      color: var(--color-contrast-highest);
+      font-size: 1.35rem;
+      
+      background-color: var(--color-contrast-lowest);
+      background-image: linear-gradient(var(--color-contrast-higher), var(--color-contrast-higher));
+      background-size: 0% 4px;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      // background: var(--color-contrast-lowest);
+      outline: 0;
+      border: 0;
+      // border-bottom: solid 1px red;
+      
+      padding: .45rem;
+      
+      transition: all 150ms ease-in;
+      
+      &:hover,
+      &:focus-within {
+        background-size: 100% 4px;
+      }
+      
+      
+    }
+  } 
+  
+  .support--section--right--image--wrapper {
+    // width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    
+    .support--section--right--image {
+      width: 80%;
     }
   }
   
-}
+  // Second Section 
+  .support--section--two {
+    height: 80vh;
+    
+    display: flex;
+    @include space-evenly;
+    @include column;
+    
+    gap: 1.5rem;
+    background: var(--color-background);
+    
+    // padding: 0 5rem;
 
+    &--title {
+      font-size: 4rem;
+    }
+  }
+  
+  .support--section--two--card--wrapper {
+    width: 100%;
+    height: auto;
+    
+    display: flex;
+    // @include items-center;
+    // @include column;
+    @include space-evenly;
+    
+    gap: 1rem; 
+  }
+  
+  .support--section--card {
+    height: auto;
+    
+    display: flex;
+    @include column;
+    @include items-center;
+    
+    gap: 1rem; 
+    background: var(--color-contrast-low);
+    border-radius: 1rem;
+    border: solid 4px var(--accent-100);
+    
+    padding: 3rem;
+    // padding: clamp(2rem, 1.4000vw + 3.0000vw, 5rem);
+    
+    &--h1 {
+      width: 8rem;
+
+      display: flex;
+      @include items-center;
+      position: relative;
+
+      h1 {
+      font-size: 2rem;
+
+      }
+
+      &::after {
+        width: 100%;
+        height: 20%;
+        
+        background: var(--color-contrast-higher);
+        border-radius: 1rem;
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10%;
+      }
+    }
+    
+    &--svg {
+      width: 100%;
+      height: auto;
+      
+      // padding: 1rem;
+      margin-top: 1rem;
+      transform-style: preserve-3d;
+      transition: transform 700ms ease-in-out;
+      
+      
+    }
+  }
+  
+  #support--section--card--link {
+    &:hover {
+      .support--section--card--svg {
+        transform: rotateY(360deg);
+      }
+    }
+    
+  }
+  
 }
