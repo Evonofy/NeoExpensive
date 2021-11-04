@@ -1,4 +1,4 @@
-@use '../../abstracts/mixins.scss' as *;
+@use '../../abstracts/_mixins.scss' as *;
 
 .desktop--header {
   display: none;
@@ -8,6 +8,7 @@
   
   .desktop--header {
     width: 100%;
+    display: flex;
     @include space-between;
     
     background: var(--color-contrast-lowest);
