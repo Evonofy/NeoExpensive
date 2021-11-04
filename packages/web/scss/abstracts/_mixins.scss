@@ -1,22 +1,32 @@
 @use '../abstracts/breakpoints.scss' as *;
 
-// Class Mixins
+// Flexbox Mixins
 @mixin flex {
   display: flex;
 }
 
-@mixin items-center {
-  @include flex;
+@mixin column {
+  flex-direction: column;
+}
 
+@mixin items-center {
   align-items: center;
   justify-content: center;
 }
 
 @mixin space-between {
-  @include flex;
-
   align-items: center;
   justify-content: space-between;
+}
+
+@mixin space-around {
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin space-evenly {
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 

@@ -165,10 +165,9 @@ small {
   display: none;
 }
 
-@media (min-width: 950px) {
+@media (min-width: 992px) {
   .desktop--header {
     width: 100%;
-    display: flex;
     align-items: center;
     justify-content: space-between;
     background: var(--color-contrast-lowest);
@@ -1165,11 +1164,19 @@ small {
   }
 }
 @media (min-width: 992px) {
+  section {
+    --section-padding: clamp(2em, 2vw, 5em);
+    padding: var(--section-padding);
+  }
+
   .support--section--one {
     height: 80vh;
     display: flex;
+    align-items: center;
+    justify-content: space-around;
     background: var(--color-contrast-lower);
-    padding: 5em;
+    border-bottom-left-radius: 30% 10%;
+    border-bottom-right-radius: 30% 10%;
   }
 
   .support--section--left {
@@ -1206,6 +1213,64 @@ small {
   }
   .support--section--left--input:hover, .support--section--left--input:focus-within {
     background-size: 100% 4px;
+  }
+
+  .support--section--right--image--wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .support--section--right--image--wrapper .support--section--right--image {
+    width: 80%;
+  }
+
+  .support--section--two {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+    background: var(--color-background);
+  }
+
+  .support--section--card {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    background: var(--color-contrast-low);
+    border-radius: 1rem;
+    border: solid 4px var(--accent-100);
+    padding: clamp(2rem, 4.4vw, 5rem);
+  }
+  .support--section--card--h1 {
+    font-size: clamp(1.75rem, 2vw, 7rem);
+    position: relative;
+  }
+  .support--section--card--h1::after {
+    width: 100%;
+    height: 20%;
+    background: var(--color-contrast-higher);
+    border-radius: 1rem;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10%;
+  }
+  .support--section--card--svg {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    transform-style: preserve-3d;
+    transition: transform 700ms ease-in-out;
+  }
+
+  #support--section--card--link:hover .support--section--card--svg {
+    transform: rotateY(360deg);
   }
 }
 @media (min-width: 950px) {
