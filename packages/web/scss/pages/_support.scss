@@ -263,12 +263,16 @@
     }
   }
 
-  .support--contact--card {
+  .support--contact--user--card {
     width: 100%;
     background: var(--color-contrast-lowest);
     padding: 1rem;
   }
   
+  .support--contact--svg {
+    width: 3rem;
+    height: 3rem;
+  }
   // Utility Classes
   .align-left {
     text-align: left;
@@ -290,6 +294,12 @@
     justify-content: center;
     align-items: center;
   }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   .flex-start {
     align-items: flex-start;
@@ -297,6 +307,11 @@
   
   .reduced--width {
     width: 80%;
+  }
+
+  .total-width {
+    width: 40rem;
+    height: 30rem;
   }
   
 }
