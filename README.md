@@ -1,6 +1,6 @@
 
 <h1 align="center">
- <img height=100 src="https://raw.githubusercontent.com/AtomicFeasT/neo-expensive/main/packages/web/images/evo-logo.svg"/>
+ <img height=100 src="https://github.com/EsquemaFlorescer/neo-expensive/blob/main/packages/web/images/logos/neo-logo.svg"/>
 </h1>
 
 <h3 align="center">
@@ -29,7 +29,13 @@
   <a href="#-license">License</a>
 </p>
 
-## File Structure
+# What Are We?
+Neo Expensive is about the building of a brazilian e-commerce project for school.
+We as team aim to make a product that looks good and feel good to use, having what and everything a e-commerce needs to be sucesfull!
+That includes a register and login system, aswell as a functioning grocery cart, support and institutional page with much more to yet show...
+
+
+# File Structure
 
 | Codebase              |        Description        |
 | :-------------------- | :-----------------------: |
