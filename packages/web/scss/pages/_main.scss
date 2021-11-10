@@ -14,7 +14,7 @@
     @include space-evenly;
     gap: 2rem;
     
-    padding: 0 7.5rem;
+    padding: 0 1.5rem;
     margin-top: -6rem;
     margin-bottom: 10rem;
   }
@@ -25,21 +25,150 @@
     border-radius: 1rem;
     
     &--image {
-      // height: 15rem;
-      
       background: var(--accent-100);
       border-radius: 1rem;
     }
     
     &--desc {
-      display: flex;
-      @include items-center;
+      padding: 1rem;
+    }
+
+    &--title,
+    &--paragraph,
+    &--buy {
+      text-transform: uppercase;
     }
     
-    &--title {
-      text-transform: uppercase;    
+    &--title {      
+      margin-bottom: .5rem;
+    }
+
+    &--paragraph {
+      color: limegreen;
+
+      margin-bottom: .5rem;
+    }
+
+    
+  }
+
+  .main--products--card--button--wrapper {
+    display: flex;
+    @include space-between;
+    gap: 1rem;
+  }
+
+  .main--products--card--buy {
+    color: var(--color-contrast-higher);
+    font-size: clamp(.8rem, 1vw, 1rem); 
+    font-family: var(--ff-montserrat);
+
+    display: flex;
+    @include items-center;
+    gap: .2rem;
+
+    background: var(--accent-100);
+    outline: 0;
+    border: 0;
+    border-radius: .5rem;
+
+    padding: .5rem .8rem;
+
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      background: var(--accent-200);
+    }
+
+    .main--products--card--label {
+      width: 25px;
     }
   }
-  
+
 }
 
+@include xl {
+  .main--banner {
+    height: 50vh;
+    background-image: url(/packages/web/images/banners/low-poly-grid-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .main--products {
+    display: flex;
+    @include space-evenly;
+    gap: 2rem;
+    
+    padding: 0 6rem;
+    margin-top: -6rem;
+    margin-bottom: 10rem;
+  }
+  
+  .main--products--card {
+    background: var(--color-contrast-lower);
+    box-shadow: 1px 15px 20px black;
+    border-radius: 1rem;
+    
+    &--image {
+      background: var(--accent-100);
+      border-radius: 1rem;
+    }
+    
+    &--desc {
+      padding: 1.55rem;
+    }
+
+    &--title,
+    &--paragraph,
+    &--buy {
+      text-transform: uppercase;
+    }
+    
+    &--title {      
+      margin-bottom: .5rem;
+    }
+
+    &--paragraph {
+      color: limegreen;
+
+      margin-bottom: .5rem;
+    }
+
+    
+  }
+
+  .main--products--card--button--wrapper {
+    display: flex;
+    @include space-between;
+    gap: 1rem;
+  }
+
+  .main--products--card--buy {
+    color: var(--color-contrast-higher);
+    font-size: clamp(.65rem, 1vw, 1rem); 
+    font-family: var(--ff-montserrat);
+
+    display: flex;
+    @include items-center;
+    gap: .2rem;
+
+    background: var(--accent-100);
+    outline: 0;
+    border: 0;
+    border-radius: .5rem;
+
+    padding: .5rem .8rem;
+
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      background: var(--accent-200);
+    }
+
+    .main--products--card--label {
+      width: 32px;
+    }
+  }
+
+}
