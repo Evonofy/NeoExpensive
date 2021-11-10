@@ -1431,7 +1431,7 @@ small {
     align-items: center;
     justify-content: space-evenly;
     gap: 2rem;
-    padding: 0 7.5rem;
+    padding: 0 1.5rem;
     margin-top: -6rem;
     margin-bottom: 10rem;
   }
@@ -1446,12 +1446,116 @@ small {
     border-radius: 1rem;
   }
   .main--products--card--desc {
+    padding: 1rem;
+  }
+  .main--products--card--title, .main--products--card--paragraph, .main--products--card--buy {
+    text-transform: uppercase;
+  }
+  .main--products--card--title {
+    margin-bottom: 0.5rem;
+  }
+  .main--products--card--paragraph {
+    color: limegreen;
+    margin-bottom: 0.5rem;
+  }
+
+  .main--products--card--button--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .main--products--card--buy {
+    color: var(--color-contrast-higher);
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    font-family: var(--ff-montserrat);
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.2rem;
+    background: var(--accent-100);
+    outline: 0;
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    transition: all 200ms ease-in-out;
+  }
+  .main--products--card--buy:hover {
+    background: var(--accent-200);
+  }
+  .main--products--card--buy .main--products--card--label {
+    width: 25px;
+  }
+}
+@media (min-width: 1200px) {
+  .main--banner {
+    height: 50vh;
+    background-image: url(/packages/web/images/banners/low-poly-grid-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .main--products {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 0 6rem;
+    margin-top: -6rem;
+    margin-bottom: 10rem;
+  }
+
+  .main--products--card {
+    background: var(--color-contrast-lower);
+    box-shadow: 1px 15px 20px black;
+    border-radius: 1rem;
+  }
+  .main--products--card--image {
+    background: var(--accent-100);
+    border-radius: 1rem;
+  }
+  .main--products--card--desc {
+    padding: 1.55rem;
+  }
+  .main--products--card--title, .main--products--card--paragraph, .main--products--card--buy {
+    text-transform: uppercase;
   }
   .main--products--card--title {
-    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .main--products--card--paragraph {
+    color: limegreen;
+    margin-bottom: 0.5rem;
+  }
+
+  .main--products--card--button--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .main--products--card--buy {
+    color: var(--color-contrast-higher);
+    font-size: clamp(0.65rem, 1vw, 1rem);
+    font-family: var(--ff-montserrat);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    background: var(--accent-100);
+    outline: 0;
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    transition: all 200ms ease-in-out;
+  }
+  .main--products--card--buy:hover {
+    background: var(--accent-200);
+  }
+  .main--products--card--buy .main--products--card--label {
+    width: 32px;
   }
 }
 /* 
