@@ -63,7 +63,7 @@ That includes a register and login system, aswell as a functioning grocery cart,
 | [server](packages/server) | The Node.js API |
 | [workflows](.github/workflows)|Workflows          |
 
-# 🚀 Technologies
+# Technologies
 
 Technologies That We Use to develop
 
@@ -80,7 +80,7 @@ Technologies That We Use to develop
 - [Prettier](https://prettier.io/)
 - [EditorConfig](https://editorconfig.org/)
 
-# 📝 License
+# License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
