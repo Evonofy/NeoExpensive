@@ -38,10 +38,12 @@ That includes a register and login system, aswell as a functioning grocery cart,
 <h2>
   <a href="https://esquemaflorescer.github.io/neo-expensive/packages/web/">Neo Expensive Official Page</a>
 </h2>
+
 <h3>
   <a href="https://lucid.app/lucidchart/invitations/accept/inv_ebc6cbe7-7c47-4d54-b51c-5c2f5d29ea1f">SiteMap</a>
-  <sup>You'll have to login to see this one.</sup>
 </h3>
+<sup>You'll have to login to see this one.</sup>
+
 <h3>
    <a href="https://www.figma.com/file/QyGjS7EPhR3LkcinvEafvM/Wireframe?node-id=0%3A1">Wireframe</a>
 </h3>
