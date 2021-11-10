@@ -1418,14 +1418,40 @@ small {
     height: 30rem;
   }
 }
-@media (min-width: 950px) {
+@media (min-width: 992px) {
   .main--banner {
-    width: 100%;
-    height: 30vh;
+    height: 50vh;
     background-image: url(/packages/web/images/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    aspect-ratio: 16/9;
+  }
+
+  .main--products {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 0 7.5rem;
+    margin-top: -6rem;
+    margin-bottom: 10rem;
+  }
+
+  .main--products--card {
+    background: var(--color-contrast-lower);
+    box-shadow: 1px 15px 20px black;
+    border-radius: 1rem;
+  }
+  .main--products--card--image {
+    background: var(--accent-100);
+    border-radius: 1rem;
+  }
+  .main--products--card--desc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .main--products--card--title {
+    text-transform: uppercase;
   }
 }
 /* 
