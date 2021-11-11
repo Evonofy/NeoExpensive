@@ -1427,7 +1427,7 @@ small {
 
   .main--banner {
     height: 50vh;
-    background-image: url(/packages/web/images/banners/low-poly-grid-haikei.svg);
+    background-image: url(../images/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -1603,7 +1603,7 @@ small {
 @media (min-width: 1200px) {
   .main--banner {
     height: 50vh;
-    background-image: url(/packages/web/images/banners/low-poly-grid-haikei.svg);
+    background-image: url(../images/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
