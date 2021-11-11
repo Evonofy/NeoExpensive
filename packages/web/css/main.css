@@ -1437,15 +1437,20 @@ small {
     column-gap: 2rem;
   }
 
-  .aboutus--section--left,
-.aboutus--section--right {
+  .aboutus--section--right,
+.aboutus--section--left {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
-  .aboutus--section--left--image,
-.aboutus--section--right--image {
+  .aboutus--section--right--image,
+.aboutus--section--left--image {
+    width: 500px;
+    height: 500px;
+  }
+  .aboutus--section--right--image--logo,
+.aboutus--section--left--image--logo {
     width: 500px;
   }
 
