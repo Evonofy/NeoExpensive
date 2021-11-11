@@ -9,14 +9,19 @@
     
   }
 
-  .aboutus--section--left, 
-  .aboutus--section--right {
+  .aboutus--section--right, 
+  .aboutus--section--left {
     display: flex;
     @include items-center;
     @include column;
 
     &--image {
       width: 500px;
+      height: 500px;
+
+      &--logo {
+        width: 500px;
+      }
     }
   }
 
