@@ -760,19 +760,19 @@ p {
   }
 
   .amd {
-    background-image: url(../images/products/amd.jpg);
+    background-image: url(../images/products/amd.webp);
   }
 
   .intel {
-    background-image: url(../images/products/intel.jpg);
+    background-image: url(../images/products/intel.webp);
   }
 
   .nvidia {
-    background-image: url(../images/products/pexels-athena.jpg);
+    background-image: url(../images/products/nvidia.webp);
   }
 
   .redragon {
-    background-image: url(../images/products/redragon.jpg);
+    background-image: url(../images/products/redragon.webp);
   }
 }
 /* 
