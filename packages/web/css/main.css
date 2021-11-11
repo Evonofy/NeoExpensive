@@ -1430,6 +1430,18 @@ small {
   }
 }
 @media (min-width: 992px) {
+  .aboutus--wrapper {
+    display: grid;
+    grid-template-columns: 49vw 1vw 49vw;
+    grid-template-rows: repeat(4, auto);
+    filter: opacity(9);
+  }
+
+  .aboutus--section--image {
+    width: 500px;
+  }
+}
+@media (min-width: 992px) {
   .main--products,
 .main--title,
 .main--per--category {

@@ -1,0 +1,19 @@
+@use '../abstracts/mixins.scss' as *;
+
+@include lg {
+  .aboutus--wrapper {
+    display: grid;
+    grid-template-columns: 49vw 1vw 49vw; // Dane-se o cálculo
+    grid-template-rows: repeat(4, auto);
+    filter: opacity(9);
+  }
+
+  .aboutus--section--left {
+
+  }
+
+  .aboutus--section--image {
+    width: 500px;
+  }
+
+}
