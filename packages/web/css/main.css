@@ -200,12 +200,15 @@ small {
     width: 2.35rem;
     height: 2.35rem;
   }
+  .desktop--header .XLogo {
+    position: absolute;
+  }
   .desktop--header div {
     display: flex;
     gap: 0.5rem;
   }
 }
-@media (min-width: 950px) {
+@media (min-width: 992px) {
   .desktop--nav a {
     font-weight: 300;
     padding: 0.35rem;
@@ -220,6 +223,14 @@ small {
     width: 8rem;
     text-align: center;
     border-radius: 0.25rem;
+  }
+
+  .margin-right {
+    margin-right: 1rem;
+  }
+
+  .margin-left {
+    margin-left: 1rem;
   }
 }
 @media (min-width: 950px) {

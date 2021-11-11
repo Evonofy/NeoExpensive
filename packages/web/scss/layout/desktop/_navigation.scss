@@ -1,4 +1,6 @@
-@media (min-width: 950px) {
+@use '../../abstracts/mixins.scss' as *;
+
+@include lg {
   .desktop--nav {
     a {
       font-weight: 300;
@@ -17,5 +19,13 @@
     width: 8rem;
     text-align: center;
     border-radius: 0.25rem;
+  }
+
+  .margin-right {
+    margin-right: 1rem;
+  }
+  .margin-left {
+    margin-left: 1rem;
+
   }
 }
