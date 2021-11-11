@@ -3,17 +3,96 @@
 @include lg {
   .aboutus--wrapper {
     display: grid;
-    grid-template-columns: 49vw 1vw 49vw; // Dane-se o cálculo
+    grid-template-columns: 1fr 1fr; // Dane-se o cálculo
     grid-template-rows: repeat(4, auto);
-    filter: opacity(9);
+    column-gap: 2rem;
+    
   }
 
-  .aboutus--section--left {
+  .aboutus--section--left, 
+  .aboutus--section--right {
+    display: flex;
+    @include items-center;
+    @include column;
 
+    &--image {
+      width: 500px;
+    }
   }
 
-  .aboutus--section--image {
-    width: 500px;
+  .aboutus--section--paragraph,
+  .aboutus--section--h2 {
+    max-width: 50ch;
+    text-align: center;
+  }
+
+  .aboutus--section--h1 {
+    color: var(--accent-200);
+    font-size: 2rem;
+  }
+
+  .aboutus--section--h2 {
+    font-size: 6rem;
+  }
+
+  .aboutus--section--span {
+    color: var(--accent-100);
+  }
+
+  .aboutus--section--divider--wrapper {
+    display: flex;
+    @include items-center;
+
+    .aboutus--section--divider {
+      width: 90%;
+      height: 3px;
+  
+      background: var(--accent-200);
+      border: 0;
+      outline: 0;
+
+      opacity: .65;
+    }
+  }
+
+  .aboutus--section--center {
+    display: flex;
+    @include items-center;
+    @include column;
+
+    padding: 5rem 0;
+
+    &--h2 {
+        font-size: 4rem;
+        margin-bottom: 3rem;
+    }
+
+    .aboutus--section--profile--wrapper {
+      display: flex;
+      gap: 4rem;
+
+      .aboutus--section--profile {
+        display: flex;
+        text-align: center;
+        @include column;
+      }
+
+      .aboutus--section--profile--image {
+        border-radius: 50%;
+        width: 300px;
+      }
+
+      .aboutus--section--profile--paragraph {
+        font-size: 2rem;
+        margin-top: .75rem;
+      }
+
+      .aboutus--section--profile--function {
+        color: var(--accent-100);
+      }
+    
+    }
+
   }
 
 }
