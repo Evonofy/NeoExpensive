@@ -8,12 +8,16 @@
   "scripts": {
     "commit": "cz",
     "css": "dart-sass --watch --no-stop-on-error scss/main.scss:css/main.css",
-    "css:mini": "dart-sass --watch --no-stop-on-error scss/main.scss:css/main.min.css --style compressed"
+    "css:mini": "dart-sass --watch --no-stop-on-error scss/main.scss:css/main.min.css --style compressed",
+    "purgehome": "yarn purgecss --css css/main.css --content index.html --output css/pages/main.css",
+    "purgeabout": "yarn purgecss --css css/main.css --content /pages/about/index.html --output css/pages/about.css",
+    "purgeall": "yarn purgehome && yarn purgeabout"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^4.0.3",
     "dart-sass": "^1.25.0",
-    "postcss": "^8.3.11"
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.11",
+    "purgecss": "^4.0.3"
   },
   "dependencies": {}
 }
