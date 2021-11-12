@@ -481,13 +481,13 @@ small {
     font-weight: 300;
   }
 
-  .login--form {
+  .login--form--wrapper {
     display: grid;
     place-items: center;
     grid-area: login;
   }
 
-  .login--form--wrapper {
+  .login--form {
     display: flex;
     flex-direction: column;
   }
@@ -506,11 +506,27 @@ small {
     font-size: 3rem;
   }
 
+  .login--form--name--wrapper {
+    position: relative;
+  }
+
+  .login--form--pass--wrapper {
+    position: relative;
+  }
+
+  .login--form--image {
+    width: 30px;
+    left: 2.75%;
+    top: 62%;
+    opacity: 0.65;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+
   .login--form--label {
     font-family: var(--ff-montserrat);
     font-size: 1rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    margin-left: 0.75rem;
   }
 
   .login--form--input {
@@ -519,11 +535,14 @@ small {
     width: 100%;
     background: var(--color-contrast-low);
     border-radius: 1.5rem;
-    padding: 0.7rem 1rem;
-    margin: 0.5rem 0;
+    padding: 0.7rem 3rem;
+    margin: 0.75rem 0;
     border: 0;
     outline: 0;
     transition: all 200ms linear;
+  }
+  .login--form--input:placeholder {
+    margin-left: 2rem;
   }
   .login--form--input:hover, .login--form--input:focus {
     background: var(--color-contrast-lower);
@@ -554,6 +573,20 @@ small {
     border-radius: 0.5rem;
     outline: 0;
     border: 0;
+  }
+
+  .login--form--google--wrapper {
+    display: flex;
+    align-items: center;
+    background: #4285F4;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-top: 2rem;
+  }
+  .login--form--google--wrapper .login--form--google {
+    color: var(--color-contrast-higher);
+    font-family: var(--ff-montserrat);
+    margin-left: 0.5rem;
   }
 }
 .register--body {
