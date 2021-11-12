@@ -7,7 +7,6 @@
 h1,
 h2,
 h3 {
-  font-weight: 700;
   color: var(--color-contrast-high);
 }
 
@@ -17,6 +16,7 @@ h1 {
 
 h2,
 h3 {
+  font-weight: 400;
   font-family: var(--ff-montserrat);
 }
 
