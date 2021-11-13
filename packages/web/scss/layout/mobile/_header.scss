@@ -1,4 +1,6 @@
-@media (min-width: 950px) {
+@use '../../abstracts/_mixins.scss' as *;
+
+@include lg {
   .hamburger--header {
     display: none;
   }
