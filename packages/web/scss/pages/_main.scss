@@ -24,13 +24,27 @@
     border-radius: 1rem;
     
     &--image {
+      display: flex;
+      @include items-center;
+
       background: var(--accent-100);
       border-top-left-radius: 1rem;
       border-top-right-radius: 1rem;
+      padding: 1rem;
+
+      cursor: pointer;
+
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+        border-radius: 1rem;
+      }
     }
     
     &--desc {
-      padding: 2rem 1.2rem;
+      min-height: 230px;
+      padding: 2rem;
     }
     
     &--paragraph,
@@ -38,8 +52,10 @@
       text-transform: uppercase;
     }
     
-    &--title {      
-      margin-bottom: .5rem;
+    &--title {  
+      font-size: 1.25rem;    
+      max-width: 20ch;
+      margin-bottom: 1rem;
     }
     
     &--paragraph {
@@ -345,8 +361,6 @@
     border-radius: 1rem;
     
     &--image {
-      
-
       display: flex;
       @include items-center;
 
@@ -366,7 +380,6 @@
     }
     
     &--desc {
-      height: 270px;
       min-height: 230px;
       padding: 2rem;
     }
