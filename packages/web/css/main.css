@@ -1750,8 +1750,7 @@ small {
   .main--title {
     font-size: 3rem;
     padding: 0 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin: 2rem 0;
   }
 
   .main--per--category {
@@ -1918,6 +1917,13 @@ small {
   .accessories--image {
     background-image: url(../images/main-page/accessories.webp);
   }
+
+  .main--offers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    padding: 0 2rem;
+  }
 }
 @media (min-width: 1200px) {
   .main--banner {
@@ -1939,8 +1945,7 @@ small {
   .main--title {
     font-size: 3rem;
     padding: 0 6rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin: 2rem 0;
   }
 
   .main--per--category {
@@ -2039,7 +2044,7 @@ small {
 
   .main--department--card {
     width: 100%;
-    height: 20rem;
+    height: 25rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2106,6 +2111,13 @@ small {
 
   .accessories--image {
     background-image: url(../images/main-page/accessories.webp);
+  }
+
+  .main--offers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    padding: 0 6rem;
   }
 }
 /* 
@@ -2395,7 +2407,7 @@ small {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--accent-100);
+    background: var(--color-contrast-higher);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     padding: 1rem;
@@ -2492,7 +2504,7 @@ small {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--accent-100);
+    background: var(--color-contrast-higher);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     padding: 1rem;
@@ -2511,7 +2523,7 @@ small {
     text-transform: uppercase;
   }
   .product--card--title {
-    font-size: 1.25rem;
+    font-size: 1rem;
     max-width: 20ch;
     margin-bottom: 0.5rem;
   }
