@@ -1921,7 +1921,9 @@ small {
   .main--offers {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
     gap: 3rem;
+    margin-bottom: 4rem;
     padding: 0 2rem;
   }
 }
@@ -1943,9 +1945,11 @@ small {
   }
 
   .main--title {
+    width: max-content;
     font-size: 3rem;
     padding: 0 6rem;
     margin: 2rem 0;
+    position: relative;
   }
 
   .main--per--category {
@@ -2116,7 +2120,9 @@ small {
   .main--offers {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
     gap: 3rem;
+    margin-bottom: 4rem;
     padding: 0 6rem;
   }
 }
@@ -2410,7 +2416,7 @@ small {
     background: var(--color-contrast-higher);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    padding: 1rem;
+    padding: 0.85rem;
     cursor: pointer;
     transition: all 200ms ease-in-out;
   }
@@ -2452,7 +2458,7 @@ small {
   .product--card--buy {
     width: 100%;
     color: var(--color-contrast-higher);
-    font-size: clamp(0.8rem, 1vw, 1rem);
+    font-size: clamp(0.7rem, 1vw, 1rem);
     font-family: var(--ff-montserrat);
     display: flex;
     align-items: center;
@@ -2463,7 +2469,9 @@ small {
     border: 0;
     border-bottom-left-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
-    padding: 0.5rem 0.8rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     transition: all 200ms ease-in-out;
   }
   .product--card--buy:hover, .product--card--buy:focus {
@@ -2483,7 +2491,7 @@ small {
     border: 0;
     border-bottom-right-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-    padding: 0.5rem 0.8rem;
+    padding: 0.35rem;
     transition: all 200ms ease-in-out;
   }
   .product--card--cart:hover, .product--card--cart:focus {
@@ -2491,7 +2499,7 @@ small {
   }
 
   .product--card--label {
-    width: 32px;
+    width: 20px;
   }
 }
 @media (min-width: 1200px) {
@@ -2546,7 +2554,7 @@ small {
 
   .product--card--buy {
     color: var(--color-contrast-higher);
-    font-size: clamp(0.8rem, 1vw, 1rem);
+    font-size: clamp(0.65rem, 1vw, 1rem);
     font-family: var(--ff-montserrat);
     display: flex;
     align-items: center;
@@ -2557,7 +2565,7 @@ small {
     border: 0;
     border-bottom-left-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
-    padding: 0.5rem 0.8rem;
+    padding: 0.85rem;
     transition: all 200ms ease-in-out;
   }
   .product--card--buy:hover, .product--card--buy:focus {

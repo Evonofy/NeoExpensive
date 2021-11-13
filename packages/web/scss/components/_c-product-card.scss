@@ -13,7 +13,7 @@
       background: var(--color-contrast-higher);
       border-top-left-radius: 1rem;
       border-top-right-radius: 1rem;
-      padding: 1rem;
+      padding: .85rem;
       
       cursor: pointer;
       
@@ -69,7 +69,7 @@
     width: 100%;
     
     color: var(--color-contrast-higher);
-    font-size: clamp(.8rem, 1vw, 1rem); 
+    font-size: clamp(.7rem, 1vw, 1rem); 
     font-family: var(--ff-montserrat);
     
     display: flex;
@@ -81,8 +81,10 @@
     border: 0;
     border-bottom-left-radius: .5rem;
     border-top-left-radius: .5rem;
-    
-    padding: .5rem .8rem;
+
+    padding-left: .5rem ;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
     
     transition: all 200ms ease-in-out;
     
@@ -108,7 +110,7 @@
     border-bottom-right-radius: .5rem;
     border-top-right-radius: .5rem;
     
-    padding: .5rem .8rem;
+    padding: .35rem;
     
     transition: all 200ms ease-in-out;
     
@@ -120,7 +122,7 @@
   }
   
   .product--card--label {
-    width: 32px;
+    width: 20px;
   }
 }
 
@@ -189,7 +191,7 @@
   
   .product--card--buy {
     color: var(--color-contrast-higher);
-    font-size: clamp(.8rem, 1vw, 1rem); 
+    font-size: clamp(.65rem, 1vw, 1rem); 
     font-family: var(--ff-montserrat);
     
     display: flex;
@@ -202,7 +204,7 @@
     border-bottom-left-radius: .5rem;
     border-top-left-radius: .5rem;
     
-    padding: .5rem .8rem;
+    padding: .85rem;
     
     transition: all 200ms ease-in-out;
     
