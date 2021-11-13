@@ -21,8 +21,7 @@
   .main--title {
     font-size: 3rem;
     padding: 0 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin: 2rem 0;
   }
   
   .main--per--category {
@@ -222,6 +221,14 @@
     background-image: url(../images/main-page/accessories.webp);
   }
   
+  .main--offers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+
+    padding: 0 2rem;
+  }
+
 }
 
 @include xl {
@@ -244,8 +251,7 @@
   .main--title {
     font-size: 3rem;
     padding: 0 6rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin: 2rem 0;
   }
   
   .main--per--category {
@@ -364,7 +370,7 @@
   
   .main--department--card {
     width: 100%;
-    height: 20rem;
+    height: 25rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -448,4 +454,11 @@
     background-image: url(../images/main-page/accessories.webp);
   }
   
+  .main--offers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+
+    padding: 0 6rem;
+  }
 }
