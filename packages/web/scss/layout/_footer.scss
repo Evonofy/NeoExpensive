@@ -1,5 +1,7 @@
+@use '../../abstracts/_mixins.scss' as *;
+
 .footer {
-  @media (max-width: 1025px) {
+  @include xl {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -33,8 +35,6 @@
 .footer--quicklinks,
 .footer--contact-us {
   li {
-    // font-size: clamp(0.9rem, 0.8300rem + 0.3500vw, 1.25rem);
-    
     list-style: none;
   }
   
@@ -52,8 +52,6 @@
 }
 
 .footer--title {
-  // font-size: clamp(1rem, 0.9000rem + 0.5000vw, 1.5rem);
-  
   font-weight: 500;
   line-height: 1.5em;
   
@@ -78,8 +76,6 @@
 
 .footer--aboutus {
   .footer--paragraph {
-    // font-size: clamp(1rem, 0.9700rem + 0.1500vw, 1.15rem);
-    
     max-width: 50ch;
     
     margin-bottom: .5rem;
