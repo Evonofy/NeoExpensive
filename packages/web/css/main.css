@@ -505,11 +505,12 @@ small {
 
 .login--form--logo {
   width: 70px;
+  margin-bottom: 1rem;
 }
 
 .login--form--h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .login--form--name--wrapper {
@@ -1566,7 +1567,7 @@ small {
 
 .aboutus--section--paragraph,
 .aboutus--section--h2 {
-  max-width: 25ch;
+  max-width: 35ch;
   text-align: center;
   flex-direction: column;
 }
@@ -1574,7 +1575,7 @@ small {
 .aboutus--section--h1 {
   color: var(--accent-200);
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
 }
 
 .aboutus--section--h2 {
