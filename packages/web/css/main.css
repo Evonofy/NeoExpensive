@@ -1753,18 +1753,31 @@ small {
     border-radius: 1rem;
   }
   .main--products--card--image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--accent-100);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+  }
+  .main--products--card--image:hover {
+    transform: scale(1.1);
+    border-radius: 1rem;
   }
   .main--products--card--desc {
-    padding: 2rem 1.2rem;
+    min-height: 230px;
+    padding: 2rem;
   }
   .main--products--card--paragraph, .main--products--card--buy {
     text-transform: uppercase;
   }
   .main--products--card--title {
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    max-width: 20ch;
+    margin-bottom: 1rem;
   }
   .main--products--card--paragraph {
     color: limegreen;
@@ -2034,7 +2047,6 @@ small {
     border-radius: 1rem;
   }
   .main--products--card--desc {
-    height: 270px;
     min-height: 230px;
     padding: 2rem;
   }
