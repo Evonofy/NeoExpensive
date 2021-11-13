@@ -1,4 +1,4 @@
-@use '../../abstracts/_mixins.scss' as *;
+@use '../abstracts/mixins.scss' as *;
 
 .footer {
   @include xl {
@@ -22,8 +22,6 @@
   padding-left: 2rem;
   padding-right: 2rem;
   margin-top: auto;
-  
-  
 }
 
 .footer--aboutus,
