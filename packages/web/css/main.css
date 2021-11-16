@@ -2160,6 +2160,8 @@ small {
     opacity: 0;
     pointer-events: none;
     transition: all 200ms linear;
+    max-height: 90vh;
+    overflow: auto;
   }
 
   .show {
