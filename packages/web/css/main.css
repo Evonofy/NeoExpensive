@@ -1288,7 +1288,7 @@ small {
     grid-template-rows: 1fr;
     column-gap: 2rem;
     row-gap: 2rem;
-    margin: 2.35rem 0;
+    margin: 2.35rem 2rem;
   }
 
   .support--section--wrapper {
@@ -1379,8 +1379,7 @@ small {
 
   .support--needhelp--wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
     flex-direction: column;
   }
 
@@ -1438,6 +1437,26 @@ small {
     margin-top: 1rem;
     transform-style: preserve-3d;
     transition: transform 700ms ease-in-out;
+  }
+
+  .support---section--card--wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .support--card--h1 {
+    font-size: 4rem;
+    position: relative;
+  }
+  .support--card--h1::after {
+    width: 100%;
+    height: 10px;
+    content: "";
+    position: absolute;
+    border-radius: 1rem;
+    bottom: 0;
+    left: 0;
+    background: var(--color-contrast-higher);
   }
 }
 .about--us--main {
