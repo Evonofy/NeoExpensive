@@ -56,7 +56,3 @@ closeAcc.forEach((closeAcc) =>{
   }) 
   
 }) 
-
-
-
-
