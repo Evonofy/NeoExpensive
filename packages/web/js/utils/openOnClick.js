@@ -4,17 +4,17 @@ navToggle.addEventListener('click', () => {
   document.body.classList.toggle('nav--open');
 });
 
-var acc = document.getElementsByClassName("support--section--accordion");
-var i;
+// Accordion
+const accordions = document.querySelectorAll(".accordion")
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
+accordions.forEach(accordion => {
+  accordion.addEventListener("click", function() {
+     this.classList.toggle("active");
+     var panel = this.nextElementSibling;
+     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
-    } else {
+     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
+    }
+  })
+})
