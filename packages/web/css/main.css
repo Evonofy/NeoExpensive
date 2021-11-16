@@ -123,7 +123,7 @@ p,
 small {
   font-size: 1.2rem;
   font-family: var(--ff-josefin);
-  font-weight: 400;
+  font-weight: 300;
   color: var(--color-contrast-high);
 }
 
@@ -1283,22 +1283,12 @@ small {
 }
 @media (min-width: 992px) {
   .support--header {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: var(--color-contrast-lower);
-    border-bottom-left-radius: 30% 10%;
-    border-bottom-right-radius: 30% 10%;
-    --section-padding: 3em;
-    padding: var(--section-padding);
-  }
-
-  .support--section {
-    height: 90vh;
-    background: var(--color-contrast-lower);
-    --section-padding: 3em;
-    padding: var(--section-padding);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    margin: 2.35rem 0;
   }
 
   .support--section--wrapper {
@@ -1308,13 +1298,23 @@ small {
     gap: 1rem;
   }
 
-  .support--section--left {
-    width: 40%;
+  .support--section--right,
+.support--section--left {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
   }
+  .support--section--right--image,
+.support--section--left--image {
+    width: 320px;
+    height: 320px;
+  }
+  .support--section--right--image--logo,
+.support--section--left--image--logo {
+    width: 320px;
+  }
+
   .support--section--left--h1 {
     font-size: 3.5rem;
   }
