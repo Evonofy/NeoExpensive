@@ -1,6 +1,8 @@
 /* 
 * Forwards All Files From Components To Here
 */
+@forward '../components/c-accordion.scss';
+@forward '../components/c-modal.scss';
 @forward '../components/c-dropdown.scss';
 @forward '../components/c-user-control.scss';
 @forward '../components/c-h-search.scss';
