@@ -3,7 +3,7 @@
 @include lg {
   .main--banner {
     height: 50vh;
-    background-image: url(../../images/pages/main/banners/low-poly-grid-haikei.svg);
+    background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -19,8 +19,10 @@
   
   .main--title {
     font-size: 3rem;
+
     padding: 0 2rem;
-    margin: 2rem 0;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
   }
   
   .main--per--category {
@@ -112,20 +114,20 @@
   }
   
   .amd {
-    background-image: url(../images/products/amd.webp);
+    background-image: url(../images/pages/main/brand/amd.webp);
     
   }
   .intel {
-    background-image: url(../images/products/intel.webp);
+    background-image: url(../images/pages/main/brand/intel.webp);
     
   }
   .nvidia {
-    background-image: url(../images/products/nvidia.webp);
+    background-image: url(../images/pages/main/brand/nvidia.webp);
     
   }
   .redragon {
-    background-image: url(../images/products/redragon.webp);
-    
+    background-image: url(../images/pages/main/brand/redragon.webp);
+
   }
   
   .main--per--department {
@@ -235,7 +237,7 @@
 @include xl {
   .main--banner {
     height: 50vh;
-    background-image: url(../../images/pages/main/banners/low-poly-grid-haikei.svg);
+    background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -252,9 +254,10 @@
   .main--title {
     width: max-content;
 
-    font-size: 3rem;
+    font-size: 4rem;
     padding: 0 6rem;
-    margin: 2rem 0;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
     position: relative;
   }
   
@@ -347,20 +350,20 @@
   }
   
   .amd {
-    background-image: url(../images/products/amd.webp);
+    background-image: url(../images/pages/main/brand/amd.webp);
     
   }
   .intel {
-    background-image: url(../images/products/intel.webp);
+    background-image: url(../images/pages/main/brand/intel.webp);
     
   }
   .nvidia {
-    background-image: url(../images/products/nvidia.webp);
+    background-image: url(../images/pages/main/brand/nvidia.webp);
     
   }
   .redragon {
-    background-image: url(../images/products/redragon.webp);
-    
+    background-image: url(../images/pages/main/brand/redragon.webp);
+
   }
   
   .main--per--department {
@@ -446,16 +449,16 @@
   }
   
   .hardware--image {
-    background-image: url(../images/main-page/hardware.webp);
+    background-image: url(../images/pages/main/department/hardware.webp);
   }
   .peripherals--image {
-    background-image: url(../images/main-page/keyboard.webp);
+    background-image: url(../images/pages/main/department/peripherals.webp);
   }
   .console--image {
-    background-image: url(../images/main-page/console.webp);
+    background-image: url(../images/pages/main/department/console.webp);
   }
   .accessories--image {
-    background-image: url(../images/main-page/accessories.webp);
+    background-image: url(../images/pages/main/department/accessories.webp);
   }
   
   .main--offers {

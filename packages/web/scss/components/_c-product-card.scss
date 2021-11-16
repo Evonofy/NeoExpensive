@@ -26,8 +26,7 @@
     }
     
     &--desc {
-      min-height: 230px;
-      padding: 1.5rem;
+      padding: 1rem;
     }
     
     &--paragraph,
@@ -37,8 +36,11 @@
     }
     
     &--title {  
-      font-size: .9rem;    
       max-width: 20ch;
+      min-height: 5rem;
+
+      font-size: .9rem;    
+
       margin-bottom: .5rem;
     }
     
@@ -96,6 +98,8 @@
   }
   
   .product--card--cart {
+    width: 50%;
+
     color: var(--color-contrast-higher);
     font-size: clamp(.8rem, 1vw, 1rem); 
     font-family: var(--ff-montserrat);
@@ -152,8 +156,7 @@
     }
     
     &--desc {
-      min-height: 230px;
-      padding: 2rem;
+      padding: 1.5rem;
     }
     
     &--paragraph,
@@ -162,8 +165,11 @@
     }
     
     &--title {  
-      font-size: 1rem;    
       max-width: 20ch;
+      min-height: 5.5rem;
+
+      font-size: 1.2rem;
+
       margin-bottom: .5rem;
     }
     
@@ -204,7 +210,7 @@
     border-bottom-left-radius: .5rem;
     border-top-left-radius: .5rem;
     
-    padding: .85rem;
+    padding: .65rem;
     
     transition: all 200ms ease-in-out;
     
@@ -216,6 +222,8 @@
   }
   
   .product--card--cart {
+    width: 50%;
+
     color: var(--color-contrast-higher);
     font-size: clamp(.8rem, 1vw, 1rem); 
     font-family: var(--ff-montserrat);
@@ -229,8 +237,6 @@
     border: 0;
     border-bottom-right-radius: .5rem;
     border-top-right-radius: .5rem;
-    
-    padding: .5rem .8rem;
     
     transition: all 200ms ease-in-out;
     

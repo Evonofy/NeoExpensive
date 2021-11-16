@@ -1657,7 +1657,7 @@ small {
 @media (min-width: 992px) {
   .main--banner {
     height: 50vh;
-    background-image: url(../../images/pages/main/banners/low-poly-grid-haikei.svg);
+    background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -1674,7 +1674,8 @@ small {
   .main--title {
     font-size: 3rem;
     padding: 0 2rem;
-    margin: 2rem 0;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
   }
 
   .main--per--category {
@@ -1747,19 +1748,19 @@ small {
   }
 
   .amd {
-    background-image: url(../images/products/amd.webp);
+    background-image: url(../images/pages/main/brand/amd.webp);
   }
 
   .intel {
-    background-image: url(../images/products/intel.webp);
+    background-image: url(../images/pages/main/brand/intel.webp);
   }
 
   .nvidia {
-    background-image: url(../images/products/nvidia.webp);
+    background-image: url(../images/pages/main/brand/nvidia.webp);
   }
 
   .redragon {
-    background-image: url(../images/products/redragon.webp);
+    background-image: url(../images/pages/main/brand/redragon.webp);
   }
 
   .main--per--department {
@@ -1854,7 +1855,7 @@ small {
 @media (min-width: 1200px) {
   .main--banner {
     height: 50vh;
-    background-image: url(../../images/pages/main/banners/low-poly-grid-haikei.svg);
+    background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -1870,9 +1871,10 @@ small {
 
   .main--title {
     width: max-content;
-    font-size: 3rem;
+    font-size: 4rem;
     padding: 0 6rem;
-    margin: 2rem 0;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
     position: relative;
   }
 
@@ -1946,19 +1948,19 @@ small {
   }
 
   .amd {
-    background-image: url(../images/products/amd.webp);
+    background-image: url(../images/pages/main/brand/amd.webp);
   }
 
   .intel {
-    background-image: url(../images/products/intel.webp);
+    background-image: url(../images/pages/main/brand/intel.webp);
   }
 
   .nvidia {
-    background-image: url(../images/products/nvidia.webp);
+    background-image: url(../images/pages/main/brand/nvidia.webp);
   }
 
   .redragon {
-    background-image: url(../images/products/redragon.webp);
+    background-image: url(../images/pages/main/brand/redragon.webp);
   }
 
   .main--per--department {
@@ -2026,19 +2028,19 @@ small {
   }
 
   .hardware--image {
-    background-image: url(../images/main-page/hardware.webp);
+    background-image: url(../images/pages/main/department/hardware.webp);
   }
 
   .peripherals--image {
-    background-image: url(../images/main-page/keyboard.webp);
+    background-image: url(../images/pages/main/department/peripherals.webp);
   }
 
   .console--image {
-    background-image: url(../images/main-page/console.webp);
+    background-image: url(../images/pages/main/department/console.webp);
   }
 
   .accessories--image {
-    background-image: url(../images/main-page/accessories.webp);
+    background-image: url(../images/pages/main/department/accessories.webp);
   }
 
   .main--offers {
@@ -2349,16 +2351,16 @@ small {
     border-radius: 1rem;
   }
   .product--card--desc {
-    min-height: 230px;
-    padding: 1.5rem;
+    padding: 1rem;
   }
   .product--card--paragraph, .product--card--buy {
     font-size: 0.95rem;
     text-transform: uppercase;
   }
   .product--card--title {
-    font-size: 0.9rem;
     max-width: 20ch;
+    min-height: 5rem;
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
   .product--card--paragraph {
@@ -2403,6 +2405,7 @@ small {
   }
 
   .product--card--cart {
+    width: 50%;
     color: var(--color-contrast-higher);
     font-size: clamp(0.8rem, 1vw, 1rem);
     font-family: var(--ff-montserrat);
@@ -2448,15 +2451,15 @@ small {
     border-radius: 1rem;
   }
   .product--card--desc {
-    min-height: 230px;
-    padding: 2rem;
+    padding: 1.5rem;
   }
   .product--card--paragraph, .product--card--buy {
     text-transform: uppercase;
   }
   .product--card--title {
-    font-size: 1rem;
     max-width: 20ch;
+    min-height: 5.5rem;
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
   }
   .product--card--paragraph {
@@ -2489,7 +2492,7 @@ small {
     border: 0;
     border-bottom-left-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
-    padding: 0.85rem;
+    padding: 0.65rem;
     transition: all 200ms ease-in-out;
   }
   .product--card--buy:hover, .product--card--buy:focus {
@@ -2497,6 +2500,7 @@ small {
   }
 
   .product--card--cart {
+    width: 50%;
     color: var(--color-contrast-higher);
     font-size: clamp(0.8rem, 1vw, 1rem);
     font-family: var(--ff-montserrat);
@@ -2509,7 +2513,6 @@ small {
     border: 0;
     border-bottom-right-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-    padding: 0.5rem 0.8rem;
     transition: all 200ms ease-in-out;
   }
   .product--card--cart:hover, .product--card--cart:focus {
