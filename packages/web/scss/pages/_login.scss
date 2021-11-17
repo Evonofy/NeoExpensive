@@ -184,6 +184,26 @@
   }
 }
 
+.login--form--pass--extras {
+  display: flex;
+  @include space-between;
+}
+
+#login--remember {
+  margin-left: 1.25rem;
+}
+
+.login--remember--label {
+  font-family: var(--ff-montserrat);
+  font-size: 1rem;
+
+  accent-color: var(--accent-100);
+}
+
+.login--forgot {
+  margin-right: 1.25rem;
+}
+
 @include md {
   .login--banner {
     width: 100%;
@@ -293,6 +313,26 @@
     padding: 0;
   }
 
+  .login--form--pass--extras {
+    display: flex;
+    @include space-between;
+  }
+
+  #login--remember {
+    margin-left: .75rem;
+  }
+
+  .login--remember--label {
+    font-family: var(--ff-montserrat);
+    font-size: 1rem;
+
+    accent-color: var(--accent-100);
+  }
+
+  .login--forgot {
+    margin-right: .75rem;
+  }
+
   .login--form--image {
     width: 30px;
     left: 2.75%;
@@ -392,6 +432,7 @@
       margin-left: .5rem;
     }
   }
+
 }
 
 
