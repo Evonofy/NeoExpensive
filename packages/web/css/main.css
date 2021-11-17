@@ -609,6 +609,26 @@ small {
   margin-left: 0.5rem;
 }
 
+.login--form--pass--extras {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#login--remember {
+  margin-left: 1.25rem;
+}
+
+.login--remember--label {
+  font-family: var(--ff-montserrat);
+  font-size: 1rem;
+  accent-color: var(--accent-100);
+}
+
+.login--forgot {
+  margin-right: 1.25rem;
+}
+
 @media (min-width: 768px) {
   .login--banner {
     width: 100%;
@@ -699,6 +719,26 @@ small {
   .login--form--pass--wrapper {
     position: relative;
     padding: 0;
+  }
+
+  .login--form--pass--extras {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #login--remember {
+    margin-left: 0.75rem;
+  }
+
+  .login--remember--label {
+    font-family: var(--ff-montserrat);
+    font-size: 1rem;
+    accent-color: var(--accent-100);
+  }
+
+  .login--forgot {
+    margin-right: 0.75rem;
   }
 
   .login--form--image {
