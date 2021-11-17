@@ -1,43 +1,41 @@
 @use '../abstracts/_mixins.scss' as *;
 
-@include lg {
-  .modalWrapper {
-    background: var(--color-contrast-lower);
+.modalWrapper {
+  background: var(--color-contrast-lower);
+  
+  padding: 2rem;
+  
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  
+  border-radius: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  
+  transition: all 200ms linear;
+  max-height: 90vh;
+  overflow: auto;
+}
 
-    padding: 2rem;
+.show {
+  pointer-events: auto;
+  opacity: 1;
+}
 
-    position: fixed;
-    z-index: 999;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-
-    border-radius: 1rem;
-    opacity: 0;
-    pointer-events: none;
-
-    transition: all 200ms linear;
-    max-height: 90vh;
-    overflow: auto;
-  }
-
-  .show {
-    pointer-events: auto;
-    opacity: 1;
-  }
-
-  .closeAccordion {
-    color: var(--color-contrast-higher);
-    font-family: var(--ff-montserrat);
-
-    background: var(--accent-100);
-    outline: 0;
-    border: 0;
-    border-radius: .5rem;
-    padding: .5rem;
-
-    &:hover {
-      background: var(--accent-200);
-    }
+.closeAccordion {
+  color: var(--color-contrast-higher);
+  font-family: var(--ff-montserrat);
+  
+  background: var(--accent-100);
+  outline: 0;
+  border: 0;
+  border-radius: .5rem;
+  padding: .5rem;
+  
+  &:hover {
+    background: var(--accent-200);
   }
 }
