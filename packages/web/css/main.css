@@ -366,6 +366,15 @@ small {
   border: 0;
 }
 
+@media (min-width: 992px) {
+  .footer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.35rem;
+  }
+}
 .footer {
   display: flex;
   justify-content: space-evenly;
@@ -378,14 +387,6 @@ small {
   padding-left: 2rem;
   padding-right: 2rem;
   margin-top: auto;
-}
-@media (min-width: 1200px) {
-  .footer {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
 }
 
 .footer--aboutus,
@@ -454,6 +455,7 @@ small {
   border-top: 1px solid #fff;
   padding: 0.7em 0;
 }
+
 /* 
 * Forwards All Files From Layout To Here
 */
