@@ -1,13 +1,17 @@
 @use '../abstracts/mixins.scss' as *;
 
-.footer {
-  @include xl {
+@include lg {
+  .footer {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     flex-direction: column;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: 1.35rem;
   }
-  
+ 
+}
+
+.footer {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
@@ -94,7 +98,6 @@
   justify-content: center;
   
   &--svg {
-    // width: clamp(7rem, 5.4000rem + 8.0000vw, 15rem);
     height: auto;
     
     margin: 1rem 0rem;
@@ -109,8 +112,5 @@
   
   border-top: 1px solid #fff;
   padding: 0.7em 0;
-  
-  &--text {
-    // font-size: clamp(0.85rem, 0.8200rem + 0.1500vw, 1rem);
-  }
 }
+
