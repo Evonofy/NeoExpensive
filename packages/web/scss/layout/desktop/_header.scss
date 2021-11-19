@@ -4,15 +4,15 @@
   display: none;
 }
 
-@include lg {
+@include mq(large) {
   
   .desktop--header {
     width: 100%;
     display: flex;
     @include space-between;
     
-    background: var(--color-contrast-lowest);
-    border-bottom: 2px solid var(--accent-100);
+    background: var(--clr-contrast-lowest);
+    border-bottom: 2px solid var(--clr-accent-300);
     
     padding: clamp(1rem, 1vw, 2rem) clamp(1rem, 3vw, 4rem);
     
