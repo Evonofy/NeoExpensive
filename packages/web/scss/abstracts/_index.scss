@@ -1,6 +1,10 @@
 /* 
 * Use All (Imports) Files From Animations To Here
 */
-@forward '../abstracts/mixins.scss';
-@forward '../abstracts/breakpoints.scss';
+@forward '../abstracts/mixins';
+@forward '../abstracts/media-query';
+@forward '../abstracts/color-props';
+@forward '../abstracts/typo-props';
 
+@forward '../base/colors';
+@forward '../base/typography';

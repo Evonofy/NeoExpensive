@@ -1,10 +1,10 @@
 /* 
 * Forwards All Files From Layout To Here
 */
-@forward '../layout/desktop/header.scss';
+@forward '../layout/desktop/header';
 @forward '../layout/desktop/navigation';
 @forward '../layout/mobile/header';
 @forward '../layout/mobile/navigation';
-@forward '../layout/footer.scss';
+@forward '../layout/footer';
 
-@forward '../abstracts/mixins.scss';
+@forward '../abstracts/mixins';
