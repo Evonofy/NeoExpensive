@@ -1,4 +1,4 @@
-@use '../abstracts/breakpoints.scss' as *;
+@use '../abstracts/media-query.scss' as *;
 
 // Flexbox Mixins
 @mixin flex {
@@ -30,31 +30,34 @@
   justify-content: space-evenly;
 }
 
-
 // Media Queries 
+@mixin mq($breakpoint) {
+  // Breakpoint is one of the values inside Breakpoints variable. Ex.: small: 556px <-- Breakpoint
+  $size: map-get($breakpoints, $breakpoint);
 
-// Small devices
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
 @mixin sm {
   @media (min-width: #{$screen-sm-min}) {
       @content;
   }
 }
 
-// Medium devices
 @mixin md {
   @media (min-width: #{$screen-md-min}) {
       @content;
   }
 }
 
-// Large devices
 @mixin lg {
   @media (min-width: #{$screen-lg-min}) {
       @content;
   }
 }
 
-// Extra large devices
 @mixin xl {
   @media (min-width: #{$screen-xl-min}) {
       @content;

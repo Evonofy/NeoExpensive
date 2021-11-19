@@ -1,12 +1,12 @@
 /* 
 * Forwards All Files From Components To Here
 */
-@forward '../components/c-accordion.scss';
-@forward '../components/c-modal.scss';
-@forward '../components/c-dropdown.scss';
-@forward '../components/c-user-control.scss';
-@forward '../components/c-h-search.scss';
-@forward '../components/c-d-search.scss';
-@forward '../components/c-product-card.scss';
+@forward '../components/c-accordion';
+@forward '../components/c-modal';
+@forward '../components/c-dropdown';
+@forward '../components/c-user-control';
+@forward '../components/c-h-search';
+@forward '../components/c-d-search';
+@forward '../components/c-product-card';
 
-@forward '../abstracts/mixins.scss';
+@forward '../abstracts/mixins';

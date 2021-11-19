@@ -1,11 +1,11 @@
 /* 
 * Forwards All Files From Pages To Here
 */
-@forward '../pages/login.scss';
-@forward '../pages/register.scss';
-@forward '../pages/support.scss';
-@forward '../pages/aboutus.scss';
+@forward '../pages/login';
+@forward '../pages/register';
+@forward '../pages/support';
+@forward '../pages/aboutus';
 @forward '../pages/main.scss';
-@forward '../pages/product-page.scss';
+@forward '../pages/product-page';
 
-@forward '../abstracts/mixins.scss';
+@forward '../abstracts/mixins';
