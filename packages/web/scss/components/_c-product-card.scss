@@ -1,6 +1,6 @@
 @use '../abstracts/_mixins.scss' as *;
 
-@include lg {
+@include mq(large) {
   .product--card {
     background: var(--color-contrast-lower);
     box-shadow: 1px 15px 20px black;
@@ -130,10 +130,10 @@
   }
 }
 
-@include xl {
+@include mq(extra-large) {
   .product--card {
     background: var(--color-contrast-lower);
-    box-shadow: 1px 15px 20px black;
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     border-radius: 1rem;
     
     &--image {
@@ -175,7 +175,7 @@
     }
     
     &--paragraph {
-      color: limegreen;
+      color: var(--clr-secondary-green-300);
       
       margin: .95rem 0;
     }
@@ -198,14 +198,14 @@
   
   .product--card--buy {
     color: var(--color-contrast-higher);
-    font-size: clamp(.65rem, 1vw, 1rem); 
+    font-size: var(--fs-300); 
     font-family: var(--ff-montserrat);
     
     display: flex;
     @include items-center;
     gap: .2rem;
     
-    background: var(--accent-100);
+    background: var(--clr-accent-300);
     outline: 0;
     border: 0;
     border-bottom-left-radius: .5rem;
@@ -217,7 +217,7 @@
     
     &:hover,
     &:focus {
-      background: var(--accent-200);
+      background: var(--clr-accent-400);
     }
     
   }
@@ -226,14 +226,14 @@
     width: 50%;
 
     color: var(--color-contrast-higher);
-    font-size: clamp(.8rem, 1vw, 1rem); 
+    font-size: var(--fs-300); 
     font-family: var(--ff-montserrat);
     
     display: flex;
     @include items-center;
     gap: .2rem;
     
-    background: var(--accent-100);
+    background: var(--clr-accent-300);
     outline: 0;
     border: 0;
     border-bottom-right-radius: .5rem;
@@ -243,7 +243,7 @@
     
     &:hover,
     &:focus {
-      background: var(--accent-200);
+      background: var(--clr-accent-400);
     }
     
   }

@@ -15,7 +15,7 @@
     width: 2.5rem;
     height: 3.5px;
     
-    background: var(--gray-100);
+    background: var(--clr-gray-scale-100);
     border-radius: 1rem;
     
     transition: transform 200ms ease-in-out, opacity 200ms linear;
@@ -60,7 +60,7 @@
   width: 15rem;
   text-align: left;
   
-  background: var(--gray-700);
+  background: var(--clr-gray-scale-700);
   border-radius: 1em;
   
   content: '';
@@ -81,7 +81,7 @@
     border-right-color: transparent;
     border-left-color: transparent;
     border-image: initial;
-    border-bottom-color: var(--gray-700);
+    border-bottom-color: var(--clr-gray-scale-700);
     
     content: "";
     position: absolute;
@@ -99,7 +99,7 @@
   &--hr {
     height: .3rem;
     
-    background: var(--gray-100);
+    background: var(--clr-gray-scale-100);
     border-radius: 1rem;
     opacity: .65;
     
@@ -130,7 +130,7 @@
   position: relative;
   
   &--button {
-    color: var(--gray-200);
+    color: var(--clr-gray-scale-200);
     text-transform: uppercase;
     
     background: none;

@@ -1,6 +1,7 @@
+@use '../abstracts/mixins.scss' as *;
 // * Customer Controls
 
-@media (min-width: 950px) {
+@include mq(large) {
   .user--controls--customer {
     position: relative;
     
@@ -31,7 +32,7 @@
       opacity: 0.1;
       
       
-      background: var(--gray-700);
+      background: var(--clr-gray-scale-700);
       outline: 0;
       border: 0;
       border-radius: .45em;
@@ -42,7 +43,7 @@
       
       &::after {
         border: 0.5rem solid transparent;
-        border-bottom-color: var(--gray-700);
+        border-bottom-color: var(--clr-gray-scale-700);
         content: "";
         position: absolute;
         top: -1rem;
@@ -61,10 +62,10 @@
         font-size: 1rem;
         font-family: var(--ff-josefin);
         font-weight: 300;
-        color: white;
+        color: var(--clr-gray-scale-100);
         text-transform: uppercase;
         
-        background: var(--gray-700);
+        background: var(--clr-gray-scale-700);
         border: 0;
         
         cursor: pointer;
@@ -74,7 +75,7 @@
 
         &:hover,
         &:focus-within {
-          color: var(--accent-100);
+          color: var(--clr-accent-200);
           transition: all 200ms ease-in;
           border-radius: 0.25rem;
 
