@@ -1,6 +1,6 @@
 @use '../abstracts/_mixins.scss' as *;
 
-@include lg {
+@include mq(large) {
   .main--banner {
     height: 50vh;
     background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
@@ -18,7 +18,7 @@
   }
   
   .main--title {
-    font-size: 3rem;
+    font-size: var(--fs-700);
 
     padding: 0 2rem;
     margin-top: 3rem;
@@ -40,7 +40,7 @@
     background-size: cover;
     border-radius: 8px 8px 8px 8px;
     
-    box-shadow: 1px 15px 20px black;
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     border-radius: 1rem;
     
     transition-timing-function: ease-out;
@@ -148,7 +148,7 @@
     
     border-radius: 8px 8px 8px 8px;
     
-    box-shadow: 1px 15px 20px black;
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     border-radius: 1rem;
     transition-timing-function: ease-out;
     transition: all 250ms ease-in;
@@ -234,7 +234,7 @@
   
 }
 
-@include xl {
+@include mq(extra-large) {
   .main--banner {
     height: 50vh;
     background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
@@ -254,7 +254,7 @@
   .main--title {
     width: max-content;
 
-    font-size: 4rem;
+    font-size: var(--fs-700);
     padding: 0 6rem;
     margin-top: 3.5rem;
     margin-bottom: 1rem;
@@ -276,7 +276,7 @@
     background-size: cover;
     border-radius: 8px 8px 8px 8px;
     
-    box-shadow: 1px 15px 20px black;
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     border-radius: 1rem;
     
     transition-timing-function: ease-out;
@@ -384,7 +384,7 @@
     
     border-radius: 8px 8px 8px 8px;
     
-    box-shadow: 1px 15px 20px black;
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     border-radius: 1rem;
     transition-timing-function: ease-out;
     transition: all 250ms ease-in;
@@ -403,9 +403,9 @@
       left: 50%;
       top: 50%;
       transform: translateX(-50%) translateY(-50%);
-      background-image: linear-gradient(90deg, var(--accent-100) 0%, var(--accent-200) 100%);
+      background-image: linear-gradient(90deg, var(--clr-accent-200) 0%, var(--clr-accent-300) 100%);
       background-size: 100% 100%;
-      box-shadow: 0px 5px 0px 1px var(--accent-300);
+      box-shadow: 0px 5px 0px 1px var(--clr-accent-300);
     }
     
     

@@ -10,7 +10,7 @@
   grid-template-rows: 1fr;
   column-gap: 2rem; 
   row-gap: 2rem; 
-
+  
   margin: 2.35rem 0;
 }
 
@@ -34,12 +34,12 @@
 .aboutus--section--h2 {
   max-width: 35ch;
   text-align: center;
-
+  
   @include column;
 }
 
 .aboutus--section--h1 {
-  color: var(--accent-200);
+  color: var(--clr-accent-200);
   text-align: center;
   font-size: 1.35rem;
 }
@@ -49,7 +49,7 @@
 }
 
 .aboutus--section--span {
-  color: var(--accent-100);
+  color: var(--clr-accent-200);
 }
 
 .aboutus--section--divider--wrapper {
@@ -60,7 +60,7 @@
     width: 90%;
     height: 3px;
     
-    background: var(--accent-200);
+    background: var(--clr-accent-200);
     border: 0;
     outline: 0;
     
@@ -72,11 +72,11 @@
   display: flex;
   @include items-center;
   @include column;
-
+  
   padding: 5rem 0;
   
   &--h2 {
-    font-size: 2rem;
+    font-size: var(--fs-400);
     margin-bottom: 3rem;
   }
   
@@ -84,7 +84,7 @@
     display: flex;
     gap: 4rem;
     @include column;
-
+    
     .aboutus--section--profile {
       display: flex;
       text-align: center;
@@ -97,12 +97,12 @@
     }
     
     .aboutus--section--profile--paragraph {
-      font-size: 2rem;
+      font-size: var(--fs-400);
       margin-top: .75rem;
     }
     
     .aboutus--section--profile--function {
-      color: var(--accent-100);
+      color: var(--clr-accent-200);
     }
     
   }
@@ -110,18 +110,18 @@
 }
 
 
-@include lg {
+@include mq(large) {
   .about--us--main {
     margin-top: 0;
   }
-
+  
   .aboutus--wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr; // Dane-se o cálculo
     grid-template-rows: repeat(4, auto);
     column-gap: 2.75rem;
     row-gap: 0;
-
+    
     margin: 0 2.5rem;
     margin-top: 0;
   }
@@ -130,8 +130,8 @@
   .aboutus--section--left {
     display: flex;
     @include items-center;
-  
-
+    
+    
     padding: 4rem 0;
     
     &--image {
@@ -153,16 +153,16 @@
   }
   
   .aboutus--section--h1 {
-    color: var(--accent-200);
+    color: var(--clr-accent-200);
     font-size: 2rem;
   }
   
   .aboutus--section--h2 {
-    font-size: 3rem;
+    font-size: var(--fs-600);
   }
   
   .aboutus--section--span {
-    color: var(--accent-100);
+    color: var(--clr-accent-100);
   }
   
   .aboutus--section--divider--wrapper {
@@ -173,7 +173,7 @@
       width: 90%;
       height: 3px;
       
-      background: var(--accent-200);
+      background: var(--clr-accent-200);
       border: 0;
       outline: 0;
       
@@ -188,7 +188,7 @@
     padding: 5rem 0;
     
     &--h2 {
-      font-size: 2rem;
+      font-size: var(--fs-500);
       margin-bottom: 3rem;
     }
     
@@ -209,12 +209,12 @@
       }
       
       .aboutus--section--profile--paragraph {
-        font-size: 2rem;
+        font-size: var(--fs-400);
         margin-top: .75rem;
       }
       
       .aboutus--section--profile--function {
-        color: var(--accent-100);
+        color: var(--clr-accent-200);
       }
       
     }

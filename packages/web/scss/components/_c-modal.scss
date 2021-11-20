@@ -29,13 +29,13 @@
   color: var(--color-contrast-higher);
   font-family: var(--ff-montserrat);
   
-  background: var(--accent-100);
+  background: var(--clr-accent-200);
   outline: 0;
   border: 0;
   border-radius: .5rem;
   padding: .5rem;
   
   &:hover {
-    background: var(--accent-200);
+    background: var(--clr-accent-300);
   }
 }

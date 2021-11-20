@@ -4,14 +4,14 @@
 
 :root {
   @each $screen-size, $font-size in $type-scale {
-    @if $screen-size == small {
+    @if $screen-size == large {
       @each $size, $value in $font-size {
         --fs-#{$size}: #{$value};
       }
     } 
 
     @else {
-      @include mq(small) {
+      @include mq(extra-large) {
         @each $size, $value in $font-size {
           --fs-#{$size}: #{$value};
         }

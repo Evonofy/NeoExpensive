@@ -44,11 +44,11 @@
     &--input {
       width: 100%;
 
-      color: var(--gray-200);
+      color: var(--clr-gray-scale-200);
 
       background: var(--color-header-footer);
       border-radius: .5rem;
-      border: 2px solid var(--gray-100);
+      border: 2px solid var(--clr-gray-scale-100);
       outline: 0;
       
       padding: .5rem;
@@ -57,7 +57,7 @@
       &:not(:placeholder-shown) {
         & + .hamburger--header--search--label--text {
           transform: translate(.25rem, -80%) scale(.9);
-          color: var(--accent-100);
+          color: var(--clr-accent-200);
         }
       }
     }
