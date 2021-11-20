@@ -65,7 +65,7 @@
 
 .login--form--h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: var(--fs-400);
 }
 
 .login--form--name--wrapper {
@@ -91,7 +91,7 @@
 
 .login--form--label {
   font-family: var(--ff-montserrat);
-  font-size: 1rem;
+  font-size: var(--fs-300);
 
   margin-left: .75rem;
 }
@@ -118,7 +118,7 @@
   &:hover,
   &:focus {
     background: var(--color-contrast-lower);
-    box-shadow: 0 0 0 3px var(--accent-100);
+    box-shadow: 0 0 0 3px var(--clr-accent-200);
   }
 }
 
@@ -129,7 +129,7 @@
   
   width: 100%;
 
-  background: var(--accent-100);
+  background: var(--clr-accent-200);
   padding: .85rem;
   margin: 1.5rem 0;
   border-radius: 1rem;
@@ -197,7 +197,7 @@
   font-family: var(--ff-montserrat);
   font-size: 1rem;
 
-  accent-color: var(--accent-100);
+  accent-color: var(--clr-accent-200);
 }
 
 .login--forgot {
@@ -236,7 +236,7 @@
 
 }
 
-@include lg {
+@include mq(large) {
   .login--body {
     display: grid;
     grid-template-columns: 1fr 2fr 3fr;
@@ -326,7 +326,7 @@
     font-family: var(--ff-montserrat);
     font-size: 1rem;
 
-    accent-color: var(--accent-100);
+    accent-color: var(--clr-accent-200);
   }
 
   .login--forgot {
@@ -344,14 +344,14 @@
 
   .login--form--label {
     font-family: var(--ff-montserrat);
-    font-size: 1rem;
+    font-size: var(--fs-300);
 
     margin-left: .75rem;
   }
 
   .login--form--input {
     color: var(--color-contrast-higher);
-    font-size: 1.35rem;
+    font-size: var(--fs-400);
     width: 100%;
 
     background: var(--color-contrast-low);
@@ -371,7 +371,7 @@
     &:hover,
     &:focus {
       background: var(--color-contrast-lower);
-      box-shadow: 0 0 0 3px var(--accent-100);
+      box-shadow: 0 0 0 3px var(--clr-accent-200);
     }
   }
 
@@ -380,7 +380,7 @@
     font-family: var(--ff-montserrat);
     text-align: center;
 
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     padding: .85rem;
     margin: 1.5rem 0;
 

@@ -1,6 +1,6 @@
 @use '../abstracts/mixins.scss' as *;
 
-@include lg {
+@include mq(large) {
   .product--main {
     display: grid;
     grid-template-columns: 0.1fr .4fr 1fr .4fr 0.1fr;
@@ -80,12 +80,12 @@
     
     input + label {
       font-size: 20px;
-      text-shadow: 1px 1px 0 hsl(54, 100%, 50%);
+      text-shadow: 1px 1px 0 var(--clr-primary-yellow-500);
       cursor: pointer;
     }
     
     input:checked + label ~ label {
-      color: hsl(0, 0%, 71%);
+      color: var(--clr-gray-scale-200);
     }
     
     label:active {
@@ -95,7 +95,7 @@
   }
   
   .star--icon {
-    color: hsl(54, 100%, 50%);
+    color: var(--clr-primary-yellow-500);
     text-align: left;
   }
   
@@ -119,14 +119,12 @@
     text-decoration: line-through;
   }
   
-
-  
   .product--aside--card--image {
     width: 50px;
   }
 }
 
-@include xl {
+@include mq(extra-large) {
   .product--main {
     display: grid;
     grid-template-columns: 0.1fr .4fr 1fr .4fr 0.1fr;
@@ -205,12 +203,12 @@
     
     input + label {
       font-size: 20px;
-      text-shadow: 1px 1px 0 hsl(54, 100%, 50%);
+      text-shadow: 1px 1px 0 var(--clr-primary-yellow-500);
       cursor: pointer;
     }
     
     input:checked + label ~ label {
-      color: hsl(0, 0%, 71%);
+      color: var(--clr-gray-scale-200);
     }
     
     label:active {
@@ -220,7 +218,7 @@
   }
   
   .star--icon {
-    color: hsl(54, 100%, 50%);
+    color: var(--clr-primary-yellow-500);
     text-align: left;
   }
   

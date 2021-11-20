@@ -20,7 +20,7 @@
   
   background: var(--color-header-footer);
   
-  border-top: 2px solid var(--accent-100);
+  border-top: 2px solid var(--clr-accent-200);
   
   padding-top: 3rem;
   padding-left: 2rem;
@@ -42,7 +42,7 @@
   
   li:hover {
     a {
-      color: var(--accent-100);
+      color: var(--clr-accent-200);
       transition: all 200ms ease;
     }
   }
@@ -57,7 +57,7 @@
   font-weight: 500;
   line-height: 1.5em;
   
-  color: var(--accent-100);
+  color: var(--clr-accent-200);
   
   position: relative;
   
@@ -67,7 +67,7 @@
     content: "";
     position: absolute;
     
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     
     width: 25px;
     height: 2px;
@@ -110,7 +110,7 @@
   
   width: 100%; 
   
-  border-top: 1px solid #fff;
+  border-top: 1px solid var(--gray-scale-100);
   padding: 0.7em 0;
 }
 

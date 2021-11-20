@@ -18,7 +18,7 @@
 }
 
 .support--section--paragraph {
-  font-size: 1.25rem;
+  font-size: var(--fs-400);
   
   margin-bottom: 1rem;
 }
@@ -31,7 +31,7 @@
 .support--section--left {
     
   &--h1 {
-    font-size: 3.5rem;
+    font-size: var(--fs-600);
   }
   
   span {
@@ -106,17 +106,17 @@
   @include column;
   @include items-center;
   
-  box-shadow: 5px 5px 0px 5px var(--accent-200);
+  box-shadow: 5px 5px 0px 5px var(--clr-accent-200);
   
   gap: 1rem; 
   background: var(--color-contrast-low);
-  border: solid 5px var(--accent-100);
+  border: solid 5px var(--clr-accent-100);
   
   padding: 1.5rem;
   margin-bottom: 2rem;
 
   &--h1 {
-    font-size: 2rem;
+    font-size: var(--fs-400);
     
     width: 8rem;
     
@@ -139,7 +139,7 @@
 }
 
 .support--card--h1 {
-  font-size: 2.5rem;
+  font-size: var(--fs-500);
   position: relative;
   
   &::after {
@@ -197,7 +197,7 @@
   }
 }
 
-@include lg {
+@include mq(large) {
   .support--header {
     height: 65vh;
     
@@ -235,7 +235,7 @@
   .support--section--left {
     
     &--h1 {
-      font-size: 3.5rem;
+      font-size: var(--fs-500);
     }
     
     span {
@@ -249,7 +249,7 @@
     
     &--input {
       color: var(--color-contrast-highest);
-      font-size: 1.35rem;
+      font-size: var(--fs-400);
       
       background-color: var(--color-contrast-lowest);
       background-image: linear-gradient(var(--color-contrast-higher), var(--color-contrast-higher));
@@ -283,7 +283,7 @@
   .support--section--right {
     
     &--h1 {
-      font-size: 3.5rem;
+      font-size: var(--fs-500);
     }
     
     span {
@@ -335,7 +335,7 @@
   }
   
   .support--section--paragraph {
-    font-size: 1.75rem;
+    font-size: var(--fs-500);
     
     // max-width: 35ch;
     
@@ -382,7 +382,7 @@
     // padding: clamp(2rem, 1.4000vw + 3.0000vw, 5rem);
     
     &--h1 {
-      font-size: 2rem;
+      font-size: var(--fs-500);
       
       width: 8rem;
       
@@ -405,7 +405,7 @@
   }
   
   .support--card--h1 {
-    font-size: 2.5rem;
+    font-size: var(--fs-600);
     position: relative;
     
     &::after {
@@ -451,7 +451,7 @@
   
 }
 
-@include xl {
+@include mq(extra-large) {
   .support--section--card--wrapper {
     display: flex;
     flex-direction: row;
@@ -476,7 +476,7 @@
     padding: 3rem;
     
     &--h1 {
-      font-size: 2rem;
+      font-size: var(--fs-400);
       
       width: 8rem;
       

@@ -1,10 +1,10 @@
+@use '../abstracts/mixins.scss' as *;
+
 // * Desktop Dropdown 
 
-@media (min-width: 950px) {
+@include mq(large) {
   
-  .dropdown {
-    // font-size: clamp(0.95rem, 0.9100rem + 0.2000vw, 1.15rem);
-    
+  .dropdown {    
     display: flex;
     align-items: center;    
     
@@ -91,7 +91,7 @@
       display: flex;
       align-items: center;
       
-      background: var(--gray-800);
+      background: var(--clr-gray-scale-800);
       border-radius: .5rem;
       
       padding: .95rem;
@@ -103,7 +103,7 @@
       }
       
       &--cta {
-        color: var(--accent-100);
+        color: var(--clr-accent-200);
       }
     }
     
@@ -132,10 +132,10 @@
     }
     
     &--link {
-      font-size: 1.35rem;
+      font-size: var(--fs-400);
       
       &:hover {
-        color: var(--accent-100);
+        color: var(--clr-accent-200);
       }
     }
   }
