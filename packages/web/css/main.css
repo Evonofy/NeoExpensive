@@ -1,3 +1,11 @@
+.margin-left-auto {
+  margin-left: auto;
+}
+
+.margin-left-bottom {
+  margin-bottom: auto;
+}
+
 :root {
   --clr-accent-90: #f2ccff;
   --clr-accent-100: #e699ff;
@@ -2384,11 +2392,11 @@ select {
   }
 }
 @media only screen and (min-width: 1200px) {
-  .product--main {
+  .product--display--grid {
     width: 100%;
     display: grid;
-    grid-template-columns: 0.4fr 1fr 0.4fr;
-    grid-template-areas: "item--preview item--display aside--price" "item--preview item--display aside--price" "item--preview item--display aside--price" "item--preview item--display aside--price";
+    grid-template-columns: 0.4fr 2.5fr 1fr;
+    grid-template-areas: "item--preview item--display aside--price" "section--description section--description ." "section--specification section--specification ." "section--reviews section--reviews .";
     gap: 1rem;
     margin-top: 2rem;
   }
@@ -2396,20 +2404,18 @@ select {
   .product--display {
     grid-area: item--display;
     background: var(--color-contrast-high);
+    height: 90vh;
     border-radius: 0.5rem;
   }
 
   .product--preview {
     width: 100%;
-    height: 90vh;
     grid-area: item--preview;
   }
   .product--preview--image {
     width: 200px;
     background: var(--color-contrast-high);
     border-radius: 0.5rem;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 1rem;
   }
 
@@ -2432,6 +2438,8 @@ select {
   .product--aside--image {
     background: var(--color-contrast-higher);
     border-radius: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .rating--css {
@@ -2465,7 +2473,7 @@ select {
   .product--aside--payment {
     display: flex;
     flex-direction: column;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
   }
 
   .product--aside--payment--price {
@@ -2498,6 +2506,96 @@ select {
 
   .product--aside--payment--image {
     width: 40px;
+  }
+
+  .product--details {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .product--details--link {
+    font-size: var(--fs-700);
+    transition: all 200ms linear;
+  }
+  .product--details--link:hover {
+    color: var(--clr-accent-200);
+  }
+
+  .product--description {
+    font-size: var(--fs-500);
+    background: var(--color-contrast-lower);
+    border-radius: 0.5rem;
+    padding: 2rem;
+  }
+
+  .product--specification--wrapper {
+    display: flex;
+    justify-content: space-between;
+    background: var(--color-contrast-lower);
+    border-radius: 0.5rem;
+    padding: 2rem;
+  }
+
+  .product--specification--paragraph {
+    font-size: var(--fs-400);
+  }
+
+  .section--details {
+    grid-area: section--details;
+  }
+
+  .section--description {
+    grid-area: section--description;
+  }
+
+  .section--specification {
+    grid-area: section--specification;
+  }
+
+  .section--reviews {
+    grid-area: section--reviews;
+  }
+
+  .user--review--wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .user--review--card {
+    background: var(--color-contrast-lower);
+    border-radius: 0.5rem;
+    padding: 1rem 5rem;
+  }
+
+  .review--button {
+    color: var(--clr-gray-scale-100);
+    font-size: var(--fs-300);
+    font-family: var(--ff-montserrat);
+    background: var(--clr-accent-300);
+    padding: 0.8em;
+    border-radius: 0.5rem;
+    border: 0;
+    outline: 0;
+  }
+
+  .review--card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-contrast-lowest);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+
+  .review--card--text {
+    margin-bottom: auto;
+  }
+
+  .review--card--image {
+    width: 100px;
+    border-radius: 100%;
   }
 }
 /* 
