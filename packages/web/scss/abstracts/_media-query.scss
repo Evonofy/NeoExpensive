@@ -1,8 +1,11 @@
 $breakpoints: (
-  small: 576px,
-  medium: 768px,
-  large: 992px,
-  extra-large: 1200px
+  576px: 576px,
+  768px: 768px,
+  992px: 992px,
+  1024px: 1024px,
+  1200px: 1200px,
+  1360px: 1360px,
+  1440px: 1440px,
 );
 
 // Small tablets and large smartphones (landscape view)

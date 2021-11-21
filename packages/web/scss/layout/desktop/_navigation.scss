@@ -1,6 +1,6 @@
 @use '../../abstracts/mixins.scss' as *;
 
-@include lg {
+@include mq(992px) {
   .desktop--nav {
     a {
       font-weight: 300;
