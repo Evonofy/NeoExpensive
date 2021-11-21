@@ -3,8 +3,9 @@
 */
 @forward '../abstracts/mixins';
 @forward '../abstracts/media-query';
-@forward '../abstracts/color-props';
-@forward '../abstracts/typo-props';
 
+@forward '../abstracts/color-props';
 @forward '../base/colors';
+
+@forward '../abstracts/typo-props';
 @forward '../base/typography';

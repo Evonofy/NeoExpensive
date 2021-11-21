@@ -1,6 +1,6 @@
 @use '../abstracts/mixins.scss' as *;
 
-@include lg {
+@include mq(992px) {
   .footer {
     display: flex;
     justify-content: space-evenly;

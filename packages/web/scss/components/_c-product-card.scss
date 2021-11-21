@@ -1,6 +1,6 @@
 @use '../abstracts/_mixins.scss' as *;
 
-@include mq(large) {
+@include mq(992px) {
   .product--card {
     background: var(--color-contrast-lower);
     box-shadow: 1px 15px 20px black;
@@ -130,7 +130,7 @@
   }
 }
 
-@include mq(extra-large) {
+@include mq(1200px) {
   .product--card {
     background: var(--color-contrast-lower);
     box-shadow: 1px 15px 20px var(--clr-gray-scale-800);

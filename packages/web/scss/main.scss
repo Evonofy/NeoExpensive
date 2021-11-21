@@ -6,3 +6,44 @@
 @use '../scss/pages' as *;
 @use '../scss/components' as *;
 @use '../scss/animations' as *;
+
+@media (min-width: 992px) {
+  main {
+    max-width: 992px !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.15rem;
+  }
+}
+@media (min-width: 1200px) {
+  main {
+    max-width: 1200px !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.15rem;
+  }
+}
+@media (min-width: 1360px) {
+  main {
+    max-width: 1360px !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.15rem;
+  }
+}
+@media (min-width: 1440px) {
+  main {
+    max-width: 1440px !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.15rem;
+  }
+}
+@media (min-width: 1600px) {
+  main {
+    max-width: 1600px !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.15rem;
+  }
+}
