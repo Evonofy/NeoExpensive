@@ -1,6 +1,6 @@
 @use '../../abstracts/_mixins.scss' as *;
 
-@include lg {
+@include mq(992px) {
   .hamburger--header {
     display: none;
   }

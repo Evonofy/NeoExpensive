@@ -263,7 +263,7 @@
 }
 
 // Tablets and small desktops
-@include lg {
+@include mq(992px) {
   .register--body {
     display: grid;
     place-content: center;

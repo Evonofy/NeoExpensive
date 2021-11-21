@@ -183,7 +183,7 @@
   transition: transform 700ms ease-in-out;
 }
 
-@include sm {
+@include mq(576px) {
   .support--section--card--wrapper {
     max-width: none;
 
@@ -197,7 +197,7 @@
   }
 }
 
-@include mq(large) {
+@include mq(992px) {
   .support--header {
     height: 65vh;
     
@@ -451,7 +451,7 @@
   
 }
 
-@include mq(extra-large) {
+@include mq(1200px) {
   .support--section--card--wrapper {
     display: flex;
     flex-direction: row;
