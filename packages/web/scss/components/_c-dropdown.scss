@@ -34,7 +34,7 @@
   .dropdown--submenu {
     flex-direction: column;
     
-    background: var(--color-contrast-lower);
+    background: var(--clr-gray-scale-700);
     border-radius: 1em;
     
     padding: 1rem;
@@ -53,7 +53,7 @@
     
     &::after {
       border: .5rem solid transparent;
-      border-bottom-color: var(--color-contrast-lower);
+      border-bottom-color: var(--clr-gray-scale-700);
       content: '';
       position: absolute;
       top: -1rem;

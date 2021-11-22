@@ -1,19 +1,14 @@
+@use '../themes/theme-prop' as *;
+
 :root, [data-theme="default"] {
-  /* Color Contrasts */
-
-  --color-background: hsl(200, 10%, 10%);
-  --color-header-footer: hsl(200, 10%, 8%);
-
-  --color-contrast-lowest: hsl(200, 10%, 8%);
-  --color-contrast-lower: hsl(200, 10%, 15%);
-  --color-contrast-low: hsl(252, 4%, 25%);
-  --color-contrast-medium: hsl(240, 1%, 55%);
-  --color-contrast-high: hsl(200, 0%, 70%);
-  --color-contrast-higher: hsl(200, 0%, 90%);
+  @each $color, $shades in $colors-default {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
 }
 
 [data-theme] {
-  background-color: var(--color-background) !important;
-  color: var(--color-contrast-high) !important;
+  background-color: var(--clr-gray-scale-800) !important;
+  color: var(--clr-gray-scale-90) !important;
 }
-

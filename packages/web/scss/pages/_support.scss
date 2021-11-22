@@ -46,18 +46,16 @@
   &--input {
     width: max-content;
 
-    color: var(--color-contrast-highest);
+    color: var(--clr-gray-scale-90);
     font-size: 1.35rem;
     
-    background-color: var(--color-contrast-lower);
-    background-image: linear-gradient(var(--color-contrast-higher), var(--color-contrast-higher));
+    background-color: var(--clr-gray-scale-700);
+    background-image: linear-gradient(var(--clr-gray-scale-90), var(--clr-gray-scale-100));
     background-size: 0% 4px;
     background-repeat: no-repeat;
     background-position: center bottom;
-    // background: var(--color-contrast-lowest);
     outline: 0;
     border: 0;
-    // border-bottom: solid 1px red;
     
     padding: .45rem;
     
@@ -109,7 +107,7 @@
   box-shadow: 5px 5px 0px 5px var(--clr-accent-200);
   
   gap: 1rem; 
-  background: var(--color-contrast-low);
+  background: var(--clr-gray-scale-90);
   border: solid 5px var(--clr-accent-100);
   
   padding: 1.5rem;
@@ -154,7 +152,7 @@
     bottom: 0;
     left: 0;
     
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-90);
     
     opacity: .65;
   }
@@ -248,18 +246,16 @@
     }
     
     &--input {
-      color: var(--color-contrast-highest);
+      color: var(--clr-gray-scale-90);
       font-size: var(--fs-400);
       
-      background-color: var(--color-contrast-lowest);
-      background-image: linear-gradient(var(--color-contrast-higher), var(--color-contrast-higher));
+      background-color: var(--clr-gray-scale-700);
+      background-image: linear-gradient(var(--clr-gray-scale-90), var(--clr-gray-scale-100));
       background-size: 0% 4px;
       background-repeat: no-repeat;
       background-position: center bottom;
-      // background: var(--color-contrast-lowest);
       outline: 0;
       border: 0;
-      // border-bottom: solid 1px red;
       
       padding: .45rem;
       
@@ -294,11 +290,11 @@
     }
     
     &--input {
-      color: var(--color-contrast-highest);
+      color: var(--clr-gray-scale-90);
       font-size: 1.35rem;
       
-      background-color: var(--color-contrast-lowest);
-      background-image: linear-gradient(var(--color-contrast-higher), var(--color-contrast-higher));
+      background-color: var(--clr-gray-scale-700);
+      background-image: linear-gradient(var(--clr-gray-scale-90), var(--clr-gray-scale-100));
       background-size: 0% 4px;
       background-repeat: no-repeat;
       background-position: center bottom;
@@ -336,9 +332,7 @@
   
   .support--section--paragraph {
     font-size: var(--fs-500);
-    
-    // max-width: 35ch;
-    
+        
     margin-bottom: 1rem;
   }
   
@@ -371,12 +365,12 @@
     @include column;
     @include items-center;
     
-    box-shadow: 5px 5px 0px 5px var(--accent-200);
+    box-shadow: 5px 5px 0px 5px var(--clr-accent-200);
     
     gap: 1rem; 
-    background: var(--color-contrast-low);
+    background: var(--clr-gray-scale-800);
     // border-radius: 1rem;
-    border: solid 5px var(--accent-100);
+    border: solid 5px var(--clr-accent-100);
     
     padding: 1.5rem;
     // padding: clamp(2rem, 1.4000vw + 3.0000vw, 5rem);
@@ -394,7 +388,7 @@
         width: 100%;
         height: 20%;
         
-        background: var(--color-contrast-higher);
+        background: var(--clr-gray-scale-90);
         border-radius: 1rem;
         content: '';
         position: absolute;
@@ -420,7 +414,7 @@
       bottom: 0;
       left: 0;
       
-      background: var(--color-contrast-higher);
+      background: var(--clr-gray-scale-90);
       
       opacity: .65;
     }
@@ -448,7 +442,6 @@
     transform-style: preserve-3d;
     transition: transform 700ms ease-in-out;
   }
-  
 }
 
 @include mq(1200px) {
@@ -465,13 +458,12 @@
     
     display: flex;
     @include column;
-    // @include items-center;
     justify-content: space-around;
     
     gap: 1rem; 
-    background: var(--color-contrast-low);
+    background: var(--clr-gray-scale-700);
     // border-radius: 1rem;
-    border: solid 4px var(--accent-100);
+    border: solid 4px var(--clr-accent-200);
     
     padding: 3rem;
     
@@ -488,7 +480,7 @@
         width: 100%;
         height: 20%;
         
-        background: var(--color-contrast-higher);
+        background: var(--clr-gray-scale-90);
         border-radius: 1rem;
         content: '';
         position: absolute;

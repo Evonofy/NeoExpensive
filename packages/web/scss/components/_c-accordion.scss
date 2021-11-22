@@ -4,9 +4,9 @@
   width: 100%;
   
   text-align: left;
-  color: var(--color-contrast-higher);
+  color: var(--clr-gray-scale-90);
   
-  background-color: var(--color-contrast-medium);
+  background-color: var(--clr-gray-scale-700);
   
   cursor: pointer;
   border: none;
@@ -17,15 +17,15 @@
 }
 
 .active, .accordion:hover {
-  background-color: var(--color-contrast-lowest);
+  background-color: var(--clr-gray-scale-900);
 }
 
 .panel {
   max-height: 0;
   
-  color: var(--color-contrast-higher);
+  color: var(--clr-gray-scale-90);
   
-  background-color: var(--color-contrast-low);
+  background-color: var(--clr-gray-scale-800);
   margin-bottom: 1.5rem;
   padding: 0 1rem;
   overflow: hidden;
