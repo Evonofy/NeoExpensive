@@ -2,7 +2,7 @@
 
 @include mq(992px) {
   .product--card {
-    background: var(--color-contrast-lower);
+    background: var(--clr-gray-scale-700);
     box-shadow: 1px 15px 20px black;
     border-radius: 1rem;
     

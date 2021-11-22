@@ -1,6 +1,6 @@
 @use '../abstracts/_mixins.scss' as *;
 
-@include mq(large) {
+@include mq(992px) {
   .main--banner {
     height: 50vh;
     background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
@@ -234,7 +234,7 @@
   
 }
 
-@include mq(1024px) {
+@include mq(1200px) {
   .main--banner {
     height: 50vh;
     background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
