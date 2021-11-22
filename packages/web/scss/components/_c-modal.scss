@@ -1,7 +1,7 @@
 @use '../abstracts/_mixins.scss' as *;
 
 .modalWrapper {
-  background: var(--color-contrast-lower);
+  background: var(--clr-gray-scale-800);
   
   padding: 2rem;
   
@@ -26,7 +26,7 @@
 }
 
 .closeAccordion {
-  color: var(--color-contrast-higher);
+  color: var(--clr-gray-scale-90);
   font-family: var(--ff-montserrat);
   
   background: var(--clr-accent-200);

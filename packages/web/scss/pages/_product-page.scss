@@ -18,7 +18,7 @@
   
   .product--display {
     grid-area: item--display;
-    background: var(--color-contrast-high);
+    background: var(--clr-gray-scale-600);
     height: 90vh;
     
     border-radius: .5rem;
@@ -30,7 +30,7 @@
     
     &--image {
       width: 200px;
-      background: var(--color-contrast-high);
+      background: var(--clr-gray-scale-600);
       border-radius: .5rem;
       margin-bottom: 1rem;
     }
@@ -41,8 +41,6 @@
   }
 
   .product--aside {
-    // height: 85vh;
-
     display: flex;
     flex-direction: column;
 
@@ -50,7 +48,7 @@
     
     border-radius: .5rem;
     
-    background: var(--color-contrast-low);
+    background: var(--clr-gray-scale-600);
 
   }
   
@@ -59,7 +57,7 @@
   }
   
   .product--aside--image {
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-90);
     border-radius: .5rem;
 
     margin-left: auto;
@@ -142,7 +140,6 @@
 
   .product--details {
     display: flex;
-    // justify-content: center;
     gap: 2rem;
 
     margin-top: 3rem;
@@ -151,7 +148,8 @@
   .product--details--link {
     font-size: var(--fs-700);
     transition: all 200ms linear;
-
+    user-select: none;
+    
     &:hover {
       color: var(--clr-accent-200);
     }
@@ -160,7 +158,7 @@
   .product--description {
     font-size: var(--fs-500);
 
-    background: var(--color-contrast-lower);
+    background: var(--clr-gray-scale-700);
     border-radius: .5rem;
     padding: 2rem;
   }
@@ -169,7 +167,7 @@
     display: flex;
     justify-content: space-between;
 
-    background: var(--color-contrast-lower);
+    background: var(--clr-gray-scale-700);
 
     border-radius: .5rem;
 
@@ -194,6 +192,7 @@
 
   .section--reviews {
     grid-area: section--reviews;
+    margin-bottom: 5rem; 
   }
 
   .user--review--wrapper {
@@ -203,9 +202,9 @@
   }
 
   .user--review--card {
-    background: var(--color-contrast-lower);
+    background: var(--clr-gray-scale-700);
     border-radius: .5rem;
-    padding: 1rem 5rem;
+    padding: 3rem 5rem;
   }
 
   .review--button {
@@ -225,7 +224,8 @@
     align-items: center;
     gap: 1rem;
 
-    background: var(--color-contrast-lowest);
+    background: var(--clr-gray-scale-900);
+
     border-radius: .5rem;
   
     padding: 2rem;
@@ -237,12 +237,8 @@
     margin-bottom: auto;
   }
 
-  .review--card--h3 {
-
-  }
-
   .review--card--image {
     width: 100px;
-    border-radius: 100%;
+    border-radius: 50%;
   }
 }
