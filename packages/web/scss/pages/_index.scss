@@ -3,9 +3,13 @@
 */
 @forward '../pages/login';
 @forward '../pages/register';
+@forward '../pages/forgotpass2';
+@forward '../pages/forgotpass3';
+
+@forward '../pages/main.scss';
 @forward '../pages/support';
 @forward '../pages/aboutus';
-@forward '../pages/main.scss';
+
 @forward '../pages/product-page';
 @forward '../pages/profile';
 
