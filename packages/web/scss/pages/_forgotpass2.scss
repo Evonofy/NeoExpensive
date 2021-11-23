@@ -63,6 +63,10 @@
   grid-area: center;  
 }
 
+.forgotpass2--center--logo {
+  width: 150px;
+}
+
 .forgotpass2--right {
   display: grid;
   place-content: center;
@@ -129,6 +133,10 @@
     display: grid;
     place-content: center;
     grid-area: center;  
+  }
+
+  .forgotpass2--center--logo {
+    width: 150px;
   }
   
   .forgotpass2--right {
