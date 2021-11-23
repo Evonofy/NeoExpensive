@@ -6,6 +6,11 @@
   margin-bottom: auto;
 }
 
+.grid-center {
+  display: grid;
+  place-content: center;
+}
+
 :root {
   --clr-accent-90: #f2ccff;
   --clr-accent-100: #e699ff;
@@ -273,6 +278,12 @@ select {
     display: flex;
     gap: 0.5rem;
   }
+  .desktop--header .user--controls {
+    stroke: var(--clr-gray-scale-90);
+  }
+  .desktop--header .social-icons {
+    stroke: var(--clr-gray-scale-90);
+  }
 }
 @media only screen and (min-width: 992px) {
   .desktop--nav a {
@@ -308,8 +319,8 @@ select {
   position: fixed;
   z-index: 999;
   width: 100%;
-  background: var(--color-header-footer);
-  border-bottom: solid 2px var(--accent-100);
+  background: var(--clr-gray-scale-800);
+  border-bottom: solid 2px var(--clr-accent-200);
 }
 .hamburger--header--items {
   display: flex;
@@ -534,7 +545,7 @@ select {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: var(--accent-100);
+  background: var(--clr-accent-200);
   padding: 2rem;
   grid-area: banner;
   position: relative;
@@ -705,7 +716,7 @@ select {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     padding: 15rem;
     grid-area: banner;
     position: relative;
@@ -735,7 +746,7 @@ select {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     padding: 2rem;
     grid-area: banner;
   }
@@ -1989,6 +2000,10 @@ select {
     color: var(--clr-accent-200);
   }
 }
+.main--products {
+  display: none;
+}
+
 @media only screen and (min-width: 992px) {
   .main--banner {
     height: 50vh;
@@ -2002,13 +2017,11 @@ select {
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding: 0 1.5rem;
     margin-top: -15rem;
   }
 
   .main--title {
     font-size: var(--fs-700);
-    padding: 0 2rem;
     margin-top: 3rem;
     margin-bottom: 1rem;
   }
@@ -2016,7 +2029,6 @@ select {
   .main--per--category {
     display: flex;
     gap: 1rem;
-    padding: 0 2rem;
   }
 
   .main--category--card {
@@ -2068,7 +2080,7 @@ select {
     justify-content: center;
     width: 7rem;
     height: 5rem;
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-700);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%;
@@ -2079,7 +2091,7 @@ select {
   }
   .main--category--card--label--text {
     font-size: 1.5rem;
-    color: var(--color-contrast-lowest);
+    color: var(--clr-gray-scale-90);
   }
 
   .amd {
@@ -2104,7 +2116,6 @@ select {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    padding: 0 2rem;
   }
 
   .main--department--card {
@@ -2129,9 +2140,9 @@ select {
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
-    background-image: linear-gradient(90deg, var(--accent-100) 0%, var(--accent-200) 100%);
+    background-image: linear-gradient(90deg, var(--clr-accent-200) 0%, var(--clr-accent-300) 100%);
     background-size: 100% 100%;
-    box-shadow: 0px 5px 0px 1px var(--accent-300);
+    box-shadow: 0px 5px 0px 1px var(--clr-accent-300);
   }
   .main--department--card:hover .main--department--card--label--text, .main--department--card:focus .main--department--card--label--text {
     font-size: 2.5rem;
@@ -2148,7 +2159,7 @@ select {
     justify-content: center;
     width: 8rem;
     height: 8rem;
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-800);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%;
@@ -2158,7 +2169,7 @@ select {
   }
   .main--department--card--label--text {
     font-size: 1.25rem;
-    color: var(--color-contrast-lowest);
+    color: var(--clr-gray-scale-90);
     transition: all 250ms ease-in;
   }
 
@@ -2184,7 +2195,6 @@ select {
     grid-template-rows: auto;
     gap: 3rem;
     margin-bottom: 4rem;
-    padding: 0 2rem;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -2242,7 +2252,7 @@ select {
     transform: translateY(-50%);
     border-radius: 1rem;
     background-size: 100% 100%;
-    box-shadow: 0px 7px 0px var(--color-contrast-lowest);
+    box-shadow: 0px 7px 0px var(--clr-gray-scale-90);
   }
   .main--category--card:hover .amd--hover, .main--category--card:focus .amd--hover {
     background-image: linear-gradient(90deg, red 0%, #ff5100 100%);
@@ -2268,7 +2278,7 @@ select {
     justify-content: center;
     width: 10rem;
     height: 5rem;
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-800);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%;
@@ -2279,7 +2289,7 @@ select {
   }
   .main--category--card--label--text {
     font-size: 1.5rem;
-    color: var(--color-contrast-lowest);
+    color: var(--clr-gray-scale-90);
   }
 
   .amd {
@@ -2309,7 +2319,7 @@ select {
 
   .main--department--card {
     width: 100%;
-    height: 25rem;
+    height: 20rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2348,7 +2358,7 @@ select {
     justify-content: center;
     width: 10rem;
     height: 10rem;
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-800);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%;
@@ -2594,6 +2604,199 @@ select {
   .review--card--image {
     width: 100px;
     border-radius: 50%;
+  }
+}
+.profile--wrapper {
+  width: 100%;
+  background: var(--clr-gray-scale-600);
+}
+
+.profile--banner {
+  width: 100%;
+  height: 30vh;
+  background-image: url(../images/pages/profile/ben-o-bro-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile--avatar--image {
+  width: 220px;
+  background: var(--clr-gray-scale-800);
+  border-radius: 1rem;
+  margin-top: -10rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile--name {
+  width: none;
+  text-align: center;
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.profile--purchase {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile--purchase--options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 1.5rem 0;
+}
+
+.profile--purchase--history {
+  font-size: var(--fs-500);
+}
+
+.profile--history--card {
+  width: 100%;
+  text-align: center;
+  background: var(--clr-gray-scale-800);
+}
+
+.profile--history--card:nth-child(1) {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.profile--history--card:nth-child(2) {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  overflow: hidden;
+}
+
+.profile--history--card--paragraph,
+.profile--history--card--price {
+  background: var(--clr-gray-scale-900);
+}
+
+.profile--history--card--paragraph {
+  font-size: var(--fs-600);
+  padding: 1rem;
+}
+
+.profile--history--card--price {
+  font-size: var(--fs-500);
+  color: var(--clr-secondary-green-200);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 0.5rem;
+}
+
+@media only screen and (min-width: 1200px) {
+  .profile--body {
+    padding: 1rem;
+  }
+
+  .profile--wrapper {
+    height: 95vh;
+    background: var(--clr-gray-scale-700);
+    border-radius: 1rem;
+    padding: 0;
+  }
+
+  .profile--banner {
+    width: 100%;
+    height: 30vh;
+    background-image: url(../images/pages/profile/ben-o-bro-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1rem;
+  }
+
+  .profile--avatar--image {
+    width: 220px;
+    background: var(--clr-gray-scale-800);
+    border-radius: 1rem;
+    margin-top: -10rem;
+    margin-left: 5rem;
+    margin-right: auto;
+  }
+
+  .profile--name {
+    width: max-content;
+    text-align: center;
+    margin-top: 1rem;
+    margin-left: 5rem;
+    margin-right: 0;
+  }
+
+  .profile--purchase--wrapper {
+    display: flex;
+  }
+
+  .profile--purchase {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5rem;
+    margin-right: auto;
+  }
+
+  .profile--purchase--options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin: 1.5rem 5rem;
+  }
+
+  .profile--purchase--image {
+    width: 50px;
+  }
+
+  .profile--purchase--history {
+    font-size: var(--fs-500);
+  }
+
+  .profile--history--card {
+    width: 100%;
+    text-align: center;
+    background: var(--clr-gray-scale-800);
+  }
+
+  .profile--history--card:nth-child(1) {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .profile--history--card:nth-child(2) {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .profile--history--card--paragraph,
+.profile--history--card--price {
+    background: var(--clr-gray-scale-900);
+  }
+
+  .profile--history--card--paragraph {
+    font-size: var(--fs-500);
+    padding: 1rem;
+  }
+
+  .profile--history--card--price {
+    font-size: var(--fs-500);
+    color: var(--clr-secondary-green-200);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 0.5rem;
+  }
+
+  .profile--product {
+    width: 200px;
   }
 }
 /* 
@@ -2882,7 +3085,7 @@ select {
   }
   .user--controls--header--search--data {
     width: max-content;
-    background: var(--clr-gray-scale-800);
+    background: var(--clr-gray-scale-700);
     border-radius: 0.75em;
     padding: 1.2rem;
     position: absolute;
@@ -2948,7 +3151,7 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-90);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     padding: 0.85rem;
@@ -2979,8 +3182,8 @@ select {
 
   .product--category {
     font-size: 0.9rem;
-    color: var(--color-contrast-higher);
-    background: var(--color-contrast-low);
+    color: var(--clr-gray-scale-90);
+    background: var(--clr-gray-scale-800);
     padding: 0.45rem;
     border-radius: 0.5rem;
   }
@@ -2992,14 +3195,14 @@ select {
 
   .product--card--buy {
     width: 100%;
-    color: var(--color-contrast-higher);
+    color: var(--clr-gray-scale-90);
     font-size: clamp(0.7rem, 1vw, 1rem);
     font-family: var(--ff-montserrat);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.2rem;
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     outline: 0;
     border: 0;
     border-bottom-left-radius: 0.5rem;
@@ -3010,19 +3213,19 @@ select {
     transition: all 200ms ease-in-out;
   }
   .product--card--buy:hover, .product--card--buy:focus {
-    background: var(--accent-200);
+    background: var(--clr-accent-200);
   }
 
   .product--card--cart {
     width: 50%;
-    color: var(--color-contrast-higher);
+    color: var(--clr-gray-scale-90);
     font-size: clamp(0.8rem, 1vw, 1rem);
     font-family: var(--ff-montserrat);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.2rem;
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     outline: 0;
     border: 0;
     border-bottom-right-radius: 0.5rem;
@@ -3031,7 +3234,7 @@ select {
     transition: all 200ms ease-in-out;
   }
   .product--card--cart:hover, .product--card--cart:focus {
-    background: var(--accent-200);
+    background: var(--clr-accent-300);
   }
 
   .product--card--label {
@@ -3040,7 +3243,7 @@ select {
 }
 @media only screen and (min-width: 1200px) {
   .product--card {
-    background: var(--color-contrast-lower);
+    background: var(--clr-gray-scale-700);
     box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     border-radius: 1rem;
   }
@@ -3048,7 +3251,7 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-90);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     padding: 1rem;
@@ -3078,8 +3281,8 @@ select {
   }
 
   .product--category {
-    color: var(--color-contrast-higher);
-    background: var(--color-contrast-low);
+    color: var(--clr-gray-scale-90);
+    background: var(--clr-gray-scale-800);
     padding: 0.45rem;
     border-radius: 0.5rem;
   }
@@ -3090,7 +3293,7 @@ select {
   }
 
   .product--card--buy {
-    color: var(--color-contrast-higher);
+    color: var(--clr-gray-scale-90);
     font-size: var(--fs-300);
     font-family: var(--ff-montserrat);
     display: flex;
@@ -3111,7 +3314,6 @@ select {
 
   .product--card--cart {
     width: 50%;
-    color: var(--color-contrast-higher);
     font-size: var(--fs-300);
     font-family: var(--ff-montserrat);
     display: flex;

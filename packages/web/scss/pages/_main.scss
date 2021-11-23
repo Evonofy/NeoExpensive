@@ -1,5 +1,13 @@
 @use '../abstracts/_mixins.scss' as *;
 
+.main--products {
+  display: none;
+}
+
+.main--per--category {
+  
+}
+
 @include mq(992px) {
   .main--banner {
     height: 50vh;
@@ -13,23 +21,19 @@
     @include space-between;
     gap: 2rem;
     
-    padding: 0 1.5rem;
     margin-top: -15rem;
   }
   
   .main--title {
     font-size: var(--fs-700);
 
-    padding: 0 2rem;
     margin-top: 3rem;
     margin-bottom: 1rem;
   }
   
   .main--per--category {
     display: flex;
-    gap: 1rem;
-    
-    padding: 0 2rem;
+    gap: 1rem;    
   }
   
   .main--category--card {
@@ -97,7 +101,7 @@
     width: 7rem;
     height: 5rem;
     
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-700);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%;
@@ -109,7 +113,7 @@
     
     &--text {
       font-size: 1.5rem;
-      color: var(--color-contrast-lowest);
+      color: var(--clr-gray-scale-90);
     }
   }
   
@@ -134,9 +138,7 @@
     width: 100%;
     display: flex;
     @include items-center;
-    gap: 1rem;
-    
-    padding: 0 2rem;
+    gap: 1rem;    
   }
   
   .main--department--card {
@@ -167,9 +169,9 @@
       left: 50%;
       top: 50%;
       transform: translateX(-50%) translateY(-50%);
-      background-image: linear-gradient(90deg, var(--accent-100) 0%, var(--accent-200) 100%);
+      background-image: linear-gradient(90deg, var(--clr-accent-200) 0%, var(--clr-accent-300) 100%);
       background-size: 100% 100%;
-      box-shadow: 0px 5px 0px 1px var(--accent-300);
+      box-shadow: 0px 5px 0px 1px var(--clr-accent-300);
     }
     
     &:hover .main--department--card--label--text,
@@ -192,7 +194,7 @@
     width: 8rem;
     height: 8rem;
     
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-800);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%;
@@ -203,7 +205,7 @@
     
     &--text {
       font-size: 1.25rem;
-      color: var(--color-contrast-lowest);
+      color: var(--clr-gray-scale-90);
       
       transition: all 250ms ease-in;
     }
@@ -229,7 +231,6 @@
 
     gap: 3rem;
     margin-bottom: 4rem;
-    padding: 0 2rem;
   }
   
 }
@@ -298,7 +299,7 @@
       
       background-size: 100% 100%;
       box-shadow: 
-      0px 7px 0px var(--color-contrast-lowest);
+      0px 7px 0px var(--clr-gray-scale-90);
     }
     
     &:hover .amd--hover,
@@ -333,7 +334,7 @@
     width: 10rem;
     height: 5rem;
     
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-800);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%;
@@ -345,7 +346,7 @@
     
     &--text {
       font-size: 1.5rem;
-      color: var(--color-contrast-lowest);
+      color: var(--clr-gray-scale-90);
     }
   }
   
@@ -377,7 +378,7 @@
   
   .main--department--card {
     width: 100%;
-    height: 25rem;
+    height: 20rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -431,7 +432,7 @@
     width: 10rem;
     height: 10rem;
     
-    background: var(--color-contrast-higher);
+    background: var(--clr-gray-scale-800);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 0% 0%;
