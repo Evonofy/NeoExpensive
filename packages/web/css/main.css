@@ -1400,6 +1400,226 @@ select {
     transition: all 200ms ease-in-out;
   }
 }
+.forgotpass1--body {
+  place-content: center;
+}
+
+.forgotpass1--wrapper {
+  display: grid;
+  place-content: center;
+  gap: 0;
+}
+
+.forgotpass1--left {
+  display: none;
+}
+
+.forgotpass1--center {
+  display: grid;
+  grid-area: center;
+  place-content: center;
+}
+
+.forgotpass1--form {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  height: 100vh;
+  background: var(--clr-gray-scale-700);
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.forgotpass1--forgotten {
+  font-size: var(--fs-600);
+}
+
+.forgotpass1--forgotten,
+.forgotpass1--paragraph {
+  text-align: center;
+}
+
+.forgotpass1--paragraph {
+  max-width: 20ch;
+  margin: 1rem auto;
+}
+
+.forgotpass1--image {
+  margin: 1rem auto;
+}
+
+.forgotpass1--right {
+  display: none;
+}
+
+.forgotpass1--form--name--wrapper {
+  position: relative;
+  padding: 0;
+}
+
+.forgotpass1--form--label {
+  font-family: var(--ff-montserrat);
+  font-size: var(--fs-300);
+  margin-left: 0.75rem;
+}
+
+.forgotpass1--form--image {
+  width: 30px;
+  left: 2.75%;
+  top: 62%;
+  opacity: 0.65;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+.forgotpass1--form--input {
+  color: var(--clr-gray-scale-90);
+  font-size: var(--fs-400);
+  width: 100%;
+  background: var(--clr-gray-scale-800);
+  border-radius: 1.5rem;
+  padding: 0.7rem 3rem;
+  margin: 0.75rem 0;
+  border: 0;
+  outline: 0;
+  transition: all 200ms linear;
+}
+.forgotpass1--form--input:placeholder {
+  margin-left: 2rem;
+}
+.forgotpass1--form--input:hover, .forgotpass1--form--input:focus {
+  background: var(--clr-gray-scale-800);
+  box-shadow: 0 0 0 3px var(--clr-accent-200);
+}
+
+.forgotpass1--button {
+  font-family: var(--ff-montserrat);
+  font-size: var(--fs-400);
+  color: var(--clr-gray-scale-90);
+  background: var(--clr-accent-200);
+  border-radius: 0.5rem;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem;
+  margin: 2rem 0;
+  transition: all 200ms linear;
+}
+.forgotpass1--button:hover {
+  background: var(--clr-accent-300);
+}
+
+@media only screen and (min-width: 1200px) {
+  .forgotpass1--body {
+    place-content: center;
+  }
+
+  .forgotpass1--wrapper {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "left center right";
+  }
+
+  .forgotpass1--left {
+    display: grid;
+    grid-area: left;
+    place-content: center;
+  }
+
+  .forgotpass1--center {
+    display: grid;
+    grid-area: center;
+    place-content: center;
+  }
+
+  .forgotpass1--form {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 35rem;
+    background: var(--clr-gray-scale-700);
+    padding: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .forgotpass1--forgotten {
+    font-size: var(--fs-700);
+  }
+
+  .forgotpass1--forgotten,
+.forgotpass1--paragraph {
+    text-align: center;
+  }
+
+  .forgotpass1--image {
+    margin: 1rem auto;
+  }
+
+  .forgotpass1--right {
+    display: grid;
+    grid-area: right;
+    place-content: center;
+  }
+
+  .forgotpass1--form--name--wrapper {
+    position: relative;
+    padding: 0;
+  }
+
+  .forgotpass1--form--label {
+    font-family: var(--ff-montserrat);
+    font-size: var(--fs-300);
+    margin-left: 0.75rem;
+  }
+
+  .forgotpass1--form--image {
+    width: 30px;
+    left: 2.75%;
+    top: 62%;
+    opacity: 0.65;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+
+  .forgotpass1--form--input {
+    color: var(--clr-gray-scale-90);
+    font-size: var(--fs-400);
+    width: 100%;
+    background: var(--clr-gray-scale-800);
+    border-radius: 1.5rem;
+    padding: 0.7rem 3rem;
+    margin: 0.75rem 0;
+    border: 0;
+    outline: 0;
+    transition: all 200ms linear;
+  }
+  .forgotpass1--form--input:placeholder {
+    margin-left: 2rem;
+  }
+  .forgotpass1--form--input:hover, .forgotpass1--form--input:focus {
+    background: var(--clr-gray-scale-800);
+    box-shadow: 0 0 0 3px var(--clr-accent-200);
+  }
+
+  .forgotpass1--button {
+    font-family: var(--ff-montserrat);
+    font-size: var(--fs-400);
+    color: var(--clr-gray-scale-90);
+    background: var(--clr-accent-200);
+    border-radius: 0.5rem;
+    border: 0;
+    outline: 0;
+    padding: 0.5rem;
+    margin: 2rem 0;
+    transition: all 200ms linear;
+  }
+  .forgotpass1--button:hover {
+    background: var(--clr-accent-300);
+  }
+}
 .forgotpass2--body {
   place-content: center;
   padding: 0 1rem;
