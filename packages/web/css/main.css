@@ -2000,8 +2000,99 @@ select {
     color: var(--clr-accent-200);
   }
 }
+.main--banner {
+  height: 30vh;
+  background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 9rem;
+}
+
 .main--products {
   display: none;
+}
+
+.main--title {
+  font-size: var(--fs-700);
+}
+
+.main--category--card {
+  width: 100%;
+  height: 15rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
+  border-radius: 1rem;
+  transition-timing-function: ease-out;
+  transition: all 250ms ease-in;
+  position: relative;
+}
+.main--category--card:hover, .main--category--card:focus {
+  transform: scale(0.95);
+}
+.main--category--card:hover .main--category--card--label, .main--category--card:focus .main--category--card--label {
+  width: 20rem;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 1rem;
+  background-size: 100% 100%;
+  box-shadow: 0px 7px 0px var(--color-contrast-lowest);
+}
+.main--category--card:hover .amd--hover, .main--category--card:focus .amd--hover {
+  background-image: linear-gradient(90deg, red 0%, #ff5100 100%);
+}
+.main--category--card:hover .intel--hover, .main--category--card:focus .intel--hover {
+  background-image: linear-gradient(90deg, #0101da 0%, #003cff 100%);
+}
+.main--category--card:hover .nvidia--hover, .main--category--card:focus .nvidia--hover {
+  background-image: linear-gradient(90deg, green 0%, limegreen 100%);
+}
+.main--category--card:hover .redragon--hover, .main--category--card:focus .redragon--hover {
+  background-image: linear-gradient(90deg, red 0%, #ff5100 100%);
+}
+
+.main--category--card--label {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 5rem;
+  background: var(--clr-gray-scale-700);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 0% 0%;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  transition-timing-function: ease-out;
+  transition: all 250ms ease-in;
+}
+.main--category--card--label--text {
+  font-size: 1.5rem;
+  color: var(--clr-gray-scale-90);
+}
+
+.amd {
+  background-image: url(../images/pages/main/brand/amd.webp);
+}
+
+.intel {
+  background-image: url(../images/pages/main/brand/intel.webp);
+}
+
+.nvidia {
+  background-image: url(../images/pages/main/brand/nvidia.webp);
+}
+
+.redragon {
+  background-image: url(../images/pages/main/brand/redragon.webp);
 }
 
 @media only screen and (min-width: 992px) {
@@ -2209,8 +2300,8 @@ select {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
-    padding: 0 6rem;
+    gap: 1.5rem;
+    padding: 0 4rem;
     margin-top: -15rem;
   }
 
@@ -2226,7 +2317,7 @@ select {
   .main--per--category {
     display: flex;
     gap: 1rem;
-    padding: 0 6rem;
+    padding: 0 4rem;
   }
 
   .main--category--card {
@@ -2276,7 +2367,7 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10rem;
+    width: 8rem;
     height: 5rem;
     background: var(--clr-gray-scale-800);
     background-repeat: no-repeat;
@@ -2314,7 +2405,7 @@ select {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    padding: 0 6rem;
+    padding: 0 4rem;
   }
 
   .main--department--card {
@@ -2392,9 +2483,9 @@ select {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    gap: 3rem;
+    gap: 1.53rem;
     margin-bottom: 4rem;
-    padding: 0 6rem;
+    padding: 0 4rem;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -2912,7 +3003,7 @@ select {
     padding: 1rem;
     content: "";
     position: absolute;
-    top: calc(100% + .75rem);
+    top: calc(100% + 0.75rem);
     left: 50%;
     z-index: 1;
     opacity: 0.1;
