@@ -52,6 +52,12 @@
       display: flex;
       gap: .5rem;
     }
-    
+    .user--controls {
+      stroke: var(--clr-gray-scale-90);
+    } 
+
+    .social-icons {
+      stroke: var(--clr-gray-scale-90);
+    }
   }
 }

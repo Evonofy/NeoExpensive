@@ -10,7 +10,7 @@
       display: flex;
       @include items-center;
       
-      background: var(--color-contrast-higher);
+      background: var(--clr-gray-scale-90);
       border-top-left-radius: 1rem;
       border-top-right-radius: 1rem;
       padding: .85rem;
@@ -55,9 +55,9 @@
   
   .product--category {
     font-size: .9rem;
-    color: var(--color-contrast-higher);
+    color: var(--clr-gray-scale-90);
     
-    background: var(--color-contrast-low);
+    background: var(--clr-gray-scale-800);
     padding: .45rem;
     border-radius: .5rem;
   }
@@ -70,7 +70,7 @@
   .product--card--buy {
     width: 100%;
     
-    color: var(--color-contrast-higher);
+    color: var(--clr-gray-scale-90);
     font-size: clamp(.7rem, 1vw, 1rem); 
     font-family: var(--ff-montserrat);
     
@@ -78,7 +78,7 @@
     @include items-center;
     gap: .2rem;
     
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     outline: 0;
     border: 0;
     border-bottom-left-radius: .5rem;
@@ -92,7 +92,7 @@
     
     &:hover,
     &:focus {
-      background: var(--accent-200);
+      background: var(--clr-accent-200);
     }
     
   }
@@ -100,7 +100,7 @@
   .product--card--cart {
     width: 50%;
 
-    color: var(--color-contrast-higher);
+    color: var(--clr-gray-scale-90);
     font-size: clamp(.8rem, 1vw, 1rem); 
     font-family: var(--ff-montserrat);
     
@@ -108,7 +108,7 @@
     @include items-center;
     gap: .2rem;
     
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     outline: 0;
     border: 0;
     border-bottom-right-radius: .5rem;
@@ -120,7 +120,7 @@
     
     &:hover,
     &:focus {
-      background: var(--accent-200);
+      background: var(--clr-accent-300);
     }
     
   }
@@ -132,7 +132,7 @@
 
 @include mq(1200px) {
   .product--card {
-    background: var(--color-contrast-lower);
+    background: var(--clr-gray-scale-700);
     box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     border-radius: 1rem;
     
@@ -140,7 +140,7 @@
       display: flex;
       @include items-center;
       
-      background: var(--color-contrast-higher);
+      background: var(--clr-gray-scale-90);
       border-top-left-radius: 1rem;
       border-top-right-radius: 1rem;
       padding: 1rem;
@@ -183,9 +183,9 @@
   }
   
   .product--category {
-    color: var(--color-contrast-higher);
+    color: var(--clr-gray-scale-90);
     
-    background: var(--color-contrast-low);
+    background: var(--clr-gray-scale-800);
     padding: .45rem;
     border-radius: .5rem;
   }
@@ -197,7 +197,7 @@
   }
   
   .product--card--buy {
-    color: var(--color-contrast-higher);
+    color: var(--clr-gray-scale-90);
     font-size: var(--fs-300); 
     font-family: var(--ff-montserrat);
     
@@ -225,7 +225,7 @@
   .product--card--cart {
     width: 50%;
 
-    color: var(--color-contrast-higher);
+    // color: var(--clr-gray-scale-90);
     font-size: var(--fs-300); 
     font-family: var(--ff-montserrat);
     

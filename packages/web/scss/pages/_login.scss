@@ -16,7 +16,7 @@
   @include items-center;
   @include column;
 
-  background: var(--accent-100);
+  background: var(--clr-accent-200);
   padding: 2rem;
 
   grid-area: banner;
@@ -213,7 +213,7 @@
     @include items-center;
     @include column;
   
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     padding: 15rem;
   
     grid-area: banner;
@@ -253,7 +253,7 @@
     @include items-center;
     @include column;
 
-    background: var(--accent-100);
+    background: var(--clr-accent-200);
     padding: 2rem;
 
     grid-area: banner;
