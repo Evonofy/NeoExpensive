@@ -125,6 +125,8 @@
     background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
+
+    margin-top: 0;
   }
   
   .main--products {
@@ -352,6 +354,8 @@
     background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
+
+    margin-top: 0;
   }
   
   .main--products {
@@ -581,5 +585,15 @@
     
     margin-bottom: 4rem;
     padding: 0 4rem;
+  }
+}
+
+@include mq(1360px) {
+  .main--products,
+  .main--per--category,
+  .main--per--department,
+  .main--offers,
+  .main--title {
+    padding: 0 8rem;
   }
 }
