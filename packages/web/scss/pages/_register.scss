@@ -2,6 +2,9 @@
 
 .register--body {
   display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+  grid-template-areas: "register banner";
   place-content: center;
 }
 
