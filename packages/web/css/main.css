@@ -901,20 +901,66 @@ select {
     margin-left: 0.5rem;
   }
 }
-.register--body {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto;
-  grid-template-areas: "register banner";
-  place-content: center;
-}
-
 .register--body--wrapper {
-  margin: 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "register banner";
 }
 
 .register--illustration {
-  display: none;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--clr-accent-200);
+  padding: 2rem;
+  grid-area: banner;
+}
+
+.register--illustration--header {
+  font-size: var(--fs-700);
+}
+
+.register--form--heading--header {
+  font-size: var(--fs-700);
+}
+
+.register--form--wrapper {
+  width: 70%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-area: register;
+  background: var(--clr-gray-scale-900);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: auto;
+  position: relative;
+}
+.register--form--wrapper:before {
+  content: "";
+  position: absolute;
+  width: 95%;
+  height: 3rem;
+  bottom: -1.5%;
+  background: var(--clr-gray-scale-600);
+  z-index: -98;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.register--form--wrapper:after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 3rem;
+  bottom: -2.5%;
+  background: var(--clr-gray-scale-400);
+  z-index: -99;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .register--form--heading {
@@ -922,125 +968,54 @@ select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-}
-.register--form--name,
-.register--form--last,
-.register--form--email,
-.register--form--pass {
-  width: 100%;
-  color: var(--color-contrast-higher);
-  background: var(--color-contrast-low);
-  outline: 0;
-  border: 0;
-  border-radius: 1.2rem;
-  padding: 0.7rem;
 }
 
 .register--form--name--wrapper {
   position: relative;
+  padding: 0.7rem;
 }
 
-.register--form--name:hover, .register--form--name:focus-within {
-  border-color: rgba(0, 0, 0, 0.1);
-  background-color: var(--color-contrast-lower);
-  -webkit-box-shadow: 0 0 0 3px var(--accent-100);
-  box-shadow: 0 0 0 3px var(--accent-100);
-  transition: all 250ms ease-out;
-}
-.register--form--name--label {
-  font-size: 1.35rem;
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 15px;
-  z-index: 999;
-  transition: all 200ms ease-out;
-}
-
-.register--form--last--wrapper {
-  position: relative;
-}
-
-.register--form--last:hover, .register--form--last:focus-within {
-  border-color: rgba(0, 0, 0, 0.1);
-  background-color: var(--color-contrast-lower);
-  -webkit-box-shadow: 0 0 0 3px var(--accent-100);
-  box-shadow: 0 0 0 3px var(--accent-100);
-  transition: all 250ms ease-out;
-}
-.register--form--last--label {
-  font-size: 1.35rem;
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 15px;
-  z-index: 999;
-  transition: all 200ms ease-out;
-}
-
-.register--form--email--wrapper {
-  position: relative;
-}
-
-.register--form--email:hover, .register--form--email:focus-within {
-  border-color: rgba(0, 0, 0, 0.1);
-  background-color: var(--color-contrast-lower);
-  -webkit-box-shadow: 0 0 0 3px var(--accent-100);
-  box-shadow: 0 0 0 3px var(--accent-100);
-  transition: all 250ms ease-out;
-}
-.register--form--email--label {
-  font-size: 1.35rem;
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 15px;
-  z-index: 999;
-  transition: all 200ms ease-out;
-}
-
-.register--form--pass--wrapper {
-  position: relative;
-}
-
-.register--form--pass:hover, .register--form--pass:focus-within {
-  border-color: rgba(0, 0, 0, 0.1);
-  background-color: var(--color-contrast-lower);
-  -webkit-box-shadow: 0 0 0 3px var(--accent-100);
-  box-shadow: 0 0 0 3px var(--accent-100);
-  transition: all 250ms ease-out;
-}
-.register--form--pass--label {
-  font-size: 1.35rem;
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 15px;
-  z-index: 999;
-  transition: all 200ms ease-out;
-}
-
-.register--form--name,
-.register--form--name--label,
-.register--form--last,
-.register--form--last--label,
-.register--form--email,
-.register--form--email--label,
-.register--form--pass,
-.register--form--pass--label {
+.register--form--label {
   font-family: var(--ff-montserrat);
-  font-size: 1rem;
-  margin-top: 2.5rem;
+  font-size: var(--fs-300);
+  margin-left: 0.75rem;
+}
+
+.register--form--image {
+  width: 30px;
+  left: 22px;
+  top: 58.85%;
+  opacity: 0.65;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+.register--form--input {
+  color: var(--clr-gray-scale-90);
+  font-size: 1.35rem;
+  width: 100%;
+  background: var(--clr-gray-scale-700);
+  border-radius: 1.5rem;
+  padding: 0.7rem 3rem;
+  margin: 0.75rem 0;
+  border: 0;
+  outline: 0;
+  transition: all 200ms linear;
+}
+.register--form--input:placeholder {
+  margin-left: 2rem;
+}
+.register--form--input:hover, .register--form--input:focus {
+  background: var(--clr-gray-scale-700);
+  box-shadow: 0 0 0 3px var(--clr-accent-200);
 }
 
 .register--button {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
 }
 .register--button--link {
-  color: var(--color-contrast-higher);
+  color: var(--clr-gray-scale-90);
   line-height: 1.6;
   width: 100%;
   display: flex;
@@ -1049,42 +1024,14 @@ select {
   justify-content: center;
   gap: 1rem;
   border-radius: 0.5rem;
-  background: var(--accent-100);
+  background: var(--clr-accent-200);
   padding: 0.5rem;
   transition: all 200ms ease-in-out;
 }
 .register--button--link:hover {
-  color: var(--color-contrast-higher);
-  background: var(--accent-100);
-  opacity: 0.65;
+  color: var(--clr-gray-scale-90);
+  background: var(--clr-accent-300);
   transition: all 200ms ease-in-out;
-}
-
-.divider {
-  text-align: center;
-  position: relative;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-.divider::after {
-  width: 40%;
-  height: 2px;
-  content: "";
-  position: absolute;
-  bottom: 50%;
-  right: 0;
-  background: var(--color-contrast-higher);
-  opacity: 0.65;
-}
-.divider::before {
-  width: 40%;
-  height: 2px;
-  content: "";
-  position: absolute;
-  bottom: 50%;
-  left: 0;
-  background: var(--color-contrast-higher);
-  opacity: 0.65;
 }
 
 .sign--in--link {
@@ -1093,13 +1040,14 @@ select {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   border-radius: 0.5rem;
   background: #4285F4;
-  padding: 0 8px;
-  padding-top: 4px;
-  padding-bottom: 2.75px;
+  padding: 0 20px;
+  padding-top: 6px;
+  padding-bottom: 5px;
   margin-left: 5px;
+  margin-top: 20px;
   transition: all 200ms ease-in-out;
 }
 .sign--in--link:hover {
@@ -1108,301 +1056,10 @@ select {
   transition: all 200ms ease-in-out;
 }
 
-@media only screen and (min-width: 992px) {
-  .register--body {
-    display: grid;
-    place-content: center;
-  }
-
-  .register--body--wrapper {
-    display: flex;
-    border-radius: 1rem;
-    margin: 1rem;
-  }
-
-  .register--illustration {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: var(--accent-100);
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 0;
-  }
-  .register--illustration--header {
-    max-width: 30ch;
-    color: var(--color-contrast-higher);
-    font-family: var(--ff-montserrat);
-    font-size: 1.8rem;
-    text-align: center;
-    margin: 1rem;
-  }
-  .register--illustration--image {
-    width: 35rem;
-    filter: contrast(120%);
-    border-radius: 1rem;
-    padding: 0.5rem;
-  }
-
-  .register--form--wrapper {
-    width: 50%;
-    background: var(--color-contrast-lower);
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    padding: 2rem;
-  }
-
-  .register--form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .register--form--heading--image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  .register--form--heading--header {
-    font-size: 2.75rem;
-  }
-
-  .register--form--name--last {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2.5rem;
-  }
-  .register--form--name--last .register--form--name,
-.register--form--name--last .register--form--last {
-    width: 100%;
-    color: var(--color-contrast-higher);
-    background: var(--color-contrast-low);
-    outline: 0;
-    border: 0;
-    border-radius: 1.2rem;
-    padding: 0.7rem;
-  }
-
-  .register--form--name--wrapper {
-    display: flex;
-    justify-content: flex-start;
-    position: relative;
-  }
-
-  .register--form--name {
-    transition: all 250ms ease-out;
-  }
-  .register--form--name:hover, .register--form--name:focus-within {
-    border-color: rgba(0, 0, 0, 0.1);
-    background-color: var(--color-contrast-lower);
-    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
-    box-shadow: 0 0 0 3px var(--accent-100);
-    transition: all 250ms ease-out;
-  }
-  .register--form--name--label {
-    font-size: 1.35rem;
-    content: "";
-    position: absolute;
-    top: -30px;
-    left: 15px;
-    transition: all 200ms ease-out;
-  }
-  .register--form--name:focus ~ .register--form--name--label {
-    color: var(--accent-100);
-    transform: scale(0.9);
-    transition: all 200ms ease-out;
-  }
-
-  .register--form--last--wrapper {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-  }
-
-  .register--form--last {
-    transition: all 250ms ease-out;
-  }
-  .register--form--last:hover, .register--form--last:focus-within {
-    border-color: rgba(0, 0, 0, 0.1);
-    background-color: var(--color-contrast-lower);
-    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
-    box-shadow: 0 0 0 3px var(--accent-100);
-    transition: all 250ms ease-out;
-  }
-  .register--form--last--label {
-    font-size: 1.3rem;
-    content: "";
-    position: absolute;
-    top: -30px;
-    left: 15px;
-    transition: all 200ms ease-out;
-  }
-  .register--form--last:focus ~ .register--form--last--label {
-    color: var(--accent-100);
-    transform: scale(0.9);
-    transition: all 200ms ease-out;
-  }
-
-  .register--form--email--pass {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  .register--form--email--pass .register--form--email,
-.register--form--email--pass .register--form--pass {
-    width: 100%;
-    color: var(--color-contrast-higher);
-    background: var(--color-contrast-low);
-    outline: 0;
-    border: 0;
-    border-radius: 1.2rem;
-    padding: 0.7rem;
-  }
-  .register--form--email--pass .register--form--email--wrapper {
-    width: 100%;
-    position: relative;
-  }
-  .register--form--email--pass .register--form--email {
-    transition: all 250ms ease-out;
-  }
-  .register--form--email--pass .register--form--email:hover, .register--form--email--pass .register--form--email:focus-within {
-    border-color: rgba(0, 0, 0, 0.1);
-    background-color: var(--color-contrast-lower);
-    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
-    box-shadow: 0 0 0 3px var(--accent-100);
-    transition: all 250ms ease-out;
-  }
-  .register--form--email--pass .register--form--email--label {
-    content: "";
-    position: absolute;
-    top: -30px;
-    left: 15px;
-    transition: all 200ms ease-out;
-  }
-  .register--form--email--pass .register--form--email:focus ~ .register--form--email--label {
-    color: var(--accent-100);
-    transform: scale(0.9);
-    transition: all 200ms ease-out;
-  }
-  .register--form--email--pass .register--form--pass--wrapper {
-    width: 100%;
-    position: relative;
-  }
-  .register--form--email--pass .register--form--pass {
-    transition: all 250ms ease-out;
-  }
-  .register--form--email--pass .register--form--pass:hover, .register--form--email--pass .register--form--pass:focus-within {
-    border-color: rgba(0, 0, 0, 0.1);
-    background-color: var(--color-contrast-lower);
-    -webkit-box-shadow: 0 0 0 3px var(--accent-100);
-    box-shadow: 0 0 0 3px var(--accent-100);
-    transition: all 250ms ease-out;
-  }
-  .register--form--email--pass .register--form--pass--label {
-    content: "";
-    position: absolute;
-    top: -30px;
-    left: 15px;
-    transition: all 200ms ease-out;
-  }
-  .register--form--email--pass .register--form--pass:focus ~ .register--form--pass--label {
-    color: var(--accent-100);
-    transform: scale(0.9);
-    transition: all 200ms ease-out;
-  }
-
-  .register--form--name,
-.register--form--name--label,
-.register--form--last,
-.register--form--last--label,
-.register--form--email,
-.register--form--email--label,
-.register--form--pass,
-.register--form--pass--label {
-    font-family: var(--ff-montserrat);
-    font-size: 1rem;
-  }
-
-  .divider {
-    text-align: center;
-    position: relative;
-    margin: 1rem 0;
-  }
-  .divider::after {
-    width: 45%;
-    height: 2px;
-    content: "";
-    position: absolute;
-    bottom: 50%;
-    right: 0;
-    background: var(--color-contrast-higher);
-    opacity: 0.65;
-  }
-  .divider::before {
-    width: 45%;
-    height: 2px;
-    content: "";
-    position: absolute;
-    bottom: 50%;
-    left: 0;
-    background: var(--color-contrast-higher);
-    opacity: 0.65;
-  }
-
-  .sign--in--link {
-    color: var(--color-contrast-higher);
-    line-height: 1.6;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    border-radius: 0.5rem;
-    background: #4285F4;
-    padding: 0 8px;
-    padding-top: 4px;
-    padding-bottom: 2.75px;
-    margin-left: 5px;
-    transition: all 200ms ease-in-out;
-  }
-  .sign--in--link:hover {
-    color: var(--color-contrast-lowest);
-    background: rgba(67, 135, 244, 0.8);
-    transition: all 200ms ease-in-out;
-  }
-
-  .register--button {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  .register--button--link {
-    color: var(--color-contrast-higher);
-    line-height: 1.6;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    border-radius: 0.5rem;
-    background: var(--accent-100);
-    padding: 0.5rem;
-    transition: all 200ms ease-in-out;
-  }
-  .register--button--link:hover {
-    color: var(--color-contrast-higher);
-    background: var(--accent-100);
-    opacity: 0.65;
-    transition: all 200ms ease-in-out;
-  }
+.sign--in--image {
+  width: 37px;
 }
+
 .forgotpass1--body {
   place-content: center;
 }
