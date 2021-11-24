@@ -1,28 +1,10 @@
-const withImages = require('next-images');
-const withPWA = require('next-pwa');
-const runtimeCaching = require('next-pwa/cache');
-const withPlugins = require('next-compose-plugins');
+const { join } = require('path');
 
-const debug = process.env.NODE_ENV !== 'production';
-
-const pwaPlugin = withPWA({
-  assetPrefix: !debug ? '/Next-gh-page-example/' : '',
-  pwa: {
-    dest: 'public',
-    runtimeCaching,
-    register: true,
-    sw: '/service-worker.js',
-    skipWaiting: true
-  },
-  eslint: {
-    // Warning: Dangerously allow production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true
+/** @type {import('next').NextConfig} */
+module.exports = {
+  reactStrictMode: true,
+  optimizeFonts: true,
+  sassOptions: {
+    includePaths: [join(__dirname, 'src', 'styles')]
   }
-});
-
-const imagePlugin = withImages({
-  esModule: true
-});
-
-module.exports = withPlugins([pwaPlugin, imagePlugin]);
+};
