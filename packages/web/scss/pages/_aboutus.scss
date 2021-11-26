@@ -5,17 +5,18 @@
 }
 
 .aboutus--wrapper {
-  display: grid;
+  display: grid; 
+  row-gap: 2rem;
+  column-gap: 2rem;
   grid-template-columns: 1fr; // Dane-se o cálculo
-  grid-template-rows: 1fr;
-  column-gap: 2rem; 
-  row-gap: 2rem; 
+  grid-template-rows: 1fr; 
   margin: 2.35rem 0;
 }
 
 .aboutus--section--right, 
 .aboutus--section--left {
   display: flex;
+
   @include items-center;
   @include column;
   
@@ -53,6 +54,7 @@
 
 .aboutus--section--divider--wrapper {
   display: flex;
+
   @include items-center;
   
   .aboutus--section--divider {
@@ -60,8 +62,8 @@
     height: 3px;
     
     background: var(--clr-accent-200);
-    border: 0;
     outline: 0;
+    border: 0;
     
     opacity: .65;
   }
@@ -69,6 +71,7 @@
 
 .aboutus--section--center {
   display: flex;
+
   @include items-center;
   @include column;
   
@@ -82,11 +85,13 @@
   .aboutus--section--profile--wrapper {
     display: flex;
     gap: 4rem;
+
     @include column;
     
     .aboutus--section--profile {
       display: flex;
       text-align: center;
+
       @include column;
     }
     
@@ -108,7 +113,6 @@
   
 }
 
-
 @include mq(992px) {
   .about--us--main {
     margin-top: 0;
@@ -116,10 +120,10 @@
   
   .aboutus--wrapper {
     display: grid;
+    row-gap: 0;
+    column-gap: 2.75rem;
     grid-template-columns: 1fr 1fr; // Dane-se o cálculo
     grid-template-rows: repeat(4, auto);
-    column-gap: 2.75rem;
-    row-gap: 0;
     
     margin: 0 2.5rem;
     margin-top: 0;
@@ -128,6 +132,7 @@
   .aboutus--section--right, 
   .aboutus--section--left {
     display: flex;
+
     @include items-center;
     
     
@@ -166,6 +171,7 @@
   
   .aboutus--section--divider--wrapper {
     display: flex;
+
     @include items-center;
     
     .aboutus--section--divider {
@@ -173,8 +179,8 @@
       height: 3px;
       
       background: var(--clr-accent-200);
-      border: 0;
       outline: 0;
+      border: 0;
       
       opacity: .65;
     }
@@ -182,6 +188,7 @@
   
   .aboutus--section--center {
     display: flex;
+
     @include items-center;
     
     padding: 5rem 0;
@@ -193,12 +200,13 @@
     
     .aboutus--section--profile--wrapper {
       display: flex;
-      gap: 4rem;
       flex-direction: row;
+      gap: 4rem;
       
       .aboutus--section--profile {
         display: flex;
         text-align: center;
+
         @include column;
       }
       
