@@ -1,25 +1,20 @@
-import { Grid } from '@chakra-ui/react';
-import { Header } from '@components';
-import { useTypeSafeTranslation } from '@hooks';
+import { GetServerSideProps } from 'next';
 import { FC } from 'react';
 
-const Home: FC = () => {
-  const { translated } = useTypeSafeTranslation();
+type HomeProps = {};
 
+const Home: FC<HomeProps> = ({}) => {
   return (
-    <Grid
-      as="main"
-      height="100vh"
-      gridTemplateAreas="
-      'header header header'
-      '. main .'
-    "
-      gridTemplateColumns="5vw 90vw 5vw"
-      gridTemplateRows="25vh auto"
-    >
-      <Header />
-    </Grid>
+    <div>
+      <h1>a</h1>
+    </div>
   );
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {}
+  };
+};
