@@ -8,11 +8,20 @@
     "@commitlint/cli": "^13.1.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
+<<<<<<< HEAD
     "stylelint": "^14.1.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.0.0",
+=======
+    "postcss": "^8.4.1",
+    "postcss-scss": "^4.0.2",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint": "^14.1.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^5.0.0",
+>>>>>>> 0f12f0e52aa3cee94f58365aa0c57b1401da28b9
     "typescript": "^4.3.5"
   },
   "scripts": {
