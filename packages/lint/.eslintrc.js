@@ -10,7 +10,7 @@ module.exports = {
     'airbnb',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
-    'prettier/standart',
+    'prettier/standard',
     'prettier/react'
   ],
   parser: '@typescript-eslint/parser',
@@ -27,7 +27,7 @@ module.exports = {
     'space-before-function-paren': 'off',
     'react/prop-types': 'off',
     'no-extra-semi': 'error',
-    semi: 'always'
+    semi: 'warn'
   },
   settings: {
     'import/resolver': {
@@ -37,4 +37,4 @@ module.exports = {
       version: 'detect'
     }
   }
-}
+};
