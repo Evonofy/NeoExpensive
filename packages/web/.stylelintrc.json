@@ -1,0 +1,17 @@
+{
+	"plugins": [
+		"stylelint-order"
+	],
+  "customSyntax": "postcss-scss",
+	"rules": {
+    "at-rule-no-unknown": null,
+		"order/order": [
+			"custom-properties",
+			"declarations"
+		],
+		"order/properties-order": [
+			"width",
+			"height"
+		]
+	}
+}
