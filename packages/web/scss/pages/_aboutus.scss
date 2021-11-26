@@ -1,10 +1,12 @@
 @use '../abstracts/mixins.scss' as *;
 
 .about--us--main {
+
   margin-top: 10rem;
 }
 
 .aboutus--wrapper {
+
   display: grid; 
   row-gap: 2rem;
   column-gap: 2rem;
@@ -15,16 +17,19 @@
 
 .aboutus--section--right, 
 .aboutus--section--left {
+
   display: flex;
 
   @include items-center;
   @include column;
   
   &--image {
+
     width: 320px;
     height: 320px;
     
     &--logo {
+
       width: 320px;
     }
   }
@@ -32,32 +37,39 @@
 
 .aboutus--section--paragraph,
 .aboutus--section--h2 {
-  max-width: 35ch;
+
   text-align: center;
   
+  max-width: 35ch;
+
   @include column;
 }
 
 .aboutus--section--h1 {
+
   color: var(--clr-accent-200);
   text-align: center;
   font-size: 1.35rem;
 }
 
 .aboutus--section--h2 {
+
   font-size: 3rem;
 }
 
 .aboutus--section--span {
+
   color: var(--clr-accent-200);
 }
 
 .aboutus--section--divider--wrapper {
+
   display: flex;
 
   @include items-center;
   
   .aboutus--section--divider {
+
     width: 90%;
     height: 3px;
     
@@ -70,6 +82,7 @@
 }
 
 .aboutus--section--center {
+
   display: flex;
 
   @include items-center;
@@ -78,17 +91,20 @@
   padding: 5rem 0;
   
   &--h2 {
+
     font-size: var(--fs-400);
     margin-bottom: 3rem;
   }
   
   .aboutus--section--profile--wrapper {
+
     display: flex;
     gap: 4rem;
 
     @include column;
     
     .aboutus--section--profile {
+
       display: flex;
       text-align: center;
 
@@ -96,16 +112,19 @@
     }
     
     .aboutus--section--profile--image {
+
       border-radius: 50%;
       width: 300px;
     }
     
     .aboutus--section--profile--paragraph {
+
       font-size: var(--fs-400);
       margin-top: .75rem;
     }
     
     .aboutus--section--profile--function {
+
       color: var(--clr-accent-200);
     }
     
@@ -115,10 +134,12 @@
 
 @include mq(992px) {
   .about--us--main {
+
     margin-top: 0;
   }
   
   .aboutus--wrapper {
+
     display: grid;
     row-gap: 0;
     column-gap: 2.75rem;
@@ -131,6 +152,7 @@
   
   .aboutus--section--right, 
   .aboutus--section--left {
+
     display: flex;
 
     @include items-center;
@@ -139,10 +161,12 @@
     padding: 4rem 0;
     
     &--image {
+
       width: 450px;
       height: 450px;
       
       &--logo {
+
         width: 450px;
       }
     }
@@ -150,6 +174,7 @@
   
   .aboutus--section--paragraph,
   .aboutus--section--h2 {
+
     max-width: 40ch;
     
     font-size: 1.45rem;
@@ -157,24 +182,29 @@
   }
   
   .aboutus--section--h1 {
+
     color: var(--clr-accent-200);
     font-size: 2rem;
   }
   
   .aboutus--section--h2 {
+
     font-size: var(--fs-600);
   }
   
   .aboutus--section--span {
+
     color: var(--clr-accent-100);
   }
   
   .aboutus--section--divider--wrapper {
+
     display: flex;
 
     @include items-center;
     
     .aboutus--section--divider {
+
       width: 90%;
       height: 3px;
       
@@ -187,6 +217,7 @@
   }
   
   .aboutus--section--center {
+
     display: flex;
 
     @include items-center;
@@ -194,16 +225,19 @@
     padding: 5rem 0;
     
     &--h2 {
+
       font-size: var(--fs-500);
       margin-bottom: 3rem;
     }
     
     .aboutus--section--profile--wrapper {
+
       display: flex;
       flex-direction: row;
       gap: 4rem;
       
       .aboutus--section--profile {
+
         display: flex;
         text-align: center;
 
@@ -211,16 +245,19 @@
       }
       
       .aboutus--section--profile--image {
-        border-radius: 50%;
+
         width: 300px;
+        border-radius: 50%;
       }
       
       .aboutus--section--profile--paragraph {
-        font-size: var(--fs-400);
+
         margin-top: .75rem;
+        font-size: var(--fs-400);
       }
       
       .aboutus--section--profile--function {
+
         color: var(--clr-accent-200);
       }
       
