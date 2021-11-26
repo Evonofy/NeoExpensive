@@ -8,9 +8,10 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -19,17 +20,8 @@
     "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "@components": ["components"],
-      "@icons": ["icons"],
-      "@hooks": ["hooks"],
-      "@lib": ["lib"],
-      "@services": ["services"],
-      "@styles/*": ["styles/*"],
-      "@contexts": ["contexts"],
-      "@pages/*": ["pages/*"],
-      "@appTypes/*": ["types/*"],
       "@public/*": ["../public/*"],
-      "@locales/*": ["../public/locales/*"],
+      "@components": ["components"]
     }
   },
   "include": [
@@ -38,6 +30,6 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "public/node_modules"
+    "node_modules"
   ]
 }
