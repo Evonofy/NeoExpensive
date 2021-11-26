@@ -1,0 +1,114 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier"],
+  "plugins": ["stylelint-order", "stylelint-scss"],
+  "rules": {
+    "named-grid-areas-no-invalid": true,
+    "block-no-empty": true,
+    "at-rule-empty-line-before": [
+      "always", {
+        "except": [
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "color-no-invalid-hex": true,
+    "declaration-empty-line-before": [
+      "always", {
+        "ignore": [
+          "after-comment",
+          "after-declaration",
+          "first-nested",
+          "inside-single-line-block"
+        ],
+        "message": "Please, do not leave empty lines"
+      }
+    ],
+    "max-empty-lines": 1,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "at-rule-no-unknown": null,
+    "order/properties-order": [
+      "content",
+      "list-type",
+      "font",
+      "font-family",
+      "font-weight",
+      "text-decoration",
+      "color",
+      "box-sizing",
+      "width",
+      "min-width",
+      "max-width",
+      "height",
+      "min-height",
+      "max-height",
+      "display",
+      "flex-direction",
+      "align-items",
+      "justify-items",
+      "justify-content",
+      "place-items",
+      "place-content",
+      "grid",
+      "grid-area",
+      "grid-auto-columns",
+      "grid-auto-flow",
+      "grid-auto-rows",
+      "grid-column",
+      "grid-row",
+      "gap",
+      "grid-gap",
+      "row-gap",
+      "column-gap",
+      "grid-template-areas",
+      "grid-template-columns",
+      "grid-template-rows",
+      "overflow",
+      "overflow-x",
+      "overflow-y",
+      "margin",
+      "margin-top",
+      "margin-bottom",
+      "margin-left",
+      "margin-right",
+      "padding",
+      "padding-top",
+      "padding-bottom",
+      "padding-right",
+      "padding-left",
+      "box-shadow",
+      "background",
+      "background-image",
+      "background-position",
+      "outline",
+      "border",
+      "border-top",
+      "border-bottom",
+      "border-left",
+      "border-right",
+      "border",
+      "position",
+      "top",
+      "bottom",
+      "left",
+      "right",
+      "z-index"
+    ],
+    "declaration-block-trailing-semicolon": "always",
+    "indentation": [
+      2
+    ],
+    "color-no-hex": true,
+    "color-named": "never",
+    "color-hex-case": [
+      "lower",
+      {
+        "message": "Lowercase letters are easier to distinguish from numbers"
+      }
+    ]
+  }
+}
