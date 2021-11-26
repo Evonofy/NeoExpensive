@@ -109,6 +109,7 @@
       {
         "message": "Lowercase letters are easier to distinguish from numbers"
       }
-    ]
+    ],
+   "selector-class-pattern": null
   }
 }
