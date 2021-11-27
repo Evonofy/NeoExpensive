@@ -1,0 +1,36 @@
+@use "sass:math";
+
+@import "../base";
+
+@function use-clamp($font) {
+  /* 
+    BASED ON:
+    https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+  */
+
+  /* minible smartphone possible */
+  $min-device-width: math.div($min-width, $rem);
+
+  /* biggest desktop possible */
+  $max-device-width: math.div($max-width, $rem);
+
+  /* getting the min and max through the golden ration */
+  $min-font: math.div($font * 0.4, $rem);
+  $max-font: math.div($min-font + $font, $rem);
+
+  /* min */
+  $min-font-rem: $min-font * 1rem;
+  $max-font-rem: $max-font * 1rem;
+  $slope: math.div(
+    $max-font - $min-font,
+    $max-device-width - $min-device-width
+  );
+  $y-axis-intersection: -$min-device-width * $slope + $min-font;
+  $result: clamp(
+    $min-font-rem,
+    ($yAxisIntersection * 1rem) + (($slope * 100) * 1vw),
+    $max-font-rem
+  );
+
+  @return $result;
+}
