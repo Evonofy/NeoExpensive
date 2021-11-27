@@ -1,17 +1,17 @@
 @use '../abstracts/_mixins.scss' as *;
 
 .accordion {
+  color: var(--clr-gray-scale-90);
   width: 100%;
+  padding: 1rem;
+  outline: none;
+  border: none;
   
   text-align: left;
-  color: var(--clr-gray-scale-90);
   
   background-color: var(--clr-gray-scale-700);
   
   cursor: pointer;
-  border: none;
-  outline: none;
-  padding: 1rem;
   
   transition: all 300ms linear;
 }
@@ -21,17 +21,19 @@
 }
 
 .panel {
-  max-height: 0;
-  
   color: var(--clr-gray-scale-90);
-  
-  background-color: var(--clr-gray-scale-800);
+
+  max-height: 0;
+
+  overflow: hidden;
+
   margin-bottom: 1.5rem;
   padding: 0 1rem;
-  overflow: hidden;
   
-  border-bottom-left-radius: .85rem;
   border-bottom-right-radius: .85rem;
+  border-bottom-left-radius: .85rem;
+  
+  background-color: var(--clr-gray-scale-800);
   
   transition: max-height 0.2s ease-out;
   

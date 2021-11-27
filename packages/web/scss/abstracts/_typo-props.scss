@@ -8,7 +8,7 @@
       @each $size, $value in $font-size {
         --fs-#{$size}: #{$value};
       }
-    } 
+    }
 
     @else {
       @include mq(extra-large) {

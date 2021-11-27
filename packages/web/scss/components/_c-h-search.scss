@@ -2,16 +2,12 @@
 
 .hamburger--header--search {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
   gap: 1rem;
 
   margin: 1rem 1.75rem; 
-
-  &--button {
-    
-  }
 
   &--margin--none {
     margin: 0;
@@ -22,36 +18,34 @@
     position: relative;
     
     &--text {
-      width: max-content;
-
       font-weight: bold;
-      white-space: nowrap;
+      width: max-content;
+      margin: .60rem;
+      
+      padding: 0 .5rem;
       
       background: var(--clr-gray-scale-800);
       
       position: absolute;
       left: 0;
       z-index: 1;
+      white-space: nowrap;
       
       transform-origin: 0 0;
       transform: translate(0,0);
       transition: transform 120ms ease-in;
-      
-      padding: 0 .5rem;
-      margin: .60rem;
     }
     
     &--input {
-      width: 100%;
-
       color: var(--clr-gray-scale-200);
-
-      background: var(--clr-gray-scale-800);
-      border-radius: .5rem;
-      border: 2px solid var(--clr-gray-scale-100);
-      outline: 0;
+      width: 100%;
       
       padding: .5rem;
+
+      background: var(--clr-gray-scale-800);
+      outline: 0;
+      border: 2px solid var(--clr-gray-scale-100);
+      border-radius: .5rem;
       
       &:focus,
       &:not(:placeholder-shown) {

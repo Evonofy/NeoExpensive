@@ -2,6 +2,11 @@
   "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier"],
   "plugins": ["stylelint-order", "stylelint-scss"],
   "rules": {
+    "scss/double-slash-comment-empty-line-before": null,
+    "scss/no-global-function-names": null,
+    "scss/at-if-closing-brace-newline-after": null,
+    "scss/at-if-closing-brace-space-after": null,
+    "scss/at-else-empty-line-before": null,
     "named-grid-areas-no-invalid": true,
     "block-no-empty": true,
     "at-rule-empty-line-before": [
@@ -14,11 +19,19 @@
       }
     ],
     "color-no-invalid-hex": true,
+    "function-url-quotes": null,
+    "no-descending-specificity": null,
+    "declaration-block-no-shorthand-property-overrides": null,
+    "declaration-block-no-redundant-longhand-properties": null,
     "declaration-empty-line-before": [
       "always", {
+        "except": [
+          "first-nested"
+        ],
         "ignore": [
           "after-comment",
           "after-declaration",
+          
           "inside-single-line-block"
         ],
         "message": "Please, do not leave empty lines"
@@ -46,7 +59,10 @@
       "min-height",
       "max-height",
       "display",
+      "gap",
       "flex-direction",
+      "flex-wrap",
+      "flex-flow",
       "align-items",
       "justify-items",
       "justify-content",
@@ -83,13 +99,18 @@
       "background",
       "background-image",
       "background-position",
+      "background-repeat",
+      "background-size",
       "outline",
       "border",
       "border-top",
       "border-bottom",
       "border-left",
       "border-right",
-      "border",
+      "border-top-right-radius",
+      "border-top-left-radius",
+      "border-bottom-right-radius",
+      "border-bottom-left-radius",
       "position",
       "top",
       "bottom",
@@ -101,14 +122,15 @@
     "indentation": [
       2
     ],
+    "custom-property-pattern": null,
     "color-no-hex": true,
-    "color-named": "never",
+    "color-named": "always-where-possible",
     "color-hex-case": [
       "lower",
       {
         "message": "Lowercase letters are easier to distinguish from numbers"
       }
     ],
-   "selector-class-pattern": null
+    "selector-class-pattern": null
   }
 }
