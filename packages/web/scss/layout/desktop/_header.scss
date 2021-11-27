@@ -2,21 +2,19 @@
 
 .desktop--header {
   display: none;
-}
 
-@include mq(992px) {
-  
-  .desktop--header {
+  @include mq(992px) { 
     width: 100%;
     display: flex;
-    @include space-between;
+    
+    padding: clamp(1rem, 1vw, 2rem) clamp(1rem, 3vw, 4rem);
     
     background: var(--clr-contrast-lowest);
     border-bottom: 2px solid var(--clr-accent-300);
     
-    padding: clamp(1rem, 1vw, 2rem) clamp(1rem, 3vw, 4rem);
-    
     position: relative;
+    
+    @include space-between;
     
     *:hover,
     *:focus {
@@ -43,7 +41,7 @@
       width: 2.35rem;
       height: 2.35rem;
     }
-
+    
     .XLogo {
       position: absolute;
     }
@@ -52,10 +50,11 @@
       display: flex;
       gap: .5rem;
     }
+    
     .user--controls {
       stroke: var(--clr-gray-scale-90);
     } 
-
+    
     .social-icons {
       stroke: var(--clr-gray-scale-90);
     }

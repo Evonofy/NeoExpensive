@@ -1,10 +1,8 @@
 @use '../abstracts/mixins.scss' as *;
 
 // * Desktop Dropdown 
-
-@include mq(992px) {
-  
-  .dropdown {    
+.dropdown {    
+  @include mq(992px) {
     display: flex;
     align-items: center;    
     
@@ -30,20 +28,21 @@
       
     }
   }
-  
-  .dropdown--submenu {
+}
+
+.dropdown--submenu {
+  @include mq(992px) {
+    content: '';
     flex-direction: column;
-    
-    background: var(--clr-gray-scale-700);
-    border-radius: 1em;
     
     padding: 1rem;
     
-    content: '';
+    background: var(--clr-gray-scale-700);
     position: absolute;
     top: calc(100% + .75rem);
     left: 50%;
     z-index: 1;
+    border-radius: 1em;
     
     opacity: .1;
     
@@ -52,12 +51,12 @@
     transition: all 200ms ease-in;
     
     &::after {
-      border: .5rem solid transparent;
-      border-bottom-color: var(--clr-gray-scale-700);
       content: '';
+      border: .5rem solid transparent;
       position: absolute;
       top: -1rem;
       left: 50%;
+      border-bottom-color: var(--clr-gray-scale-700);
       
       transform: translateX(-50%);
     }
@@ -72,8 +71,8 @@
     
     &--item--wrapper {
       display: flex;
-      align-items: center;
       flex-direction: column;
+      align-items: center;
     }
     
     &--item {
@@ -84,18 +83,18 @@
       
       list-style: none;
     }
-
+    
     &--section {
       width: 100%;
       
       display: flex;
       align-items: center;
+      margin-top: .75rem;
+      
+      padding: .95rem;
       
       background: var(--clr-gray-scale-800);
       border-radius: .5rem;
-      
-      padding: .95rem;
-      margin-top: .75rem;
       
       &--paragraph {
         text-align: left;
@@ -108,9 +107,9 @@
     }
     
     &--item--console {
+      text-decoration: none;
       width: 8rem;
       text-align: center;
-      text-decoration: none;
       
       list-style: none;
     }
@@ -119,8 +118,10 @@
       text-align: center;
     }
   }
-  
-  .dropdown--submenu--title {
+}
+
+.dropdown--submenu--title {
+  @include mq(992px) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,5 +140,4 @@
       }
     }
   }
-  
 }

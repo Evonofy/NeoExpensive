@@ -2,39 +2,36 @@
 
 .main--banner {
   height: 30vh;
+  
+  margin-top: 9rem;
   background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
   background-repeat: no-repeat;
   background-size: cover;
-
-  margin-top: 9rem;
 }
 
 .main--products {
   display: none;
 }
 
-.main--per--category {
-  
-}
-
 .main--title {
-  font-size: var(--fs-700);
+  text-align: center;
+  font-size: var(--fs-600);
 }
 
 .main--category--card {
   width: 100%;
   height: 15rem;
+  
+  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 8px 8px 8px 8px;
-  
-  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
+  position: relative;
+  border-radius: 8px;
   border-radius: 1rem;
   
   transition-timing-function: ease-out;
   transition: all 250ms ease-in;
-  position: relative;
   
   &:hover,
   &:focus {
@@ -44,57 +41,63 @@
   &:hover .main--category--card--label,
   &:focus .main--category--card--label {
     width: 20rem;
+    box-shadow: 
+    0 7px 0 var(--color-contrast-lowest);
+    
+    background-size: 100% 100%;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 1rem;
-    
-    background-size: 100% 100%;
-    box-shadow: 
-    0px 7px 0px var(--color-contrast-lowest);
   }
   
   &:hover .amd--hover,
   &:focus .amd--hover {
-    background-image: linear-gradient(90deg, hsl(0, 100%, 50%) 0%, hsl(19, 100%, 50%) 100%);
+    background-image: linear-gradient(90deg, hsl(0deg 100% 50%) 0%, hsl(19deg 100% 50%) 100%);
   }
+  
   &:hover .intel--hover,
   &:focus .intel--hover {
-    background-image: linear-gradient(90deg, hsl(240, 99%, 43%) 0%, hsl(226, 100%, 50%) 100%);
+    background-image: linear-gradient(90deg, hsl(240deg 99% 43%) 0%, hsl(226deg 100% 50%) 100%);
   }
+  
   &:hover .nvidia--hover,
   &:focus .nvidia--hover {
-    background-image: linear-gradient(90deg, hsl(120, 100%, 25%) 0%, hsl(120, 61%, 50%) 100%);
+    background-image: linear-gradient(90deg, hsl(120deg 100% 25%) 0%, hsl(120deg 61% 50%) 100%);
   }
+  
   &:hover .redragon--hover,
   &:focus .redragon--hover {
-    background-image: linear-gradient(90deg, hsl(0, 100%, 50%) 0%, hsl(19, 100%, 50%) 100%);
+    background-image: linear-gradient(90deg, hsl(0deg 100% 50%) 0%, hsl(19deg 100% 50%) 100%);
   }
   
 }
 
 .main--category--card--label {
   content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  
-  display: flex;
-  @include items-center;
   
   width: 7rem;
   height: 5rem;
   
+  display: flex;
+  
   background: var(--clr-gray-scale-700);
-  background-repeat: no-repeat;
   background-position: center center;
+  background-repeat: no-repeat;
   background-size: 0% 0%;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  transform: translateY(-50%);
   
   transition-timing-function: ease-out;
   transition: all 250ms ease-in;
+  
+  @include items-center;
   
   &--text {
     font-size: 1.5rem;
@@ -106,32 +109,134 @@
   background-image: url(../images/pages/main/brand/amd.webp);
   
 }
+
 .intel {
   background-image: url(../images/pages/main/brand/intel.webp);
   
 }
+
 .nvidia {
   background-image: url(../images/pages/main/brand/nvidia.webp);
   
 }
+
 .redragon {
   background-image: url(../images/pages/main/brand/redragon.webp);
+  
+}
 
+.main--per--department {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;    
+  
+  @include items-center;
+}
+
+.main--department--card {
+  width: 100%;
+  height: 15rem;
+  
+  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  
+  border-radius: 8px;
+  border-radius: 1rem;
+  transition-timing-function: ease-out;
+  transition: all 250ms ease-in;
+  
+  &:hover,
+  &:focus {
+    transform: scale(0.95);
+  }
+  
+  &:hover .main--department--card--label,
+  &:focus .main--department--card--label {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 0 1px var(--clr-accent-300);
+    background-image: linear-gradient(90deg, var(--clr-accent-200) 0%, var(--clr-accent-300) 100%);
+    background-size: 100% 100%;
+    top: 50%;
+    
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  &:hover .main--department--card--label--text,
+  &:focus .main--department--card--label--text{
+    font-size: 2.5rem;
+  }
+  
+}
+
+.main--department--card--label {
+  content: '';
+  
+  width: 8rem;
+  height: 8rem;
+  
+  display: flex;
+  
+  background: var(--clr-gray-scale-800);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 0% 0%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 1rem;
+  
+  transition-timing-function: ease-out;
+  transition: all 250ms ease-in;
+  
+  @include items-center;
+  
+  &--text {
+    font-size: 1.25rem;
+    color: var(--clr-gray-scale-90);
+    
+    transition: all 250ms ease-in;
+  }
+}
+
+.hardware--image {
+  background-image: url(../images/pages/main/department/hardware.webp);
+}
+
+.peripherals--image {
+  background-image: url(../images/pages/main/department/peripherals.webp);
+}
+
+.console--image {
+  background-image: url(../images/pages/main/department/console.webp);
+}
+
+.accessories--image {
+  background-image: url(../images/pages/main/department/accessories.webp);
 }
 
 @include mq(992px) {
   .main--banner {
     height: 50vh;
+    
+    margin-top: 0;
     background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
-
-    margin-top: 0;
   }
   
   .main--products {
     display: flex;
+    
     @include space-between;
+    
     gap: 2rem;
     
     margin-top: -15rem;
@@ -139,7 +244,7 @@
   
   .main--title {
     font-size: var(--fs-700);
-
+    
     margin-top: 3rem;
     margin-bottom: 1rem;
   }
@@ -152,122 +257,127 @@
   .main--category--card {
     width: 100%;
     height: 15rem;
+    
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 8px 8px 8px 8px;
-    
-    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
+    position: relative;
+    border-radius: 8px;
     border-radius: 1rem;
     
     transition-timing-function: ease-out;
     transition: all 250ms ease-in;
-    position: relative;
     
     &:hover,
     &:focus {
       transform: scale(0.95);
     }
+
+    .main--category--card--label {
+      content: '';
+      
+      width: 7rem;
+      height: 5rem;
+      
+      display: flex;
+      
+      background: var(--clr-gray-scale-700);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 0% 0%;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      
+      transition-timing-function: ease-out;
+      transition: all 250ms ease-in;
+      
+      @include items-center;
+      
+      &--text {
+        font-size: 1.5rem;
+        color: var(--clr-gray-scale-90);
+      }
+    }
     
     &:hover .main--category--card--label,
     &:focus .main--category--card--label {
       width: 10rem;
+      box-shadow: 
+      0 7px 0 var(--color-contrast-lowest);
+      
+      background-size: 100% 100%;
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
       border-radius: 1rem;
-      
-      background-size: 100% 100%;
-      box-shadow: 
-      0px 7px 0px var(--color-contrast-lowest);
     }
     
     &:hover .amd--hover,
     &:focus .amd--hover {
-      background-image: linear-gradient(90deg, hsl(0, 100%, 50%) 0%, hsl(19, 100%, 50%) 100%);
+      background-image: linear-gradient(90deg, hsl(0deg 100% 50%) 0%, hsl(19deg 100% 50%) 100%);
     }
+    
     &:hover .intel--hover,
     &:focus .intel--hover {
-      background-image: linear-gradient(90deg, hsl(240, 99%, 43%) 0%, hsl(226, 100%, 50%) 100%);
+      background-image: linear-gradient(90deg, hsl(240deg 99% 43%) 0%, hsl(226deg 100% 50%) 100%);
     }
+    
     &:hover .nvidia--hover,
     &:focus .nvidia--hover {
-      background-image: linear-gradient(90deg, hsl(120, 100%, 25%) 0%, hsl(120, 61%, 50%) 100%);
+      background-image: linear-gradient(90deg, hsl(120deg 100% 25%) 0%, hsl(120deg 61% 50%) 100%);
     }
+    
     &:hover .redragon--hover,
     &:focus .redragon--hover {
-      background-image: linear-gradient(90deg, hsl(0, 100%, 50%) 0%, hsl(19, 100%, 50%) 100%);
+      background-image: linear-gradient(90deg, hsl(0deg 100% 50%) 0%, hsl(19deg 100% 50%) 100%);
     }
     
-  }
-  
-  .main--category--card--label {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    
-    display: flex;
-    @include items-center;
-    
-    width: 7rem;
-    height: 5rem;
-    
-    background: var(--clr-gray-scale-700);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 0% 0%;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    
-    transition-timing-function: ease-out;
-    transition: all 250ms ease-in;
-    
-    &--text {
-      font-size: 1.5rem;
-      color: var(--clr-gray-scale-90);
-    }
   }
   
   .amd {
     background-image: url(../images/pages/main/brand/amd.webp);
-    
   }
+  
   .intel {
     background-image: url(../images/pages/main/brand/intel.webp);
-    
   }
+  
   .nvidia {
     background-image: url(../images/pages/main/brand/nvidia.webp);
-    
   }
+  
   .redragon {
     background-image: url(../images/pages/main/brand/redragon.webp);
-
   }
   
   .main--per--department {
     width: 100%;
     display: flex;
+    
     @include items-center;
+    
     gap: 1rem;    
   }
   
   .main--department--card {
     width: 100%;
     height: 15rem;
+    
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
     
-    border-radius: 8px 8px 8px 8px;
-    
-    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
+    border-radius: 8px;
     border-radius: 1rem;
     transition-timing-function: ease-out;
     transition: all 250ms ease-in;
-    position: relative;
     
     &:hover,
     &:focus {
@@ -278,13 +388,13 @@
     &:focus .main--department--card--label {
       width: 100%;
       height: 100%;
-      
-      left: 50%;
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
+      box-shadow: 0 5px 0 1px var(--clr-accent-300);
       background-image: linear-gradient(90deg, var(--clr-accent-200) 0%, var(--clr-accent-300) 100%);
       background-size: 100% 100%;
-      box-shadow: 0px 5px 0px 1px var(--clr-accent-300);
+      top: 50%;
+      
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
     }
     
     &:hover .main--department--card--label--text,
@@ -296,25 +406,26 @@
   
   .main--department--card--label {
     content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    
-    display: flex;
-    @include items-center;
     
     width: 8rem;
     height: 8rem;
     
+    display: flex;
+    
     background: var(--clr-gray-scale-800);
-    background-repeat: no-repeat;
     background-position: center center;
+    background-repeat: no-repeat;
     background-size: 0% 0%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     border-radius: 1rem;
     
     transition-timing-function: ease-out;
     transition: all 250ms ease-in;
+    
+    @include items-center;
     
     &--text {
       font-size: 1.25rem;
@@ -327,22 +438,25 @@
   .hardware--image {
     background-image: url(../images/pages/main/department/hardware.webp);
   }
+  
   .peripherals--image {
     background-image: url(../images/pages/main/department/peripherals.webp);
   }
+  
   .console--image {
     background-image: url(../images/pages/main/department/console.webp);
   }
+  
   .accessories--image {
     background-image: url(../images/pages/main/department/accessories.webp);
   }
   
   .main--offers {
     display: grid;
+    
+    gap: 3rem;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-
-    gap: 3rem;
     margin-bottom: 4rem;
   }
   
@@ -351,30 +465,32 @@
 @include mq(1200px) {
   .main--banner {
     height: 50vh;
+    
+    margin-top: 0;
     background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
-
-    margin-top: 0;
   }
   
   .main--products {
     display: flex;
-    @include space-between;
     gap: 1.5rem;
+    margin-top: -15rem;
     
     padding: 0 4rem;
-    margin-top: -15rem;
+    
+    @include space-between;
   }
   
   .main--title {
     width: max-content;
-
-    font-size: var(--fs-700);
-    padding: 0 6rem;
     margin-top: 3.5rem;
     margin-bottom: 1rem;
+    padding: 0 6rem;
+    
     position: relative;
+    
+    font-size: var(--fs-700);
   }
   
   .main--per--category {
@@ -387,105 +503,112 @@
   .main--category--card {
     width: 100%;
     height: 15rem;
+    
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 8px 8px 8px 8px;
-    
-    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
+    position: relative;
+    border-radius: 8px;
     border-radius: 1rem;
     
     transition-timing-function: ease-out;
     transition: all 250ms ease-in;
-    position: relative;
     
     &:hover,
     &:focus {
       transform: scale(0.95);
     }
     
+    .main--category--card--label {
+      content: '';
+      
+      width: 8rem;
+      height: 5rem;
+      
+      display: flex;
+      
+      background: var(--clr-gray-scale-800);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 0% 0%;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      
+      transition-timing-function: ease-out;
+      transition: all 250ms ease-in;
+      
+      @include items-center;
+      
+      &--text {
+        font-size: 1.5rem;
+        color: var(--clr-gray-scale-90);
+      }
+    }
+    
     &:hover .main--category--card--label,
     &:focus .main--category--card--label {
       width: 15rem;
-      left: 10%;
-      top: 50%;
-      transform: translateY(-50%);
-      border-radius: 1rem;
+      box-shadow: 
+      0 7px 0 var(--clr-gray-scale-90);
       
       background-size: 100% 100%;
-      box-shadow: 
-      0px 7px 0px var(--clr-gray-scale-90);
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      border-radius: 1rem;
     }
     
     &:hover .amd--hover,
     &:focus .amd--hover {
-      background-image: linear-gradient(90deg, hsl(0, 100%, 50%) 0%, hsl(19, 100%, 50%) 100%);
+      background-image: linear-gradient(90deg, hsl(0deg 100% 50%) 0%, hsl(19deg 100% 50%) 100%);
     }
+    
     &:hover .intel--hover,
     &:focus .intel--hover {
-      background-image: linear-gradient(90deg, hsl(240, 99%, 43%) 0%, hsl(226, 100%, 50%) 100%);
+      background-image: linear-gradient(90deg, hsl(240deg 99% 43%) 0%, hsl(226deg 100% 50%) 100%);
     }
+    
     &:hover .nvidia--hover,
     &:focus .nvidia--hover {
-      background-image: linear-gradient(90deg, hsl(120, 100%, 25%) 0%, hsl(120, 61%, 50%) 100%);
+      background-image: linear-gradient(90deg, hsl(120deg 100% 25%) 0%, hsl(120deg 61% 50%) 100%);
     }
+    
     &:hover .redragon--hover,
     &:focus .redragon--hover {
-      background-image: linear-gradient(90deg, hsl(0, 100%, 50%) 0%, hsl(19, 100%, 50%) 100%);
+      background-image: linear-gradient(90deg, hsl(0deg 100% 50%) 0%, hsl(19deg 100% 50%) 100%);
     }
     
-  }
-  
-  .main--category--card--label {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    
-    display: flex;
-    @include items-center;
-    
-    width: 8rem;
-    height: 5rem;
-    
-    background: var(--clr-gray-scale-800);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 0% 0%;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    
-    transition-timing-function: ease-out;
-    transition: all 250ms ease-in;
-    
-    &--text {
-      font-size: 1.5rem;
-      color: var(--clr-gray-scale-90);
-    }
   }
   
   .amd {
     background-image: url(../images/pages/main/brand/amd.webp);
-    
   }
+  
   .intel {
     background-image: url(../images/pages/main/brand/intel.webp);
-    
   }
+  
   .nvidia {
     background-image: url(../images/pages/main/brand/nvidia.webp);
     
   }
+  
   .redragon {
     background-image: url(../images/pages/main/brand/redragon.webp);
-
   }
   
   .main--per--department {
     width: 100%;
     display: flex;
+    flex-direction: row;
+    
     @include items-center;
+    
     gap: 1rem;
     
     padding: 0 4rem;
@@ -494,17 +617,17 @@
   .main--department--card {
     width: 100%;
     height: 20rem;
+    
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
     
-    border-radius: 8px 8px 8px 8px;
-    
-    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
+    border-radius: 8px;
     border-radius: 1rem;
     transition-timing-function: ease-out;
     transition: all 250ms ease-in;
-    position: relative;
     
     &:hover,
     &:focus {
@@ -515,13 +638,13 @@
     &:focus .main--department--card--label {
       width: 100%;
       height: 100%;
-      
-      left: 50%;
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
+      box-shadow: 0 5px 0 1px var(--clr-accent-300);
       background-image: linear-gradient(90deg, var(--clr-accent-200) 0%, var(--clr-accent-300) 100%);
       background-size: 100% 100%;
-      box-shadow: 0px 5px 0px 1px var(--clr-accent-300);
+      top: 50%;
+      
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
     }
     
     
@@ -536,25 +659,26 @@
   
   .main--department--card--label {
     content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    
-    display: flex;
-    @include items-center;
     
     width: 10rem;
     height: 10rem;
     
+    display: flex;
+    
     background: var(--clr-gray-scale-800);
-    background-repeat: no-repeat;
     background-position: center center;
+    background-repeat: no-repeat;
     background-size: 0% 0%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     border-radius: 1rem;
     
     transition-timing-function: ease-out;
     transition: all 250ms ease-in;
+    
+    @include items-center;
     
     &--text {
       font-size: 2rem;
@@ -567,21 +691,24 @@
   .hardware--image {
     background-image: url(../images/pages/main/department/hardware.webp);
   }
+  
   .peripherals--image {
     background-image: url(../images/pages/main/department/peripherals.webp);
   }
+  
   .console--image {
     background-image: url(../images/pages/main/department/console.webp);
   }
+  
   .accessories--image {
     background-image: url(../images/pages/main/department/accessories.webp);
   }
   
   .main--offers {
     display: grid;
+    gap:1.53rem;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    gap:1.53rem;
     
     margin-bottom: 4rem;
     padding: 0 4rem;
