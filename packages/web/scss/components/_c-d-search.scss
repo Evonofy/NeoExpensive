@@ -1,7 +1,7 @@
 @use '../abstracts/mixins.scss' as *;
 
-@include mq(992px) {
-  .user--controls--header--search {
+.user--controls--header--search {
+  @include mq(992px) {
     position: relative;
     
     &:hover,
@@ -14,14 +14,14 @@
     
     &--data {
       width: max-content;
+      padding: 1.2rem;
       
       background: var(--clr-gray-scale-700);
-      border-radius: .75em;
-      padding: 1.2rem;
       
       position: absolute;
       top: 130%;
       left: 50%;
+      border-radius: .75em;
       
       transform: translateX(-50%) rotateX(-90deg);
       transform-origin: top center;
@@ -29,12 +29,12 @@
       opacity: 0.1;
       
       &::after {
-        border: 0.5rem solid transparent;
-        border-bottom-color: var(--clr-gray-scale-700);
         content: "";
+        border: 0.5rem solid transparent;
         position: absolute;
         top: -1rem;
         left: 50%;
+        border-bottom-color: var(--clr-gray-scale-700);
         transform: translateX(-50%);
       }
       
@@ -44,25 +44,24 @@
         line-height: 1.6;
         
         &--text {
-          width: max-content;
-          
           font-weight: bold;
-          white-space: nowrap;
+          width: max-content;
+          margin-top: .3rem;
+          margin-bottom: .2rem;
+          margin-left: .3rem;
+          
+          padding: 0 .5rem;
           
           background: var(--clr-gray-scale-700);
           
           position: absolute;
           left: 0;
           z-index: 1;
+          white-space: nowrap;
           
           transform-origin: 0 0;
           transform: translate(0,0);
           transition: transform 120ms ease-in;
-          
-          padding: 0 .5rem;
-          margin-left: .3rem;
-          margin-top: .3rem;
-          margin-bottom: .2rem;
         }
         
         &--input {
@@ -70,13 +69,13 @@
           
           width: 100%;
           
-          background: var(--clr-gray-scale-700);
-          border: 0;
-          border-radius: .5rem;
-          border: 2px solid var(--clr-gray-scale-100);
-          outline: 0;
-          
           padding: .2rem .8rem;
+          
+          background: var(--clr-gray-scale-700);
+          outline: 0;
+          border: 0;
+          border: 2px solid var(--clr-gray-scale-100);
+          border-radius: .5rem;
           
           &:focus,
           &:not(:placeholder-shown) {
@@ -91,5 +90,5 @@
       
     }
   }
-  
 }
+  
