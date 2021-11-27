@@ -27,7 +27,8 @@ module.exports = {
     'space-before-function-paren': 'off',
     'react/prop-types': 'off',
     'no-extra-semi': 'error',
-    semi: 'warn'
+    semi: 'warn',
+    'comma-dangle': 'off'
   },
   settings: {
     'import/resolver': {
