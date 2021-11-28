@@ -3,9 +3,9 @@
 .profile--wrapper {
   width: 100%;
 
-  background: var(--clr-gray-scale-600);
-
   padding: 0;
+
+  background: var(--clr-gray-scale-600);
 }
 
 .profile--banner {
@@ -18,22 +18,20 @@
 }
 
 .profile--avatar {
-  
   &--image {
     width: 220px;
-    
-    background: var(--clr-gray-scale-800);
-    border-radius: 1rem;
     
     margin-top: -10rem;
     margin-left: auto;
     margin-right: auto;
+    
+    background: var(--clr-gray-scale-800);
+    border-radius: 1rem;
   }
 }
 
 .profile--name {
   width: none;
-
 
   text-align: center;
   margin-top: auto;
@@ -47,12 +45,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  margin-left: auto;
-  margin-right: auto;
 
   margin-top: 2rem;
   margin-bottom: 2rem;
+  
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profile--purchase--options {
@@ -77,7 +75,6 @@
   font-size: var(--fs-500);
 }
 
-
 .profile--history--card {
   width: 100%;
   text-align: center;
@@ -85,19 +82,18 @@
 }
 
 .profile--history--card:nth-child(1) {
-  border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
 }
 
 .profile--history--card:nth-child(2) {
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
   overflow: hidden;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .profile--history--card--paragraph, 
 .profile--history--card--price {
-  
   background: var(--clr-gray-scale-900);
 }
 
@@ -108,13 +104,13 @@
 }
 
 .profile--history--card--price {
-  font-size: var(--fs-500);
   color: var(--clr-secondary-green-200);
   
-  border-bottom-left-radius: 1rem;
+  padding: .5rem;
   border-bottom-right-radius: 1rem;
   
-  padding: .5rem;
+  border-bottom-left-radius: 1rem;
+  font-size: var(--fs-500);
 }
 
 .profile--product {
@@ -128,10 +124,10 @@
 
   .profile--wrapper {
     height: 95vh;
+    
+    padding: 0;
     background: var(--clr-gray-scale-700);
     border-radius: 1rem;
-    
-    padding: 0 0;
   }
   
   .profile--banner {
@@ -146,16 +142,15 @@
   }
   
   .profile--avatar {    
-    
     &--image {
       width: 220px;
-      
-      background: var(--clr-gray-scale-800);
-      border-radius: 1rem;
       
       margin-top: -10rem;
       margin-left: 5rem;
       margin-right: auto;
+      
+      background: var(--clr-gray-scale-800);
+      border-radius: 1rem;
     }
   }
   
@@ -213,19 +208,18 @@
   }
   
   .profile--history--card:nth-child(1) {
-    border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
   }
   
   .profile--history--card:nth-child(2) {
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
     overflow: hidden;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
   }
   
   .profile--history--card--paragraph, 
   .profile--history--card--price {
-    
     background: var(--clr-gray-scale-900);
   }
   
@@ -236,13 +230,13 @@
   }
   
   .profile--history--card--price {
-    font-size: var(--fs-500);
     color: var(--clr-secondary-green-200);
     
-    border-bottom-left-radius: 1rem;
+    padding: .5rem;
     border-bottom-right-radius: 1rem;
     
-    padding: .5rem;
+    border-bottom-left-radius: 1rem;
+    font-size: var(--fs-500);
   }
   
   .profile--product {

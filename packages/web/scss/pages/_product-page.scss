@@ -1,46 +1,53 @@
 @use '../abstracts/mixins.scss' as *;
 
-@include mq(1200px) {
-  .product--display--grid {
+.product--display--grid {
+  @include mq(1200px) {
     width: 100%;
     display: grid;
-    grid-template-columns: .4fr 2.5fr 1fr;
-    grid-template-areas: 
-    "item--preview item--display aside--price"
-    "section--description section--description ."
-    "section--specification section--specification ."
-    "section--reviews section--reviews ."
-    ;
     gap: 1rem;
+    grid-template-areas: 
+      "item--preview item--display aside--price"
+      "section--description section--description ."
+      "section--specification section--specification ."
+      "section--reviews section--reviews .";
+    grid-template-columns: .4fr 2.5fr 1fr;
     
     margin-top: 2rem;
   }
+}
   
-  .product--display {
+.product--display {
+  @include mq(1200px) {
+    height: 90vh;
     grid-area: item--display;
     background: var(--clr-gray-scale-600);
-    height: 90vh;
-    
+      
     border-radius: .5rem;
   }
+}
   
-  .product--preview {
+.product--preview {
+  @include mq(1200px) {
     width: 100%;
     grid-area: item--preview;
     
     &--image {
       width: 200px;
+      margin-bottom: 1rem;
       background: var(--clr-gray-scale-600);
       border-radius: .5rem;
-      margin-bottom: 1rem;
     }
   }
+}
 
-  .product--aside--wrapper { 
+.product--aside--wrapper { 
+  @include mq(1200px) {
     margin: 0 2rem;
   }
+}
 
-  .product--aside {
+.product--aside {
+  @include mq(1200px) {
     display: flex;
     flex-direction: column;
 
@@ -49,24 +56,28 @@
     border-radius: .5rem;
     
     background: var(--clr-gray-scale-600);
-
   }
+}
   
-  .product--aside--image--wrapper {
+.product--aside--image--wrapper {
+  @include mq(1200px) {
     margin: 1rem 0;
   }
+}
   
-  .product--aside--image {
-    background: var(--clr-gray-scale-90);
-    border-radius: .5rem;
-
+.product--aside--image {
+  @include mq(1200px) {
     margin-left: auto;
     margin-right: auto;
+    background: var(--clr-gray-scale-90);
+    border-radius: .5rem;
   }
+}
 
-  // Ref: https://codepen.io/WebKitCoding/pen/ZEWZJoG
+// Ref: https://codepen.io/WebKitCoding/pen/ZEWZJoG
   
-  .rating--css {
+.rating--css {
+  @include mq(1200px) {
     margin-top: .4rem;
     
     input {
@@ -88,156 +99,204 @@
       transition: 400ms ease;
     }
   }
+}
   
-  .star--icon {
+.star--icon {
+  @include mq(1200px) {
     color: var(--clr-primary-yellow-300);
     text-align: left;
   }
+}
   
-  .fa-star:before {
+.fa-star::before {
+  @include mq(1200px) {
     margin: 0 .1rem;
-  } 
+  }
+} 
 
-  .product--aside--payment {
+.product--aside--payment {
+  @include mq(1200px) {
     display: flex;
     flex-direction: column;    
 
     margin: 1.5rem 0;
   }
+}
   
-  .product--aside--payment--price {
+.product--aside--payment--price {
+  @include mq(1200px) {
     display: flex;
     align-items: center;
     gap: .5rem;
   }
+}
 
-  .span--price {
+.span--price {
+  @include mq(1200px) {
     color: var(--clr-accent-200);
   }
+}
 
-  .span--money {
+.span--money {
+  @include mq(1200px) {
     color: var(--clr-secondary-green-200);
   }
+}
 
-  .product--aside--payment--promo {
+.product--aside--payment--promo {
+  @include mq(1200px) {
+    text-decoration: line-through;
     margin-top: 1em;
     margin-left: 1.45em;
-    text-decoration: line-through;
   }
+}
 
-  .span--promo {
+.span--promo {
+  @include mq(1200px) {
     color: var(--clr-accent-300);
   }
+}
 
-  .product--aside--payment--h2 {
+.product--aside--payment--h2 {
+  @include mq(1200px) {
     font-size: var(--fs-400);
-
   }
+}
   
-  .product--aside--payment--image {
+.product--aside--payment--image {
+  @include mq(1200px) {
     width: 40px;
   }
+}
 
-  .product--details {
+.product--details {
+  @include mq(1200px) {
     display: flex;
     gap: 2rem;
 
     margin-top: 3rem;
   }
+}
 
-  .product--details--link {
+.product--details--link {
+  @include mq(1200px) {
     font-size: var(--fs-700);
     transition: all 200ms linear;
     user-select: none;
-    
+      
     &:hover {
       color: var(--clr-accent-200);
     }
   }
+}
 
-  .product--description {
-    font-size: var(--fs-500);
+.product--description {
+  @include mq(1200px) {
+    padding: 2rem;
 
     background: var(--clr-gray-scale-700);
+    font-size: var(--fs-500);
     border-radius: .5rem;
-    padding: 2rem;
   }
+}
 
-  .product--specification--wrapper {
+.product--specification--wrapper {
+  @include mq(1200px) {
     display: flex;
     justify-content: space-between;
 
+    padding: 2rem;
+
     background: var(--clr-gray-scale-700);
 
     border-radius: .5rem;
-
-    padding: 2rem;
   }
+}
 
-  .product--specification--paragraph {
+.product--specification--paragraph {
+  @include mq (1200px) {
     font-size: var(--fs-400);
   }
+}
 
-  .section--details {
+.section--details {
+  @include mq(1200px) {
     grid-area: section--details;
   }
+}
 
-  .section--description {
+.section--description {
+  @include mq(1200px) {
     grid-area: section--description;
   }
+}
 
-  .section--specification {
+.section--specification {
+  @include mq(1200px) {
     grid-area: section--specification;
   }
+}
 
-  .section--reviews {
+.section--reviews {
+  @include mq(1200px) {
     grid-area: section--reviews;
     margin-bottom: 5rem; 
   }
+}
 
-  .user--review--wrapper {
+.user--review--wrapper {
+  @include mq(1200px) {
     display: flex;
     justify-content: space-between;
-
   }
+}
 
-  .user--review--card {
+.user--review--card {
+  @include mq(1200px) {
+    padding: 3rem 5rem;
     background: var(--clr-gray-scale-700);
     border-radius: .5rem;
-    padding: 3rem 5rem;
   }
+}
 
-  .review--button {
-    color: var(--clr-gray-scale-100);
-    font-size: var(--fs-300);
+.review--button {
+  @include mq(1200px) {
     font-family: var(--ff-montserrat);
+    color: var(--clr-gray-scale-100);
+    padding: .8em;
 
     background: var(--clr-accent-300);
-    padding: .8em;
-    border-radius: .5rem;
-    border: 0;
     outline: 0;
+    border: 0;
+    font-size: var(--fs-300);
+    border-radius: .5rem;
   }
+}
 
-  .review--card {
+.review--card {
+  @include mq(1200px) {
     display: flex;
     align-items: center;
     gap: 1rem;
 
-    background: var(--clr-gray-scale-900);
-
-    border-radius: .5rem;
+    margin-top: 2rem;
   
     padding: 2rem;
 
-    margin-top: 2rem;
-  }
+    background: var(--clr-gray-scale-900);
 
-  .review--card--text {
+    border-radius: .5rem;
+  }
+}
+
+.review--card--text {
+  @include mq(1200px) {
     margin-bottom: auto;
   }
+}
 
-  .review--card--image {
+.review--card--image {
+  @include mq(1200px) {
     width: 100px;
     border-radius: 50%;
   }

@@ -8,6 +8,16 @@
   display: grid;
   place-content: center;
   gap: 0;
+  
+  @include mq(1200px) {
+    display: grid;
+    gap: 2rem;
+    grid-template-areas: 
+    "left center right";
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
 }
 
 .forgotpass1--left {
@@ -16,29 +26,61 @@
   
   // place-content: center;
   display: none;
+  
+  @include mq(1200px) {
+    display: grid;
+    
+    place-content: center;
+    grid-area: left;
+  }
 }
 
 .forgotpass1--center {
   display: grid;
-  grid-area: center;
   
   place-content: center;
+  grid-area: center;
+  
+  @include mq(1200px) {
+    display: grid;
+    
+    place-content: center;
+    grid-area: center;
+  }
 }
 
 .forgotpass1--form {
-  display: grid;
-  place-content: center;
-  
   width: 100%;
   height: 100vh;
-  background: var(--clr-gray-scale-700);
-  padding: 1rem;
+
+  display: grid;
+  place-content: center;
+
   margin-left: auto;
   margin-right: auto;
+  padding: 1rem;
+  background: var(--clr-gray-scale-700);
+  
+  @include mq(1200px) {
+    width: 100%;
+    height: 35rem;
+
+    display: grid;
+    place-content: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem;
+    background: var(--clr-gray-scale-700);
+  }
 }
 
 .forgotpass1--forgotten {
   font-size: var(--fs-600);
+
+  @include mq(1200px) {
+    font-size: var(--fs-700);
+  }
 }
 
 .forgotpass1--forgotten,
@@ -48,7 +90,7 @@
 
 .forgotpass1--paragraph {
   max-width: 20ch;
-
+  
   margin: 1rem auto;
 }
 
@@ -57,18 +99,19 @@
 }
 
 .forgotpass1--right {
-  // display: grid;
-  // grid-area: right;
-  
-  // place-content: center;
-  
   display: none;
+
+  @include mq(1200px) {
+    display: grid;
+    
+    place-content: center;
+    grid-area: right;
+  }
 }
 
 .forgotpass1--form--name--wrapper {
-  position: relative;
-  
   padding: 0;
+  position: relative;
 }
 
 .forgotpass1--form--label {
@@ -80,25 +123,25 @@
 
 .forgotpass1--form--image {
   width: 30px;
-  left: 2.75%;
+  position: absolute;
   top: 62%;
+  left: 2.75%;
   opacity: .65;
   transform: translateY(-50%);
-  position: absolute;
 }
 
 .forgotpass1--form--input {
   color: var(--clr-gray-scale-90);
-  font-size: var(--fs-400);
   width: 100%;
+  margin: .75rem 0;
+  padding: .7rem 3rem;
   
   background: var(--clr-gray-scale-800);
-  border-radius: 1.5rem;
-  padding: .7rem 3rem;
-  margin: .75rem 0;
+  outline: 0;
   
   border: 0;
-  outline: 0;
+  font-size: var(--fs-400);
+  border-radius: 1.5rem;
   
   transition: all 200ms linear;
   
@@ -108,156 +151,26 @@
   
   &:hover,
   &:focus {
-    background: var(--clr-gray-scale-800);
     box-shadow: 0 0 0 3px var(--clr-accent-200);
+    background: var(--clr-gray-scale-800);
   }
 }
 
 .forgotpass1--button {
   font-family: var(--ff-montserrat);
-  font-size: var(--fs-400);
   color: var(--clr-gray-scale-90);
+  margin: 2rem 0;
+  padding: .5rem;
   
   background: var(--clr-accent-200);
-  border-radius: .5rem;
-  border: 0;
   outline: 0;
-  padding: .5rem;
-  margin: 2rem 0;
-
+  border: 0;
+  font-size: var(--fs-400);
+  border-radius: .5rem;
+  
   transition: all 200ms linear;
   
   &:hover {
     background: var(--clr-accent-300);
   }
-}
-
-
-@include mq(1200px) {
-  .forgotpass1--body {
-    place-content: center;
-  }
-  
-  .forgotpass1--wrapper {
-    display: grid;
-    gap: 2rem;
-    
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: 
-    "left center right";
-  }
-  
-  .forgotpass1--left {
-    display: grid;
-    grid-area: left;
-    
-    place-content: center;
-  }
-  
-  .forgotpass1--center {
-    display: grid;
-    grid-area: center;
-    
-    place-content: center;
-  }
-  
-  .forgotpass1--form {
-    display: grid;
-    place-content: center;
-    
-    width: 100%;
-    height: 35rem;
-    background: var(--clr-gray-scale-700);
-    padding: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .forgotpass1--forgotten {
-    font-size: var(--fs-700);
-  }
-  
-  .forgotpass1--forgotten,
-  .forgotpass1--paragraph {
-    text-align: center;
-  }
-  
-  .forgotpass1--image {
-    margin: 1rem auto;
-  }
-  
-  .forgotpass1--right {
-    display: grid;
-    grid-area: right;
-    
-    place-content: center;
-  }
-  
-  .forgotpass1--form--name--wrapper {
-    position: relative;
-    
-    padding: 0;
-  }
-  
-  .forgotpass1--form--label {
-    font-family: var(--ff-montserrat);
-    font-size: var(--fs-300);
-    
-    margin-left: .75rem;
-  }
-  
-  .forgotpass1--form--image {
-    width: 30px;
-    left: 2.75%;
-    top: 62%;
-    opacity: .65;
-    transform: translateY(-50%);
-    position: absolute;
-  }
-  
-  .forgotpass1--form--input {
-    color: var(--clr-gray-scale-90);
-    font-size: var(--fs-400);
-    width: 100%;
-    
-    background: var(--clr-gray-scale-800);
-    border-radius: 1.5rem;
-    padding: .7rem 3rem;
-    margin: .75rem 0;
-    
-    border: 0;
-    outline: 0;
-    
-    transition: all 200ms linear;
-    
-    &:placeholder {
-      margin-left: 2rem;
-    }
-    
-    &:hover,
-    &:focus {
-      background: var(--clr-gray-scale-800);
-      box-shadow: 0 0 0 3px var(--clr-accent-200);
-    }
-  }
-  
-  .forgotpass1--button {
-    font-family: var(--ff-montserrat);
-    font-size: var(--fs-400);
-    color: var(--clr-gray-scale-90);
-    
-    background: var(--clr-accent-200);
-    border-radius: .5rem;
-    border: 0;
-    outline: 0;
-    padding: .5rem;
-    margin: 2rem 0;
-    
-    transition: all 200ms linear;
-    
-    &:hover {
-      background: var(--clr-accent-300);
-    }
-  }
-  
 }
