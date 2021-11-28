@@ -1,17 +1,18 @@
 /* 
 * Forwards All Files From Pages To Here
 */
+// Login Pages
 @forward '../pages/login';
 @forward '../pages/register';
 @forward '../pages/forgotpass1';
 @forward '../pages/forgotpass2';
 @forward '../pages/forgotpass3';
-
+// Main Pages
 @forward '../pages/main.scss';
 @forward '../pages/support';
 @forward '../pages/aboutus';
-
+// Secondary Pages
 @forward '../pages/product-page';
 @forward '../pages/profile';
-
+// Import Mixins
 @forward '../abstracts/mixins';
