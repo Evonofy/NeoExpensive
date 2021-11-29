@@ -1,11 +1,25 @@
 @use '../abstracts/mixins' as *;
 
+.profile--body {
+  @include mq(1200px) {
+    padding: 1rem;
+  }
+}
+
 .profile--wrapper {
   width: 100%;
 
   padding: 0;
 
   background: var(--clr-gray-scale-600);
+
+  @include mq(1200px) {
+    height: 95vh;
+    
+    padding: 0;
+    background: var(--clr-gray-scale-700);
+    border-radius: 1rem;
+  }
 }
 
 .profile--banner {
@@ -15,6 +29,7 @@
   background-image: url(../images/pages/profile/ben-o-bro-unsplash.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 1rem;
 }
 
 .profile--avatar {
@@ -30,12 +45,26 @@
   }
 }
 
+.profile--purchase--wrapper {
+  @include mq(1200px) {
+    display: flex;
+  }
+}
+
 .profile--name {
   width: none;
 
   text-align: center;
   margin-top: auto;
   margin-left: auto;
+
+  @include mq(1200px) {
+    width: max-content;
+
+    margin-top: 1rem;
+    margin-left: 5rem;
+    margin-right: 0;
+  }
 }
 
 .profile--purchase {
@@ -51,6 +80,18 @@
   
   margin-left: auto;
   margin-right: auto;
+
+  @include mq(1200px) {
+    width: max-content;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    margin-left: 5rem;
+    margin-right: 0;
+  }
 }
 
 .profile--purchase--options {
@@ -60,6 +101,15 @@
   gap: 2rem;
   
   margin: 1.5rem 0;
+
+  @include mq(1200px) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    
+    margin: 1.5rem 5rem;
+  }
 }
 
 .profile--purchase--category {
@@ -69,6 +119,10 @@
 
 .profile--purchase--image {
   width: 30px;
+
+  @include mq(1200px) {
+    width: 40px;
+  }
 }
 
 .profile--purchase--history {
@@ -101,6 +155,10 @@
   font-size: var(--fs-600);
   
   padding: 1rem; 
+
+  @include mq(1200px) {
+    font-size: var(--fs-500);
+  }
 }
 
 .profile--history--card--price {
@@ -115,131 +173,8 @@
 
 .profile--product {
   width: 250px;
-}
 
-@include mq(1200px) {
-  .profile--body {
-    padding: 1rem;
-  }
-
-  .profile--wrapper {
-    height: 95vh;
-    
-    padding: 0;
-    background: var(--clr-gray-scale-700);
-    border-radius: 1rem;
-  }
-  
-  .profile--banner {
-    width: 100%;
-    height: 30vh;
-    
-    background-image: url(../images/pages/profile/ben-o-bro-unsplash.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    border-radius: 1rem;
-  }
-  
-  .profile--avatar {    
-    &--image {
-      width: 220px;
-      
-      margin-top: -10rem;
-      margin-left: 5rem;
-      margin-right: auto;
-      
-      background: var(--clr-gray-scale-800);
-      border-radius: 1rem;
-    }
-  }
-  
-  .profile--name {
-    width: max-content;
-
-    text-align: center;
-    margin-top: 1rem;
-    margin-left: 5rem;
-    margin-right: 0;
-  }
-
-  .profile--purchase--wrapper {
-    display: flex;
-  }
-  
-  .profile--purchase {
-    width: max-content;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    margin-left: 5rem;
-    margin-right: 0;
-  }
-  
-  .profile--purchase--options {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
-    
-    margin: 1.5rem 5rem;
-  }
-
-  .profile--purchase--category {
-    display: flex;
-    align-items: center;
-  }
-
-  .profile--purchase--image {
-    width: 40px;
-  }
-
-  .profile--purchase--history {
-    font-size: var(--fs-500);
-  }
-  
-  .profile--history--card {
-    width: 100%;
-    text-align: center;
-    background: var(--clr-gray-scale-800);  
-  }
-  
-  .profile--history--card:nth-child(1) {
-    border-top-right-radius: 1rem;
-    border-top-left-radius: 1rem;
-  }
-  
-  .profile--history--card:nth-child(2) {
-    overflow: hidden;
-    border-bottom-right-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-  }
-  
-  .profile--history--card--paragraph, 
-  .profile--history--card--price {
-    background: var(--clr-gray-scale-900);
-  }
-  
-  .profile--history--card--paragraph {
-    font-size: var(--fs-500);
-    
-    padding: 1rem; 
-  }
-  
-  .profile--history--card--price {
-    color: var(--clr-secondary-green-200);
-    
-    padding: .5rem;
-    border-bottom-right-radius: 1rem;
-    
-    border-bottom-left-radius: 1rem;
-    font-size: var(--fs-500);
-  }
-  
-  .profile--product {
+  @include mq(1200px) {
     width: 200px;
   }
 }
