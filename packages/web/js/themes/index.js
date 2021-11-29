@@ -12,6 +12,21 @@ export class Theme {
     rgb: "rgb",
   };
 
+  nextTheme() {
+    const themeArray = Object.keys(this.availableThemes);
+
+    const current = themeArray.indexOf(
+      document.body.getAttribute("data-theme")
+    );
+    const max = themeArray.length;
+    let next = current + 1;
+
+    /** If next item reaches the max of the array, set it to the first array item */
+    if (next === max) next = 0;
+
+    return themeArray[next];
+  }
+
   constructor(theme) {
     let newTheme = theme;
 
@@ -33,17 +48,8 @@ export class Theme {
 
   /** This will cycle through all themes */
   cycle() {
-    const themeArray = Object.keys(this.availableThemes);
+    const nextTheme = this.nextTheme();
 
-    const current = themeArray.indexOf(
-      document.body.getAttribute("data-theme")
-    );
-    const max = themeArray.length;
-    let next = current + 1;
-
-    /** If next item reaches the max of the array, set it to the first array item */
-    if (next === max) next = 0;
-
-    this.setTheme(themeArray[next]);
+    this.setTheme(nextTheme);
   }
 }
