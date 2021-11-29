@@ -1,4 +1,8 @@
-export const useSelector = (selector) => {
+export const useSelector = (selector, all) => {
+  const $ = !all
+    ? document.querySelector.bind(document)
+    : document.querySelectorAll.bind(document);
+
   const isClass = !!selector.split(".")[1];
   const isID = !!selector.split("#")[1];
 
@@ -6,8 +10,8 @@ export const useSelector = (selector) => {
     console.log("theres no selector!!!!!");
     /* get the selector string and search for it in the DOM */
 
-    const classSelectorElement = document.querySelector(`.${selector}`);
-    const IDSelectorElement = document.querySelector(`#${selector}`);
+    const classSelectorElement = $(`.${selector}`);
+    const IDSelectorElement = $(`#${selector}`);
 
     if (!!classSelectorElement) {
       console.log("found a class!!!");
@@ -22,5 +26,5 @@ export const useSelector = (selector) => {
     }
   }
 
-  return document.querySelector(selector);
+  return $(selector);
 };
