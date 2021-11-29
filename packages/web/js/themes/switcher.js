@@ -1,5 +1,5 @@
-import { Theme } from './themes/index.js';
-import { useSelector } from './hooks/useSelector.js';
+import { Theme } from './index.js';
+import { useSelector } from '../hooks/useSelector.js';
 
 /* feed localstorage theme to Theme API */
 const localTheme = localStorage.getItem('theme');
