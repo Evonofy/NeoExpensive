@@ -1,6 +1,6 @@
 export class Theme {
   /** Current theme */
-  theme;
+  theme = this.getStorageTheme();
 
   /** Theme that will be used as callback */
   defaultTheme = "dark";
@@ -44,6 +44,10 @@ export class Theme {
 
     localStorage.setItem("theme", theme);
     document.body.setAttribute("data-theme", theme);
+  }
+
+  getStorageTheme() {
+    return localStorage.getItem("theme");
   }
 
   /** This will cycle through all themes */
