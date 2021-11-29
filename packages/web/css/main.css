@@ -446,7 +446,7 @@ select {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   gap: 1.35rem;
   margin-top: auto;
   padding-top: 3rem;
@@ -554,21 +554,24 @@ select {
   height: 100vh;
   display: flex;
   grid-area: banner;
-  padding: 2rem;
   background: var(--clr-accent-200);
+  padding: 2rem;
   position: relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 .login--banner--h3 {
+  font-size: 2rem;
   font-weight: 400;
   color: var(--color-gray-scale-90);
   margin-top: 1rem;
-  font-size: 2rem;
 }
 .login--banner--h2 {
   font-weight: 300;
+}
+.login--banner--image {
+  width: 800px;
 }
 @media only screen and (min-width: 992px) {
   .login--banner {
@@ -576,40 +579,17 @@ select {
     height: 100vh;
     display: flex;
     grid-area: banner;
+    background: var(--clr-accent-200);
     padding: 2rem;
-    background: var(--clr-accent-200);
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
   .login--banner--h3 {
+    font-size: 2rem;
     font-weight: 400;
     color: var(--clr-gray-scale-90);
     margin-top: 1rem;
-    font-size: 2rem;
-  }
-  .login--banner--h2 {
-    font-weight: 300;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .login--banner {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    grid-area: banner;
-    padding: 15rem;
-    background: var(--clr-accent-200);
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .login--banner--h3 {
-    font-weight: 400;
-    color: var(--clr-gray-scale-90);
-    margin-top: 1rem;
-    font-size: 2rem;
   }
   .login--banner--h2 {
     font-weight: 300;
@@ -649,8 +629,8 @@ select {
 }
 
 .login--form--h1 {
-  text-align: center;
   font-size: var(--fs-400);
+  text-align: center;
 }
 @media only screen and (min-width: 992px) {
   .login--form--h1 {
@@ -700,20 +680,20 @@ select {
 }
 
 .login--form--label {
-  font-family: var(--ff-montserrat);
   font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
   margin-left: 0.75rem;
 }
 
 .login--form--input {
+  font-size: 1.35rem;
   color: var(--clr-gray-scale-90);
   width: 100%;
+  background: var(--clr-gray-scale-700);
   margin: 0.75rem 0;
   padding: 0.7rem 3rem;
-  background: var(--clr-gray-scale-700);
   outline: 0;
   border: 0;
-  font-size: 1.35rem;
   border-radius: 1.5rem;
   transition: all 200ms linear;
 }
@@ -721,19 +701,19 @@ select {
   margin-left: 2rem;
 }
 .login--form--input:hover, .login--form--input:focus {
-  box-shadow: 0 0 0 3px var(--clr-accent-200);
   background: var(--clr-gray-scale-700);
+  box-shadow: 0 0 0 3px var(--clr-accent-200);
 }
 @media only screen and (min-width: 992px) {
   .login--form--input .login--form--input {
+    font-size: var(--fs-400);
     color: var(--clr-gray-scale-90);
     width: 100%;
+    background: var(--clr-gray-scale-700);
     margin: 0.75rem 0;
     padding: 0.7rem 3rem;
-    background: var(--clr-gray-scale-700);
     outline: 0;
     border: 0;
-    font-size: var(--fs-400);
     border-radius: 1.5rem;
     transition: all 200ms linear;
   }
@@ -741,21 +721,21 @@ select {
     margin-left: 2rem;
   }
   .login--form--input .login--form--input:hover, .login--form--input .login--form--input:focus {
-    box-shadow: 0 0 0 3px var(--clr-accent-200);
     background: var(--clr-gray-scale-800);
+    box-shadow: 0 0 0 3px var(--clr-accent-200);
   }
 }
 
 .login--form--button {
   font-family: var(--ff-montserrat);
+  text-align: center;
   color: var(--clr-gray-scale-90);
   width: 100%;
+  background: var(--clr-accent-200);
   margin: 1.5rem 0;
   padding: 0.85rem;
-  background: var(--clr-accent-200);
   outline: 0;
   border: 0;
-  text-align: center;
   border-radius: 1rem;
   transition: all 200ms ease;
 }
@@ -765,13 +745,13 @@ select {
 @media only screen and (min-width: 992px) {
   .login--form--button {
     font-family: var(--ff-montserrat);
+    text-align: center;
     color: var(--clr-gray-scale-90);
+    background: var(--clr-accent-200);
     margin: 1.5rem 0;
     padding: 0.85rem;
-    background: var(--clr-accent-200);
     outline: 0;
     border: 0;
-    text-align: center;
     border-radius: 1rem;
     transition: all 200ms ease;
   }
@@ -808,11 +788,11 @@ select {
   width: 90%;
   display: flex;
   align-items: center;
+  background: #4285f4;
   margin-top: 1.5rem;
   margin-left: auto;
   margin-right: auto;
   padding: 0.5rem;
-  background: #4285f4;
   border-radius: 1rem;
 }
 .login--form--google--wrapper .login--form--google {
@@ -825,9 +805,9 @@ select {
     width: 100%;
     display: flex;
     align-items: center;
+    background: #4285f4;
     margin-top: 1.5rem;
     padding: 0.5rem;
-    background: #4285f4;
     border-radius: 1rem;
   }
   .login--form--google--wrapper .login--form--google {
@@ -853,16 +833,24 @@ select {
 }
 
 .login--remember--label {
+  font-size: 0.8rem;
   font-family: var(--ff-montserrat);
-  font-size: 1rem;
   accent-color: var(--clr-accent-200);
+}
+@media only screen and (min-width: 992px) {
+  .login--remember--label {
+    font-size: var(--fs-300);
+  }
 }
 
 .login--forgot {
+  font-size: 0.8rem;
+  font-family: var(--ff-montserrat);
   margin-right: 1.25rem;
 }
 @media only screen and (min-width: 992px) {
   .login--forgot {
+    font-size: var(--fs-300);
     margin-right: 0.75rem;
   }
 }
@@ -888,8 +876,8 @@ select {
   flex-direction: column;
   justify-content: center;
   grid-area: banner;
-  padding: 2rem;
   background: var(--clr-accent-200);
+  padding: 2rem;
 }
 @media only screen and (min-width: 992px) {
   .register--illustration {
@@ -898,8 +886,8 @@ select {
     flex-direction: column;
     justify-content: center;
     grid-area: banner;
-    padding: 2rem;
     background: var(--clr-accent-200);
+    padding: 2rem;
   }
 }
 
@@ -935,8 +923,8 @@ select {
   justify-content: center;
   grid-area: register;
   gap: 0;
-  padding: 3rem 0;
   background: var(--clr-gray-scale-900);
+  padding: 3rem 0;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   position: relative;
@@ -973,9 +961,9 @@ select {
     justify-content: center;
     grid-area: register;
     gap: 0.5rem;
+    background: var(--clr-gray-scale-900);
     margin: auto;
     padding: 1rem 3rem;
-    background: var(--clr-gray-scale-900);
     position: relative;
     border-radius: 1rem;
   }
@@ -994,28 +982,26 @@ select {
 }
 
 .register--form--input--wrapper {
+  width: 100%;
   padding: 0.7rem;
   position: relative;
 }
 @media only screen and (min-width: 992px) {
   .register--form--input--wrapper {
-    width: 4rem;
-    height: 4rem;
     margin-bottom: 0.55rem;
     padding: 0;
-    position: relative;
   }
 }
 
 .register--form--label {
-  font-family: var(--ff-montserrat);
   font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
   margin-left: 0.75rem;
 }
 @media only screen and (min-width: 992px) {
   .register--form--label {
-    font-family: var(--ff-montserrat);
     font-size: var(--fs-300);
+    font-family: var(--ff-montserrat);
     margin-left: 0.75rem;
   }
 }
@@ -1036,14 +1022,14 @@ select {
 }
 
 .register--form--input {
+  font-size: var(--fs-400);
   color: var(--clr-gray-scale-90);
   width: 100%;
+  background: var(--clr-gray-scale-700);
   margin: 0.3rem 0;
   padding: 0.7rem 3rem;
-  background: var(--clr-gray-scale-700);
   outline: 0;
   border: 0;
-  font-size: var(--fs-400);
   border-radius: 1.5rem;
   transition: all 200ms linear;
 }
@@ -1051,8 +1037,8 @@ select {
   margin-left: 2rem;
 }
 .register--form--input:hover, .register--form--input:focus {
-  box-shadow: 0 0 0 3px var(--clr-accent-200);
   background: var(--clr-gray-scale-700);
+  box-shadow: 0 0 0 3px var(--clr-accent-200);
 }
 
 .register--button {
@@ -1067,8 +1053,8 @@ select {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 0.5rem 0.9rem;
   background: var(--clr-accent-200);
+  padding: 0.5rem 0.9rem;
   line-height: 1.6;
   border-radius: 0.5rem;
   transition: all 200ms ease-in-out;
@@ -1085,11 +1071,11 @@ select {
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
+  background: #4285f4;
   margin-top: 30px;
   padding: 0 12px;
   padding-top: 6px;
   padding-bottom: 5px;
-  background: #4285f4;
   line-height: 1.6;
   border-radius: 0.5rem;
   transition: all 200ms ease-in-out;
@@ -1905,6 +1891,7 @@ select {
   border-radius: 0.25rem;
 }
 .support--section--left--input {
+  font-size: 1.35rem;
   color: var(--clr-gray-scale-90);
   width: max-content;
   padding: 0.45rem;
@@ -1914,7 +1901,6 @@ select {
   background-size: 0% 4px;
   outline: 0;
   border: 0;
-  font-size: 1.35rem;
   background-color: var(--clr-gray-scale-700);
   transition: all 150ms ease-in;
 }
@@ -1943,6 +1929,7 @@ select {
     border-radius: 0.25rem;
   }
   .support--section--right--input {
+    font-size: 1.35rem;
     color: var(--clr-gray-scale-90);
     padding: 0.45rem;
     background-image: linear-gradient(var(--clr-gray-scale-90), var(--clr-gray-scale-100));
@@ -1951,7 +1938,6 @@ select {
     background-size: 0% 4px;
     outline: 0;
     border: 0;
-    font-size: 1.35rem;
     background-color: var(--clr-gray-scale-700);
     transition: all 150ms ease-in;
   }
@@ -2004,28 +1990,21 @@ select {
 }
 
 .support--section--card--wrapper {
-  max-width: 310px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
   margin-left: auto;
   margin-right: auto;
-}
-@media only screen and (min-width: 576px) {
-  .support--section--card--wrapper {
-    max-width: none;
-    display: grid;
-    gap: 2.5rem;
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 0;
-    margin-right: 0;
-    padding: 2rem;
-  }
 }
 @media only screen and (min-width: 992px) {
   .support--section--card--wrapper {
     max-width: none;
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
     margin: 1.5rem;
     margin-left: 3rem;
     margin-right: 3rem;
@@ -2047,7 +2026,7 @@ select {
   margin-bottom: 2rem;
   padding: 1.5rem;
   box-shadow: 5px 5px 0 5px var(--clr-accent-200);
-  background: var(--clr-gray-scale-90);
+  background: var(--clr-gray-scale-800);
   border: solid 5px var(--clr-accent-100);
   flex-direction: column;
   align-items: center;
@@ -2065,7 +2044,7 @@ select {
   content: "";
   width: 100%;
   height: 5%;
-  background: var(--color-contrast-higher);
+  background: var(--clr-gray-scale-90);
   position: absolute;
   bottom: -10%;
   left: 0;
@@ -2073,34 +2052,7 @@ select {
 }
 @media only screen and (min-width: 992px) {
   .support--section--card {
-    height: auto;
-    display: flex;
-    gap: 1rem;
     padding: 1.5rem;
-    box-shadow: 5px 5px 0 5px var(--clr-accent-200);
-    background: var(--clr-gray-scale-800);
-    border: solid 5px var(--clr-accent-100);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .support--section--card--h1 {
-    font-size: var(--fs-500);
-    width: 8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .support--section--card--h1::after {
-    content: "";
-    width: 100%;
-    height: 20%;
-    background: var(--clr-gray-scale-90);
-    position: absolute;
-    bottom: -10%;
-    left: 0;
-    border-radius: 1rem;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -2110,27 +2062,10 @@ select {
     justify-content: space-around;
     gap: 1rem;
     padding: 3rem;
-    background: var(--clr-gray-scale-700);
-    border: solid 4px var(--clr-accent-200);
     flex-direction: column;
   }
-  .support--section--card--h1 {
-    font-size: var(--fs-400);
-    width: 8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
   .support--section--card--h1::after {
-    content: "";
-    width: 100%;
     height: 20%;
-    background: var(--clr-gray-scale-90);
-    position: absolute;
-    bottom: -10%;
-    left: 0;
-    border-radius: 1rem;
   }
   .support--section--card--svg {
     width: 100%;
@@ -2142,13 +2077,17 @@ select {
 }
 
 .support--card--h1 {
-  font-size: var(--fs-500);
+  font-size: var(--fs-700);
+  color: var(--clr-gray-scale-90);
+  width: 10rem;
   position: relative;
+  text-align: center;
+  opacity: 0.65;
 }
 .support--card--h1::after {
   content: "";
   width: 100%;
-  height: 10px;
+  height: 7px;
   background: var(--clr-gray-scale-90);
   position: absolute;
   bottom: 0;
@@ -2159,18 +2098,8 @@ select {
 @media only screen and (min-width: 992px) {
   .support--card--h1 {
     font-size: var(--fs-600);
+    width: 8rem;
     position: relative;
-  }
-  .support--card--h1::after {
-    content: "";
-    width: 100%;
-    height: 10px;
-    background: var(--clr-gray-scale-90);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-radius: 1rem;
-    opacity: 0.65;
   }
 }
 
@@ -2196,7 +2125,7 @@ select {
 }
 
 .support--card--svg {
-  width: 100%;
+  width: 150px;
   height: auto;
   opacity: 0.65;
   margin-top: 1rem;
@@ -2247,7 +2176,7 @@ select {
 }
 .aboutus--section--right--image--logo,
 .aboutus--section--left--image--logo {
-  width: 320px;
+  width: 300px;
 }
 @media only screen and (min-width: 992px) {
   .aboutus--section--right,
@@ -2273,25 +2202,26 @@ select {
   text-align: center;
   max-width: 35ch;
   flex-direction: column;
+  margin: 0 0.5rem;
 }
 @media only screen and (min-width: 992px) {
   .aboutus--section--paragraph,
 .aboutus--section--h2 {
-    max-width: 40ch;
     font-size: 1.45rem;
     text-align: center;
+    max-width: 40ch;
   }
 }
 
 .aboutus--section--h1 {
-  color: var(--clr-accent-200);
-  text-align: center;
   font-size: 1.35rem;
+  text-align: center;
+  color: var(--clr-accent-200);
 }
 @media only screen and (min-width: 992px) {
   .aboutus--section--h1 {
-    color: var(--clr-accent-200);
     font-size: 2rem;
+    color: var(--clr-accent-200);
   }
 }
 
@@ -2380,14 +2310,18 @@ select {
 }
 
 .aboutus--section--profile {
-  display: flex;
   text-align: center;
+  display: flex;
+  gap: 0.5rem;
+  background: var(--clr-gray-scale-700);
+  padding: 2rem;
+  border-radius: 1rem;
   flex-direction: column;
 }
 @media only screen and (min-width: 992px) {
   .aboutus--section--profile {
-    display: flex;
     text-align: center;
+    display: flex;
     flex-direction: column;
   }
 }
@@ -2409,13 +2343,24 @@ select {
 }
 @media only screen and (min-width: 992px) {
   .aboutus--section--profile--paragraph {
-    margin-top: 0.75rem;
     font-size: var(--fs-400);
+    margin-top: 0.75rem;
   }
 }
 
 .aboutus--section--profile--function {
   color: var(--clr-accent-200);
+}
+
+.aboutus--section--profile--link {
+  width: max-content;
+  margin: auto;
+}
+.aboutus--section--profile--link--image {
+  width: 50px;
+  background: var(--clr-accent-200);
+  padding: 0.5rem;
+  border-radius: 50%;
 }
 
 @media only screen and (min-width: 1200px) {
