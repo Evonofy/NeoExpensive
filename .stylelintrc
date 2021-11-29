@@ -20,8 +20,8 @@
         "ignore": ["after-comment"]
       }
     ],
-    "color-no-invalid-hex": true,
     "function-url-quotes": null,
+    "selector-id-pattern": null,
     "no-descending-specificity": null,
     "declaration-block-no-shorthand-property-overrides": null,
     "declaration-block-no-redundant-longhand-properties": null,
@@ -125,7 +125,8 @@
       2
     ],
     "custom-property-pattern": null,
-    "color-no-hex": true,
+    "color-no-invalid-hex": null,
+    "color-no-hex": null,
     "color-named": "always-where-possible",
     "color-hex-case": [
       "lower",
