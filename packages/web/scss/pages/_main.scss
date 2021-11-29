@@ -3,7 +3,7 @@
 .main--banner {
   height: 30vh;
   
-  margin-top: 9rem;
+  margin-top: 9.5rem;
   background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,8 +44,9 @@
 
 .main--title {
   text-align: center;
-  font-size: var(--fs-600);
-  
+  font-size: var(--fs-800);
+  margin: 1.3rem 0;
+
   @include mq(992px) {
     font-size: var(--fs-700);
     
@@ -101,7 +102,7 @@
   
   &:hover .main--category--card--label,
   &:focus .main--category--card--label {
-    width: 20rem;
+    width: 17rem;
     box-shadow: 
     0 7px 0 var(--color-contrast-lowest);
     
@@ -131,12 +132,19 @@
   &:focus .redragon--hover {
     background-image: linear-gradient(90deg, hsl(0 100% 50%) 0%, hsl(19 100% 50%) 100%);
   }
+
+  @include mq(992px) {
+    &:hover .main--category--card--label,
+    &:focus .main--category--card--label {
+      width: 10rem;
+    }
+  }
 }
 
 .main--category--card--label {
   content: '';
   
-  width: 7rem;
+  width: 10rem;
   height: 5rem;
   
   display: flex;
@@ -162,6 +170,10 @@
   &--text {
     font-size: 1.5rem;
     color: var(--clr-gray-scale-90);
+  }
+
+  @include mq(992px) {
+    width: 7rem;
   }
 }
 
@@ -309,6 +321,10 @@
 }
 
 .main--offers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: column;
+  
   @include mq(992px) {
     display: grid;
     gap: 3rem;
