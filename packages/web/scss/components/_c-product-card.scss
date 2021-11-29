@@ -1,10 +1,13 @@
 @use '../abstracts/_mixins.scss' as *;
 
 .product--card {
+  width: max-content;
+  margin: 1.4rem auto;
+
   box-shadow: 1px 15px 20px black;
   background: var(--clr-gray-scale-700);
   border-radius: 1rem;
-  
+
   &--image {
     display: flex;
     padding: .85rem;
@@ -51,59 +54,58 @@
   }
 
   @include mq(992px) {
-    .product--card {
-      width: 100%;
-      box-shadow: 1px 15px 20px black;
-      background: var(--clr-gray-scale-700);
-      border-radius: 1rem;
+    width: 100%;
+    box-shadow: 1px 15px 20px black;
+    background: var(--clr-gray-scale-700);
+    border-radius: 1rem;
       
-      &--image {
-        display: flex;
-        padding: .85rem;
+    &--image {
+      display: flex;
+      padding: .85rem;
         
-        background: var(--clr-gray-scale-90);
-        border-top-right-radius: 1rem;
-        border-top-left-radius: 1rem;
+      background: var(--clr-gray-scale-90);
+      border-top-right-radius: 1rem;
+      border-top-left-radius: 1rem;
         
-        cursor: pointer;
+      cursor: pointer;
         
-        transition: all 200ms ease-in-out;
+      transition: all 200ms ease-in-out;
         
-        @include items-center;
+      @include items-center;
         
-        &:hover {
-          transform: scale(1.1);
-          border-radius: 1rem;
-        }
+      &:hover {
+        transform: scale(1.1);
+        border-radius: 1rem;
       }
-      
-      &--desc {
-        padding: 1rem;
-      }
-      
-      &--paragraph,
-      &--buy {
-        font-size: 1rem;
-        text-transform: uppercase;
-      }
-      
-      &--title {  
-        max-width: 20ch;
-        min-height: 5rem;
-        
-        font-size: .9rem;    
-        
-        margin-bottom: .5rem;
-      }
-      
-      &--paragraph {
-        color: limegreen;
-        
-        margin: .95rem 0;
-      }
-      
-      
     }
+      
+    &--desc {
+      padding: 1rem;
+    }
+      
+    &--paragraph,
+    &--buy {
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+      
+    &--title {  
+      max-width: 20ch;
+      min-height: 5rem;
+        
+      font-size: .9rem;    
+        
+      margin-bottom: .5rem;
+    }
+      
+    &--paragraph {
+      color: limegreen;
+        
+      margin: .95rem 0;
+    }
+      
+      
+    
   }
   
   @include mq(1200px) {

@@ -1518,7 +1518,7 @@ select {
 
 .main--banner {
   height: 30vh;
-  margin-top: 9rem;
+  margin-top: 9.5rem;
   background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -1558,7 +1558,8 @@ select {
 
 .main--title {
   text-align: center;
-  font-size: var(--fs-600);
+  font-size: var(--fs-800);
+  margin: 1.3rem 0;
 }
 @media only screen and (min-width: 992px) {
   .main--title {
@@ -1609,7 +1610,7 @@ select {
   transform: scale(0.95);
 }
 .main--category--card:hover .main--category--card--label, .main--category--card:focus .main--category--card--label {
-  width: 20rem;
+  width: 17rem;
   box-shadow: 0 7px 0 var(--color-contrast-lowest);
   background-size: 100% 100%;
   top: 50%;
@@ -1629,10 +1630,15 @@ select {
 .main--category--card:hover .redragon--hover, .main--category--card:focus .redragon--hover {
   background-image: linear-gradient(90deg, red 0%, #ff5100 100%);
 }
+@media only screen and (min-width: 992px) {
+  .main--category--card:hover .main--category--card--label, .main--category--card:focus .main--category--card--label {
+    width: 10rem;
+  }
+}
 
 .main--category--card--label {
   content: "";
-  width: 7rem;
+  width: 10rem;
   height: 5rem;
   display: flex;
   background: var(--clr-gray-scale-700);
@@ -1653,6 +1659,11 @@ select {
 .main--category--card--label--text {
   font-size: 1.5rem;
   color: var(--clr-gray-scale-90);
+}
+@media only screen and (min-width: 992px) {
+  .main--category--card--label {
+    width: 7rem;
+  }
 }
 
 .amd {
@@ -1782,6 +1793,11 @@ select {
   background-image: url(../images/pages/main/department/accessories.webp);
 }
 
+.main--offers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: column;
+}
 @media only screen and (min-width: 992px) {
   .main--offers {
     display: grid;
@@ -3192,6 +3208,8 @@ select {
 }
 
 .product--card {
+  width: max-content;
+  margin: 1.4rem auto;
   box-shadow: 1px 15px 20px black;
   background: var(--clr-gray-scale-700);
   border-radius: 1rem;
@@ -3229,13 +3247,13 @@ select {
   margin: 0.95rem 0;
 }
 @media only screen and (min-width: 992px) {
-  .product--card .product--card {
+  .product--card {
     width: 100%;
     box-shadow: 1px 15px 20px black;
     background: var(--clr-gray-scale-700);
     border-radius: 1rem;
   }
-  .product--card .product--card--image {
+  .product--card--image {
     display: flex;
     padding: 0.85rem;
     background: var(--clr-gray-scale-90);
@@ -3246,24 +3264,24 @@ select {
     align-items: center;
     justify-content: center;
   }
-  .product--card .product--card--image:hover {
+  .product--card--image:hover {
     transform: scale(1.1);
     border-radius: 1rem;
   }
-  .product--card .product--card--desc {
+  .product--card--desc {
     padding: 1rem;
   }
-  .product--card .product--card--paragraph, .product--card .product--card--buy {
+  .product--card--paragraph, .product--card--buy {
     font-size: 1rem;
     text-transform: uppercase;
   }
-  .product--card .product--card--title {
+  .product--card--title {
     max-width: 20ch;
     min-height: 5rem;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
-  .product--card .product--card--paragraph {
+  .product--card--paragraph {
     color: limegreen;
     margin: 0.95rem 0;
   }
