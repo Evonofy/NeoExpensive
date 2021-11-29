@@ -1,0 +1,16 @@
+@import '../base';
+
+@mixin use-media($breakpoint) {
+  /*
+    BREAKPOINTS:
+    sm: 425px
+    md: 768px
+    lg: 992px
+    xl: 1200px
+  */
+  $size: map-get($breakpoints, $breakpoint) * 1rem;
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
