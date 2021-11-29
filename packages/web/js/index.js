@@ -17,9 +17,15 @@ import { useSelector } from "./hooks/useSelector.js";
 const themeSwitcherButtons = useSelector(".theme--switcher--button", true);
 
 themeSwitcherButtons.forEach((button) => {
+  /* put the next theme name in the button */
+  button.innerHTML = theme.nextTheme();
+
   button.onclick = () => {
     /* go to next theme */
     theme.cycle();
+
+    /* update button name */
+    button.innerHTML = theme.nextTheme();
   };
 });
 
