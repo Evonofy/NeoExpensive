@@ -9,7 +9,6 @@
     "scss/at-else-empty-line-before": null,
     "named-grid-areas-no-invalid": true,
     "block-no-empty": true,
-    "color-function-notation": "legacy",
     "hue-degree-notation": "number",
     "at-rule-empty-line-before": [
       "always", {
@@ -125,6 +124,7 @@
       2
     ],
     "custom-property-pattern": null,
+    "color-function-notation": null,
     "color-no-invalid-hex": null,
     "color-no-hex": null,
     "color-named": "always-where-possible",
