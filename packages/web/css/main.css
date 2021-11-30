@@ -2364,10 +2364,11 @@ select {
 }
 
 .checkout--body {
+  width: 100%;
   display: grid;
   grid-template-areas: "progress-state" "content-area" "aside-info";
   grid-template-columns: 1fr;
-  grid-template-rows: 0.15fr max-content 1fr;
+  grid-template-rows: 0.15fr 1fr 1fr;
 }
 @media only screen and (min-width: 1024px) {
   .checkout--body {
@@ -2651,18 +2652,21 @@ select {
     text-align: left;
     margin-top: 1rem;
     margin-left: 1rem;
-    margin-right: 1rem;
+    margin-right: 1.1rem;
   }
 }
 
 .checkout1--prices {
   text-align: center;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media only screen and (min-width: 992px) {
   .checkout1--prices {
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
