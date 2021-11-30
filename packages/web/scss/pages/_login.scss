@@ -23,9 +23,9 @@
   display: flex;
   
   grid-area: banner;
-  padding: 2rem;
   
   background: var(--clr-accent-200);
+  padding: 2rem;
   
   position: relative;
   
@@ -33,14 +33,18 @@
   @include column;
   
   &--h3 {
+    font-size: 2rem;
     font-weight: 400;
     color: var(--color-gray-scale-90);
     margin-top: 1rem;
-    font-size: 2rem;
   }
   
   &--h2 {
     font-weight: 300;
+  }
+
+  &--image {
+    width: 800px;
   }
   
   @include mq(992px) {
@@ -50,18 +54,18 @@
     display: flex;
     
     grid-area: banner;
+    
+    background: var(--clr-accent-200);
     padding: 2rem;
     
-    background: var(--clr-accent-200);
-    
     @include items-center;
     @include column;
     
     &--h3 {
+      font-size: 2rem;
       font-weight: 400;
       color: var(--clr-gray-scale-90);
       margin-top: 1rem;
-      font-size: 2rem;
       
     }
     
@@ -69,35 +73,7 @@
       font-weight: 300;
     }
   }
-  
-  @include mq(1024px) {
-    width: 100%;
-    height: 100vh;
-    
-    display: flex;
-    
-    grid-area: banner;
-    padding: 15rem;
-    
-    background: var(--clr-accent-200);
-    
-    position: relative;
-    
-    @include items-center;
-    @include column;
-    
-    &--h3 {
-      font-weight: 400;
-      color: var(--clr-gray-scale-90);
-      margin-top: 1rem;
-      font-size: 2rem;
-      
-    }
-    
-    &--h2 {
-      font-weight: 300;
-    }
-  }
+
 }
 
 .down--arrow {
@@ -133,8 +109,8 @@
 }
 
 .login--form--h1 {
-  text-align: center;
   font-size: var(--fs-400);
+  text-align: center;
   
   @include mq(992px) {
     font-size: 3rem;
@@ -180,23 +156,25 @@
 }
 
 .login--form--label {
-  font-family: var(--ff-montserrat);
   font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
   
   margin-left: .75rem;
+
+ 
 }
 
 .login--form--input {
+  font-size: 1.35rem;
   color: var(--clr-gray-scale-90);
   width: 100%;
-  margin: .75rem 0;
-  padding: .7rem 3rem;
   
   background: var(--clr-gray-scale-700);
+  margin: .75rem 0;
+  padding: .7rem 3rem;
   outline: 0;
   
   border: 0;
-  font-size: 1.35rem;
   border-radius: 1.5rem;
   
   transition: all 200ms linear;
@@ -207,22 +185,22 @@
   
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 3px var(--clr-accent-200);
     background: var(--clr-gray-scale-700);
+    box-shadow: 0 0 0 3px var(--clr-accent-200);
   }
   
   @include mq(992px) {
     .login--form--input {
+      font-size: var(--fs-400);
       color: var(--clr-gray-scale-90);
       width: 100%;
-      margin: .75rem 0;
-      padding: .7rem 3rem;
       
       background: var(--clr-gray-scale-700);
+      margin: .75rem 0;
+      padding: .7rem 3rem;
       outline: 0;
       
       border: 0;
-      font-size: var(--fs-400);
       border-radius: 1.5rem;
       
       transition: all 200ms linear;
@@ -233,8 +211,8 @@
       
       &:hover,
       &:focus {
-        box-shadow: 0 0 0 3px var(--clr-accent-200);
         background: var(--clr-gray-scale-800);
+        box-shadow: 0 0 0 3px var(--clr-accent-200);
       }
     }
   }
@@ -242,16 +220,16 @@
 
 .login--form--button {
   font-family: var(--ff-montserrat);
+  text-align: center;
   color: var(--clr-gray-scale-90);
   
   width: 100%;
-  margin: 1.5rem 0;
-  padding: .85rem;
   
   background: var(--clr-accent-200);
+  margin: 1.5rem 0;
+  padding: .85rem;
   outline: 0;
   border: 0;
-  text-align: center;
   border-radius: 1rem;
   
   transition: all 200ms ease;
@@ -262,14 +240,14 @@
   
   @include mq(992px) {
     font-family: var(--ff-montserrat);
+    text-align: center;
     color: var(--clr-gray-scale-90);
-    margin: 1.5rem 0;
-    padding: .85rem;
     
     background: var(--clr-accent-200);
+    margin: 1.5rem 0;
+    padding: .85rem;
     outline: 0;
     border: 0;
-    text-align: center;
     
     border-radius: 1rem;
     
@@ -310,12 +288,12 @@
   width: 90%;
   display: flex;
   align-items: center;
+  
+  background: #4285f4;
   margin-top: 1.5rem;
   margin-left: auto;
   margin-right: auto;
   padding: .5rem;
-  
-  background: #4285f4;
   border-radius: 1rem;
   
   .login--form--google {
@@ -330,10 +308,10 @@
     
     display: flex;
     align-items: center;
-    margin-top: 1.5rem;
-    padding: .5rem;
     
     background: #4285f4;
+    margin-top: 1.5rem;
+    padding: .5rem;
     border-radius: 1rem;
     
     .login--form--google {
@@ -361,16 +339,24 @@
 }
 
 .login--remember--label {
+  font-size: .8rem;
   font-family: var(--ff-montserrat);
-  font-size: 1rem;
   
   accent-color: var(--clr-accent-200);
+
+  @include mq(992px) {
+    font-size: var(--fs-300);
+  }
 }
 
 .login--forgot {
+  font-size: .8rem;
+  font-family: var(--ff-montserrat);
+
   margin-right: 1.25rem;
   
   @include mq(992px) {
+    font-size: var(--fs-300);
     margin-right: .75rem;
   }
 }
