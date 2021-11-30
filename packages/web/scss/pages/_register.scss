@@ -23,9 +23,9 @@
   flex-direction: column;
   justify-content: center;
   grid-area: banner;
-  padding: 2rem;
   
   background: var(--clr-accent-200);
+  padding: 2rem;
 
   @include mq(992px) {
     height: 100vh;
@@ -34,9 +34,9 @@
     flex-direction: column;
     justify-content: center;
     grid-area: banner;
-    padding: 2rem;
     
     background: var(--clr-accent-200);
+    padding: 2rem;
   }
 }
 
@@ -75,9 +75,9 @@
 
   grid-area: register;
   gap: 0;
-  padding: 3rem 0;
   
   background: var(--clr-gray-scale-900);
+  padding: 3rem 0;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   
@@ -121,10 +121,10 @@
     grid-area: register;
     gap: .5rem;
     
+    background: var(--clr-gray-scale-900);
+    
     margin: auto;
     padding: 1rem 3rem;
-    
-    background: var(--clr-gray-scale-900);
     
     position: relative;
     border-radius: 1rem;
@@ -143,27 +143,25 @@
 }
 
 .register--form--input--wrapper {
+  width: 100%;
   padding: .7rem;
   position: relative;
 
   @include mq(992px) {
-    width: 4rem;
-    height: 4rem;
     margin-bottom: .55rem;
     padding: 0;
-    position: relative;
   }
 }
 
 .register--form--label {
-  font-family: var(--ff-montserrat);
   font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
   
   margin-left: .75rem;
 
   @include mq(992px) {
-    font-family: var(--ff-montserrat);
     font-size: var(--fs-300);
+    font-family: var(--ff-montserrat);
     
     margin-left: .75rem;
   }
@@ -184,16 +182,16 @@
 }
 
 .register--form--input {
+  font-size: var(--fs-400);
   color: var(--clr-gray-scale-90);
   width: 100%;
-  margin: .3rem 0;
-  padding: .7rem 3rem;
   
   background: var(--clr-gray-scale-700);
+  margin: .3rem 0;
+  padding: .7rem 3rem;
   outline: 0;
   
   border: 0;
-  font-size: var(--fs-400);
   border-radius: 1.5rem;
   
   transition: all 200ms linear;
@@ -204,8 +202,8 @@
   
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 3px var(--clr-accent-200);
     background: var(--clr-gray-scale-700);
+    box-shadow: 0 0 0 3px var(--clr-accent-200);
   }
 }
 
@@ -223,9 +221,9 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    background: var(--clr-accent-200);
     
     padding: .5rem .9rem;
-    background: var(--clr-accent-200);
     line-height: 1.6;
     
     border-radius: .5rem;
@@ -248,12 +246,12 @@
   flex-direction: row;
   align-items: center;
   gap: .5rem;
+  background: #4285f4;
   margin-top: 30px;
   
   padding: 0 12px;
   padding-top: 6px;
   padding-bottom: 5px;
-  background: #4285f4;
   line-height: 1.6;
   
   border-radius: .5rem;
@@ -262,7 +260,7 @@
   
   &:hover {
     color: var(--color-contrast-lowest);
-    background: hsl(217deg 89% 61% / 80%);
+    background: hsl(217 89% 61% / 80%);
     
     transition: all 200ms ease-in-out;
   }

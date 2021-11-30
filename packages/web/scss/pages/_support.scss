@@ -83,6 +83,7 @@
   }
   
   &--input {
+    font-size: 1.35rem;
     color: var(--clr-gray-scale-90);
     width: max-content;
     
@@ -93,7 +94,6 @@
     background-size: 0% 4px;
     outline: 0;
     border: 0;
-    font-size: 1.35rem;
     
     background-color: var(--clr-gray-scale-700);
     
@@ -131,6 +131,7 @@
     }
     
     &--input {
+      font-size: 1.35rem;
       color: var(--clr-gray-scale-90);
       
       padding: .45rem;
@@ -140,7 +141,6 @@
       background-size: 0% 4px;
       outline: 0;
       border: 0;
-      font-size: 1.35rem;
       
       background-color: var(--clr-gray-scale-700);
       
@@ -200,29 +200,22 @@
 }
 
 .support--section--card--wrapper {
-  max-width: 310px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+
   margin-left: auto;
   margin-right: auto;
 
-  @include mq(576px) {
-    max-width: none;
-
-    display: grid;
-    gap: 2.5rem;
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 0;
-    margin-right: 0;
-
-    padding: 2rem;
-  }
-
   @include mq(992px) {
     max-width: none;
+    
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
-
-    gap: 1rem;
+    gap: 2rem;
     
     margin: 1.5rem;
     margin-left: 3rem;
@@ -249,7 +242,7 @@
   padding: 1.5rem;
   
   box-shadow: 5px 5px 0 5px var(--clr-accent-200); 
-  background: var(--clr-gray-scale-90);
+  background: var(--clr-gray-scale-800);
   border: solid 5px var(--clr-accent-100);
 
   @include column;
@@ -271,7 +264,7 @@
       width: 100%;
       height: 5%;
       
-      background: var(--color-contrast-higher);
+      background: var(--clr-gray-scale-90);
       position: absolute;
       bottom: -10%;
       left: 0;
@@ -280,46 +273,7 @@
   }
 
   @include mq(992px) {
-    height: auto;
-    
-    display: flex;
-    
-    gap: 1rem;
-    
     padding: 1.5rem;
-    
-    box-shadow: 5px 5px 0 5px var(--clr-accent-200); 
-    background: var(--clr-gray-scale-800);
-    // border-radius: 1rem;
-    border: solid 5px var(--clr-accent-100);
-
-    @include column;
-    @include items-center;
-    // padding: clamp(2rem, 1.4000vw + 3.0000vw, 5rem);
-    
-    &--h1 {
-      font-size: var(--fs-500);
-      
-      width: 8rem;
-      
-      display: flex;
-
-      @include items-center;
-
-      position: relative;
-      
-      &::after {
-        content: '';
-        width: 100%;
-        height: 20%;
-        
-        background: var(--clr-gray-scale-90);
-        position: absolute;
-        bottom: -10%;
-        left: 0;
-        border-radius: 1rem;
-      }
-    }
   }
 
   @include mq(1200px) {
@@ -331,32 +285,12 @@
     gap: 1rem;
     
     padding: 3rem; 
-    background: var(--clr-gray-scale-700);
-    border: solid 4px var(--clr-accent-200);
 
     @include column;
     
-    &--h1 {
-      font-size: var(--fs-400);
-      
-      width: 8rem;
-      
-      display: flex;
-
-      @include items-center;
-
-      position: relative;
-      
+    &--h1 { 
       &::after {
-        content: '';
-        width: 100%;
         height: 20%;
-        
-        background: var(--clr-gray-scale-90);
-        position: absolute;
-        bottom: -10%;
-        left: 0;
-        border-radius: 1rem;
       }
     }
     
@@ -372,13 +306,19 @@
 }
 
 .support--card--h1 {
-  font-size: var(--fs-500);
+  font-size: var(--fs-700);
+  color: var(--clr-gray-scale-90);
+
+  width: 10rem;
+
   position: relative;
-  
+  text-align: center;
+  opacity: .65;
+
   &::after {
     content: '';
     width: 100%;
-    height: 10px;
+    height: 7px;
     
     background: var(--clr-gray-scale-90);
     position: absolute;
@@ -393,23 +333,9 @@
 
   @include mq(992px) {
     font-size: var(--fs-600);
-    position: relative;
+    width: 8rem;
     
-    &::after {
-      content: '';
-      width: 100%;
-      height: 10px;
-      
-      background: var(--clr-gray-scale-90);
-      position: absolute;
-      
-      bottom: 0;
-      left: 0;
-      
-      border-radius: 1rem;
-      
-      opacity: .65;
-    }
+    position: relative;
   }
 }
 
@@ -438,7 +364,7 @@
 }
 
 .support--card--svg {
-  width: 100%;
+  width: 150px;
   height: auto;
   
   opacity: .65;
