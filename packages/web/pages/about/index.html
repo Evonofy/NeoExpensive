@@ -56,7 +56,7 @@
           </div>
           
           <div class="hamburger--nav--list--wrapper">
-            <img class="hamburger--nav--list--wrapper--image" src="../../images/menus/game-controller.svg" alt="">
+            <img class="hamburger--nav--list--wrapper--image" src="../../images/components/header/submenus/game-controller.svg" alt="">
             <li class="hamburger--nav--item">
               <a href="" class="hamburger--nav--item--link">Console</a>
             </li>
@@ -64,35 +64,53 @@
           
           
           <div class="hamburger--nav--list--wrapper">
-            <img class="hamburger--nav--list--wrapper--image" src="../../images/menus/question.svg" alt="">
+            <img class="hamburger--nav--list--wrapper--image" src="../../images/components/header/submenus/question.svg" alt="">
             <li class="hamburger--nav--item">
-              <a href="" class="hamburger--nav--item--link">Suporte</a>
+              <a href="../support/index.html" class="hamburger--nav--item--link">Suporte</a>
             </li>
           </div>
           
           <div class="hamburger--nav--list--wrapper">
-            <img class="hamburger--nav--list--wrapper--image" src="../../images/menus/users-three.svg" alt="">
+            <img class="hamburger--nav--list--wrapper--image" src="../../images/components/header/submenus/users-three.svg" alt="">
             <li class="hamburger--nav--item">
-              <a href="" class="hamburger--nav--item--link">Quem Somos</a>
+              <a href="../about/index.html" class="hamburger--nav--item--link">Quem Somos</a>
             </li>
           </div>
           
           <hr class="hamburger--nav--list--hr">
           
           <div class="hamburger--nav--list--wrapper">
-            <img class="hamburger--nav--list--wrapper--image" src="../../images/user-controls/palette.svg" alt="">
+            <img class="hamburger--nav--list--wrapper--image" src="../../images/components/header/user-controls/palette.svg" alt="">
             <li class="hamburger--nav--item">
-              <button class="hamburger--nav--item--button">Claro</button>
+              <button class="hamburger--nav--item--button">RGB</button>
             </li>
           </div>
           <div class="hamburger--nav--list--wrapper">
-            <img class="hamburger--nav--list--wrapper--image" src="../../images/user-controls/flag.svg" alt="">
+            <img class="hamburger--nav--list--wrapper--image" src="../../images/components/header/user-controls/flag.svg" alt="">
             <li class="hamburger--nav--item">
               <button class="hamburger--nav--item--button">Inglês</button>
             </li>
           </div>
           <div class="hamburger--nav--list--wrapper">
-            <img class="hamburger--nav--list--wrapper--image" src="../../images/user-controls/sign-out.svg" alt="">
+            <img class="hamburger--nav--list--wrapper--image" src="../../images/components/header/user-controls/user.svg" alt="">
+            <li class="hamburger--nav--item">
+              <button class="hamburger--nav--item--button">Perfil</button>
+            </li>
+          </div>
+          <div class="hamburger--nav--list--wrapper">
+            <img class="hamburger--nav--list--wrapper--image" src="../../images/components/header/user-controls/sign-in.svg" alt="">
+            <li class="hamburger--nav--item">
+              <button class="hamburger--nav--item--button">Entrar</button>
+            </li>
+          </div>
+          <div class="hamburger--nav--list--wrapper">
+            <img class="hamburger--nav--list--wrapper--image" src="../../images/components/header/user-controls/user-plus.svg" alt="">
+            <li class="hamburger--nav--item">
+              <button class="hamburger--nav--item--button">Registrar-se</button>
+            </li>
+          </div>
+          <div class="hamburger--nav--list--wrapper">
+            <img class="hamburger--nav--list--wrapper--image" src="../../images/components/header/user-controls/sign-out.svg" alt="">
             <li class="hamburger--nav--item">
               <button class="hamburger--nav--item--button">Sair</button>
             </li>
@@ -346,10 +364,10 @@
         </a>
         
         <li class="navigation--item margin-left">
-          <a class="dropdown--item--link" href="../../pages/support/">Suporte</a>
+          <a class="dropdown--item--link" href="../../pages/support/index.html">Suporte</a>
         </li>
         <li class="navigation--item">
-          <a href="../../pages/about/">Quem Somos</a>
+          <a href="../../pages/about/index.html">Quem Somos</a>
         </li>
       </ul>
     </nav>
@@ -380,12 +398,17 @@
           
           <div class="user--controls--customer--choices--item">
             <img class="user--controls--customer--choices--icon" src="../../images/components/header/user-controls/palette.svg" alt="Theme Changer Palette">
-            <button class="user--controls--customer--choices--button">Claro</button>
+            <button class="user--controls--customer--choices--button theme--switcher--button">Claro</button>
           </div>
           
           <div class="user--controls--customer--choices--item">
             <img class="user--controls--customer--choices--icon" src="../../images/components/header/user-controls/flag.svg" alt="Change Language Flag">
             <button class="user--controls--customer--choices--button">Inglês</button>
+          </div>
+          
+          <div class="user--controls--customer--choices--item">
+            <img class="user--controls--customer--choices--icon" src="../../images/components/header/user-controls/user-rectangle.svg" alt="Sign Out Button">
+            <a href="../../pages/profile/index.html" class="user--controls--customer--choices--link">Perfil</a>
           </div>
           
           <div class="user--controls--customer--choices--item">
@@ -397,6 +420,7 @@
             <img class="user--controls--customer--choices--icon" src="../../images/components/header/user-controls/user-plus.svg" alt="Register Button">
             <a href="../../pages/register/index.html" class="user--controls--customer--choices--link">Registrar-se</a>
           </div>
+          
           
           <div class="user--controls--customer--choices--item">
             <img class="user--controls--customer--choices--icon" src="../../images/components/header/user-controls/sign-out.svg" alt="Sign Out Button">
@@ -491,19 +515,28 @@
         <div class="aboutus--section--profile">
           <img src="../../images//pages/about-us/group/thiago.webp" alt="" class="aboutus--section--profile--image">
           <p class="aboutus--section--profile--paragraph">Thiago Lisboa</p>
-          <p class="aboutus--section--profile--function">Front-End</p>
+          <p class="aboutus--section--profile--function">Front-End E Design</p>
+          <a data-reset href="https://github.com/AtomicFeasT" class="aboutus--section--profile--link">
+            <img src="../../images/pages/about-us/github-logo.svg" alt="" class="aboutus--section--profile--link--image">
+          </a>
         </div>
         
         <div class="aboutus--section--profile">
           <img src="../../images//pages/about-us/group/vinicius.webp" alt="" class="aboutus--section--profile--image">
           <p class="aboutus--section--profile--paragraph">Vinicius Aquino</p>
-          <p class="aboutus--section--profile--function">Design</p>
+          <p class="aboutus--section--profile--function">Designer</p>
+          <a data-reset href="https://github.com/Espalmer" class="aboutus--section--profile--link">
+            <img src="../../images/pages/about-us/github-logo.svg" alt="" class="aboutus--section--profile--link--image">
+          </a>
         </div>
 
         <div class="aboutus--section--profile">
           <img src="../../images//pages/about-us/group/vitor.webp" alt="" class="aboutus--section--profile--image">
           <p class="aboutus--section--profile--paragraph">Vitor Neves</p>
           <p class="aboutus--section--profile--function">Full Stack</p>
+          <a data-reset href="https://github.com/VitorGouveia" class="aboutus--section--profile--link">
+            <img src="../../images/pages/about-us/github-logo.svg" alt="" class="aboutus--section--profile--link--image">
+          </a>
         </div>
         
       </div>

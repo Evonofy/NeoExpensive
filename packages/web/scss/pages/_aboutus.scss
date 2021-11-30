@@ -41,7 +41,7 @@
     height: 320px;
     
     &--logo {
-      width: 320px;
+      width: 300px;
     }
   }
   
@@ -70,23 +70,24 @@
   max-width: 35ch;
   
   @include column;
+
+  margin: 0 .5rem;
   
   @include mq(992px) {
-    max-width: 40ch;
-    
     font-size: 1.45rem;
     text-align: center;
+    max-width: 40ch;
   }
 }
 
 .aboutus--section--h1 {
-  color: var(--clr-accent-200);
-  text-align: center;
   font-size: 1.35rem;
+  text-align: center;
+  color: var(--clr-accent-200);
   
   @include mq(992px) {
-    color: var(--clr-accent-200);
     font-size: 2rem;
+    color: var(--clr-accent-200);
   }
 }
 
@@ -170,6 +171,7 @@
 .aboutus--section--profile--wrapper {
   display: flex;
   gap: 4rem;
+
   
   @include column;
 
@@ -181,14 +183,20 @@
 }
 
 .aboutus--section--profile {
-  display: flex;
   text-align: center;
+
+  display: flex;
+  gap: .5rem;
   
+  background: var(--clr-gray-scale-700);
+  padding: 2rem;
+  border-radius: 1rem;
+
   @include column;
 
   @include mq(992px) {
-    display: flex;
     text-align: center;
+    display: flex;
     
     @include column;
   }
@@ -209,11 +217,23 @@
   margin-top: .75rem;
 
   @include mq(992px) {
-    margin-top: .75rem;
     font-size: var(--fs-400);
+    margin-top: .75rem;
   }
 }
 
 .aboutus--section--profile--function {
   color: var(--clr-accent-200);
+}
+
+.aboutus--section--profile--link {
+  width: max-content;
+  margin: auto;
+    
+  &--image {
+    width: 50px;
+    background: var(--clr-accent-200);
+    padding: .5rem;
+    border-radius: 50%;
+  }
 }
