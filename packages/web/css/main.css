@@ -118,7 +118,7 @@ small {
 /* 
 * Use All (Imports) Files From Animations To Here
 */
-/* Box Sizing Rules, Removes Defaults Margins And Paddings*/
+/* Box Sizing Rules, Removes Defaults Margins And Paddings */
 *,
 *::before,
 *::after {
@@ -144,9 +144,10 @@ html {
 
 /* Set Core Body Defaults */
 body {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -180,10 +181,10 @@ select {
   display: grid;
   place-items: center;
   background: transparent !important;
+  margin: 0;
+  padding: 0;
   border: none;
   cursor: pointer;
-  padding: 0;
-  margin: 0;
 }
 
 /* Remove All Animations, Transitions And Smooth Scroll For People That Prefer Not To See Them */
