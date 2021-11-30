@@ -1,0 +1,49 @@
+{
+  "name": "Neo Expensive Dashboard Admin System",
+  "short_name": "Neo Expensive Dashboard",
+  "description": "The Neo Expensive Dashboard Admin System that powers the Neo Expensive Website",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#1C1F28",
+  "icons": [
+    {
+      "src": "./logo_512.svg",
+      "sizes": "512x512"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Homepage - See All Dashboard Information",
+      "short_name": "Homepage",
+      "description": "View all the dashboard analytics from Neo Expensive",
+      "url": "/",
+      "icons": [
+        {
+          "src": "./pwa/home.svg",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Login - Enter into the dashboard",
+      "short_name": "Login",
+      "description": "Login into the official Neo Expensive dashboard",
+      "url": "/login",
+      "icons": [
+        {
+          "src": "./pwa/login.svg",
+          "sizes": "512x512"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://esquemaflorescer.github.io/neo-expensive/packages/web/"
+    }
+  ]
+}
