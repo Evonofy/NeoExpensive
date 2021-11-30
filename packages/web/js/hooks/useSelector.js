@@ -7,7 +7,9 @@ export const useSelector = (selector, { querySelectorAll = false } = {}) => {
   const isID = !!selector.split('#')[1];
 
   if (!isClass && !isID) {
-    console.log('theres no selector!!!!!');
+    console.log(
+      `[WARNING:useSelector] -> the selector ${selector} doesn't exist`
+    );
     /* get the selector string and search for it in the DOM */
 
     const classSelectorElement = $(`.${selector}`);
