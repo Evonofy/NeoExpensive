@@ -1,13 +1,14 @@
 @use '../abstracts/mixins' as *;
 
 .checkout--body {
+  width: 100%;
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "progress-state"
     "content-area"
     "aside-info";
   grid-template-columns: 1fr;
-  grid-template-rows: .15fr max-content 1fr;
+  grid-template-rows: .15fr 1fr 1fr;
   
   @include mq(1024px) {
     display: grid;
