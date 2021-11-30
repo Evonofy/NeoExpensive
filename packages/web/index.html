@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <!-- Gives parameters to all information to data that must be applied -->
@@ -24,17 +24,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   
   <title>Neo Expensive</title>
+
+  <script src="./js/translate/GTranslate.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+  <script defer type="module" src="./js/index.js"></script>
   
   <link rel="stylesheet" href="./css/main.css" />
-  <script defer src="./js/utils/openOnClick.js"></script>
   
-  <script defer type="module" src="./js/themes/switcher.js"></script>
+  <script defer type="module" src="./js/index.js"></script>
   <script defer type="module" src="./js/pages/home.js"></script>
 </head> 
 
 <body>
+  <div id="google_translate_element2"></div>
+
   <header class="hamburger--header">
-    
     <div class="hamburger--header--items">
       
       <button class="hamburger--header--button">
@@ -87,7 +91,7 @@
           <div class="hamburger--nav--list--wrapper">
             <img class="hamburger--nav--list--wrapper--image" src="./images/components/header/user-controls/flag.svg" alt="">
             <li class="hamburger--nav--item">
-              <button class="hamburger--nav--item--button">Inglês</button>
+              <button class="hamburger--nav--item--button lang--switcher--button notranslate">Inglês</button>
             </li>
           </div>
           <div class="hamburger--nav--list--wrapper">
@@ -384,7 +388,7 @@
           
           <div class="user--controls--customer--choices--item">
             <img class="user--controls--customer--choices--icon" src="./images/components/header/user-controls/flag.svg" alt="Change Language Flag">
-            <button class="user--controls--customer--choices--button">Inglês</button>
+            <button class="user--controls--customer--choices--button lang--switcher--button notranslate">Inglês</button>
           </div>
           
           <div class="user--controls--customer--choices--item">

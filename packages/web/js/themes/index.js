@@ -1,31 +1,18 @@
+import { useStorage } from '../hooks/useStorage.js';
+
 export class Theme {
   /** Current theme */
   theme = this.getStorageTheme();
 
   /** Theme that will be used as callback */
-  defaultTheme = "dark";
+  defaultTheme = 'dark';
 
   /** List of all the themes available */
   availableThemes = {
-    light: "light",
-    dark: "dark",
-    rgb: "rgb",
+    light: 'light',
+    dark: 'dark',
+    rgb: 'rgb',
   };
-
-  nextTheme() {
-    const themeArray = Object.keys(this.availableThemes);
-
-    const current = themeArray.indexOf(
-      document.body.getAttribute("data-theme")
-    );
-    const max = themeArray.length;
-    let next = current + 1;
-
-    /** If next item reaches the max of the array, set it to the first array item */
-    if (next === max) next = 0;
-
-    return themeArray[next];
-  }
 
   constructor(theme) {
     let newTheme = theme;
@@ -42,12 +29,27 @@ export class Theme {
   setTheme(theme) {
     this.theme = theme;
 
-    localStorage.setItem("theme", theme);
-    document.body.setAttribute("data-theme", theme);
+    useStorage('theme', theme);
+    document.body.setAttribute('data-theme', theme);
+  }
+
+  nextTheme() {
+    const themeArray = Object.keys(this.availableThemes);
+
+    const current = themeArray.indexOf(
+      document.body.getAttribute('data-theme')
+    );
+    const max = themeArray.length;
+    let next = current + 1;
+
+    /** If next item reaches the max of the array, set it to the first array item */
+    if (next === max) next = 0;
+
+    return themeArray[next];
   }
 
   getStorageTheme() {
-    return localStorage.getItem("theme");
+    return useStorage('theme');
   }
 
   /** This will cycle through all themes */
