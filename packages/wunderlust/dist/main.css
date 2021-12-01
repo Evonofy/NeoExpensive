@@ -1,0 +1,154 @@
+/* Box Sizing Rules, Removes Defaults Margins And Paddings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove List Styles On UL, OL Elements With A List Role, Which Suggests Default Styling Will Be Removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set Core Root Defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set Core Body Defaults */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A Elements That Don't Have A Class Get Default Styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make Images Easier To Work With */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit Fonts For Inputs And Buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  outline: 0;
+  border: 0;
+}
+
+[data-reset] {
+  color: inherit;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+}
+
+/* Remove All Animations, Transitions And Smooth Scroll For People That Prefer Not To See Them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --color-red-100: #ff5c5c;
+  --color-red-200: #ff3d3d;
+  --color-red-300: #e63333;
+  --color-red-500: #b11616;
+  --color-green-50: #a9efcd;
+  --color-green-100: #3ad98c;
+  --color-green-200: #06c167;
+  --color-green-300: #048144;
+  --color-blue-100: #5d8def;
+  --color-blue-200: #0053fa;
+  --color-blue-300: #0041c2;
+  --color-yellow-100: #fdd949;
+  --color-yellow-200: #ffcc00;
+  --color-yellow-300: #e6b800;
+  --color-yellow-500: #c29b00;
+  --color-accent-50: #e6b3ff;
+  --color-accent-100: #b83df5;
+  --color-accent-200: #9540bf;
+  --color-accent-300: #682c87;
+  --color-accent-400: #451a5b;
+  --color-gray-100: #f2f1f4;
+  --color-gray-200: #cac7d1;
+  --color-gray-400: #afabba;
+  --color-gray-500: #9892a5;
+  --color-gray-600: #7a738c;
+  --color-gray-700: #5f5a6d;
+  --color-gray-800: #312e38;
+  --color-gray-900: #1f1b27;
+}
+
+main {
+  max-width: 800px !important;
+  margin: auto;
+  padding: 0 1.15rem;
+  /*
+    BREAKPOINTS:
+    sm: 425px
+    md: 768px
+    lg: 992px
+    xl: 1200px
+  */
+}
+@media only screen and (min-width: 75rem) {
+  main {
+    max-width: 1000px !important;
+  }
+}
+@media (min-width: 1400px) {
+  main {
+    max-width: 1200px !important;
+  }
+}
+@media (min-width: 1600px) {
+  main {
+    max-width: 1400px !important;
+  }
+}
+@media (min-width: 1800px) {
+  main {
+    max-width: 1600px !important;
+  }
+}
+@media (min-width: 2000px) {
+  main {
+    max-width: 1800px !important;
+  }
+}

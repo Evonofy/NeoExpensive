@@ -1,9 +1,9 @@
-@use '../base/colors';
+@use '../base/colors' as *;
 
 :root {
   @each $color, $shades in $colors {
     @each $shade, $value in $shades {
-      --color-#{$color}-#{$shade}: #{$value};
+      --color-#{"" + $color}-#{$shade}: #{$value};
     }
   }
 }

@@ -1,0 +1,30 @@
+@import './base/reset';
+@import './base';
+@import './abstracts';
+@import './mixins';
+
+main {
+  max-width: 800px !important;
+  margin: auto;
+  padding: 0 1.15rem;
+
+  @include use-media(extra-large) {
+    max-width: 1000px !important;
+  }
+
+  @media (min-width: 1400px) {
+    max-width: 1200px !important;
+  }
+
+  @media (min-width: 1600px) {
+    max-width: 1400px !important;
+  }
+
+  @media (min-width: 1800px) {
+    max-width: 1600px !important;
+  }
+  
+  @media (min-width: 2000px) {
+    max-width: 1800px !important;
+  }
+}
