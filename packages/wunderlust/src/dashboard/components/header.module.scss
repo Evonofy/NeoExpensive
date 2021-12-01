@@ -1,0 +1,16 @@
+@use "../../mixins";
+
+.header {
+  width: 80%;
+
+  display: grid;
+  grid-template-areas:
+    "logo nav ."
+  ;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  background: linear-gradient(to right, var(--color-accent-100), var(--color-accent-200));
+  margin: auto;
+  padding: 2.5rem;
+  padding-bottom: 6rem;
+}

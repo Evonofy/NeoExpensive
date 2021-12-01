@@ -2,6 +2,7 @@
 *,
 *::before,
 *::after {
+  font-family: Roboto, sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,6 +20,7 @@ html:focus-within {
 }
 
 html {
+  height: 100%;
   scroll-behavior: smooth;
 }
 
@@ -29,6 +31,10 @@ body {
   flex-direction: column;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+}
+
+#__next, main {
+  min-height: 100vh;
 }
 
 /* A Elements That Don't Have A Class Get Default Styles */
@@ -62,9 +68,9 @@ select {
   color: inherit;
   display: grid;
   place-items: center;
+  background: transparent !important;
   margin: 0;
   padding: 0;
-  background: transparent !important;
   border: none;
   cursor: pointer;
 }
@@ -105,18 +111,22 @@ select {
   --color-accent-200: #9540bf;
   --color-accent-300: #682c87;
   --color-accent-400: #451a5b;
-  --color-gray-100: #f2f1f4;
-  --color-gray-200: #cac7d1;
-  --color-gray-400: #afabba;
-  --color-gray-500: #9892a5;
-  --color-gray-600: #7a738c;
-  --color-gray-700: #5f5a6d;
-  --color-gray-800: #312e38;
-  --color-gray-900: #1f1b27;
+  --color-gray-100: #f0f1f5;
+  --color-gray-200: #c3c7d5;
+  --color-gray-400: #a5abc0;
+  --color-gray-500: #8a91ad;
+  --color-gray-600: #697296;
+  --color-gray-700: #525975;
+  --color-gray-800: #2a2e3c;
+  --color-gray-900: #111218;
+}
+
+body {
+  background: var(--color-gray-900);
 }
 
 main {
-  max-width: 800px !important;
+  height: 100%;
   margin: auto;
   padding: 0 1.15rem;
   /*
@@ -127,28 +137,8 @@ main {
     xl: 1200px
   */
 }
-@media only screen and (min-width: 75rem) {
+@media only screen and (min-width: 48rem) {
   main {
-    max-width: 1000px !important;
-  }
-}
-@media (min-width: 1400px) {
-  main {
-    max-width: 1200px !important;
-  }
-}
-@media (min-width: 1600px) {
-  main {
-    max-width: 1400px !important;
-  }
-}
-@media (min-width: 1800px) {
-  main {
-    max-width: 1600px !important;
-  }
-}
-@media (min-width: 2000px) {
-  main {
-    max-width: 1800px !important;
+    max-width: 80vw;
   }
 }
