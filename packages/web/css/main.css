@@ -780,9 +780,9 @@ select {
   width: 100%;
   height: 3px;
   background: var(--clr-gray-scale-90);
-  border-radius: 0.5rem;
   outline: 0;
   border: 0;
+  border-radius: 0.5rem;
 }
 
 .login--form--google--wrapper {
@@ -2369,7 +2369,7 @@ select {
   display: grid;
   grid-template-areas: "progress-state" "content-area" "aside-info";
   grid-template-columns: 1fr;
-  grid-template-rows: 0.15fr 1fr 1fr;
+  grid-template-rows: 0.15fr max-content 1fr;
 }
 @media only screen and (min-width: 1024px) {
   .checkout--body {
@@ -2424,10 +2424,6 @@ select {
   }
 }
 
-.purple--flavor {
-  background: var(--clr-accent-400);
-}
-
 .checkout--circle--h2 {
   content: "";
   font-size: var(--fs-400);
@@ -2461,6 +2457,10 @@ select {
     width: 150px;
     height: 10px;
   }
+}
+
+.purple--flavor {
+  background: var(--clr-accent-400);
 }
 
 .checkout--content {
@@ -2607,6 +2607,7 @@ select {
 .checkout--info--submit {
   font-size: var(--fs-500);
   font-family: var(--ff-montserrat);
+  text-align: center;
   color: var(--clr-gray-scale-90);
   width: 100%;
   background: var(--clr-accent-300);
@@ -2728,6 +2729,154 @@ select {
     margin-left: auto;
     margin-right: 2rem;
   }
+}
+
+.checkout2--location--wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkout2--title--wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1.25rem;
+}
+@media only screen and (min-width: 992px) {
+  .checkout2--title--wrapper {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.add--address {
+  text-decoration: underline;
+  color: var(--clr-secondary-green-300);
+  cursor: pointer;
+}
+
+.checkout2--address--wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--clr-gray-scale-700);
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 2px solid var(--clr-accent-200);
+  border-radius: 0.5rem;
+}
+@media only screen and (min-width: 992px) {
+  .checkout2--address--wrapper {
+    width: 60%;
+    flex-direction: row;
+  }
+}
+
+.checkout2--address {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+@media only screen and (min-width: 992px) {
+  .checkout2--address {
+    width: 60%;
+  }
+}
+
+.checkout2--address--h2,
+.checkout2--address--h3,
+.checkout2--address--zipcode {
+  font-size: var(--fs-500);
+  margin: 0 1rem;
+}
+
+.sending--info {
+  font-style: italic;
+}
+
+.checkout2--image {
+  width: 200px;
+}
+
+.checkout3--payment--options {
+  display: flex;
+  gap: 2rem;
+  margin: 0 10rem;
+}
+
+.checkout3--payment--title {
+  font-size: var(--fs-700);
+  background-image: linear-gradient(to right, var(--clr-accent-200), var(--clr-accent-200));
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  margin-top: 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 200ms linear;
+}
+.checkout3--payment--title:hover {
+  color: var(--clr-gray-scale-900);
+  background-size: 100% 100%;
+}
+
+.checkout3--payment--credit {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  background: var(--clr-gray-scale-900);
+  margin-top: 2rem;
+  margin-left: 10rem;
+  padding: 4rem;
+  border-radius: 0.5rem;
+}
+
+.checkout3--payment--credit--title {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 1rem;
+}
+
+.checkout3--payment--h2 {
+  font-size: var(--fs-700);
+}
+
+.checkout3--payment--radio {
+  width: 30px;
+  height: 30px;
+  background: var(--clr-gray-scale-900);
+  outline: 0;
+  border: 0;
+  accent-color: var(--clr-accent-200);
+}
+
+.checkout3--payment--inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout3--payment--inputs--extras {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.checkout3--payment--number {
+  color: var(--clr-gray-scale-90);
+  background: var(--clr-gray-scale-700);
+  padding: 0.5rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.5rem;
 }
 
 @media only screen and (min-width: 1200px) {
