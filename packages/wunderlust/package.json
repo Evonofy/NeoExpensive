@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "next": "rimraf ../dashboard/src/styles && sass --watch --no-source-map src:../dashboard/src/styles",
     "dev": "rimraf dist && sass --watch --no-source-map src:dist",
     "build": "rimraf build && sass --no-source-map --style=compressed --update src:build",
     "start": "postcss --no-map ./build/**/*.css --dir final"
