@@ -8,7 +8,7 @@
     "content-area"
     "aside-info";
   grid-template-columns: 1fr;
-  grid-template-rows: .15fr 1fr 1fr;
+  grid-template-rows: .15fr max-content 1fr;
   
   @include mq(1024px) {
     display: grid;
@@ -66,10 +66,6 @@
   }
 }
 
-.purple--flavor {
-  background: var(--clr-accent-400);
-}
-
 .checkout--circle--h2 {
   content: '';
   font-size: var(--fs-400);
@@ -100,6 +96,10 @@
     width: 150px;
     height: 10px;
   }
+}
+
+.purple--flavor {
+  background: var(--clr-accent-400);
 }
 
 .checkout--content {
@@ -265,6 +265,7 @@
 .checkout--info--submit {
   font-size: var(--fs-500);
   font-family: var(--ff-montserrat);
+  text-align: center;
   color: var(--clr-gray-scale-90);
   
   width: 100%;
