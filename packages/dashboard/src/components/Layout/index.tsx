@@ -1,5 +1,12 @@
-import { FC } from 'react';
+import { FC } from "react";
+
+import { Header } from "../Header";
 
 export const Layout: FC = ({ children }) => {
-  return <>{children}</>;
+  return (
+    <main>
+      <Header />
+      {children}
+    </main>
+  );
 };
