@@ -1,10 +1,11 @@
 import { FC } from "react";
 import { AppProps, NextWebVitalsMetric } from "next/app";
 
-// export const reportWebVitals = (metric: NextWebVitalsMetric) => {
-//   console.log(metric);
-// };
-import "../styles/global.css";
+import "@neo/wunderlust/dist/main.css";
+
+export const reportWebVitals = (metric: NextWebVitalsMetric) => {
+  console.log(metric);
+};
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
