@@ -1,3 +1,6 @@
+/**
+ * TODO: Identify querySelectorAll automatically
+ */
 export const useSelector = (selector, { querySelectorAll = false } = {}) => {
   const $ = !querySelectorAll
     ? document.querySelector.bind(document)
