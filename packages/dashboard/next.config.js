@@ -6,7 +6,7 @@ const withPWA = require("next-pwa");
 const pwa = withPWA({
   pwa: {
     dest: "public",
-    // disable: process.env.NODE_ENV === 'development',
+    disable: process.env.NODE_ENV === "development",
     // register: true,
     // scope: '/',
     // sw: 'service-worker.js',
@@ -17,9 +17,6 @@ const pwa = withPWA({
   compress: true,
   eslint: {
     ignoreDuringBuilds: true,
-  },
-  sassOptions: {
-    includePaths: [join(__dirname, "src", "styles")],
   },
 });
 
