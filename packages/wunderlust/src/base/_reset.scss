@@ -4,6 +4,7 @@
 *,
 *::before,
 *::after {
+  font-family: Roboto, sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -21,6 +22,7 @@ html:focus-within {
 }
 
 html {
+  height: 100%;
   scroll-behavior: smooth;
 }
 
@@ -31,6 +33,10 @@ body {
   flex-direction: column;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+}
+
+#__next, main {
+  min-height: 100vh;
 }
 
 /* A Elements That Don't Have A Class Get Default Styles */
@@ -65,11 +71,11 @@ select {
 
   display: grid;
   place-items: center;
+
+  background: transparent !important;
   margin: 0;
 
   padding: 0;
-
-  background: transparent !important;
   border: none;
 
   cursor: pointer;
