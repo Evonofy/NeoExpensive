@@ -1,7 +1,7 @@
 {
   "name": "Neo Expensive Dashboard Admin System",
   "short_name": "Neo Expensive Dashboard",
-  "description": "The Neo Expensive Dashboard Admin System that powers the Neo Expensive Website",
+  "description": "The Neo Expensive Dashboard Admin System that powers the Neo Expensive E-commerce",
   "lang": "pt-BR",
   "start_url": "/",
   "scope": "/",

@@ -1,21 +1,22 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
-import { Link } from "@components";
+import { Seo } from "@components";
 
 class AppDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          <Link rel="icon" theme="dark" href="logo_512.svg" />
-          <Link rel="shortcut icon" theme="dark" href="logo_512.svg" />
-
-          <Link rel="icon" theme="light" href="logo_512.svg" />
-          <Link rel="shortcut icon" theme="light" href="logo_512.svg" />
-
-          {/* MANIFEST JSON */}
-          <Link rel="manifest" theme="dark" href="manifest.json" />
-          <Link rel="manifest" theme="light" href="manifest.json" />
+          <Seo
+            title="Neo Expensive"
+            description="The Neo Expensive Dashboard Admin System that powers the Neo Expensive E-commerce."
+            theme="dark"
+          />
+          <Seo
+            title="Neo Expensive"
+            description="The Neo Expensive Dashboard Admin System that powers the Neo Expensive E-commerce."
+            theme="light"
+          />
 
           {/* GOOGLE FONTS PRECONNECT */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
