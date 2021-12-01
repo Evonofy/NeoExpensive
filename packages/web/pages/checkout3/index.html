@@ -25,6 +25,7 @@
   <title>Neo Expensive | Entrega</title>
   
   <link rel="stylesheet" href="../../css/main.css" />
+  <script defer src="../../js/functions/checkoutOptions.js"></script>
 </head> 
 
 <body class="checkout--body" data-theme="default">
@@ -49,25 +50,35 @@
   
   <section class="checkout--content checkout3--payment--wrapper">
     <div class="checkout3--payment--options">
-      <h2 class="checkout3--payment--title">Cartão</h2>
-      <h2 class="checkout3--payment--title">PIX</h2>
+      <h2 class="checkout3--payment--title checkoutCard">Cartão</h2>
+      <h2 class="checkout3--payment--title checkoutPix">PIX</h2>
       
     </div>
     
-    <div class="checkout3--payment--credit">
+    <div class="checkout3--payment--credit checkoutDivCard">
       <div class="checkout3--payment--credit--title">
         <input type="radio" name="" id="" class="checkout3--payment--radio">
-        <h2 class="checkout3--payment--h2">Crédito</h2>
+        <h2 class="checkout3--payment--h2">Crédito Ou Débito</h2>
       </div>
       
       <div class="checkout3--payment--inputs">
-        <input type="text" name="" id="" class="checkout3--payment--number">
+        <input placeholder="Número Do Cartão" type="text" name="" id="" class="checkout3--payment--number">
         
         <div class="checkout3--payment--inputs--extras">
-          <input type="text" name="" id="" class="checkout3--payment--number">
-          <input type="text" name="" id="" class="checkout3--payment--number">
+          <input placeholder="Data De Expiração" type="text" name="" id="" class="checkout3--payment--number">
+          <input placeholder="CVV" type="text" name="" id="" class="checkout3--payment--number">
         </div>
       </div>
+    </div>
+    
+    <div class="checkout3--payment--pix checkoutDivPix">
+
+       <img src="../../images/pages/checkout/qr-code.svg" alt="" class="chehckout3--payment--image">
+        <h2 class="checkout3--payment--h2">PIX</h2>
+      
+      <button class="checkout3--button--pix">Gerar Pix</button>
+      
+ 
     </div>
   </section>
   
@@ -108,7 +119,7 @@
         <h3 class="checkout--info--payment--desc">12x de R$ 166,99 s/juros no cartão</h3>
       </div>
       
-      <a href="#" class="checkout--info--submit">Próximo</a>
+      <a href="#" class="checkout--info--submit">Finalizar</a>
     </div>
     
     
