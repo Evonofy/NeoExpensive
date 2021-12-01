@@ -1,4 +1,4 @@
-@import '../base';
+@use '../base/sizes' as *;
 
 @mixin use-media($breakpoint) {
   /*
