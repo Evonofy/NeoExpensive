@@ -1,10 +1,22 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from "next/document";
+
+import { Link } from "@components";
 
 class AppDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
+          <Link rel="icon" theme="dark" href="logo_512.svg" />
+          <Link rel="shortcut icon" theme="dark" href="logo_512.svg" />
+
+          <Link rel="icon" theme="light" href="logo_512.svg" />
+          <Link rel="shortcut icon" theme="light" href="logo_512.svg" />
+
+          {/* MANIFEST JSON */}
+          <Link rel="manifest" theme="dark" href="manifest.json" />
+          <Link rel="manifest" theme="light" href="manifest.json" />
+
           {/* GOOGLE FONTS PRECONNECT */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
