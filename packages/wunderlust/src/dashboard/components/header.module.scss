@@ -1,16 +1,105 @@
-@use "../../mixins";
+@import "../../mixins";
 
 .header {
-  width: 80%;
+  color: var(--color-gray-100);
+  width: 100%;
+  height: 100%;
 
   display: grid;
+  align-items: center;
+  grid-area: header;
   grid-template-areas:
     "logo nav ."
   ;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr 1fr;
 
   background: linear-gradient(to right, var(--color-accent-100), var(--color-accent-200));
   margin: auto;
   padding: 2.5rem;
-  padding-bottom: 6rem;
+
+  nav {
+    ul {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      li {
+        a {
+          display: flex;
+          
+          h1 {
+            font-size: use-clamp(20);
+            margin-left: 1rem;
+          }
+
+          &::before {
+            content: "";
+            width: 0;
+    
+            height: 2px;
+            background: var(--color-gray-200);
+            position: absolute;
+            bottom: -0.5rem;
+            right: 0;
+            transition: width 600ms cubic-bezier(.25, 1, .5, 1);
+          }
+
+          position: relative;
+
+          &:hover, &:focus {
+            color: var(--color-gray-200);
+
+            &::before {
+              width: 100%;
+              left: 0;
+              right: 0;
+            }
+          }
+        } 
+      }
+    }
+  }
+
+  .title {
+    grid-area: logo;
+
+    a {
+      display: flex;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      h1 {
+        font-size: use-clamp(32);
+        
+        margin-left: 1rem;
+        border-radius: 2px;
+
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 0;
+          height: 2px;
+          background: var(--color-gray-100);
+
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          transition: width 600ms cubic-bezier(.25, 1, .5, 1);
+        }
+        
+        &:hover {
+          &::before {
+            width: 100%;
+            left: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
 }

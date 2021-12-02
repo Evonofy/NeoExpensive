@@ -1,10 +1,75 @@
 .header {
-  width: 80%;
+  color: var(--color-gray-100);
+  width: 100%;
+  height: 100%;
   display: grid;
+  align-items: center;
+  grid-area: header;
   grid-template-areas: "logo nav .";
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr 1fr;
   background: linear-gradient(to right, var(--color-accent-100), var(--color-accent-200));
   margin: auto;
   padding: 2.5rem;
-  padding-bottom: 6rem;
+}
+.header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header nav ul li a {
+  display: flex;
+  position: relative;
+}
+.header nav ul li a h1 {
+  font-size: clamp(0.5rem, 0.3721590909rem + 0.7575757576vw, 1.28125rem);
+  margin-left: 1rem;
+}
+.header nav ul li a::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: var(--color-gray-200);
+  position: absolute;
+  bottom: -0.5rem;
+  right: 0;
+  transition: width 600ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+.header nav ul li a:hover, .header nav ul li a:focus {
+  color: var(--color-gray-200);
+}
+.header nav ul li a:hover::before, .header nav ul li a:focus::before {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+.header .title {
+  grid-area: logo;
+}
+.header .title a {
+  display: flex;
+}
+.header .title a svg {
+  width: 32px;
+  height: 32px;
+}
+.header .title a h1 {
+  font-size: clamp(0.8rem, 0.5954545455rem + 1.2121212121vw, 2.05rem);
+  margin-left: 1rem;
+  border-radius: 2px;
+  position: relative;
+}
+.header .title a h1::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: var(--color-gray-100);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: width 600ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+.header .title a h1:hover::before {
+  width: 100%;
+  left: 0;
+  right: 0;
 }
