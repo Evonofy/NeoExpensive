@@ -28,7 +28,7 @@
   $y-axis-intersection: -$min-device-width * $slope + $min-font;
   $result: clamp(
     $min-font-rem,
-    ($yAxisIntersection * 1rem) + (($slope * 100) * 1vw),
+    ($y-axis-intersection * 1rem) + (($slope * 100) * 1vw),
     $max-font-rem
   );
 

@@ -3,22 +3,34 @@ import Image, { ImageProps } from "next/image";
 
 import { A } from "@components";
 
+import Logo from "../../assets/logo.svg";
+
+import Cube from "../../assets/cube.svg";
+import Paper from "../../assets/paper.svg";
+import User from "../../assets/user.svg";
+import AtSign from "../../assets/at.svg";
+
 import styles from "@neo/wunderlust/dist/dashboard/components/header.module.css";
 
-interface NavItemProps extends ImageProps {
-  href: string;
+interface NavItemProps {
+  name: string;
+  icon: string;
 }
 
-export const NavItem: FC<NavItemProps> = ({ src, children, href }) => {
-  const pageName = href.split("/")[1];
-
+export const NavItem: FC<NavItemProps> = ({ icon: Icon, name }) => {
+  // prettier-ignore
+  const pageName = 
+    name
+      .toLowerCase()
+      .split("-")
+      .join("");
   return (
     <li>
-      <A href={href} name={`Go to ${pageName} page`}>
-        <Image width={32} height={32} src={src} />
+      <A href={`/${pageName}`} name={`Go to ${name} page`}>
+        <Icon />
 
         <h1>
-          <strong>{children}</strong>
+          <strong>{name}</strong>
         </h1>
       </A>
     </li>
@@ -28,9 +40,9 @@ export const NavItem: FC<NavItemProps> = ({ src, children, href }) => {
 export const Header: FC = () => {
   return (
     <header className={styles.header}>
-      <section className="title">
+      <section className={styles.title}>
         <A href="/" name="Go to Homepage">
-          <Image src={"/logo.svg"} width={60} height={60} />
+          <Logo />
           <h1>
             <strong>Neo Expensive</strong>
           </h1>
@@ -39,16 +51,16 @@ export const Header: FC = () => {
 
       <nav>
         <ul role="list">
-          <NavItem href="/overview" src={"/cube.svg"}>
+          <NavItem name="Overview" icon={Cube}>
             Overview
           </NavItem>
-          <NavItem href="/products" src={"/paper.svg"}>
+          <NavItem name="Products" icon={Paper}>
             Products
           </NavItem>
-          <NavItem href="/clients" src={"/user.svg"}>
+          <NavItem name="Clients" icon={User}>
             Clients
           </NavItem>
-          <NavItem href="/email" src={"/at.svg"}>
+          <NavItem name="E-mail" icon={AtSign}>
             E-mail
           </NavItem>
         </ul>

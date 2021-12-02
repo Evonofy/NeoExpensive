@@ -2,6 +2,11 @@ const { join } = require("path");
 
 const withPlugins = require("next-compose-plugins");
 const withPWA = require("next-pwa");
+const withImages = require("next-images");
+
+const images = withImages({
+  esModule: true,
+});
 
 const pwa = withPWA({
   pwa: {
@@ -21,4 +26,4 @@ const pwa = withPWA({
 });
 
 /** @type {import('next').NextConfig} */
-module.exports = withPlugins([pwa]);
+module.exports = withPlugins([pwa, images]);
