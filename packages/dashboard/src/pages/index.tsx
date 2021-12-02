@@ -1,15 +1,19 @@
 import { GetServerSideProps } from "next";
 import { FC } from "react";
 
-import { Layout } from "@components";
+import { Header } from "@components";
+
+import styles from "@neo/wunderlust/dist/dashboard/home.module.css";
 
 type HomeProps = {};
 
 const Home: FC<HomeProps> = ({}) => {
   return (
-    <Layout>
-      <header></header>
-    </Layout>
+    <main className={styles.main}>
+      <Header />
+
+      <section className={styles.dashboard}></section>
+    </main>
   );
 };
 
