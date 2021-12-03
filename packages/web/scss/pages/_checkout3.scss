@@ -11,7 +11,7 @@
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 100% 2px;
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   cursor: pointer;
   user-select: none;
@@ -32,7 +32,7 @@
   flex-direction: column;
 
   background: var(--clr-gray-scale-900);
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 4rem;
 
   border-radius: .5rem;
@@ -41,6 +41,7 @@
 .checkout3--payment--pix {
   align-items: center;
   gap: 1rem;
+  padding: 1rem 4rem;
 }
 
 .checkout3--payment--credit--title {

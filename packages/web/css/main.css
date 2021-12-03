@@ -2817,7 +2817,7 @@ select {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 100% 2px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   cursor: pointer;
   user-select: none;
   transition: all 200ms linear;
@@ -2833,7 +2833,7 @@ select {
   display: flex;
   flex-direction: column;
   background: var(--clr-gray-scale-900);
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 4rem;
   border-radius: 0.5rem;
 }
@@ -2841,6 +2841,7 @@ select {
 .checkout3--payment--pix {
   align-items: center;
   gap: 1rem;
+  padding: 1rem 4rem;
 }
 
 .checkout3--payment--credit--title {
