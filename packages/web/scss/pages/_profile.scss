@@ -10,15 +10,10 @@
 .profile--wrapper {
   width: 100%;
 
-  background: var(--clr-gray-scale-600);
-
+  background: var(--clr-gray-scale-700);
   padding: 0;
 
   @include mq(1200px) {
-    height: 95vh;
-    background: var(--clr-gray-scale-700);
-    
-    padding: 0;
     border-radius: 1rem;
   }
 }
@@ -27,7 +22,8 @@
   width: 100%;
   height: 30vh;
   
-  background-image: url(../images/pages/profile/ben-o-bro-unsplash.jpg);
+  background-image: url(../images/pages/profile/ben-o-bro-unsplash.webp);
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 1rem;
@@ -54,8 +50,11 @@
 }
 
 .profile--purchase--wrapper {
-  @include mq(1200px) {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+
+  @include mq(992px) {
+    flex-direction: row;
   }
 }
 
