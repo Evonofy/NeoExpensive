@@ -8,11 +8,7 @@ export const reportWebVitals = (metric: NextWebVitalsMetric) => {
 };
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
-  return (
-    <>
-      <Component {...pageProps} />
-    </>
-  );
+  return <Component {...pageProps} />;
 };
 
 export default App;
