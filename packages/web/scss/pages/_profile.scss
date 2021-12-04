@@ -2,6 +2,7 @@
 
 .profile--body {
   @include mq(1200px) {
+    justify-content: center;
     padding: 1rem;
   }
 }
@@ -42,6 +43,13 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 1rem;
+  }
+
+  @include mq(992px) {
+    &--image {
+      margin-left: 5rem;
+      margin-right: auto;
+    }
   }
 }
 
@@ -126,12 +134,24 @@
 
 .profile--purchase--history {
   font-size: var(--fs-500);
+  background-image: linear-gradient(to right, var(--clr-accent-200), var(--clr-accent-200));
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 200ms linear;
+
+  &:hover {
+    color: var(--clr-gray-scale-900);
+    background-size: 100% 100%;
+  }
 }
 
 .profile--history--card {
   text-align: center;
   width: 100%;
-  background: var(--clr-gray-scale-800);  
+  background: var(--clr-gray-scale-800); 
 }
 
 .profile--history--card:nth-child(1) {
@@ -153,7 +173,7 @@
 .profile--history--card--paragraph {
   font-size: var(--fs-600);
   
-  padding: 1rem; 
+  padding-top: 1rem; 
 
   @include mq(1200px) {
     font-size: var(--fs-500);
@@ -161,19 +181,37 @@
 }
 
 .profile--history--card--price {
-  font-size: var(--fs-500);
+  font-size: var(--fs-400);
   color: var(--clr-secondary-green-200);
   
-  padding: .5rem;
+  padding-bottom: 1rem;
   border-bottom-right-radius: 1rem;
   
   border-bottom-left-radius: 1rem;
 }
 
 .profile--product {
-  width: 250px;
+  width: 265px;
+  padding: 1rem;
 
-  @include mq(1200px) {
-    width: 200px;
+  transition: all 150ms linear;
+
+  &:hover {
+    transform: scale(1.15);
+    border-radius: .5rem;
   }
+}
+
+.reviewWrapper {
+  display: none;
+}
+
+.star--profile {
+  text-align: center;
+  background: var(--clr-gray-scale-900);
+  padding: 1rem 0;
+}
+
+.rating--profile {
+  margin-top: 0;
 }

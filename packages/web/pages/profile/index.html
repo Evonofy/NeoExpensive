@@ -21,10 +21,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"> 
   <!-- Bebas Neue | Regular 400 -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
   <title>Neo Expensive | Perfil</title>
   
   <link rel="stylesheet" href="../../css/main.css" />
+  <script defer src="../../js/functions/profileOptions.js"></script>
 </head> 
 
 <body class="profile--body" data-theme="default">
@@ -34,41 +37,28 @@
     </section>
     <div class="profile--avatar">
       <img src="../../images/pages/product-template/Emoji.png" alt="" class="profile--avatar--image">
-      <h2 class="profile--name">Pedro Avaliações</h2>
+      <h2 class="profile--name">Bem-vindo(a) ao seu perfil Pedro Avaliações</h2>
     </div>
     
     <div class="profile--purchase--options">
       
       <div class="profile--purchase--category">
-        <img src="../../images/pages/profile/storefront.svg" alt="" class="profile--purchase--image">
-        <a href="" class="profile--purchase--history">Compras</a>
+        <p class="profile--purchase--history purchaseHistory">Compras</p>
       </div>
       
       <div class="profile--purchase--category">
-        <img src="../../images/pages/profile/sparkle.svg" alt="" class="profile--purchase--image">
-        <a href="" class="profile--purchase--history">Avaliações</a>
+        <p class="profile--purchase--history reviewHistory">Avaliações</p>
       </div>
       
     </div>
     
-    <div class="profile--purchase--wrapper">
+    <div class="profile--purchase--wrapper purchaseWrapper">
       
       <div class="profile--purchase">
         
-        <div class="profile--history--card">
+        <a href="#" class="profile--history--card">
           <img src="../../images/pages/main/products/fonte.webp" alt="" class="profile--product">
-        </div>
-        
-        <div class="profile--history--card">
-          <p class="profile--history--card--paragraph">Fonte Braba</p>
-          <p class="profile--history--card--price">R$ Preço</p>
-        </div>
-      </div>
-      <div class="profile--purchase">
-        
-        <div class="profile--history--card">
-          <img src="../../images/pages/main/products/fonte.webp" alt="" class="profile--product">
-        </div>
+        </a>
         
         <div class="profile--history--card">
           <p class="profile--history--card--paragraph">Fonte Braba</p>
@@ -76,6 +66,75 @@
         </div>
       </div>
       
+      <div class="profile--purchase">
+        
+        <a href="#" class="profile--history--card">
+          <img src="../../images/pages/main/products/fonte.webp" alt="" class="profile--product">
+        </a>
+        
+        <div class="profile--history--card">
+          <p class="profile--history--card--paragraph">Fonte Braba</p>
+          <p class="profile--history--card--price">R$ Preço</p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="profile--review--wrapper reviewWrapper">
+
+      <div class="profile--purchase">
+        
+        <a href="#" class="profile--history--card">
+          <img src="../../images/pages/main/products/fonte.webp" alt="" class="profile--product">
+        </a>
+        
+        <div class="profile--history--card">
+          <p class="profile--history--card--paragraph">Fonte Braba</p>
+             
+        <div class="rating--css rating--profile">
+          <div class="star--icon star--profile">
+            <input type="radio" name="rating1" id="rating1">
+            <label for="rating1" class="fa fa-star"></label>
+            <input type="radio" name="rating1" id="rating2">
+            <label for="rating2" class="fa fa-star"></label>
+            <input type="radio" name="rating1" id="rating3">
+            <label for="rating3" class="fa fa-star"></label>
+            <input type="radio" name="rating1" id="rating4">
+            <label for="rating4" class="fa fa-star"></label>
+            <input type="radio" name="rating1" id="rating5">
+            <label for="rating5" class="fa fa-star"></label>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+      
+      <div class="profile--purchase">
+        
+        <a href="#" class="profile--history--card">
+          <img src="../../images/pages/main/products/fonte.webp" alt="" class="profile--product">
+        </a>
+        
+        <div class="profile--history--card">
+          <p class="profile--history--card--paragraph">Fonte Braba</p>
+             
+        <div class="rating--css rating--profile">
+          <div class="star--icon star--profile">
+            <input type="radio" name="rating1" id="rating1">
+            <label for="rating1" class="fa fa-star"></label>
+            <input type="radio" name="rating1" id="rating2">
+            <label for="rating2" class="fa fa-star"></label>
+            <input type="radio" name="rating1" id="rating3">
+            <label for="rating3" class="fa fa-star"></label>
+            <input type="radio" name="rating1" id="rating4">
+            <label for="rating4" class="fa fa-star"></label>
+            <input type="radio" name="rating1" id="rating5">
+            <label for="rating5" class="fa fa-star"></label>
+          </div>
+        </div>
+        
+        </div>
+      </div>
     </div>
   </main>
   

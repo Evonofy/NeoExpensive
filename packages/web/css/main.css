@@ -3330,6 +3330,7 @@ select {
 
 @media only screen and (min-width: 1200px) {
   .profile--body {
+    justify-content: center;
     padding: 1rem;
   }
 }
@@ -3364,6 +3365,12 @@ select {
   margin-left: auto;
   margin-right: auto;
   border-radius: 1rem;
+}
+@media only screen and (min-width: 992px) {
+  .profile--avatar--image {
+    margin-left: 5rem;
+    margin-right: auto;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -3443,6 +3450,17 @@ select {
 
 .profile--purchase--history {
   font-size: var(--fs-500);
+  background-image: linear-gradient(to right, var(--clr-accent-200), var(--clr-accent-200));
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 200ms linear;
+}
+.profile--purchase--history:hover {
+  color: var(--clr-gray-scale-900);
+  background-size: 100% 100%;
 }
 
 .profile--history--card {
@@ -3469,7 +3487,7 @@ select {
 
 .profile--history--card--paragraph {
   font-size: var(--fs-600);
-  padding: 1rem;
+  padding-top: 1rem;
 }
 @media only screen and (min-width: 1200px) {
   .profile--history--card--paragraph {
@@ -3478,20 +3496,35 @@ select {
 }
 
 .profile--history--card--price {
-  font-size: var(--fs-500);
+  font-size: var(--fs-400);
   color: var(--clr-secondary-green-200);
-  padding: 0.5rem;
+  padding-bottom: 1rem;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
 }
 
 .profile--product {
-  width: 250px;
+  width: 265px;
+  padding: 1rem;
+  transition: all 150ms linear;
 }
-@media only screen and (min-width: 1200px) {
-  .profile--product {
-    width: 200px;
-  }
+.profile--product:hover {
+  transform: scale(1.15);
+  border-radius: 0.5rem;
+}
+
+.reviewWrapper {
+  display: none;
+}
+
+.star--profile {
+  text-align: center;
+  background: var(--clr-gray-scale-900);
+  padding: 1rem 0;
+}
+
+.rating--profile {
+  margin-top: 0;
 }
 
 /* 
