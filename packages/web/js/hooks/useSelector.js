@@ -1,7 +1,10 @@
 /**
  * TODO: Identify querySelectorAll automatically
  */
-export const useSelector = (selector, { querySelectorAll = false } = {}) => {
+export const useSelector = (
+  selector,
+  { querySelectorAll = false, tagSelection = false } = {}
+) => {
   const $ = !querySelectorAll
     ? document.querySelector.bind(document)
     : document.querySelectorAll.bind(document);
@@ -9,7 +12,7 @@ export const useSelector = (selector, { querySelectorAll = false } = {}) => {
   const isClass = !!selector.split('.')[1];
   const isID = !!selector.split('#')[1];
 
-  if (!isClass && !isID) {
+  if (!isClass && !isID && tagSelection === false) {
     console.log(
       `[WARNING:useSelector] -> the selector ${selector} doesn't exist`
     );
