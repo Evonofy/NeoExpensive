@@ -2,17 +2,17 @@
 
 .product--card {
   width: max-content;
+  background: var(--clr-gray-scale-700);
   margin: 1.4rem auto;
 
   box-shadow: 1px 15px 20px black;
-  background: var(--clr-gray-scale-700);
   border-radius: 1rem;
 
-  &--image {
+  &--image {    
     display: flex;
-    padding: .85rem;
     
     background: var(--clr-gray-scale-90);
+    padding: .85rem;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
     
@@ -26,6 +26,10 @@
       transform: scale(1.1);
       border-radius: 1rem;
     }
+
+    img {
+      width: 280px;
+    }
   }
   
   &--desc {
@@ -38,11 +42,10 @@
     text-transform: uppercase;
   }
   
-  &--title {  
+  &--title {
+    font-size: .9rem;  
     max-width: 20ch;
     min-height: 5rem;
-    
-    font-size: .9rem;
     
     margin-bottom: .5rem;
   }
@@ -55,15 +58,15 @@
 
   @include mq(992px) {
     width: 100%;
-    box-shadow: 1px 15px 20px black;
     background: var(--clr-gray-scale-700);
+    box-shadow: 1px 15px 20px black;
     border-radius: 1rem;
       
     &--image {
       display: flex;
-      padding: .85rem;
         
       background: var(--clr-gray-scale-90);
+      padding: .85rem;
       border-top-right-radius: 1rem;
       border-top-left-radius: 1rem;
         
@@ -89,11 +92,10 @@
       text-transform: uppercase;
     }
       
-    &--title {  
+    &--title {
+      font-size: .9rem;  
       max-width: 20ch;
-      min-height: 5rem;
-        
-      font-size: .9rem;    
+      min-height: 5rem;    
         
       margin-bottom: .5rem;
     }
@@ -110,15 +112,15 @@
   
   @include mq(1200px) {
     width: 100%;
-    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     background: var(--clr-gray-scale-700);
+    box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
     border-radius: 1rem;
     
     &--image {
       display: flex;
-      padding: 1rem;
       
       background: var(--clr-gray-scale-90);
+      padding: 1rem;
       border-top-right-radius: 1rem;
       border-top-left-radius: 1rem;
       
@@ -144,11 +146,10 @@
       text-transform: uppercase;
     }
     
-    &--title {  
+    &--title {
+      font-size: 1.2rem;  
       max-width: 20ch;
       min-height: 5.5rem;
-      
-      font-size: 1.2rem;
       
       margin-bottom: .5rem;
     }
@@ -162,29 +163,29 @@
 }
 
 .product--category {
+  font-size: .9rem;
   color: var(--clr-gray-scale-90);
-  padding: .45rem;
   
   background: var(--clr-gray-scale-800);
-  font-size: .9rem;
+  padding: .45rem;
   border-radius: .5rem;
 
   @include mq(992px) {
     .product--category {
+      font-size: .9rem;
       color: var(--clr-gray-scale-90);
-      padding: .45rem;
       
       background: var(--clr-gray-scale-800);
-      font-size: .9rem;
+      padding: .45rem;
       border-radius: .5rem;
     }
   }
   
   @include mq(1200px) {
     color: var(--clr-gray-scale-90);
-    padding: .45rem;
     
     background: var(--clr-gray-scale-800);
+    padding: .45rem;
     border-radius: .5rem;
   }
   
@@ -210,7 +211,8 @@
   
 }
 
-.product--card--buy { 
+.product--card--buy {
+  font-size: clamp(.7rem, 1vw, 1rem); 
   font-family: var(--ff-montserrat);
   
   color: var(--clr-gray-scale-90);
@@ -218,17 +220,16 @@
   
   display: flex;
   gap: .2rem;
+  
+  background: var(--clr-accent-200);
   padding-top: .5rem;
   padding-bottom: .5rem;
   
   padding-left: .5rem ;
-  
-  background: var(--clr-accent-200);
   outline: 0;
   border: 0;
   border-top-left-radius: .5rem;
   border-bottom-left-radius: .5rem;
-  font-size: clamp(.7rem, 1vw, 1rem);
   
   transition: all 200ms ease-in-out;
   
@@ -240,7 +241,8 @@
   }
 
   @include mq(992px) {
-    .product--card--buy { 
+    .product--card--buy {
+      font-size: clamp(.7rem, 1vw, 1rem); 
       font-family: var(--ff-montserrat);
       
       color: var(--clr-gray-scale-90);
@@ -248,17 +250,16 @@
       
       display: flex;
       gap: .2rem;
+      
+      background: var(--clr-accent-200);
       padding-top: .5rem;
       padding-bottom: .5rem;
       
       padding-left: .5rem ;
-      
-      background: var(--clr-accent-200);
       outline: 0;
       border: 0;
       border-top-left-radius: .5rem;
       border-bottom-left-radius: .5rem;
-      font-size: clamp(.7rem, 1vw, 1rem);
       
       transition: all 200ms ease-in-out;
       
@@ -273,20 +274,20 @@
   }
   
   @include mq(1200px) {
+    font-size: var(--fs-300);
     font-family: var(--ff-montserrat);
     color: var(--clr-gray-scale-90);
     
     display: flex;
     gap: .2rem;
     
-    padding: .65rem;
-    
     background: var(--clr-accent-300);
+    
+    padding: .65rem;
     outline: 0;
     border: 0;
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
-    font-size: var(--fs-300);
     
     transition: all 200ms ease-in-out;
     
@@ -301,7 +302,8 @@
   
 }
 
-.product--card--cart { 
+.product--card--cart {
+  font-size: clamp(.8rem, 1vw, 1rem); 
   font-family: var(--ff-montserrat);
   
   color: var(--clr-gray-scale-90);
@@ -310,14 +312,13 @@
   display: flex;
   gap: .2rem;
   
-  padding: .35rem;
-  
   background: var(--clr-accent-200);
+  
+  padding: .35rem;
   outline: 0;
   border: 0;
   border-top-right-radius: .5rem;
   border-bottom-right-radius: .5rem;
-  font-size: clamp(.8rem, 1vw, 1rem);
   
   transition: all 200ms ease-in-out;
   
@@ -329,6 +330,7 @@
   }
   
   @include mq(992px) {
+    font-size: clamp(.8rem, 1vw, 1rem);
     font-family: var(--ff-montserrat);
     
     color: var(--clr-gray-scale-90);
@@ -337,14 +339,13 @@
     display: flex;
     gap: .2rem;
     
-    padding: .35rem;
-    
     background: var(--clr-accent-200);
+    
+    padding: .35rem;
     outline: 0;
     border: 0;
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    font-size: clamp(.8rem, 1vw, 1rem);
     
     transition: all 200ms ease-in-out;
     
@@ -357,6 +358,9 @@
   }
   
   @include mq(1200px) {
+    
+    // color: var(--clr-gray-scale-90);
+    font-size: var(--fs-300);
     font-family: var(--ff-montserrat);
     width: 50%;
     
@@ -368,9 +372,6 @@
     border: 0;
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    
-    // color: var(--clr-gray-scale-90);
-    font-size: var(--fs-300);
     
     transition: all 200ms ease-in-out;
     

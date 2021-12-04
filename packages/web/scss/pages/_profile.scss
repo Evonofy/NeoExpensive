@@ -2,6 +2,7 @@
 
 .profile--body {
   @include mq(1200px) {
+    justify-content: center;
     padding: 1rem;
   }
 }
@@ -9,15 +10,10 @@
 .profile--wrapper {
   width: 100%;
 
+  background: var(--clr-gray-scale-700);
   padding: 0;
 
-  background: var(--clr-gray-scale-600);
-
   @include mq(1200px) {
-    height: 95vh;
-    
-    padding: 0;
-    background: var(--clr-gray-scale-700);
     border-radius: 1rem;
   }
 }
@@ -26,7 +22,8 @@
   width: 100%;
   height: 30vh;
   
-  background-image: url(../images/pages/profile/ben-o-bro-unsplash.jpg);
+  background-image: url(../images/pages/profile/ben-o-bro-unsplash.webp);
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 1rem;
@@ -36,25 +33,35 @@
   &--image {
     width: 220px;
     
+    background: var(--clr-gray-scale-800);
+    
     margin-top: -10rem;
     margin-left: auto;
     margin-right: auto;
-    
-    background: var(--clr-gray-scale-800);
     border-radius: 1rem;
+  }
+
+  @include mq(992px) {
+    &--image {
+      margin-left: 5rem;
+      margin-right: auto;
+    }
   }
 }
 
-.profile--purchase--wrapper {
-  @include mq(1200px) {
-    display: flex;
+.profile--purchase--wrapper,
+.profile--review--wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include mq(992px) {
+    flex-direction: row;
   }
 }
 
 .profile--name {
-  width: none;
-
   text-align: center;
+  width: none;
   margin-top: auto;
   margin-left: auto;
 
@@ -127,12 +134,24 @@
 
 .profile--purchase--history {
   font-size: var(--fs-500);
+  background-image: linear-gradient(to right, var(--clr-accent-200), var(--clr-accent-200));
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 200ms linear;
+
+  &:hover {
+    color: var(--clr-gray-scale-900);
+    background-size: 100% 100%;
+  }
 }
 
 .profile--history--card {
-  width: 100%;
   text-align: center;
-  background: var(--clr-gray-scale-800);  
+  width: 100%;
+  background: var(--clr-gray-scale-800); 
 }
 
 .profile--history--card:nth-child(1) {
@@ -154,7 +173,7 @@
 .profile--history--card--paragraph {
   font-size: var(--fs-600);
   
-  padding: 1rem; 
+  padding-top: 1rem; 
 
   @include mq(1200px) {
     font-size: var(--fs-500);
@@ -162,19 +181,37 @@
 }
 
 .profile--history--card--price {
+  font-size: var(--fs-400);
   color: var(--clr-secondary-green-200);
   
-  padding: .5rem;
+  padding-bottom: 1rem;
   border-bottom-right-radius: 1rem;
   
   border-bottom-left-radius: 1rem;
-  font-size: var(--fs-500);
 }
 
 .profile--product {
-  width: 250px;
+  width: 265px;
+  padding: 1rem;
 
-  @include mq(1200px) {
-    width: 200px;
+  transition: all 150ms linear;
+
+  &:hover {
+    transform: scale(1.15);
+    border-radius: .5rem;
   }
+}
+
+.reviewWrapper {
+  display: none;
+}
+
+.star--profile {
+  text-align: center;
+  background: var(--clr-gray-scale-900);
+  padding: 1rem 0;
+}
+
+.rating--profile {
+  margin-top: 0;
 }
