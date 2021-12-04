@@ -21,14 +21,14 @@ const themeSwitcherButtons = useSelector('.theme--switcher--button', {
 });
 themeSwitcherButtons.forEach((button) => {
   /* put the next theme name in the button */
-  button.innerHTML = theme.nextTheme();
+  button.innerHTML = theme.theme;
 
   button.onclick = () => {
     /* go to next theme */
     theme.cycle();
 
     /* update button name */
-    button.innerHTML = theme.nextTheme();
+    button.innerHTML = theme.theme;
   };
 });
 
@@ -37,7 +37,7 @@ const langSwitcherButtons = useSelector('.lang--switcher--button', {
 });
 langSwitcherButtons.forEach((button) => {
   /* put the next theme name in the button */
-  button.innerHTML = lang.nextLanguage();
+  button.innerHTML = lang.language;
 
   button.onclick = () => {
     useSelector('body').style.top = 0;
@@ -48,7 +48,7 @@ langSwitcherButtons.forEach((button) => {
     lang.cycle();
 
     /* update button name */
-    button.innerHTML = lang.nextLanguage();
+    button.innerHTML = lang.language;
     return false;
   };
 });
