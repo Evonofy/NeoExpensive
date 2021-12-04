@@ -9,15 +9,15 @@
 .profile--wrapper {
   width: 100%;
 
-  padding: 0;
-
   background: var(--clr-gray-scale-600);
+
+  padding: 0;
 
   @include mq(1200px) {
     height: 95vh;
+    background: var(--clr-gray-scale-700);
     
     padding: 0;
-    background: var(--clr-gray-scale-700);
     border-radius: 1rem;
   }
 }
@@ -36,11 +36,11 @@
   &--image {
     width: 220px;
     
+    background: var(--clr-gray-scale-800);
+    
     margin-top: -10rem;
     margin-left: auto;
     margin-right: auto;
-    
-    background: var(--clr-gray-scale-800);
     border-radius: 1rem;
   }
 }
@@ -52,9 +52,8 @@
 }
 
 .profile--name {
-  width: none;
-
   text-align: center;
+  width: none;
   margin-top: auto;
   margin-left: auto;
 
@@ -130,8 +129,8 @@
 }
 
 .profile--history--card {
-  width: 100%;
   text-align: center;
+  width: 100%;
   background: var(--clr-gray-scale-800);  
 }
 
@@ -162,13 +161,13 @@
 }
 
 .profile--history--card--price {
+  font-size: var(--fs-500);
   color: var(--clr-secondary-green-200);
   
   padding: .5rem;
   border-bottom-right-radius: 1rem;
   
   border-bottom-left-radius: 1rem;
-  font-size: var(--fs-500);
 }
 
 .profile--product {

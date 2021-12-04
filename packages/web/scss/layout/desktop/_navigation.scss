@@ -17,9 +17,9 @@
 }
 
 .navigation--item {
-  @include mq(992px) { 
+  @include mq(992px) {
+    text-align: center; 
     width: 8rem;
-    text-align: center;
     border-radius: 0.25rem;
   }
 }

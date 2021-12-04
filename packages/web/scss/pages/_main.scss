@@ -2,19 +2,19 @@
 
 .main--banner {
   height: 30vh;
-  
-  margin-top: 9.5rem;
   background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
   background-repeat: no-repeat;
   background-size: cover;
   
+  margin-top: 9.5rem;
+  
   @include mq(992px) {
     height: 50vh;
-    
-    margin-top: 0;
     background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    
+    margin-top: 0;
   }
 }
 
@@ -43,8 +43,8 @@
 }
 
 .main--title {
-  text-align: center;
   font-size: var(--fs-800);
+  text-align: center;
   margin: 1.3rem 0;
 
   @include mq(992px) {
@@ -55,14 +55,13 @@
   }
 
   @include mq(1200px) {
+    font-size: var(--fs-700);
     width: max-content;
     margin-top: 3.5rem;
     margin-bottom: 1rem;
     padding: 0 6rem;
     
     position: relative;
-    
-    font-size: var(--fs-700);
   }
 }
 
@@ -83,14 +82,14 @@
 .main--category--card {
   width: 100%;
   height: 15rem;
-  
-  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  
+  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
   border-radius: 8px;
   border-radius: 1rem;
+  position: relative;
   
   transition-timing-function: ease-out;
   transition: all 250ms ease-in;
@@ -103,14 +102,14 @@
   &:hover .main--category--card--label,
   &:focus .main--category--card--label {
     width: 17rem;
-    box-shadow: 
-    0 7px 0 var(--color-contrast-lowest);
     
     background-size: 100% 100%;
+    box-shadow: 
+    0 7px 0 var(--color-contrast-lowest);
+    border-radius: 1rem;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    border-radius: 1rem;
   }
   
   &:hover .amd--hover,
@@ -223,15 +222,15 @@
 .main--department--card {
   width: 100%;
   height: 15rem;
-  
-  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  
+  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
   
   border-radius: 8px;
   border-radius: 1rem;
+  position: relative;
   transition-timing-function: ease-out;
   transition: all 250ms ease-in;
   
@@ -244,9 +243,9 @@
   &:focus .main--department--card--label {
     width: 100%;
     height: 100%;
-    box-shadow: 0 5px 0 1px var(--clr-accent-300);
     background-image: linear-gradient(90deg, var(--clr-accent-200) 0%, var(--clr-accent-300) 100%);
     background-size: 100% 100%;
+    box-shadow: 0 5px 0 1px var(--clr-accent-300);
     top: 50%;
     
     left: 50%;
@@ -276,11 +275,11 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 0% 0%;
+  border-radius: 1rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  border-radius: 1rem;
   
   transition-timing-function: ease-out;
   transition: all 250ms ease-in;

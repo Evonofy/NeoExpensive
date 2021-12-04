@@ -33,8 +33,8 @@
     
     &--image {
       width: 200px;
-      margin-bottom: 1rem;
       background: var(--clr-gray-scale-600);
+      margin-bottom: 1rem;
       border-radius: .5rem;
     }
   }
@@ -53,9 +53,9 @@
 
     grid-area: aside--price;
     
-    border-radius: .5rem;
-    
     background: var(--clr-gray-scale-600);
+    
+    border-radius: .5rem;
   }
 }
   
@@ -67,9 +67,9 @@
   
 .product--aside--image {
   @include mq(1200px) {
+    background: var(--clr-gray-scale-90);
     margin-left: auto;
     margin-right: auto;
-    background: var(--clr-gray-scale-90);
     border-radius: .5rem;
   }
 }
@@ -103,8 +103,8 @@
   
 .star--icon {
   @include mq(1200px) {
-    color: var(--clr-primary-yellow-300);
     text-align: left;
+    color: var(--clr-primary-yellow-300);
   }
 }
   
@@ -192,10 +192,10 @@
 
 .product--description {
   @include mq(1200px) {
-    padding: 2rem;
+    font-size: var(--fs-500);
 
     background: var(--clr-gray-scale-700);
-    font-size: var(--fs-500);
+    padding: 2rem;
     border-radius: .5rem;
   }
 }
@@ -205,9 +205,9 @@
     display: flex;
     justify-content: space-between;
 
-    padding: 2rem;
-
     background: var(--clr-gray-scale-700);
+
+    padding: 2rem;
 
     border-radius: .5rem;
   }
@@ -253,22 +253,22 @@
 
 .user--review--card {
   @include mq(1200px) {
-    padding: 3rem 5rem;
     background: var(--clr-gray-scale-700);
+    padding: 3rem 5rem;
     border-radius: .5rem;
   }
 }
 
 .review--button {
   @include mq(1200px) {
+    font-size: var(--fs-300);
     font-family: var(--ff-montserrat);
     color: var(--clr-gray-scale-100);
-    padding: .8em;
 
     background: var(--clr-accent-300);
+    padding: .8em;
     outline: 0;
     border: 0;
-    font-size: var(--fs-300);
     border-radius: .5rem;
   }
 }
@@ -279,11 +279,11 @@
     align-items: center;
     gap: 1rem;
 
+    background: var(--clr-gray-scale-900);
+
     margin-top: 2rem;
   
     padding: 2rem;
-
-    background: var(--clr-gray-scale-900);
 
     border-radius: .5rem;
   }
