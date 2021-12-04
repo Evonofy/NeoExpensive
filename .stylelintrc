@@ -96,6 +96,7 @@
       "background-color",
       "background-image",
       "background-position",
+      "background-attachment",
       "background-repeat",
       "background-size",
       "margin",
