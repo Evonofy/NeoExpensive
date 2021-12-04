@@ -1,6 +1,7 @@
 @use '../abstracts/_mixins.scss' as *;
 
 .accordion {
+  font-family: var(--ff-montserrat);
   text-align: left;
   color: var(--clr-gray-scale-90);
   width: 100%;
