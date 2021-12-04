@@ -20,11 +20,11 @@
     &--text {
       font-weight: bold;
       width: max-content;
+      
+      background: var(--clr-gray-scale-800);
       margin: .60rem;
       
       padding: 0 .5rem;
-      
-      background: var(--clr-gray-scale-800);
       
       position: absolute;
       left: 0;
@@ -39,10 +39,10 @@
     &--input {
       color: var(--clr-gray-scale-200);
       width: 100%;
-      
-      padding: .5rem;
 
       background: var(--clr-gray-scale-800);
+      
+      padding: .5rem;
       outline: 0;
       border: 2px solid var(--clr-gray-scale-100);
       border-radius: .5rem;

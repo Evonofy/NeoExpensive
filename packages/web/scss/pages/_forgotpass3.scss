@@ -28,9 +28,8 @@
 }
 
 .forgotpass3--paragraph {
-  max-width: 50ch;
-  
   font-size: var(--fs-400);
+  max-width: 50ch;
   margin-bottom: 1rem;
 }
 
@@ -54,16 +53,16 @@
 }
 
 .forgot3--form--input {
+  font-size: var(--fs-400);
   color: var(--clr-gray-scale-90);
   width: 100%;
-  margin: .75rem 0;
-  padding: .7rem 3rem;
   
   background: var(--clr-gray-scale-700);
+  margin: .75rem 0;
+  padding: .7rem 3rem;
   outline: 0;
   
   border: 0;
-  font-size: var(--fs-400);
   border-radius: 1.5rem;
   
   transition: all 200ms linear;
@@ -74,21 +73,21 @@
   
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 3px var(--clr-accent-200);
     background: var(--clr-gray-scale-800);
+    box-shadow: 0 0 0 3px var(--clr-accent-200);
   }
   
   @include mq(992px) {
+    font-size: var(--fs-400);
     color: var(--clr-gray-scale-90);
     width: 100%;
-    margin: .75rem 0;
-    padding: .7rem 3rem;
     
     background: var(--clr-gray-scale-700);
+    margin: .75rem 0;
+    padding: .7rem 3rem;
     outline: 0;
     
     border: 0;
-    font-size: var(--fs-400);
     border-radius: 1.5rem;
     
     transition: all 200ms linear;
@@ -99,15 +98,15 @@
     
     &:hover,
     &:focus {
-      box-shadow: 0 0 0 3px var(--clr-accent-200);
       background: var(--clr-gray-scale-800);
+      box-shadow: 0 0 0 3px var(--clr-accent-200);
     }
   }
 }
 
 .forgot3--form--label {
-  font-family: var(--ff-montserrat);
   font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
   
   margin-left: .75rem;
 }
@@ -138,15 +137,15 @@
 }
 
 .forgot3--button {
+  font-size: var(--fs-400);
   font-family: var(--ff-montserrat);
   color: var(--clr-gray-scale-90);
+  
+  background: var(--clr-accent-200);
   margin-top: 1rem;
   
   padding: .5rem;
-  
-  background: var(--clr-accent-200);
   border: 0;
-  font-size: var(--fs-400);
   border-radius: .5rem;
   
   transition: all 200ms linear;
