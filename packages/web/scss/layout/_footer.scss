@@ -6,13 +6,13 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1.35rem;
+  
+  background: var(--color-header-footer);
   margin-top: auto;
   
   padding-top: 3rem;
   padding-right: 2rem;
   padding-left: 2rem;
-  
-  background: var(--color-header-footer);
   
   border-top: 2px solid var(--clr-accent-200);
 
@@ -52,13 +52,13 @@
 
 .footer--title {
   font-weight: 500;
+  line-height: 1.5em;
   
   color: var(--clr-accent-200);
   
   margin-bottom: 1rem;
   
   position: relative;
-  line-height: 1.5em;
   
   &::after {
     content: "";
@@ -103,10 +103,10 @@
 
 .footer--copyright {
   font-weight: 400;
+  text-align: center;
   
   width: 100%;
   padding: 0.7em 0; 
   
   border-top: 1px solid var(--gray-scale-100);
-  text-align: center;
 }

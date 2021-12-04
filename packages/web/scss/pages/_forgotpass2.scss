@@ -1,7 +1,6 @@
 @use '../abstracts/mixins' as *;
 
 .forgotpass2--body {
-  // height: 100vh;
   place-content: center;
   padding: 0 1rem;
 }
@@ -14,9 +13,9 @@
     "left";
   
   grid-template-rows: .1fr 1fr 1fr;
-  padding: 4rem 1rem;
   
   background: var(--clr-gray-scale-700);
+  padding: 4rem 1rem;
   border: 2px solid var(--clr-gray-scale-100);
 
   @include mq(992px) {
@@ -28,9 +27,9 @@
     
     grid-template-columns: .1fr 2fr 1fr 2fr .1fr;
     grid-template-rows: auto auto auto auto auto;
-    padding: 8rem 2rem;
     
     background: var(--clr-gray-scale-700);
+    padding: 8rem 2rem;
     border: 2px solid var(--clr-gray-scale-100);
   }
 }
@@ -41,33 +40,33 @@
 }
 
 .forgotpass2--h2 {
-  max-width: 70ch;
+  font-size: var(--fs-500);
   
   text-align: center;
-  font-size: var(--fs-500);
+  max-width: 70ch;
   
   margin: 4rem 0;
 
   @include mq(992px) {
-    max-width: 20ch;
     font-size: var(--fs-500);
+    max-width: 20ch;
     
     margin: 2rem 0;
   }
 }
 
 .forgotpass2--link {
+  text-align: center;
   color: var(--clr-gray-scale-90);
   width: 50%;
   
   height: max-content;
   
+  background: var(--clr-accent-200);
+  
   margin-left: auto;
   margin-right: auto;
   padding: .5rem;
-  
-  background: var(--clr-accent-200);
-  text-align: center;
   border-radius: .5rem;
   
   transition: all 200ms linear;
@@ -78,13 +77,13 @@
   }
 
   @include mq(992px) {
+    text-align: center;
     color: var(--clr-gray-scale-90);
     
     height: max-content;
-    padding: .5rem;
     
     background: var(--clr-accent-200);
-    text-align: center;
+    padding: .5rem;
     border-radius: .5rem;
     
     transition: all 200ms linear;

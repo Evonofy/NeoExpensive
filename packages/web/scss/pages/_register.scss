@@ -125,9 +125,9 @@
     
     margin: auto;
     padding: 1rem 3rem;
+    border-radius: 1rem;
     
     position: relative;
-    border-radius: 1rem;
   }
 }
 
@@ -212,6 +212,7 @@
   justify-content: center;
   
   &--link {
+    line-height: 1.6;
     color: var(--clr-gray-scale-90);
     
     width: 100%;
@@ -224,7 +225,6 @@
     background: var(--clr-accent-200);
     
     padding: .5rem .9rem;
-    line-height: 1.6;
     
     border-radius: .5rem;
     
@@ -240,6 +240,7 @@
 }
 
 .sign--in--link {
+  line-height: 1.6;
   color: var(--color-contrast-higher);
   
   display: flex;
@@ -252,7 +253,6 @@
   padding: 0 12px;
   padding-top: 6px;
   padding-bottom: 5px;
-  line-height: 1.6;
   
   border-radius: .5rem;
   
@@ -286,8 +286,8 @@
 .register--circle {
   width: 45px;
   height: 45px;
-  border-radius: 50%;
   background: var(--clr-gray-scale-500);
+  border-radius: 50%;
 }
 
 .register--line {

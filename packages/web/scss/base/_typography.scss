@@ -16,8 +16,8 @@ h1 {
 
 h2,
 h3 {
-  font-weight: 400;
   font-family: var(--ff-montserrat);
+  font-weight: 400;
 }
 
 li,
@@ -38,7 +38,7 @@ $type-scale: (
     600: 1.953rem,
     700: 2.441rem,
     800: 3.052rem
-    ),
+  ),
   extra-large: (
     300: 1rem,
     400: 1.225rem,
@@ -46,5 +46,5 @@ $type-scale: (
     600: 2.827rem,
     700: 4rem,
     800: 5.653rem
-    )
+  )
 );

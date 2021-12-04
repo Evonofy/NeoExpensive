@@ -21,10 +21,6 @@
 }
 
 .forgotpass1--left {
-  // display: grid;
-  // grid-area: left;
-  
-  // place-content: center;
   display: none;
   
   @include mq(1200px) {
@@ -55,11 +51,11 @@
 
   display: grid;
   place-content: center;
+  background: var(--clr-gray-scale-700);
 
   margin-left: auto;
   margin-right: auto;
   padding: 1rem;
-  background: var(--clr-gray-scale-700);
   
   @include mq(1200px) {
     width: 100%;
@@ -67,11 +63,11 @@
 
     display: grid;
     place-content: center;
+    background: var(--clr-gray-scale-700);
 
     margin-left: auto;
     margin-right: auto;
     padding: 3rem;
-    background: var(--clr-gray-scale-700);
   }
 }
 
@@ -115,8 +111,8 @@
 }
 
 .forgotpass1--form--label {
-  font-family: var(--ff-montserrat);
   font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
   
   margin-left: .75rem;
 }
@@ -131,16 +127,16 @@
 }
 
 .forgotpass1--form--input {
+  font-size: var(--fs-400);
   color: var(--clr-gray-scale-90);
   width: 100%;
-  margin: .75rem 0;
-  padding: .7rem 3rem;
   
   background: var(--clr-gray-scale-800);
+  margin: .75rem 0;
+  padding: .7rem 3rem;
   outline: 0;
   
   border: 0;
-  font-size: var(--fs-400);
   border-radius: 1.5rem;
   
   transition: all 200ms linear;
@@ -151,21 +147,21 @@
   
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 3px var(--clr-accent-200);
     background: var(--clr-gray-scale-800);
+    box-shadow: 0 0 0 3px var(--clr-accent-200);
   }
 }
 
 .forgotpass1--button {
+  font-size: var(--fs-400);
   font-family: var(--ff-montserrat);
   color: var(--clr-gray-scale-90);
-  margin: 2rem 0;
-  padding: .5rem;
   
   background: var(--clr-accent-200);
+  margin: 2rem 0;
+  padding: .5rem;
   outline: 0;
   border: 0;
-  font-size: var(--fs-400);
   border-radius: .5rem;
   
   transition: all 200ms linear;
