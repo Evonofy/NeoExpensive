@@ -289,7 +289,7 @@ select {
   .desktop--header .user--controls {
     stroke: var(--clr-gray-scale-90);
   }
-  .desktop--header .social-icons {
+  .desktop--header .social--icons {
     stroke: var(--clr-gray-scale-90);
   }
 }
@@ -2134,6 +2134,10 @@ select {
   transition: transform 700ms ease-in-out;
 }
 
+.support--link {
+  color: var(--clr-accent-200);
+}
+
 .about--us--main {
   margin-top: 10rem;
 }
@@ -3494,6 +3498,7 @@ select {
 * Forwards All Files From Pages To Here
 */
 .accordion {
+  font-family: var(--ff-montserrat);
   text-align: left;
   color: var(--clr-gray-scale-90);
   width: 100%;
@@ -3525,9 +3530,11 @@ select {
 }
 
 .modalWrapper {
+  width: 100vw;
   max-height: 90vh;
   overflow: auto;
   background: var(--clr-gray-scale-800);
+  margin-top: 5rem;
   padding: 2rem;
   border-radius: 1rem;
   position: fixed;
@@ -3538,6 +3545,12 @@ select {
   opacity: 0;
   pointer-events: none;
   transition: all 200ms linear;
+}
+@media only screen and (min-width: 992px) {
+  .modalWrapper {
+    width: 85%;
+    margin-top: 0;
+  }
 }
 
 .show {
