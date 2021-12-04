@@ -26,12 +26,12 @@ html {
 
 /* Set Core Body Defaults */
 body {
+  line-height: 1.5;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
 }
 
 /* A Elements That Don't Have A Class Get Default Styles */

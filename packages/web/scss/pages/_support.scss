@@ -17,7 +17,7 @@
     display: grid; 
     row-gap: 2rem;
     column-gap: 2rem;
-    grid-template-columns: 1fr 1fr; // Dane-se o cálculo
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr; 
     
     margin: 2.35rem 2rem;
@@ -35,12 +35,12 @@
 }
 
 .support--section--title {
-  text-align: center;
   font-size: 3rem;
+  text-align: center;
 
   @include mq(992px) {
-    text-align: center;
     font-size: 4rem;
+    text-align: center;
   }
 }
 
@@ -75,11 +75,10 @@
   }
   
   span {
-    padding: .25rem .4rem;
-    
     background-image: linear-gradient(90deg, hsl(330 100% 25%), hsl(352 100% 50%));
-    font-style: italic;
+    padding: .25rem .4rem;
     border-radius: .25rem;
+    font-style: italic;
   }
   
   &--input {
@@ -87,15 +86,15 @@
     color: var(--clr-gray-scale-90);
     width: max-content;
     
-    padding: .45rem;
+    background-color: var(--clr-gray-scale-700);
     background-image: linear-gradient(var(--clr-gray-scale-90), var(--clr-gray-scale-100));
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: 0% 4px;
+    
+    padding: .45rem;
     outline: 0;
     border: 0;
-    
-    background-color: var(--clr-gray-scale-700);
     
     transition: all 150ms ease-in;
     
@@ -125,8 +124,8 @@
     }
     
     span {
-      padding: .2rem;
       background-image: linear-gradient(90deg, purple, red);
+      padding: .2rem;
       border-radius: .25rem;
     }
     
@@ -134,15 +133,15 @@
       font-size: 1.35rem;
       color: var(--clr-gray-scale-90);
       
-      padding: .45rem;
+      background-color: var(--clr-gray-scale-700);
       background-image: linear-gradient(var(--clr-gray-scale-90), var(--clr-gray-scale-100));
       background-position: center bottom;
       background-repeat: no-repeat;
       background-size: 0% 4px;
+      
+      padding: .45rem;
       outline: 0;
       border: 0;
-      
-      background-color: var(--clr-gray-scale-700);
       
       transition: all 150ms ease-in;
       
@@ -236,13 +235,13 @@
   
   display: flex;
   
-  gap: 1rem;
+  gap: 1rem; 
+  background: var(--clr-gray-scale-800);
   margin-bottom: 2rem;
   
   padding: 1.5rem;
   
-  box-shadow: 5px 5px 0 5px var(--clr-accent-200); 
-  background: var(--clr-gray-scale-800);
+  box-shadow: 5px 5px 0 5px var(--clr-accent-200);
   border: solid 5px var(--clr-accent-100);
 
   @include column;
@@ -265,10 +264,10 @@
       height: 5%;
       
       background: var(--clr-gray-scale-90);
+      border-radius: 1rem;
       position: absolute;
       bottom: -10%;
       left: 0;
-      border-radius: 1rem;
     }
   }
 
@@ -307,12 +306,12 @@
 
 .support--card--h1 {
   font-size: var(--fs-700);
+  text-align: center;
   color: var(--clr-gray-scale-90);
 
   width: 10rem;
 
   position: relative;
-  text-align: center;
   opacity: .65;
 
   &::after {
@@ -321,12 +320,12 @@
     height: 7px;
     
     background: var(--clr-gray-scale-90);
+    
+    border-radius: 1rem;
     position: absolute;
     
     bottom: 0;
     left: 0;
-    
-    border-radius: 1rem;
     
     opacity: .65;
   }
@@ -372,4 +371,8 @@
   margin-top: 1rem;
   transform-style: preserve-3d;
   transition: transform 700ms ease-in-out;
+}
+
+.support--link {
+  color: var(--clr-accent-200);
 }

@@ -3,12 +3,14 @@
   "plugins": ["stylelint-order", "stylelint-scss"],
   "rules": {
     "scss/double-slash-comment-empty-line-before": null,
+    "scss/operator-no-unspaced": null,
     "scss/no-global-function-names": null,
     "scss/at-if-closing-brace-newline-after": null,
     "scss/at-if-closing-brace-space-after": null,
     "scss/at-else-empty-line-before": null,
     "named-grid-areas-no-invalid": true,
     "block-no-empty": true,
+    "keyframes-name-pattern": null,
     "hue-degree-notation": "number",
     "at-rule-empty-line-before": [
       "always", {
@@ -53,6 +55,8 @@
       "font-weight",
       "text-decoration",
       "text-align",
+      "line-height",
+      "letter-spacing",
       "color",
       "box-sizing",
       "width",
@@ -89,8 +93,10 @@
       "overflow-x",
       "overflow-y",
       "background",
+      "background-color",
       "background-image",
       "background-position",
+      "background-attachment",
       "background-repeat",
       "background-size",
       "margin",
@@ -131,7 +137,7 @@
     "color-function-notation": null,
     "color-no-invalid-hex": null,
     "color-no-hex": null,
-    "color-named": "always-where-possible",
+    "color-named": null,
     "color-hex-case": [
       "lower",
       {
