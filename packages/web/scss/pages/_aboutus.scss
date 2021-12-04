@@ -203,8 +203,8 @@
 }
 
 .aboutus--section--profile--image {
-  border-radius: 50%;
   width: 300px;
+  border-radius: 50%;
 
   @include mq(992px) {
     width: 300px;

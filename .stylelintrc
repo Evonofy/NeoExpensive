@@ -10,6 +10,7 @@
     "scss/at-else-empty-line-before": null,
     "named-grid-areas-no-invalid": true,
     "block-no-empty": true,
+    "keyframes-name-pattern": null,
     "hue-degree-notation": "number",
     "at-rule-empty-line-before": [
       "always", {
@@ -135,7 +136,7 @@
     "color-function-notation": null,
     "color-no-invalid-hex": null,
     "color-no-hex": null,
-    "color-named": "always-where-possible",
+    "color-named": null,
     "color-hex-case": [
       "lower",
       {

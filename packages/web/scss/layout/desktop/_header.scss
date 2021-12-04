@@ -7,9 +7,9 @@
     width: 100%;
     display: flex;
     
-    padding: clamp(1rem, 1vw, 2rem) clamp(1rem, 3vw, 4rem);
-    
     background: var(--clr-contrast-lowest);
+    
+    padding: clamp(1rem, 1vw, 2rem) clamp(1rem, 3vw, 4rem);
     border-bottom: 2px solid var(--clr-accent-300);
     
     position: relative;

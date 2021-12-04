@@ -1,12 +1,12 @@
 .hamburger--header--button {
-  border: 0;
   background: transparent;
+  border: 0;
   position: relative;
   
   &--span {
     display: block;
-    position: relative;
     outline: none;
+    position: relative;
   }
   
   &--span,
@@ -37,11 +37,11 @@
     // transform-origin: bottom;
     transform: rotate(45deg);
     
-    &:before {
+    &::before {
       opacity: 0;
     }
     
-    &:after {
+    &::after {
       // transform-origin: top;
       transform: rotate(90deg) translate(-11px);
     }
@@ -57,13 +57,12 @@
 }
 
 .hamburger--nav {
-  width: 15rem;
+  content: '';
   text-align: left;
+  width: 15rem;
   
   background: var(--clr-gray-scale-700);
   border-radius: 1em;
-  
-  content: '';
   position: absolute;
   top: 50%;
   // left: 0;
@@ -74,7 +73,7 @@
   
   transition: opacity 300ms ease-in-out;
   
-  &:before {
+  &::before {
     border-width: 0.5rem;
     border-style: solid;
     border-top-color: transparent;
@@ -100,10 +99,10 @@
     height: .3rem;
     
     background: var(--clr-gray-scale-100);
-    border-radius: 1rem;
-    opacity: .65;
     
     margin: .65rem 0;
+    border-radius: 1rem;
+    opacity: .65;
   }
 }
 
