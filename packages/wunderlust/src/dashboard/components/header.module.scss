@@ -6,18 +6,25 @@
   height: 100%;
 
   display: grid;
+
   align-items: center;
   grid-area: header;
   grid-template-areas:
-    "logo nav ."
+    ". wrapper ."
+    ". . ."
+    ". . ."
   ;
-  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-columns: 8% 84% 8%;
 
   background: linear-gradient(to right, var(--color-accent-100), var(--color-accent-200));
   margin: auto;
-  padding: 2.5rem;
+  padding: 2rem 0;
 
   nav {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+
     ul {
       display: flex;
 
@@ -27,10 +34,32 @@
       li {
         a {
           display: flex;
+
+          svg {
+            zoom: 0.7;
+          }
+
+          &[data-active="true"] {
+            color: var(--color-gray-200);
+
+            svg {
+              stroke: var(--color-gray-200);
+              
+              path {
+                stroke: var(--color-gray-200);
+              }
+            }
+
+            &::before {
+              width: 100%;
+              left: 0;
+              right: 0;
+            }
+          }
           
           h1 {
             font-size: use-clamp(20);
-            margin-left: 1rem;
+            margin-left: use-clamp(8);
           }
 
           &::before {
@@ -49,6 +78,14 @@
 
           &:hover, &:focus {
             color: var(--color-gray-200);
+
+            svg {
+              stroke: var(--color-gray-200);
+              
+              path {
+                stroke: var(--color-gray-200);
+              }
+            }
 
             &::before {
               width: 100%;
@@ -73,7 +110,7 @@
       }
 
       h1 {
-        font-size: use-clamp(32);
+        font-size: use-clamp(24);
         
         margin-left: 1rem;
         border-radius: 2px;
@@ -102,4 +139,16 @@
       }
     }
   }
+}
+
+.headerWrapper {
+  width: 100%;
+
+  display: grid;
+  align-items: center;
+  grid-area: wrapper;
+  grid-template-areas:
+    "logo nav ."
+  ;
+  grid-template-columns: 1fr 2fr 1fr;
 }
