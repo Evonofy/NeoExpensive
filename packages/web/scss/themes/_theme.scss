@@ -9,6 +9,10 @@
 }
 
 [data-theme] {
-  background-color: var(--clr-gray-scale-800) !important;
   color: var(--clr-gray-scale-90) !important;
+  background-color: var(--clr-gray-scale-800) !important;
+
+  svg {
+    stroke: var(--clr-gray-scale-90) !important;
+  }
 }
