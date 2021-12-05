@@ -14,7 +14,7 @@ export class Theme {
     rgb: 'rgb',
   };
 
-  constructor(theme) {
+  constructor(theme = this.getStorageTheme()) {
     let newTheme = theme;
 
     /** If the theme isn't on the available themes list with pattern matching */
