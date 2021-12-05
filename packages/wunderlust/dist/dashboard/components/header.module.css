@@ -5,11 +5,16 @@
   display: grid;
   align-items: center;
   grid-area: header;
-  grid-template-areas: "logo nav .";
-  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-areas: ". wrapper ." ". . ." ". . .";
+  grid-template-columns: 8% 84% 8%;
   background: linear-gradient(to right, var(--color-accent-100), var(--color-accent-200));
   margin: auto;
-  padding: 2.5rem;
+  padding: 2rem 0;
+}
+.header nav {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
 }
 .header nav ul {
   display: flex;
@@ -20,9 +25,26 @@
   display: flex;
   position: relative;
 }
+.header nav ul li a svg {
+  zoom: 0.7;
+}
+.header nav ul li a[data-active=true] {
+  color: var(--color-gray-200);
+}
+.header nav ul li a[data-active=true] svg {
+  stroke: var(--color-gray-200);
+}
+.header nav ul li a[data-active=true] svg path {
+  stroke: var(--color-gray-200);
+}
+.header nav ul li a[data-active=true]::before {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
 .header nav ul li a h1 {
   font-size: clamp(0.5rem, 0.3721590909rem + 0.7575757576vw, 1.28125rem);
-  margin-left: 1rem;
+  margin-left: clamp(0.2rem, 0.1488636364rem + 0.303030303vw, 0.5125rem);
 }
 .header nav ul li a::before {
   content: "";
@@ -36,6 +58,12 @@
 }
 .header nav ul li a:hover, .header nav ul li a:focus {
   color: var(--color-gray-200);
+}
+.header nav ul li a:hover svg, .header nav ul li a:focus svg {
+  stroke: var(--color-gray-200);
+}
+.header nav ul li a:hover svg path, .header nav ul li a:focus svg path {
+  stroke: var(--color-gray-200);
 }
 .header nav ul li a:hover::before, .header nav ul li a:focus::before {
   width: 100%;
@@ -53,7 +81,7 @@
   height: 32px;
 }
 .header .title a h1 {
-  font-size: clamp(0.8rem, 0.5954545455rem + 1.2121212121vw, 2.05rem);
+  font-size: clamp(0.6rem, 0.4465909091rem + 0.9090909091vw, 1.5375rem);
   margin-left: 1rem;
   border-radius: 2px;
   position: relative;
@@ -72,4 +100,13 @@
   width: 100%;
   left: 0;
   right: 0;
+}
+
+.headerWrapper {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-area: wrapper;
+  grid-template-areas: "logo nav .";
+  grid-template-columns: 1fr 2fr 1fr;
 }
