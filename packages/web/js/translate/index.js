@@ -39,7 +39,7 @@ export class Translation {
     uk: 'uk',
   };
 
-  constructor(lang) {
+  constructor(lang = this.getStorageLang()) {
     let newLanguage = lang;
 
     if (!this.availableLanguages[lang]) {
