@@ -1,8 +1,8 @@
 @use '../abstracts/mixins.scss' as *;
 
 .product--display--grid {
-  display: flex;
-
+  display: grid;
+ 
   @include mq(992px) {
     width: 100%;
     display: grid;
@@ -13,6 +13,7 @@
       "section--specification section--specification ."
       "section--reviews section--reviews .";
     grid-template-columns: .4fr 2.5fr 1fr;
+    grid-template-rows: auto;
     
     margin-top: 2rem;
   }
