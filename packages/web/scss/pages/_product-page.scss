@@ -8,7 +8,10 @@
     "aside--price"
     "section--description";
 
-  margin-top: 9.35rem;
+  margin-top: 11.5rem;
+  margin-bottom: 11.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 
   @include mq(992px) {
     width: 100%;
@@ -23,6 +26,8 @@
     grid-template-rows: auto;
     
     margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
   
@@ -34,6 +39,8 @@
   grid-area: item--display;
 
   background: var(--clr-gray-scale-600);
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
 
   @include mq(992px) {
     height: 90vh;
@@ -52,6 +59,11 @@
   grid-area: item--preview;
   grid-template-columns: repeat(4, 1fr);
 
+  overflow: hidden;
+
+  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+
   &--image {
     background: var(--clr-gray-scale-600);
   }
@@ -59,7 +71,7 @@
   @include mq(992px) {
     display: flex;
     flex-direction: column;
-
+  
     &--image {
       width: 200px;
    
@@ -81,11 +93,15 @@
   display: flex;
   flex-direction: column;
   background: var(--clr-gray-scale-600);
-  
+  margin-top: 2rem;
+    
+  border-radius: .5rem;
+
   @include mq(992px) {
     grid-area: aside--price;
-    
-    border-radius: .5rem;
+
+    margin-top: 0;
+
   }
 }
   
@@ -101,8 +117,13 @@
 .product--aside--name {
   text-align: center;
 
+  margin-top: 2rem;
+
   @include mq(992px) {
     text-align: left;
+
+    margin-top: 0;
+
   }
 }
   
@@ -116,8 +137,9 @@
 // Ref: https://codepen.io/WebKitCoding/pen/ZEWZJoG
   
 .rating--css {
-  margin-top: .4rem;
-    
+  width: 100%;
+  padding: 1rem 0;
+
   input {
     display: none;
   }
@@ -135,6 +157,13 @@
   label:active {
     transform: scale(0.8);
     transition: 400ms ease;
+  }
+
+  @include mq(992px) {
+    width: auto;
+    // margin: 0 0 auto auto;
+    padding: 0;
+
   }
   
 }
@@ -212,9 +241,14 @@
   font-size: var(--fs-700);
   transition: all 200ms linear;
   user-select: none;
+  margin-top: 2rem;
     
   &:hover {
     color: var(--clr-accent-200);
+  }
+
+  @include mq(992px) {
+    margin-top: 0;
   }
 }
 
@@ -224,10 +258,6 @@
   background: var(--clr-gray-scale-700);
   padding: 2rem;
   border-radius: .5rem;
-
-  @include mq(992px) {
-  
-  }
 }
 
 .product--specification--wrapper {
@@ -281,57 +311,82 @@
 }
 
 .user--review--wrapper {
+  display: flex;
+  flex-direction: column;
+
   @include mq(992px) {
     display: flex;
+    flex-direction: row;
+
     justify-content: space-between;
   }
 }
 
 .user--review--card {
+  background: var(--clr-gray-scale-700);
+  padding: 2rem 1rem;
+  border-radius: .5rem;
+
   @include mq(992px) {
-    background: var(--clr-gray-scale-700);
     padding: 3rem 5rem;
-    border-radius: .5rem;
   }
 }
 
 .review--button {
-  @include mq(992px) {
-    font-size: var(--fs-300);
-    font-family: var(--ff-montserrat);
-    color: var(--clr-gray-scale-100);
+  font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
+  color: var(--clr-gray-scale-100);
 
-    background: var(--clr-accent-300);
+  background: var(--clr-accent-300);
+
+  margin: 1rem 0;
+  padding: .8em;
+  outline: 0;
+  border: 0;
+  border-radius: .5rem;
+
+  @include mq(992px) {
+    margin: 0;
     padding: .8em;
-    outline: 0;
-    border: 0;
-    border-radius: .5rem;
   }
 }
 
 .review--card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--clr-gray-scale-900);
+  margin: 0;
+  border-radius: .5rem;
+
+  @include mq(576px) {
+    margin: 5rem;
+  }
+
   @include mq(992px) {
-    display: flex;
-    align-items: center;
+    flex-direction: row;
+
     gap: 1rem;
 
-    background: var(--clr-gray-scale-900);
-
-    margin-top: 2rem;
+    margin: 2rem 0 0;
   
     padding: 2rem;
 
-    border-radius: .5rem;
   }
 }
 
 .review--card--text {
+  margin: 1rem 2rem;
+
   @include mq(992px) {
     margin-bottom: auto;
   }
 }
 
 .review--card--image {
+  width: 500px;
+
   @include mq(992px) {
     width: 100px;
     border-radius: 50%;
