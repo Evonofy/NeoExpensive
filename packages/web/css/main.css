@@ -3055,7 +3055,7 @@ select {
 }
 
 .product--display--grid {
-  display: flex;
+  display: grid;
 }
 @media only screen and (min-width: 992px) {
   .product--display--grid {
@@ -3064,6 +3064,7 @@ select {
     gap: 1rem;
     grid-template-areas: "item--preview item--display aside--price" "section--description section--description ." "section--specification section--specification ." "section--reviews section--reviews .";
     grid-template-columns: 0.4fr 2.5fr 1fr;
+    grid-template-rows: auto;
     margin-top: 2rem;
   }
 }
