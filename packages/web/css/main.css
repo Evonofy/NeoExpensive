@@ -220,8 +220,11 @@ select {
 }
 
 [data-theme] {
-  background-color: var(--clr-gray-scale-800) !important;
   color: var(--clr-gray-scale-90) !important;
+  background-color: var(--clr-gray-scale-800) !important;
+}
+[data-theme] svg {
+  stroke: var(--clr-gray-scale-90) !important;
 }
 
 [data-theme=light] {
@@ -281,6 +284,9 @@ select {
   }
   .desktop--header .XLogo {
     position: absolute;
+  }
+  .desktop--header .X {
+    stroke: none;
   }
   .desktop--header div {
     display: flex;
