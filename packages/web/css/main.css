@@ -10,7 +10,7 @@
   margin-left: auto;
 }
 
-.margin-left-bottom {
+.margin-bottom-auto {
   margin-bottom: auto;
 }
 
@@ -3057,7 +3057,10 @@ select {
 .product--display--grid {
   display: grid;
   grid-template-areas: "item--display" "item--preview" "aside--price" "section--description";
-  margin-top: 9.35rem;
+  margin-top: 11.5rem;
+  margin-bottom: 11.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 @media only screen and (min-width: 992px) {
   .product--display--grid {
@@ -3068,6 +3071,8 @@ select {
     grid-template-columns: 0.4fr 2.5fr 1fr;
     grid-template-rows: auto;
     margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -3077,6 +3082,8 @@ select {
   justify-content: center;
   grid-area: item--display;
   background: var(--clr-gray-scale-600);
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
 }
 @media only screen and (min-width: 992px) {
   .product--display {
@@ -3094,6 +3101,9 @@ select {
   display: grid;
   grid-area: item--preview;
   grid-template-columns: repeat(4, 1fr);
+  overflow: hidden;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 .product--preview--image {
   background: var(--clr-gray-scale-600);
@@ -3123,11 +3133,13 @@ select {
   display: flex;
   flex-direction: column;
   background: var(--clr-gray-scale-600);
+  margin-top: 2rem;
+  border-radius: 0.5rem;
 }
 @media only screen and (min-width: 992px) {
   .product--aside {
     grid-area: aside--price;
-    border-radius: 0.5rem;
+    margin-top: 0;
   }
 }
 
@@ -3143,10 +3155,12 @@ select {
 
 .product--aside--name {
   text-align: center;
+  margin-top: 2rem;
 }
 @media only screen and (min-width: 992px) {
   .product--aside--name {
     text-align: left;
+    margin-top: 0;
   }
 }
 
@@ -3158,7 +3172,8 @@ select {
 }
 
 .rating--css {
-  margin-top: 0.4rem;
+  width: 100%;
+  padding: 1rem 0;
 }
 .rating--css input {
   display: none;
@@ -3174,6 +3189,12 @@ select {
 .rating--css label:active {
   transform: scale(0.8);
   transition: 400ms ease;
+}
+@media only screen and (min-width: 992px) {
+  .rating--css {
+    width: auto;
+    padding: 0;
+  }
 }
 
 .star--icon {
@@ -3246,9 +3267,15 @@ select {
   font-size: var(--fs-700);
   transition: all 200ms linear;
   user-select: none;
+  margin-top: 2rem;
 }
 .product--details--link:hover {
   color: var(--clr-accent-200);
+}
+@media only screen and (min-width: 992px) {
+  .product--details--link {
+    margin-top: 0;
+  }
 }
 
 .product--description {
@@ -3257,6 +3284,7 @@ select {
   padding: 2rem;
   border-radius: 0.5rem;
 }
+
 .product--specification--wrapper {
   display: flex;
   flex-direction: column;
@@ -3306,52 +3334,81 @@ select {
   }
 }
 
+.user--review--wrapper {
+  display: flex;
+  flex-direction: column;
+}
 @media only screen and (min-width: 992px) {
   .user--review--wrapper {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
   }
 }
 
+.user--review--card {
+  background: var(--clr-gray-scale-700);
+  padding: 2rem 1rem;
+  border-radius: 0.5rem;
+}
 @media only screen and (min-width: 992px) {
   .user--review--card {
-    background: var(--clr-gray-scale-700);
     padding: 3rem 5rem;
-    border-radius: 0.5rem;
   }
 }
 
+.review--button {
+  font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
+  color: var(--clr-gray-scale-100);
+  background: var(--clr-accent-300);
+  margin: 1rem 0;
+  padding: 0.8em;
+  outline: 0;
+  border: 0;
+  border-radius: 0.5rem;
+}
 @media only screen and (min-width: 992px) {
   .review--button {
-    font-size: var(--fs-300);
-    font-family: var(--ff-montserrat);
-    color: var(--clr-gray-scale-100);
-    background: var(--clr-accent-300);
+    margin: 0;
     padding: 0.8em;
-    outline: 0;
-    border: 0;
-    border-radius: 0.5rem;
   }
 }
 
+.review--card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--clr-gray-scale-900);
+  margin: 0;
+  border-radius: 0.5rem;
+}
+@media only screen and (min-width: 576px) {
+  .review--card {
+    margin: 5rem;
+  }
+}
 @media only screen and (min-width: 992px) {
   .review--card {
-    display: flex;
-    align-items: center;
+    flex-direction: row;
     gap: 1rem;
-    background: var(--clr-gray-scale-900);
-    margin-top: 2rem;
+    margin: 2rem 0 0;
     padding: 2rem;
-    border-radius: 0.5rem;
   }
 }
 
+.review--card--text {
+  margin: 1rem 2rem;
+}
 @media only screen and (min-width: 992px) {
   .review--card--text {
     margin-bottom: auto;
   }
 }
 
+.review--card--image {
+  width: 500px;
+}
 @media only screen and (min-width: 992px) {
   .review--card--image {
     width: 100px;
