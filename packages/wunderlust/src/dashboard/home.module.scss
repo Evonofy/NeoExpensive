@@ -1,3 +1,5 @@
+@use "../mixins" as *;
+
 .main {
   width: 100%;
   min-height: 100vh;
@@ -8,14 +10,89 @@
     ". dashboard ."
     ". . ."
   ;
-  grid-template-columns: 5% 90% 5%;
-  grid-template-rows: 40% auto;
+  grid-template-columns: 8% 84% 8%;
+  grid-template-rows: 25% auto;
 }
 
 .dashboard {
   width: 100%;
   height: 100%;
+  
+  display: grid;
+  align-items: start;
+  justify-content: space-between;
   grid-area: dashboard;
+  grid-template-areas:
+    "revenue  orders       profit       users"
+    // "sales    saled        financing    popular"
+    // "sales    saled        financing    popular"
+    // "devices  conversion   conversion   popular"
+    // "browser  conversion   conversion   popular"
+  ;
+  grid-template-columns: repeat(4, 24%);
+  grid-template-rows: 100px auto;
 
-  background: var(--color-gray-800);
+  // background: var(--color-gray-800);
+
+  transform: translateY(-10%);
+
+    
+  .card {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    align-items: center;
+    grid-template-areas:
+      "title ."
+      "price price";
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 30% 70%;
+
+    background: var(--color-gray-800);
+    padding: use-clamp(12) use-clamp(15);
+    border-radius: 4px;
+
+    position: relative;
+
+    h2 {
+      font-size: use-clamp(20);
+      font-weight: 400;
+      color: var(--color-gray-500);
+      grid-area: title;
+    }
+    
+    h3 {
+      font-size: use-clamp(40);
+      color: var(--color-gray-100);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      grid-area: price;
+    }
+      
+    span {
+      width: use-clamp(65);
+      height: use-clamp(65);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-area: logo;
+      background: var(--color-accent-100);
+      padding: 10px;
+      border-radius: 50%;
+      position: absolute;
+
+      top: 50%;
+      right: use-clamp(15);
+      transform: translateY(-50%);
+
+      svg {
+        zoom: 0.6;
+      }
+    }
+
+  }
 }

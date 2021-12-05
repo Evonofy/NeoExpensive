@@ -25,7 +25,7 @@
   <title>Neo Expensive | Registro</title>
   
   <link rel="stylesheet" href="../../css/main.css" />
-  <script defer src="../../js/pages/register.js"></script>
+  <script defer type="module" src="../../js/pages/register.js"></script>
   <!-- <script defer src="../../js/utils/openOnClick.js"></script> -->
 </head> 
 
@@ -58,25 +58,55 @@
         <div class="register--form--input--wrapper">
           <label class="register--form--label">Nome</label>
           <img src="../../images/pages/login-register/envelope-simple.svg" alt="" class="register--form--image">
-          <input type="text" class="register--form--input" placeholder="Pingo Pão Com Banana">
+          <input name="name" type="text" class="register--form--input" placeholder="Pingo Pão Com Banana">
         </div>
 
         <div class="register--form--input--wrapper">
           <label class="register--form--label">Email</label>
           <img src="../../images/pages/login-register/envelope-simple.svg" alt="" class="register--form--image">
-          <input type="email" class="register--form--input" placeholder="fulano@ciclano.com">
+          <input name="email" type="email" class="register--form--input" placeholder="fulano@ciclano.com">
         </div>
 
         <div class="register--form--input--wrapper">
           <label class="register--form--label">Senha</label>
           <img src="../../images/pages/login-register/envelope-simple.svg" alt="" class="register--form--image">
-          <input type="password" class="register--form--input" placeholder="*******">
+          <input name="password" type="password" class="register--form--input" placeholder="*******">
         </div>
         
         <div class="register--form--input--wrapper">
           <label class="register--form--label">Confirme A Senha</label>
           <img src="../../images/pages/login-register/envelope-simple.svg" alt="" class="register--form--image">
-          <input type="password" class="register--form--input" placeholder="*******">
+          <input name="confirm--password" type="password" class="register--form--input" placeholder="*******">
+        </div>
+
+        <div class="register--form--input--wrapper">
+          <label class="register--form--label">CPF</label>
+          <img src="../../images/pages/login-register/envelope-simple.svg" alt="" class="register--form--image">
+          <input name="social--security" type="text" class="register--form--input" placeholder="123.456.789-01">
+        </div>
+
+        <div class="register--form--input--wrapper">
+          <label class="register--form--label">Data de Nascimento</label>
+          <img src="../../images/pages/login-register/envelope-simple.svg" alt="" class="register--form--image">
+          <input name="birth--date" type="date" class="register--form--input" placeholder="01/02/03">
+        </div>
+
+        <div class="register--form--input--wrapper">
+          <label class="register--form--label">CEP</label>
+          <img src="../../images/pages/login-register/envelope-simple.svg" alt="" class="register--form--image">
+          <input name="postal--code" type="text" class="register--form--input" placeholder="01234-567">
+        </div>
+
+        <div class="register--form--input--wrapper">
+          <label class="register--form--label">Número</label>
+          <img src="../../images/pages/login-register/envelope-simple.svg" alt="" class="register--form--image">
+          <input name="number" type="text" class="register--form--input" placeholder="22">
+        </div>
+
+        <div class="register--form--input--wrapper">
+          <label class="register--form--label">Complemento (opcional)</label>
+          <img src="../../images/pages/login-register/envelope-simple.svg" alt="" class="register--form--image">
+          <input name="complement" type="text" class="register--form--input" placeholder="casa 4">
         </div>
    
       </form>
