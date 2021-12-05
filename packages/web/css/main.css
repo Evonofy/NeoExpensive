@@ -225,10 +225,10 @@ select {
 }
 
 [data-theme=light] {
-  --clr-gray-scale-1000: #e6e6e6;
-  --clr-gray-scale-900: #cccccc;
-  --clr-gray-scale-800: #b3b3b3;
-  --clr-gray-scale-700: #8f9ca3;
+  --clr-gray-scale-1000: white;
+  --clr-gray-scale-900: #f2f2f2;
+  --clr-gray-scale-800: #e6e6e6;
+  --clr-gray-scale-700: #cccccc;
   --clr-gray-scale-600: #576b75;
   --clr-gray-scale-500: #29363d;
   --clr-gray-scale-400: #1f292e;
@@ -444,6 +444,7 @@ select {
 }
 
 .footer {
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
