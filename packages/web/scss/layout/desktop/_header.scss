@@ -3,6 +3,10 @@
 .desktop--header {
   display: none;
 
+  .X {
+    stroke: none;
+  }
+
   @include mq(992px) { 
     width: 100%;
     display: flex;
@@ -44,10 +48,6 @@
     
     .XLogo {
       position: absolute;
-    }
-
-    .X {
-      stroke: none;
     }
     
     div {
