@@ -1,7 +1,5 @@
+import { Menu } from './lib/menu.js';
 import { Switcher } from './lib/switcher.js';
-
-import { useDebounce } from './hooks/useDebounce.js';
-import { useSelector } from './hooks/useSelector.js';
 
 /* initialize the Theme and Translation switchers */
 new Switcher({
@@ -9,11 +7,8 @@ new Switcher({
   translationSwitcher: true,
 });
 
-/* get input search el */
-const itemSearchInput = useSelector('#item--search--input');
-
-const handleSearchInput = (event) => {
-  console.log(event);
-};
-
-itemSearchInput.addEventListener('keyup', useDebounce(handleSearchInput, 300));
+/* initialize the Menu */
+new Menu({
+  hamburger: true,
+  search: true,
+});
