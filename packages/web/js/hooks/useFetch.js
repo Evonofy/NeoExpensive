@@ -28,7 +28,9 @@ const handleAPIResponse = (response) => {
   };
 };
 
+/* TODO: find a better way to switch dev and prod urls */
 const API_URL = 'https://neo-expensive.herokuapp.com/v1';
+
 export const useFetch = async (url, body, options) => {
   const [response, error] = await useAsync(
     fetch(`${API_URL}${url}`, {
@@ -63,8 +65,11 @@ useFetch.get = async (url, options) => {
 useFetch.post = async (url, body, options) => {
   const [response, error] = await useAsync(
     fetch(`${API_URL}${url}`, {
-      body,
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
       ...options,
     })
   );
