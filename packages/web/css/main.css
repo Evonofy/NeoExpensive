@@ -244,6 +244,10 @@ select {
 /* 
 * Use All (Imports) Files From Themess To Here
 */
+.X {
+  stroke: none;
+}
+
 .desktop--header {
   display: none;
 }
@@ -284,9 +288,6 @@ select {
   }
   .desktop--header .XLogo {
     position: absolute;
-  }
-  .desktop--header .X {
-    stroke: none;
   }
   .desktop--header div {
     display: flex;
