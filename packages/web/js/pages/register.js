@@ -1,26 +1,90 @@
 import { useSelector } from '../hooks/useSelector.js';
+import { useFetch } from '../hooks/useFetch.js';
+import { useStorage } from '../hooks/useStorage.js';
+import { useCookie } from '../hooks/useCookie.js';
 
-let step = 0;
+import { redirect } from '../functions/redirect.js';
 
-const form = useSelector('.register--form');
+var page = 0;
 
-const inputPrefix = (name) => `.register--form--input[name="${name}"]`;
+/**
+ * * dwadawdaw
+ * TODO: aaaa
+ * ? RENDER CYCLE
+ * !show tab corresponding to page number
+ * !listen to click on next button
+ * !on button click, add 1 to page
+ * !repeat
+ * KEEP track of last page user was on
+ */
+const nextButton = useSelector('.register--button--link');
 
-const allInputs = useSelector('input', {
-  querySelectorAll: true,
-  tagSelection: true,
-});
-const nameInput = useSelector(inputPrefix('name'));
-const emailInput = useSelector(inputPrefix('email'));
-const passwordInput = useSelector(inputPrefix('name'));
-const passwordConfirmInput = useSelector(inputPrefix('confirm--password'));
-const socialSecurityInput = useSelector(inputPrefix('social--security'));
-const birthDateInput = useSelector(inputPrefix('birth--date'));
-const postalCodeInput = useSelector(inputPrefix('postal--code'));
-const numberInput = useSelector(inputPrefix('number'));
-const complementInput = useSelector(inputPrefix('complement'));
+const allInputs = Array.from(
+  useSelector('input', {
+    querySelectorAll: true,
+  })
+);
 
-const submitButton = useSelector('.register--button--link');
+const user = {};
+
+const inputsObj = allInputs.reduce((a, element) => {
+  const inputName = element.parentElement.querySelector('label').innerHTML;
+
+  /* remove spaces, lowercase, remove acentos */
+  const formattedInputName = inputName
+    .toString()
+    /* lowercase all` */
+    .toLowerCase()
+    /* remove blank spaces and add `_` */
+    .split(' ')
+    .join('_')
+    /* remove `(` & `)` */
+    .split('(')
+    .join('')
+    .split(')')
+    .join('')
+    /* remove acentos */
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    /* change to english */
+    .replace('_opcional', '')
+    .replace('nome', 'name')
+    .replace('confirme_a_senha', 'confirm_password')
+    .replace('numero', 'number')
+    .replace('data_de_nascimento', 'birth_date')
+    .replace('complemento', 'complement')
+    .replace('cpf', 'social_security')
+    .replace('senha', 'password');
+
+  return {
+    ...a,
+    [formattedInputName]: element,
+  };
+}, {});
+
+const showTab = (tabNumber) => {
+  hideAll();
+
+  if (tabNumber === 0) {
+    const { name, email, password, confirm_password } = inputsObj;
+
+    showInput(name);
+    showInput(email);
+    showInput(password);
+    showInput(confirm_password);
+  } else if (tabNumber === 1) {
+    const { social_security, birth_date } = inputsObj;
+
+    showInput(social_security);
+    showInput(birth_date);
+  } else if (tabNumber >= 2) {
+    const { complement, number, cep } = inputsObj;
+
+    showInput(cep);
+    showInput(complement);
+    showInput(number);
+  }
+};
 
 const hideAll = () => {
   allInputs.forEach((input) => {
@@ -29,54 +93,113 @@ const hideAll = () => {
 };
 
 const showInput = (input) => {
-  console.log(input);
   input.parentElement.style.display = 'block';
 };
 
-form.onsubmit = (event) => {
-  event.preventDefault();
+const checkEmptyInput = (input) => {
+  const isEmpty = input.value === '';
+
+  if (isEmpty) {
+    return true;
+  }
+
+  return false;
 };
 
-/* name, email, password */
-hideAll();
-
-showInput(nameInput);
-showInput(emailInput);
-showInput(passwordInput);
-showInput(passwordConfirmInput);
-
-console.log('step 1');
-submitButton.addEventListener('click', () => {
-  if (step === 2) {
-    step = 2;
-  } else {
-    step += 1;
-  }
-
-  console.log(step);
-
-  switch (step) {
-    case 1:
-      hideAll();
-
-      showInput(socialSecurityInput);
-      showInput(birthDateInput);
-
-      console.log('step 2');
-      break;
-    /* cpf */
-    /* data de nascimento */
-
-    case 2:
-      hideAll();
-
-      showInput(postalCodeInput);
-      showInput(numberInput);
-      showInput(complementInput);
-
-      console.log('step 3');
-      break;
-    /* cep, numero, complemento */
-    /* bairro, uf, rua */
-  }
+$('input[name="social--security"]').inputmask({
+  mask: ['999.999.999-99'],
+  keepStatic: true,
 });
+
+$('input[name="postal--code"]').inputmask({
+  mask: ['99999-999'],
+  keepStatic: true,
+});
+
+const handleSubmit = async () => {
+  const { name, email, password } = inputsObj;
+
+  return await useFetch.post('/user', {
+    name: name.value,
+    email: email.value,
+    password: password.value,
+  });
+};
+
+nextButton.onclick = async () => {
+  console.log(page);
+  let canProceeed = true;
+
+  /* prevent skip without filling input */
+  if (page === 0) {
+    const { name, email, password, confirm_password } = inputsObj;
+
+    const isNameEmpty = checkEmptyInput(name);
+    const isEmailEmpty = checkEmptyInput(email);
+    const isPasswordEmpty = checkEmptyInput(password);
+    const isConfirmPasswordEmpty = checkEmptyInput(confirm_password);
+
+    if (
+      isNameEmpty ||
+      isEmailEmpty ||
+      isPasswordEmpty ||
+      isConfirmPasswordEmpty
+    ) {
+      /* inputs are emtpy */
+      canProceeed = false;
+    }
+
+    /* check if passwords match */
+    const passwordMatch = password.value === confirm_password.value;
+
+    if (!passwordMatch) {
+      /* passwords do not match */
+      canProceeed = false;
+    }
+  }
+
+  if (page === 1) {
+    const { social_security, birth_date } = inputsObj;
+
+    const isSocialSecurityEmpty = checkEmptyInput(social_security);
+    const isBirthDateEmpty = checkEmptyInput(birth_date);
+
+    if (isSocialSecurityEmpty || isBirthDateEmpty) {
+      /* inputs are empty */
+      canProceeed = false;
+    }
+
+    /* call the api to verify the CPF and Birth Date */
+  }
+
+  if (page === 2) {
+    console.log('fetch');
+    canProceeed = false;
+    /* make the fetch request */
+    const { data, error } = await handleSubmit();
+
+    if (error) {
+      if (window.confirm('Um erro ocorreu :/, por favor tente novamente')) {
+        window.location.reload();
+      }
+    }
+
+    const token = `Bearer ${data.token}`;
+
+    useStorage('neoexpensive.token', token);
+    useCookie('neoexpensive.token', token, {
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+    });
+
+    /* redirect to homepage logged in */
+    redirect('/');
+  }
+
+  if (canProceeed) {
+    page += 1;
+  }
+
+  showTab(page);
+};
+
+showTab(page);
