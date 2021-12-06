@@ -9,12 +9,28 @@ export const useSelector = (
     ? document.querySelector.bind(document)
     : document.querySelectorAll.bind(document);
 
+  /* check if element acctually exists */
+  const elementExists = $(selector);
+
+  if (!elementExists) {
+    console.log(`[useSelector:ERROR] -> element ${selector} doesn't exist`);
+    return false;
+  }
+
   const isClass = !!selector.split('.')[1];
   const isID = !!selector.split('#')[1];
 
   if (!isClass && !isID && tagSelection === false) {
+    /* check for pure tags */
+    const isPureTag = $(selector);
+
+    if (isPureTag) {
+      console.log(`[useSelector] -> ${selector} is a pure tag.`);
+      return isPureTag;
+    }
+
     console.log(
-      `[WARNING:useSelector] -> the selector ${selector} doesn't exist`
+      `[useSelector:WARNING] -> the selector ${selector} doesn't exist`
     );
     /* get the selector string and search for it in the DOM */
 
@@ -22,15 +38,15 @@ export const useSelector = (
     const IDSelectorElement = $(`#${selector}`);
 
     if (!!classSelectorElement) {
-      console.log('found a class!!!');
+      console.log('[useSelector] -> found a class for this selector');
 
       return classSelectorElement;
     }
 
     if (!!IDSelectorElement) {
-      console.log('found an ID!!!');
+      console.log('[useSelector] -> found an ID for this selector');
 
-      IDSelectorElement;
+      return IDSelectorElement;
     }
   }
 
