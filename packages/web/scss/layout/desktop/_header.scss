@@ -1,11 +1,11 @@
 @use '../../abstracts/_mixins.scss' as *;
 
+.X {
+  stroke: none;
+}
+
 .desktop--header {
   display: none;
-
-  .X {
-    stroke: none;
-  }
 
   @include mq(992px) { 
     width: 100%;
