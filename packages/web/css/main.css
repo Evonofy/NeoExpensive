@@ -453,7 +453,7 @@ select {
 .footer {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1.35rem;
@@ -467,7 +467,7 @@ select {
 @media only screen and (min-width: 992px) {
   .footer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 1.35rem;
