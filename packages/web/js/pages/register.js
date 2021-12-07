@@ -204,7 +204,8 @@ nextButton.onclick = async () => {
 
     // /* redirect to homepage logged in */
     setTimeout(() => {
-      redirect('/');
+      window.location.href = "https://esquemaflorescer.github.io/neo-expensive/packages/web"
+      // redirect('/');
     }, 500)
   }
 
