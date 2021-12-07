@@ -29,7 +29,8 @@ const handleAPIResponse = (response) => {
 };
 
 /* TODO: find a better way to switch dev and prod urls */
-const API_URL = 'https://neo-expensive.herokuapp.com/v1';
+// const API_URL = 'https://neo-expensive.herokuapp.com/v1';
+const API_URL = 'https://neo-expensive-backend.herokuapp.com';
 
 export const useFetch = async (url, body, options) => {
   const [response, error] = await useAsync(
@@ -47,6 +48,9 @@ export const useFetch = async (url, body, options) => {
   return handleAPIResponse(response);
 };
 
+/*
+  TODO: Create hashtable, store the fetch data in there, get it from there to minize fetch requests
+ */
 useFetch.get = async (url, options) => {
   const [response, error] = await useAsync(
     fetch(`${API_URL}${url}`, {

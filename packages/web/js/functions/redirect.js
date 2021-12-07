@@ -1,5 +1,5 @@
 export const redirect = (path) => {
-  const isLocalhost = window.location.host === '127.0.0.1:5500';
+  const isLocalhost = !!window.location.host.split(':');
 
   const pathPrefix = isLocalhost
     ? 'packages/web'

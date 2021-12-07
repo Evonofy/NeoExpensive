@@ -1,5 +1,6 @@
 import { useDebounce } from '../hooks/useDebounce.js';
 import { useSelector } from '../hooks/useSelector.js';
+import { useAuth } from '../hooks/useAuth.js';
 
 export class Menu {
   hamburger = () => {
@@ -13,6 +14,8 @@ export class Menu {
       }
     );
 
+    const isLogged = useAuth();
+
     userChoices.forEach((choice) => {
       const findChoice = (name) =>
         choice?.querySelector('a')?.innerHTML === name;
@@ -20,7 +23,16 @@ export class Menu {
       const isProfile = findChoice('Perfil');
       const isExit = findChoice('Sair');
 
-      if (isProfile || isExit) {
+      if (isExit) {
+        choice.onclick = () => {
+          console.log('logout');
+          isLogged.clear();
+
+          location.reload(true);
+        };
+      }
+
+      if ((isProfile || isExit) && !isLogged) {
         choice.style.display = 'none';
       }
     });
