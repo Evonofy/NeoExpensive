@@ -1,6 +1,8 @@
 import { useDebounce } from '../hooks/useDebounce.js';
 import { useSelector } from '../hooks/useSelector.js';
+import { useFetch } from '../hooks/useFetch.js';
 import { useAuth } from '../hooks/useAuth.js';
+import { redirect } from '../functions/redirect.js';
 
 export class Menu {
   hamburger = () => {
@@ -54,20 +56,45 @@ export class Menu {
   };
 
   search = () => {
+    /* fetch all items, store on cache */
+
+    const { token } = useAuth();
+
     /* search script */
     /* get input search el */
     const itemSearchInput = useSelector('header input', {
       querySelectorAll: true,
     });
 
-    const handleSearchInput = (event) => {
-      console.log(event.target.value);
+    const handleSearchInput = async (event) => {
+      const name = event.target.value;
+      /* retrieve new items and use old ones from cache */
+      /* call search fetch api here */
+      const { data } = await useFetch.get(`/item?name=${name}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+
+      const { items } = data;
+      console.log(items);
     };
 
     itemSearchInput.forEach((input) => {
+      input.addEventListener('keyup', (event) => {
+        if (event.keyCode === 13) {
+          /* redirect to catalog page */
+          redirect(`/pages/items/?=${event.target.value}`);
+        }
+      });
+
       input.addEventListener('keyup', useDebounce(handleSearchInput, 300));
     });
   };
+
+  // createSearchElement = (item) => {
+  //   const
+  // }
 
   constructor({ hamburger = true, search = false }) {
     if (hamburger) {
