@@ -10,7 +10,7 @@ export const useCookie = (key, value, { maxAge } = {}) => {
     token = cookie;
 
     if (!cookie) {
-      const storage = useStorage(key);
+      const storage = localStorage.getItem(key);
       token = storage;
     }
 

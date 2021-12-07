@@ -6,7 +6,8 @@ const clear = () => {
   localStorage.removeItem('neoexpensive.token');
   localStorage.removeItem('neoexpensive.user');
 
-  document.cookie = '';
+  document.cookie = `neoexpensive.token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+  document.cookie = `neoexpensive.user=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
 };
 
 export const useAuth = () => {
