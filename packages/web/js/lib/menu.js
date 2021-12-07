@@ -23,6 +23,9 @@ export class Menu {
       const isProfile = findChoice('Perfil');
       const isExit = findChoice('Sair');
 
+      const isLogin = findChoice('Entrar');
+      const isRegister = findChoice('Registrar-se');
+
       if (isExit) {
         choice.onclick = () => {
           console.log('logout');
@@ -33,6 +36,10 @@ export class Menu {
       }
 
       if ((isProfile || isExit) && !isLogged) {
+        choice.style.display = 'none';
+      }
+
+      if (isLogged && (isLogin || isRegister)) {
         choice.style.display = 'none';
       }
     });

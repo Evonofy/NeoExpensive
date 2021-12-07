@@ -9,5 +9,5 @@ export const redirect = (path) => {
     ? 'http://127.0.0.1:5500'
     : 'https://esquemaflorescer.github.io';
 
-  window.location.href = `${host}/${pathPrefix}/${path}`;
+  window.location.href = `${host}/${pathPrefix}${path}`;
 };
