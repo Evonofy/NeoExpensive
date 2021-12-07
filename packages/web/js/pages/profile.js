@@ -4,7 +4,13 @@ import { useAuth } from '../hooks/useAuth.js';
 const userName = useSelector('.profile--name span');
 const userImg = useSelector('.profile--avatar img');
 
-const { user } = useAuth();
+const auth = useAuth();
+
+if(!auth) {
+    return
+}
+
+const { user } = auth
 
 userName.innerHTML = user.username;
 

@@ -117,17 +117,19 @@ $('input[name="postal--code"]').inputmask({
 });
 
 const handleSubmit = async () => {
-  const { name, email, password } = inputsObj;
+  const { name, email, password, social_security, birth_date } = inputsObj;
 
   return await useFetch.post('/user', {
     name: name.value,
     email: email.value,
     password: password.value,
+    cpf: social_security.value.split("-").join("").split(".").join(""),
+    birthDate:  new Date(birth_date.value).toISOString(),
+    isAdmin: false
   });
 };
 
 nextButton.onclick = async () => {
-  console.log(page);
   let canProceeed = true;
 
   /* prevent skip without filling input */
@@ -177,15 +179,15 @@ nextButton.onclick = async () => {
     canProceeed = false;
     /* make the fetch request */
     const { data, error } = await handleSubmit();
-
+    console.log(data)
     if (error) {
       if (window.confirm('Um erro ocorreu :/, por favor tente novamente')) {
         window.location.reload();
       }
     }
-
-    const token = `Bearer ${data.token}`;
-
+    
+    const token = `Bearer ${data.activate_token}`;
+    console.log(token)
     useStorage('neoexpensive.token', token);
     useCookie('neoexpensive.token', token, {
       maxAge: 60 * 60 * 24 * 7, // 7 days
