@@ -1,13 +1,13 @@
 export const redirect = (path, { returnPathOnly = false } = {}) => {
-  const isLocalhost = window.location.host.split(':').length > 1;
+  const isGithubPages = window.location.origin === "https://esquemaflorescer.github.io/"
 
-  const pathPrefix = isLocalhost
-    ? 'packages/web'
-    : 'neo-expensive/packages/web';
+  const pathPrefix = isGithubPages
+    ? 'neo-expensive/packages/web'
+    : 'packages/web'
 
-  const host = isLocalhost
-    ? 'http://127.0.0.1:5500'
-    : 'https://esquemaflorescer.github.io';
+  const host = isGithubPages
+    ? 'https://esquemaflorescer.github.io'
+    : window.location.origin
 
   if (returnPathOnly) {
     return `${host}/${pathPrefix}${path}`;

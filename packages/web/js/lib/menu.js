@@ -58,7 +58,14 @@ export class Menu {
   search = () => {
     /* fetch all items, store on cache */
 
-    const { token } = useAuth();
+    const auth = useAuth();
+
+    if(!auth) {
+      // reload the page
+      return
+    }
+
+    const { token } = auth
 
     /* search script */
     /* get input search el */
