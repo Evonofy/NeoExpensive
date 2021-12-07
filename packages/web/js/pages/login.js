@@ -48,6 +48,10 @@ form.onsubmit = async (event) => {
     refresh_token: refreshToken.id,
   });
 
+  /*
+    TODO: only save information if user opted for it
+  */
+
   useStorage('neoexpensive.token', accessToken);
   useCookie('neoexpensive.token', accessToken, {
     maxAge: 60 * 60 * 24 * 7, // 7 days
