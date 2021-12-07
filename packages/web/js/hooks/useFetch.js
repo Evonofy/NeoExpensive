@@ -30,8 +30,8 @@ const handleAPIResponse = (response) => {
 
 /* TODO: find a better way to switch dev and prod urls */
 // const API_URL = 'https://neo-expensive.herokuapp.com/v1';
-// const API_URL = 'https://neo-expensive-backend.herokuapp.com';
-const API_URL = 'http://localhost:3333';
+const API_URL = 'https://neo-expensive-backend.herokuapp.com';
+// const API_URL = 'http://localhost:3333';
 
 export const useFetch = async (url, body, options) => {
   const [response, error] = await useAsync(
