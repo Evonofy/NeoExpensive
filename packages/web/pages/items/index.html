@@ -25,14 +25,12 @@
   
   <title>Neo Expensive | Informática</title>
 
-  <script src="../js/translate/GTranslate.js"></script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
-  <script defer type="module" src="../../js/index.js"></script>
-  
   <link rel="stylesheet" href="../../css/main.css" />
   
-  <script defer type="module" src="../../js/functions/nav.js"></script>
-  <script defer type="module" src="../../js/pages/home.js"></script>
+  <script src="../../js/translate/GTranslate.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+  <script defer type="module" src="../../js/index.js"></script>
+  <script defer type="module" src="../../js/pages/items.js"></script>
 </head> 
 
 <body class="catalogue--center">
@@ -452,28 +450,28 @@
          <summary class="catalogue--summary">Peças (Hardware)</summary>
 
          <div class="catalogue--check--wrapper">
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="processadores" class="catalogue--label">
+             <input id="processadores" type="checkbox" class="catalogue--input">
              Processadores
            </label>
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="placaVideo" class="catalogue--label">
+             <input id="placaVideo" type="checkbox" class="catalogue--input">
              Placa De Vídeo
            </label>
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="placaMae" class="catalogue--label">
+             <input id="placaMae" type="checkbox" class="catalogue--input">
              Placas-Mãe
            </label>
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="memorias" class="catalogue--label">
+             <input id="memorias" type="checkbox" class="catalogue--input">
              Memórias
            </label>
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="hd" class="catalogue--label">
+             <input id="hd" type="checkbox" class="catalogue--input">
              Disco Rígido HD/SSD
            </label>
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="fontes" class="catalogue--label">
+             <input id="fontes" type="checkbox" class="catalogue--input">
              Fontes
            </label>
          </div>
@@ -483,20 +481,20 @@
          <summary class="catalogue--summary">Periféricos E Acessórios</summary>
 
          <div class="catalogue--check--wrapper">
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="fones" class="catalogue--label">
+             <input id="fones" type="checkbox" class="catalogue--input">
              Fones De Ouvido
            </label>
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="teclados" class="catalogue--label">
+             <input id="teclados" type="checkbox" class="catalogue--input">
              Teclados
            </label>
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="mouses" class="catalogue--label">
+             <input id="mouses" type="checkbox" class="catalogue--input">
              Mouses
            </label>
-           <label for="" class="catalogue--label">
-             <input type="checkbox" class="catalogue--input">
+           <label for="controles" class="catalogue--label">
+             <input id="controles" type="checkbox" class="catalogue--input">
              Controles
            </label>
          </div>
@@ -511,95 +509,11 @@
         <select class="catalogue--select">
           <option value="mostpriced" class="catalogue--options">Preço Crescente</option>
           <option value="leastpriced" class="catalogue--options">Preço Descrescente</option>
-          <option value="bestreviewd" class="catalogue--options">Mais Avaliados</option>
+          <option value="bestreviewed" class="catalogue--options">Mais Avaliados</option>
         </select>  
       </div>
 
       <div class="catalogue--product--grid">
-        <div class="product--card">
-        
-          <a href="pages/product-template/index.html" class="product--card--image">
-            <img src="../../images/pages/main/products/fonte.webp" alt="">
-          </a>
-          
-          <div class="product--card--desc">
-            <h2 class="product--card--title">Fonte BFG 450W GS Series - LW-6450HG</h2>
-            <a href="#" class="product--category">Fontes</a>
-            <p class="product--card--paragraph">R$ Preço</p>
-            
-            <div class="product--card--button--wrapper">
-              <button class="product--card--buy"><img src="../../images/pages/main/products/receipt.svg" alt="" class="product--card--label">Comprar</button>
-              
-              <button class="product--card--cart"><img src="../../images/components/header/user-controls/shopping-cart.svg" alt="" class="product--card--label"></button>
-            </div>
-            
-            
-          </div>
-          
-        </div>
-        <div class="product--card">
-          
-          <a href="pages/product-template/index.html" class="product--card--image">
-            <img src="../../images/pages/main/products/fonte.webp" alt="">
-          </a>
-          
-          <div class="product--card--desc">
-            <h2 class="product--card--title">Fonte BFG 450W GS Series - LW-6450HG</h2>
-            <a href="#" class="product--category">Fontes</a>
-            <p class="product--card--paragraph">R$ Preço</p>
-            
-            <div class="product--card--button--wrapper">
-              <button class="product--card--buy"><img src="../../images/pages/main/products/receipt.svg" alt="" class="product--card--label">Comprar</button>
-              
-              <button class="product--card--cart"><img src="../../images/components/header/user-controls/shopping-cart.svg" alt="" class="product--card--label"></button>
-            </div>
-            
-            
-          </div>
-          
-        </div>
-        <div class="product--card">
-          
-          <a href="pages/product-template/index.html" class="product--card--image">
-            <img src="../../images/pages/main/products/fonte.webp" alt="">
-          </a>
-          
-          <div class="product--card--desc">
-            <h2 class="product--card--title">Fonte BFG 450W GS Series - LW-6450HG</h2>
-            <a href="#" class="product--category">Fontes</a>
-            <p class="product--card--paragraph">R$ Preço</p>
-            
-            <div class="product--card--button--wrapper">
-              <button class="product--card--buy"><img src="../../images/pages/main/products/receipt.svg" alt="" class="product--card--label">Comprar</button>
-              
-              <button class="product--card--cart"><img src="../../images/components/header/user-controls/shopping-cart.svg" alt="" class="product--card--label"></button>
-            </div>
-            
-            
-          </div>
-          
-        </div>
-        <div class="product--card">
-          
-          <a href="pages/product-template/index.html" class="product--card--image">
-            <img src="../../images/pages/main/products/fonte.webp" alt="">
-          </a>
-          
-          <div class="product--card--desc">
-            <h2 class="product--card--title">Fonte BFG 450W GS Series - LW-6450HG</h2>
-            <a href="#" class="product--category">Fontes</a>
-            <p class="product--card--paragraph">R$ Preço</p>
-            
-            <div class="product--card--button--wrapper">
-              <button class="product--card--buy"><img src="../../images/pages/main/products/receipt.svg" alt="" class="product--card--label">Comprar</button>
-              
-              <button class="product--card--cart"><img src="../../images/components/header/user-controls/shopping-cart.svg" alt="" class="product--card--label"></button>
-            </div>
-            
-            
-          </div>
-          
-        </div>
       </div>
  
 

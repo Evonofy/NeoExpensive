@@ -1,4 +1,4 @@
-export const redirect = (path) => {
+export const redirect = (path, { returnPathOnly = false } = {}) => {
   const isLocalhost = !!window.location.host.split(':');
 
   const pathPrefix = isLocalhost
@@ -8,6 +8,10 @@ export const redirect = (path) => {
   const host = isLocalhost
     ? 'http://127.0.0.1:5500'
     : 'https://esquemaflorescer.github.io';
+
+  if (returnPathOnly) {
+    return `${host}/${pathPrefix}${path}`;
+  }
 
   window.location.href = `${host}/${pathPrefix}${path}`;
 };

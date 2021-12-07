@@ -126,6 +126,13 @@
   gap: 0.5rem;
 
   margin: .5rem 0;
+
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    filter: opacity(0.7);
+  }
 }
 
 .catalogue--input {
