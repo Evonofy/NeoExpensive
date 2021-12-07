@@ -179,22 +179,33 @@ nextButton.onclick = async () => {
     canProceeed = false;
     /* make the fetch request */
     const { data, error } = await handleSubmit();
-    console.log(data)
+
+    const { activate_token } = data
+
     if (error) {
       if (window.confirm('Um erro ocorreu :/, por favor tente novamente')) {
         window.location.reload();
       }
     }
-    
-    const token = `Bearer ${data.activate_token}`;
-    console.log(token)
+
+    // activate user
+    const { data: { accessToken } } = await useFetch.post("/user/activate", {}, {
+      headers: {
+        authorization: `Bearer ${activate_token}`
+      }
+    })
+
+    const token = `Bearer ${accessToken}`;
+
     useStorage('neoexpensive.token', token);
     useCookie('neoexpensive.token', token, {
       maxAge: 60 * 60 * 24 * 7, // 7 days
     });
 
-    /* redirect to homepage logged in */
-    redirect('/');
+    // /* redirect to homepage logged in */
+    setTimeout(() => {
+      redirect('/');
+    }, 500)
   }
 
   if (canProceeed) {
