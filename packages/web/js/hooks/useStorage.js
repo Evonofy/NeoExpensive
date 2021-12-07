@@ -1,12 +1,12 @@
 export const useStorage = (key, state) => {
   if (!state) {
-    const storagedValue = localStorage.getItem(key);
+    return localStorage.getItem(key);
+  }
 
-    if (!storagedValue) {
-      localStorage.setItem(key, state);
-    }
+  const storagedValue = localStorage.getItem(key);
 
-    return storagedValue;
+  if (!storagedValue) {
+    localStorage.setItem(key, state);
   }
 
   localStorage.setItem(key, state);
