@@ -1,0 +1,24 @@
+{
+  "name": "@neo/postcss",
+  "version": "0.0.1",
+  "description": "The PostCSS Configuration of all the styles of Neo Expensive Design's System.",
+  "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
+  "repository": "https://github.com/Neo-Florescence/neo-expensive",
+  "license": "MIT",
+  "private": true,
+  "main": "./dist/index.js",
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
+    "stylelint": "^14.5.0",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.6"
+  }
+}
