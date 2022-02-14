@@ -21,9 +21,6 @@
           { "type": "test", "hidden": true }
         ]
       }
-    },
-    "release-it-yarn-workspaces": {
-      "publish": false
     }
   },
   "npm": false
