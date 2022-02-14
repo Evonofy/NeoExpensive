@@ -1,5 +1,1 @@
 node_modules
-packages/**/node_modules
-packages/**/yarn-error.log
-packages/**/.env
-packages/**/coverage
