@@ -12,6 +12,12 @@
     "libs/**",
     "packages/**"
   ],
+  "scripts": {
+    "lint-staged": "lint-staged — config .lintstagedrc",
+    "commit": "./node_modules/cz-customizable/standalone.js",
+    "release": "dotenv release-it --",
+    "postinstall": "husky install"
+  },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@release-it/conventional-changelog": "^4.1.0",
@@ -20,6 +26,7 @@
     "commitlint-config-gitmoji": "^2.2.5",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.3.0",
+    "dotenv-cli": "^5.0.0",
     "eslint": "^8.9.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.4",
@@ -31,12 +38,6 @@
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.0.0",
     "typescript": "^4.3.5"
-  },
-  "scripts": {
-    "lint-staged": "lint-staged — config .lintstagedrc",
-    "commit": "./node_modules/cz-customizable/standalone.js",
-    "release": "release-it",
-    "postinstall": "husky install"
   },
   "config": {
     "commitizen": {
