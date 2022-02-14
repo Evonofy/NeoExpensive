@@ -1,6 +1,10 @@
 {
   "git": {
-    "commitMessage": "Release Neo-Expensive v${version}"
+    "commitMessage": "Release Neo-Expensive v${version}",
+    "requireCleanWorkingDir": false,
+    "commitArgs": [
+      "--no-verify"
+    ]
   },
   "github": {
     "release": true
