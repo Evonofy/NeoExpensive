@@ -1,5 +1,5 @@
-import autoprefixer from "autoprefixer";
-import stylelint from "stylelint";
+import autoprefixer from 'autoprefixer';
+import stylelint from 'stylelint';
 
 type Configuration = {
   syntax: string;
@@ -17,7 +17,7 @@ export const configuration =
   ({ ...args }: Configuration): Configuration => {
     return {
       ...args,
-      syntax: "postcss-scss",
+      syntax: 'postcss-scss',
       plugins: [...args.plugins, autoprefixer, stylelint],
     };
   };
