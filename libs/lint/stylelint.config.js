@@ -123,6 +123,12 @@ module.exports = {
     'custom-property-pattern': null,
     'color-function-notation': null,
     'color-no-invalid-hex': true,
+    'color-hex-case': [
+      'lower',
+      {
+        message: 'Lowercase letters are easier to distinguish from numbers',
+      },
+    ],
     'color-no-hex': [
       true,
       {
