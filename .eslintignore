@@ -1,0 +1,10 @@
+node_modules/*
+libs/**/node_modules/*
+apps/**/node_modules/*
+packages/**/node_modules/*
+
+libs/**/dist/*
+apps/**/dist/*
+packages/**/dist/*
+
+.yarn/*
