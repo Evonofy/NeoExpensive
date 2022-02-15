@@ -18,6 +18,7 @@
     "release": "HUSKY_SKIP_HOOKS=1 dotenv release-it --",
     "postinstall": "husky install",
     "lint:styles": "stylelint \"packages/**/*.css\" --fix --config stylelint.config.js",
+    "lint:js": "eslint . --ext .js,.ts",
     "lint": "npm-run-all 'lint:*'"
   },
   "devDependencies": {
