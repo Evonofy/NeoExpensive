@@ -1,0 +1,87 @@
+@use '../abstracts/mixins.scss' as *;
+
+// * Customer Controls
+
+.user--controls--customer {
+  @include mq(992px) {
+    position: relative;
+
+    &:hover,
+    &:focus-within {
+      .user--controls--customer--choices {
+        transform: translateX(-50%) rotateX(0deg);
+        opacity: 1;
+      }
+    }
+
+    &--choices {
+      content: '';
+      width: max-content;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      background: var(--clr-gray-scale-700);
+
+      padding: 0.65rem;
+      outline: 0;
+      border: 0;
+      border-radius: 0.45em;
+      position: absolute;
+      top: 130%;
+      left: 50%;
+      transform: translateX(-50%) rotateX(-90deg);
+      transform-origin: top center;
+      transition: all 200ms ease-in;
+
+      opacity: 0.1;
+
+      &::after {
+        content: '';
+        border: 0.5rem solid transparent;
+        position: absolute;
+        top: -1rem;
+        left: 50%;
+        border-bottom-color: var(--clr-gray-scale-700);
+        transform: translateX(-50%);
+      }
+
+      &--item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      &--button,
+      &--link {
+        font-size: 1rem;
+        font-family: var(--ff-josefin);
+        font-weight: 300;
+        color: var(--clr-gray-scale-100);
+
+        background: var(--clr-gray-scale-700);
+
+        margin-top: 0.3rem;
+        padding: 0.25rem 0.5rem;
+        border: 0;
+
+        cursor: pointer;
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus-within {
+          color: var(--clr-accent-200);
+          transition: all 200ms ease-in;
+          border-radius: 0.25rem;
+        }
+      }
+
+      &--icon {
+        width: 30px;
+        height: 30px;
+        opacity: 0.65;
+      }
+    }
+  }
+}

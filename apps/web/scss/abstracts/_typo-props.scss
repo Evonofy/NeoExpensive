@@ -1,0 +1,19 @@
+@use '../base/typography' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/media-query' as *;
+
+:root {
+  @each $screen-size, $font-size in $type-scale {
+    @if $screen-size == large {
+      @each $size, $value in $font-size {
+        --fs-#{$size}: #{$value};
+      }
+    } @else {
+      @include mq(extra-large) {
+        @each $size, $value in $font-size {
+          --fs-#{$size}: #{$value};
+        }
+      }
+    }
+  }
+}

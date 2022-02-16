@@ -1,0 +1,61 @@
+@use '../abstracts/_mixins.scss' as *;
+
+.modalWrapper {
+  width: 100vw;
+  max-height: 90vh;
+
+  overflow: auto;
+  background: var(--clr-gray-scale-800);
+  margin-top: 5rem;
+  padding: 2rem;
+
+  border-radius: 1rem;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all 200ms linear;
+
+  @include mq(992px) {
+    width: 85%;
+
+    margin-top: 0;
+  }
+}
+
+.show {
+  pointer-events: auto;
+  opacity: 1;
+  z-index: 8;
+}
+
+.overlay {
+  display: none;
+  overflow: auto;
+
+  background: rgba(0, 0, 0, 80%);
+  margin: auto;
+  position: fixed;
+  z-index: 4;
+  inset: 0;
+}
+
+.closeAccordion {
+  font-family: var(--ff-montserrat);
+  color: var(--clr-gray-scale-90);
+
+  background: var(--clr-accent-200);
+  padding: 0.5rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.5rem;
+
+  &:hover {
+    background: var(--clr-accent-300);
+  }
+}

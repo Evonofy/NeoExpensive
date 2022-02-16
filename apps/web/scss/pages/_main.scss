@@ -1,0 +1,373 @@
+@use '../abstracts/_mixins.scss' as *;
+
+.main--banner {
+  height: 30vh;
+  background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  margin-top: 9.5rem;
+
+  @include mq(992px) {
+    height: 50vh;
+    background-image: url(../images/pages/main/banners/low-poly-grid-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin-top: 0;
+  }
+}
+
+.main--products {
+  display: none;
+
+  @include mq(992px) {
+    display: flex;
+
+    @include space-between;
+
+    gap: 2rem;
+
+    margin-top: -15rem;
+  }
+
+  @include mq(1200px) {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: -15rem;
+
+    padding: 0 4rem;
+
+    @include space-between;
+  }
+}
+
+.main--title {
+  font-size: var(--fs-800);
+  text-align: center;
+  margin: 1.3rem 0;
+
+  @include mq(992px) {
+    font-size: var(--fs-700);
+
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  @include mq(1200px) {
+    font-size: var(--fs-700);
+    width: max-content;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
+    padding: 0 6rem;
+
+    position: relative;
+  }
+}
+
+.main--per--category {
+  @include mq(992px) {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @include mq(1200px) {
+    display: flex;
+    gap: 1rem;
+
+    padding: 0 4rem;
+  }
+}
+
+.main--category--card {
+  width: 100%;
+  height: 15rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
+  border-radius: 8px;
+  border-radius: 1rem;
+  position: relative;
+
+  transition-timing-function: ease-out;
+  transition: all 250ms ease-in;
+
+  &:hover,
+  &:focus {
+    transform: scale(0.95);
+  }
+
+  &:hover .main--category--card--label,
+  &:focus .main--category--card--label {
+    width: 17rem;
+
+    background-size: 100% 100%;
+    box-shadow: 0 7px 0 var(--color-contrast-lowest);
+    border-radius: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &:hover .amd--hover,
+  &:focus .amd--hover {
+    background-image: linear-gradient(
+      90deg,
+      hsl(0 100% 50%) 0%,
+      hsl(19 100% 50%) 100%
+    );
+  }
+
+  &:hover .intel--hover,
+  &:focus .intel--hover {
+    background-image: linear-gradient(
+      90deg,
+      hsl(240 99% 43%) 0%,
+      hsl(226 100% 50%) 100%
+    );
+  }
+
+  &:hover .nvidia--hover,
+  &:focus .nvidia--hover {
+    background-image: linear-gradient(
+      90deg,
+      hsl(120 100% 25%) 0%,
+      hsl(120 61% 50%) 100%
+    );
+  }
+
+  &:hover .redragon--hover,
+  &:focus .redragon--hover {
+    background-image: linear-gradient(
+      90deg,
+      hsl(0 100% 50%) 0%,
+      hsl(19 100% 50%) 100%
+    );
+  }
+
+  @include mq(992px) {
+    &:hover .main--category--card--label,
+    &:focus .main--category--card--label {
+      width: 10rem;
+    }
+  }
+}
+
+.main--category--card--label {
+  content: '';
+
+  width: 10rem;
+  height: 5rem;
+
+  display: flex;
+
+  background: var(--clr-gray-scale-700);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 0% 0%;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  transform: translateY(-50%);
+
+  transition-timing-function: ease-out;
+  transition: all 250ms ease-in;
+
+  @include items-center;
+
+  &--text {
+    font-size: 1.5rem;
+    color: var(--clr-gray-scale-90);
+  }
+
+  @include mq(992px) {
+    width: 7rem;
+  }
+}
+
+.amd {
+  background-image: url(../images/pages/main/brand/amd.webp);
+}
+
+.intel {
+  background-image: url(../images/pages/main/brand/intel.webp);
+}
+
+.nvidia {
+  background-image: url(../images/pages/main/brand/nvidia.webp);
+}
+
+.redragon {
+  background-image: url(../images/pages/main/brand/redragon.webp);
+}
+
+.main--per--department {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  @include items-center;
+
+  @include mq(992px) {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  @include mq(1200px) {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    @include items-center;
+
+    gap: 1rem;
+
+    padding: 0 4rem;
+  }
+}
+
+.main--department--card {
+  width: 100%;
+  height: 15rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  box-shadow: 1px 15px 20px var(--clr-gray-scale-800);
+
+  border-radius: 8px;
+  border-radius: 1rem;
+  position: relative;
+  transition-timing-function: ease-out;
+  transition: all 250ms ease-in;
+
+  &:hover,
+  &:focus {
+    transform: scale(0.95);
+  }
+
+  &:hover .main--department--card--label,
+  &:focus .main--department--card--label {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      90deg,
+      var(--clr-accent-200) 0%,
+      var(--clr-accent-300) 100%
+    );
+    background-size: 100% 100%;
+    box-shadow: 0 5px 0 1px var(--clr-accent-300);
+    top: 50%;
+
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &:hover .main--department--card--label--text,
+  &:focus .main--department--card--label--text {
+    font-size: 2.5rem;
+  }
+
+  @include mq(1200px) {
+    height: 20rem;
+  }
+}
+
+.main--department--card--label {
+  content: '';
+
+  width: 8rem;
+  height: 8rem;
+
+  display: flex;
+
+  background: var(--clr-gray-scale-800);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 0% 0%;
+  border-radius: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  transition-timing-function: ease-out;
+  transition: all 250ms ease-in;
+
+  @include items-center;
+
+  &--text {
+    font-size: 1.25rem;
+    color: var(--clr-gray-scale-90);
+
+    transition: all 250ms ease-in;
+  }
+
+  @include mq(1200px) {
+    width: 10rem;
+    height: 10rem;
+
+    &--text {
+      font-size: 2rem;
+    }
+  }
+}
+
+.hardware--image {
+  background-image: url(../images/pages/main/department/hardware.webp);
+}
+
+.peripherals--image {
+  background-image: url(../images/pages/main/department/peripherals.webp);
+}
+
+.console--image {
+  background-image: url(../images/pages/main/department/console.webp);
+}
+
+.accessories--image {
+  background-image: url(../images/pages/main/department/accessories.webp);
+}
+
+.main--offers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: column;
+
+  @include mq(992px) {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+
+    margin-bottom: 4rem;
+  }
+
+  @include mq(1200px) {
+    display: grid;
+    gap: 1.53rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+
+    margin-bottom: 4rem;
+    padding: 0 4rem;
+  }
+}
+
+.main--products,
+.main--per--category,
+.main--per--department,
+.main--offers,
+.main--title {
+  @include mq(1360px) {
+    padding: 0 8rem;
+  }
+}

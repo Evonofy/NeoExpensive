@@ -1,0 +1,120 @@
+@use '../abstracts/mixins' as *;
+
+.forgotpass2--body {
+  place-content: center;
+  padding: 0 1rem;
+}
+
+.forgotpass2--wrapper {
+  display: grid;
+  grid-template-areas:
+    'center'
+    'right'
+    'left';
+
+  grid-template-rows: 0.1fr 1fr 1fr;
+
+  background: var(--clr-gray-scale-700);
+  padding: 4rem 1rem;
+  border: 2px solid var(--clr-gray-scale-100);
+
+  @include mq(992px) {
+    display: grid;
+    grid-template-areas:
+      '. . center . .'
+      '. left . right .'
+      '. left . right .';
+
+    grid-template-columns: 0.1fr 2fr 1fr 2fr 0.1fr;
+    grid-template-rows: auto auto auto auto auto;
+
+    background: var(--clr-gray-scale-700);
+    padding: 8rem 2rem;
+    border: 2px solid var(--clr-gray-scale-100);
+  }
+}
+
+.forgotpass2--left {
+  display: grid;
+  grid-area: left;
+}
+
+.forgotpass2--h2 {
+  font-size: var(--fs-500);
+
+  text-align: center;
+  max-width: 70ch;
+
+  margin: 4rem 0;
+
+  @include mq(992px) {
+    font-size: var(--fs-500);
+    max-width: 20ch;
+
+    margin: 2rem 0;
+  }
+}
+
+.forgotpass2--link {
+  text-align: center;
+  color: var(--clr-gray-scale-90);
+  width: 50%;
+
+  height: max-content;
+
+  background: var(--clr-accent-200);
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+
+  transition: all 200ms linear;
+
+  &:hover,
+  &:focus {
+    background: var(--clr-accent-300);
+  }
+
+  @include mq(992px) {
+    text-align: center;
+    color: var(--clr-gray-scale-90);
+
+    height: max-content;
+
+    background: var(--clr-accent-200);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    transition: all 200ms linear;
+
+    &:hover,
+    &:focus {
+      background: var(--clr-accent-300);
+    }
+  }
+}
+
+.forgotpass2--center {
+  display: grid;
+  place-content: center;
+  grid-area: center;
+}
+
+.forgotpass2--center--logo {
+  width: 100px;
+}
+
+.forgotpass2--right {
+  display: grid;
+  place-content: center;
+  grid-area: right;
+}
+
+.forgotpass2--right--image {
+  width: 210px;
+
+  @include mq(992px) {
+    width: 300px;
+  }
+}
