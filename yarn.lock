@@ -787,6 +787,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@csstools/normalize.css@npm:^12.0.0":
+  version: 12.0.0
+  resolution: "@csstools/normalize.css@npm:12.0.0"
+  checksum: fbef0f7fe4edbc3ce31b41257f0fa06e0442f11260e41c082a98de9b824997786a16900e7a5c0f4ca8f736dcd25dfd01c153d1c994a07d42c93c0a526ce0774d
+  languageName: node
+  linkType: hard
+
 "@endemolshinegroup/cosmiconfig-typescript-loader@npm:^3.0.2":
   version: 3.0.2
   resolution: "@endemolshinegroup/cosmiconfig-typescript-loader@npm:3.0.2"
@@ -1120,6 +1127,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@neo/global@workspace:packages/global"
   dependencies:
+    "@csstools/normalize.css": ^12.0.0
     "@neo/postcss": "*"
     npm-run-all: ^4.1.5
     postcss: ^8.4.6
@@ -1155,10 +1163,12 @@ __metadata:
   resolution: "@neo/postcss@workspace:libs/postcss"
   dependencies:
     "@types/cssnano": ^5.0.0
+    "@types/postcss-import": ^14.0.0
     autoprefixer: ^10.4.2
     cssnano: ^5.0.17
     cssnano-preset-advanced: ^5.1.12
     postcss: ^8.4.6
+    postcss-import: ^14.0.2
     postcss-nested: ^5.0.6
     postcss-scss: ^4.0.3
     stylelint: ^14.5.0
@@ -1625,6 +1635,15 @@ __metadata:
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
   checksum: fd6bce2b674b6efc3db4c7c3d336bd70c90838e8439de639b909ce22f3720d21344f52427f1d9e57b265fcb7f6c018699b99e5e0c208a1a4823014269a6bf35b
+  languageName: node
+  linkType: hard
+
+"@types/postcss-import@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "@types/postcss-import@npm:14.0.0"
+  dependencies:
+    postcss: ^8.0.0
+  checksum: cfcf93f5fb7e8100e0414cc2f244b9080165e1cbaaee857ac65701c213a2ee65a905a2650f66f79633848b824a1bbf92e048662b7b4943d4b05417a4deb4747b
   languageName: node
   linkType: hard
 
@@ -8228,6 +8247,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-import@npm:^14.0.2":
+  version: 14.0.2
+  resolution: "postcss-import@npm:14.0.2"
+  dependencies:
+    postcss-value-parser: ^4.0.0
+    read-cache: ^1.0.0
+    resolve: ^1.1.7
+  peerDependencies:
+    postcss: ^8.0.0
+  checksum: e9f42b5956b1231f8516da11268021222d61969befc142bb7d0a65d9d3e53bdc574e51486b6ffdf72c0b395ce19060663eab5b5504b3d0855c173357425f9fb5
+  languageName: node
+  linkType: hard
+
 "postcss-load-config@npm:^3.0.0":
   version: 3.1.0
   resolution: "postcss-load-config@npm:3.1.0"
@@ -8595,17 +8627,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-value-parser@npm:^4.0.0, postcss-value-parser@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "postcss-value-parser@npm:4.2.0"
+  checksum: 819ffab0c9d51cf0acbabf8996dffbfafbafa57afc0e4c98db88b67f2094cb44488758f06e5da95d7036f19556a4a732525e84289a425f4f6fd8e412a9d7442f
+  languageName: node
+  linkType: hard
+
 "postcss-value-parser@npm:^4.1.0":
   version: 4.1.0
   resolution: "postcss-value-parser@npm:4.1.0"
   checksum: 68a9ea27c780fa3cc350be37b47cc46385c61dd9627990909230e0e9c3debf6d5beb49006bd743a2e506cdd6fa7d07637f2d9504a394f67cc3011d1ff0134886
-  languageName: node
-  linkType: hard
-
-"postcss-value-parser@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "postcss-value-parser@npm:4.2.0"
-  checksum: 819ffab0c9d51cf0acbabf8996dffbfafbafa57afc0e4c98db88b67f2094cb44488758f06e5da95d7036f19556a4a732525e84289a425f4f6fd8e412a9d7442f
   languageName: node
   linkType: hard
 
@@ -8639,7 +8671,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8, postcss@npm:^8.3.11, postcss@npm:^8.4.6":
+"postcss@npm:^8, postcss@npm:^8.0.0, postcss@npm:^8.3.11, postcss@npm:^8.4.6":
   version: 8.4.6
   resolution: "postcss@npm:8.4.6"
   dependencies:
@@ -9153,7 +9185,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.1.6, resolve@npm:^1.20.0":
+"resolve@npm:^1.1.6, resolve@npm:^1.1.7, resolve@npm:^1.20.0":
   version: 1.22.0
   resolution: "resolve@npm:1.22.0"
   dependencies:
@@ -9186,7 +9218,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.1.7#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>":
   version: 1.22.0
   resolution: "resolve@patch:resolve@npm%3A1.22.0#~builtin<compat/resolve>::version=1.22.0&hash=07638b"
   dependencies:
