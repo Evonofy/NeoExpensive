@@ -1,0 +1,91 @@
+@use '../abstracts/mixins.scss' as *;
+
+.user--controls--header--search {
+  @include mq(992px) {
+    position: relative;
+
+    &:hover,
+    &:focus-within {
+      .user--controls--header--search--data {
+        transform: translateX(-50%) rotateX(0deg);
+        opacity: 1;
+      }
+    }
+
+    &--data {
+      width: max-content;
+
+      background: var(--clr-gray-scale-700);
+      padding: 1.2rem;
+      border-radius: 0.75em;
+
+      position: absolute;
+      top: 130%;
+      left: 50%;
+
+      transform: translateX(-50%) rotateX(-90deg);
+      transform-origin: top center;
+      transition: all 200ms ease-in;
+      opacity: 0.1;
+
+      &::after {
+        content: '';
+        border: 0.5rem solid transparent;
+        position: absolute;
+        top: -1rem;
+        left: 50%;
+        border-bottom-color: var(--clr-gray-scale-700);
+        transform: translateX(-50%);
+      }
+
+      &--label {
+        line-height: 1.6;
+        width: 14rem;
+        position: relative;
+
+        &--text {
+          font-weight: bold;
+          width: max-content;
+
+          background: var(--clr-gray-scale-700);
+          margin-top: 0.3rem;
+          margin-bottom: 0.2rem;
+          margin-left: 0.3rem;
+
+          padding: 0 0.5rem;
+
+          position: absolute;
+          left: 0;
+          z-index: 1;
+          white-space: nowrap;
+
+          transform-origin: 0 0;
+          transform: translate(0, 0);
+          transition: transform 120ms ease-in;
+        }
+
+        &--input {
+          color: var(--color-contrast-high);
+
+          width: 100%;
+
+          background: var(--clr-gray-scale-700);
+
+          padding: 0.2rem 0.8rem;
+          outline: 0;
+          border: 0;
+          border: 2px solid var(--clr-gray-scale-100);
+          border-radius: 0.5rem;
+
+          &:focus,
+          &:not(:placeholder-shown) {
+            & + .user--controls--header--search--data--label--text {
+              transform: translate(0.25rem, -80%) scale(0.9);
+              color: var(--clr-accent-200);
+            }
+          }
+        }
+      }
+    }
+  }
+}

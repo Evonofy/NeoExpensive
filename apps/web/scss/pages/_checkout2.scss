@@ -1,0 +1,78 @@
+@use '../abstracts/mixins' as *;
+
+.checkout2--location--wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkout2--title--wrapper {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1.25rem;
+
+  @include mq(992px) {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.add--address {
+  text-decoration: underline;
+  color: var(--clr-secondary-green-300);
+
+  cursor: pointer;
+}
+
+.checkout2--address--wrapper {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  background: var(--clr-gray-scale-700);
+  margin: 2rem auto;
+  padding: 2rem;
+
+  border: 2px solid var(--clr-accent-200);
+  border-radius: 0.5rem;
+
+  @include mq(992px) {
+    width: 60%;
+    flex-direction: row;
+  }
+}
+
+.checkout2--address {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 0.5rem;
+
+  @include mq(992px) {
+    width: 60%;
+  }
+}
+
+.checkout2--address--h2,
+.checkout2--address--h3,
+.checkout2--address--zipcode {
+  font-size: var(--fs-500);
+  margin: 0 1rem;
+}
+
+.sending--info {
+  font-style: italic;
+}
+
+.checkout2--image {
+  width: 200px;
+}

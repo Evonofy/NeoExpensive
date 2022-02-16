@@ -1,0 +1,141 @@
+.hamburger--header--button {
+  background: transparent;
+  border: 0;
+  position: relative;
+
+  &--span {
+    display: block;
+    outline: none;
+    position: relative;
+  }
+
+  &--span,
+  &--span::before,
+  &--span::after {
+    width: 2.5rem;
+    height: 3.5px;
+
+    background: var(--clr-gray-scale-100);
+    border-radius: 1rem;
+
+    transition: transform 200ms ease-in-out, opacity 200ms linear;
+  }
+
+  &--span::before,
+  &--span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  &--span::before {
+    bottom: 11px;
+  }
+  &--span::after {
+    top: 11px;
+  }
+}
+
+.nav--open {
+  .hamburger--header--button--span {
+    // transform-origin: bottom;
+    transform: rotate(45deg);
+
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      // transform-origin: top;
+      transform: rotate(90deg) translate(-11px);
+    }
+  }
+
+  .hamburger--nav {
+    z-index: 999;
+    opacity: 1;
+    visibility: visible;
+
+    // transform: translateX(10%);
+  }
+}
+
+.hamburger--nav {
+  content: '';
+  text-align: left;
+  width: 15rem;
+
+  background: var(--clr-gray-scale-700);
+  border-radius: 1em;
+  position: absolute;
+  top: 50%;
+  // left: 0;
+  left: 1.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 300ms ease-in-out;
+
+  &::before {
+    border-width: 0.5rem;
+    border-style: solid;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-image: initial;
+    border-bottom-color: var(--clr-gray-scale-700);
+
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 10%;
+    transform: translateX(-50%);
+  }
+}
+
+.hamburger--nav--list {
+  margin: 0.75rem 0;
+  padding: 0 1.55rem;
+
+  &--hr {
+    height: 0.3rem;
+
+    background: var(--clr-gray-scale-100);
+
+    margin: 0.65rem 0;
+    border-radius: 1rem;
+    opacity: 0.65;
+  }
+}
+
+.hamburger--nav--list--wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &--image {
+    width: 30px;
+    height: 30px;
+
+    opacity: 0.65;
+  }
+}
+
+.hamburger--nav--item {
+  list-style: none;
+  text-transform: uppercase;
+
+  margin-top: 0.8rem;
+  margin-bottom: 0.5rem;
+
+  position: relative;
+
+  &--button {
+    color: var(--clr-gray-scale-200);
+    text-transform: uppercase;
+
+    background: none;
+    border: 0;
+  }
+}

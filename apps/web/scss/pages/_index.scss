@@ -1,0 +1,25 @@
+/* 
+* Forwards All Files From Pages To Here
+*/
+// Login Pages
+@forward '../pages/login';
+@forward '../pages/register';
+@forward '../pages/forgotpass1';
+@forward '../pages/forgotpass2';
+@forward '../pages/forgotpass3';
+// Main Pages
+@forward '../pages/main.scss';
+@forward '../pages/support';
+@forward '../pages/aboutus';
+// Product Pages
+@forward '../pages/catalogue';
+// Checkout Pages
+@forward '../pages/checkout';
+@forward '../pages/checkout1';
+@forward '../pages/checkout2';
+@forward '../pages/checkout3';
+// Secondary Pages
+@forward '../pages/product-page';
+@forward '../pages/profile';
+// Import Mixins
+@forward '../abstracts/mixins';

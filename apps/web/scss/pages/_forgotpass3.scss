@@ -1,0 +1,154 @@
+@use '../abstracts/mixins' as *;
+
+.forgotpass3--wrapper {
+  display: grid;
+  grid-template-areas:
+    'banner'
+    'fields';
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  padding: 2rem;
+
+  @include mq(992px) {
+    display: grid;
+    gap: 2rem;
+    grid-template-areas: '. fields banner .';
+
+    grid-template-columns: 0.1fr 1fr 1fr 0.1fr;
+    grid-template-rows: auto;
+  }
+}
+
+.forgotpass3--h1 {
+  font-size: var(--fs-700);
+}
+
+.forgotpass3--paragraph {
+  font-size: var(--fs-400);
+  max-width: 50ch;
+  margin-bottom: 1rem;
+}
+
+.forgotpass3--fields {
+  display: grid;
+  place-content: center;
+
+  grid-area: fields;
+
+  @include mq(992px) {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    grid-area: fields;
+  }
+}
+
+.forgot3--form--pass--wrapper {
+  padding: 0;
+  position: relative;
+}
+
+.forgot3--form--input {
+  font-size: var(--fs-400);
+  color: var(--clr-gray-scale-90);
+  width: 100%;
+
+  background: var(--clr-gray-scale-700);
+  margin: 0.75rem 0;
+  padding: 0.7rem 3rem;
+  outline: 0;
+
+  border: 0;
+  border-radius: 1.5rem;
+
+  transition: all 200ms linear;
+
+  &:placeholder {
+    margin-left: 2rem;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--clr-gray-scale-800);
+    box-shadow: 0 0 0 3px var(--clr-accent-200);
+  }
+
+  @include mq(992px) {
+    font-size: var(--fs-400);
+    color: var(--clr-gray-scale-90);
+    width: 100%;
+
+    background: var(--clr-gray-scale-700);
+    margin: 0.75rem 0;
+    padding: 0.7rem 3rem;
+    outline: 0;
+
+    border: 0;
+    border-radius: 1.5rem;
+
+    transition: all 200ms linear;
+
+    &:placeholder {
+      margin-left: 2rem;
+    }
+
+    &:hover,
+    &:focus {
+      background: var(--clr-gray-scale-800);
+      box-shadow: 0 0 0 3px var(--clr-accent-200);
+    }
+  }
+}
+
+.forgot3--form--label {
+  font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
+
+  margin-left: 0.75rem;
+}
+
+.forgot3--form--image {
+  width: 30px;
+  position: absolute;
+  top: 62%;
+  left: 2.75%;
+  opacity: 0.65;
+  transform: translateY(-50%);
+}
+
+.forgot3--form--check {
+  color: var(--clr-secondary-green-200);
+
+  margin-left: 0.5rem;
+
+  user-select: none;
+}
+
+.forgotpass3--banner {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+
+  grid-area: banner;
+}
+
+.forgot3--button {
+  font-size: var(--fs-400);
+  font-family: var(--ff-montserrat);
+  color: var(--clr-gray-scale-90);
+
+  background: var(--clr-accent-200);
+  margin-top: 1rem;
+
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 0.5rem;
+
+  transition: all 200ms linear;
+
+  &:hover {
+    background: var(--clr-accent-300);
+  }
+}

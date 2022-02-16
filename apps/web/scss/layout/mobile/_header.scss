@@ -1,0 +1,25 @@
+@use '../../abstracts/_mixins.scss' as *;
+
+@include mq(992px) {
+  .hamburger--header {
+    display: none;
+  }
+}
+
+.hamburger--header {
+  width: 100%;
+
+  background: var(--clr-gray-scale-800);
+  border-bottom: solid 2px var(--clr-accent-200);
+  position: fixed;
+  z-index: 999;
+
+  &--items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 0 1.75rem;
+    margin-top: 1rem;
+  }
+}
