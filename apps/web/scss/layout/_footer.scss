@@ -1,0 +1,114 @@
+@use '../abstracts/mixins.scss' as *;
+
+.footer {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1.35rem;
+
+  background: var(--color-header-footer);
+  margin-top: auto;
+
+  padding-top: 3rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+
+  border-top: 2px solid var(--clr-accent-200);
+
+  @include mq(992px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1.35rem;
+  }
+}
+
+.footer--aboutus,
+.footer--contact-us,
+.footer--quicklinks {
+  margin: 0 1rem;
+}
+
+.footer--quicklinks,
+.footer--contact-us {
+  li {
+    list-style: none;
+  }
+
+  li:hover {
+    a {
+      color: var(--clr-accent-200);
+      transition: all 200ms ease;
+    }
+  }
+}
+
+.footer--links-list,
+.footer--contact-list {
+  gap: 0.5rem;
+}
+
+.footer--title {
+  font-weight: 500;
+  line-height: 1.5em;
+
+  color: var(--clr-accent-200);
+
+  margin-bottom: 1rem;
+
+  position: relative;
+
+  &::after {
+    content: '';
+
+    width: 25px;
+    height: 2px;
+
+    background: var(--clr-accent-200);
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+  }
+}
+
+.footer--aboutus {
+  .footer--paragraph {
+    max-width: 50ch;
+
+    margin-bottom: 0.5rem;
+  }
+
+  .footer--social--icons {
+    display: flex;
+    justify-content: flex-start;
+    opacity: 0.65;
+  }
+}
+
+.footer--logo {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--svg {
+    height: auto;
+
+    margin: 1rem 0;
+  }
+}
+
+.footer--copyright {
+  font-weight: 400;
+  text-align: center;
+
+  width: 100%;
+  padding: 0.7em 0;
+
+  border-top: 1px solid var(--gray-scale-100);
+}

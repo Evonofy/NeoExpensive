@@ -1,0 +1,9 @@
+@use '../themes/theme-prop' as *;
+
+[data-theme='light'] {
+  @each $color, $shades in $colors-light {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+}

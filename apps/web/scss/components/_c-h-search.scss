@@ -1,0 +1,59 @@
+// * Product Hamburger Search Input
+
+.hamburger--header--search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  margin: 1rem 1.75rem;
+
+  &--margin--none {
+    margin: 0;
+  }
+
+  &--label {
+    width: 100%;
+    position: relative;
+
+    &--text {
+      font-weight: bold;
+      width: max-content;
+
+      background: var(--clr-gray-scale-800);
+      margin: 0.6rem;
+
+      padding: 0 0.5rem;
+
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      white-space: nowrap;
+
+      transform-origin: 0 0;
+      transform: translate(0, 0);
+      transition: transform 120ms ease-in;
+    }
+
+    &--input {
+      color: var(--clr-gray-scale-200);
+      width: 100%;
+
+      background: var(--clr-gray-scale-800);
+
+      padding: 0.5rem;
+      outline: 0;
+      border: 2px solid var(--clr-gray-scale-100);
+      border-radius: 0.5rem;
+
+      &:focus,
+      &:not(:placeholder-shown) {
+        & + .hamburger--header--search--label--text {
+          transform: translate(0.25rem, -80%) scale(0.9);
+          color: var(--clr-accent-200);
+        }
+      }
+    }
+  }
+}

@@ -1141,7 +1141,11 @@ __metadata:
   resolution: "@neo/global@workspace:packages/global"
   dependencies:
     "@neo/postcss": "*"
+    npm-run-all: ^4.1.5
     postcss: ^8.4.6
+    postcss-cli: ^9.1.0
+    rimraf: ^3.0.2
+    sass: ^1.49.7
   languageName: unknown
   linkType: soft
 
@@ -1171,6 +1175,7 @@ __metadata:
   dependencies:
     autoprefixer: ^10.4.2
     postcss: ^8.4.6
+    postcss-nested: ^5.0.6
     postcss-scss: ^4.0.3
     stylelint: ^14.5.0
     typescript: ^4.3.5
@@ -1179,9 +1184,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@neo/web@workspace:packages/web":
+"@neo/web@workspace:apps/web":
   version: 0.0.0-use.local
-  resolution: "@neo/web@workspace:packages/web"
+  resolution: "@neo/web@workspace:apps/web"
   dependencies:
     dart-sass: ^1.25.0
     npm-run-all: ^4.1.5
@@ -7830,6 +7835,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-cli@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "postcss-cli@npm:9.1.0"
+  dependencies:
+    chokidar: ^3.3.0
+    dependency-graph: ^0.11.0
+    fs-extra: ^10.0.0
+    get-stdin: ^9.0.0
+    globby: ^12.0.0
+    picocolors: ^1.0.0
+    postcss-load-config: ^3.0.0
+    postcss-reporter: ^7.0.0
+    pretty-hrtime: ^1.0.3
+    read-cache: ^1.0.0
+    slash: ^4.0.0
+    yargs: ^17.0.0
+  peerDependencies:
+    postcss: ^8.0.0
+  bin:
+    postcss: index.js
+  checksum: 6f172cbdba2966f9b789e2ac6d2d87eb737e5a6c0bc025a729fb23631cfffb62df72472b14c91a8adacabd263c64f4b38fd70923da3727ee994def0b3c930003
+  languageName: node
+  linkType: hard
+
 "postcss-import@npm:^14.0.2":
   version: 14.0.2
   resolution: "postcss-import@npm:14.0.2"
@@ -7863,6 +7892,17 @@ __metadata:
   version: 0.2.3
   resolution: "postcss-media-query-parser@npm:0.2.3"
   checksum: 8000d4d95b912994928ff86137f5ab0ed4c4ee1498af2336e93d708ae8827a690cd7acbaed55d14684cf44d82c8d44b031c1c69ae6bcd2f9620ea67573888090
+  languageName: node
+  linkType: hard
+
+"postcss-nested@npm:^5.0.6":
+  version: 5.0.6
+  resolution: "postcss-nested@npm:5.0.6"
+  dependencies:
+    postcss-selector-parser: ^6.0.6
+  peerDependencies:
+    postcss: ^8.2.14
+  checksum: dbcbfd11e514f485ac0d2b649b32bcbd855665a88a76f697f8be6c5017aa0260954ecccd2475bbd5865a5d248eae9a4e6e10d2d51927621d05430381aa37e43b
   languageName: node
   linkType: hard
 
@@ -8694,6 +8734,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sass@npm:^1.49.7":
+  version: 1.49.7
+  resolution: "sass@npm:1.49.7"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 514d1abff594aa56afdc9eb7e40d1cbd9cf1ed6954c4e0ef494266d18965151c6f936e137cd118a138f7677a7bb98f2bbf2d1a485a3f5f66c78be0007506cc9b
+  languageName: node
+  linkType: hard
+
 "saxes@npm:^5.0.1":
   version: 5.0.1
   resolution: "saxes@npm:5.0.1"
@@ -8906,17 +8959,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-map-js@npm:>=0.6.2 <2.0.0, source-map-js@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "source-map-js@npm:1.0.2"
+  checksum: c049a7fc4deb9a7e9b481ae3d424cc793cb4845daa690bc5a05d428bf41bf231ced49b4cf0c9e77f9d42fdb3d20d6187619fc586605f5eabe995a316da8d377c
+  languageName: node
+  linkType: hard
+
 "source-map-js@npm:^1.0.1":
   version: 1.0.1
   resolution: "source-map-js@npm:1.0.1"
   checksum: 22606113d62bbd468712b0cb0c46e9a8629de7eb081049c62a04d977a211abafd7d61455617f8b78daba0b6c0c7e7c88f8c6b5aaeacffac0a6676ecf5caac5ce
-  languageName: node
-  linkType: hard
-
-"source-map-js@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "source-map-js@npm:1.0.2"
-  checksum: c049a7fc4deb9a7e9b481ae3d424cc793cb4845daa690bc5a05d428bf41bf231ced49b4cf0c9e77f9d42fdb3d20d6187619fc586605f5eabe995a316da8d377c
   languageName: node
   linkType: hard
 

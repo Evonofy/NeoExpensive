@@ -1,0 +1,19 @@
+@use '../themes/theme-prop' as *;
+
+:root,
+[data-theme='default'] {
+  @each $color, $shades in $colors-default {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+}
+
+[data-theme] {
+  color: var(--clr-gray-scale-90) !important;
+  background-color: var(--clr-gray-scale-800) !important;
+
+  svg {
+    stroke: var(--clr-gray-scale-90) !important;
+  }
+}
