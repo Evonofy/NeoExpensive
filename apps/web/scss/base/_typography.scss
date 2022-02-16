@@ -1,0 +1,50 @@
+:root {
+  --ff-bebas: 'Bebas Neue', cursive;
+  --ff-montserrat: 'Montserrat', sans-serif;
+  --ff-josefin: 'Josefin Sans', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-contrast-high);
+}
+
+h1 {
+  font-family: var(--ff-bebas);
+}
+
+h2,
+h3 {
+  font-family: var(--ff-montserrat);
+  font-weight: 400;
+}
+
+li,
+a,
+p,
+small {
+  font-size: var(--fs-400);
+  font-family: var(--ff-josefin);
+  font-weight: 300;
+  color: var(--clr-gray-scale-90);
+}
+
+$type-scale: (
+  large: (
+    300: 1rem,
+    400: 1.125rem,
+    500: 1.563rem,
+    600: 1.953rem,
+    700: 2.441rem,
+    800: 3.052rem,
+  ),
+  extra-large: (
+    300: 1rem,
+    400: 1.225rem,
+    500: 2rem,
+    600: 2.827rem,
+    700: 4rem,
+    800: 5.653rem,
+  ),
+);

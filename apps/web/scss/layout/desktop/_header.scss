@@ -1,0 +1,66 @@
+@use '../../abstracts/_mixins.scss' as *;
+
+.X {
+  stroke: none;
+}
+
+.desktop--header {
+  display: none;
+
+  @include mq(992px) {
+    width: 100%;
+    display: flex;
+
+    background: var(--clr-contrast-lowest);
+
+    padding: clamp(1rem, 1vw, 2rem) clamp(1rem, 3vw, 4rem);
+    border-bottom: 2px solid var(--clr-accent-300);
+
+    position: relative;
+
+    @include space-between;
+
+    *:hover,
+    *:focus {
+      transition: all 200ms ease;
+    }
+
+    a:hover,
+    a:focus,
+    button:hover,
+    button:focus {
+      outline: none;
+
+      path:not(.X) {
+        stroke: var(--clr-accent-200);
+        transition: all 200ms ease;
+      }
+    }
+
+    path:not(.X) {
+      stroke: var(--color-contrast-high);
+    }
+
+    svg {
+      width: 2.35rem;
+      height: 2.35rem;
+    }
+
+    .XLogo {
+      position: absolute;
+    }
+
+    div {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .user--controls {
+      stroke: var(--clr-gray-scale-90);
+    }
+
+    .social--icons {
+      stroke: var(--clr-gray-scale-90);
+    }
+  }
+}

@@ -1,0 +1,152 @@
+@keyframes rgb {
+  100%,
+  0% {
+    fill: rgb(255, 0, 0);
+  }
+
+  8% {
+    fill: rgb(255, 127, 0);
+  }
+
+  16% {
+    fill: rgb(255, 255, 0);
+  }
+
+  24% {
+    fill: rgb(127, 255, 0);
+  }
+
+  32% {
+    fill: rgb(0, 255, 0);
+  }
+
+  40% {
+    fill: rgb(0, 255, 127);
+  }
+
+  48% {
+    fill: rgb(0, 255, 255);
+  }
+
+  56% {
+    fill: rgb(0, 127, 255);
+  }
+
+  64% {
+    fill: rgb(0, 0, 255);
+  }
+
+  72% {
+    fill: rgb(127, 0, 255);
+  }
+
+  80% {
+    fill: rgb(255, 0, 255);
+  }
+
+  88% {
+    fill: rgb(255, 0, 127);
+  }
+}
+
+@keyframes rgbBackground {
+  100%,
+  0% {
+    background: rgb(255, 0, 0);
+  }
+
+  8% {
+    background: rgb(255, 127, 0);
+  }
+
+  16% {
+    background: rgb(255, 255, 0);
+  }
+
+  24% {
+    background: rgb(127, 255, 0);
+  }
+
+  32% {
+    background: rgb(0, 255, 0);
+  }
+
+  40% {
+    border-top-color: rgb(0, 255, 127);
+  }
+
+  48% {
+    background: rgb(0, 255, 255);
+  }
+
+  56% {
+    background: rgb(0, 127, 255);
+  }
+
+  64% {
+    background: rgb(0, 0, 255);
+  }
+
+  72% {
+    background: rgb(127, 0, 255);
+  }
+
+  80% {
+    background: rgb(255, 0, 255);
+  }
+
+  88% {
+    background: rgb(255, 0, 127);
+  }
+}
+
+@keyframes rgbBorder {
+  100%,
+  0% {
+    border-color: rgb(255, 0, 0);
+  }
+
+  8% {
+    border-color: rgb(255, 127, 0);
+  }
+
+  16% {
+    border-color: rgb(255, 255, 0);
+  }
+
+  24% {
+    border-color: rgb(127, 255, 0);
+  }
+
+  32% {
+    border-color: rgb(0, 255, 0);
+  }
+
+  40% {
+    border-color: rgb(0, 255, 127);
+  }
+
+  48% {
+    border-color: rgb(0, 255, 255);
+  }
+
+  56% {
+    border-color: rgb(0, 127, 255);
+  }
+
+  64% {
+    border-color: rgb(0, 0, 255);
+  }
+
+  72% {
+    border-color: rgb(127, 0, 255);
+  }
+
+  80% {
+    border-color: rgb(255, 0, 255);
+  }
+
+  88% {
+    border-color: rgb(255, 0, 127);
+  }
+}
