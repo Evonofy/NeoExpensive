@@ -1,0 +1,44 @@
+@use '../abstracts/_mixins.scss' as *;
+
+.accordion {
+  font-family: var(--ff-montserrat);
+  text-align: left;
+  color: var(--clr-gray-scale-90);
+  width: 100%;
+
+  background-color: var(--clr-gray-scale-700);
+  padding: 1rem;
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+
+  transition: all 300ms linear;
+}
+
+.active,
+.accordion:hover {
+  background-color: var(--clr-gray-scale-900);
+}
+
+.panel {
+  color: var(--clr-gray-scale-90);
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  background-color: var(--clr-gray-scale-800);
+
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+
+  border-bottom-right-radius: 0.85rem;
+  border-bottom-left-radius: 0.85rem;
+
+  transition: max-height 0.2s ease-out;
+
+  p {
+    padding: 1rem;
+  }
+}

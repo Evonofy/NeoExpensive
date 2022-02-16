@@ -1,0 +1,40 @@
+@use '../abstracts/media-query.scss' as *;
+
+// Flexbox Mixins
+@mixin flex {
+  display: flex;
+}
+
+@mixin column {
+  flex-direction: column;
+}
+
+@mixin items-center {
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin space-between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin space-around {
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin space-evenly {
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+// Media Queries
+@mixin mq($breakpoint) {
+  // Breakpoint is one of the values inside Breakpoints variable. Ex.: small: 556px <-- Breakpoint
+  $size: map-get($breakpoints, $breakpoint);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}

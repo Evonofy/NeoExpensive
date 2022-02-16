@@ -1,0 +1,113 @@
+@use '../abstracts/mixins' as *;
+
+.checkout1--products--wrapper {
+  width: 90%;
+  height: max-content;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--clr-gray-scale-700);
+
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+
+  @include mq(992px) {
+    height: 12rem;
+    flex-direction: row;
+  }
+}
+
+.checkout1--image {
+  background: var(--clr-gray-scale-90);
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+.checkout1--details {
+  text-align: center;
+  margin: 0 auto;
+
+  @include mq(992px) {
+    text-align: left;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1.1rem;
+  }
+}
+
+.checkout1--prices {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include mq(992px) {
+    margin-top: auto;
+    margin-bottom: auto;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.checkout1--price {
+  color: var(--clr-secondary-green-300);
+  margin-top: 1rem;
+}
+
+.checkout1--price--alt {
+  color: var(--clr-secondary-green-400);
+  margin-top: 1rem;
+
+  @include mq(992px) {
+    font-size: var(--fs-500);
+  }
+}
+
+.checkout1--button {
+  font-family: var(--ff-montserrat);
+  font-weight: 400;
+
+  height: max-content;
+
+  background: var(--clr-primary-red-200);
+  margin: 1rem;
+  padding: 0.5rem;
+
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  @include mq(992px) {
+    padding: 0 0.4rem;
+    border-radius: 50%;
+  }
+}
+
+.checkout1--quantity {
+  font-size: var(--fs-400);
+  font-family: var(--ff-montserrat);
+  text-align: center;
+  color: var(--clr-gray-scale-90);
+
+  width: 90%;
+  height: max-content;
+
+  background: var(--clr-gray-scale-800);
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 0.25rem;
+
+  outline: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  appearance: textfield;
+
+  @include mq(992px) {
+    width: 3rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 2rem;
+  }
+}

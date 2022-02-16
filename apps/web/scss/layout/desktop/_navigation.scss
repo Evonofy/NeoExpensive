@@ -1,0 +1,25 @@
+@use '../../abstracts/mixins.scss' as *;
+
+.desktop--nav {
+  @include mq(992px) {
+    a {
+      font-weight: 300;
+      padding: 0.35rem;
+      border-radius: 0.25rem;
+
+      &:hover,
+      &:focus {
+        color: var(--clr-gray-scale-200);
+        background: var(--clr-accent-300);
+      }
+    }
+  }
+}
+
+.navigation--item {
+  @include mq(992px) {
+    text-align: center;
+    width: 8rem;
+    border-radius: 0.25rem;
+  }
+}

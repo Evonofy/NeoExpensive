@@ -1,3 +1,5 @@
-const { configuration } = require("@neo/postcss");
+const { configuration } = require('@neo/postcss');
 
-module.exports = configuration();
+module.exports = configuration({
+  customSyntax: true,
+});

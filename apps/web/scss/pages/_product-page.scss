@@ -1,0 +1,387 @@
+@use '../abstracts/mixins.scss' as *;
+
+.product--display--grid {
+  display: grid;
+  grid-template-areas:
+    'item--display'
+    'item--preview'
+    'aside--price'
+    'section--description';
+
+  margin-top: 11.5rem;
+  margin-bottom: 11.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  @include mq(992px) {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      'item--preview item--display aside--price'
+      'section--description section--description .'
+      'section--specification section--specification .'
+      'section--reviews section--reviews .';
+    grid-template-columns: 0.4fr 2.5fr 1fr;
+    grid-template-rows: auto;
+
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.product--display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  grid-area: item--display;
+
+  background: var(--clr-gray-scale-600);
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+
+  @include mq(992px) {
+    height: 90vh;
+    border-radius: 0.5rem;
+  }
+}
+
+.product--display--image {
+  width: 500px;
+}
+
+.product--preview {
+  width: 100%;
+
+  display: grid;
+  grid-area: item--preview;
+  grid-template-columns: repeat(4, 1fr);
+
+  overflow: hidden;
+
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+
+  &--image {
+    background: var(--clr-gray-scale-600);
+  }
+
+  @include mq(992px) {
+    display: flex;
+    flex-direction: column;
+
+    &--image {
+      width: 200px;
+
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+.product--aside--wrapper {
+  margin: 0 1rem;
+
+  @include mq(992px) {
+    margin: 0 2rem;
+  }
+}
+
+.product--aside {
+  display: flex;
+  flex-direction: column;
+  background: var(--clr-gray-scale-600);
+  margin-top: 2rem;
+
+  border-radius: 0.5rem;
+
+  @include mq(992px) {
+    grid-area: aside--price;
+
+    margin-top: 0;
+  }
+}
+
+.product--aside--image--wrapper {
+  display: none;
+
+  @include mq(992px) {
+    display: flex;
+    margin: 1rem 0;
+  }
+}
+
+.product--aside--name {
+  text-align: center;
+
+  margin-top: 2rem;
+
+  @include mq(992px) {
+    text-align: left;
+
+    margin-top: 0;
+  }
+}
+
+.product--aside--image {
+  background: var(--clr-gray-scale-90);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5rem;
+}
+
+// Ref: https://codepen.io/WebKitCoding/pen/ZEWZJoG
+
+.rating--css {
+  width: 100%;
+  padding: 1rem 0;
+
+  input {
+    display: none;
+  }
+
+  input + label {
+    font-size: 20px;
+    text-shadow: 1px 1px 0 var(--clr-primary-yellow-500);
+    cursor: pointer;
+  }
+
+  input:checked + label ~ label {
+    color: var(--clr-gray-scale-200);
+  }
+
+  label:active {
+    transform: scale(0.8);
+    transition: 400ms ease;
+  }
+
+  @include mq(992px) {
+    width: auto;
+    // margin: 0 0 auto auto;
+    padding: 0;
+  }
+}
+
+.star--icon {
+  text-align: center;
+  color: var(--clr-primary-yellow-300);
+
+  @include mq(992px) {
+    text-align: left;
+  }
+}
+
+.fa-star::before {
+  margin: 0 0.1rem;
+}
+
+.product--aside--payment {
+  display: flex;
+  flex-direction: column;
+
+  margin: 1.5rem 0;
+}
+
+.product--aside--button {
+  padding-bottom: 2rem;
+}
+
+.product--aside--payment--price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.span--price {
+  color: var(--clr-accent-200);
+}
+
+.span--money {
+  color: var(--clr-secondary-green-200);
+}
+
+.product--aside--payment--promo {
+  text-decoration: line-through;
+  margin-top: 1em;
+  margin-left: 1.45em;
+}
+
+.span--promo {
+  color: var(--clr-accent-300);
+}
+
+.product--aside--payment--h2 {
+  @include mq(992px) {
+    font-size: var(--fs-400);
+  }
+}
+
+.product--aside--payment--image {
+  width: 40px;
+}
+
+.product--details {
+  @include mq(992px) {
+    display: flex;
+    gap: 2rem;
+
+    margin-top: 3rem;
+  }
+}
+
+.product--details--link {
+  font-size: var(--fs-700);
+  transition: all 200ms linear;
+  user-select: none;
+  margin-top: 2rem;
+
+  &:hover {
+    color: var(--clr-accent-200);
+  }
+
+  @include mq(992px) {
+    margin-top: 0;
+  }
+}
+
+.product--description {
+  font-size: var(--fs-500);
+
+  background: var(--clr-gray-scale-700);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.product--specification--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  background: var(--clr-gray-scale-700);
+
+  padding: 2rem;
+
+  border-radius: 0.5rem;
+
+  @include mq(576px) {
+    flex-direction: row;
+  }
+}
+
+.product--specification--paragraph {
+  @include mq(992px) {
+    font-size: var(--fs-400);
+  }
+}
+
+.section--details {
+  @include mq(992px) {
+    grid-area: section--details;
+  }
+}
+
+.section--description {
+  grid-area: section--description;
+
+  @include mq(992px) {
+    grid-area: section--description;
+  }
+}
+
+.section--specification {
+  @include mq(992px) {
+    grid-area: section--specification;
+  }
+}
+
+.section--reviews {
+  @include mq(992px) {
+    grid-area: section--reviews;
+    margin-bottom: 5rem;
+  }
+}
+
+.user--review--wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include mq(992px) {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+  }
+}
+
+.user--review--card {
+  background: var(--clr-gray-scale-700);
+  padding: 2rem 1rem;
+  border-radius: 0.5rem;
+
+  @include mq(992px) {
+    padding: 3rem 5rem;
+  }
+}
+
+.review--button {
+  font-size: var(--fs-300);
+  font-family: var(--ff-montserrat);
+  color: var(--clr-gray-scale-100);
+
+  background: var(--clr-accent-300);
+
+  margin: 1rem 0;
+  padding: 0.8em;
+  outline: 0;
+  border: 0;
+  border-radius: 0.5rem;
+
+  @include mq(992px) {
+    margin: 0;
+    padding: 0.8em;
+  }
+}
+
+.review--card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--clr-gray-scale-900);
+  margin: 0;
+  border-radius: 0.5rem;
+
+  @include mq(576px) {
+    margin: 5rem;
+  }
+
+  @include mq(992px) {
+    flex-direction: row;
+
+    gap: 1rem;
+
+    margin: 2rem 0 0;
+
+    padding: 2rem;
+  }
+}
+
+.review--card--text {
+  margin: 1rem 2rem;
+
+  @include mq(992px) {
+    margin-bottom: auto;
+  }
+}
+
+.review--card--image {
+  width: 500px;
+
+  @include mq(992px) {
+    width: 100px;
+    border-radius: 50%;
+  }
+}
