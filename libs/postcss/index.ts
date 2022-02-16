@@ -2,6 +2,7 @@ import autoprefixer from 'autoprefixer';
 import stylelint from 'stylelint';
 import nesting from 'postcss-nested';
 import minify from 'cssnano';
+import imports from 'postcss-import';
 
 type Configuration = {
   syntax?: string;
@@ -41,6 +42,7 @@ export const configuration =
         autoprefixer(),
         stylelint(),
         nesting(),
+        imports(),
         minify({
           preset: require('cssnano-preset-advanced'),
         }),
