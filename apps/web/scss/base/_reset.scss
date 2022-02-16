@@ -1,0 +1,90 @@
+// * Source: https://piccalil.li/blog/a-modern-css-reset/
+
+/* Box Sizing Rules, Removes Defaults Margins And Paddings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove List Styles On UL, OL Elements With A List Role, Which Suggests Default Styling Will Be Removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set Core Root Defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set Core Body Defaults */
+body {
+  line-height: 1.5;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-rendering: optimizeSpeed;
+}
+
+/* A Elements That Don't Have A Class Get Default Styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Make Images Easier To Work With */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit Fonts For Inputs And Buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+[data-reset] {
+  color: inherit;
+
+  display: grid;
+  place-items: center;
+
+  background: transparent !important;
+  margin: 0;
+
+  padding: 0;
+  border: none;
+
+  cursor: pointer;
+}
+
+/* Remove All Animations, Transitions And Smooth Scroll For People That Prefer Not To See Them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

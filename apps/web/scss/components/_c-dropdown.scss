@@ -1,0 +1,142 @@
+@use '../abstracts/mixins.scss' as *;
+
+// * Desktop Dropdown
+.dropdown {
+  @include mq(992px) {
+    display: flex;
+    align-items: center;
+
+    &--item {
+      text-align: center;
+
+      width: 8rem;
+
+      border-radius: 0.25rem;
+
+      position: relative;
+
+      &:hover,
+      &:focus-within {
+        .dropdown--submenu {
+          opacity: 1;
+
+          transform: translateX(-50%) rotateX(0deg);
+
+          transition-timing-function: ease-out;
+        }
+      }
+    }
+  }
+}
+
+.dropdown--submenu {
+  @include mq(992px) {
+    content: '';
+    flex-direction: column;
+
+    background: var(--clr-gray-scale-700);
+
+    padding: 1rem;
+    border-radius: 1em;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 50%;
+    z-index: 1;
+
+    opacity: 0.1;
+
+    transform: translateX(-50%) rotateX(-90deg);
+    transform-origin: top center;
+    transition: all 200ms ease-in;
+
+    &::after {
+      content: '';
+      border: 0.5rem solid transparent;
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      border-bottom-color: var(--clr-gray-scale-700);
+
+      transform: translateX(-50%);
+    }
+
+    &--wrapper {
+      width: 33rem;
+
+      display: flex;
+      align-items: baseline;
+      justify-content: space-evenly;
+    }
+
+    &--item--wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &--item {
+      text-decoration: none;
+      text-align: left;
+
+      width: 100%;
+
+      list-style: none;
+    }
+
+    &--section {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+
+      background: var(--clr-gray-scale-800);
+      margin-top: 0.75rem;
+
+      padding: 0.95rem;
+      border-radius: 0.5rem;
+
+      &--paragraph {
+        font-size: 1rem;
+        text-align: left;
+      }
+
+      &--cta {
+        color: var(--clr-accent-200);
+      }
+    }
+
+    &--item--console {
+      text-decoration: none;
+      text-align: center;
+      width: 8rem;
+
+      list-style: none;
+    }
+
+    &--align--center {
+      text-align: center;
+    }
+  }
+}
+
+.dropdown--submenu--title {
+  @include mq(992px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--image {
+      width: 2.75rem;
+      height: 2.75rem;
+      opacity: 0.65;
+    }
+
+    &--link {
+      font-size: var(--fs-400);
+
+      &:hover {
+        color: var(--clr-accent-200);
+      }
+    }
+  }
+}
