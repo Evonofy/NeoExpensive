@@ -1,0 +1,47 @@
+name: Deploy Web
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/web_deploy.yml'
+      - 'apps/web/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install packages
+        run: yarn
+
+      - name: Build Web
+        working-directory: ./apps/web
+        run: yarn gh-build
+
+      - name: Export static files
+        working-directory: ./apps/web
+        run: yarn export
+
+      - name: Add .nojekyll file
+        working-directory: ./apps/web
+        run: touch ./out/.nojekyll
+
+      - name: Deploy to github pages
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: ./apps/web/out

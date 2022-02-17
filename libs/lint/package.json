@@ -13,6 +13,7 @@
     "@typescript-eslint/parser": "latest",
     "eslint": "^8.9.0",
     "eslint-config-google": "latest",
+    "eslint-config-next": "12.0.10",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "latest",

@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['plugin:react/recommended', 'google', 'prettier'],
+  extends: ['plugin:react/recommended', 'google', 'prettier', 'next'],
   env: {
     browser: true,
     es2021: true,
@@ -22,5 +22,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
+    '@next/next/no-img-element': 'off',
+    'require-jsdoc': 'off',
   },
 };
