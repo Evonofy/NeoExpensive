@@ -1,4 +1,4 @@
-import { useSelector } from '../hooks/useSelector.js';
+import { useSelector } from './useSelector.js';
 
 export const useElementMap = (callback, buttons) => {
   const buttonCallback = (button) => {
