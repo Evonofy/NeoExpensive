@@ -10,7 +10,8 @@
   "packageManager": "yarn@3.1.1",
   "scripts": {
     "compile:postcss": "yarn workspace @neo/postcss build",
-    "dev": "yarn compile:postcss && postcss --watch ./src/index.scss -o ./dist/index.css --env development --verbose"
+    "dev": "yarn compile:postcss && postcss --watch ./src/index.scss -o ./dist/index.css --env development --verbose",
+    "build": "yarn compile:postcss && postcss ./src/index.scss -o ./dist/index.css --env development --verbose --map"
   },
   "devDependencies": {
     "@csstools/normalize.css": "^12.0.0",

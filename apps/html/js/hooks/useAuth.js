@@ -1,5 +1,5 @@
-import { useFetch } from '../hooks/useFetch.js';
-import { useCookie } from '../hooks/useCookie.js';
+import { useFetch } from './useFetch.js';
+import { useCookie } from './useCookie.js';
 
 const clear = () => {
   /* remove all tokens with neoexpensive prefix */
