@@ -28,6 +28,10 @@ jobs:
       - name: Install packages
         run: yarn
 
+      - name: Build @neo/global
+        working-directory: ./packages/global
+        run: yarn build
+
       - name: Build Web
         working-directory: ./apps/web
         run: yarn gh-build
