@@ -1,0 +1,24 @@
+{
+  "name": "web",
+  "description": "the web part of neo-expensive front-end package",
+  "version": "0.0.1",
+  "author": "Vitor Gouveia <vitor.gouveia@aluno.etecjrm.com.br>",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "commit": "cz",
+    "css": "dart-sass --watch --no-stop-on-error scss/main.scss:css/main.css",
+    "css:mini": "dart-sass --watch --no-stop-on-error scss/main.scss:css/main.min.css --style compressed",
+    "purge:home": "yarn purgecss --css css/main.css --content index.html --output css/pages/main.css",
+    "purge:about": "yarn purgecss --css css/main.css --content /pages/about/index.html --output css/pages/about.css",
+    "purge:support": "yarn purgecss --css css/main.css --content /pages/support/index.html --output css/pages/support.css",
+    "purgeall": "yarn npm-run-all purge:*"
+  },
+  "devDependencies": {
+    "dart-sass": "^1.25.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.1",
+    "postcss-scss": "^4.0.2",
+    "purgecss": "^4.0.3"
+  }
+}
