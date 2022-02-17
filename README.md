@@ -31,7 +31,7 @@
 
 # What Are We?
 Neo Expensive is about the building of a brazilian e-commerce project for school. <br>
-We as team aim to make a product that looks good and feel good to use, having what and everything a e-commerce needs to be sucesfull!
+We as team aim to make a product that looks good and feel good to use, having what and everything a e-commerce needs to be successful!
 That includes a register and login system, aswell as a functioning grocery cart, support and institutional page with much more to yet show...
 
 # Insight Info
