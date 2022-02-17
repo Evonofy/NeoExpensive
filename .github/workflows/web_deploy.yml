@@ -28,6 +28,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
+      - name: Yarn Version
+        run: yarn -v
+
       - name: Install dependencies
         run: yarn install
 
@@ -37,7 +40,9 @@ jobs:
 
       - name: Build Web
         working-directory: ./apps/web
-        run: yarn gh-build
+        run: |
+          ls
+          yarn gh-build
 
       - name: Export static files
         working-directory: ./apps/web
