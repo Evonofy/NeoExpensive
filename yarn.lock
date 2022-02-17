@@ -1206,7 +1206,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@neo/global@workspace:packages/global":
+"@neo/global@*, @neo/global@workspace:packages/global":
   version: 0.0.0-use.local
   resolution: "@neo/global@workspace:packages/global"
   dependencies:
@@ -1266,6 +1266,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@neo/web@workspace:apps/web"
   dependencies:
+    "@neo/global": "*"
     "@types/canvas-confetti": ^1.4.2
     "@types/node": 17.0.18
     "@types/react": 17.0.39
