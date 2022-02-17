@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "gh-build": "GH_PAGES=true && next build",
+    "gh-build": "GH_PAGES=true yarn next build",
     "export": "next export",
     "start": "next start",
     "lint": "next lint"
