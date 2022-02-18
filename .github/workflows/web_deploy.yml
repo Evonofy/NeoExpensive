@@ -10,12 +10,11 @@ on:
 
 jobs:
   build:
-    name: Build & Deploy Web
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: ubuntu-latest
         node-version: [14.x]
 
     steps:
@@ -28,9 +27,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
-      - name: Yarn Version
-        run: yarn -v
-
       - name: Install dependencies
         run: yarn install
 
@@ -40,9 +36,7 @@ jobs:
 
       - name: Build Web
         working-directory: ./apps/web
-        run: |
-          ls
-          yarn gh-build
+        run: yarn gh-build
 
       - name: Export static files
         working-directory: ./apps/web
