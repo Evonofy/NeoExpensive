@@ -2,6 +2,14 @@ module.exports = {
   plugins: [
     'autoprefixer',
     [
+      '@fullhuman/postcss-purgecss',
+      {
+        content: ['./pages/**/*.{ts,tsx}'],
+        defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+        safelist: ['html', 'body'],
+      },
+    ],
+    [
       'postcss-preset-env',
       {
         autoprefixer: {
