@@ -1,38 +1,88 @@
-<h1 align="center">
- <img height=100 src="https://github.com/EsquemaFlorescer/neo-expensive/blob/main/packages/web/images/logos/neo-logo.svg"/>
-</h1>
+<!-- <div align="center">
+  <a href="https://neo-florescence.github.io/neo-expensive">
+  </a>
+</div> -->
+<img src=".github/assets/rainbow_separator.svg" />
+
+&nbsp;
+
+<a href="https://github.com/neo-florescence/neo-expensive">
+  <div align="center">
+    <img src=".github/assets/logo.png" height="37" />
+    <img width="212px" src=".github/assets/custom_logo.svg" />
+  </div>
+</a>
+
+<img src=".github/assets/invisible.svg" />
+
+<img src=".github/assets/rainbow_separator.svg" />
+
+<div align="center">
+  <img src="https://img.shields.io/github/repo-size/neo-florescence/neo-expensive?style=for-the-badge" />
+  <img src="https://img.shields.io/github/languages/count/neo-florescence/neo-expensive?style=for-the-badge" />
+
+  <a href="https://github.com/neo-florescence/neo-expensive/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/github/license/neo-florescence/neo-expensive?style=for-the-badge" />
+  </a>
+
+  <a href="https://github.com/neo-florescence/neo-expensive/releases/latest">
+    <img src="https://img.shields.io/github/v/release/neo-florescence/neo-expensive?display_name=release&include_prereleases&sort=date&style=for-the-badge" />
+  </a>
+</div>
+
+<br />
+
+<img src=".github/assets/social_preview.jpg" alt="repository social preview" />
 
 <h3 align="center">
-  <a href="https://github.com/EsquemaFlorescer/neo-expensive/blob/main/CONTRIBUTING.md">Contribute</a>
+  <a href="https://www.figma.com/file/FPDU6Ekw6eKzZlmiB6OhrB/Layout?node-id=315%3A77">Figma</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#">Notion</a>
 </h3>
 
-<p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/EsquemaFlorescer/neo-expensive">
+> Neo Expensive is a gaming e-commerce
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/EsquemaFlorescer/neo-expensive">
-  
-  <a href="https://github.com/EsquemaFlorescer/neo-expensive/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EsquemaFlorescer/neo-expensive">
-  </a>
-  
-  <a href="https://github.com/EsquemaFlorescer/neo-expensive/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/EsquemaFlorescer/neo-expensive">
-  </a>
-  
-  <img alt="GitHub" src="https://img.shields.io/github/license/EsquemaFlorescer/neo-expensive">
-</p>
+<img src=".github/assets/rainbow_separator.svg" />
 
-<p align="center">
-  <a href="#file-structure">File Structure</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-license">License</a>
-</p>
+## Table of contents
+
+- Introduction
+  - What are we?
+- Development Environment
+  - tools
+    - git
+    - github-cli (optional)
+    - node
+    - yarn
+    - IDE/Code Editor
+- Git Workflow
+  - branches
+  - commits
+  - releases
+  - QA
+  - contributing
+    - Getting Started
+- Architecture
+  - monorepo
+  - tests
+  - microservices
+  - microfrontends
+- Roadmap
+- License
+- Support
+- You may also like
+- Contributors
+
+<img src=".github/assets/rainbow_separator.svg" />
+
+<br />
 
 # What Are We?
 
 Neo Expensive is about the building of a brazilian e-commerce project for school. <br>
 We as team aim to make a product that looks good and feel good to use, having what and everything a e-commerce needs to be successful!
 That includes a register and login system, aswell as a functioning grocery cart, support and institutional page with much more to yet show...
+
+<br />
 
 # Insight Info
 
@@ -65,6 +115,8 @@ That includes a register and login system, aswell as a functioning grocery cart,
 | [server](packages/server)      |    The Node.js API     |
 | [workflows](.github/workflows) |       Workflows        |
 
+<br />
+
 # Technologies
 
 Technologies That We Use to develop
@@ -82,9 +134,13 @@ Technologies That We Use to develop
 - [Prettier](https://prettier.io/)
 - [EditorConfig](https://editorconfig.org/)
 
+<br />
+
 # License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+<br />
 
 # Code Reviewers
 
