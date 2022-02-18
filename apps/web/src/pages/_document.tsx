@@ -3,12 +3,11 @@ import { Html, Head, NextScript, Main } from 'next/document';
 const Document = () => {
   return (
     <Html>
-      <Head>
-        <NextScript />
-      </Head>
+      <Head />
 
       <body>
         <Main />
+        <NextScript />
       </body>
     </Html>
   );
