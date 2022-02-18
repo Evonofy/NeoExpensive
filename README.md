@@ -1,7 +1,3 @@
-<!-- <div align="center">
-  <a href="https://neo-florescence.github.io/neo-expensive">
-  </a>
-</div> -->
 <img src=".github/assets/rainbow_separator.svg" />
 
 &nbsp;
@@ -145,7 +141,7 @@
         <h3>
           <a href="https://cli.github.com/"><strong>Github CLI* (Optional)</strong></a>
         </h3>
-        <p>github cli comes in handy when you need to create and merge multiple branches, in this project it plays a [big role](#)</p>
+        <p>github cli comes in handy when you need to create and merge multiple branches, in this project it plays a big role</p>
       </li>
       <li id="node">
         <h3>
