@@ -1,5 +1,6 @@
 {
   "name": "@neo/web",
+  "version": "0.0.1",
   "description": "The Front-end of Neo Expensive",
   "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
   "repository": "https://github.com/Neo-Florescence/neo-expensive",
