@@ -13,4 +13,4 @@ const nextConfig = {
   assetPrefix: isGithubPages ? `/${projectName}/` : '',
 };
 
-export default nextConfig;
+module.exports = nextConfig;
