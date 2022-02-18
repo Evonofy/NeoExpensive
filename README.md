@@ -45,15 +45,16 @@
 
 ## Table of contents
 
-- Introduction
-  - What are we?
-- Development Environment
-  - tools
-    - git
-    - github-cli (optional)
-    - node
-    - yarn
-    - IDE/Code Editor
+- [Introduction](#introduction)
+  - [What are we?](#what-are-we)
+  - [Core Values](#core-values)
+- [Development Environment](#development-environment)
+  - [Tools](#tools)
+    - [git](#git)
+    - [github-cli (optional)](#github-cli)
+    - [node](#node)
+    - [yarn](#yarn)
+    - [IDE/Code Editor](#ide)
 - Git Workflow
   - branches
   - commits
@@ -75,6 +76,139 @@
 <img src=".github/assets/rainbow_separator.svg" />
 
 <br />
+
+<!--
+  =====================================
+  INTRODUCTION
+  =====================================
+-->
+<section>
+  <h1 id="introduction">
+    <strong>
+      📖 Introduction
+    </strong>
+  </h1>
+
+  <div>
+    <h2 id="what-are-we">
+      What are we?
+    </h2>
+    <p>
+      Neo Expensive is an e-commerce for gamers, bringing exclusive and personalized content that only exists here
+    </p>
+  </div>
+
+  <br />
+  <div>
+    <h2 id="core-values">
+      Core values
+    </h2>
+    <p>
+      We aim to build a product that looks and feels good to use but projected for the gaming niche and having customization be it's biggest feature.
+    </p>
+  </div>
+</section>
+
+<img src=".github/assets/rainbow_separator.svg" />
+<br />
+<br />
+
+<!--
+  =====================================
+  TECHNOLOGIES
+  =====================================
+-->
+<section>
+  <h1 id="development-environment">
+    <strong>
+      Development Environment
+    </strong>
+  </h1>
+
+  <p>Before diving into how to develop for Neo Expensive, we'll need some gear first, let's get that ready.</p>
+
+  <br />
+
+  <div>
+    <h2 id="tools">
+      Tools
+    </h2>
+    <strong>Here is a set of cherry-picked tools and why each is needed</strong>
+    <ul>
+      <li id="git">
+        <h3>
+          <a href="https://git-scm.com/"><strong>Git</strong></a>
+        </h3>
+        <p>you probably know this by now but git is pretty much essential when it comes to building software, you'll need it if you want to make any bigger contributions</p>
+      </li>
+      <li id="github-cli">
+        <h3>
+          <a href="https://cli.github.com/"><strong>Github CLI* (Optional)</strong></a>
+        </h3>
+        <p>github cli comes in handy when you need to create and merge multiple branches, in this project it plays a [big role](#)</p>
+      </li>
+      <li id="node">
+        <h3>
+          <a href="https://nodejs.org/en/"><strong>Node</strong></a>
+        </h3>
+        <p>Node.js is the biggest technology of all in the repo, because it allows us to run javascript outside of the browser, every library/package/app is build with node.js, you're contributing to any of those, you must install node.js</p>
+        <p>as of the version, anything above 12.22.0 will work</p>
+        <p>here is worth mentioning <a href="https://github.com/nvm-sh/nvm">NVM</a>, which makes it easy to have multiple node version in the same OS</p>
+      </li>
+      <li id="yarn">
+        <h3>
+          <a href="https://yarnpkg.com/"><strong>Yarn</strong></a>
+        </h3>
+        <p>As known for many of you, <a href="https://yarnpkg.com/">yarn</a> than <a href="https://www.npmjs.com/">npm</a>, which is the default node package manager, but we're not just using it for speed, yarn also has many other features that help make development faster and more enjoyable, like:
+          <ul>
+            <li>Global caching of depencencies</li>
+            <li>Workspaces</li>
+            <li>Offline cache</li>
+          </ul>
+        </p>
+        <p>Both of these features play a HUGE role in how our software is written and also how it's shipped to the end user</p>
+      </li>
+      <li id="ide">
+        <h3>
+          <a href="https://yarnpkg.com/"><strong>IDE/Code Editor* (Optional)</strong></a>
+        </h3>
+        <p>
+          as far as it goes you could use any code editor or IDE to contribute but if you're looking for some guidance we will recommend you some editors, why you would choose them and what plugins you should have installed to have the best experience while developing
+          <ul>
+            <li>
+              <a href="https://code.visualstudio.com/">
+                <strong>Visual Studio Code</strong>
+              </a>
+              <p>
+                Visual Studio Code (not be mistaken by it's older purple brother, Visual Studio) is easily the most well known and "best" code editor available, our whole team at Neo-Florescence uses it, but we recommend you to use some plugins to enhance your coding experience.
+              </p>
+            </li>
+            <li>
+              <a href="https://www.lunarvim.org/#opinionated"><strong>LunarVim</strong></a>
+              <p>
+                LunarVim is an IDE built on top of the good ol' classic Neovim, looking very similar to Visual Studio Code but being as exensible as Neovim gets
+              </p>
+            </li>
+            <li>
+              <a href="https://www.gnu.org/software/emacs/"><strong>Emacs</strong></a>
+              <p>
+                Emacs is a text editor that is kind of similar to vim, being very customizable and fast
+              </p>
+            </li>
+          </ul>
+          <p>
+            Here's a list of plugins you might find useful to have in your Code Editor/IDE
+            <ul>
+              <li>EditorConfig</li>
+              <li>Eslint</li>
+              <li>Prettier</li>
+            </ul>
+          </p>
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
 
 ## Tecnologies
 
@@ -168,35 +302,17 @@ That includes a register and login system, aswell as a functioning grocery cart,
 
 ### Folder Structure
 
-| Codebase                       |      Description       |
+| Codebase | Description |
+
 | :----------------------------- | :--------------------: |
-| [next](packages/next)          |      Main Web App      |
-| [web](packages/web)            | HTML Prototype Web App |
-| [server](packages/server)      |    The Node.js API     |
-| [workflows](.github/workflows) |       Workflows        |
+| [next](packages/next) | Main Web App |
+| [web](packages/web) | HTML Prototype Web App |
+| [server](packages/server) | The Node.js API |
+| [workflows](.github/workflows) | Workflows |
 
 <br />
 
-# Technologies
-
-Technologies That We Use to develop
-
-- [Node.js](https://nodejs.org/en/)
-- [ReactJS](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Express](https://expressjs.com/pt-br/)
-- [Prisma](https://www.prisma.io/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Jest](https://jestjs.io/)
-- [Styled Components](https://styled-components.com/)
-- [Axios](https://github.com/axios/axios)
-- [Eslint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [EditorConfig](https://editorconfig.org/)
-
-<br />
-
-# License
+# ⚖️ License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -208,4 +324,3 @@ Contributors helping to review/merge pull requests:
 
 - [@VitorGouveia](https://github.com/vitorgouveia)
 - [@Thiago](https://github.com/atomicfeast)
-- [@Vinicius](https://github.com/espalmer)
