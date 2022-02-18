@@ -1,4 +1,3 @@
-
 <h1 align="center">
  <img height=100 src="https://github.com/EsquemaFlorescer/neo-expensive/blob/main/packages/web/images/logos/neo-logo.svg"/>
 </h1>
@@ -30,11 +29,13 @@
 </p>
 
 # What Are We?
+
 Neo Expensive is about the building of a brazilian e-commerce project for school. <br>
-We as team aim to make a product that looks good and feel good to use, having what and everything a e-commerce needs to be sucesfull!
+We as team aim to make a product that looks good and feel good to use, having what and everything a e-commerce needs to be successful!
 That includes a register and login system, aswell as a functioning grocery cart, support and institutional page with much more to yet show...
 
 # Insight Info
+
 <h2>
   <a href="https://esquemaflorescer.github.io/neo-expensive/packages/web/">Neo Expensive Official Page</a>
 </h2>
@@ -52,16 +53,17 @@ That includes a register and login system, aswell as a functioning grocery cart,
 </h3>
 
 ### Database Structure
+
 ![Neo](https://user-images.githubusercontent.com/61664367/131562240-27b253fd-9391-44bd-a51e-ad3b959601ac.png)
 
 ### Folder Structure
 
-| Codebase              |        Description        |
-| :-------------------- | :-----------------------: |
-| [next](packages/next)  |         Main Web App          |
-| [web](packages/web)   |           HTML Prototype Web App             |
-| [server](packages/server) | The Node.js API |
-| [workflows](.github/workflows)|Workflows          |
+| Codebase                       |      Description       |
+| :----------------------------- | :--------------------: |
+| [next](packages/next)          |      Main Web App      |
+| [web](packages/web)            | HTML Prototype Web App |
+| [server](packages/server)      |    The Node.js API     |
+| [workflows](.github/workflows) |       Workflows        |
 
 # Technologies
 
