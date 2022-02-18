@@ -76,6 +76,66 @@
 
 <br />
 
+## Tecnologies
+
+<br />
+
+<a href="https://yarnpkg.com">
+  <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=ffffff" />
+</a>
+
+<a href="https://yarnpkg.com">
+  <img src="https://img.shields.io/badge/EditorConfig-000?style=for-the-badge&logo=editorconfig&logoColor=ffffff" />
+</a>
+
+<a href="https://www.w3.org/html">
+  <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+</a>
+
+<a href="https://sass-lang.com">
+  <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" />
+</a>
+
+<a href="https://postcss.org/">
+  <img src="https://img.shields.io/badge/Postcss-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white" />
+</a>
+
+<a href="https://reactjs.org/">
+  <img src="https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react" />
+</a>
+
+<a href="https://nextjs.org/">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js" />
+</a>
+
+<a href="https://www.typescriptlang.org/">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+</a>
+
+<a href="https://github.com/features/actions">
+  <img src="https://img.shields.io/badge/Github Actions-000000?style=for-the-badge&logo=github-actions" />
+</a>
+
+<a href="https://eslint.org/">
+  <img src="https://img.shields.io/badge/Eslint-4B32C3?style=for-the-badge&logo=eslint" />
+</a>
+
+<a href="https://eslint.org/">
+  <img src="https://img.shields.io/badge/Stylelint-263238?style=for-the-badge&logo=stylelint" />
+</a>
+
+<a href="https://prettier.io/">
+  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=000" />
+</a>
+
+<a href="https://prettier.io/">
+  <img src="https://img.shields.io/badge/Styled Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=FFF" />
+</a>
+
+<br />
+<br />
+<br />
+
 # What Are We?
 
 Neo Expensive is about the building of a brazilian e-commerce project for school. <br>
