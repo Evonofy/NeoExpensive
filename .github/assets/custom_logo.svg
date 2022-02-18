@@ -1,0 +1,39 @@
+<svg height="35" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        div {
+          width: max-content;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding-left: 4px;
+        }
+
+        h1 {
+          color: #fff;
+          font-family: "Roboto", sans-serif;
+          font-weight: 300;
+          font-size: 30px;
+        }
+
+        h1 span {
+          font-weight: 700;
+        }
+      </style>
+
+      <div>
+        <h1>
+          <span>Neo</span>
+          Expensive
+        </h1>
+      </div>
+    </div>
+  </foreignObject>
+</svg>
