@@ -1,5 +1,9 @@
-console.log('hello world2');
-
-export const testFunction = () => {
-  return true;
+import { user } from '@neo/users';
+const main = async () => {
+  const a = await user.register({
+    email: ' ',
+    name: '',
+  });
+  console.log(a);
 };
+main();

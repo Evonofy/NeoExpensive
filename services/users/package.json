@@ -1,0 +1,24 @@
+{
+  "name": "@neo/users",
+  "version": "0.0.1",
+  "description": "The users microservice",
+  "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
+  "repository": "https://github.com/Neo-Florescence/neo-expensive",
+  "license": "MIT",
+  "private": true,
+  "main": "./dist/application/use-cases/index.js",
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "dev": "rimraf dist && tsc -w",
+    "build": "rimraf dist && tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@neo/core": "*"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5"
+  }
+}

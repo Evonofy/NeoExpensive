@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./",
+    "rootDir": "./src",
     "baseUrl": "./src",
     "outDir": "./dist"
   },
-  "exclude": ["dist"]
+  "exclude": ["dist", "jest.config.js"]
 }
