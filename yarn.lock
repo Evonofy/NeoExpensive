@@ -1221,8 +1221,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@neo/api@workspace:services/api"
   dependencies:
+    "@neo/users": "*"
     "@types/node": 17.0.18
     nodemon: ^2.0.15
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
+
+"@neo/core@*, @neo/core@workspace:services/core":
+  version: 0.0.0-use.local
+  resolution: "@neo/core@workspace:services/core"
+  dependencies:
+    "@types/node": 17.0.18
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -1280,6 +1290,17 @@ __metadata:
     typescript: ^4.3.5
   peerDependencies:
     postcss: ^8.4.6
+  languageName: unknown
+  linkType: soft
+
+"@neo/users@*, @neo/users@workspace:services/users":
+  version: 0.0.0-use.local
+  resolution: "@neo/users@workspace:services/users"
+  dependencies:
+    "@neo/core": "*"
+    jest: ^27.5.1
+    rimraf: ^3.0.2
+    typescript: ^4.3.5
   languageName: unknown
   linkType: soft
 

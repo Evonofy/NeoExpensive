@@ -1,4 +1,4 @@
-const name = '@neo/api';
+const name = '@neo/users';
 
 module.exports = {
   name,
