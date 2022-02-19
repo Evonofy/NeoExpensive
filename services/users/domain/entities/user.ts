@@ -3,6 +3,7 @@ import { Entity } from '@neo/core';
 type UserProps = {
   name: string;
   email: string;
+  password: string;
 
   createdAt?: Date;
   updatedAt?: Date;
