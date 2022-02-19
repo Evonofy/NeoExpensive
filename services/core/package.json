@@ -1,0 +1,19 @@
+{
+  "name": "@neo/core",
+  "version": "0.0.1",
+  "description": "The core configuration of back-end microservices",
+  "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
+  "repository": "https://github.com/Neo-Florescence/neo-expensive",
+  "license": "MIT",
+  "private": true,
+  "main": "./dist/index.js",
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.18",
+    "typescript": "^4.3.5"
+  }
+}
