@@ -13,4 +13,12 @@ export class InMemoryUsersRepository implements UsersRepository {
 
     return user;
   }
+
+  public async store({ user }: { user: User }): Promise<void> {
+    this.users.push(user);
+  }
+
+  public async clean() {
+    this.users = [];
+  }
 }
