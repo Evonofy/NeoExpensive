@@ -4,6 +4,7 @@ import { exec } from 'child_process';
 
 const shell = promisify(exec);
 
+jest.setTimeout(10000);
 const eslint = 'yarn eslint ./libs/lint';
 
 type createFileFactoryProps = {

@@ -96,7 +96,7 @@ module.exports = {
   preset: 'ts-jest',
 
   // Run tests from one or more projects
-  projects: ['<rootDir>/libs/**/jest.config.js'],
+  projects: ['<rootDir>/services/**/jest.config.js', '<rootDir>/libs/**/jest.config.js'],
 
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,
