@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "declaration": true
+  },
+  "exclude": ["dist", "jest.config.js", "**/*.spec.ts"]
+}

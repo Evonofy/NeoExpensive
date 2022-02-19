@@ -1217,6 +1217,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mapbox/node-pre-gyp@npm:^1.0.0":
+  version: 1.0.8
+  resolution: "@mapbox/node-pre-gyp@npm:1.0.8"
+  dependencies:
+    detect-libc: ^1.0.3
+    https-proxy-agent: ^5.0.0
+    make-dir: ^3.1.0
+    node-fetch: ^2.6.5
+    nopt: ^5.0.0
+    npmlog: ^5.0.1
+    rimraf: ^3.0.2
+    semver: ^7.3.5
+    tar: ^6.1.11
+  bin:
+    node-pre-gyp: bin/node-pre-gyp
+  checksum: 29a38f39575107fa1665edf14defcfdf62e12bb38e9c27f7457ba42be84060125015171d12b8de3065155a465992f1854a363e2985f071fcbea9ff0701362b05
+  languageName: node
+  linkType: hard
+
+"@neo/api@workspace:services/api":
+  version: 0.0.0-use.local
+  resolution: "@neo/api@workspace:services/api"
+  dependencies:
+    "@neo/users": "*"
+    "@types/node": 17.0.18
+    nodemon: ^2.0.15
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
+
+"@neo/core@*, @neo/core@workspace:services/core":
+  version: 0.0.0-use.local
+  resolution: "@neo/core@workspace:services/core"
+  dependencies:
+    "@types/node": 17.0.18
+    typescript: ^4.3.5
+  languageName: unknown
+  linkType: soft
+
 "@neo/global@*, @neo/global@workspace:packages/global":
   version: 0.0.0-use.local
   resolution: "@neo/global@workspace:packages/global"
@@ -1270,6 +1309,19 @@ __metadata:
     typescript: ^4.3.5
   peerDependencies:
     postcss: ^8.4.6
+  languageName: unknown
+  linkType: soft
+
+"@neo/users@*, @neo/users@workspace:services/users":
+  version: 0.0.0-use.local
+  resolution: "@neo/users@workspace:services/users"
+  dependencies:
+    "@neo/core": "*"
+    "@types/bcrypt": ^5.0.0
+    bcrypt: ^5.0.1
+    jest: ^27.5.1
+    rimraf: ^3.0.2
+    typescript: ^4.3.5
   languageName: unknown
   linkType: soft
 
@@ -1713,6 +1765,15 @@ __metadata:
   dependencies:
     "@babel/types": ^7.3.0
   checksum: a797ea09c72307569e3ee08aa3900ca744ce3091114084f2dc59b67a45ee7d01df7865252790dbfa787a7915ce892cdc820c9b920f3683292765fc656b08dc63
+  languageName: node
+  linkType: hard
+
+"@types/bcrypt@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@types/bcrypt@npm:5.0.0"
+  dependencies:
+    "@types/node": "*"
+  checksum: 063c32c7a519d64768dfc0169a319b8244d6a6cb50a355c93992b3c5fee1dbc236526a1111f0e7bb25abc8b0473e5f40a5edfeb8b33cad2a6ea35aa2d7d7db14
   languageName: node
   linkType: hard
 
@@ -2283,6 +2344,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"are-we-there-yet@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "are-we-there-yet@npm:2.0.0"
+  dependencies:
+    delegates: ^1.0.0
+    readable-stream: ^3.6.0
+  checksum: 6c80b4fd04ecee6ba6e737e0b72a4b41bdc64b7d279edfc998678567ff583c8df27e27523bc789f2c99be603ffa9eaa612803da1d886962d2086e7ff6fa90c7c
+  languageName: node
+  linkType: hard
+
 "are-we-there-yet@npm:^3.0.0":
   version: 3.0.0
   resolution: "are-we-there-yet@npm:3.0.0"
@@ -2553,6 +2624,16 @@ __metadata:
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 669632eb3745404c2f822a18fc3a0122d2f9a7a13f7fb8b5823ee19d1d2ff9ee5b52c53367176ea4ad093c332fd5ab4bd0ebae5a8e27917a4105a4cfc86b1005
+  languageName: node
+  linkType: hard
+
+"bcrypt@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "bcrypt@npm:5.0.1"
+  dependencies:
+    "@mapbox/node-pre-gyp": ^1.0.0
+    node-addon-api: ^3.1.0
+  checksum: b59625519f2b2891010b8094208588462b1c759ccacebfd74f0b9a4c1885743434ede246c26b615b94a5cf203dfcb9eb25a1e8dec315afd3098da2b848c0fa12
   languageName: node
   linkType: hard
 
@@ -2864,7 +2945,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=2.0.0 <4.0.0, chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.3.0":
+"chokidar@npm:>=2.0.0 <4.0.0, chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.3.0, chokidar@npm:^3.5.2":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
   dependencies:
@@ -4014,6 +4095,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"detect-libc@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "detect-libc@npm:1.0.3"
+  bin:
+    detect-libc: ./bin/detect-libc.js
+  checksum: daaaed925ffa7889bd91d56e9624e6c8033911bb60f3a50a74a87500680652969dbaab9526d1e200a4c94acf80fc862a22131841145a0a8482d60a99c24f4a3e
+  languageName: node
+  linkType: hard
+
 "detect-newline@npm:^3.0.0":
   version: 3.1.0
   resolution: "detect-newline@npm:3.1.0"
@@ -5080,6 +5170,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gauge@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "gauge@npm:3.0.2"
+  dependencies:
+    aproba: ^1.0.3 || ^2.0.0
+    color-support: ^1.1.2
+    console-control-strings: ^1.0.0
+    has-unicode: ^2.0.1
+    object-assign: ^4.1.1
+    signal-exit: ^3.0.0
+    string-width: ^4.2.3
+    strip-ansi: ^6.0.1
+    wide-align: ^1.1.2
+  checksum: 81296c00c7410cdd48f997800155fbead4f32e4f82109be0719c63edc8560e6579946cc8abd04205297640691ec26d21b578837fd13a4e96288ab4b40b1dc3e9
+  languageName: node
+  linkType: hard
+
 "gauge@npm:^4.0.0":
   version: 4.0.1
   resolution: "gauge@npm:4.0.1"
@@ -5723,6 +5830,13 @@ __metadata:
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
   checksum: 5144c0c9815e54ada181d80a0b810221a253562422e7c6c3a60b1901154184f49326ec239d618c416c1c5945a2e197107aee8d986a3dd836b53dffefd99b5e7e
+  languageName: node
+  linkType: hard
+
+"ignore-by-default@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "ignore-by-default@npm:1.0.1"
+  checksum: 441509147b3615e0365e407a3c18e189f78c07af08564176c680be1fabc94b6c789cad1342ad887175d4ecd5225de86f73d376cec8e06b42fd9b429505ffcf8a
   languageName: node
   linkType: hard
 
@@ -7387,7 +7501,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-dir@npm:^3.0.0":
+"make-dir@npm:^3.0.0, make-dir@npm:^3.1.0":
   version: 3.1.0
   resolution: "make-dir@npm:3.1.0"
   dependencies:
@@ -7895,7 +8009,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.6.7":
+"node-addon-api@npm:^3.1.0":
+  version: 3.2.1
+  resolution: "node-addon-api@npm:3.2.1"
+  dependencies:
+    node-gyp: latest
+  checksum: 2369986bb0881ccd9ef6bacdf39550e07e089a9c8ede1cbc5fc7712d8e2faa4d50da0e487e333d4125f8c7a616c730131d1091676c9d499af1d74560756b4a18
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^2.6.5, node-fetch@npm:^2.6.7":
   version: 2.6.7
   resolution: "node-fetch@npm:2.6.7"
   dependencies:
@@ -7943,6 +8066,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nodemon@npm:^2.0.15":
+  version: 2.0.15
+  resolution: "nodemon@npm:2.0.15"
+  dependencies:
+    chokidar: ^3.5.2
+    debug: ^3.2.7
+    ignore-by-default: ^1.0.1
+    minimatch: ^3.0.4
+    pstree.remy: ^1.1.8
+    semver: ^5.7.1
+    supports-color: ^5.5.0
+    touch: ^3.1.0
+    undefsafe: ^2.0.5
+    update-notifier: ^5.1.0
+  bin:
+    nodemon: bin/nodemon.js
+  checksum: 0569b09b713fdcc76f06734d7cc106950e69e02069cbf44bda3fae8d266926bdfa003aeddd22f8fcdf46ea6ff51ca64f5528f8006536e79820a26e648ef346cf
+  languageName: node
+  linkType: hard
+
 "nopt@npm:^5.0.0":
   version: 5.0.0
   resolution: "nopt@npm:5.0.0"
@@ -7951,6 +8094,17 @@ __metadata:
   bin:
     nopt: bin/nopt.js
   checksum: d35fdec187269503843924e0114c0c6533fb54bbf1620d0f28b4b60ba01712d6687f62565c55cc20a504eff0fbe5c63e22340c3fad549ad40469ffb611b04f2f
+  languageName: node
+  linkType: hard
+
+"nopt@npm:~1.0.10":
+  version: 1.0.10
+  resolution: "nopt@npm:1.0.10"
+  dependencies:
+    abbrev: 1
+  bin:
+    nopt: ./bin/nopt.js
+  checksum: f62575aceaa3be43f365bf37a596b89bbac2e796b001b6d2e2a85c2140a4e378ff919e2753ccba959c4fd344776fc88c29b393bc167fa939fb1513f126f4cd45
   languageName: node
   linkType: hard
 
@@ -8040,6 +8194,18 @@ __metadata:
   dependencies:
     path-key: ^3.0.0
   checksum: 5374c0cea4b0bbfdfae62da7bbdf1e1558d338335f4cacf2515c282ff358ff27b2ecb91ffa5330a8b14390ac66a1e146e10700440c1ab868208430f56b5f4d23
+  languageName: node
+  linkType: hard
+
+"npmlog@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "npmlog@npm:5.0.1"
+  dependencies:
+    are-we-there-yet: ^2.0.0
+    console-control-strings: ^1.1.0
+    gauge: ^3.0.0
+    set-blocking: ^2.0.0
+  checksum: 516b2663028761f062d13e8beb3f00069c5664925871a9b57989642ebe09f23ab02145bf3ab88da7866c4e112cafff72401f61a672c7c8a20edc585a7016ef5f
   languageName: node
   linkType: hard
 
@@ -9544,6 +9710,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pstree.remy@npm:^1.1.8":
+  version: 1.1.8
+  resolution: "pstree.remy@npm:1.1.8"
+  checksum: 5cb53698d6bb34dfb278c8a26957964aecfff3e161af5fbf7cee00bbe9d8547c7aced4bd9cb193bce15fb56e9e4220fc02a5bf9c14345ffb13a36b858701ec2d
+  languageName: node
+  linkType: hard
+
 "pump@npm:^3.0.0":
   version: 3.0.0
   resolution: "pump@npm:3.0.0"
@@ -10171,7 +10344,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:2 || 3 || 4 || 5, semver@npm:^5.5.0":
+"semver@npm:2 || 3 || 4 || 5, semver@npm:^5.5.0, semver@npm:^5.7.1":
   version: 5.7.1
   resolution: "semver@npm:5.7.1"
   bin:
@@ -10915,7 +11088,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^5.3.0":
+"supports-color@npm:^5.3.0, supports-color@npm:^5.5.0":
   version: 5.5.0
   resolution: "supports-color@npm:5.5.0"
   dependencies:
@@ -11010,7 +11183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar@npm:^6.0.2, tar@npm:^6.1.2":
+"tar@npm:^6.0.2, tar@npm:^6.1.11, tar@npm:^6.1.2":
   version: 6.1.11
   resolution: "tar@npm:6.1.11"
   dependencies:
@@ -11172,6 +11345,17 @@ __metadata:
   dependencies:
     is-number: ^7.0.0
   checksum: f76fa01b3d5be85db6a2a143e24df9f60dd047d151062d0ba3df62953f2f697b16fe5dad9b0ac6191c7efc7b1d9dcaa4b768174b7b29da89d4428e64bc0a20ed
+  languageName: node
+  linkType: hard
+
+"touch@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "touch@npm:3.1.0"
+  dependencies:
+    nopt: ~1.0.10
+  bin:
+    nodetouch: ./bin/nodetouch.js
+  checksum: e0be589cb5b0e6dbfce6e7e077d4a0d5f0aba558ef769c6d9c33f635e00d73d5be49da6f8631db302ee073919d82b5b7f56da2987feb28765c95a7673af68647
   languageName: node
   linkType: hard
 
@@ -11462,6 +11646,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undefsafe@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "undefsafe@npm:2.0.5"
+  checksum: f42ab3b5770fedd4ada175fc1b2eb775b78f609156f7c389106aafd231bfc210813ee49f54483d7191d7b76e483bc7f537b5d92d19ded27156baf57592eb02cc
+  languageName: node
+  linkType: hard
+
 "unique-filename@npm:^1.1.1":
   version: 1.1.1
   resolution: "unique-filename@npm:1.1.1"
@@ -11510,7 +11701,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"update-notifier@npm:5.1.0":
+"update-notifier@npm:5.1.0, update-notifier@npm:^5.1.0":
   version: 5.1.0
   resolution: "update-notifier@npm:5.1.0"
   dependencies:
