@@ -1,11 +1,17 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
+import { useUser } from '../hooks/auth/user';
 
 const Home: NextPage = () => {
+  const { user } = useUser();
+
   return (
     <main>
-      hello world
-      <input placeholder="dwadaw" type="text" />
-      <div className="example">day n night</div>
+      <h1>main page</h1>
+      {user && <h2 style={{ color: 'red' }}>Hello {user.name}</h2>}
+      <Link href="/login">
+        <a>Go to login</a>
+      </Link>
     </main>
   );
 };
