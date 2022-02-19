@@ -1,0 +1,25 @@
+{
+  "name": "@neo/api",
+  "version": "0.0.1",
+  "description": "The GraphQL Data layer that communicates with the front-end",
+  "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
+  "repository": "https://github.com/Neo-Florescence/neo-expensive",
+  "license": "MIT",
+  "private": true,
+  "main": "./dist/index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "dev": "nodemon dist/index.js",
+    "build": "tsc",
+    "start": "yarn build && node dist/index.js"
+  },
+  "packageManager": "yarn@3.1.1",
+  "dependencies": {
+    "@neo/users": "*"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.18",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.3.5"
+  }
+}
