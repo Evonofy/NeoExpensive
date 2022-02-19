@@ -10,7 +10,8 @@
   "workspaces": [
     "apps/**",
     "libs/**",
-    "packages/**"
+    "packages/**",
+    "services/**"
   ],
   "scripts": {
     "lint-staged": "lint-staged — config .lintstagedrc",
