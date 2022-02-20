@@ -4,9 +4,16 @@ type UserProps = {
   name: string;
   email: string;
   password: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
-  createdAt?: Date;
-  updatedAt?: Date;
+type CreateUserProps = {
+  name: string;
+  email: string;
+  password: string;
+  createdAt?: Date | undefined;
+  updatedAt?: Date | undefined;
 };
 
 export class User extends Entity<UserProps> {
@@ -14,7 +21,7 @@ export class User extends Entity<UserProps> {
     super(props, id);
   }
 
-  static create(props: UserProps, id?: string) {
+  static create(props: CreateUserProps, id?: string) {
     // prettier-ignore
     const user = new User({
       ...props,
