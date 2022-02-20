@@ -9,9 +9,16 @@ const Home: NextPage = () => {
     <main>
       <h1>main page</h1>
       {user && <h2 style={{ color: 'red' }}>Hello {user.name}</h2>}
-      <Link href="/login">
-        <a>Go to login</a>
-      </Link>
+      <div>
+        <Link href="/login">
+          <a>Go to login</a>
+        </Link>
+      </div>
+      <div>
+        <Link href="/register">
+          <a>Go to register</a>
+        </Link>
+      </div>
     </main>
   );
 };
