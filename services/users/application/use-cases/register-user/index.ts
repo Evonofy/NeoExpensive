@@ -7,8 +7,8 @@ export type RegisterUserProps = {
   name: string;
   email: string;
   password: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+  createdAt?: Date | undefined;
+  updatedAt?: Date | undefined;
 };
 
 export class RegisterUser {
