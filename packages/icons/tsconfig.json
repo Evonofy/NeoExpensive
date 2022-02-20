@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES5",
+    "lib": ["ES6", "DOM", "DOM.Iterable"],
+    "jsx": "react",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "declaration": true
+  },
+  "exclude": ["dist", "rollup.config.js", "jest.config.js", "**/*.spec.ts"]
+}
