@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useUser } from '../hooks/auth/user';
+import { Icon } from '@neo/icons/lib';
 
 const Home: NextPage = () => {
   const { user } = useUser();
@@ -12,6 +13,8 @@ const Home: NextPage = () => {
       <Link href="/login">
         <a>Go to login</a>
       </Link>
+
+      <Icon />
     </main>
   );
 };
