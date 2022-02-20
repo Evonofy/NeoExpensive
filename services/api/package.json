@@ -12,14 +12,18 @@
     "dev": "nodemon dist/index.js",
     "build": "tsc",
     "start": "yarn build && node dist/index.js",
+    "migrate": "prisma migrate dev",
     "env": "gen-env-types -k -e . -o ./src/@types/env.d.ts"
   },
   "packageManager": "yarn@3.1.1",
   "dependencies": {
     "@neo/users": "*",
+    "@neo/core": "*",
+    "@prisma/client": "^3.9.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "prisma": "^3.9.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",

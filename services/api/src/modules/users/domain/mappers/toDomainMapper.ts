@@ -1,0 +1,11 @@
+import { User as UserDTO } from '@prisma/client';
+import { User } from '@neo/users';
+
+export function toDomainMapper(user: UserDTO): User {
+  // prettier-ignore
+  const domainUser = User.create({
+    ...user,
+  }, user.id);
+
+  return domainUser;
+}
