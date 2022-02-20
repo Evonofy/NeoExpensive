@@ -34,7 +34,11 @@ jobs:
         working-directory: ./packages/global
         run: yarn build
 
-      - name: Build Web
+      - name: Build @neo/icons
+        working-directory: ./packages/icons
+        run: yarn build
+
+      - name: Build @neo/web
         working-directory: ./apps/web
         run: yarn gh-build
 
