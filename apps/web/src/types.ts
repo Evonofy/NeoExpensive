@@ -3,7 +3,7 @@ export type User = {
   email: string;
 };
 
-export type Error = {
-  field: 'email' | 'password';
+export type Error<T> = {
+  field: T;
   message: string;
 };
