@@ -43,12 +43,12 @@ describe('Login User', () => {
 
     try {
       await loginUser.execute({
-        email: 'test@test.com',
-        password: '125',
+        email: 'this@doestnotexist.com',
+        password: '123',
       });
     } catch (err) {
       const error = err as Error;
-      expect(error.message).toBe('Invalid password.');
+      expect(error.message).toBe('Could not find a user with this e-mail.');
     }
   });
 
