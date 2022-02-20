@@ -2,25 +2,27 @@ import { memo } from 'react';
 import { NextPage } from 'next';
 import { useCallback } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useLogin } from '../hooks/auth/useLogin';
 import { useRouter } from 'next/router';
+import { useRegister } from 'hooks/auth/useRegister';
 type FormProps = {
+  name: string;
   email: string;
   password: string;
 };
 
-const Login: NextPage = () => {
+const Register: NextPage = () => {
   const {
     register,
     handleSubmit,
     setError,
     formState: { errors },
   } = useForm<FormProps>();
-  const { login } = useLogin();
+  const { register: registerUser } = useRegister();
   const { push } = useRouter();
   const handleLogin: SubmitHandler<FormProps> = useCallback(
-    async ({ email, password }) => {
-      const { errors } = await login({
+    async ({ name, email, password }) => {
+      const { errors } = await registerUser({
+        name,
         email,
         password,
       });
@@ -32,12 +34,22 @@ const Login: NextPage = () => {
 
       push('/');
     },
-    [login, setError, push]
+    [registerUser, setError, push]
   );
 
   return (
     <div>
       <form onSubmit={handleSubmit(handleLogin)}>
+        <div>
+          <input
+            type="text"
+            placeholder="name"
+            {...register('name', {
+              required: true,
+            })}
+          />
+          {errors.name && <span style={{ color: 'red' }}>{errors.name.message}</span>}
+        </div>
         <div>
           <input
             type="text"
@@ -65,4 +77,4 @@ const Login: NextPage = () => {
   );
 };
 
-export default memo(Login);
+export default memo(Register);
