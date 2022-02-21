@@ -41,10 +41,14 @@ jobs:
       - name: Build @neo/web
         working-directory: ./apps/web
         run: yarn gh-build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
       - name: Export static files
         working-directory: ./apps/web
         run: yarn export
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
       - name: Add .nojekyll file
         working-directory: ./apps/web
