@@ -51,9 +51,9 @@
     - [node](#node)
     - [yarn](#yarn)
     - [IDE/Code Editor](#ide)
-- Git Workflow
-  - branches
-  - commits
+- [Git Workflow](#git-workflow)
+  - [branches](#branches)
+  - [commits](#commits)
   - releases
   - QA
   - contributing
@@ -218,6 +218,86 @@
   </div>
 </section>
 
+<img src=".github/assets/rainbow_separator.svg" />
+<br />
+<br />
+
+<!--
+  =====================================
+  GIT WORKFLOW
+  =====================================
+-->
+<section>
+  <h1 id="git-workflow">
+    <strong>Git Workflow</strong>
+  </h1>
+</section>
+
+Before contributing to NeoExpensive it's important for you to understand how we like to manage and create stuff in here
+
+<section>
+  <h2 id="branches">Branches</h2>
+</section>
+
+> This is a guide of how to manage your branches when contributing to NeoExpensive
+
+This guide applies to any kind of contribution, be it a bug fix, feature, typo and etc, this highly increases the codebase security and and reduces incomplete or not tested features to get to the final codebase
+
+- **Create an Issue** <br />
+  First, create an issue describing the changes you want to make to codebase, in the issue specify which service you want to change, why, what you're planning in doing, if our team flags your issue as valid, you can continue on, otherwise, close the issue.
+
+- **Create a new Branch** <br />
+  After your branch is flagged with the tag 'valid' you're free to create a branch to solve the problem you're trying to solve, for this you can use <kbd>git</kbd> CLI.
+
+  ```bash
+    git branch <BranchName> # Creates the branch
+    git checkout <BranchName> # Go to the selected branch
+
+    # ====
+    #  OR
+    # ====
+
+    git checkout -b <BranchName> # Creates and Goes to the branch
+  ```
+
+  Now just copy and paste those commands into your terminal and chage the branch name to the name you would like to give to your branch
+  <br />
+
+  > <sup><sub>Note that the '<' and '>' should not be in the final script</sub>
+
+<section>
+  <h2 id="branches">
+    Commits
+  </h2>
+</section>
+
+After you've created your [branch](#branches) you need to actually change stuff in it so we can verify and merge it to the `main` branch
+
+A commit is a piece of changed information, may it be code, text, or anything else, those commits, contain a type, a scope and a description like so:
+
+`feat(website): add home landing page`
+
+It's important that everytime you make a change or fix a bug or add a new feature you commit that, so we have a more organized git timeline
+
+Our teams has already setup a set of tools to help you create better commits, those tools include:
+
+- husky - fires commands before a commit is creates
+- lint-staged - run linting tools on the files you've changed
+- jest - run tests to ensure everything is working
+
+Don't worry about how to use all of them, they will run automatically after you run
+
+```bash
+git commit
+```
+
+If some annyoing text editor keeps opening for you, please use:
+
+```bash
+git commit --no-edit
+```
+
+Using the `--no-edit` flag on the commit script will prevent git from making any changes to your commit
 <img src=".github/assets/rainbow_separator.svg" />
 <br />
 <br />
