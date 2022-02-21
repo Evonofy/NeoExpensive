@@ -1,3 +1,3 @@
-import 'dotenv/config';
+import 'dotenv-safe/config';
 
 import './infra/http';
