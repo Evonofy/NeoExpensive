@@ -5,6 +5,7 @@ import { Request, Response } from 'express';
 import { usersPrismaRepository } from '../infra/prisma/users-prisma-repository';
 
 export async function RegisterUserController(request: Request<{}, {}, { name: string; email: string; password: string }>, response: Response) {
+  console.log(request.body);
   const { name, email, password } = request.body;
 
   try {
