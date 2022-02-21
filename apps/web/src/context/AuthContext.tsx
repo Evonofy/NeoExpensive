@@ -27,7 +27,7 @@ type RegisterResponse = {
 };
 
 type AuthContextProps = {
-  user: User;
+  user: User | null;
   login: (data: LoginProps) => Promise<LoginResponse>;
   register: (data: RegisterProps) => Promise<RegisterResponse>;
   logout: () => Promise<void>;

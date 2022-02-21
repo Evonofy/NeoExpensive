@@ -1,4 +1,7 @@
-import { User, Error } from '../types';
+import { User, Error as _Error } from '../types';
+import { api } from './api';
+import { AxiosError } from 'axios';
+import { userToContextMapper } from 'mappers/userToContextMapper';
 
 type loginInRequestProps = {
   email: string;
@@ -7,38 +10,62 @@ type loginInRequestProps = {
 
 type loginInRequestResponse = {
   user?: User;
-  errors?: Error<'email' | 'password'>[];
+  errors?: _Error<'email' | 'password'>[];
 };
 
 export async function loginInRequest({ email, password }: loginInRequestProps): Promise<loginInRequestResponse> {
-  if (email !== 'vitor@vitor.com') {
+  type APILoginResponse = {
+    user: {
+      _id: string;
+      props: User;
+    };
+    error: 'Could not find a user with this e-mail.' | 'Invalid password.';
+  };
+
+  try {
+    const { data } = await api.post<APILoginResponse>('/users/login', {
+      email,
+      password,
+    });
+
+    const { user } = data;
+
+    return {
+      user: userToContextMapper(user),
+    };
+  } catch (err) {
+    const { response } = err as AxiosError<APILoginResponse>;
+
+    const { error } = response?.data!;
+    if (error === 'Could not find a user with this e-mail.') {
+      return {
+        errors: [
+          {
+            field: 'email',
+            message: error,
+          },
+        ],
+      };
+    } else if (error === 'Invalid password.') {
+      return {
+        errors: [
+          {
+            field: 'password',
+            message: error,
+          },
+        ],
+      };
+    }
+
     return {
       errors: [
         {
           field: 'email',
-          message: "User doesn't exist.",
+          message: 'Unexpected error.',
         },
       ],
     };
   }
-
-  if (password !== '123') {
-    return {
-      errors: [
-        {
-          field: 'password',
-          message: 'Invalid password.',
-        },
-      ],
-    };
-  }
-
-  return {
-    user: {
-      name: 'vitor',
-      email,
-    },
-  };
 }
 
 type registerRequestProps = {
@@ -49,25 +76,40 @@ type registerRequestProps = {
 
 type registerRequestResponse = {
   user?: User;
-  errors?: Error<'name' | 'email' | 'password'>[];
+  errors?: _Error<'name' | 'email' | 'password'>[];
 };
 
-export async function registerRequest({ name, email }: registerRequestProps): Promise<registerRequestResponse> {
-  if (email !== 'vitor@vitor.com') {
+export async function registerRequest({ name, email, password }: registerRequestProps): Promise<registerRequestResponse> {
+  type APIRegisterResponse = {
+    user: {
+      _id: string;
+      props: User;
+    };
+    error: 'User already exists.';
+  };
+
+  try {
+    const { data } = await api.post<APIRegisterResponse>('/users/register', {
+      name,
+      email,
+      password,
+    });
+
+    const { user } = data;
+
+    return {
+      user: userToContextMapper(user),
+    };
+  } catch (err) {
+    const { response } = err as AxiosError<APIRegisterResponse>;
+
     return {
       errors: [
         {
           field: 'email',
-          message: 'user already exists.',
+          message: response?.data.error!,
         },
       ],
     };
   }
-
-  return {
-    user: {
-      name,
-      email,
-    },
-  };
 }

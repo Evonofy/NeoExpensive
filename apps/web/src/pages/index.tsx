@@ -1,10 +1,12 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useUser } from '../hooks/auth/user';
+import { useLogout } from '../hooks/auth/useLogout';
 import { Icon } from '@neo/icons/lib';
 
 const Home: NextPage = () => {
   const { user } = useUser();
+  const { logout } = useLogout();
 
   return (
     <main>
@@ -20,6 +22,11 @@ const Home: NextPage = () => {
           <a>Go to register</a>
         </Link>
       </div>
+      {user && (
+        <a>
+          <button onClick={() => logout()}>logout</button>
+        </a>
+      )}
       <Icon />
     </main>
   );
