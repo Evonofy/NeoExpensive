@@ -12,8 +12,12 @@
     "dev": "nodemon dist/index.js",
     "build": "tsc",
     "start": "yarn build && node dist/index.js",
-    "migrate": "prisma migrate dev",
-    "env": "gen-env-types -k -e . -o ./src/@types/env.d.ts"
+    "migrate": "prisma db push",
+    "env": "gen-env-types -k -e . -o ./src/@types/env.d.ts",
+    "heroku:core": "yarn workspace @neo/core build",
+    "heroku:users": "yarn workspace @neo/users build",
+    "heroku:api": "yarn build",
+    "heroku": "yarn migrate && npm-run-all 'heroku:*' && node dist/index.js"
   },
   "packageManager": "yarn@3.1.1",
   "dependencies": {
@@ -23,6 +27,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "npm-run-all": "^4.1.5",
     "prisma": "^3.9.2"
   },
   "devDependencies": {
