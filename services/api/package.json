@@ -15,6 +15,7 @@
     "migrate": "prisma db push",
     "env": "gen-env-types -k -e . -o ./src/@types/env.d.ts",
     "heroku:core": "yarn workspace @neo/core build",
+    "heroku:mail": "yarn workspace @neo/mail build",
     "heroku:users": "yarn workspace @neo/users build",
     "heroku:api": "yarn build",
     "heroku": "yarn migrate && npm-run-all 'heroku:*' && node dist/index.js"
