@@ -1,9 +1,12 @@
-name: Deploy Web
+name: Test Web Deploy
 
 on:
   push:
+    branches:
+      - 'feature-*'
+      - 'bug-*'
     paths:
-      - '.github/workflows/web_deploy.yml'
+      - '.github/workflows/test_web_deploy.yml'
       - 'apps/web/**'
 
 jobs:
