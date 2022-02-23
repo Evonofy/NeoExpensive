@@ -75,11 +75,6 @@ export const AuthProvider: FC = ({ children }) => {
       if (token !== null) {
         recoverUserInformation({ token }).then(async ({ user, error }) => {
           if (error) {
-            console.log('===================');
-            console.log({
-              error,
-            });
-            console.log('===================');
             // eslint-disable-next-line camelcase
             const refresh_token = localStorage.getItem('@neo:refresh');
             // refresh token
@@ -228,22 +223,34 @@ export const AuthProvider: FC = ({ children }) => {
     };
   }, []);
 
-  const githubSignIn = useCallback((code: string) => {
-    console.log({
-      code,
-    });
-    // const response = await api.post<AuthResponse>('authenticate', {
-    //   code: githubCode,
-    // });
+  const githubSignIn = useCallback(
+    async (code: string) => {
+      type GithubOAuthAPIResponse = {
+        user: User;
+        accessToken: string;
+      };
 
-    // const { token, user } = response.data;
+      try {
+        const { data } = await api.post<GithubOAuthAPIResponse>('/users/authenticate/github', {
+          code,
+        });
 
-    // localStorage.setItem('@dowhile:token', token);
+        const { accessToken, user } = data;
 
-    // api.defaults.headers.common.authorization = `Bearer ${token}`;
+        if (accessToken) {
+          localStorage.setItem('@neo:access', accessToken);
+          api.defaults.headers.common.authorization = `bearer ${accessToken}`;
+        }
 
-    // setUser(user);
-  }, []);
+        if (user) {
+          setUser(user);
+        }
+      } catch (error) {
+        console.log((error as AxiosError).response);
+      }
+    },
+    [setUser]
+  );
 
   useEffect(() => {
     const url = window.location.href;
@@ -254,7 +261,9 @@ export const AuthProvider: FC = ({ children }) => {
 
       window.history.pushState({}, '', urlWithoutCode);
 
-      githubSignIn(githubCode!);
+      if (githubCode) {
+        githubSignIn(githubCode);
+      }
     }
   });
 
