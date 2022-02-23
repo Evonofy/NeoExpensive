@@ -12,3 +12,9 @@ router.get('/', (_, response) => {
     api: 'alive',
   });
 });
+
+router.get('/signin/callback', (request, response) => {
+  const { code } = request.query;
+
+  return response.redirect(`${process.env.CLIENT_URL}?code=${code}`);
+});
