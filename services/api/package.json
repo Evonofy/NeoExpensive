@@ -12,7 +12,7 @@
     "dev": "nodemon dist/index.js",
     "build": "tsc",
     "start": "yarn build && node dist/index.js",
-    "migrate": "prisma db push",
+    "migrate": "prisma db push --accept-data-loss",
     "env": "gen-env-types -k -e . -o ./src/@types/env.d.ts",
     "heroku:core": "yarn workspace @neo/core build",
     "heroku:mail": "yarn workspace @neo/mail build",
