@@ -17,7 +17,7 @@ export class LoginUser {
       throw new Error('Could not find a user with this e-mail.');
     }
 
-    const comaparePasswords = await compare(password, user.props.password);
+    const comaparePasswords = await compare(password, user.props.password!);
 
     if (!comaparePasswords) {
       throw new Error('Invalid password.');

@@ -26,6 +26,7 @@
     "@neo/mail": "*",
     "@neo/users": "*",
     "@prisma/client": "^3.9.2",
+    "axios": "^0.26.0",
     "cors": "^2.8.5",
     "dayjs": "^1.10.7",
     "dotenv-safe": "^8.2.0",

@@ -3,10 +3,15 @@ import Link from 'next/link';
 import { useUser } from '../hooks/auth/user';
 import { useLogout } from '../hooks/auth/useLogout';
 import { Icon } from '@neo/icons/lib';
+import { useMemo } from 'react';
 
 const Home: NextPage = () => {
   const { user } = useUser();
   const { logout } = useLogout();
+
+  const isGithubUser = useMemo(() => {
+    return user?.githubId ? true : false;
+  }, [user]);
 
   return (
     <main>
@@ -37,10 +42,24 @@ const Home: NextPage = () => {
       )}
       {user && (
         <div>
-          <h2 style={{ color: 'red' }}>Hello {user.name}</h2>
-          <a>
-            <button onClick={() => logout()}>logout</button>
-          </a>
+          <div>
+            <h2 style={{ color: 'red' }}>Hello {user.name}</h2>
+            <a>
+              <button onClick={() => logout()}>logout</button>
+            </a>
+          </div>
+
+          <div>
+            <Link href="/recover-password">
+              <a>{isGithubUser ? 'create a password' : 'set new password'}</a>
+            </Link>
+          </div>
+
+          <img src={user.avatarUrl} alt="" />
+
+          <div>
+            <pre style={{ color: 'black' }}>{JSON.stringify(user, null, 2)}</pre>
+          </div>
         </div>
       )}
       <Icon />
