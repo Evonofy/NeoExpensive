@@ -11,6 +11,8 @@ type loginInRequestProps = {
 type loginInRequestResponse = {
   user?: User;
   errors?: _Error<'email' | 'password'>[];
+  accessToken?: string;
+  refreshToken?: string;
 };
 
 export async function loginInRequest({ email, password }: loginInRequestProps): Promise<loginInRequestResponse> {
@@ -19,6 +21,8 @@ export async function loginInRequest({ email, password }: loginInRequestProps): 
       _id: string;
       props: User;
     };
+    accessToken: string;
+    refreshToken: string;
     error: 'Could not find a user with this e-mail.' | 'Invalid password.';
   };
 
@@ -28,10 +32,12 @@ export async function loginInRequest({ email, password }: loginInRequestProps): 
       password,
     });
 
-    const { user } = data;
+    const { user, accessToken, refreshToken } = data;
 
     return {
       user: userToContextMapper(user),
+      accessToken,
+      refreshToken,
     };
   } catch (err) {
     const { response } = err as AxiosError<APILoginResponse>;
@@ -77,6 +83,8 @@ type registerRequestProps = {
 type registerRequestResponse = {
   user?: User;
   errors?: _Error<'name' | 'email' | 'password'>[];
+  accessToken?: string;
+  refreshToken?: string;
 };
 
 export async function registerRequest({ name, email, password }: registerRequestProps): Promise<registerRequestResponse> {
@@ -85,6 +93,8 @@ export async function registerRequest({ name, email, password }: registerRequest
       _id: string;
       props: User;
     };
+    accessToken: string;
+    refreshToken: string;
     error: 'User already exists.';
   };
 
@@ -95,10 +105,12 @@ export async function registerRequest({ name, email, password }: registerRequest
       password,
     });
 
-    const { user } = data;
+    const { user, accessToken, refreshToken } = data;
 
     return {
       user: userToContextMapper(user),
+      accessToken,
+      refreshToken,
     };
   } catch (err) {
     const { response } = err as AxiosError<APIRegisterResponse>;
@@ -108,6 +120,92 @@ export async function registerRequest({ name, email, password }: registerRequest
         {
           field: 'email',
           message: response?.data.error!,
+        },
+      ],
+    };
+  }
+}
+
+type recoverUserInformationProps = {
+  token: string;
+};
+
+type recoverUserInformationResponse = {
+  user?: User;
+  error?: 'Expired refresh token.';
+};
+
+export async function recoverUserInformation({}: recoverUserInformationProps): Promise<recoverUserInformationResponse> {
+  return {
+    user: {
+      id: '123',
+      name: 'vitor',
+      email: 'vitor@vitor.com',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+  };
+}
+
+type forgotPasswordInformationProps = {
+  email: string;
+};
+
+type forgotPasswordInformationResponse = {
+  accessToken?: string;
+  errors?: _Error<'email'>[];
+};
+
+export async function forgotPasswordRequest({ email }: forgotPasswordInformationProps): Promise<forgotPasswordInformationResponse> {
+  try {
+    type APIForgotPasswordResponse = {
+      accessToken: string;
+    };
+
+    const { data } = await api.post<APIForgotPasswordResponse>('/users/forgot-password', {
+      email,
+    });
+
+    const { accessToken } = data;
+
+    return {
+      accessToken,
+    };
+  } catch (error) {
+    return {
+      errors: [
+        {
+          field: 'email',
+          message: 'Unexpected error.',
+        },
+      ],
+    };
+  }
+}
+
+type setNewPasswordProps = {
+  accessToken: string;
+  password: string;
+};
+
+type setNewPasswordResponse = {
+  errors?: _Error<'password'>[];
+};
+
+export async function setNewPasswordRequest({ accessToken, password }: setNewPasswordProps): Promise<setNewPasswordResponse> {
+  try {
+    await api.post('/users/set-new-password', {
+      accessToken,
+      password,
+    });
+
+    return {};
+  } catch (error) {
+    return {
+      errors: [
+        {
+          field: 'password',
+          message: 'Unexpected error.',
         },
       ],
     };

@@ -1,28 +1,26 @@
 /* eslint-disable new-cap */
-import { user as userController } from '@neo/users';
-import { SendMailToContact, CreateContact } from '@neo/mail';
 import { Request, Response } from 'express';
-import { sign } from 'jsonwebtoken';
+import { user as userController } from '@neo/users';
+import { CreateContact, SendMailToContact } from '@neo/mail';
 
 import { usersPrismaRepository } from '../infra/prisma/users-prisma-repository';
 import { ContactsPrismaRepository } from '../infra/prisma/contacts-prisma-repository';
 import { MailtrapMailService } from '../infra/mail/MailtrapMailService';
-import { generateRefreshToken } from '../lib/generateRefreshToken';
+import { sign } from 'jsonwebtoken';
 
-export async function RegisterUserController(request: Request<{}, {}, { name: string; email: string; password: string }>, response: Response) {
-  const { name, email, password } = request.body;
-
+export async function RecoverUserPaswordController(request: Request<{}, {}, { email: string }>, response: Response): Promise<Response> {
   const usersRepository = new usersPrismaRepository();
   const contactsRepository = new ContactsPrismaRepository();
   const mailService = new MailtrapMailService();
+
   try {
-    const { user } = await new userController.register(usersRepository).execute({
-      name,
+    const { email } = request.body;
+
+    const { user } = await new userController.findByEmail(usersRepository).execute({
       email,
-      password,
     });
 
-    const { contact: userContact } = await new CreateContact(contactsRepository).execute({
+    const { contact } = await new CreateContact(contactsRepository).execute({
       name: user.props.name,
       email: user.props.email,
     });
@@ -39,11 +37,11 @@ export async function RegisterUserController(request: Request<{}, {}, { name: st
     }
 
     new SendMailToContact(contactsRepository, mailService).execute({
-      contact: userContact,
+      contact,
       senderContact,
       mail: {
-        body: 'Welcome the NeoExpensive',
-        subject: 'NeoExpensive registration e-mail',
+        body: `click this button and create a new password <a href="${process.env.CLIENT_URL}/recover-password">recover my password</a>`,
+        subject: 'NeoExpensive Password Recovery',
       },
     });
 
@@ -57,20 +55,8 @@ export async function RegisterUserController(request: Request<{}, {}, { name: st
       }
     );
 
-    const { refreshToken } = await new generateRefreshToken().execute(user.id);
-
     return response.status(200).json({
-      user,
       accessToken,
-      refreshToken: sign(
-        {
-          ...refreshToken,
-        },
-        process.env.REFRESH_TOKEN_SECRET,
-        {
-          expiresIn: '3d',
-        }
-      ),
     });
   } catch (error) {
     return response.status(400).json({
