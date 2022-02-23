@@ -1,0 +1,53 @@
+name: Deploy Web
+
+on:
+  push:
+    paths:
+      - '.github/workflows/web_deploy.yml'
+      - 'apps/web/**'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build @neo/global
+        working-directory: ./packages/global
+        run: yarn build
+
+      - name: Build @neo/icons
+        working-directory: ./packages/icons
+        run: yarn build
+
+      - name: Build @neo/web
+        working-directory: ./apps/web
+        run: yarn gh-build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+
+      - name: Export static files
+        working-directory: ./apps/web
+        run: yarn export
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+
+      - name: Add .nojekyll file
+        working-directory: ./apps/web
+        run: touch ./dist/.nojekyll
