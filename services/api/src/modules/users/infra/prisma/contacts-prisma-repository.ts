@@ -29,6 +29,7 @@ export class ContactsPrismaRepository implements ContactsRepository {
     await prisma.user.create({
       data: {
         id: contact.id,
+        avatarUrl: `https://avatars.dicebear.com/api/identicon/${contact.id}.svg`,
         name: contact.props.name,
         email: contact.props.email,
         password: '',
