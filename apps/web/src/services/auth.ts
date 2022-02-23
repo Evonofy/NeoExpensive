@@ -135,16 +135,23 @@ type recoverUserInformationResponse = {
   error?: 'Expired refresh token.';
 };
 
-export async function recoverUserInformation({}: recoverUserInformationProps): Promise<recoverUserInformationResponse> {
-  return {
-    user: {
-      id: '123',
-      name: 'vitor',
-      email: 'vitor@vitor.com',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  };
+export async function recoverUserInformation({ token }: recoverUserInformationProps): Promise<recoverUserInformationResponse> {
+  try {
+    const { data } = await api.post<{ user: User }>('/users/profile', {
+      access_token: token,
+    });
+
+    const { user } = data;
+
+    return {
+      user,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      error: 'Expired refresh token.',
+    };
+  }
 }
 
 type forgotPasswordInformationProps = {
