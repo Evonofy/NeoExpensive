@@ -14,7 +14,7 @@ type Context =
   | undefined;
 
 export function getAPIClient(ctx?: Context) {
-  const { 'nextauth.token': token } = parseCookies(ctx);
+  const { '@neo:access': token } = parseCookies(ctx);
 
   const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
