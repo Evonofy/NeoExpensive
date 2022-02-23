@@ -23,6 +23,7 @@ export class usersPrismaRepository implements UsersRepository {
       data: {
         id: user.id,
         ...user.props,
+        avatarUrl: `https://avatars.dicebear.com/api/identicon/${user.id}.svg`,
       },
     });
   }
