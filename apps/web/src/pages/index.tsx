@@ -22,6 +22,11 @@ const Home: NextPage = () => {
           <a>Go to register</a>
         </Link>
       </div>
+      <div>
+        <Link href="/forgot-password">
+          <a>forgot password</a>
+        </Link>
+      </div>
       {user && (
         <a>
           <button onClick={() => logout()}>logout</button>
