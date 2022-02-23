@@ -228,5 +228,35 @@ export const AuthProvider: FC = ({ children }) => {
     };
   }, []);
 
+  const githubSignIn = useCallback((code: string) => {
+    console.log({
+      code,
+    });
+    // const response = await api.post<AuthResponse>('authenticate', {
+    //   code: githubCode,
+    // });
+
+    // const { token, user } = response.data;
+
+    // localStorage.setItem('@dowhile:token', token);
+
+    // api.defaults.headers.common.authorization = `Bearer ${token}`;
+
+    // setUser(user);
+  }, []);
+
+  useEffect(() => {
+    const url = window.location.href;
+    const hasGithubCode = url.includes('?code=');
+
+    if (hasGithubCode) {
+      const [urlWithoutCode, githubCode] = url.split('?code=');
+
+      window.history.pushState({}, '', urlWithoutCode);
+
+      githubSignIn(githubCode!);
+    }
+  });
+
   return <AuthContext.Provider value={{ user, login, logout, register, forgotPassword }}>{children}</AuthContext.Provider>;
 };

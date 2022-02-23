@@ -1,20 +1,7 @@
 import axios from 'axios';
-import { NextApiRequest, NextPageContext } from 'next';
-import { parseCookies } from 'nookies';
 
-type Context =
-  | Pick<NextPageContext, 'req'>
-  | {
-      req: NextApiRequest;
-    }
-  | {
-      req: any;
-    }
-  | null
-  | undefined;
-
-export function getAPIClient(ctx?: Context) {
-  const { '@neo:access': token } = parseCookies(ctx);
+export function getAPIClient() {
+  const token = typeof window !== 'undefined' ? localStorage.getItem('@neo:access') : undefined;
 
   const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
