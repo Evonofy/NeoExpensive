@@ -10,6 +10,8 @@ declare global {
       MAIL_USER: string;
       MAIL_PASS: string;
       MAIL_SENDER_EMAIL: string;
+      ACCESS_TOKEN_SECRET: string;
+      REFRESH_TOKEN_SECRET: string;
     }
   }
 }
