@@ -1,9 +1,11 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { createContext } from 'use-context-selector';
+import { AxiosError } from 'axios';
 
+import { api } from '../services/api';
 import { User, Error } from '../types';
 import { useAuthStore } from '../store/auth';
-import { loginInRequest, registerRequest } from '../services/auth';
+import { loginInRequest, registerRequest, recoverUserInformation, forgotPasswordRequest } from '../services/auth';
 
 type LoginProps = {
   email: string;
@@ -26,10 +28,19 @@ type RegisterResponse = {
   errors?: Error<'name' | 'email' | 'password'>[];
 };
 
+type ForgotPasswordProps = {
+  email: string;
+};
+
+type ForgotPasswordResponse = {
+  errors?: Error<'email'>[];
+};
+
 type AuthContextProps = {
   user: User | null;
   login: (data: LoginProps) => Promise<LoginResponse>;
   register: (data: RegisterProps) => Promise<RegisterResponse>;
+  forgotPassword: (data: ForgotPasswordProps) => Promise<ForgotPasswordResponse>;
   logout: () => Promise<void>;
 };
 
@@ -40,13 +51,73 @@ export const AuthProvider: FC = ({ children }) => {
   const setUser = useAuthStore(useCallback((state) => state.setUser, []));
   const removeUser = useAuthStore(useCallback((state) => state.removeUser, []));
 
+  useEffect(() => {
+    const callback = () => {
+      const accessTokenExists = localStorage.getItem('@neo:access');
+      const refreshTokenExists = localStorage.getItem('@neo:refresh');
+
+      if (!accessTokenExists || !refreshTokenExists) {
+        removeUser();
+      }
+    };
+
+    window.addEventListener('storage', callback);
+
+    return () => {
+      window.removeEventListener('storage', callback);
+    };
+  }, [removeUser]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('@neo:access');
+
+      if (token !== null) {
+        recoverUserInformation({ token }).then(async ({ user, error }) => {
+          if (error) {
+            console.log('===================');
+            console.log({
+              error,
+            });
+            console.log('===================');
+            // eslint-disable-next-line camelcase
+            const refresh_token = localStorage.getItem('@neo:refresh');
+            // refresh token
+            try {
+              // eslint-disable-next-line camelcase
+              const { data } = await api.post<{ refreshToken: string; accessToken: string }>('/users/refresh-token', {
+                // eslint-disable-next-line camelcase
+                refresh_token,
+              });
+              const { refreshToken, accessToken } = data;
+              console.log('token refreshed');
+
+              localStorage.setItem('@neo:access', accessToken);
+              localStorage.setItem('@neo:refresh', refreshToken);
+            } catch (error) {
+              console.log(error as AxiosError);
+            }
+          }
+
+          user &&
+            setUser({
+              ...user,
+            });
+        });
+      }
+    }
+  }, [setUser]);
+
   const logout = useCallback(async () => {
+    localStorage.removeItem('@neo:access');
+    localStorage.removeItem('@neo:refresh');
+
     removeUser();
   }, [removeUser]);
 
   const register = useCallback(
     async ({ name, email, password }: RegisterProps): Promise<RegisterResponse> => {
-      const { user, errors } = await registerRequest({
+      const { user, accessToken, refreshToken, errors } = await registerRequest({
         name,
         email,
         password,
@@ -69,6 +140,18 @@ export const AuthProvider: FC = ({ children }) => {
         };
       }
 
+      if (typeof window !== 'undefined') {
+        if (accessToken) {
+          localStorage.setItem('@neo:access', accessToken);
+        }
+
+        if (refreshToken) {
+          localStorage.setItem('@neo:refresh', refreshToken);
+        }
+      }
+
+      (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
+
       setUser(user);
 
       return {
@@ -80,7 +163,7 @@ export const AuthProvider: FC = ({ children }) => {
 
   const login = useCallback(
     async ({ email, password }: LoginProps): Promise<LoginResponse> => {
-      const { user, errors } = await loginInRequest({
+      const { user, accessToken, refreshToken, errors } = await loginInRequest({
         email,
         password,
       });
@@ -102,7 +185,20 @@ export const AuthProvider: FC = ({ children }) => {
         };
       }
 
+      if (typeof window !== 'undefined') {
+        if (accessToken) {
+          localStorage.setItem('@neo:access', accessToken);
+        }
+
+        if (refreshToken) {
+          localStorage.setItem('@neo:refresh', refreshToken);
+        }
+      }
+
+      (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
+
       setUser(user);
+
       return {
         user,
       };
@@ -110,5 +206,27 @@ export const AuthProvider: FC = ({ children }) => {
     [setUser]
   );
 
-  return <AuthContext.Provider value={{ user, login, logout, register }}>{children}</AuthContext.Provider>;
+  const forgotPassword = useCallback(async ({ email }: ForgotPasswordProps): Promise<ForgotPasswordResponse> => {
+    const { accessToken, errors } = await forgotPasswordRequest({
+      email,
+    });
+
+    if (errors) {
+      return {
+        errors,
+      };
+    }
+
+    if (typeof window !== 'undefined') {
+      if (accessToken) {
+        localStorage.setItem('@neo:access', accessToken);
+      }
+    }
+
+    return {
+      errors: [],
+    };
+  }, []);
+
+  return <AuthContext.Provider value={{ user, login, logout, register, forgotPassword }}>{children}</AuthContext.Provider>;
 };
