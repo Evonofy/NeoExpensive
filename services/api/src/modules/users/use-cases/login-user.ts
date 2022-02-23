@@ -1,7 +1,9 @@
 /* eslint-disable new-cap */
 import { user as userController } from '@neo/users';
 import { Request, Response } from 'express';
+import { sign } from 'jsonwebtoken';
 
+import { generateRefreshToken } from '../lib/generateRefreshToken';
 import { usersPrismaRepository } from '../infra/prisma/users-prisma-repository';
 
 export async function LoginUserController(request: Request<{}, {}, { email: string; password: string }>, response: Response): Promise<Response> {
@@ -14,8 +16,30 @@ export async function LoginUserController(request: Request<{}, {}, { email: stri
       password,
     });
 
+    const accessToken = sign(
+      {
+        userId: user.id,
+      },
+      process.env.ACCESS_TOKEN_SECRET,
+      {
+        expiresIn: '5m',
+      }
+    );
+
+    const { refreshToken } = await new generateRefreshToken().execute(user.id);
+
     return response.status(200).json({
       user,
+      accessToken,
+      refreshToken: sign(
+        {
+          ...refreshToken,
+        },
+        process.env.REFRESH_TOKEN_SECRET,
+        {
+          expiresIn: '3d',
+        }
+      ),
     });
   } catch (error) {
     return response.status(400).json({

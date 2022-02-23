@@ -10,3 +10,9 @@ export type Error<T> = {
   field: T;
   message: string;
 };
+
+export type RefreshToken = {
+  id: string;
+  userid: string;
+  expiresIn: number;
+};
