@@ -11,3 +11,7 @@ usersRouter.post('/refresh-token', RefreshUserTokenController);
 
 usersRouter.post('/forgot-password', RecoverUserPaswordController);
 usersRouter.post('/set-new-password', SetUserNewPasswordController);
+
+usersRouter.get('/login/oauth/github', (_, response) => {
+  return response.redirect(`https://github.com/login/oauth/authorize?scope=user&client_id=${process.env.GITHUB_CLIENT_ID}`);
+});
