@@ -11,10 +11,13 @@ datasource db {
 }
 
 model User {
-  id       String @id
-  name     String
-  email    String @unique
-  password String
+  id        String  @id
+  username  String? @unique
+  avatarUrl String
+  name      String
+  email     String  @unique
+  password  String?
+  githubId  String? @unique
 
   RefreshToken RefreshToken?
 
