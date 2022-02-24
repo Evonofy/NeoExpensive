@@ -42,10 +42,6 @@ jobs:
         working-directory: ./apps/html
         run: yarn css
 
-      - name: Purge @neo/html CSS
-        working-directory: ./apps/html
-        run: yarn purgeall
-
       - name: Build @neo/web
         working-directory: ./apps/web
         run: yarn gh-build
@@ -68,7 +64,7 @@ jobs:
 
       - name: Copy @neo/html into old folder
         working-directory: ./apps
-        run: cp -r ./html ./web/dist/old
+        run: cp -r ./html/* ./web/dist/old
 
       - name: Deploy to github pages
         uses: JamesIves/github-pages-deploy-action@4.1.1
