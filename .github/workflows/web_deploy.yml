@@ -40,7 +40,7 @@ jobs:
 
       - name: Build @neo/html CSS
         working-directory: ./apps/html
-        run: yarn css:mini
+        run: yarn css
 
       - name: Purge @neo/html CSS
         working-directory: ./apps/html
