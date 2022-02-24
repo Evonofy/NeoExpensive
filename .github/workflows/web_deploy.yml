@@ -38,6 +38,14 @@ jobs:
         working-directory: ./packages/icons
         run: yarn build
 
+      - name: Build @neo/html CSS
+        working-directory: ./apps/html
+        run: yarn css:mini
+
+      - name: Purge @neo/html CSS
+        working-directory: ./apps/html
+        run: yarn purgeall
+
       - name: Build @neo/web
         working-directory: ./apps/web
         run: yarn gh-build
@@ -53,6 +61,14 @@ jobs:
       - name: Add .nojekyll file
         working-directory: ./apps/web
         run: touch ./dist/.nojekyll
+
+      - name: Create old folder for neo-expensive
+        working-directory: ./apps/web/dist
+        run: mkdir ./old
+
+      - name: Copy @neo/html into old folder
+        working-directory: ./apps
+        run: cp -r ./html ./web/dist/old
 
       - name: Deploy to github pages
         uses: JamesIves/github-pages-deploy-action@4.1.1
