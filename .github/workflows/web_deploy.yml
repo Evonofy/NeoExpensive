@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/web_deploy.yml'
       - 'apps/web/**'
+      - '.github/workflows/web_deploy.yml'
 
 jobs:
   build:
