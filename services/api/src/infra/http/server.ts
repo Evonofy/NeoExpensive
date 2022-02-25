@@ -8,25 +8,22 @@ import { router } from './router';
 
 export const server = () => {
   if (cluster.isMaster || cluster.isPrimary) {
-    if (isProduction) {
-      console.log('welp');
-      const numberOfWorkers = os.cpus().length * 2;
+    const numberOfWorkers = isProduction ? os.cpus().length * 2 : 1;
 
-      console.log(`Creating ${numberOfWorkers} new workers.`);
+    console.log(`Creating ${numberOfWorkers} new workers.`);
 
-      for (let i = 0; i < numberOfWorkers; i++) {
-        cluster.fork();
-      }
-
-      cluster.on('online', (worker) => {
-        console.log(`[${worker.process.pid}] worker online`);
-      });
-
-      cluster.on('exit', (worker) => {
-        console.log(`[${worker.process.pid}] worker died`);
-        cluster.fork();
-      });
+    for (let i = 0; i < numberOfWorkers; i++) {
+      cluster.fork();
     }
+
+    cluster.on('online', (worker) => {
+      console.log(`[${worker.process.pid}] worker online`);
+    });
+
+    cluster.on('exit', (worker) => {
+      console.log(`[${worker.process.pid}] worker died`);
+      cluster.fork();
+    });
   } else {
     const app = express();
 
