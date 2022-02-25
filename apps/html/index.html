@@ -30,6 +30,7 @@
   <script src="./js/translate/GTranslate.js"></script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
   <script defer type="module" src="./js/index.js"></script>
+  <script src="./js/pages/home.js"></script>
 </head> 
 
 <body>
@@ -92,25 +93,25 @@
               <button class="hamburger--nav--item--button">Inglês</button>
             </li>
           </div>
-          <div class="hamburger--nav--list--wrapper">
+          <div class="hamburger--nav--list--wrapper profile-item">
             <img class="hamburger--nav--list--wrapper--image" src="./images/components/header/user-controls/user.svg" alt="">
             <li class="hamburger--nav--item">
-              <a href="./pages/profile/" class="hamburger--nav--item--button">Perfil</button>
+              <a href="./pages/profile/index.html" class="hamburger--nav--item--button">Perfil</button>
             </li>
           </div>
-          <div class="hamburger--nav--list--wrapper">
+          <div class="hamburger--nav--list--wrapper login-item">
             <img class="hamburger--nav--list--wrapper--image" src="./images/components/header/user-controls/sign-in.svg" alt="">
             <li class="hamburger--nav--item">
-              <a href="./pages/login/" class="hamburger--nav--item--button">Entrar</a>
+              <a href="./pages/login/index.html" class="hamburger--nav--item--button">Entrar</a>
             </li>
           </div>
-          <div class="hamburger--nav--list--wrapper">
+          <div class="hamburger--nav--list--wrapper register-item">
             <img class="hamburger--nav--list--wrapper--image" src="./images/components/header/user-controls/user-plus.svg" alt="">
             <li class="hamburger--nav--item">
-              <a href="./pages/register/" class="hamburger--nav--item--button">Registrar-se</a>
+              <a href="./pages/register/index.html" class="hamburger--nav--item--button">Registrar-se</a>
             </li>
           </div>
-          <div class="hamburger--nav--list--wrapper">
+          <div class="hamburger--nav--list--wrapper logout-item">
             <img class="hamburger--nav--list--wrapper--image" src="./images/components/header/user-controls/sign-out.svg" alt="">
             <li class="hamburger--nav--item">
               <button class="hamburger--nav--item--button">Sair</button>
@@ -407,25 +408,25 @@
             <button class="user--controls--customer--choices--button lang--switcher--button notranslate">Inglês</button>
           </div>
           
-          <div class="user--controls--customer--choices--item">
+          <div class="user--controls--customer--choices--item profile-item">
             <img class="user--controls--customer--choices--icon" src="./images/components/header/user-controls/user-rectangle.svg" alt="Sign Out Button">
             <a href="./pages/profile/index.html" class="user--controls--customer--choices--link">Perfil</a>
           </div>
           
-          <div class="user--controls--customer--choices--item">
+          <div class="user--controls--customer--choices--item login-item">
             <img class="user--controls--customer--choices--icon" src="./images/components/header/user-controls/sign-in.svg" alt="Sign In Button">
             <a href="./pages/login/index.html" class="user--controls--customer--choices--link">Entrar</a>
           </div>
           
-          <div class="user--controls--customer--choices--item">
+          <div class="user--controls--customer--choices--item register-item">
             <img class="user--controls--customer--choices--icon" src="./images/components/header/user-controls/user-plus.svg" alt="Register Button">
             <a href="./pages/register/index.html" class="user--controls--customer--choices--link">Registrar-se</a>
           </div>
           
           
-          <div class="user--controls--customer--choices--item">
+          <div class="user--controls--customer--choices--item logout-item">
             <img class="user--controls--customer--choices--icon" src="./images/components/header/user-controls/sign-out.svg" alt="Sign Out Button">
-            <a href="#" class="user--controls--customer--choices--link">Sair</a>
+            <button class="user--controls--customer--choices--link">Sair</button>
           </div>
           
           
@@ -442,8 +443,6 @@
   
   <header class="main--banner"></header>
   <main class="main">
-    <!-- <div class="main--banner"></div> -->
-    
     <section class="main--products">
       
       <div class="product--card">

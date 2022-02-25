@@ -42,6 +42,7 @@ export async function LoginUserController(request: Request<{}, {}, { email: stri
       ),
     });
   } catch (error) {
+    console.log(error);
     return response.status(400).json({
       error: (error as Error).message,
     });

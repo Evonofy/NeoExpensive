@@ -1,67 +1,62 @@
-import { redirect } from '../functions/redirect.js';
-import { useCookie } from '../hooks/useCookie.js';
-import { useFetch } from '../hooks/useFetch.js';
-import { useSelector } from '../hooks/useSelector.js';
-import { useStorage } from '../hooks/useStorage.js';
+const form = document.querySelector('.login--form');
 
-const form = useSelector('.login--form');
+const isDev = true;
 
-const emailInput = useSelector('.login--form--input[type="email"]');
-const passwordInput = useSelector('.login--form--input[type="password"]');
+const apiURL = isDev
+  ? 'http://localhost:3333'
+  : 'https://neo-expensive-api.herokuapp.com';
 
-const useInputValue = (input) => {
-  return input.value;
-};
-
-const isEmailValid = (email) => {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-};
-
-form.onsubmit = async (event) => {
+form.addEventListener('submit', async function (event) {
   event.preventDefault();
+  const formData = Object.fromEntries(new FormData(event.target));
+  try {
+    const response = await fetch(`${apiURL}/users/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    const { error, user, accessToken, refreshToken } = data;
 
-  const email = useInputValue(emailInput);
-  const password = useInputValue(passwordInput);
+    if (error === 'Could not find a user with this e-mail.') {
+      alert('Não consegui achar um usuário com esse e-mail :(.');
+      return;
+    } else if (error === 'Invalid password.') {
+      alert('Senha inválida.');
+      return;
+    }
 
-  const emailIsValid = isEmailValid(email);
+    localStorage.setItem('@neo:access', accessToken);
+    localStorage.setItem('@neo:refresh', refreshToken);
+    localStorage.setItem(
+      'user',
+      JSON.stringify({
+        id: user.id,
+        name: user.props.name,
+        email: user.props.email,
+        createdAt: user.props.createdAt,
+        updatedAt: user.props.updatedAt,
+      })
+    );
 
-  if (!emailIsValid) {
-    /**
-     * ! show error in input
-     */
+    setTimeout(() => {
+      const isDev2 = window.location.origin === 'http://localhost:3000';
+
+      if (isDev2) {
+        window.location.href = `${window.location.origin}/index.html`;
+      } else {
+        window.location.href = `${window.location.origin}/old/index.html`;
+      }
+      // redirect('/');
+    }, 500);
+  } catch (error) {
+    console.error(error);
   }
-  console.log(email);
-  console.log(password);
-  /* make fetch request */
-  // const { message, data, error } = await useFetch.
-  const { message, data, error } = await useFetch.post('/login', {
-    login: email,
-    password,
-  });
-
-  const { refreshToken, user } = data;
-
-  /* get the refresh token route */
-  const {
-    data: { accessToken },
-  } = await useFetch.post('/user/token/refresh', {
-    refresh_token: refreshToken.id,
-  });
-
-  /*
-    TODO: only save information if user opted for it
-  */
-
-  useStorage('neoexpensive.token', accessToken);
-  useCookie('neoexpensive.token', accessToken, {
-    maxAge: 60 * 60 * 24 * 7, // 7 days
-  });
-
-  useStorage('neoexpensive.user', JSON.stringify(user));
-  useCookie('neoexpensive.user', JSON.stringify(user), {
-    maxAge: 60 * 60 * 24 * 7, // 7 days
-  });
-
-  /* redirect to homepage when logged in */
-  redirect('/');
-};
+});

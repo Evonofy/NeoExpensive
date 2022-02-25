@@ -4,8 +4,9 @@ import { useStorage } from '../hooks/useStorage.js';
 import { useCookie } from '../hooks/useCookie.js';
 
 import { redirect } from '../functions/redirect.js';
+const isDev = true;
 
-var page = 0;
+let page = 0;
 
 /**
  * * dwadawdaw
@@ -17,7 +18,8 @@ var page = 0;
  * !repeat
  * KEEP track of last page user was on
  */
-const nextButton = useSelector('.register--button--link');
+const nextButton = document.querySelector('.register--button button');
+const backButton = document.querySelector('.back--button');
 
 const allInputs = Array.from(
   useSelector('input', {
@@ -106,30 +108,72 @@ const checkEmptyInput = (input) => {
   return false;
 };
 
-$('input[name="social--security"]').inputmask({
+$('input[name="social-security"]').inputmask({
   mask: ['999.999.999-99'],
   keepStatic: true,
 });
 
-$('input[name="postal--code"]').inputmask({
+$('input[name="postal-code"]').inputmask({
   mask: ['99999-999'],
   keepStatic: true,
 });
 
 const handleSubmit = async () => {
-  const { name, email, password, social_security, birth_date } = inputsObj;
+  const { name, email, password } = inputsObj;
 
-  return await useFetch.post('/user', {
-    name: name.value,
-    email: email.value,
-    password: password.value,
-    cpf: social_security.value.split('-').join('').split('.').join(''),
-    birthDate: new Date(birth_date.value).toISOString(),
-    isAdmin: false,
-  });
+  const apiURL = isDev
+    ? 'http://localhost:3333'
+    : 'https://neo-expensive-api.herokuapp.com';
+
+  try {
+    const reponse = await fetch(`${apiURL}/users/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        password: password.value,
+      }),
+    });
+
+    const data = await reponse.json();
+
+    console.log(data);
+    const { user, access_token, refresh_token, error } = data;
+    if (error === 'User already exists.') {
+      alert('Usuário com esse e-mail já existe :(');
+    }
+    localStorage.setItem('@neo:access', access_token);
+    localStorage.setItem('@neo:refresh', refresh_token);
+    localStorage.setItem(
+      'user',
+      JSON.stringify({
+        id: user.id,
+        name: user.props.name,
+        email: user.props.email,
+        createdAt: user.props.createdAt,
+        updatedAt: user.props.updatedAt,
+      })
+    );
+
+    setTimeout(() => {
+      window.location.href = `${window.location.origin}/old`;
+      // redirect('/');
+    }, 500);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-nextButton.onclick = async () => {
+if (page === 0) {
+  backButton.style.display = 'none';
+}
+console.log(inputsObj);
+
+nextButton.addEventListener('click', async () => {
   let canProceeed = true;
 
   /* prevent skip without filling input */
@@ -147,6 +191,7 @@ nextButton.onclick = async () => {
       isPasswordEmpty ||
       isConfirmPasswordEmpty
     ) {
+      alert('Preeencha o formulário');
       /* inputs are emtpy */
       canProceeed = false;
     }
@@ -156,6 +201,8 @@ nextButton.onclick = async () => {
 
     if (!passwordMatch) {
       /* passwords do not match */
+      alert('As senhas não são iguais');
+
       canProceeed = false;
     }
   }
@@ -167,6 +214,7 @@ nextButton.onclick = async () => {
     const isBirthDateEmpty = checkEmptyInput(birth_date);
 
     if (isSocialSecurityEmpty || isBirthDateEmpty) {
+      alert('As senhas não são iguais');
       /* inputs are empty */
       canProceeed = false;
     }
@@ -175,45 +223,19 @@ nextButton.onclick = async () => {
   }
 
   if (page === 2) {
-    console.log('fetch');
-    canProceeed = false;
-    /* make the fetch request */
-    const { data, error } = await handleSubmit();
+    const { cep, number } = inputsObj;
+    const isCEPEmpty = checkEmptyInput(cep);
+    const isNumberEmpty = checkEmptyInput(number);
 
-    const { activate_token } = data;
-
-    if (error) {
-      if (window.confirm('Um erro ocorreu :/, por favor tente novamente')) {
-        window.location.reload();
-      }
+    if (isCEPEmpty || isNumberEmpty) {
+      alert('Preecha o formulário');
+      /* inputs are empty */
+      canProceeed = false;
+      return;
     }
 
-    // activate user
-    const {
-      data: { accessToken },
-    } = await useFetch.post(
-      '/user/activate',
-      {},
-      {
-        headers: {
-          authorization: `Bearer ${activate_token}`,
-        },
-      }
-    );
-
-    const token = `Bearer ${accessToken}`;
-
-    useStorage('neoexpensive.token', token);
-    useCookie('neoexpensive.token', token, {
-      maxAge: 60 * 60 * 24 * 7, // 7 days
-    });
-
-    // /* redirect to homepage logged in */
-    setTimeout(() => {
-      window.location.href =
-        'https://esquemaflorescer.github.io/neo-expensive/packages/web';
-      // redirect('/');
-    }, 500);
+    /* make the fetch request */
+    await handleSubmit();
   }
 
   if (canProceeed) {
@@ -221,6 +243,6 @@ nextButton.onclick = async () => {
   }
 
   showTab(page);
-};
+});
 
 showTab(page);
