@@ -4,6 +4,7 @@ import { useUser } from '../hooks/auth/user';
 import { useLogout } from '../hooks/auth/useLogout';
 import { Icon } from '@neo/icons/lib';
 import { useMemo } from 'react';
+import Button from '@neo/ui/components/Button';
 
 const Home: NextPage = () => {
   const { user } = useUser();
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
     <main>
       <h1 style={{ color: 'black' }}>This is a work in progress :)</h1>
       <a href="/neo-expensive/old/index.html">Go to the old website</a>
+      <Button />
       {!user && (
         <div>
           <div>
