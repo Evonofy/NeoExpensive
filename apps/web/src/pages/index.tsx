@@ -15,7 +15,8 @@ const Home: NextPage = () => {
 
   return (
     <main>
-      <h1>main page</h1>
+      <h1 style={{ color: 'black' }}>This is a work in progress :)</h1>
+      <a href="/old/index.html">Go to the old website</a>
       {!user && (
         <div>
           <div>
