@@ -4,7 +4,7 @@ import { useStorage } from '../hooks/useStorage.js';
 import { useCookie } from '../hooks/useCookie.js';
 
 import { redirect } from '../functions/redirect.js';
-const isDev = true;
+const isDev = window.location.origin === 'http://localhost:3000';
 
 let page = 0;
 

@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'apps/web/**'
+      - 'apps/html/**'
       - '.github/workflows/web_deploy.yml'
 
 jobs:

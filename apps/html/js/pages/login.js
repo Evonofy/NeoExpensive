@@ -1,6 +1,6 @@
 const form = document.querySelector('.login--form');
 
-const isDev = true;
+const isDev = window.location.origin === 'http://localhost:3000';
 
 const apiURL = isDev
   ? 'http://localhost:3333'
