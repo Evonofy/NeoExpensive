@@ -160,7 +160,7 @@ const handleSubmit = async () => {
     );
 
     setTimeout(() => {
-      window.location.href = `${window.location.origin}/old`;
+      window.location.href = `${window.location.origin}/neo-expensive/old`;
       // redirect('/');
     }, 500);
   } catch (error) {

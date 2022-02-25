@@ -19,7 +19,7 @@ function handleAddToCardButtonClick() {
 }
 
 async function loadProducts() {
-  const products = await fetch('/js/data/products.json');
+  const products = await fetch('neo-expensive/old/js/data/products.json');
   const data = await products.json();
 
   const productsEntry = document.querySelector('.main--products');
@@ -90,7 +90,7 @@ async function loadProducts() {
 }
 
 async function loadBrands() {
-  const brands = await fetch('/js/data/brands.json');
+  const brands = await fetch('neo-expensive/old/js/data/brands.json');
   const data = await brands.json();
 
   const brandsEntry = document.querySelector('.main--per--category');
@@ -111,7 +111,7 @@ async function loadBrands() {
 }
 
 async function loadDepartments() {
-  const departments = await fetch('/js/data/departments.json');
+  const departments = await fetch('neo-expensive/old/js/data/departments.json');
   const data = await departments.json();
 
   const departmentsEntry = document.querySelector('.main--per--department');

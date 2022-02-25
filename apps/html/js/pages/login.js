@@ -52,7 +52,7 @@ form.addEventListener('submit', async function (event) {
       if (isDev2) {
         window.location.href = `${window.location.origin}/index.html`;
       } else {
-        window.location.href = `${window.location.origin}/old/index.html`;
+        window.location.href = `${window.location.origin}neo-expensive/old/index.html`;
       }
       // redirect('/');
     }, 500);
