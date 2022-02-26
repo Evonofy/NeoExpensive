@@ -155,11 +155,14 @@ jobs:
         node-version: [14.x]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Download @neo/web
         uses: actions/download-artifact@v2
         with:
           name: web-build
-          path: dist
+          path: apps/web/dist
 
       - name: Download @neo/html
         uses: actions/download-artifact@v2
@@ -168,19 +171,20 @@ jobs:
           path: html
 
       - name: Create old folder for neo-expensive
-        working-directory: ./dist
+        working-directory: ./apps/web/dist
         run: mkdir ./old
 
       - name: Copy @neo/html into old folder
         run: |
-          cp -r ./html/* ./dist/old
+          cp -r ./html/* ./apps/web/dist/old
           rm -rf html
 
       - name: Show structure
-        run: ls
+        working-directory: ./apps/web/dist
+        run: ls -R
 
       - name: Deploy to github pages
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
-          folder: ./dist
+          folder: ./apps/web/dist
