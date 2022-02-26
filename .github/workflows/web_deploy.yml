@@ -25,7 +25,8 @@ jobs:
       - name: Remove unused packages
         run: |
           rm apps/html/package.json
-          rm services/{mail, users, core, api}/package.json
+          rm
+          rm services/{mail,users,core,api}/package.json
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -110,9 +111,9 @@ jobs:
       - name: Remove unused packages
         run: |
           rm apps/web/package.json
-          rm libs/{postcss, lint}/package.json
-          rm packages/{global, icons, tokens, ui}/package.json
-          rm services/{mail, users, core, api}/package.json
+          rm libs/{postcss,lint}/package.json
+          rm packages/{global,icons,tokens,ui}/package.json
+          rm services/{mail,users,core,api}/package.json
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
