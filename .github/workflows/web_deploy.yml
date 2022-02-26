@@ -11,7 +11,6 @@ on:
 
 jobs:
   web:
-    name: web-build
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -87,9 +86,16 @@ jobs:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
       - name: Add .nojekyll file
+        working-directory: ./apps/web
+        run: touch ./dist/.nojekyll
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+          with:
+            name: web-build
+            path: ./apps/web/dist
 
   html:
-    name: html-build
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -129,6 +135,12 @@ jobs:
         working-directory: ./apps/html
         run: yarn css
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+          with:
+            name: html-build
+            path: ./apps/html
+
   download:
     runs-on: ${{ matrix.os }}
     needs: [web, html]
@@ -145,21 +157,26 @@ jobs:
           name: web-build
           path: dist
 
-      - name: Create old folder for neo-expensive
-        working-directory: ./dist
-        run: mkdir ./old
-
       - name: Download @neo/html
         uses: actions/download-artifact@v2
         with:
           name: html-build
-          path: dist/old
+          path: html
+
+      - name: Create old folder for neo-expensive
+        working-directory: ./dist
+        run: mkdir ./old
+
+      - name: Copy @neo/html into old folder
+        run: |
+          cp -r ./html/* ./dist/old
+          rm -rf html
 
       - name: Show structure
         run: ls
 
-      # - name: Deploy to github pages
-      #   uses: JamesIves/github-pages-deploy-action@4.1.1
-      #   with:
-      #     branch: gh-pages
-      #     folder: ./dist
+      - name: Deploy to github pages
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: ./dist
