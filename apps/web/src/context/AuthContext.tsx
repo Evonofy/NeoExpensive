@@ -5,7 +5,7 @@ import { AxiosError } from 'axios';
 import { api } from '../services/api';
 import { User, Error } from '../types';
 import { useAuthStore } from '../store/auth';
-import { loginInRequest, registerRequest, recoverUserInformation, forgotPasswordRequest } from '../services/auth';
+import { recoverUserInformation } from '../services/auth';
 
 type LoginProps = {
   email: string;
@@ -119,6 +119,8 @@ export const AuthProvider: FC = ({ children }) => {
 
   const register = useCallback(
     async ({ name, email, password }: RegisterProps): Promise<RegisterResponse> => {
+      const { registerRequest } = await import('../services/auth');
+
       const { user, accessToken, refreshToken, errors } = await registerRequest({
         name,
         email,
@@ -165,6 +167,8 @@ export const AuthProvider: FC = ({ children }) => {
 
   const login = useCallback(
     async ({ email, password }: LoginProps): Promise<LoginResponse> => {
+      const { loginInRequest } = await import('../services/auth');
+
       const { user, accessToken, refreshToken, errors } = await loginInRequest({
         email,
         password,
@@ -207,6 +211,8 @@ export const AuthProvider: FC = ({ children }) => {
   );
 
   const forgotPassword = useCallback(async ({ email }: ForgotPasswordProps): Promise<ForgotPasswordResponse> => {
+    const { forgotPasswordRequest } = await import('../services/auth');
+
     const { accessToken, errors } = await forgotPasswordRequest({
       email,
     });

@@ -1,6 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
+import dynamic from 'next/dynamic';
 import type { NextPage } from 'next';
-import Link from 'next/link';
+const Link = dynamic(() => import('next/link'));
 import { useContextSelector } from 'use-context-selector';
 
 import { Icon } from '@neo/icons/lib';
@@ -92,4 +93,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default memo(Home);
