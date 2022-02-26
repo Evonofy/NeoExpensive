@@ -27,6 +27,12 @@ jobs:
           rm apps/html/package.json
           rm services/{mail,users,core,api}/package.json
 
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
@@ -50,7 +56,6 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn workspaces focus --production --all
 
       - name: Build @neo/postcss
@@ -128,7 +133,6 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn workspaces focus --production --all
 
       - name: Build @neo/html
