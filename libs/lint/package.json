@@ -8,7 +8,7 @@
   "private": true,
   "main": "./.eslintrc.js",
   "packageManager": "yarn@3.1.1",
-  "devDependencies": {
+  "dependencies": {
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "eslint": "^8.9.0",
@@ -17,6 +17,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "latest",
+    "prettier": "^2.5.1",
     "stylelint": "^14.5.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-prettier-scss": "^0.0.1",

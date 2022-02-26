@@ -7,18 +7,20 @@
   "license": "MIT",
   "scripts": {
     "commit": "cz",
-    "css": "dart-sass --no-stop-on-error scss/main.scss:css/main.css",
-    "css:mini": "dart-sass --watch --no-stop-on-error scss/main.scss:css/main.min.css --style compressed",
+    "css": "sass --no-stop-on-error scss/main.scss:css/main.css",
+    "css:mini": "sass --watch --no-stop-on-error scss/main.scss:css/main.min.css --style compressed",
     "purge:home": "yarn purgecss --css css/main.css --content index.html --output css/pages/main.css",
     "purge:about": "yarn purgecss --css css/main.css --content /pages/about/index.html --output css/pages/about.css",
     "purge:support": "yarn purgecss --css css/main.css --content /pages/support/index.html --output css/pages/support.css",
     "purgeall": "yarn npm-run-all 'purge:*'"
   },
   "devDependencies": {
-    "dart-sass": "^1.25.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.1",
     "postcss-scss": "^4.0.2",
     "purgecss": "^4.0.3"
+  },
+  "dependencies": {
+    "sass": "^1.49.7"
   }
 }

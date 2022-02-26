@@ -29,10 +29,18 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn
+        run: yarn workspaces focus --production --all
+
+      - name: Build @neo/postcss
+        working-directory: ./libs/postcss
+        run: yarn build
 
       - name: Build @neo/global
         working-directory: ./packages/global
+        run: yarn build
+
+      - name: Build @neo/tokens
+        working-directory: ./packages/tokens
         run: yarn build
 
       - name: Build @neo/icons

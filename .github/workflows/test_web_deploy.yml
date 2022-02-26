@@ -29,10 +29,18 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn
+        run: yarn workspaces focus --production --all
+
+      - name: Build @neo/postcss
+        working-directory: ./libs/postcss
+        run: yarn build
 
       - name: Build @neo/global
         working-directory: ./packages/global
+        run: yarn build
+
+      - name: Build @neo/tokens
+        working-directory: ./packages/tokens
         run: yarn build
 
       - name: Build @neo/icons
@@ -42,6 +50,10 @@ jobs:
       - name: Build @neo/ui
         working-directory: ./packages/ui
         run: yarn build
+
+      - name: Build @neo/html CSS
+        working-directory: ./apps/html
+        run: yarn css
 
       - name: Build @neo/web
         working-directory: ./apps/web
@@ -58,3 +70,11 @@ jobs:
       - name: Add .nojekyll file
         working-directory: ./apps/web
         run: touch ./dist/.nojekyll
+
+      - name: Create old folder for neo-expensive
+        working-directory: ./apps/web/dist
+        run: mkdir ./old
+
+      - name: Copy @neo/html into old folder
+        working-directory: ./apps
+        run: cp -r ./html/* ./web/dist/old

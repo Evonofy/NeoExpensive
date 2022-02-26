@@ -17,7 +17,7 @@
     "lint-staged": "lint-staged — config .lintstagedrc",
     "commit": "./node_modules/cz-customizable/standalone.js",
     "release": "HUSKY_SKIP_HOOKS=1 dotenv release-it --",
-    "postinstall": "husky install",
+    "setup-husky": "husky install",
     "lint:styles": "stylelint \"packages/**/*.css\" --fix --config stylelint.config.js",
     "lint:js": "eslint . --ext .js,.ts",
     "lint": "npm-run-all 'lint:*'",

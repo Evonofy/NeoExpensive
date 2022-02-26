@@ -2741,12 +2741,9 @@ __metadata:
   dependencies:
     "@csstools/normalize.css": ^12.0.0
     "@neo/postcss": "*"
-    npm-run-all: ^4.1.5
     postcss: ^8.4.6
     postcss-cli: ^9.1.0
     postcss-font-magician: ^3.0.0
-    rimraf: ^3.0.2
-    sass: ^1.49.7
   languageName: unknown
   linkType: soft
 
@@ -2754,11 +2751,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@neo/html@workspace:apps/html"
   dependencies:
-    dart-sass: ^1.25.0
     npm-run-all: ^4.1.5
     postcss: ^8.4.1
     postcss-scss: ^4.0.2
     purgecss: ^4.0.3
+    sass: ^1.49.7
   languageName: unknown
   linkType: soft
 
@@ -2769,12 +2766,14 @@ __metadata:
     "@rollup/plugin-commonjs": ^21.0.1
     "@rollup/plugin-node-resolve": ^13.1.3
     "@rollup/plugin-typescript": ^8.3.0
+    "@types/react": 17.0.39
     react: ^17.0.2
     rimraf: ^3.0.2
     rollup: ^2.67.3
     rollup-plugin-postcss: ^4.0.2
     rollup-plugin-terser: ^7.0.2
     rollup-plugin-visualizer: ^5.5.4
+    tslib: ^2.3.1
     typescript: ^4.3.5
   peerDependencies:
     react: ^17.0.2
@@ -2793,6 +2792,7 @@ __metadata:
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-react: latest
+    prettier: ^2.5.1
     stylelint: ^14.5.0
     stylelint-config-prettier: ^9.0.3
     stylelint-config-prettier-scss: ^0.0.1
@@ -2817,12 +2817,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@neo/postcss@workspace:libs/postcss"
   dependencies:
+    "@swc/cli": ^0.1.55
+    "@swc/core": ^1.2.145
     "@types/cssnano": ^5.0.0
     "@types/postcss-import": ^14.0.0
     autoprefixer: ^10.4.2
     cssnano: ^5.0.17
     cssnano-preset-advanced: ^5.1.12
-    postcss: ^8.4.6
     postcss-import: ^14.0.2
     postcss-nested: ^5.0.6
     postcss-scss: ^4.0.3
@@ -2859,7 +2860,7 @@ __metadata:
     "@testing-library/react": ^12.1.3
     "@types/jest": ^27.4.1
     "@types/jest-axe": ^3.5.3
-    "@types/react": ^17.0.39
+    "@types/react": 17.0.39
     "@types/react-dom": ^17.0.11
     babel-loader: ^8.2.3
     babel-preset-react-app: ^10.0.1
@@ -2904,15 +2905,12 @@ __metadata:
     "@neo/global": "*"
     "@neo/icons": "*"
     "@neo/ui": "*"
-    "@types/canvas-confetti": ^1.4.2
-    "@types/cookie": ^0.4.1
     "@types/node": 17.0.18
     "@types/react": 17.0.39
     autoprefixer: ^10.4.2
     axios: ^0.26.0
     gen-env-types: ^1.3.2
     next: ^12.1.0
-    nookies: ^2.5.2
     postcss-preset-env: ^7.4.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -4717,6 +4715,192 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc/cli@npm:^0.1.55":
+  version: 0.1.55
+  resolution: "@swc/cli@npm:0.1.55"
+  dependencies:
+    commander: ^7.1.0
+    fast-glob: ^3.2.5
+    slash: 3.0.0
+    source-map: ^0.7.3
+  peerDependencies:
+    "@swc/core": ^1.2.66
+    chokidar: ^3.5.1
+  peerDependenciesMeta:
+    chokidar:
+      optional: true
+  bin:
+    spack: bin/spack.js
+    swc: bin/swc.js
+  checksum: db6a727716acffd6202158bb47ab1541f9b43f1a8146c8588b33a969330f08ffbc59d813bad192929acb67f6675aabeee20618522b0b7533a9f77b35c49edaa1
+  languageName: node
+  linkType: hard
+
+"@swc/core-android-arm-eabi@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-android-arm-eabi@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@swc/core-android-arm64@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-android-arm64@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-arm64@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-darwin-arm64@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-x64@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-darwin-x64@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-freebsd-x64@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-freebsd-x64@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm-gnueabihf@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-gnu@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-musl@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-linux-arm64-musl@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-gnu@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-linux-x64-gnu@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-musl@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-linux-x64-musl@npm:1.2.145"
+  bin:
+    swcx: swc
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-arm64-msvc@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.2.145"
+  bin:
+    swcx: swc.exe
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-ia32-msvc@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.2.145"
+  bin:
+    swcx: swc.exe
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-x64-msvc@npm:1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core-win32-x64-msvc@npm:1.2.145"
+  bin:
+    swcx: swc.exe
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core@npm:^1.2.145":
+  version: 1.2.145
+  resolution: "@swc/core@npm:1.2.145"
+  dependencies:
+    "@swc/core-android-arm-eabi": 1.2.145
+    "@swc/core-android-arm64": 1.2.145
+    "@swc/core-darwin-arm64": 1.2.145
+    "@swc/core-darwin-x64": 1.2.145
+    "@swc/core-freebsd-x64": 1.2.145
+    "@swc/core-linux-arm-gnueabihf": 1.2.145
+    "@swc/core-linux-arm64-gnu": 1.2.145
+    "@swc/core-linux-arm64-musl": 1.2.145
+    "@swc/core-linux-x64-gnu": 1.2.145
+    "@swc/core-linux-x64-musl": 1.2.145
+    "@swc/core-win32-arm64-msvc": 1.2.145
+    "@swc/core-win32-ia32-msvc": 1.2.145
+    "@swc/core-win32-x64-msvc": 1.2.145
+  dependenciesMeta:
+    "@swc/core-android-arm-eabi":
+      optional: true
+    "@swc/core-android-arm64":
+      optional: true
+    "@swc/core-darwin-arm64":
+      optional: true
+    "@swc/core-darwin-x64":
+      optional: true
+    "@swc/core-freebsd-x64":
+      optional: true
+    "@swc/core-linux-arm-gnueabihf":
+      optional: true
+    "@swc/core-linux-arm64-gnu":
+      optional: true
+    "@swc/core-linux-arm64-musl":
+      optional: true
+    "@swc/core-linux-x64-gnu":
+      optional: true
+    "@swc/core-linux-x64-musl":
+      optional: true
+    "@swc/core-win32-arm64-msvc":
+      optional: true
+    "@swc/core-win32-ia32-msvc":
+      optional: true
+    "@swc/core-win32-x64-msvc":
+      optional: true
+  checksum: c34ff054cb4af53966c9607ba60180e2c653cc7a093f3511174462e072ebc41b4bd698f522330cc1de84f05f3f20e21152cef3d661a3361a3a49ff8cf84f357e
+  languageName: node
+  linkType: hard
+
 "@szmarczak/http-timer@npm:^1.1.2":
   version: 1.1.2
   resolution: "@szmarczak/http-timer@npm:1.1.2"
@@ -4921,13 +5105,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/canvas-confetti@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "@types/canvas-confetti@npm:1.4.2"
-  checksum: 68327c85bec9f507a8002bf7bc57d8e1850816e91460c8d0c340ae7a06a782839c016b82e5b4adf5ff52fe96af94853c9a25e17bd317524d377ccdc0e00e8d9c
-  languageName: node
-  linkType: hard
-
 "@types/color-convert@npm:^2.0.0":
   version: 2.0.0
   resolution: "@types/color-convert@npm:2.0.0"
@@ -4950,13 +5127,6 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: fe81351470f2d3165e8b12ce33542eef89ea893e36dd62e8f7d72566dfb7e448376ae962f9f3ea888547ce8b55a40020ca0e01d637fab5d99567673084542641
-  languageName: node
-  linkType: hard
-
-"@types/cookie@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@types/cookie@npm:0.4.1"
-  checksum: 3275534ed69a76c68eb1a77d547d75f99fedc80befb75a3d1d03662fb08d697e6f8b1274e12af1a74c6896071b11510631ba891f64d30c78528d0ec45a9c1a18
   languageName: node
   linkType: hard
 
@@ -5306,7 +5476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:17.0.39, @types/react@npm:^17.0.39":
+"@types/react@npm:*, @types/react@npm:17.0.39":
   version: 17.0.39
   resolution: "@types/react@npm:17.0.39"
   dependencies:
@@ -7686,7 +7856,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=2.0.0 <4.0.0, chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.3.0, chokidar@npm:^3.4.1, chokidar@npm:^3.4.2, chokidar@npm:^3.5.2":
+"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.3.0, chokidar@npm:^3.4.1, chokidar@npm:^3.4.2, chokidar@npm:^3.5.2":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
   dependencies:
@@ -8078,7 +8248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^7.2.0":
+"commander@npm:^7.1.0, commander@npm:^7.2.0":
   version: 7.2.0
   resolution: "commander@npm:7.2.0"
   checksum: 53501cbeee61d5157546c0bef0fedb6cdfc763a882136284bed9a07225f09a14b82d2a84e7637edfd1a679fb35ed9502fd58ef1d091e6287f60d790147f68ddc
@@ -8532,7 +8702,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.4.2, cookie@npm:^0.4.1":
+"cookie@npm:0.4.2":
   version: 0.4.2
   resolution: "cookie@npm:0.4.2"
   checksum: a00833c998bedf8e787b4c342defe5fa419abd96b32f4464f718b91022586b8f1bafbddd499288e75c037642493c83083da426c6a9080d309e3bd90fd11baa9b
@@ -9174,17 +9344,6 @@ __metadata:
   version: 7.0.0
   resolution: "dargs@npm:7.0.0"
   checksum: b8f1e3cba59c42e1f13a114ad4848c3fc1cf7470f633ee9e9f1043762429bc97d91ae31b826fb135eefde203a3fdb20deb0c0a0222ac29d937b8046085d668d1
-  languageName: node
-  linkType: hard
-
-"dart-sass@npm:^1.25.0":
-  version: 1.25.0
-  resolution: "dart-sass@npm:1.25.0"
-  dependencies:
-    chokidar: ">=2.0.0 <4.0.0"
-  bin:
-    dart-sass: sass.js
-  checksum: 913701d78d247a58c239fcc1f94555305ecc8058b346be034ed866e224277e808e7c6fb4be5edb55888385f13e8523e9e467aed081923bfffcce693d863c843c
   languageName: node
   linkType: hard
 
@@ -10842,7 +11001,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.5, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
   version: 3.2.11
   resolution: "fast-glob@npm:3.2.11"
   dependencies:
@@ -16260,16 +16419,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nookies@npm:^2.5.2":
-  version: 2.5.2
-  resolution: "nookies@npm:2.5.2"
-  dependencies:
-    cookie: ^0.4.1
-    set-cookie-parser: ^2.4.6
-  checksum: 4cc6fd8d0ab9fce840ccdb161eefe9dee581f441429fc729f279924491ebd1c12c220f889b6e315d66f8ea00bef944966969c966c957a6b9918ced7d7f9cc8a8
-  languageName: node
-  linkType: hard
-
 "nopt@npm:^5.0.0":
   version: 5.0.0
   resolution: "nopt@npm:5.0.0"
@@ -20206,13 +20355,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"set-cookie-parser@npm:^2.4.6":
-  version: 2.4.8
-  resolution: "set-cookie-parser@npm:2.4.8"
-  checksum: e15b5df9a56ab06d4895286033a6aff7b318ad024310df058b5821b3539cc06f716ef529618cac0dd78df40e37830de715f388c0f97f84062dd9be2326efcd0c
-  languageName: node
-  linkType: hard
-
 "set-value@npm:^2.0.0, set-value@npm:^2.0.1":
   version: 2.0.1
   resolution: "set-value@npm:2.0.1"
@@ -20344,17 +20486,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"slash@npm:3.0.0, slash@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "slash@npm:3.0.0"
+  checksum: 94a93fff615f25a999ad4b83c9d5e257a7280c90a32a7cb8b4a87996e4babf322e469c42b7f649fd5796edd8687652f3fb452a86dc97a816f01113183393f11c
+  languageName: node
+  linkType: hard
+
 "slash@npm:^2.0.0":
   version: 2.0.0
   resolution: "slash@npm:2.0.0"
   checksum: 512d4350735375bd11647233cb0e2f93beca6f53441015eea241fe784d8068281c3987fbaa93e7ef1c38df68d9c60013045c92837423c69115297d6169aa85e6
-  languageName: node
-  linkType: hard
-
-"slash@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "slash@npm:3.0.0"
-  checksum: 94a93fff615f25a999ad4b83c9d5e257a7280c90a32a7cb8b4a87996e4babf322e469c42b7f649fd5796edd8687652f3fb452a86dc97a816f01113183393f11c
   languageName: node
   linkType: hard
 

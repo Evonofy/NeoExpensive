@@ -17,7 +17,7 @@
     "dev": "tsc -w",
     "build": "tsc"
   },
-  "devDependencies": {
+  "dependencies": {
     "typescript": "^4.3.5"
   }
 }
