@@ -4,14 +4,18 @@ type UserProps = {
   name: string;
   email: string;
   password: string;
+
   createdAt: Date;
   updatedAt: Date;
+
+  tokenVersion: number;
 };
 
 type CreateUserProps = {
   name: string;
   email: string;
   password: string;
+  tokenVersion?: number;
   createdAt?: Date | undefined;
   updatedAt?: Date | undefined;
 };
@@ -27,6 +31,7 @@ export class User extends Entity<UserProps> {
       ...props,
       createdAt: props.createdAt ?? new Date(),
       updatedAt: props.updatedAt ?? new Date(),
+      tokenVersion: props.tokenVersion || 0
     }, id);
 
     return user;

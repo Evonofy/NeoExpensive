@@ -1,10 +1,12 @@
+import { useMemo } from 'react';
 import type { NextPage } from 'next';
 import Link from 'next/link';
+import { useContextSelector } from 'use-context-selector';
+
+import { Icon } from '@neo/icons/lib';
 import { useUser } from '../hooks/auth/user';
 import { useLogout } from '../hooks/auth/useLogout';
-import { Icon } from '@neo/icons/lib';
-import { useMemo } from 'react';
-import Button from '@neo/ui/components/Button';
+import { AuthContext } from 'context/AuthContext';
 
 const Home: NextPage = () => {
   const { user } = useUser();
@@ -14,11 +16,12 @@ const Home: NextPage = () => {
     return user?.githubId ? true : false;
   }, [user]);
 
+  const disconnectAccount = useContextSelector(AuthContext, (context) => context.disconnectAccount);
+
   return (
     <main>
       <h1 style={{ color: 'black' }}>This is a work in progress :)</h1>
       <a href="/neo-expensive/old/index.html">Go to the old website</a>
-      <Button />
       {!user && (
         <div>
           <div>
@@ -43,6 +46,13 @@ const Home: NextPage = () => {
           </div>
         </div>
       )}
+
+      <div>
+        <Link href="/status">
+          <a>check all our services stautses</a>
+        </Link>
+      </div>
+
       {user && (
         <div>
           <div>
@@ -53,12 +63,24 @@ const Home: NextPage = () => {
           </div>
 
           <div>
+            <a>
+              <button onClick={() => disconnectAccount()}>disconnect my account from every browser</button>
+            </a>
+          </div>
+
+          <div>
+            <Link href={`/user/${user.name}`}>
+              <a>go to settings page</a>
+            </Link>
+          </div>
+
+          <div>
             <Link href="/recover-password">
               <a>{isGithubUser ? 'create a password' : 'set new password'}</a>
             </Link>
           </div>
 
-          <img src={user.avatarUrl} alt="" />
+          <img width="100" src={user.avatarUrl} alt="" />
 
           <div>
             <pre style={{ color: 'black' }}>{JSON.stringify(user, null, 2)}</pre>

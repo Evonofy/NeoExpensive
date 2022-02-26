@@ -5,6 +5,7 @@ import { RefreshToken } from '@prisma/client';
 
 import { generateRefreshToken } from '../lib/generateRefreshToken';
 import dayjs from 'dayjs';
+import { prisma } from '../../../infra/prisma';
 
 export async function RefreshUserTokenController(request: Request<{}, {}, { refresh_token: string }>, response: Response): Promise<Response> {
   const { refresh_token: refreshToken } = request.body;
@@ -20,13 +21,30 @@ export async function RefreshUserTokenController(request: Request<{}, {}, { refr
   const refreshTokenExpired = dayjs().isAfter(dayjs.unix(token.expiresIn));
 
   try {
+    let refreshToken: { refreshToken: RefreshToken | null } = {
+      refreshToken: null,
+    };
     if (refreshTokenExpired) {
-      throw new Error('Expired refresh token.');
+      refreshToken = await new generateRefreshToken().execute(token.userId);
+    }
+
+    const user = await prisma.user.findUnique({
+      where: {
+        id: token.userId,
+      },
+      select: {
+        tokenVersion: true,
+      },
+    });
+
+    if (!user) {
+      throw new Error('Invalid refresh token.');
     }
 
     const accessToken = sign(
       {
         userId: token.userId,
+        tokenVersion: user?.tokenVersion,
       },
       process.env.ACCESS_TOKEN_SECRET,
       {
@@ -34,7 +52,7 @@ export async function RefreshUserTokenController(request: Request<{}, {}, { refr
       }
     );
 
-    const { refreshToken } = await new generateRefreshToken().execute(token.userId);
+    refreshToken = await new generateRefreshToken().execute(token.userId);
 
     return response.status(200).json({
       accessToken,

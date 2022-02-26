@@ -48,6 +48,7 @@ export async function RecoverUserPaswordController(request: Request<{}, {}, { em
     const accessToken = sign(
       {
         userId: user.id,
+        tokenVersion: user.props.tokenVersion,
       },
       process.env.ACCESS_TOKEN_SECRET,
       {

@@ -50,6 +50,7 @@ export async function RegisterUserController(request: Request<{}, {}, { name: st
     const accessToken = sign(
       {
         userId: user.id,
+        tokenVersion: user.props.tokenVersion,
       },
       process.env.ACCESS_TOKEN_SECRET,
       {

@@ -19,6 +19,7 @@ export async function LoginUserController(request: Request<{}, {}, { email: stri
     const accessToken = sign(
       {
         userId: user.id,
+        tokenVersion: user.props.tokenVersion,
       },
       process.env.ACCESS_TOKEN_SECRET,
       {

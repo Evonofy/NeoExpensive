@@ -13,6 +13,16 @@ router.get('/', (_, response) => {
   });
 });
 
+router.get('/status', (_, response) => {
+  return response.status(200).json({
+    status: 200,
+    api: true,
+    users: true,
+    core: true,
+    mail: true,
+  });
+});
+
 router.get('/signin/callback', (request, response) => {
   const { code } = request.query;
 

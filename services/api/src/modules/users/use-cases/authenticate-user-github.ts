@@ -69,6 +69,7 @@ export async function AuthenticateUserGithubController(request: Request<{}, {}, 
     const accessToken = sign(
       {
         userId: user.id,
+        tokenVersion: user.tokenVersion,
       },
       process.env.ACCESS_TOKEN_SECRET,
       {

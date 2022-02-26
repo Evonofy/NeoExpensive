@@ -42,6 +42,7 @@ type AuthContextProps = {
   register: (data: RegisterProps) => Promise<RegisterResponse>;
   forgotPassword: (data: ForgotPasswordProps) => Promise<ForgotPasswordResponse>;
   logout: () => Promise<void>;
+  disconnectAccount: () => Promise<void>;
 };
 
 export const AuthContext = createContext({} as AuthContextProps);
@@ -71,27 +72,33 @@ export const AuthProvider: FC = ({ children }) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const token = localStorage.getItem('@neo:access');
+      (api.defaults.headers as any)['authorization'] = `bearer ${token}`;
 
       if (token !== null) {
-        recoverUserInformation({ token }).then(async ({ user, error }) => {
+        recoverUserInformation().then(async ({ user, error }) => {
           if (error) {
-            // eslint-disable-next-line camelcase
-            const refresh_token = localStorage.getItem('@neo:refresh');
-            // refresh token
-            try {
-              // eslint-disable-next-line camelcase
-              const { data } = await api.post<{ refreshToken: string; accessToken: string }>('/users/refresh-token', {
-                // eslint-disable-next-line camelcase
-                refresh_token,
-              });
-              const { refreshToken, accessToken } = data;
-              console.log('token refreshed');
+            console.log('error');
+            // // eslint-disable-next-line camelcase
+            // const refresh_token = localStorage.getItem('@neo:refresh');
+            // // refresh token
+            // try {
+            //   // eslint-disable-next-line camelcase
+            //   const { data } = await api.post<{ refreshToken: string; accessToken: string }>('/users/refresh-token', {
+            //     // eslint-disable-next-line camelcase
+            //     refresh_token,
+            //   });
+            //   const { refreshToken, accessToken } = data;
+            //   console.log('token refreshed');
 
-              localStorage.setItem('@neo:access', accessToken);
-              localStorage.setItem('@neo:refresh', refreshToken);
-            } catch (error) {
-              console.log(error as AxiosError);
-            }
+            //   localStorage.setItem('@neo:access', accessToken);
+            //   localStorage.setItem('@neo:refresh', refreshToken);
+
+            //   (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
+
+            //   recoverUserInformation();
+            // } catch (error) {
+            //   console.log(error as AxiosError);
+            // }
           }
 
           user &&
@@ -180,14 +187,12 @@ export const AuthProvider: FC = ({ children }) => {
         };
       }
 
-      if (typeof window !== 'undefined') {
-        if (accessToken) {
-          localStorage.setItem('@neo:access', accessToken);
-        }
+      if (accessToken) {
+        localStorage.setItem('@neo:access', accessToken);
+      }
 
-        if (refreshToken) {
-          localStorage.setItem('@neo:refresh', refreshToken);
-        }
+      if (refreshToken) {
+        localStorage.setItem('@neo:refresh', refreshToken);
       }
 
       (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
@@ -228,6 +233,7 @@ export const AuthProvider: FC = ({ children }) => {
       type GithubOAuthAPIResponse = {
         user: User;
         accessToken: string;
+        refreshToken: string;
       };
 
       try {
@@ -235,11 +241,15 @@ export const AuthProvider: FC = ({ children }) => {
           code,
         });
 
-        const { accessToken, user } = data;
+        const { accessToken, user, refreshToken } = data;
 
         if (accessToken) {
           localStorage.setItem('@neo:access', accessToken);
           api.defaults.headers.common.authorization = `bearer ${accessToken}`;
+        }
+
+        if (refreshToken) {
+          localStorage.setItem('@neo:refresh', refreshToken);
         }
 
         if (user) {
@@ -252,6 +262,18 @@ export const AuthProvider: FC = ({ children }) => {
     [setUser]
   );
 
+  const disconnectAccount = useCallback(async () => {
+    const { data } = await api.post<{ accessToken: string }>('/users/disconnect', {
+      refresh_token: localStorage.getItem('@neo:refresh'),
+    });
+
+    const { accessToken } = data;
+
+    localStorage.setItem('@neo:access', accessToken);
+
+    (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
+  }, []);
+
   useEffect(() => {
     const url = window.location.href;
     const hasGithubCode = url.includes('?code=');
@@ -260,12 +282,11 @@ export const AuthProvider: FC = ({ children }) => {
       const [urlWithoutCode, githubCode] = url.split('?code=');
 
       window.history.pushState({}, '', urlWithoutCode);
-
       if (githubCode) {
         githubSignIn(githubCode);
       }
     }
   });
 
-  return <AuthContext.Provider value={{ user, login, logout, register, forgotPassword }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ user, login, logout, register, forgotPassword, disconnectAccount }}>{children}</AuthContext.Provider>;
 };

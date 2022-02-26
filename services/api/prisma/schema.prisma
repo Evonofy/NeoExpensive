@@ -11,15 +11,16 @@ datasource db {
 }
 
 model User {
-  id        String  @id
-  username  String? @unique
-  avatarUrl String
-  name      String
-  email     String  @unique
-  password  String?
-  githubId  String? @unique
+  id           String  @id
+  username     String? @unique
+  avatarUrl    String
+  name         String
+  email        String  @unique
+  password     String?
+  githubId     String? @unique
+  tokenVersion Int     @default(0)
 
-  RefreshToken RefreshToken?
+  RefreshToken RefreshToken[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -31,7 +32,7 @@ model RefreshToken {
   id        String @id
   expiresIn Int
 
-  userId String @unique
+  userId String
   user   User   @relation(fields: [userId], references: [id])
 
   @@map("refresh_tokens")
