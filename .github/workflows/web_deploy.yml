@@ -91,9 +91,9 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
-          with:
-            name: web-build
-            path: ./apps/web/dist
+        with:
+          name: web-build
+          path: ./apps/web/dist
 
   html:
     runs-on: ${{ matrix.os }}
@@ -137,9 +137,9 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
-          with:
-            name: html-build
-            path: ./apps/html
+        with:
+          name: html-build
+          path: ./apps/html
 
   download:
     runs-on: ${{ matrix.os }}
