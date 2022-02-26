@@ -25,7 +25,6 @@ jobs:
       - name: Remove unused packages
         run: |
           rm apps/html/package.json
-          rm
           rm services/{mail,users,core,api}/package.json
 
       - name: Get yarn cache directory path
