@@ -126,14 +126,18 @@ export async function registerRequest({ name, email, password }: registerRequest
   }
 }
 
+type recoverUserInformationProps = {
+  id: string;
+};
+
 type recoverUserInformationResponse = {
   user?: User;
   error?: 'Expired refresh token.';
 };
 
-export async function recoverUserInformation(): Promise<recoverUserInformationResponse> {
+export async function recoverUserInformation({ id }: recoverUserInformationProps): Promise<recoverUserInformationResponse> {
   try {
-    const { data } = await api.get<{ user: User }>('/users');
+    const { data } = await api.get<{ user: User }>(`/users/${id}`);
     const { user } = data;
 
     return {

@@ -19,8 +19,8 @@ interface IUserResponse {
   email: string;
 }
 
-export async function AuthenticateUserGithubController(request: Request<{}, {}, { code: string }>, response: Response): Promise<Response> {
-  const { code } = request.body;
+export async function AuthenticateUserGithubController(request: Request<{}, {}, { code: string; platform: string }>, response: Response): Promise<Response> {
+  const { code, platform } = request.body;
   const url = 'https://github.com/login/oauth/access_token';
 
   try {
@@ -77,7 +77,9 @@ export async function AuthenticateUserGithubController(request: Request<{}, {}, 
       }
     );
 
-    const { refreshToken } = await new generateRefreshToken().execute(user.id);
+    const { refreshToken } = await new generateRefreshToken().execute(user.id, {
+      platform,
+    });
 
     return response.status(200).json({
       user,

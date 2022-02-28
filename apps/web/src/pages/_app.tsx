@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { AuthProvider } from '../context/AuthContext';
+import { SettingsProvider } from '../context/SettingsContext';
 
 import '@neo/global';
 
@@ -12,7 +13,9 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Component {...pageProps} />
+        <SettingsProvider>
+          <Component {...pageProps} />
+        </SettingsProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

@@ -1,9 +1,11 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { NextPage } from 'next';
-import { useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useLogin } from '../hooks/auth/useLogin';
 import { useRouter } from 'next/router';
+
+import { useLogin } from '../hooks/auth/useLogin';
+const Link = dynamic(() => import('next/link'));
 type FormProps = {
   email: string;
   password: string;
@@ -61,6 +63,8 @@ const Login: NextPage = () => {
 
         <button type="submit">submit</button>
       </form>
+
+      <Link href="/">go back</Link>
     </div>
   );
 };

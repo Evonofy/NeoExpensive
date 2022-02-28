@@ -21,7 +21,7 @@ export async function DisconnectUserAccountsController(request: Request<{}, {}, 
     if (!user) {
       throw new Error('Could not find a user with this e-mail.');
     }
-    console.log(user.tokenVersion);
+
     const tokenVersion = user.tokenVersion + 1;
 
     await prisma.user.update({

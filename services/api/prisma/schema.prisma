@@ -10,6 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Settings {
+  id String @id
+
+  language String? @default("string")
+  theme    String? @default("dark")
+  User     User[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
+}
+
 model User {
   id           String  @id
   username     String? @unique
@@ -20,7 +33,10 @@ model User {
   githubId     String? @unique
   tokenVersion Int     @default(0)
 
-  RefreshToken RefreshToken[]
+  refreshToken RefreshToken[]
+
+  settingsId String?
+  settings   Settings? @relation(fields: [settingsId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -32,8 +48,13 @@ model RefreshToken {
   id        String @id
   expiresIn Int
 
+  platform String
+
   userId String
   user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("refresh_tokens")
 }

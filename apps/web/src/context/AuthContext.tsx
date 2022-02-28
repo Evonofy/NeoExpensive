@@ -5,7 +5,6 @@ import { AxiosError } from 'axios';
 import { api } from '../services/api';
 import { User, Error } from '../types';
 import { useAuthStore } from '../store/auth';
-import { recoverUserInformation } from '../services/auth';
 
 type LoginProps = {
   email: string;
@@ -69,46 +68,70 @@ export const AuthProvider: FC = ({ children }) => {
     };
   }, [removeUser]);
 
+  const fetchUser = useCallback(async () => {
+    const { recoverUserInformation } = await import('../services/auth');
+
+    try {
+      const { data: profile } = await api.get<{ user: { id: string }; error: string }>('/users/profile');
+
+      const { user, error } = await recoverUserInformation({
+        id: profile.user.id,
+      });
+
+      if (error) {
+        console.log('expired....');
+      }
+
+      user &&
+        setUser({
+          ...user,
+        });
+    } catch (error) {
+      const { response } = error as AxiosError;
+      if (response?.data.error === 'jwt expired') {
+        const { data } = await api.post<{ accessToken: string; refreshToken?: string }>('/auth/refresh-token', {
+          refresh_token: localStorage.getItem('@neo:refresh'),
+        });
+
+        const { accessToken, refreshToken } = data;
+
+        localStorage.setItem('@neo:access', accessToken);
+
+        if (refreshToken) {
+          localStorage.setItem('@neo:refresh', refreshToken);
+        }
+
+        (api.defaults.headers as any)['authorization'] = `bearer ${localStorage.getItem('@neo:access')}`;
+
+        // reload of refetch
+        const { data: profile } = await api.get<{ user: { id: string }; error: string }>('/users/profile');
+
+        const { user, error } = await recoverUserInformation({
+          id: profile.user.id,
+        });
+
+        if (error) {
+          console.log('expired....');
+        }
+
+        user &&
+          setUser({
+            ...user,
+          });
+      }
+    }
+  }, [setUser]);
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const token = localStorage.getItem('@neo:access');
       (api.defaults.headers as any)['authorization'] = `bearer ${token}`;
 
       if (token !== null) {
-        recoverUserInformation().then(async ({ user, error }) => {
-          if (error) {
-            console.log('error');
-            // // eslint-disable-next-line camelcase
-            // const refresh_token = localStorage.getItem('@neo:refresh');
-            // // refresh token
-            // try {
-            //   // eslint-disable-next-line camelcase
-            //   const { data } = await api.post<{ refreshToken: string; accessToken: string }>('/users/refresh-token', {
-            //     // eslint-disable-next-line camelcase
-            //     refresh_token,
-            //   });
-            //   const { refreshToken, accessToken } = data;
-            //   console.log('token refreshed');
-
-            //   localStorage.setItem('@neo:access', accessToken);
-            //   localStorage.setItem('@neo:refresh', refreshToken);
-
-            //   (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
-
-            //   recoverUserInformation();
-            // } catch (error) {
-            //   console.log(error as AxiosError);
-            // }
-          }
-
-          user &&
-            setUser({
-              ...user,
-            });
-        });
+        fetchUser();
       }
     }
-  }, [setUser]);
+  }, [fetchUser]);
 
   const logout = useCallback(async () => {
     localStorage.removeItem('@neo:access');
@@ -245,6 +268,7 @@ export const AuthProvider: FC = ({ children }) => {
       try {
         const { data } = await api.post<GithubOAuthAPIResponse>('/users/authenticate/github', {
           code,
+          platform: navigator.platform || navigator.userAgentData.platform,
         });
 
         const { accessToken, user, refreshToken } = data;

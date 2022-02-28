@@ -1,70 +1,66 @@
-import express, { NextFunction, Request, Response } from 'express';
-import { verify } from 'jsonwebtoken';
-// import { verify } from 'jsonwebtoken';
-import { prisma } from '../../../../infra/prisma';
+import express from 'express';
 
-import { LoginUserController, RegisterUserController, RefreshUserTokenController, RecoverUserPaswordController, SetUserNewPasswordController } from '../../use-cases';
+import { prisma } from '../../../../infra/prisma';
+import { auth } from '../middlewares/auth';
+
+import { LoginUserController, RegisterUserController, RecoverUserPaswordController, SetUserNewPasswordController, RefreshUserTokenController } from '../../use-cases';
 import { AuthenticateUserGithubController } from '../../use-cases/authenticate-user-github';
 import { RecoverUserInformationController } from '../../use-cases/recover-user-information';
 import { DisconnectUserAccountsController } from '../../use-cases/disconnect-user-accounts';
+import { SetAccountThemeController } from '../../use-cases/set-account-theme';
+import { ListAllRefreshTokensController } from '../../use-cases/list-all-refresh-tokens';
+import { InvalidateRefreshTokenController } from '../../use-cases/invalidate-refresh-token';
+
+// eslint-disable-next-line new-cap
+export const authRouter = express.Router();
+authRouter.post('/refresh-token', RefreshUserTokenController);
+authRouter.get('/refresh-token', auth, ListAllRefreshTokensController);
+authRouter.delete('/refresh-token', auth, InvalidateRefreshTokenController);
 
 // eslint-disable-next-line new-cap
 export const usersRouter = express.Router();
 
-const auth = async (request: Request, response: Response, next: NextFunction) => {
-  const { authorization } = request.headers;
+usersRouter.post('/', RegisterUserController);
+usersRouter.get('/', auth, async (_, response) => {
+  const users = await prisma.user.findMany();
 
-  if (!authorization) {
-    return response.status(401).json({
-      error: 'Please supply an access token.',
-    });
-  }
+  return response.status(200).json({
+    users,
+  });
+});
 
-  const [, token] = authorization.split(' ');
+usersRouter.get('/:id', auth, RecoverUserInformationController);
 
-  if (!token) {
-    return response.status(401).json({
-      error: 'Please supply an access token with a bearer prefix.',
-    });
-  }
+usersRouter.post('/login', LoginUserController);
+usersRouter.post('/register', RegisterUserController);
+usersRouter.get('/profile', auth, async (request, response) => {
+  const { id } = request.user;
 
   try {
-    const { userId, tokenVersion } = verify(token, process.env.ACCESS_TOKEN_SECRET) as {
-      userId: string;
-      tokenVersion: number;
-    };
-
     const user = await prisma.user.findUnique({
       where: {
-        id: userId,
+        id,
+      },
+      select: {
+        id: true,
       },
     });
 
     if (!user) {
-      throw new Error('Invalid access token.');
+      throw new Error('Could not find a user with that e-mail.');
     }
 
-    if (user.tokenVersion !== tokenVersion) {
-      throw new Error('Invalid token.');
-    }
-
-    request.user = user;
+    return response.status(200).json({
+      user,
+    });
   } catch (error) {
-    return response.status(401).json({
+    return response.status(400).json({
       error: (error as Error).message,
     });
   }
+});
 
-  return next();
-};
-
-usersRouter.post('/', RegisterUserController);
-usersRouter.get('/', auth, RecoverUserInformationController);
-
-usersRouter.post('/login', LoginUserController);
-usersRouter.post('/register', RegisterUserController);
-usersRouter.post('/refresh-token', RefreshUserTokenController);
-usersRouter.post('/profile', RecoverUserInformationController);
+usersRouter.post('/profile/settings/theme', SetAccountThemeController);
 
 usersRouter.post('/forgot-password', RecoverUserPaswordController);
 usersRouter.post('/set-new-password', SetUserNewPasswordController);

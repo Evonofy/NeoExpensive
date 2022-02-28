@@ -9,6 +9,13 @@ export type User = {
   githubId?: string;
 };
 
+export type Theme = string;
+
+export type Settings = {
+  theme: Theme;
+  language: string;
+};
+
 export type Error<T> = {
   field: T;
   message: string;
@@ -17,5 +24,6 @@ export type Error<T> = {
 export type RefreshToken = {
   id: string;
   userid: string;
+  platform?: Navigator['userAgentData']['platform'];
   expiresIn: number;
 };
