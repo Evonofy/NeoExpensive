@@ -4,7 +4,7 @@ import cors from 'cors';
 import { port } from '../lib/constants';
 import { router } from './router';
 
-export const server = () => {
+export const server = async () => {
   const app = express();
 
   app.use(express.json());

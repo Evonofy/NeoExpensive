@@ -10,19 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Settings {
-  id String @id
-
-  language String? @default("string")
-  theme    String? @default("dark")
-  User     User[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("settings")
-}
-
 model User {
   id           String  @id
   username     String? @unique
@@ -38,10 +25,26 @@ model User {
   settingsId String?
   settings   Settings? @relation(fields: [settingsId], references: [id])
 
+  roles       Role[]
+  permissions Permission[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("users")
+}
+
+model Settings {
+  id String @id
+
+  language String? @default("string")
+  theme    String? @default("dark")
+  User     User[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
 }
 
 model RefreshToken {
@@ -57,4 +60,30 @@ model RefreshToken {
   updatedAt DateTime @updatedAt
 
   @@map("refresh_tokens")
+}
+
+model Role {
+  id          String @id
+  name        String @unique
+  description String
+
+  user User[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("roles")
+}
+
+model Permission {
+  id          String @id
+  name        String @unique
+  description String
+
+  user User[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("permissions")
 }

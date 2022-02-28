@@ -8,9 +8,8 @@ export default function SessionsPage() {
   const queryClient = useQueryClient();
 
   const { data, isLoading } = useQuery<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens', async () => {
-    const accessToken = localStorage.getItem('@neo:access');
-    (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
     const { data } = await api.get('/auth/refresh-token');
+
     return data;
   });
 

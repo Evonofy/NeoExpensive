@@ -1,10 +1,15 @@
+/* eslint-disable camelcase */
 import { FC, useCallback, useEffect } from 'react';
 import { createContext } from 'use-context-selector';
 import { AxiosError } from 'axios';
+import { parseCookies, destroyCookie, setCookie } from 'nookies';
 
 import { api } from '../services/api';
 import { User, Error } from '../types';
 import { useAuthStore } from '../store/auth';
+
+export const accessTokenExpireTime = 1000 * 60 * 5; // 5 min
+export const refreshTokenExpireTime = 1000 * 60 * 60 * 24 * 3; // 3 days
 
 type LoginProps = {
   email: string;
@@ -53,10 +58,9 @@ export const AuthProvider: FC = ({ children }) => {
 
   useEffect(() => {
     const callback = () => {
-      const accessTokenExists = localStorage.getItem('@neo:access');
-      const refreshTokenExists = localStorage.getItem('@neo:refresh');
+      const { '@neo:access': accessToken, '@neo:refresh': refreshToken } = parseCookies();
 
-      if (!accessTokenExists || !refreshTokenExists) {
+      if (!accessToken || !refreshToken) {
         removeUser();
       }
     };
@@ -69,73 +73,59 @@ export const AuthProvider: FC = ({ children }) => {
   }, [removeUser]);
 
   const fetchUser = useCallback(async () => {
-    const { recoverUserInformation } = await import('../services/auth');
-
     try {
-      const { data: profile } = await api.get<{ user: { id: string }; error: string }>('/users/profile');
+      const { data: profile } = await api.post<{ id: string }>('/users/profile');
 
-      const { user, error } = await recoverUserInformation({
-        id: profile.user.id,
-      });
+      const { data: user } = await api.get<User>(`/users/${profile.id}`);
 
-      if (error) {
-        console.log('expired....');
-      }
-
-      user &&
-        setUser({
-          ...user,
-        });
+      setUser(user);
     } catch (error) {
       const { response } = error as AxiosError;
+
       if (response?.data.error === 'jwt expired') {
+        const { '@neo:refresh': token } = parseCookies();
+
         const { data } = await api.post<{ accessToken: string; refreshToken?: string }>('/auth/refresh-token', {
-          refresh_token: localStorage.getItem('@neo:refresh'),
+          refresh_token: token,
         });
 
         const { accessToken, refreshToken } = data;
 
-        localStorage.setItem('@neo:access', accessToken);
-
-        if (refreshToken) {
-          localStorage.setItem('@neo:refresh', refreshToken);
-        }
-
-        (api.defaults.headers as any)['authorization'] = `bearer ${localStorage.getItem('@neo:access')}`;
-
-        // reload of refetch
-        const { data: profile } = await api.get<{ user: { id: string }; error: string }>('/users/profile');
-
-        const { user, error } = await recoverUserInformation({
-          id: profile.user.id,
+        setCookie(undefined, '@neo:access', accessToken, {
+          maxAge: accessTokenExpireTime,
         });
 
-        if (error) {
-          console.log('expired....');
+        if (refreshToken) {
+          setCookie(undefined, '@neo:refresh', refreshToken, {
+            maxAge: refreshTokenExpireTime,
+          });
         }
 
-        user &&
-          setUser({
-            ...user,
-          });
+        (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
+        const profile = await api.post('/users/profile');
+
+        const { data: user } = await api.get<User>(`/users/${profile.data.id}`);
+
+        setUser(user);
       }
     }
   }, [setUser]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const token = localStorage.getItem('@neo:access');
-      (api.defaults.headers as any)['authorization'] = `bearer ${token}`;
+      const { '@neo:access': token } = parseCookies();
 
-      if (token !== null) {
+      if (token) {
+        (api.defaults.headers as any)['authorization'] = `bearer ${token}`;
+
         fetchUser();
       }
     }
   }, [fetchUser]);
 
   const logout = useCallback(async () => {
-    localStorage.removeItem('@neo:access');
-    localStorage.removeItem('@neo:refresh');
+    destroyCookie(undefined, '@neo:access');
+    destroyCookie(undefined, '@neo:refresh');
 
     removeUser();
   }, [removeUser]);
@@ -167,14 +157,16 @@ export const AuthProvider: FC = ({ children }) => {
         };
       }
 
-      if (typeof window !== 'undefined') {
-        if (accessToken) {
-          localStorage.setItem('@neo:access', accessToken);
-        }
+      if (accessToken) {
+        setCookie(undefined, '@neo:access', accessToken, {
+          maxAge: accessTokenExpireTime,
+        });
+      }
 
-        if (refreshToken) {
-          localStorage.setItem('@neo:refresh', refreshToken);
-        }
+      if (refreshToken) {
+        setCookie(undefined, '@neo:refresh', refreshToken, {
+          maxAge: refreshTokenExpireTime,
+        });
       }
 
       (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
@@ -215,11 +207,15 @@ export const AuthProvider: FC = ({ children }) => {
       }
 
       if (accessToken) {
-        localStorage.setItem('@neo:access', accessToken);
+        setCookie(undefined, '@neo:access', accessToken, {
+          maxAge: accessTokenExpireTime,
+        });
       }
 
       if (refreshToken) {
-        localStorage.setItem('@neo:refresh', refreshToken);
+        setCookie(undefined, '@neo:refresh', refreshToken, {
+          maxAge: refreshTokenExpireTime,
+        });
       }
 
       (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
@@ -246,10 +242,10 @@ export const AuthProvider: FC = ({ children }) => {
       };
     }
 
-    if (typeof window !== 'undefined') {
-      if (accessToken) {
-        localStorage.setItem('@neo:access', accessToken);
-      }
+    if (accessToken) {
+      setCookie(undefined, '@neo:refresh', accessToken, {
+        maxAge: accessTokenExpireTime,
+      });
     }
 
     return {
@@ -273,14 +269,15 @@ export const AuthProvider: FC = ({ children }) => {
 
         const { accessToken, user, refreshToken } = data;
 
-        if (accessToken) {
-          localStorage.setItem('@neo:access', accessToken);
-          api.defaults.headers.common.authorization = `bearer ${accessToken}`;
-        }
+        setCookie(undefined, '@neo:access', accessToken, {
+          maxAge: accessTokenExpireTime,
+        });
 
-        if (refreshToken) {
-          localStorage.setItem('@neo:refresh', refreshToken);
-        }
+        setCookie(undefined, '@neo:refresh', refreshToken, {
+          maxAge: refreshTokenExpireTime,
+        });
+
+        (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
 
         if (user) {
           setUser(user);
@@ -293,14 +290,17 @@ export const AuthProvider: FC = ({ children }) => {
   );
 
   const disconnectAccount = useCallback(async () => {
+    const { '@neo:refresh': token } = parseCookies();
+
     const { data } = await api.post<{ accessToken: string }>('/users/disconnect', {
-      refresh_token: localStorage.getItem('@neo:refresh'),
+      refresh_token: token,
     });
 
     const { accessToken } = data;
 
-    localStorage.setItem('@neo:access', accessToken);
-
+    setCookie(undefined, '@neo:access', accessToken, {
+      maxAge: accessTokenExpireTime,
+    });
     (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
   }, []);
 

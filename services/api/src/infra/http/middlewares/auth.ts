@@ -1,11 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 
-import { prisma } from '../../../../infra/prisma';
+import { prisma } from '../../prisma';
 
 export const auth = async (request: Request, response: Response, next: NextFunction) => {
   const { authorization } = request.headers;
-
   if (!authorization) {
     return response.status(401).json({
       error: 'Please supply an access token.',

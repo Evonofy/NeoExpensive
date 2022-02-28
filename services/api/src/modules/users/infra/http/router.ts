@@ -1,15 +1,29 @@
 import express from 'express';
 
 import { prisma } from '../../../../infra/prisma';
-import { auth } from '../middlewares/auth';
+import { auth } from '../../../../infra/http/middlewares/auth';
+import { can } from '../../../../infra/http/middlewares/permissions';
+
+// import { ListSpecificRoleController } from '../../../roles/use-cases/list-specific-role';
 
 import { LoginUserController, RegisterUserController, RecoverUserPaswordController, SetUserNewPasswordController, RefreshUserTokenController } from '../../use-cases';
 import { AuthenticateUserGithubController } from '../../use-cases/authenticate-user-github';
-import { RecoverUserInformationController } from '../../use-cases/recover-user-information';
 import { DisconnectUserAccountsController } from '../../use-cases/disconnect-user-accounts';
 import { SetAccountThemeController } from '../../use-cases/set-account-theme';
 import { ListAllRefreshTokensController } from '../../use-cases/list-all-refresh-tokens';
 import { InvalidateRefreshTokenController } from '../../use-cases/invalidate-refresh-token';
+import { ListUserRoles } from '../../use-cases/list-user-roles';
+
+import { ListAllUsers } from '../../use-cases/list-all-users';
+import { ListSpecificUser } from '../../use-cases/list-specific-user';
+import { ListSpecificUserRole } from '../../use-cases/list-specific-user-role';
+import { SetUserRole } from '../../use-cases/set-user-role';
+import { SetUserToAdmin } from '../../use-cases/set-user-to-admin';
+import { SetUserPermission } from '../../use-cases/set-user-permission';
+import { ListUserPermissions } from '../../use-cases/list-user-permissions';
+import { ListSpecificUserPermission } from '../../use-cases/list-specific-user-permission';
+import { RemoveUserRole } from '../../use-cases/remove-user-role';
+import { RemoveUserPermission } from '../../use-cases/remove-user-permission';
 
 // eslint-disable-next-line new-cap
 export const authRouter = express.Router();
@@ -20,20 +34,28 @@ authRouter.delete('/refresh-token', auth, InvalidateRefreshTokenController);
 // eslint-disable-next-line new-cap
 export const usersRouter = express.Router();
 
+usersRouter.get('/', ListAllUsers);
+usersRouter.get('/:id', ListSpecificUser);
+usersRouter.get('/:id/access-control-list', ListUserRoles);
+
+usersRouter.get('/:id/roles', ListUserRoles);
+usersRouter.get('/:id/roles/:roleId', ListSpecificUserRole);
+usersRouter.post('/:id/roles/:roleId', auth, can(['admin', 'set_user_role']), SetUserRole);
+usersRouter.delete('/:id/roles/:roleId', auth, can(['admin', 'remove_user_role']), RemoveUserRole);
+
+usersRouter.get('/:id/permissions', ListUserPermissions);
+usersRouter.get('/:id/permissions/:permissionId', ListSpecificUserPermission);
+usersRouter.post('/:id/permissions/:permissionId', auth, can(['admin', 'set_user_permission']), SetUserPermission);
+usersRouter.delete('/:id/permissions/:permissionId', auth, can(['admin', 'remove_user_permission']), RemoveUserPermission);
+
+usersRouter.post('/:id/admin', auth, SetUserToAdmin);
+
 usersRouter.post('/', RegisterUserController);
-usersRouter.get('/', auth, async (_, response) => {
-  const users = await prisma.user.findMany();
-
-  return response.status(200).json({
-    users,
-  });
-});
-
-usersRouter.get('/:id', auth, RecoverUserInformationController);
 
 usersRouter.post('/login', LoginUserController);
 usersRouter.post('/register', RegisterUserController);
-usersRouter.get('/profile', auth, async (request, response) => {
+
+usersRouter.post('/profile', auth, async (request, response) => {
   const { id } = request.user;
 
   try {
@@ -50,9 +72,7 @@ usersRouter.get('/profile', auth, async (request, response) => {
       throw new Error('Could not find a user with that e-mail.');
     }
 
-    return response.status(200).json({
-      user,
-    });
+    return response.status(200).json(user);
   } catch (error) {
     return response.status(400).json({
       error: (error as Error).message,
@@ -60,7 +80,7 @@ usersRouter.get('/profile', auth, async (request, response) => {
   }
 });
 
-usersRouter.post('/profile/settings/theme', SetAccountThemeController);
+usersRouter.post('/profile/settings/theme', auth, SetAccountThemeController);
 
 usersRouter.post('/forgot-password', RecoverUserPaswordController);
 usersRouter.post('/set-new-password', SetUserNewPasswordController);

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { useCallback } from 'react';
 import { useRouter } from 'next/router';
+import { parseCookies } from 'nookies';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useLogin } from '../hooks/auth/useLogin';
@@ -25,11 +26,12 @@ const RecoverPasswordPage: NextPage = () => {
     async ({ password }) => {
       const setNewPasswordRequest = await import('../services/auth').then((module) => module.setNewPasswordRequest);
 
+      const { '@neo:access': token } = parseCookies();
+
       const { errors } = await setNewPasswordRequest({
-        accessToken: localStorage.getItem('@neo:access')!,
+        accessToken: token!,
         password,
       });
-      console.log(errors);
 
       if (errors) {
         errors.map(({ field, message }) =>
