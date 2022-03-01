@@ -1,8 +1,8 @@
-- settings routes
+- ~~settings routes~~
 
   - [x] set account theme
-  - [ ] set account language
-  - [ ] load settings
+  - [x] set account language
+  - [x] load settings
 
 - user registration
 

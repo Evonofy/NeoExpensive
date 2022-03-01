@@ -24,6 +24,8 @@ import { ListUserPermissions } from '../../use-cases/list-user-permissions';
 import { ListSpecificUserPermission } from '../../use-cases/list-specific-user-permission';
 import { RemoveUserRole } from '../../use-cases/remove-user-role';
 import { RemoveUserPermission } from '../../use-cases/remove-user-permission';
+import { SetAccountLanguageController } from '../../use-cases/set-account-language';
+import { LoadUserSettings } from '../../use-cases/load-user-settings';
 
 // eslint-disable-next-line new-cap
 export const authRouter = express.Router();
@@ -80,7 +82,9 @@ usersRouter.post('/profile', auth, async (request, response) => {
   }
 });
 
+usersRouter.get('/profile/settings', auth, LoadUserSettings);
 usersRouter.post('/profile/settings/theme', auth, SetAccountThemeController);
+usersRouter.post('/profile/settings/language', auth, SetAccountLanguageController);
 
 usersRouter.post('/forgot-password', RecoverUserPaswordController);
 usersRouter.post('/set-new-password', SetUserNewPasswordController);
