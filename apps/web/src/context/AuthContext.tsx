@@ -2,6 +2,7 @@
 import { FC, useCallback, useEffect } from 'react';
 import { createContext } from 'use-context-selector';
 import { AxiosError } from 'axios';
+import { useRouter } from 'next/router';
 import { parseCookies, destroyCookie, setCookie } from 'nookies';
 
 import { api } from '../services/api';
@@ -52,6 +53,8 @@ type AuthContextProps = {
 export const AuthContext = createContext({} as AuthContextProps);
 
 export const AuthProvider: FC = ({ children }) => {
+  const { query } = useRouter();
+
   const user = useAuthStore(useCallback((state) => state.user, []));
   const setUser = useAuthStore(useCallback((state) => state.setUser, []));
   const removeUser = useAuthStore(useCallback((state) => state.removeUser, []));
@@ -283,7 +286,44 @@ export const AuthProvider: FC = ({ children }) => {
           setUser(user);
         }
       } catch (error) {
-        console.log((error as AxiosError).response);
+        console.log('failed to login with neo');
+      }
+    },
+    [setUser]
+  );
+
+  const neoSignIn = useCallback(
+    async (code: string) => {
+      try {
+        type NeoOAuthAPIResponse = {
+          user: User;
+          accessToken: string;
+          refreshToken: string;
+        };
+
+        const { data } = await api.post<NeoOAuthAPIResponse>('/users/authenticate/neo', {
+          code,
+          platform: navigator.platform || navigator.userAgentData.platform,
+        });
+
+        const { accessToken, user, refreshToken } = data;
+
+        setCookie(undefined, '@neo:access', accessToken, {
+          maxAge: accessTokenExpireTime,
+        });
+
+        setCookie(undefined, '@neo:refresh', refreshToken, {
+          maxAge: refreshTokenExpireTime,
+        });
+
+        (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
+
+        if (user) {
+          setUser(user);
+        }
+      } catch (error) {
+        console.log('failed to login with neo');
+        console.log((error as AxiosError)?.response?.data);
       }
     },
     [setUser]
@@ -306,14 +346,19 @@ export const AuthProvider: FC = ({ children }) => {
 
   useEffect(() => {
     const url = window.location.href;
-    const hasGithubCode = url.includes('?code=');
+    const hasOAuthCode = url.includes('?code=');
 
-    if (hasGithubCode) {
-      const [urlWithoutCode, githubCode] = url.split('?code=');
+    if (hasOAuthCode) {
+      const [urlWithoutCode, OAuthCode] = url.split('?code=');
+      const { code, provider } = query;
 
       window.history.pushState({}, '', urlWithoutCode);
-      if (githubCode) {
-        githubSignIn(githubCode);
+      if (OAuthCode) {
+        if (provider === 'github') {
+          githubSignIn(code as string);
+        } else if (provider === 'neo') {
+          neoSignIn(code as string);
+        }
       }
     }
   });

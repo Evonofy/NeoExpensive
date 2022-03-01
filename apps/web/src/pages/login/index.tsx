@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
-import { useLogin } from '../hooks/auth/useLogin';
+import { useLogin } from '../../hooks/auth/useLogin';
 const Link = dynamic(() => import('next/link'));
 type FormProps = {
   email: string;
@@ -19,7 +19,8 @@ const Login: NextPage = () => {
     formState: { errors },
   } = useForm<FormProps>();
   const { login } = useLogin();
-  const { push } = useRouter();
+  const { push, query } = useRouter();
+
   const handleLogin: SubmitHandler<FormProps> = useCallback(
     async ({ email, password }) => {
       const { errors } = await login({
@@ -32,9 +33,16 @@ const Login: NextPage = () => {
         return;
       }
 
-      push('/');
+      const clientId = query.client_id;
+      const returnTo = query['return_to'];
+      if (!returnTo) {
+        push('/');
+        return;
+      }
+
+      push(`${returnTo}&client_id=${clientId}`);
     },
-    [login, setError, push]
+    [login, query, push, setError]
   );
 
   return (

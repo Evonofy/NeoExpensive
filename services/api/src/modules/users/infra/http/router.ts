@@ -26,6 +26,7 @@ import { RemoveUserRole } from '../../use-cases/remove-user-role';
 import { RemoveUserPermission } from '../../use-cases/remove-user-permission';
 import { SetAccountLanguageController } from '../../use-cases/set-account-language';
 import { LoadUserSettings } from '../../use-cases/load-user-settings';
+import { AuthenticateUserNeo } from '../../use-cases/authenticate-user-neo';
 
 // eslint-disable-next-line new-cap
 export const authRouter = express.Router();
@@ -92,7 +93,12 @@ usersRouter.post('/set-new-password', SetUserNewPasswordController);
 usersRouter.post('/disconnect', auth, DisconnectUserAccountsController);
 
 usersRouter.post('/authenticate/github', AuthenticateUserGithubController);
+usersRouter.post('/authenticate/neo', AuthenticateUserNeo);
 
 usersRouter.get('/login/oauth/github', (_, response) => {
   return response.redirect(`https://github.com/login/oauth/authorize?scope=user&client_id=${process.env.GITHUB_CLIENT_ID}`);
+});
+
+usersRouter.get('/login/oauth/neo', (_, response) => {
+  return response.redirect(`http://localhost:3000/login/oauth/authorize?scope=user&client_id=${process.env.NEO_CLIENT_ID}`);
 });

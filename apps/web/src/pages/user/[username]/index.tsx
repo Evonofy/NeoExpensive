@@ -128,7 +128,10 @@ UserPage.getInitialProps = async (ctx) => {
   const { '@neo:access': token } = parseCookies(ctx);
 
   if (!token) {
-    Router.push('/login');
+    if (typeof window !== 'undefined') {
+      console.log('hey');
+    }
+    // Router.push('/login');
 
     return {};
   }

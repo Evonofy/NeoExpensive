@@ -45,6 +45,11 @@ const Home: NextPage = () => {
               <a>login with github</a>
             </Link>
           </div>
+          <div>
+            <Link href={`${process.env.NEXT_PUBLIC_API_URL}/users/login/oauth/neo`}>
+              <a>login with neo-expensive</a>
+            </Link>
+          </div>
         </div>
       )}
 
