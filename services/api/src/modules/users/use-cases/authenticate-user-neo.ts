@@ -58,7 +58,7 @@ export async function AuthenticateUserNeo(request: Request<{}, {}, { code: strin
           id: crypto.randomUUID(),
           neoId: String(id),
           name,
-          email: '',
+          email,
           avatarUrl,
         },
       });
