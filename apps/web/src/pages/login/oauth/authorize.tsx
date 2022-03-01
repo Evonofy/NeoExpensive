@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { parseCookies } from 'nookies';
+import { parseCookies, setCookie } from 'nookies';
 import { useCallback, useEffect } from 'react';
 
 import { useUser } from '../../../hooks/auth/user';
@@ -37,6 +37,9 @@ const Authorize: NextPage<AuthorizeProps> = ({ scope, user, clientId }) => {
     const code = storeUser?.id;
 
     window.location.href = `${app?.callback}?code=${code}&source=neo`;
+    setCookie(undefined, '@neo:authorization', 'true', {
+      maxAge: 1000 * 60 * 60 * 24 * 3, // 3 days
+    });
   }, [app?.callback, storeUser?.id]);
 
   useEffect(() => {
@@ -46,9 +49,9 @@ const Authorize: NextPage<AuthorizeProps> = ({ scope, user, clientId }) => {
       return;
     }
 
-    const { '@neo:access': token } = parseCookies();
+    const { '@neo:authorization': token } = parseCookies();
 
-    if (token && app) {
+    if (token === 'true' && app) {
       const code = user.id;
 
       window.location.href = `${app.callback}?code=${code}&source=neo`;

@@ -6,21 +6,22 @@
   "repository": "https://github.com/Neo-Florescence/neo-expensive",
   "license": "MIT",
   "private": true,
-  "main": "./dist/application/index.js",
+  "main": "./dist/index.js",
   "packageManager": "yarn@3.1.1",
   "scripts": {
-    "dev": "rimraf dist && tsc -w",
-    "build": "rimraf dist && tsc",
+    "dev": "swc ./index.ts -d dist && tsc",
+    "build": "swc src -d dist",
     "test": "jest"
   },
   "dependencies": {
     "@neo/core": "*",
-    "bcrypt": "^5.0.1",
-    "@types/bcrypt": "^5.0.0"
+    "@swc/cli": "^0.1.55",
+    "@swc/core": "^1.2.145",
+    "bcrypt": "^5.0.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "jest": "^27.5.1",
-    "rimraf": "^3.0.2",
     "typescript": "^4.3.5"
   }
 }

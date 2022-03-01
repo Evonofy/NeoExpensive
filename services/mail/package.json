@@ -9,16 +9,17 @@
   "main": "./dist/index.js",
   "packageManager": "yarn@3.1.1",
   "scripts": {
-    "dev": "rimraf dist && tsc -w",
-    "build": "rimraf dist && tsc",
+    "dev": "swc ./index.ts -d dist && tsc",
+    "build": "swc src -d dist",
     "test": "jest"
   },
   "dependencies": {
-    "@neo/core": "*"
+    "@neo/core": "*",
+    "@swc/cli": "^0.1.55",
+    "@swc/core": "^1.2.145"
   },
   "devDependencies": {
     "jest": "^27.5.1",
-    "rimraf": "^3.0.2",
     "typescript": "^4.3.5"
   }
 }

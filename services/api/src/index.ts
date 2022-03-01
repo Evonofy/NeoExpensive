@@ -1,3 +1,5 @@
 import 'dotenv-safe/config';
 
-import './infra/http';
+import { server } from './infra/http/server';
+
+server();

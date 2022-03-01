@@ -10,7 +10,7 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
-    "build": "tsc",
+    "build": "esbuild ./src/**/*.ts --loader:.ts=ts --platform=node --format=cjs --outdir=dist",
     "start": "yarn build && node dist/index.js",
     "migrate": "prisma db push --accept-data-loss",
     "env": "gen-env-types -k -e . -o ./src/@types/env.d.ts",
@@ -30,6 +30,7 @@
     "cors": "^2.8.5",
     "dayjs": "^1.10.7",
     "dotenv-safe": "^8.2.0",
+    "esbuild": "^0.14.23",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "nodemailer": "^6.7.2",
