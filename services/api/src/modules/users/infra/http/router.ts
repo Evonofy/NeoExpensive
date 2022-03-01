@@ -100,5 +100,5 @@ usersRouter.get('/login/oauth/github', (_, response) => {
 });
 
 usersRouter.get('/login/oauth/neo', (_, response) => {
-  return response.redirect(`http://localhost:3000/login/oauth/authorize?scope=user&client_id=${process.env.NEO_CLIENT_ID}`);
+  return response.redirect(`${process.env.NEO_CLIENT_OAUTH_URL}?scope=user&client_id=${process.env.NEO_CLIENT_ID}`);
 });

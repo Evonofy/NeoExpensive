@@ -40,7 +40,11 @@ const Login: NextPage = () => {
         return;
       }
 
-      push(`${returnTo}&client_id=${clientId}`);
+      if (clientId) {
+        push(`${returnTo}&client_id=${clientId}`);
+      }
+
+      push(`${returnTo}`);
     },
     [login, query, push, setError]
   );

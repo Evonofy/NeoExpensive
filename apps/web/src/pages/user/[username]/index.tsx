@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useContextSelector } from 'use-context-selector';
 import { parseCookies, setCookie } from 'nookies';
@@ -10,15 +10,26 @@ import { api } from '../../../services/api';
 import { User } from '../../../types';
 import { AxiosError } from 'axios';
 import { refreshTokenExpireTime, accessTokenExpireTime } from '../../../context/AuthContext';
+import { useEffect } from 'react';
 
 const Link = dynamic(() => import('next/link'));
 
 const UserPage: NextPage = () => {
+  const { asPath, push } = useRouter();
+
   const theme = useContextSelector(SettingsContext, (context) => context.theme);
 
   const installTheme = useContextSelector(SettingsContext, (context) => context.installTheme);
   const resetDefault = useContextSelector(SettingsContext, (context) => context.resetDefault);
   const installLanguage = useContextSelector(SettingsContext, (context) => context.installLanguage);
+
+  useEffect(() => {
+    const { '@neo:access': token } = parseCookies();
+
+    if (!token) {
+      push(`/login?return_to=${asPath}`);
+    }
+  }, [asPath, push]);
 
   const { data, isLoading, error } = useQuery<{ user: User }>('fetch-user', async () => {
     try {
@@ -33,7 +44,7 @@ const UserPage: NextPage = () => {
       const { response } = error as AxiosError;
 
       if (response?.data.error !== 'jwt expired') {
-        Router.push('/login');
+        push('/login');
       }
 
       const { '@neo:refresh': token } = parseCookies();
@@ -64,6 +75,7 @@ const UserPage: NextPage = () => {
       };
     }
   });
+
   if (isLoading) {
     return (
       <div>
@@ -122,21 +134,6 @@ const UserPage: NextPage = () => {
       </section>
     </div>
   );
-};
-
-UserPage.getInitialProps = async (ctx) => {
-  const { '@neo:access': token } = parseCookies(ctx);
-
-  if (!token) {
-    if (typeof window !== 'undefined') {
-      console.log('hey');
-    }
-    // Router.push('/login');
-
-    return {};
-  }
-
-  return {};
 };
 
 export default UserPage;

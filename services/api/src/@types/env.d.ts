@@ -15,6 +15,7 @@ declare global {
       REFRESH_TOKEN_SECRET: string;
       GITHUB_CLIENT_ID: string;
       GITHUB_CLIENT_SECRET: string;
+      NEO_CLIENT_OAUTH_URL: string;
       NEO_CLIENT_ID: string;
       NEO_CLIENT_SECRET: string;
     }

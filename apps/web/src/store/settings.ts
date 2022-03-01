@@ -16,9 +16,9 @@ export const useSettingsStore = create<useSettingsStoreProps>((set) => ({
       theme,
     }));
   },
-  setLanguage: (theme) => {
+  setLanguage: (language) => {
     set(() => ({
-      theme,
+      language,
     }));
   },
 }));

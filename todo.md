@@ -21,7 +21,8 @@
 
 - oauth
 
-  - [ ] add functionality to create oauth apps in neo-expensive developer platform, just like github does it -[ ] give the user an appId and appSecret
+  - [x] add functionality to create oauth apps in neo-expensive developer platform, just like github does it
+  - [x] give the user an appId and appSecret
 
 - web
 
