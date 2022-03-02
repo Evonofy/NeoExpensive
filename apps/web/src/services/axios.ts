@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { parseCookies } from 'nookies';
 
 type Context = any;
@@ -13,6 +13,21 @@ export function getAPIClient(ctx?: Context) {
   api.interceptors.request.use((config) => {
     return config;
   });
+
+  api.interceptors.response.use(
+    (response) => response,
+    (err) => {
+      const { response } = err as AxiosError;
+      const error = response?.data.error as 'jwt expired';
+
+      switch (error) {
+        case 'jwt expired':
+          console.log('refresh token');
+          // refresh token
+          break;
+      }
+    }
+  );
 
   if (token) {
     // @ts-ignore

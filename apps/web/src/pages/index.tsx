@@ -1,4 +1,4 @@
-import { useMemo, memo } from 'react';
+import { useMemo, memo, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { NextPage } from 'next';
 const Link = dynamic(() => import('next/link'));
@@ -7,7 +7,8 @@ import { useContextSelector } from 'use-context-selector';
 import { Icon } from '@neo/icons/lib';
 import { useUser } from '../hooks/auth/user';
 import { useLogout } from '../hooks/auth/useLogout';
-import { AuthContext } from 'context/AuthContext';
+import { AuthContext } from '../context/AuthContext';
+import { StorageContext } from '../context/StorageContext';
 
 const Home: NextPage = () => {
   const { user } = useUser();
@@ -18,6 +19,13 @@ const Home: NextPage = () => {
   }, [user]);
 
   const disconnectAccount = useContextSelector(AuthContext, (context) => context.disconnectAccount);
+  const storage = useContextSelector(StorageContext, (context) => context.storage);
+  const changeToCookies = useContextSelector(StorageContext, (context) => context.changeToCookies);
+  const changeToLocalStorage = useContextSelector(StorageContext, (context) => context.changeToLocalStorage);
+
+  const handleOptOutCookies = useCallback(() => {
+    storage === 'cookies' ? changeToLocalStorage() : changeToCookies();
+  }, [changeToCookies, changeToLocalStorage, storage]);
 
   return (
     <main>
@@ -61,6 +69,7 @@ const Home: NextPage = () => {
 
       {user && (
         <div>
+          <button onClick={handleOptOutCookies}>change to {storage === 'cookies' ? 'localStorage' : 'cookies'}</button>
           <div>
             <h2 style={{ color: 'red' }}>Hello {user.name}</h2>
             <a>

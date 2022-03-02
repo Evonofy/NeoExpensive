@@ -27,12 +27,13 @@
 
 - web
 
-  - [ ] broadcast user logout to all window tabs
+  - [ ] extract refresh token logic into a hook
+  - [ ] ~~broadcast user logout to all window tabs~~
   - [ ] use react query in context to better check for auth updates
   - [ ] give a user choice between using cookies or not
-  - [ ] page to show users what information we hold of him
-  - [ ] page for user to delete his cookies or localStorage
-  - [ ] verify if the session being deleted is the same session in the cookies, if so, warn the user and then if confirmed log user out
+  - [x] page to show users what information we hold of him
+  - [x] page for user to delete his cookies or localStorage
+  - [x] verify if the session being deleted is the same session in the cookies, if so, warn the user and then if confirmed log user out
   - [ ] create dashboard in a completely different app
 
 - github actions

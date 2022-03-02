@@ -35,6 +35,7 @@ const Login: NextPage = () => {
 
       const clientId = query.client_id;
       const returnTo = query['return_to'];
+
       if (!returnTo) {
         push('/');
         return;
@@ -42,9 +43,11 @@ const Login: NextPage = () => {
 
       if (clientId) {
         push(`${returnTo}&client_id=${clientId}`);
+        return;
       }
 
       push(`${returnTo}`);
+      return;
     },
     [login, query, push, setError]
   );

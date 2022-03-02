@@ -3,14 +3,16 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useContextSelector } from 'use-context-selector';
-import { parseCookies, setCookie } from 'nookies';
+import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import { AxiosError } from 'axios';
+import { useMemo, useState } from 'react';
 
 import { SettingsContext } from '../../../context/SettingsContext';
 import { api } from '../../../services/api';
 import { User } from '../../../types';
-import { AxiosError } from 'axios';
 import { refreshTokenExpireTime, accessTokenExpireTime } from '../../../context/AuthContext';
-import { useEffect } from 'react';
+import { useUser } from '../../../hooks/auth/user';
+import { useLogout } from '../../../hooks/auth/useLogout';
 
 const Link = dynamic(() => import('next/link'));
 
@@ -19,7 +21,15 @@ type UserPageProps = {
 };
 
 const UserPage: NextPage<UserPageProps> = ({ username }) => {
-  const { asPath, push } = useRouter();
+  const { user } = useUser();
+  const { push } = useRouter();
+  const { logout } = useLogout();
+
+  const [userData, setUserData] = useState<Array<{
+    name: string;
+    description: string;
+    value: string;
+  }> | null>(null);
 
   const theme = useContextSelector(SettingsContext, (context) => context.theme);
   const language = useContextSelector(SettingsContext, (context) => context.language);
@@ -28,13 +38,9 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
   const resetDefault = useContextSelector(SettingsContext, (context) => context.resetDefault);
   const installLanguage = useContextSelector(SettingsContext, (context) => context.installLanguage);
 
-  useEffect(() => {
-    const { '@neo:access': token } = parseCookies();
-
-    if (!token) {
-      push(`/login?return_to=${asPath}`);
-    }
-  }, [asPath, push]);
+  const isPageUser = useMemo(() => {
+    return user?.username === username;
+  }, [user?.username, username]);
 
   const { data, isLoading, error } = useQuery<{ user: User }>('fetch-user', async () => {
     try {
@@ -81,6 +87,63 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
     }
   });
 
+  function handleShowUserData() {
+    const cookies = parseCookies();
+    const cookiesArray = Object.entries(cookies);
+
+    const descriptionTable: Record<string, string> = {
+      '@neo:access': "makes sure you're authenticated to our server",
+      '@neo:refresh': 'keeps you logged in the app',
+      '@neo:authorization': "knows wheter you've pressed the neo-expensive oauth button once",
+      '@neo:theme': "the current theme you're using",
+      '@neo:language': "the current language you're using",
+    };
+
+    const formattedCookies = cookiesArray.map(([name, value]) => ({
+      name,
+      description: descriptionTable[name] || 'not yet documented',
+      value,
+    }));
+
+    setUserData(formattedCookies);
+  }
+
+  function handleDeleteUserData(cookieName: string) {
+    setUserData((data) => {
+      const filteredUserData = data?.filter(({ name }) => name !== cookieName);
+
+      if (!filteredUserData) {
+        return data;
+      }
+
+      return filteredUserData;
+    });
+
+    destroyCookie(undefined, cookieName);
+  }
+
+  async function softLogoutUser() {
+    const { '@neo:refresh': token } = parseCookies();
+
+    try {
+      const { data: refreshToken } = await api.get<{ id: string }>(`/auth/refresh-token/${token}`);
+
+      // call the api to delete refresh token
+      if (refreshToken) {
+        await api.delete('/auth/refresh-token', {
+          data: {
+            id: refreshToken.id,
+          },
+        });
+      }
+    } catch (error) {
+      console.log((error as AxiosError)?.response?.data);
+    }
+
+    destroyCookie(undefined, '@neo:refresh');
+    destroyCookie(undefined, '@neo:authorization');
+  }
+
   if (isLoading) {
     return (
       <div>
@@ -98,16 +161,51 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
   }
 
   return (
-    <div>
+    <div style={{ color: 'black' }}>
       <p style={{ color: 'black' }}>{data?.user.id}</p>
 
-      <div>
-        <Link href={`/user/${data?.user.name}/sessions`}>see my sessions</Link>
-      </div>
+      {!isPageUser && (
+        <div>
+          <p>not logged in?</p>
+          <button onClick={() => push(`/login?return_to=/user/${username}`)}>login now</button>
+        </div>
+      )}
 
-      <div>
-        <button onClick={resetDefault}>reset to defaults</button>
-      </div>
+      {isPageUser && (
+        <div>
+          <div>
+            <Link href={`/user/${data?.user.name}/sessions`}>see my sessions</Link>
+          </div>
+          <div>
+            <button onClick={resetDefault}>reset to defaults</button>
+          </div>
+          <div>
+            <button onClick={logout}>logout</button>
+          </div>
+          <div>
+            <button onClick={handleShowUserData}>see my data</button>
+
+            <br />
+            {userData && <button onClick={softLogoutUser}>delete all stored data but keep me logged in</button>}
+
+            <ul>
+              <strong>deleting @neo:access and @neo:refresh will log you out</strong>
+              {/* explain why each cookie is needed */}
+              {userData &&
+                userData.map(({ name, description, value }) => (
+                  <li key={name}>
+                    <strong>{name}</strong> {value}
+                    <br />
+                    <p>description: {description}</p>
+                    <button onClick={() => handleDeleteUserData(name!)}>delete</button>
+                    <br />
+                    <br />
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </div>
+      )}
 
       <section>
         <div>
@@ -117,15 +215,19 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
             current theme: <strong>{theme}</strong>
           </p>
         </div>
-        <div>
-          <button onClick={() => installTheme({ theme: 'dark' })}>install dark theme</button>
-        </div>
-        <div>
-          <button onClick={() => installTheme({ theme: 'light' })}>install light theme</button>
-        </div>
-        <div>
-          <button onClick={() => installTheme({ theme: 'neon' })}>install neon theme</button>
-        </div>
+        {isPageUser && (
+          <div>
+            <div>
+              <button onClick={() => installTheme({ theme: 'dark' })}>install dark theme</button>
+            </div>
+            <div>
+              <button onClick={() => installTheme({ theme: 'light' })}>install light theme</button>
+            </div>
+            <div>
+              <button onClick={() => installTheme({ theme: 'neon' })}>install neon theme</button>
+            </div>
+          </div>
+        )}
       </section>
 
       <section>
@@ -135,10 +237,12 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
             current theme: <strong>{language}</strong>
           </p>
         </div>
-        <div>
-          <button onClick={() => installLanguage({ language: 'pt-BR' })}>install portuguese language</button>
-          <button onClick={() => installLanguage({ language: 'en-US' })}>install english language</button>
-        </div>
+        {isPageUser && (
+          <div>
+            <button onClick={() => installLanguage({ language: 'pt-BR' })}>install portuguese language</button>
+            <button onClick={() => installLanguage({ language: 'en-US' })}>install english language</button>
+          </div>
+        )}
       </section>
     </div>
   );
