@@ -1,8 +1,9 @@
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { parseCookies, setCookie } from 'nookies';
 import { useCallback, useEffect, useState } from 'react';
+import { useContextSelector } from 'use-context-selector';
 
+import { StorageContext } from '../../../context/StorageContext';
 import { useUser } from '../../../hooks/auth/user';
 import { api } from '../../../services/api';
 
@@ -19,6 +20,8 @@ const Authorize: NextPage = () => {
   const { push } = useRouter();
   const [query, setQuery] = useState<{ scope: string; clientId: string } | null>(null);
   const [app, setApp] = useState<OAuthApp | null>(null);
+  const storageSet = useContextSelector(StorageContext, (context) => context.set);
+  const storageGet = useContextSelector(StorageContext, (context) => context.get);
 
   useEffect(() => {
     const url = window.location.href;
@@ -45,7 +48,9 @@ const Authorize: NextPage = () => {
 
   useEffect(() => {
     // hit api and see if token is valid
-    const { '@neo:access': access, '@neo:refresh': refresh, '@neo:authorization': authorization } = parseCookies();
+    const access = storageGet('@neo:access');
+    const refresh = storageGet('@neo:refresh');
+    const authorization = storageGet('@neo:authorization');
 
     if (!access || !refresh) {
       push(`/login?return_to=/login/oauth/authorize?scope=${query?.scope}&client_id=${query?.clientId}`);
@@ -57,7 +62,7 @@ const Authorize: NextPage = () => {
 
       window.location.href = `${app?.callback}?code=${code}&source=neo`;
     }
-  }, [app, push, query?.clientId, query?.scope, user]);
+  }, [app, push, query?.clientId, query?.scope, storageGet, user]);
 
   const handleAuthorizeApp = useCallback(() => {
     // login user with oauth
@@ -65,10 +70,10 @@ const Authorize: NextPage = () => {
 
     window.location.href = `${app?.callback}?code=${code}&source=neo`;
 
-    setCookie(undefined, '@neo:authorization', 'true', {
+    storageSet('@neo:authorization', 'true', {
       maxAge: 1000 * 60 * 60 * 24 * 3, // 3 days
     });
-  }, [app?.callback, user?.id]);
+  }, [app?.callback, storageSet, user?.id]);
 
   return (
     <div style={{ color: 'black' }}>

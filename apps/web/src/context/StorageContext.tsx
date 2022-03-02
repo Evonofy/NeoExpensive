@@ -12,6 +12,7 @@ type StorageContextProps = {
   storage: Storage;
   set<Type extends string>(key: string, value: Type, options?: Options): void;
   get<Type extends string>(key: string): Type | null;
+  getAll(): Record<string, string> | {};
   remove: (key: string) => void;
   changeToCookies: () => void;
   changeToLocalStorage: () => void;
@@ -101,6 +102,20 @@ export const StorageProvider: FC = ({ children }) => {
     [storage]
   );
 
+  const getAll = useCallback(() => {
+    switch (storage) {
+      case 'cookies': {
+        return parseCookies() || {};
+      }
+      case 'localStorage': {
+        return localStorage || {};
+      }
+      default: {
+        return localStorage || {};
+      }
+    }
+  }, [storage]);
+
   const changeToCookies = useCallback(() => {
     setStorage('cookies');
     set<Storage>(storageKey, 'cookies');
@@ -135,5 +150,5 @@ export const StorageProvider: FC = ({ children }) => {
     });
   }, [set, setStorage, storageKey]);
 
-  return <StorageContext.Provider value={{ storage, get, set, remove, changeToCookies, changeToLocalStorage }}>{children}</StorageContext.Provider>;
+  return <StorageContext.Provider value={{ storage, get, set, remove, getAll, changeToCookies, changeToLocalStorage }}>{children}</StorageContext.Provider>;
 };

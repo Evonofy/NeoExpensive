@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import { useLogin } from '../../hooks/auth/useLogin';
 const Link = dynamic(() => import('next/link'));
 type FormProps = {
-  email: string;
+  login: string;
   password: string;
 };
 
@@ -18,13 +18,13 @@ const Login: NextPage = () => {
     setError,
     formState: { errors },
   } = useForm<FormProps>();
-  const { login } = useLogin();
+  const { login: loginRequest } = useLogin();
   const { push, query } = useRouter();
 
   const handleLogin: SubmitHandler<FormProps> = useCallback(
-    async ({ email, password }) => {
-      const { errors } = await login({
-        email,
+    async ({ login, password }) => {
+      const { errors } = await loginRequest({
+        login,
         password,
       });
 
@@ -49,7 +49,7 @@ const Login: NextPage = () => {
       push(`${returnTo}`);
       return;
     },
-    [login, query, push, setError]
+    [loginRequest, query, push, setError]
   );
 
   return (
@@ -58,12 +58,12 @@ const Login: NextPage = () => {
         <div>
           <input
             type="text"
-            placeholder="email"
-            {...register('email', {
+            placeholder="ID, email or username"
+            {...register('login', {
               required: true,
             })}
           />
-          {errors.email && <span style={{ color: 'red' }}>{errors.email.message}</span>}
+          {errors.login && <span style={{ color: 'red' }}>{errors.login.message}</span>}
         </div>
         <div>
           <input

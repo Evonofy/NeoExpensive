@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
 import { useCallback } from 'react';
 import { useRouter } from 'next/router';
-import { parseCookies } from 'nookies';
+import { useContextSelector } from 'use-context-selector';
 
+import { StorageContext } from '../context/StorageContext';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useLogin } from '../hooks/auth/useLogin';
 import { useUser } from '../hooks/auth/user';
@@ -21,12 +22,13 @@ const RecoverPasswordPage: NextPage = () => {
   const { login } = useLogin();
   const { user } = useUser();
   const { push } = useRouter();
+  const getStorage = useContextSelector(StorageContext, (context) => context.get);
 
   const handleRecoverPassword: SubmitHandler<FormProps> = useCallback(
     async ({ password }) => {
       const setNewPasswordRequest = await import('../services/auth').then((module) => module.setNewPasswordRequest);
 
-      const { '@neo:access': token } = parseCookies();
+      const token = getStorage('@neo:access');
 
       const { errors } = await setNewPasswordRequest({
         accessToken: token!,
@@ -54,7 +56,7 @@ const RecoverPasswordPage: NextPage = () => {
       push('/');
       return;
     },
-    [login, push, setError, user]
+    [getStorage, login, push, setError, user]
   );
 
   return (

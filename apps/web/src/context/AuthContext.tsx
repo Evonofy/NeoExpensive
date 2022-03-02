@@ -12,7 +12,7 @@ export const accessTokenExpireTime = 1000 * 60 * 5; // 5 min
 export const refreshTokenExpireTime = 1000 * 60 * 60 * 24 * 3; // 3 days
 
 type LoginProps = {
-  email: string;
+  login: string;
   password: string;
 };
 
@@ -25,7 +25,7 @@ type RegisterProps = {
 
 type LoginResponse = {
   user?: User;
-  errors?: Error<'email' | 'password'>[];
+  errors?: Error<'login' | 'password'>[];
 };
 
 type RegisterResponse = {
@@ -207,11 +207,11 @@ export const AuthProvider: FC = ({ children }) => {
   );
 
   const login = useCallback(
-    async ({ email, password }: LoginProps): Promise<LoginResponse> => {
+    async ({ login, password }: LoginProps): Promise<LoginResponse> => {
       const { loginInRequest } = await import('../services/auth');
 
       const { user, accessToken, refreshToken, errors } = await loginInRequest({
-        email,
+        login,
         password,
         platform: navigator.platform || navigator.userAgentData.platform,
         language: navigator.language,
@@ -227,7 +227,7 @@ export const AuthProvider: FC = ({ children }) => {
         return {
           errors: [
             {
-              field: 'email',
+              field: 'login',
               message: 'Unexpected Error',
             },
           ],

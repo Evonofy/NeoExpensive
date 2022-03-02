@@ -4,7 +4,7 @@ import { AxiosError } from 'axios';
 import { userToContextMapper } from 'mappers/userToContextMapper';
 
 type loginInRequestProps = {
-  email: string;
+  login: string;
   password: string;
   platform: string;
   language: string;
@@ -12,12 +12,12 @@ type loginInRequestProps = {
 
 type loginInRequestResponse = {
   user?: User;
-  errors?: _Error<'email' | 'password'>[];
+  errors?: _Error<'login' | 'password'>[];
   accessToken?: string;
   refreshToken?: string;
 };
 
-export async function loginInRequest({ email, password, language, platform }: loginInRequestProps): Promise<loginInRequestResponse> {
+export async function loginInRequest({ login, password, language, platform }: loginInRequestProps): Promise<loginInRequestResponse> {
   type APILoginResponse = {
     user: {
       _id: string;
@@ -30,7 +30,7 @@ export async function loginInRequest({ email, password, language, platform }: lo
 
   try {
     const { data } = await api.post<APILoginResponse>('/users/login', {
-      email,
+      login,
       password,
       language,
       platform,
@@ -51,7 +51,7 @@ export async function loginInRequest({ email, password, language, platform }: lo
       return {
         errors: [
           {
-            field: 'email',
+            field: 'login',
             message: error,
           },
         ],
@@ -70,7 +70,7 @@ export async function loginInRequest({ email, password, language, platform }: lo
     return {
       errors: [
         {
-          field: 'email',
+          field: 'login',
           message: 'Unexpected error.',
         },
       ],

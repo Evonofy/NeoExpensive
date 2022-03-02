@@ -2,8 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
-import { useContextSelector } from 'use-context-selector';
-import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import { useContext, useContextSelector } from 'use-context-selector';
 import { AxiosError } from 'axios';
 import { useMemo, useState } from 'react';
 
@@ -11,6 +10,7 @@ import { SettingsContext } from '../../../context/SettingsContext';
 import { api } from '../../../services/api';
 import { User } from '../../../types';
 import { refreshTokenExpireTime, accessTokenExpireTime } from '../../../context/AuthContext';
+import { StorageContext } from '../../../context/StorageContext';
 import { useUser } from '../../../hooks/auth/user';
 import { useLogout } from '../../../hooks/auth/useLogout';
 
@@ -30,6 +30,8 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
     description: string;
     value: string;
   }> | null>(null);
+
+  const storage = useContext(StorageContext);
 
   const theme = useContextSelector(SettingsContext, (context) => context.theme);
   const language = useContextSelector(SettingsContext, (context) => context.language);
@@ -58,7 +60,7 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
         push('/login');
       }
 
-      const { '@neo:refresh': token } = parseCookies();
+      const token = storage.get('@neo:refresh');
 
       const { data } = await api.post<{ accessToken: string; refreshToken?: string }>('/auth/refresh-token', {
         refresh_token: token,
@@ -66,12 +68,12 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
 
       const { accessToken, refreshToken } = data;
 
-      setCookie(undefined, '@neo:access', accessToken, {
+      storage.set('@neo:access', accessToken, {
         maxAge: accessTokenExpireTime,
       });
 
       if (refreshToken) {
-        setCookie(undefined, '@neo:refresh', refreshToken, {
+        storage.set('@neo:refresh', refreshToken, {
           maxAge: refreshTokenExpireTime,
         });
       }
@@ -88,8 +90,7 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
   });
 
   function handleShowUserData() {
-    const cookies = parseCookies();
-    const cookiesArray = Object.entries(cookies);
+    const storageArray = Object.entries(storage.getAll());
 
     const descriptionTable: Record<string, string> = {
       '@neo:access': "makes sure you're authenticated to our server",
@@ -99,7 +100,7 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
       '@neo:language': "the current language you're using",
     };
 
-    const formattedCookies = cookiesArray.map(([name, value]) => ({
+    const formattedCookies = storageArray.map(([name, value]) => ({
       name,
       description: descriptionTable[name] || 'not yet documented',
       value,
@@ -108,9 +109,9 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
     setUserData(formattedCookies);
   }
 
-  function handleDeleteUserData(cookieName: string) {
+  function handleDeleteUserData(name: string) {
     setUserData((data) => {
-      const filteredUserData = data?.filter(({ name }) => name !== cookieName);
+      const filteredUserData = data?.filter((entry) => entry.name !== name);
 
       if (!filteredUserData) {
         return data;
@@ -119,11 +120,11 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
       return filteredUserData;
     });
 
-    destroyCookie(undefined, cookieName);
+    storage.remove(name);
   }
 
   async function softLogoutUser() {
-    const { '@neo:refresh': token } = parseCookies();
+    const token = storage.get('@neo:refresh');
 
     try {
       const { data: refreshToken } = await api.get<{ id: string }>(`/auth/refresh-token/${token}`);
@@ -140,8 +141,8 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
       console.log((error as AxiosError)?.response?.data);
     }
 
-    destroyCookie(undefined, '@neo:refresh');
-    destroyCookie(undefined, '@neo:authorization');
+    storage.remove('@neo:refresh');
+    storage.remove('@neo:authorization');
   }
 
   if (isLoading) {
@@ -173,6 +174,9 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
 
       {isPageUser && (
         <div>
+          <div>
+            <Link href={`/user/${data?.user.name}/developer`}>developer settings</Link>
+          </div>
           <div>
             <Link href={`/user/${data?.user.name}/sessions`}>see my sessions</Link>
           </div>

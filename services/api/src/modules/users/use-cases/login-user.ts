@@ -1,22 +1,49 @@
 /* eslint-disable new-cap */
-import { user as userController } from '@neo/users';
 import { Request, Response } from 'express';
 import { sign } from 'jsonwebtoken';
 import crypto from 'crypto';
+import bcrypt from 'bcrypt';
 
 import { prisma } from '../../../infra/prisma';
 import { generateRefreshToken } from '../lib/generateRefreshToken';
-import { usersPrismaRepository } from '../infra/prisma/users-prisma-repository';
 
-export async function LoginUserController(request: Request<{}, {}, { email: string; password: string; platform: string; language: string }>, response: Response): Promise<Response> {
-  const { email, password, language, platform } = request.body;
+export async function LoginUserController(request: Request<{}, {}, { login: string; password: string; platform: string; language: string }>, response: Response): Promise<Response> {
+  const { login, password, language, platform } = request.body;
+
+  // login can be an ID, E-mail or Username
 
   try {
-    const usersRepository = new usersPrismaRepository();
-    const { user } = await new userController.login(usersRepository).execute({
-      email,
-      password,
+    let user = await prisma.user.findUnique({
+      where: {
+        id: login,
+      },
     });
+
+    if (!user) {
+      user = await prisma.user.findUnique({
+        where: {
+          email: login,
+        },
+      });
+    }
+
+    if (!user) {
+      user = await prisma.user.findUnique({
+        where: {
+          username: login,
+        },
+      });
+    }
+
+    if (!user) {
+      throw new Error('Could not find user with that login.');
+    }
+
+    const comaparePasswords = await bcrypt.compare(password, user.password!);
+
+    if (!comaparePasswords) {
+      throw new Error('Invalid password.');
+    }
 
     let settings = await prisma.settings.findFirst({
       where: {
@@ -55,7 +82,7 @@ export async function LoginUserController(request: Request<{}, {}, { email: stri
     const accessToken = sign(
       {
         userId: user.id,
-        tokenVersion: user.props.tokenVersion,
+        tokenVersion: user.tokenVersion,
       },
       process.env.ACCESS_TOKEN_SECRET,
       {

@@ -17,7 +17,7 @@ export async function ListSpecificUser(request: Request<{ id: string }>, respons
       throw new Error('Could not find a user with that ID.');
     }
 
-    return response.status(200).json({ ...user, password: 10 });
+    return response.status(200).json({ ...user });
   } catch (error) {
     return response.status(400).json({
       error: (error as Error).message,

@@ -8,9 +8,12 @@ type useSettingsStoreProps = {
   setLanguage: (language: string) => void;
 };
 
+export const defaultTheme: Theme = 'dark';
+export const defaultLanguage = 'pt-BR';
+
 export const useSettingsStore = create<useSettingsStoreProps>((set) => ({
-  theme: 'dark',
-  language: 'pt-BR',
+  theme: defaultTheme,
+  language: defaultLanguage,
   setTheme: (theme) => {
     set(() => ({
       theme,

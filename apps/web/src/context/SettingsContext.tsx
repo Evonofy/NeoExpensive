@@ -1,11 +1,11 @@
-import { FC, useCallback, useEffect, useMemo } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { createContext } from 'use-context-selector';
-import { setCookie, destroyCookie, parseCookies } from 'nookies';
-
-import { api } from '../services/api';
-import { useSettingsStore } from '../store/settings';
+import { createContext, useContext } from 'use-context-selector';
 import { AxiosError } from 'axios';
+
+import { StorageContext } from './StorageContext';
+import { api } from '../services/api';
+import { useSettingsStore, defaultLanguage, defaultTheme } from '../store/settings';
 
 type Theme = string;
 
@@ -29,18 +29,12 @@ type SettingsContextProps = {
 export const SettingsContext = createContext({} as SettingsContextProps);
 
 export const SettingsProvider: FC = ({ children }) => {
+  const storage = useContext(StorageContext);
+
   const language = useSettingsStore(useCallback((state) => state.language, []));
   const theme = useSettingsStore(useCallback((state) => state.theme, []));
   const setTheme = useSettingsStore(useCallback((state) => state.setTheme, []));
   const setLanguage = useSettingsStore(useCallback((state) => state.setLanguage, []));
-
-  const defaultValues = useMemo(
-    () => ({
-      theme: 'dark',
-      language: 'pt-BR',
-    }),
-    []
-  );
 
   const { push, asPath } = useRouter();
 
@@ -48,7 +42,7 @@ export const SettingsProvider: FC = ({ children }) => {
     async ({ theme }: setThemeProps) => {
       setTheme(theme);
 
-      setCookie(undefined, '@neo:theme', theme);
+      storage.set('@neo:theme', theme);
 
       try {
         await api.post('/users/profile/settings/theme', {
@@ -61,14 +55,14 @@ export const SettingsProvider: FC = ({ children }) => {
         }
       }
     },
-    [asPath, push, setTheme]
+    [asPath, push, setTheme, storage]
   );
 
   const installLanguage = useCallback(
     async ({ language }: setLanguageProps) => {
       setLanguage(language);
 
-      setCookie(undefined, '@neo:theme', language);
+      storage.set('@neo:theme', theme);
 
       try {
         await api.post('/users/profile/settings/language', {
@@ -81,25 +75,31 @@ export const SettingsProvider: FC = ({ children }) => {
         }
       }
     },
-    [asPath, push, setLanguage]
+    [asPath, push, setLanguage, storage, theme]
   );
 
   // load config from api
   useEffect(() => {
     async function fetchUserSettings() {
       try {
-        const { data } = await api.get<{ theme: string; language: string }>('/users/profile/settings');
+        const token = storage.get('@neo:access');
 
-        const { language, theme } = data;
+        if (token) {
+          // @ts-ignore
+          api.defaults.headers['authorization'] = `bearer ${token}`;
 
-        installLanguage({ language });
-        installTheme({ theme });
+          const { data } = await api.get<{ theme: string; language: string }>('/users/profile/settings');
+
+          const { language, theme } = data;
+
+          installLanguage({ language });
+          installTheme({ theme });
+        }
       } catch (error) {
         const { response } = error as AxiosError;
         console.log(response?.data);
-        const { '@neo:theme': theme, '@neo:language': language } = parseCookies();
-
-        const { language: defaultLanguage, theme: defaultTheme } = defaultValues;
+        const theme = storage.get('@neo:theme');
+        const language = storage.get('@neo:language');
 
         setTheme(theme || defaultTheme);
         setLanguage(language || defaultLanguage);
@@ -107,20 +107,19 @@ export const SettingsProvider: FC = ({ children }) => {
     }
 
     fetchUserSettings();
-  }, [defaultValues, installLanguage, installTheme, setLanguage, setTheme]);
+  }, [installLanguage, installTheme, setLanguage, setTheme, storage]);
 
   const resetDefault = useCallback(async () => {
-    destroyCookie(undefined, '@neo:theme');
-    destroyCookie(undefined, '@neo:language');
+    storage.set('@neo:theme', defaultTheme);
+    storage.set('@neo:language', defaultLanguage);
 
-    const { language: defaultLanguage, theme: defaultTheme } = defaultValues;
     installLanguage({
       language: defaultLanguage,
     });
     installTheme({
       theme: defaultTheme,
     });
-  }, [defaultValues, installLanguage, installTheme]);
+  }, [installLanguage, installTheme, storage]);
 
   return <SettingsContext.Provider value={{ theme, language, installTheme, installLanguage, resetDefault }}>{children}</SettingsContext.Provider>;
 };

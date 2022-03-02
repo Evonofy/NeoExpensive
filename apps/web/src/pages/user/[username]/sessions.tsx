@@ -1,15 +1,17 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useQuery, useQueryClient } from 'react-query';
-
-import { RefreshToken } from '../../../types';
-import { api } from '../../../services/api';
+import { useContextSelector } from 'use-context-selector';
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { parseCookies } from 'nookies';
+
+import { StorageContext } from '../../../context/StorageContext';
+import { RefreshToken } from '../../../types';
+import { api } from '../../../services/api';
 
 const SessionsPage = () => {
   // check if user in params is user logged in
   const queryClient = useQueryClient();
+  const storageGet = useContextSelector(StorageContext, (context) => context.get);
   const [localTokenInformation, setLocalTokenInformation] = useState<{ id: string } | null>(null);
 
   const { data, isLoading } = useQuery<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens', async () => {
@@ -20,14 +22,15 @@ const SessionsPage = () => {
 
   useEffect(() => {
     async function getLocalTokenData() {
-      const { '@neo:refresh': token } = parseCookies();
+      const token = storageGet('@neo:refresh');
+
       const { data: refreshToken } = await api.get<{ id: string }>(`/auth/refresh-token/${token}`);
 
       setLocalTokenInformation(refreshToken);
     }
 
     getLocalTokenData();
-  }, []);
+  }, [storageGet]);
 
   const refreshTokenListLength = useMemo(() => data?.refreshToken.length, [data?.refreshToken.length]);
 
