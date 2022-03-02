@@ -5,6 +5,7 @@ declare global {
       PORT: string;
       CLIENT_URL: string;
       DATABASE_URL: string;
+      MAIL_DRIVER: string;
       MAIL_HOST: string;
       MAIL_PORT: string;
       MAIL_USER: string;

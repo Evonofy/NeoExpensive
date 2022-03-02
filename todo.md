@@ -10,7 +10,9 @@
 
 - auth
 
-  - [ ] login with ID, email, username
+  - [ ] delete user account
+  - [ ] edit user account information
+  - [x] login with ID, email, username
   - [x] admin accounts
   - [x] roles/permission
   - [ ] move auth to passport.js

@@ -10,13 +10,15 @@ import { ContactsPrismaRepository } from '../infra/prisma/contacts-prisma-reposi
 import { MailtrapMailService } from '../infra/mail/MailtrapMailService';
 import { generateRefreshToken } from '../lib/generateRefreshToken';
 import { prisma } from '../../../infra/prisma';
+import { GmailMailService } from '../infra/mail/GmailMailService';
+import { mailConfig } from '../../../infra/lib/constants';
 
 export async function RegisterUserController(request: Request<{}, {}, { username: string; name: string; email: string; password: string; platform: string; language: string }>, response: Response) {
   const { name, email, password, platform, language, username } = request.body;
 
   const usersRepository = new usersPrismaRepository();
   const contactsRepository = new ContactsPrismaRepository();
-  const mailService = new MailtrapMailService();
+  const mailService = mailConfig.driver === 'gmail' ? new GmailMailService() : new MailtrapMailService();
   try {
     const userWithUsernameAlreadyExists = await prisma.user.findUnique({
       where: {

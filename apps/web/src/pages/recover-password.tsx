@@ -45,14 +45,13 @@ const RecoverPasswordPage: NextPage = () => {
         return;
       }
 
-      console.log('what1');
       if (user) {
         await login({
-          email: user.email,
+          login: user.email,
           password,
         });
       }
-      console.log('what');
+
       push('/');
       return;
     },

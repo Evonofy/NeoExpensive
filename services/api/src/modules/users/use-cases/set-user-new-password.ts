@@ -7,10 +7,12 @@ import { ContactsPrismaRepository } from '../infra/prisma/contacts-prisma-reposi
 import { MailtrapMailService } from '../infra/mail/MailtrapMailService';
 import { verify } from 'jsonwebtoken';
 import { hash } from 'bcrypt';
+import { GmailMailService } from '../infra/mail/GmailMailService';
+import { mailConfig } from '../../../infra/lib/constants';
 
 export async function SetUserNewPasswordController(request: Request<{}, {}, { accessToken: string; password: string }>, response: Response): Promise<Response> {
   const contactsRepository = new ContactsPrismaRepository();
-  const mailService = new MailtrapMailService();
+  const mailService = mailConfig.driver === 'gmail' ? new GmailMailService() : new MailtrapMailService();
 
   const { accessToken, password } = request.body;
   let token: {

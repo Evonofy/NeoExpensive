@@ -6,12 +6,15 @@ import { CreateContact, SendMailToContact } from '@neo/mail';
 import { usersPrismaRepository } from '../infra/prisma/users-prisma-repository';
 import { ContactsPrismaRepository } from '../infra/prisma/contacts-prisma-repository';
 import { MailtrapMailService } from '../infra/mail/MailtrapMailService';
+import { GmailMailService } from '../infra/mail/GmailMailService';
 import { sign } from 'jsonwebtoken';
+
+import { mailConfig } from '../../../infra/lib/constants';
 
 export async function RecoverUserPaswordController(request: Request<{}, {}, { email: string }>, response: Response): Promise<Response> {
   const usersRepository = new usersPrismaRepository();
   const contactsRepository = new ContactsPrismaRepository();
-  const mailService = new MailtrapMailService();
+  const mailService = mailConfig.driver === 'gmail' ? new GmailMailService() : new MailtrapMailService();
 
   try {
     const { email } = request.body;

@@ -44,9 +44,8 @@ export async function loginInRequest({ login, password, language, platform }: lo
       refreshToken,
     };
   } catch (err) {
-    const { response } = err as AxiosError<APILoginResponse>;
+    const error = (err as AxiosError<APILoginResponse>)?.response?.data?.error;
 
-    const { error } = response?.data!;
     if (error === 'Could not find a user with this e-mail.') {
       return {
         errors: [
