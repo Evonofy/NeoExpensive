@@ -7,6 +7,7 @@ export type RegisterUserProps = {
   name: string;
   email: string;
   password: string;
+  username: string;
   createdAt?: Date | undefined;
   updatedAt?: Date | undefined;
 };
@@ -14,7 +15,7 @@ export type RegisterUserProps = {
 export class RegisterUser {
   constructor(private usersRepository: UsersRepository) {}
 
-  async execute({ name, email, password, createdAt, updatedAt }: RegisterUserProps) {
+  async execute({ name, email, password, createdAt, updatedAt, username }: RegisterUserProps) {
     const userAlreadyExists = await this.usersRepository.findByEmail(email);
 
     if (userAlreadyExists) {
@@ -26,6 +27,7 @@ export class RegisterUser {
     const user = User.create({
       name,
       email,
+      username,
       password: hashedPassword,
       createdAt,
       updatedAt,

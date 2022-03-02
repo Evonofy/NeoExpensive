@@ -27,17 +27,21 @@ import { RemoveUserPermission } from '../../use-cases/remove-user-permission';
 import { SetAccountLanguageController } from '../../use-cases/set-account-language';
 import { LoadUserSettings } from '../../use-cases/load-user-settings';
 import { AuthenticateUserNeo } from '../../use-cases/authenticate-user-neo';
+import { ListUserByUsername } from '../../use-cases/list-user-by-username';
+import { GetRefreshTokenData } from '../../use-cases/get-refresh-token-data';
 
 // eslint-disable-next-line new-cap
 export const authRouter = express.Router();
 authRouter.post('/refresh-token', RefreshUserTokenController);
 authRouter.get('/refresh-token', auth, ListAllRefreshTokensController);
+authRouter.get('/refresh-token/:jwt', auth, GetRefreshTokenData);
 authRouter.delete('/refresh-token', auth, InvalidateRefreshTokenController);
 
 // eslint-disable-next-line new-cap
 export const usersRouter = express.Router();
 
 usersRouter.get('/', ListAllUsers);
+usersRouter.post('/username', ListUserByUsername);
 usersRouter.get('/:id', ListSpecificUser);
 usersRouter.get('/:id/access-control-list', ListUserRoles);
 

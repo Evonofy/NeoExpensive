@@ -75,7 +75,7 @@ const Home: NextPage = () => {
           </div>
 
           <div>
-            <Link href={`/user/${user.name}`}>
+            <Link href={`/user/${user.username}`}>
               <a>go to settings page</a>
             </Link>
           </div>

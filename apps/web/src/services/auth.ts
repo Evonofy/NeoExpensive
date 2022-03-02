@@ -6,6 +6,8 @@ import { userToContextMapper } from 'mappers/userToContextMapper';
 type loginInRequestProps = {
   email: string;
   password: string;
+  platform: string;
+  language: string;
 };
 
 type loginInRequestResponse = {
@@ -15,7 +17,7 @@ type loginInRequestResponse = {
   refreshToken?: string;
 };
 
-export async function loginInRequest({ email, password }: loginInRequestProps): Promise<loginInRequestResponse> {
+export async function loginInRequest({ email, password, language, platform }: loginInRequestProps): Promise<loginInRequestResponse> {
   type APILoginResponse = {
     user: {
       _id: string;
@@ -30,6 +32,8 @@ export async function loginInRequest({ email, password }: loginInRequestProps): 
     const { data } = await api.post<APILoginResponse>('/users/login', {
       email,
       password,
+      language,
+      platform,
     });
 
     const { user, accessToken, refreshToken } = data;
@@ -78,6 +82,9 @@ type registerRequestProps = {
   name: string;
   email: string;
   password: string;
+  language: string;
+  platform: string;
+  username: string;
 };
 
 type registerRequestResponse = {
@@ -87,7 +94,7 @@ type registerRequestResponse = {
   refreshToken?: string;
 };
 
-export async function registerRequest({ name, email, password }: registerRequestProps): Promise<registerRequestResponse> {
+export async function registerRequest({ name, email, password, language, platform, username }: registerRequestProps): Promise<registerRequestResponse> {
   type APIRegisterResponse = {
     user: {
       _id: string;
@@ -103,6 +110,9 @@ export async function registerRequest({ name, email, password }: registerRequest
       name,
       email,
       password,
+      language,
+      platform,
+      username,
     });
 
     const { user, accessToken, refreshToken } = data;

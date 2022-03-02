@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
@@ -14,10 +14,15 @@ import { useEffect } from 'react';
 
 const Link = dynamic(() => import('next/link'));
 
-const UserPage: NextPage = () => {
+type UserPageProps = {
+  username: string;
+};
+
+const UserPage: NextPage<UserPageProps> = ({ username }) => {
   const { asPath, push } = useRouter();
 
   const theme = useContextSelector(SettingsContext, (context) => context.theme);
+  const language = useContextSelector(SettingsContext, (context) => context.language);
 
   const installTheme = useContextSelector(SettingsContext, (context) => context.installTheme);
   const resetDefault = useContextSelector(SettingsContext, (context) => context.resetDefault);
@@ -33,9 +38,9 @@ const UserPage: NextPage = () => {
 
   const { data, isLoading, error } = useQuery<{ user: User }>('fetch-user', async () => {
     try {
-      const { data: profile } = await api.post<{ id: string }>('/users/profile');
-
-      const { data: user } = await api.get<User>(`/users/${profile.id}`);
+      const { data: user } = await api.post<User>('/users/username', {
+        username,
+      });
 
       return {
         user,
@@ -126,6 +131,9 @@ const UserPage: NextPage = () => {
       <section>
         <div>
           <h3 style={{ color: 'black' }}>Languages</h3>
+          <p style={{ color: 'black' }}>
+            current theme: <strong>{language}</strong>
+          </p>
         </div>
         <div>
           <button onClick={() => installLanguage({ language: 'pt-BR' })}>install portuguese language</button>
@@ -134,6 +142,39 @@ const UserPage: NextPage = () => {
       </section>
     </div>
   );
+};
+
+export const getStaticPaths: GetStaticPaths<UserPageProps> = async () => {
+  const { data: users } = await api.get<User[]>('/users');
+
+  return {
+    fallback: false,
+    paths: users.map(({ username }) => ({
+      params: {
+        username,
+      },
+    })),
+  };
+};
+
+export const getStaticProps: GetStaticProps<UserPageProps, UserPageProps> = async ({ params }) => {
+  if (!params) {
+    return {
+      props: {},
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  const { username } = params;
+
+  return {
+    props: {
+      username: username,
+    },
+  };
 };
 
 export default UserPage;

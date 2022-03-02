@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { useRegister } from 'hooks/auth/useRegister';
 type FormProps = {
   name: string;
+  username: string;
   email: string;
   password: string;
 };
@@ -20,11 +21,12 @@ const Register: NextPage = () => {
   const { register: registerUser } = useRegister();
   const { push } = useRouter();
   const handleLogin: SubmitHandler<FormProps> = useCallback(
-    async ({ name, email, password }) => {
+    async ({ name, email, password, username }) => {
       const { errors } = await registerUser({
         name,
         email,
         password,
+        username,
       });
 
       if (errors) {
@@ -49,6 +51,16 @@ const Register: NextPage = () => {
             })}
           />
           {errors.name && <span style={{ color: 'red' }}>{errors.name.message}</span>}
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="username"
+            {...register('username', {
+              required: true,
+            })}
+          />
+          {errors.username && <span style={{ color: 'red' }}>{errors.username.message}</span>}
         </div>
         <div>
           <input

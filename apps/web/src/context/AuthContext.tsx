@@ -20,6 +20,7 @@ type RegisterProps = {
   name: string;
   email: string;
   password: string;
+  username: string;
 };
 
 type LoginResponse = {
@@ -125,6 +126,23 @@ export const AuthProvider: FC = ({ children }) => {
   }, [fetchUser]);
 
   const logout = useCallback(async () => {
+    const { '@neo:refresh': token } = parseCookies();
+
+    try {
+      const { data: refreshToken } = await api.get<{ id: string }>(`/auth/refresh-token/${token}`);
+
+      // call the api to delete refresh token
+      if (refreshToken) {
+        await api.delete('/auth/refresh-token', {
+          data: {
+            id: refreshToken.id,
+          },
+        });
+      }
+    } catch (error) {
+      console.log((error as AxiosError)?.response?.data);
+    }
+
     destroyCookie(undefined, '@neo:access');
     destroyCookie(undefined, '@neo:refresh');
 
@@ -132,13 +150,16 @@ export const AuthProvider: FC = ({ children }) => {
   }, [removeUser]);
 
   const register = useCallback(
-    async ({ name, email, password }: RegisterProps): Promise<RegisterResponse> => {
+    async ({ name, email, password, username }: RegisterProps): Promise<RegisterResponse> => {
       const { registerRequest } = await import('../services/auth');
 
       const { user, accessToken, refreshToken, errors } = await registerRequest({
         name,
         email,
         password,
+        platform: navigator.platform || navigator.userAgentData.platform,
+        language: navigator.language,
+        username,
       });
 
       if (errors) {
@@ -188,6 +209,8 @@ export const AuthProvider: FC = ({ children }) => {
       const { user, accessToken, refreshToken, errors } = await loginInRequest({
         email,
         password,
+        platform: navigator.platform || navigator.userAgentData.platform,
+        language: navigator.language,
       });
 
       if (errors) {
@@ -266,6 +289,7 @@ export const AuthProvider: FC = ({ children }) => {
         const { data } = await api.post<GithubOAuthAPIResponse>('/users/authenticate/github', {
           code,
           platform: navigator.platform || navigator.userAgentData.platform,
+          language: navigator.language,
         });
 
         const { accessToken, user, refreshToken } = data;
@@ -302,6 +326,7 @@ export const AuthProvider: FC = ({ children }) => {
         const { data } = await api.post<NeoOAuthAPIResponse>('/users/authenticate/neo', {
           code,
           platform: navigator.platform || navigator.userAgentData.platform,
+          language: navigator.language,
         });
 
         const { accessToken, user, refreshToken } = data;

@@ -17,6 +17,7 @@ const loginUserTestFactory = async () => {
     name: 'test',
     email: 'test@test.com',
     password: '123',
+    username: 'test',
   });
 
   return {

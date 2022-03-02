@@ -23,6 +23,7 @@ describe('Register User', () => {
       name: 'test',
       email: 'test@test.com',
       password: '123',
+      username: 'test',
     });
 
     expect(sut.user.props.name).toBe('test');
@@ -36,6 +37,7 @@ describe('Register User', () => {
       name: 'test',
       email: 'test@test.com',
       password: '123',
+      username: 'test',
     });
 
     try {
@@ -43,6 +45,7 @@ describe('Register User', () => {
         name: 'test',
         email: 'test@test.com',
         password: '123',
+        username: 'testuser',
       });
     } catch (err) {
       const error = err as Error;
@@ -60,6 +63,7 @@ describe('Register User', () => {
       email: 'test@test.com',
       password: '123',
       createdAt,
+      username: 'test',
     });
 
     expect(sut.user.props.name).toBe('test');
@@ -77,6 +81,7 @@ describe('Register User', () => {
       email: 'test@test.com',
       password: '123',
       updatedAt,
+      username: 'test',
     });
 
     expect(sut.user.props.name).toBe('test');

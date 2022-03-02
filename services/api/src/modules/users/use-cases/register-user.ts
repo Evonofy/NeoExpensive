@@ -3,23 +3,58 @@ import { user as userController } from '@neo/users';
 import { SendMailToContact, CreateContact } from '@neo/mail';
 import { Request, Response } from 'express';
 import { sign } from 'jsonwebtoken';
+import crypto from 'crypto';
 
 import { usersPrismaRepository } from '../infra/prisma/users-prisma-repository';
 import { ContactsPrismaRepository } from '../infra/prisma/contacts-prisma-repository';
 import { MailtrapMailService } from '../infra/mail/MailtrapMailService';
 import { generateRefreshToken } from '../lib/generateRefreshToken';
+import { prisma } from '../../../infra/prisma';
 
-export async function RegisterUserController(request: Request<{}, {}, { name: string; email: string; password: string }>, response: Response) {
-  const { name, email, password } = request.body;
+export async function RegisterUserController(request: Request<{}, {}, { username: string; name: string; email: string; password: string; platform: string; language: string }>, response: Response) {
+  const { name, email, password, platform, language, username } = request.body;
 
   const usersRepository = new usersPrismaRepository();
   const contactsRepository = new ContactsPrismaRepository();
   const mailService = new MailtrapMailService();
   try {
+    const userWithUsernameAlreadyExists = await prisma.user.findUnique({
+      where: {
+        username,
+      },
+    });
+
+    if (userWithUsernameAlreadyExists) {
+      throw new Error('A user with this username already exists.');
+    }
+
     const { user } = await new userController.register(usersRepository).execute({
       name,
       email,
       password,
+      username,
+    });
+
+    await prisma.user.update({
+      where: {
+        id: user.id,
+      },
+
+      data: {
+        username,
+      },
+    });
+
+    await prisma.settings.create({
+      data: {
+        id: crypto.randomUUID(),
+        language,
+        User: {
+          connect: {
+            id: user.id,
+          },
+        },
+      },
     });
 
     const { contact: userContact } = await new CreateContact(contactsRepository).execute({
@@ -58,7 +93,9 @@ export async function RegisterUserController(request: Request<{}, {}, { name: st
       }
     );
 
-    const { refreshToken } = await new generateRefreshToken().execute(user.id);
+    const { refreshToken } = await new generateRefreshToken().execute(user.id, {
+      platform,
+    });
 
     return response.status(200).json({
       user,

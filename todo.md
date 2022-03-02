@@ -4,12 +4,13 @@
   - [x] set account language
   - [x] load settings
 
-- user registration
+- ~~user registration~~
 
-  - [ ] send user browser language along with platform in register
+  - [x] send user browser language along with platform in register
 
 - auth
 
+  - [ ] login with ID, email, username
   - [x] admin accounts
   - [x] roles/permission
   - [ ] move auth to passport.js
@@ -17,7 +18,7 @@
     - [ ] facebook oauth
     - [ ] twitter oauth
     - [x] github oauth
-  - [ ] create neo-expensive oauth routes like the current github implementation, maybe make it a different api and deploy together to api in heroku, just like the `old` folder
+  - [ ] ~~create neo-expensive oauth routes like the current github implementation, maybe make it a different api and deploy together to api in heroku, just like the `old` folder~~
 
 - oauth
 

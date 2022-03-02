@@ -1,11 +1,16 @@
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useQuery, useQueryClient } from 'react-query';
 
 import { RefreshToken } from '../../../types';
 import { api } from '../../../services/api';
-import { useCallback, useMemo } from 'react';
+import { format, parseISO } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+import { parseCookies } from 'nookies';
 
-export default function SessionsPage() {
+const SessionsPage = () => {
+  // check if user in params is user logged in
   const queryClient = useQueryClient();
+  const [localTokenInformation, setLocalTokenInformation] = useState<{ id: string } | null>(null);
 
   const { data, isLoading } = useQuery<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens', async () => {
     const { data } = await api.get('/auth/refresh-token');
@@ -13,37 +18,59 @@ export default function SessionsPage() {
     return data;
   });
 
+  useEffect(() => {
+    async function getLocalTokenData() {
+      const { '@neo:refresh': token } = parseCookies();
+      const { data: refreshToken } = await api.get<{ id: string }>(`/auth/refresh-token/${token}`);
+
+      setLocalTokenInformation(refreshToken);
+    }
+
+    getLocalTokenData();
+  }, []);
+
   const refreshTokenListLength = useMemo(() => data?.refreshToken.length, [data?.refreshToken.length]);
 
   const handleDeleteRefreshToken = useCallback(
     async (id: string) => {
-      const previousRefreshTokens = queryClient.getQueryData<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens');
+      let proceed = true;
 
-      if (previousRefreshTokens) {
-        // all the tokens without this one
-        const filteredRefreshTokens = previousRefreshTokens.refreshToken.filter((token) => token.id !== id);
+      if (localTokenInformation?.id === id) {
+        // put modal instead of window.confirm, since window.confirm makes useQuery run again
+        proceed = window.confirm('Do you really want to delete your local session?');
+      }
 
-        // mutate global state on query
-        queryClient.setQueryData<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens', {
-          refreshToken: filteredRefreshTokens,
-        });
-
-        try {
-          await api.delete('/auth/refresh-token', {
-            data: {
-              id,
-            },
+      if (proceed) {
+        const previousRefreshTokens = queryClient.getQueryData<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens');
+        if (previousRefreshTokens) {
+          // all the tokens without this one
+          const filteredRefreshTokens = previousRefreshTokens.refreshToken.filter((token) => token.id !== id);
+          console.log({
+            filteredRefreshTokens,
           });
-        } catch (error) {
-          alert('failed to delete session, putting it back on the list');
+
+          // mutate global state on query
           queryClient.setQueryData<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens', {
-            refreshToken: previousRefreshTokens.refreshToken,
+            refreshToken: filteredRefreshTokens,
           });
-          // if fail respawn the token
+
+          try {
+            await api.delete('/auth/refresh-token', {
+              data: {
+                id,
+              },
+            });
+          } catch (error) {
+            alert('failed to delete session, putting it back on the list');
+            queryClient.setQueryData<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens', {
+              refreshToken: previousRefreshTokens.refreshToken,
+            });
+            // if fail respawn the token
+          }
         }
       }
     },
-    [queryClient]
+    [localTokenInformation?.id, queryClient]
   );
 
   if (isLoading) {
@@ -53,6 +80,7 @@ export default function SessionsPage() {
       </div>
     );
   }
+
   return (
     <div>
       <p style={{ color: 'black' }}>
@@ -61,19 +89,40 @@ export default function SessionsPage() {
       <br />
 
       <ul>
-        {data?.refreshToken.map(({ id, expiresIn, platform }) => (
-          <li key={id}>
-            <h4 style={{ color: 'black' }}>{id}</h4>
-            <h5 style={{ color: 'black' }}>{platform && `${platform}`}</h5>
-            <p style={{ color: 'black' }}>
-              expire date: <strong>{expiresIn}</strong>
-            </p>
-            <button onClick={() => handleDeleteRefreshToken(id)}>delete this one</button>
-            <br />
-            <br />
-          </li>
-        ))}
+        {data?.refreshToken.map(({ id, expiresIn, platform, createdAt }) => {
+          const isLocalToken = localTokenInformation?.id === id;
+
+          const formattedCreatedAt = format(parseISO(new Date(createdAt).toISOString()), 'd MMM yy', {
+            locale: ptBR,
+          });
+
+          const formattedExpiresIn = format(parseISO(new Date(expiresIn * 1000).toISOString()), 'd MMM yy', {
+            locale: ptBR,
+          });
+          return (
+            <li style={{ color: 'black' }} key={id}>
+              <h4 style={{ color: 'black' }}>{id}</h4>
+              <h5 style={{ color: 'black' }}>{platform && `${platform}`}</h5>
+              <p style={{ color: 'black' }}>
+                created at: <strong>{formattedCreatedAt}</strong>
+              </p>
+              <p style={{ color: 'black' }}>
+                expire date: <strong>{formattedExpiresIn}</strong>
+              </p>
+              {isLocalToken && (
+                <div>
+                  <strong>this is your local session</strong>
+                </div>
+              )}
+              <button onClick={() => handleDeleteRefreshToken(id)}>delete this one</button>
+              <br />
+              <br />
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
-}
+};
+
+export default SessionsPage;

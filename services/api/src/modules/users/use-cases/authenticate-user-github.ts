@@ -19,8 +19,8 @@ interface IUserResponse {
   email: string;
 }
 
-export async function AuthenticateUserGithubController(request: Request<{}, {}, { code: string; platform: string }>, response: Response): Promise<Response> {
-  const { code, platform } = request.body;
+export async function AuthenticateUserGithubController(request: Request<{}, {}, { code: string; platform: string; language: string }>, response: Response): Promise<Response> {
+  const { code, platform, language } = request.body;
   const url = 'https://github.com/login/oauth/access_token';
 
   try {
@@ -47,6 +47,12 @@ export async function AuthenticateUserGithubController(request: Request<{}, {}, 
 
     const { id, login: username, avatar_url: avatarUrl, name, email } = data;
 
+    const userWithUsernameAlreadyExists = await prisma.user.findUnique({
+      where: {
+        username,
+      },
+    });
+
     let user = await prisma.user.findFirst({
       where: {
         githubId: String(id),
@@ -60,11 +66,31 @@ export async function AuthenticateUserGithubController(request: Request<{}, {}, 
           githubId: String(id),
           name,
           email,
-          username,
+          username: userWithUsernameAlreadyExists
+            ? `
+              ${username}#
+              ${crypto.randomInt(10)}
+              ${crypto.randomInt(10)}
+              ${crypto.randomInt(10)}
+              ${crypto.randomInt(10)}
+            `
+            : username,
           avatarUrl,
         },
       });
     }
+
+    await prisma.settings.create({
+      data: {
+        id: crypto.randomUUID(),
+        language,
+        User: {
+          connect: {
+            id: user.id,
+          },
+        },
+      },
+    });
 
     const accessToken = sign(
       {

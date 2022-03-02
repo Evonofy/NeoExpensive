@@ -14,8 +14,8 @@ interface IAccessTokenResponse {
 
 type IUserResponse = User;
 
-export async function AuthenticateUserNeo(request: Request<{}, {}, { code: string; platform: string }>, response: Response): Promise<Response> {
-  const { code, platform } = request.body;
+export async function AuthenticateUserNeo(request: Request<{}, {}, { code: string; platform: string; language: string }>, response: Response): Promise<Response> {
+  const { code, platform, language } = request.body;
   const url = 'http://localhost:3333/login/oauth/access_token';
 
   try {
@@ -44,7 +44,13 @@ export async function AuthenticateUserNeo(request: Request<{}, {}, { code: strin
       },
     });
 
-    const { id, avatarUrl, name, email } = data;
+    const { id, avatarUrl, name, email, username } = data;
+
+    const userWithUsernameAlreadyExists = await prisma.user.findUnique({
+      where: {
+        username,
+      },
+    });
 
     let user = await prisma.user.findFirst({
       where: {
@@ -60,9 +66,30 @@ export async function AuthenticateUserNeo(request: Request<{}, {}, { code: strin
           name,
           email,
           avatarUrl,
+          username: userWithUsernameAlreadyExists
+            ? `
+              ${username}#
+              ${crypto.randomInt(10)}
+              ${crypto.randomInt(10)}
+              ${crypto.randomInt(10)}
+              ${crypto.randomInt(10)}
+            `
+            : username,
         },
       });
     }
+
+    await prisma.settings.create({
+      data: {
+        id: crypto.randomUUID(),
+        language,
+        User: {
+          connect: {
+            id: user.id,
+          },
+        },
+      },
+    });
 
     const accessToken = sign(
       {

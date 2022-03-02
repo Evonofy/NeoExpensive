@@ -4,6 +4,7 @@ type UserProps = {
   name: string;
   email: string;
   password: string;
+  username: string;
 
   createdAt: Date;
   updatedAt: Date;
@@ -15,6 +16,7 @@ type CreateUserProps = {
   name: string;
   email: string;
   password: string;
+  username: string;
   tokenVersion?: number;
   createdAt?: Date | undefined;
   updatedAt?: Date | undefined;

@@ -26,4 +26,5 @@ export type RefreshToken = {
   userid: string;
   platform?: Navigator['userAgentData']['platform'];
   expiresIn: number;
+  createdAt: Date;
 };
