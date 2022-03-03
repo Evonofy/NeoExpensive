@@ -136,6 +136,9 @@ const handleSubmit = async () => {
         name: name.value,
         email: email.value,
         password: password.value,
+        language: 'pt-BR',
+        platform: 'linux',
+        username: name.value,
       }),
     });
 

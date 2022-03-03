@@ -17,15 +17,14 @@ form.addEventListener('submit', async function (event) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: formData.email,
+        login: formData.email,
         password: formData.password,
       }),
     });
     const data = await response.json();
-    console.log(data);
     const { error, user, accessToken, refreshToken } = data;
 
-    if (error === 'Could not find a user with this e-mail.') {
+    if (error === 'Could not find user with that login.') {
       alert('Não consegui achar um usuário com esse e-mail :(.');
       return;
     } else if (error === 'Invalid password.') {
@@ -57,6 +56,6 @@ form.addEventListener('submit', async function (event) {
       // redirect('/');
     }, 500);
   } catch (error) {
-    console.error(error);
+    console.error(error?.response?.data?.error);
   }
 });
