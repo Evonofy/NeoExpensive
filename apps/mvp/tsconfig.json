@@ -23,6 +23,7 @@
       "@lib/*": ["lib/*"],
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
+      "@services/*": ["services/*"],
       "@src/*": ["./*"]
     }
   },

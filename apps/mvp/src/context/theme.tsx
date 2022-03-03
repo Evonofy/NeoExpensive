@@ -80,7 +80,6 @@ export const ThemeProvider: FC = ({ children }) => {
   }, [theme]);
 
   const cycle = useCallback(() => {
-    console.log('called');
     const keys = Object.keys(availableThemes) as AllThemes[];
     let index = keys.indexOf(theme);
     const max = keys.length - 1;
