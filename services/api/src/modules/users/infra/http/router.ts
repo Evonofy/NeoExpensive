@@ -29,6 +29,8 @@ import { LoadUserSettings } from '../../use-cases/load-user-settings';
 import { AuthenticateUserNeo } from '../../use-cases/authenticate-user-neo';
 import { ListUserByUsername } from '../../use-cases/list-user-by-username';
 import { GetRefreshTokenData } from '../../use-cases/get-refresh-token-data';
+import { DeleteAuthenticatedUserAccount } from '../../use-cases/delete-authenticated-user-account';
+import { DeleteUserAccount } from '../../use-cases/delete-user-account';
 
 // eslint-disable-next-line new-cap
 export const authRouter = express.Router();
@@ -61,6 +63,8 @@ usersRouter.post('/', RegisterUserController);
 
 usersRouter.post('/login', LoginUserController);
 usersRouter.post('/register', RegisterUserController);
+usersRouter.delete('/:id', auth, DeleteUserAccount);
+usersRouter.delete('/', auth, DeleteAuthenticatedUserAccount);
 
 usersRouter.post('/profile', auth, async (request, response) => {
   const { id } = request.user;

@@ -161,9 +161,20 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
     );
   }
 
+  async function handleDeleteUser() {
+    try {
+      await api.delete('/users');
+      logout();
+      push('/');
+    } catch (error) {
+      console.log((error as AxiosError)?.response?.data);
+    }
+  }
+
   return (
     <div style={{ color: 'black' }}>
       <p style={{ color: 'black' }}>{data?.user.id}</p>
+      <h1>this is {isPageUser ? '' : 'not'} your page</h1>
 
       {!isPageUser && (
         <div>
@@ -182,6 +193,9 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
           </div>
           <div>
             <button onClick={resetDefault}>reset to defaults</button>
+          </div>
+          <div>
+            <button onClick={handleDeleteUser}>delete my account</button>
           </div>
           <div>
             <button onClick={logout}>logout</button>

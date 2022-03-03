@@ -25,7 +25,7 @@ export async function loginInRequest({ login, password, language, platform }: lo
     };
     accessToken: string;
     refreshToken: string;
-    error: 'Could not find a user with this e-mail.' | 'Invalid password.';
+    error: 'Could not find user with that login.' | 'Invalid password.';
   };
 
   try {
@@ -46,7 +46,7 @@ export async function loginInRequest({ login, password, language, platform }: lo
   } catch (err) {
     const error = (err as AxiosError<APILoginResponse>)?.response?.data?.error;
 
-    if (error === 'Could not find a user with this e-mail.') {
+    if (error === 'Could not find user with that login.') {
       return {
         errors: [
           {
@@ -70,7 +70,7 @@ export async function loginInRequest({ login, password, language, platform }: lo
       errors: [
         {
           field: 'login',
-          message: 'Unexpected error.',
+          message: error as any,
         },
       ],
     };
