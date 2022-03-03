@@ -38,24 +38,21 @@ form.addEventListener('submit', async function (event) {
       'user',
       JSON.stringify({
         id: user.id,
-        name: user.props.name,
-        email: user.props.email,
-        createdAt: user.props.createdAt,
-        updatedAt: user.props.updatedAt,
+        name: user.name,
+        email: user.email,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
       })
     );
 
-    setTimeout(() => {
-      const isDev2 = window.location.origin === 'http://localhost:3000';
+    const isDev2 = window.location.origin === 'http://localhost:3000';
 
-      if (isDev2) {
-        window.location.href = `${window.location.origin}/index.html`;
-      } else {
-        window.location.href = `${window.location.origin}neo-expensive/old/index.html`;
-      }
-      // redirect('/');
-    }, 500);
+    if (isDev2) {
+      window.location.href = `${window.location.origin}/index.html`;
+    } else {
+      window.location.href = `${window.location.origin}neo-expensive/old/index.html`;
+    }
   } catch (error) {
-    console.error(error?.response?.data?.error);
+    console.error(error);
   }
 });

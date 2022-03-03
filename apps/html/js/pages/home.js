@@ -21,7 +21,9 @@ function handleAddToCardButtonClick() {
 async function loadProducts() {
   const products = await fetch('neo-expensive/old/js/data/products.json');
   const data = await products.json();
-
+  console.log({
+    data,
+  });
   const productsEntry = document.querySelector('.main--products');
 
   let productsList = '';
