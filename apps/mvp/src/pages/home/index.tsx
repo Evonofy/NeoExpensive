@@ -51,6 +51,7 @@ function Home() {
     <Container>
       <p>homepage</p>
       <Link to="/login">go to login</Link>
+      <Link to="/password/forgot">forgot my password</Link>
       <button onClick={cycle}>change theme</button>
       <ul>
         {featuredProducts.map(({ id, name, price }) => (

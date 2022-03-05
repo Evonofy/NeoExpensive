@@ -53,7 +53,12 @@ export const initI18n = () => {
       .use(languageDetector)
       .use(initReactI18next)
       .init({
-        detection: DETECTION_OPTIONS,
+        detection: {
+          caches: ['localStorage'],
+          lookupCookie: '@neo:langugage',
+          lookupLocalStorage: '@neo:langugage',
+          order: DETECTION_OPTIONS.order,
+        },
         fallbackLng: 'en',
         debug: !isProd,
         react: {
