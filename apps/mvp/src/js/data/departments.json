@@ -1,0 +1,18 @@
+[
+  {
+    "id": "console",
+    "name": "Consoles"
+  },
+  {
+    "id": "hardware",
+    "name": "Hardware"
+  },
+  {
+    "id": "peripherals",
+    "name": "Periféricos"
+  },
+  {
+    "id": "accessories",
+    "name": "Acessórios"
+  }
+]

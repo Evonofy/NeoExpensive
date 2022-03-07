@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as Anchor } from 'react-router-dom';
 
-type LinkProps = React.RefAttributes<HTMLAnchorElement> & {
+type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
 };
 

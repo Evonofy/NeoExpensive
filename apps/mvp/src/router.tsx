@@ -1,6 +1,8 @@
 import { memo, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import Header from '@components/Header';
+
 const Home = lazy(() => import('@pages/home'));
 const Login = lazy(() => import('@pages/auth/login'));
 const Register = lazy(() => import('@pages/auth/register'));
@@ -22,6 +24,8 @@ const EmailConfirmation = lazy(() => import('@pages/email/email-confirmation'));
 function Router() {
   return (
     <BrowserRouter>
+      <Header />
+
       <Routes>
         <Route index element={<Home />} />
         <Route path="/register" element={<Register />} />
