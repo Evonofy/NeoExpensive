@@ -1,4 +1,7 @@
 import React, { memo, FC } from 'react';
+import { useContext } from 'use-context-selector';
+
+import { AuthContext } from '@context/auth';
 import { Link } from '@components/Link';
 
 import DesktopTower from '../../images/components/header/submenus/desktop-tower.svg';
@@ -20,6 +23,8 @@ import UserPlus from '../../images/components/header/user-controls/user-plus.svg
 import SignOut from '../../images/components/header/user-controls/sign-out.svg';
 
 const Header: FC = () => {
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <React.Fragment>
       <header className="hamburger--header">
@@ -80,36 +85,50 @@ const Header: FC = () => {
                   <button className="hamburger--nav--item--button">Inglês</button>
                 </li>
               </div>
-              <div className="hamburger--nav--list--wrapper profile-item">
-                <img className="hamburger--nav--list--wrapper--image" src={User} alt="" />
-                <li className="hamburger--nav--item">
-                  <Link href="/profile" className="hamburger--nav--item--button">
-                    Perfil
-                  </Link>
-                </li>
-              </div>
-              <div className="hamburger--nav--list--wrapper login-item">
-                <img className="hamburger--nav--list--wrapper--image" src={SignIn} alt="" />
-                <li className="hamburger--nav--item">
-                  <Link href="/login" className="hamburger--nav--item--button">
-                    Entrar
-                  </Link>
-                </li>
-              </div>
-              <div className="hamburger--nav--list--wrapper register-item">
-                <img className="hamburger--nav--list--wrapper--image" src={UserPlus} alt="" />
-                <li className="hamburger--nav--item">
-                  <Link href="/register" className="hamburger--nav--item--button">
-                    Registrar-se
-                  </Link>
-                </li>
-              </div>
-              <div className="hamburger--nav--list--wrapper logout-item">
-                <img className="hamburger--nav--list--wrapper--image" src={SignOut} alt="" />
-                <li className="hamburger--nav--item">
-                  <button className="hamburger--nav--item--button">Sair</button>
-                </li>
-              </div>
+
+              {user && (
+                <div className="hamburger--nav--list--wrapper profile-item">
+                  <img className="hamburger--nav--list--wrapper--image" src={User} alt="" />
+                  <li className="hamburger--nav--item">
+                    <Link href="/profile" className="hamburger--nav--item--button">
+                      Perfil
+                    </Link>
+                  </li>
+                </div>
+              )}
+
+              {!user && (
+                <div className="hamburger--nav--list--wrapper login-item">
+                  <img className="hamburger--nav--list--wrapper--image" src={SignIn} alt="" />
+                  <li className="hamburger--nav--item">
+                    <Link href="/login" className="hamburger--nav--item--button">
+                      Entrar
+                    </Link>
+                  </li>
+                </div>
+              )}
+
+              {!user && (
+                <div className="hamburger--nav--list--wrapper register-item">
+                  <img className="hamburger--nav--list--wrapper--image" src={UserPlus} alt="" />
+                  <li className="hamburger--nav--item">
+                    <Link href="/register" className="hamburger--nav--item--button">
+                      Registrar-se
+                    </Link>
+                  </li>
+                </div>
+              )}
+
+              {user && (
+                <div className="hamburger--nav--list--wrapper logout-item">
+                  <img className="hamburger--nav--list--wrapper--image" src={SignOut} alt="" />
+                  <li className="hamburger--nav--item">
+                    <button onClick={() => logout()} className="hamburger--nav--item--button">
+                      Sair
+                    </button>
+                  </li>
+                </div>
+              )}
             </ul>
           </nav>
 
@@ -383,7 +402,7 @@ const Header: FC = () => {
               </ul>
             </li>
 
-            <Link data-reset href="index.html">
+            <Link data-reset href="/">
               <svg className="XLogo" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {' '}
                 <path
@@ -447,31 +466,41 @@ const Header: FC = () => {
                 <button className="user--controls--customer--choices--button lang--switcher--button notranslate">Inglês</button>
               </div>
 
-              <div className="user--controls--customer--choices--item profile-item">
-                <img className="user--controls--customer--choices--icon" src={UserRectangle} alt="Sign Out Button" />
-                <Link href="/profile" className="user--controls--customer--choices--link">
-                  Perfil
-                </Link>
-              </div>
+              {user && (
+                <div className="user--controls--customer--choices--item profile-item">
+                  <img className="user--controls--customer--choices--icon" src={UserRectangle} alt="Sign Out Button" />
+                  <Link href="/profile" className="user--controls--customer--choices--link">
+                    Perfil
+                  </Link>
+                </div>
+              )}
 
-              <div className="user--controls--customer--choices--item login-item">
-                <img className="user--controls--customer--choices--icon" src={SignIn} alt="Sign In Button" />
-                <Link href="/login" className="user--controls--customer--choices--link">
-                  Entrar
-                </Link>
-              </div>
+              {!user && (
+                <div className="user--controls--customer--choices--item login-item">
+                  <img className="user--controls--customer--choices--icon" src={SignIn} alt="Sign In Button" />
+                  <Link href="/login" className="user--controls--customer--choices--link">
+                    Entrar
+                  </Link>
+                </div>
+              )}
 
-              <div className="user--controls--customer--choices--item register-item">
-                <img className="user--controls--customer--choices--icon" src={UserPlus} alt="Register Button" />
-                <Link href="/register" className="user--controls--customer--choices--link">
-                  Registrar-se
-                </Link>
-              </div>
+              {!user && (
+                <div className="user--controls--customer--choices--item register-item">
+                  <img className="user--controls--customer--choices--icon" src={UserPlus} alt="Register Button" />
+                  <Link href="/register" className="user--controls--customer--choices--link">
+                    Registrar-se
+                  </Link>
+                </div>
+              )}
 
-              <div className="user--controls--customer--choices--item logout-item">
-                <img className="user--controls--customer--choices--icon" src={SignOut} alt="Sign Out Button" />
-                <button className="user--controls--customer--choices--link">Sair</button>
-              </div>
+              {user && (
+                <div className="user--controls--customer--choices--item logout-item">
+                  <img className="user--controls--customer--choices--icon" src={SignOut} alt="Sign Out Button" />
+                  <button onClick={() => logout()} className="user--controls--customer--choices--link">
+                    Sair
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 

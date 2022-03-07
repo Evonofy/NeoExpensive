@@ -1,28 +1,23 @@
-import { useMemo, memo, useCallback } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useMemo, memo, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { useContextSelector } from 'use-context-selector';
 
-import { AuthContext } from '@context/auth';
-import { ThemeContext } from '@context/theme';
 import { ProductsContext } from '@context/products';
 
+import { Link } from '@components/Link';
 import { getBrandsRequest } from '@services/brands/get-brands';
 import { getCategoriesRequest } from '@services/categories/get-categories';
-import { styled } from '@styles/stitches.config';
 
-const Container = styled('div', {
-  color: '$gray100',
-  background: '$gray800',
-});
+import shoppingCart from '../../images/components/header/user-controls/shopping-cart.svg';
+import receipt from '../../images/components/header/user-controls/shopping-cart.svg';
+import { Category } from '@src/types/categories';
 
 function Home() {
   const navigate = useNavigate();
 
-  const user = useContextSelector(AuthContext, (context) => context.user);
-  const logout = useContextSelector(AuthContext, (context) => context.logout);
-  const cycle = useContextSelector(ThemeContext, (context) => context.cycle);
   const products = useContextSelector(ProductsContext, (context) => context.products);
+  const categories = useContextSelector(ProductsContext, (context) => context.categories);
   const addProductToCart = useContextSelector(ProductsContext, (context) => context.addProductToCart);
 
   const handleAddProductToCart = useCallback(
@@ -38,11 +33,26 @@ function Home() {
     return brands;
   });
 
-  const { data: categories } = useQuery('categories', async () => {
-    const { categories } = await getCategoriesRequest();
+  const categoriesThatHaveProducts = useMemo(() => {
+    const validCategories: Category[] = [];
 
-    return categories;
-  });
+    products.forEach(({ tags }) => {
+      categories?.forEach(({ id, name }) => {
+        if (tags.includes(name.toLocaleLowerCase())) {
+          if (validCategories.find((category) => category.id === id)) {
+            return;
+          }
+
+          validCategories.push({
+            id,
+            name,
+          });
+        }
+      });
+    });
+
+    return validCategories;
+  }, [categories, products]);
 
   const featuredProducts = useMemo(() => {
     const mostRatedProducts = products.sort((previous, next) => {
@@ -59,77 +69,159 @@ function Home() {
 
     return brands.slice(0, 4);
   }, [brands]);
-
   return (
-    <Container>
-      <div>
-        <p>homepage</p>
-      </div>
-      <div>
-        <p>{user?.name}</p>
-      </div>
-      <div>
-        items in your cart
-        {user?.cart?.length}
-      </div>
-      {user && <button onClick={logout}>logout</button>}
-      <div>
-        <Link to="/login">go to login</Link>
-      </div>
-      {user && (
-        <div>
-          <Link to="/profile">go to profile</Link>
-        </div>
-      )}
-      {user?.cart && (
-        <div>
-          <Link to="/checkout">go to checkout</Link>
-        </div>
-      )}
-      <div>
-        <Link to="/register">create a account</Link>
-      </div>
-      <div>
-        <Link to="/password/forgot">forgot my password</Link>
-      </div>
-      <button onClick={cycle}>change theme</button>
-      <ul>
-        {featuredProducts.map(({ id, name, price }) => (
-          <li key={id}>
-            {name} - {price}
-          </li>
-        ))}
-      </ul>
+    <React.Fragment>
+      <header className="main--banner"></header>
 
-      <h1>compre por marca</h1>
-      <ul>
-        {featuredBrands.map(({ id, name }) => (
-          <li key={id}>{name}</li>
-        ))}
-      </ul>
+      <main className="main">
+        <section className="main--products">
+          {featuredProducts.map(({ id, name, price, image }) => {
+            return (
+              <div key={id} className="product--card">
+                <Link href={`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`} className="product--card--image">
+                  <img src={image} alt="" />
+                </Link>
 
-      <h1>compre por categoria</h1>
-      <ul>
-        {categories?.map(({ id, name }) => (
-          <li key={id}>
-            <div>{name}</div>
-          </li>
-        ))}
-      </ul>
+                <div className="product--card--desc">
+                  <h2 className="product--card--title">{name}</h2>
+                  <Link href={`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`} className="product--category">
+                    Fontes
+                  </Link>
+                  <p className="product--card--paragraph">R$ {price.toFixed(2)}</p>
 
-      <h1>melhores ofertas</h1>
-      <ul>
-        {products.map(({ id, name, price }) => (
-          <li key={id}>
-            <div>
-              <button onClick={() => navigate(`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`)}>buy</button>
-              <button onClick={() => handleAddProductToCart(id)}>add to cart</button>
-              {name} - {price}
+                  <div className="product--card--button--wrapper">
+                    <button className="product--card--buy">
+                      <img src={receipt} alt="" className="product--card--label" />
+                      Comprar
+                    </button>
+
+                    <button className="product--card--cart">
+                      <img src={shoppingCart} alt="" className="product--card--label" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </section>
+
+        <h1 className="main--title">Compre Por Marca</h1>
+
+        <section className="main--per--category">
+          {featuredBrands.map(({ id, name }) => (
+            <div key={id} className={`main--category--card ${name.toLocaleLowerCase()}`}>
+              <Link href={`/brand/${name.toLocaleLowerCase()}`} className={`main--category--card--label ${name.toLocaleLowerCase()}--hover`}>
+                <p className="main--category--card--label--text">{name}</p>
+              </Link>
             </div>
-          </li>
+          ))}
+        </section>
+
+        <h1 className="main--title">Compre Por Departamento</h1>
+
+        <section className="main--per--department">
+          <div className="main--department--card hardware--image">
+            <a href="#" className="main--department--card--label">
+              <p className="main--department--card--label--text">Hardware</p>
+            </a>
+          </div>
+
+          <div className="main--department--card intel--sec peripherals--image">
+            <a href="#" className="main--department--card--label">
+              <p className="main--department--card--label--text">Periféricos</p>
+            </a>
+          </div>
+
+          <div className="main--department--card console--image">
+            <a href="#" className="main--department--card--label">
+              <p className="main--department--card--label--text">Consoles</p>
+            </a>
+          </div>
+
+          <div className="main--department--card amd--red accessories--image">
+            <a href="#" className="main--department--card--label">
+              <p className="main--department--card--label--text">Acessórios</p>
+            </a>
+          </div>
+        </section>
+
+        <h1 className="main--title">Melhores Ofertas</h1>
+
+        <section className="main--offers">
+          {products.map(({ id, name, price, image, tags }) => (
+            <div key={id} className="product--card">
+              <div className="product--card--image">
+                <Link href={`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`}>
+                  <img src={image} alt="" />
+                </Link>
+              </div>
+
+              <div className="product--card--desc">
+                <h2 className="product--card--title">{name}</h2>
+                {tags.map((tag) => (
+                  <Link key={tag} href={`/tags/${tag.replace(' ', '-')}`} className="product--category">
+                    {tag}
+                  </Link>
+                ))}
+                <p className="product--card--paragraph">R$ {price.toFixed(2)}</p>
+
+                <div className="product--card--button--wrapper">
+                  <button onClick={() => navigate(`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`)} className="product--card--buy">
+                    <img src={receipt} alt="" className="product--card--label" />
+                    Comprar
+                  </button>
+
+                  <button onClick={() => handleAddProductToCart(id)} className="product--card--cart">
+                    <img src={shoppingCart} alt="" className="product--card--label" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        {categoriesThatHaveProducts?.map(({ id, name }) => (
+          <React.Fragment key={id}>
+            <h1 className="main--title">{name}</h1>
+
+            <section className="main--offers">
+              {products
+                .filter((product) => product.tags.includes(name.toLowerCase()))
+                .map(({ id, name, price, image, tags }) => (
+                  <div key={id} className="product--card">
+                    <div className="product--card--image">
+                      <Link href={`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`}>
+                        <img src={image} alt="" />
+                      </Link>
+                    </div>
+
+                    <div className="product--card--desc">
+                      <h2 className="product--card--title">{name}</h2>
+                      {tags.map((tag) => (
+                        <Link key={tag} href={`/tags/${tag.replace(' ', '-')}`} className="product--category">
+                          {tag}
+                        </Link>
+                      ))}
+                      <p className="product--card--paragraph">R$ {price.toFixed(2)}</p>
+
+                      <div className="product--card--button--wrapper">
+                        <button onClick={() => navigate(`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`)} className="product--card--buy">
+                          <img src={receipt} alt="" className="product--card--label" />
+                          Comprar
+                        </button>
+
+                        <button onClick={() => handleAddProductToCart(id)} className="product--card--cart">
+                          <img src={shoppingCart} alt="" className="product--card--label" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </section>
+          </React.Fragment>
         ))}
-      </ul>
-    </Container>
+      </main>
+    </React.Fragment>
   );
 }
 

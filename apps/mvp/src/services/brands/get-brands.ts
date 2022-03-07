@@ -12,19 +12,15 @@ export async function getBrandsRequest(): Promise<getBrandsResponse> {
         name: 'AMD',
       },
       {
-        id: '2',
-        name: 'Redragon',
-      },
-      {
         id: '3',
         name: 'NVIDIA',
       },
       {
-        id: '4',
-        name: 'Microsoft',
+        id: '2',
+        name: 'Redragon',
       },
       {
-        id: '5',
+        id: '4',
         name: 'Intel',
       },
     ];

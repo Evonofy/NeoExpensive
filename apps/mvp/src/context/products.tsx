@@ -6,6 +6,7 @@ import { useProductsStore } from '@store/products';
 import { useAuthStore } from '@store/auth';
 import { User, Address, Card, Coupon, Order, Cart } from '@src/types/auth';
 import { Product } from '@src/types/products';
+import { Category } from '@src/types/categories';
 
 type CreateOrderProps = {
   selectedCardId: string;
@@ -17,6 +18,7 @@ type CreateOrderProps = {
 
 type ProductsContextProps = {
   products: Product[];
+  categories: Category[];
 
   addAddress(data: Omit<Address, 'id'>): void;
   removeAddress(id: string): void;
@@ -36,7 +38,7 @@ export const ProductsContext = createContext({} as ProductsContextProps);
 
 export const ProductsProvider: FC = ({ children }) => {
   const { pushToCart, user, popFromCart, removeOneProductQuantityFromCart, removeAllProductsFromCart, addAddress: addStoreAddress, removeAddress: removeStoreAddress, addCard: addStoreCard, removeCard: removeStoreCard, addOrder } = useAuthStore();
-  const { products } = useProductsStore();
+  const { products, categories } = useProductsStore();
 
   const addProductToCart = useCallback(
     (id: string) => {
@@ -267,5 +269,5 @@ export const ProductsProvider: FC = ({ children }) => {
     [addOrder, user]
   );
 
-  return <ProductsContext.Provider value={{ products, addProductToCart, removeProductFromCart, removeOneProductQuantity, clearCart, addAddress, removeAddress, addCard, removeCard, createOrder }}>{children}</ProductsContext.Provider>;
+  return <ProductsContext.Provider value={{ products, addProductToCart, removeProductFromCart, removeOneProductQuantity, clearCart, addAddress, removeAddress, addCard, removeCard, createOrder, categories }}>{children}</ProductsContext.Provider>;
 };

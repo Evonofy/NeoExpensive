@@ -11,7 +11,6 @@ export class Theme {
   availableThemes = {
     light: 'light',
     dark: 'dark',
-    rgb: 'rgb',
   };
 
   constructor(theme = this.getStorageTheme()) {
