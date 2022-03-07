@@ -63,9 +63,9 @@ export const ThemeProvider: FC = ({ children }) => {
     // if there is not a stored theme, put the default one in there
     // if there is, set it to the state
     if (typeof window !== undefined) {
-      const storedTheme = localStorage.getItem('theme') as AllThemes;
+      const storedTheme = localStorage.getItem('@neo:theme') as AllThemes;
       if (!storedTheme) {
-        localStorage.setItem('theme', theme);
+        localStorage.setItem('@neo:theme', theme);
         dispatch({
           type: 'save',
           theme,
@@ -94,7 +94,7 @@ export const ThemeProvider: FC = ({ children }) => {
       type: 'save',
       theme: newTheme,
     });
-    localStorage.setItem('theme', newTheme);
+    localStorage.setItem('@neo:theme', newTheme);
   }, [theme]);
 
   return <ThemeContext.Provider value={{ theme: availableThemes[theme], cycle }}>{children}</ThemeContext.Provider>;

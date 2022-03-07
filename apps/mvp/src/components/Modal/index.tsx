@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useImperativeHandle, useState } from 'react';
+import React, { forwardRef, ReactNode, useCallback, useImperativeHandle, useState } from 'react';
 
 export type ModalHandles = {
   handleOpenModal(): void;
@@ -9,9 +9,10 @@ export type ModalHandles = {
 
 type ModalProps = {
   visible: boolean;
+  children: ReactNode;
 };
 
-const Modal: React.ForwardRefRenderFunction<ModalHandles, ModalProps> = ({ visible: isVisible, ...rest }, ref) => {
+const Modal: React.ForwardRefRenderFunction<ModalHandles, ModalProps> = ({ children, visible: isVisible, ...rest }, ref) => {
   const [visible, setVisible] = useState(isVisible);
 
   const onClose = useCallback((callback?: () => void) => callback, []);
@@ -40,7 +41,7 @@ const Modal: React.ForwardRefRenderFunction<ModalHandles, ModalProps> = ({ visib
 
   return (
     <div>
-      <p>modal</p>
+      <div>{children}</div>
 
       <button onClick={handleCloseModal}>close modal</button>
     </div>

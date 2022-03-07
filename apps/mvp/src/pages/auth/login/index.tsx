@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { useContextSelector } from 'use-context-selector';
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'use-context-selector';
 import { FiMail, FiLock } from 'react-icons/fi';
 
 import { SubmitHandler, FormHandles } from '@unform/core';
@@ -16,22 +16,26 @@ type FormProps = {
 };
 
 export default function Login() {
-  const loginRequest = useContextSelector(AuthContext, (context) => context.login);
+  const { login: loginRequest } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const formRef = useRef<FormHandles>(null);
 
   const handleUserLogin: SubmitHandler<FormProps> = useCallback(
     async ({ login, password }) => {
       const { errors } = await loginRequest({
-        login: 'test@test.com',
-        password: '123',
+        login,
+        password,
       });
 
       if (errors) {
         errors.forEach(({ field, message }) => formRef.current?.setFieldError(field, message));
+        return;
       }
+
+      navigate('/');
     },
-    [loginRequest]
+    [loginRequest, navigate]
   );
 
   return (
@@ -41,9 +45,8 @@ export default function Login() {
       <Link to="/">go back</Link>
 
       <Form ref={formRef} onSubmit={handleUserLogin}>
-        <Input name="login" label="Enter your login" placeholder="ID, E-mail or Username" icon={<FiMail />} />
-
-        <Input name="password" label="Enter Your password" placeholder="*********" icon={<FiLock />} />
+        <Input required name="login" label="Enter your e-mail" placeholder="E-mail" icon={<FiMail />} />
+        <Input required name="password" label="Enter Your password" placeholder="*********" icon={<FiLock />} />
 
         <Button type="submit">Login into my account</Button>
       </Form>

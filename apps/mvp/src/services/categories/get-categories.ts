@@ -1,5 +1,3 @@
-import { api } from '@services/api';
-
 import { Category } from '@src/types/categories';
 
 type getCategoriesResponse = {
@@ -8,7 +6,32 @@ type getCategoriesResponse = {
 
 export async function getCategoriesRequest(): Promise<getCategoriesResponse> {
   try {
-    const { data: categories } = await api.get<Category[]>('/categories');
+    const categories = [
+      {
+        id: '1',
+        name: 'Hardware',
+      },
+      {
+        id: '2',
+        name: 'Periféricos',
+      },
+      {
+        id: '3',
+        name: 'Consoles',
+      },
+      {
+        id: '4',
+        name: 'Acessórios',
+      },
+      {
+        id: '5',
+        name: 'Gamer',
+      },
+      {
+        id: '6',
+        name: 'Tech',
+      },
+    ];
 
     if (!categories) {
       return { categories: [] };

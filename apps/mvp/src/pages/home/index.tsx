@@ -1,8 +1,9 @@
-import { useMemo, memo } from 'react';
-import { Link } from 'react-router-dom';
+import { useMemo, memo, useCallback } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { useContextSelector } from 'use-context-selector';
 
+import { AuthContext } from '@context/auth';
 import { ThemeContext } from '@context/theme';
 import { ProductsContext } from '@context/products';
 
@@ -16,8 +17,20 @@ const Container = styled('div', {
 });
 
 function Home() {
+  const navigate = useNavigate();
+
+  const user = useContextSelector(AuthContext, (context) => context.user);
+  const logout = useContextSelector(AuthContext, (context) => context.logout);
   const cycle = useContextSelector(ThemeContext, (context) => context.cycle);
   const products = useContextSelector(ProductsContext, (context) => context.products);
+  const addProductToCart = useContextSelector(ProductsContext, (context) => context.addProductToCart);
+
+  const handleAddProductToCart = useCallback(
+    (id: string) => {
+      addProductToCart(id);
+    },
+    [addProductToCart]
+  );
 
   const { data: brands } = useQuery('brands', async () => {
     const { brands } = await getBrandsRequest();
@@ -49,9 +62,36 @@ function Home() {
 
   return (
     <Container>
-      <p>homepage</p>
-      <Link to="/login">go to login</Link>
-      <Link to="/password/forgot">forgot my password</Link>
+      <div>
+        <p>homepage</p>
+      </div>
+      <div>
+        <p>{user?.name}</p>
+      </div>
+      <div>
+        items in your cart
+        {user?.cart?.length}
+      </div>
+      {user && <button onClick={logout}>logout</button>}
+      <div>
+        <Link to="/login">go to login</Link>
+      </div>
+      {user && (
+        <div>
+          <Link to="/profile">go to profile</Link>
+        </div>
+      )}
+      {user?.cart && (
+        <div>
+          <Link to="/checkout">go to checkout</Link>
+        </div>
+      )}
+      <div>
+        <Link to="/register">create a account</Link>
+      </div>
+      <div>
+        <Link to="/password/forgot">forgot my password</Link>
+      </div>
       <button onClick={cycle}>change theme</button>
       <ul>
         {featuredProducts.map(({ id, name, price }) => (
@@ -71,7 +111,9 @@ function Home() {
       <h1>compre por categoria</h1>
       <ul>
         {categories?.map(({ id, name }) => (
-          <li key={id}>{name}</li>
+          <li key={id}>
+            <div>{name}</div>
+          </li>
         ))}
       </ul>
 
@@ -79,7 +121,11 @@ function Home() {
       <ul>
         {products.map(({ id, name, price }) => (
           <li key={id}>
-            {name} - {price}
+            <div>
+              <button onClick={() => navigate(`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`)}>buy</button>
+              <button onClick={() => handleAddProductToCart(id)}>add to cart</button>
+              {name} - {price}
+            </div>
           </li>
         ))}
       </ul>

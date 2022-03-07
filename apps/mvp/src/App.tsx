@@ -23,6 +23,22 @@ export const App: FC = () => {
 
   globalStyles();
 
+  localStorage.setItem(
+    '@neo:coupon',
+    JSON.stringify([
+      {
+        id: '1',
+        title: '10OFF',
+        price: 9.99,
+      },
+      {
+        id: '2',
+        title: '20OFF',
+        price: 19.99,
+      },
+    ])
+  );
+
   return (
     <Suspense fallback={<h1>loading...</h1>}>
       <QueryClientProvider client={queryClient}>

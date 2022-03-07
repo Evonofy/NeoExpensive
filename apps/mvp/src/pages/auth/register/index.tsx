@@ -1,10 +1,12 @@
 import { useCallback, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useContextSelector } from 'use-context-selector';
 import { FiUser, FiMail, FiLock, FiX, FiCheck } from 'react-icons/fi';
 
 import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 
+import { AuthContext } from '@context/auth';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
@@ -33,21 +35,33 @@ type FormProps = {
 export default function Register() {
   const formRef = useRef<FormHandles>(null);
   const navigate = useNavigate();
+  const register = useContextSelector(AuthContext, (context) => context.register);
 
   const [step, setStep] = useState<number>(0);
   const [canProceed, setCanProceed] = useState(false);
   const [passwordsEmpty, setPasswordsEmpty] = useState(true);
   const [passwordsMatch, setPasswordsMatch] = useState(false);
 
-  const handleRedeemPassword: SubmitHandler<FormProps> = useCallback(
-    (data) => {
-      console.log({
-        data,
+  const handleRegister: SubmitHandler<FormProps> = useCallback(
+    async (data) => {
+      const { name, email, cpf, birthDate, password } = data;
+
+      const { errors } = await register({
+        name,
+        email,
+        cpf,
+        birthDate,
+        password,
       });
+
+      if (errors) {
+        errors.forEach(({ field, message }) => formRef.current?.setFieldError(field, message));
+        return;
+      }
 
       navigate('/email/confirmation');
     },
-    [navigate]
+    [navigate, register]
   );
 
   const checkPasswordsMatch = useCallback(() => {
@@ -76,7 +90,7 @@ export default function Register() {
   }, [step]);
 
   const handleCanProceed = useCallback(() => {
-    const { name, email, password, confirmPassword, cpf, birthDate, cep, number, complement } = formRef.current?.getData() as FormProps;
+    const { name, email, password, confirmPassword, cpf, birthDate, cep, number } = formRef.current?.getData() as FormProps;
 
     setCanProceed(false);
 
@@ -120,15 +134,12 @@ export default function Register() {
     setCanProceed(true);
     setStep((step) => step - 1);
   }, []);
-  const verif = step !== 2 && !canProceed;
-  console.log({
-    verif,
-  });
+
   return (
     <div className={styles.container} data-active-step={step}>
-      <h1>set a new password</h1>
+      <h1>create an account</h1>
 
-      <Form ref={formRef} onSubmit={handleRedeemPassword}>
+      <Form ref={formRef} onSubmit={handleRegister}>
         <div className={`${styles.step} ${styles['step-0']}`}>
           <Input autoFocus required name="name" label="Name" placeholder="john doe" icon={<FiUser />} onChange={handleCanProceed} />
           <Input required name="email" label="E-mail" placeholder="mail@example.com" icon={<FiMail />} onChange={handleCanProceed} />

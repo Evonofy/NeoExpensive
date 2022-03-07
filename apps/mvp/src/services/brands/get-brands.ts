@@ -1,5 +1,3 @@
-import { api } from '@services/api';
-
 import { Brands } from '@src/types/brands';
 
 type getBrandsResponse = {
@@ -8,7 +6,28 @@ type getBrandsResponse = {
 
 export async function getBrandsRequest(): Promise<getBrandsResponse> {
   try {
-    const { data: brands } = await api.get<Brands[]>('/brands');
+    const brands = [
+      {
+        id: '1',
+        name: 'AMD',
+      },
+      {
+        id: '2',
+        name: 'Redragon',
+      },
+      {
+        id: '3',
+        name: 'NVIDIA',
+      },
+      {
+        id: '4',
+        name: 'Microsoft',
+      },
+      {
+        id: '5',
+        name: 'Intel',
+      },
+    ];
 
     if (!brands) {
       return { brands: [] };
