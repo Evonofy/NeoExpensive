@@ -5,8 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'apps/web/**'
-      - 'apps/html/**'
+      - 'apps/**'
       - '.github/workflows/web_deploy.yml'
 
 jobs:
