@@ -159,7 +159,7 @@ jobs:
 
       - name: Remove unused packages
         run: |
-          rm apps/{html}/package.json
+          rm apps/web/package.json
           rm libs/postcss/package.json
           rm packages/{global,icons,tokens,ui}/package.json
           rm services/{mail,users,core,api}/package.json
