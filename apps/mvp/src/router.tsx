@@ -2,6 +2,7 @@ import { memo, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Header from '@components/Header';
+import Footer from '@components/Footer';
 
 const Home = lazy(() => import('@pages/home'));
 const Login = lazy(() => import('@pages/auth/login'));
@@ -44,6 +45,8 @@ function Router() {
         <Route path="/email/code" element={<EmailCode />} />
         <Route path="/email/confirmation" element={<EmailConfirmation />} />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   );
 }

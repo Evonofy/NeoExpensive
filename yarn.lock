@@ -2873,6 +2873,7 @@ __metadata:
     react-dom: ^17.0.2
     react-i18next: ^11.15.5
     react-icons: ^4.3.1
+    react-image-zoom: ^1.3.1
     react-query: ^3.34.15
     react-router-dom: ^6.2.2
     sass: ^1.49.7
@@ -14955,6 +14956,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-image-zoom@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "js-image-zoom@npm:0.7.0"
+  checksum: 5608678f19c6e6b83974fa2f4bdb0e148595c3140ee45a61b573445e928ebe065fe13695351554870bd2d47a48ee0050b7855a670ed951734e698581ecdf7a16
+  languageName: node
+  linkType: hard
+
 "js-sha3@npm:0.8.0":
   version: 0.8.0
   resolution: "js-sha3@npm:0.8.0"
@@ -19734,6 +19742,16 @@ __metadata:
   peerDependencies:
     react: "*"
   checksum: 2cc608acdd3e906aa3aaee290b8398220639677c949382d86e554020e5dab6a9f1ed7484418aa5272cb5c5c018e1fc9a323d433d901697a76530029f9ecb1263
+  languageName: node
+  linkType: hard
+
+"react-image-zoom@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "react-image-zoom@npm:1.3.1"
+  dependencies:
+    js-image-zoom: ^0.7.0
+    prop-types: ^15.7.2
+  checksum: 93b1c38fd09a23225df2971e26024ff0cb26f143ccb77a06320561b830ae97b4ec028ce1b5990eaa07644e2ef781d6f1c7d5188530c5732a563a1adb31af684e
   languageName: node
   linkType: hard
 

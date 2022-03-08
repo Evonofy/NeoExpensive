@@ -42,6 +42,11 @@ export const useProductsStore = create<useProductsStoreProps>((set) => ({
       rating: 2.83,
       tags: ['redragon', 'rgb', 'teclado', 'teclado mecanico', 'periféricos'],
       brands: ['redragon'],
+      altImages: [
+        'https://m.media-amazon.com/images/I/6145+L0m6iL._AC_SY450_.jpg',
+        'https://cdn.iset.io/assets/00665/produtos/2306/2.pnghttps://cdn.iset.io/assets/00665/produtos/2306/2.png',
+        'https://images.kabum.com.br/produtos/fotos/107983/teclado-mecanico-gamer-redragon-dark-avenger-rgb-switch-outemu-brown-abnt2-k568rgb-2_teclado-mecanico-gamer-redragon-dark-avenger-rgb-switch-outemu-brown-abnt2-k568rgb-2_1574853576_g.jpg',
+      ],
     },
     {
       id: '2',
@@ -52,6 +57,11 @@ export const useProductsStore = create<useProductsStoreProps>((set) => ({
       rating: 4.96,
       tags: ['headset', 'headset gamer', 'logitech', 'g435', 'headset wireless', 'headset gamer wireless', 'acessórios'],
       brands: ['logitech'],
+      altImages: [
+        'https://www.atacadogames.com/imagem/logitech/headset-logitech-g435-wireless-bluetooth-branco-981-001073/2/114059.jpg?pfdrid_c=true',
+        'https://img.kalunga.com.br/fotosdeprodutos/282158z_1.jpg',
+        'https://images.kabum.com.br/produtos/fotos/263077/headset-gamer-sem-fio-logitech-g435-lightspeed-e-bluetooth-dolby-atmos-usb-pc-ps4-ps5-mobile-drivers-40mm-preto-981-001049_1636554612_g.jpg',
+      ],
     },
     {
       id: '3',
@@ -62,6 +72,11 @@ export const useProductsStore = create<useProductsStoreProps>((set) => ({
       rating: 3.92,
       tags: ['teclado', 'rgb', 'teclado mecanico', 'switch vermelho', 'periféricos'],
       brands: ['pichau'],
+      altImages: [
+        'https://www.atacadogames.com/imagem/logitech/headset-logitech-g435-wireless-bluetooth-branco-981-001073/2/114059.jpg?pfdrid_c=true',
+        'https://img.kalunga.com.br/fotosdeprodutos/282158z_1.jpg',
+        'https://images.kabum.com.br/produtos/fotos/263077/headset-gamer-sem-fio-logitech-g435-lightspeed-e-bluetooth-dolby-atmos-usb-pc-ps4-ps5-mobile-drivers-40mm-preto-981-001049_1636554612_g.jpg',
+      ],
     },
     {
       id: '4',
@@ -72,6 +87,11 @@ export const useProductsStore = create<useProductsStoreProps>((set) => ({
       rating: 2.18,
       tags: ['headset', 'headset gamer', 'pichau', 'rgb', 'preto', 'acessórios'],
       brands: ['pichau'],
+      altImages: [
+        'https://www.atacadogames.com/imagem/logitech/headset-logitech-g435-wireless-bluetooth-branco-981-001073/2/114059.jpg?pfdrid_c=true',
+        'https://img.kalunga.com.br/fotosdeprodutos/282158z_1.jpg',
+        'https://images.kabum.com.br/produtos/fotos/263077/headset-gamer-sem-fio-logitech-g435-lightspeed-e-bluetooth-dolby-atmos-usb-pc-ps4-ps5-mobile-drivers-40mm-preto-981-001049_1636554612_g.jpg',
+      ],
     },
     {
       id: '5',
@@ -82,6 +102,11 @@ export const useProductsStore = create<useProductsStoreProps>((set) => ({
       rating: 4.64,
       tags: ['headset', 'headset gamer', 'preto', 'acessórios'],
       brands: ['pichau'],
+      altImages: [
+        'https://www.atacadogames.com/imagem/logitech/headset-logitech-g435-wireless-bluetooth-branco-981-001073/2/114059.jpg?pfdrid_c=true',
+        'https://img.kalunga.com.br/fotosdeprodutos/282158z_1.jpg',
+        'https://images.kabum.com.br/produtos/fotos/263077/headset-gamer-sem-fio-logitech-g435-lightspeed-e-bluetooth-dolby-atmos-usb-pc-ps4-ps5-mobile-drivers-40mm-preto-981-001049_1636554612_g.jpg',
+      ],
     },
     {
       id: '6',
@@ -92,6 +117,11 @@ export const useProductsStore = create<useProductsStoreProps>((set) => ({
       rating: 1.12,
       tags: ['mouse', 'mouse gamer', 'preto', 'rgb', 'periféricos'],
       brands: ['pichau'],
+      altImages: [
+        'https://www.atacadogames.com/imagem/logitech/headset-logitech-g435-wireless-bluetooth-branco-981-001073/2/114059.jpg?pfdrid_c=true',
+        'https://img.kalunga.com.br/fotosdeprodutos/282158z_1.jpg',
+        'https://images.kabum.com.br/produtos/fotos/263077/headset-gamer-sem-fio-logitech-g435-lightspeed-e-bluetooth-dolby-atmos-usb-pc-ps4-ps5-mobile-drivers-40mm-preto-981-001049_1636554612_g.jpg',
+      ],
     },
     {
       id: '7',
@@ -102,6 +132,11 @@ export const useProductsStore = create<useProductsStoreProps>((set) => ({
       rating: 3.3,
       tags: ['cadeira', 'cadeira gamer', 'preto', 'vermelho', 'acessórios'],
       brands: ['pichau'],
+      altImages: [
+        'https://www.atacadogames.com/imagem/logitech/headset-logitech-g435-wireless-bluetooth-branco-981-001073/2/114059.jpg?pfdrid_c=true',
+        'https://img.kalunga.com.br/fotosdeprodutos/282158z_1.jpg',
+        'https://images.kabum.com.br/produtos/fotos/263077/headset-gamer-sem-fio-logitech-g435-lightspeed-e-bluetooth-dolby-atmos-usb-pc-ps4-ps5-mobile-drivers-40mm-preto-981-001049_1636554612_g.jpg',
+      ],
     },
   ],
   setProducts(products) {
