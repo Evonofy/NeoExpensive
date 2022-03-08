@@ -1,0 +1,30 @@
+.container {
+  color: var(--clr-gray-scale-90);
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--clr-accent-300);
+  padding: 12px 24px;
+
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 200ms;
+
+  &:hover,
+  &:focus,
+  &:active {
+    filter: brightness(0.8);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: opacity(0.5);
+  }
+
+  &[data-state="loading"] {
+    background: var(--clr-accent-400);
+  }
+}

@@ -49,6 +49,17 @@ export const AuthProvider: React.FC = ({ children }) => {
         };
       }
 
+      if (loginUser.password !== password) {
+        return {
+          errors: [
+            {
+              field: 'password',
+              message: 'Wrong password.',
+            },
+          ],
+        };
+      }
+
       setUser(loginUser);
 
       return {};
