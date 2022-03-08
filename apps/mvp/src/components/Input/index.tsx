@@ -111,6 +111,11 @@ const Container = styled('div', {
   flexDirection: 'column',
   gap: '4px',
 
+  cursor: 'pointer',
+  label: {
+    cursor: 'pointer',
+  },
+
   variants: {
     actions: {
       error: {
@@ -127,6 +132,19 @@ const Container = styled('div', {
         },
       },
       active: {
+        '&[data-error="true"]': {
+          [`& ${Label}`]: {
+            color: '$red100',
+          },
+          [`& ${InputContainer}`]: {
+            borderColor: '$red100',
+            [`& ${IconContainer}`]: {
+              svg: {
+                color: '$red100',
+              },
+            },
+          },
+        },
         [`& ${Label}`]: {
           color: '$accent200',
         },
@@ -184,7 +202,7 @@ export const Error = styled('span', {
   gap: '4px',
 });
 
-type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
+export type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
   name: string;
   label: string;
   icon?: React.ReactElement<IconBaseProps, IconType>;
@@ -237,7 +255,7 @@ export const Input: React.FC<InputProps> = ({ label, name, icon, disabled = fals
   }, [fieldName, registerField]);
 
   return (
-    <Container actions={action()}>
+    <Container data-error={error ? true : false} actions={action()}>
       {label && (
         <Label htmlFor={fieldName}>
           {label} {optional && '(optional)'}

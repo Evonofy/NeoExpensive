@@ -7,7 +7,6 @@ import { ProductsContext } from '@context/products';
 
 import { Link } from '@components/Link';
 import { getBrandsRequest } from '@services/brands/get-brands';
-import { getCategoriesRequest } from '@services/categories/get-categories';
 
 import shoppingCart from '../../images/components/header/user-controls/shopping-cart.svg';
 import receipt from '../../images/components/header/user-controls/shopping-cart.svg';
@@ -75,7 +74,7 @@ function Home() {
 
       <main className="main">
         <section className="main--products">
-          {featuredProducts.map(({ id, name, price, image }) => {
+          {featuredProducts.map(({ id, name, price, image, tags }) => {
             return (
               <div key={id} className="product--card">
                 <Link href={`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`} className="product--card--image">
@@ -84,18 +83,20 @@ function Home() {
 
                 <div className="product--card--desc">
                   <h2 className="product--card--title">{name}</h2>
-                  <Link href={`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`} className="product--category">
-                    Fontes
-                  </Link>
+                  {tags.slice(0, 3).map((tag) => (
+                    <Link key={tag} href={`/tags/${tag.replace(' ', '-')}`} className="product--category">
+                      {tag}
+                    </Link>
+                  ))}
                   <p className="product--card--paragraph">R$ {price.toFixed(2)}</p>
 
                   <div className="product--card--button--wrapper">
-                    <button className="product--card--buy">
+                    <button onClick={() => navigate(`/products/${name.toLowerCase().split(', ').join('-').split(' ').join('-')}`)} className="product--card--buy">
                       <img src={receipt} alt="" className="product--card--label" />
                       Comprar
                     </button>
 
-                    <button className="product--card--cart">
+                    <button onClick={() => handleAddProductToCart(id)} className="product--card--cart">
                       <img src={shoppingCart} alt="" className="product--card--label" />
                     </button>
                   </div>
@@ -158,7 +159,7 @@ function Home() {
 
               <div className="product--card--desc">
                 <h2 className="product--card--title">{name}</h2>
-                {tags.map((tag) => (
+                {tags.slice(0, 3).map((tag) => (
                   <Link key={tag} href={`/tags/${tag.replace(' ', '-')}`} className="product--category">
                     {tag}
                   </Link>
@@ -197,7 +198,7 @@ function Home() {
 
                     <div className="product--card--desc">
                       <h2 className="product--card--title">{name}</h2>
-                      {tags.map((tag) => (
+                      {tags.slice(0, 3).map((tag) => (
                         <Link key={tag} href={`/tags/${tag.replace(' ', '-')}`} className="product--category">
                           {tag}
                         </Link>

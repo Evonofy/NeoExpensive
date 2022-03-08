@@ -7,6 +7,10 @@ body,
   height: 100% !important;
 }
 
+button {
+  cursor: pointer !important;
+}
+
 button,
 input,
 textarea {

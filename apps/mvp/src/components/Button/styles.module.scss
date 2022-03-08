@@ -27,4 +27,15 @@
   &[data-state="loading"] {
     background: var(--clr-accent-400);
   }
+
+  &[data-variant="outlined"] {
+    background: transparent;
+    border: 2px solid var(--clr-accent-300);
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus,
+    &:not(:disabled):active {
+      background: var(--clr-accent-300);
+    }
+  }
 }

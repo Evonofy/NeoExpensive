@@ -6,11 +6,37 @@ import { FiUser, FiMail, FiLock, FiX, FiCheck } from 'react-icons/fi';
 import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 
+import UndrawAbstract from '../../../images/pages/login-register/undraw_abstract.svg';
+import NeoDPad from '../../../images/general/logos/neo-dpad-logo.svg';
+
 import { AuthContext } from '@context/auth';
 import { Input } from '@components/Input';
+import { CpfInput } from '@components/Input/cpf';
+import { CepInput } from '@components/Input/cep';
+import { Link } from '@components/Link';
 import { Button } from '@components/Button';
+import { styled } from '@src/styles/stitches.config';
 
 import styles from './styles.module.scss';
+
+export const Container = styled('div');
+
+export const Margin = styled('section', {
+  margin: '12px 0',
+});
+
+export const SpecialLink = styled('span', {
+  backgroundImage: 'linear-gradient($accent100, $accent200);',
+  backgroundSize: '0% 2px',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'left bottom',
+  transition: 'all 200ms',
+  width: 'max-content',
+
+  '&:hover': {
+    backgroundSize: '100% 2px',
+  },
+});
 
 type FormProps = {
   /* STEP 1 */
@@ -126,8 +152,8 @@ export default function Register() {
   }, [step]);
 
   const handleAddStep = useCallback(() => {
-    setCanProceed(false);
     setStep((step) => step + 1);
+    setCanProceed(false);
   }, []);
 
   const handleRemoveStep = useCallback(() => {
@@ -136,79 +162,130 @@ export default function Register() {
   }, []);
 
   return (
-    <div className={styles.container} data-active-step={step}>
-      <h1>create an account</h1>
+    <Container className={`${styles.container} register--body`} data-active-step={step}>
+      <section className="register--body--wrapper">
+        <section className="register--illustration">
+          <img src={UndrawAbstract} alt="" className="register--illustration--image" />
+          <h1 className="register--illustration--header">Entre para a Neo Expensive</h1>
+          <p className="register--illustration--paragraph">Aproveite milhares de ofertas, preços baixos e a melhor experiência.</p>
+          <SpecialLink className="register--form--heading--link">
+            <Link href="/login">
+              <p className="register--form--heading--paragraph">Já tem uma conta? Login</p>
+            </Link>
+          </SpecialLink>
+        </section>
 
-      <Form ref={formRef} onSubmit={handleRegister}>
-        <div className={`${styles.step} ${styles['step-0']}`}>
-          <Input autoFocus required name="name" label="Name" placeholder="john doe" icon={<FiUser />} onChange={handleCanProceed} />
-          <Input required name="email" label="E-mail" placeholder="mail@example.com" icon={<FiMail />} onChange={handleCanProceed} />
+        <section className="register--form--wrapper">
+          <Form ref={formRef} onSubmit={handleRegister} className="register--form">
+            <div className="register--form--heading">
+              <div className="register--form--heading--image">
+                <img src={NeoDPad} alt="Neo DPad Logo" />
+              </div>
 
-          <Input
-            required
-            name="password"
-            label="Password"
-            placeholder="**************"
-            icon={<FiLock />}
-            onChange={() => {
-              handleCanProceed();
-              checkPasswordsMatch();
-            }}
-          />
+              <h1 className="register--form--heading--header">Explore a Neo Expensive</h1>
+            </div>
 
-          <Input
-            required
-            name="confirmPassword"
-            label="Confirm your password"
-            placeholder="**************"
-            icon={<FiLock />}
-            onChange={() => {
-              handleCanProceed();
-              checkPasswordsMatch();
-            }}
-          />
+            <div className={`${styles.step} ${styles['step-0']}`}>
+              <Margin>
+                <Input autoFocus required name="name" label="Enter your name" placeholder="john doe" icon={<FiUser />} onChange={handleCanProceed} />
+              </Margin>
 
-          {passwordsMatch ? (
-            passwordsEmpty ? null : (
-              <span>
-                the password match <FiCheck />
-              </span>
-            )
-          ) : passwordsEmpty ? null : (
-            <span>
-              the password do not match <FiX />
-            </span>
-          )}
-        </div>
+              <Margin>
+                <Input required name="email" label="Enter your e-mail" placeholder="support@neo-expensive.com" icon={<FiMail />} onChange={handleCanProceed} />
+              </Margin>
 
-        {/* <div className="step step-1"> */}
-        <div className={`${styles.step} ${styles['step-1']}`}>
-          <Input required name="cpf" label="CPF" placeholder="000.000.000-00" icon={<FiUser />} onChange={handleCanProceed} />
-          <Input required name="birthDate" label="Birth Date" placeholder="24/12/12" icon={<FiUser />} onChange={handleCanProceed} />
-        </div>
+              <Margin>
+                <Input
+                  required
+                  type="password"
+                  name="password"
+                  label="Enter your password"
+                  placeholder="**************"
+                  icon={<FiLock />}
+                  onChange={() => {
+                    handleCanProceed();
+                    checkPasswordsMatch();
+                  }}
+                />
+              </Margin>
 
-        <div className={`${styles.step} ${styles['step-2']}`}>
-          <Input name="cep" label="CPF" placeholder="046943-293" icon={<FiUser />} onChange={handleCanProceed} />
-          <Input name="number" label="Number" placeholder="2" icon={<FiUser />} onChange={handleCanProceed} />
-          <Input name="complement" label="Complement" placeholder="apartment 4" icon={<FiUser />} onChange={handleCanProceed} />
-        </div>
+              <Margin>
+                <Input
+                  required
+                  type="password"
+                  name="confirmPassword"
+                  label="Confirm your password"
+                  placeholder="**************"
+                  icon={<FiLock />}
+                  onChange={() => {
+                    handleCanProceed();
+                    checkPasswordsMatch();
+                  }}
+                />
+              </Margin>
 
-        <Button disabled={!(step === 2 && canProceed)} type="submit">
-          submit form
-        </Button>
+              {passwordsMatch ? (
+                passwordsEmpty ? null : (
+                  <span style={{ color: '#AAEECD', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <FiCheck />
+                    the password match
+                  </span>
+                )
+              ) : passwordsEmpty ? null : (
+                <span style={{ color: '#FF5C5C', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <FiX />
+                  the password do not match
+                </span>
+              )}
+            </div>
 
-        <Button disabled={!canProceed || step === 2} onClick={handleAddStep} type="button">
-          next
-        </Button>
+            <div className={`${styles.step} ${styles['step-1']}`}>
+              <Margin>
+                <CpfInput required name="cpf" label="CPF" placeholder="000.000.000-00" icon={<FiUser />} onChange={handleCanProceed} />
+              </Margin>
 
-        {step === 2 && <Button type="submit">skip</Button>}
+              <Margin>
+                <Input required type="date" name="birthDate" label="Birth Date" placeholder="24/12/12" icon={<FiUser />} onChange={handleCanProceed} />
+              </Margin>
+            </div>
 
-        {step > 0 && (
-          <Button onClick={handleRemoveStep} type="button">
-            Back
-          </Button>
-        )}
-      </Form>
-    </div>
+            <div className={`${styles.step} ${styles['step-2']}`}>
+              <Margin>
+                <CepInput name="cep" label="CPF" placeholder="046943-293" icon={<FiUser />} onChange={handleCanProceed} />
+              </Margin>
+
+              <Margin>
+                <Input name="number" label="Number" placeholder="2" icon={<FiUser />} onChange={handleCanProceed} />
+              </Margin>
+
+              <Margin>
+                <Input optional name="complement" label="Complement" placeholder="apartment 4" icon={<FiUser />} onChange={handleCanProceed} />
+              </Margin>
+            </div>
+          </Form>
+
+          <Margin style={{ width: '100%' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <Button variant="outlined" noload disabled={step === 0} onClick={handleRemoveStep} type="button">
+                  Back
+                </Button>
+                <Button variant="outlined" noload disabled={!canProceed || step === 2} onClick={handleAddStep} type="button">
+                  next
+                </Button>
+              </div>
+
+              <Margin>
+                {step === 2 && (
+                  <Button disabled={!(step === 2 && canProceed)} type="submit" onClick={() => formRef.current?.submitForm()}>
+                    Create my account
+                  </Button>
+                )}
+              </Margin>
+            </div>
+          </Margin>
+        </section>
+      </section>
+    </Container>
   );
 }

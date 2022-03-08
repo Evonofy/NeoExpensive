@@ -23,9 +23,10 @@ const Loading = styled('div', {
 type ButtonProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
   variant?: 'primary' | 'secondary' | 'tertiary' | '3D' | 'outlined';
   color?: string;
+  noload?: boolean;
 };
 
-export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', color, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', color, noload = false, ...rest }) => {
   const [isLoading, setIsLoading] = useState(false);
   const state = (): 'loading' | 'idle' => {
     if (isLoading) {
@@ -42,7 +43,7 @@ export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', c
     const callback = () => {
       setIsLoading(true);
 
-      setTimeout(() => setIsLoading(false), Math.floor(Math.random() * (700 - 200 + 1) + 200));
+      setTimeout(() => setIsLoading(false), noload ? 0 : Math.floor(Math.random() * (700 - 200 + 1) + 200));
     };
 
     button.addEventListener('click', callback);
@@ -50,11 +51,11 @@ export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', c
     return () => {
       button.removeEventListener('click', callback);
     };
-  }, []);
+  }, [noload]);
 
   return (
     // @ts-ignore
-    <button style={color && { backgroundColor: color }} className={styles.container} data-state={state()} ref={buttonRef} {...rest}>
+    <button data-variant={variant} style={color && { backgroundColor: color }} className={styles.container} data-state={state()} ref={buttonRef} {...rest}>
       {isLoading ? (
         <Loading>
           <CgSpinnerAlt />
