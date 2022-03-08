@@ -159,7 +159,7 @@ jobs:
 
       - name: Remove unused packages
         run: |
-          rm apps/{web,html}/package.json
+          rm apps/{html}/package.json
           rm libs/postcss/package.json
           rm packages/{global,icons,tokens,ui}/package.json
           rm services/{mail,users,core,api}/package.json
@@ -185,6 +185,10 @@ jobs:
 
       - name: Install dependencies
         run: yarn workspaces focus --production --all
+
+      - name: Build @neo/html
+        working-directory: ./apps/html
+        run: yarn css
 
       - name: Build @neo/mvp
         working-directory: ./apps/mvp
