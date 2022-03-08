@@ -1,0 +1,37 @@
+html,
+body,
+#app {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+button {
+  cursor: pointer !important;
+}
+
+button,
+input,
+textarea {
+  outline: 0;
+  border: 0;
+  appearance: none;
+}
+
+input:-internal-autofill-selected {
+  color: var(--white);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--white);
+  box-shadow: 0 0 0 30px var(--black) inset !important;
+}
+
+input[data-autocompleted] {
+  color: var(--white);
+  background-color: transparent !important;
+}

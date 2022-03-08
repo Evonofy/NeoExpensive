@@ -1,4 +1,4 @@
-@use '../abstracts/_mixins.scss' as *;
+@use "../abstracts/_mixins.scss" as *;
 
 .product--card {
   width: max-content;
@@ -11,7 +11,6 @@
   &--image {
     display: flex;
 
-    background: var(--clr-gray-scale-90);
     padding: 0.85rem;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
@@ -29,6 +28,8 @@
 
     img {
       width: 280px;
+      height: 150px;
+      object-fit: contain;
     }
   }
 

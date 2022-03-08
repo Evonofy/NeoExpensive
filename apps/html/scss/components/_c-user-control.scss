@@ -1,4 +1,4 @@
-@use '../abstracts/mixins.scss' as *;
+@use "../abstracts/mixins.scss" as *;
 
 // * Customer Controls
 
@@ -15,7 +15,7 @@
     }
 
     &--choices {
-      content: '';
+      content: "";
       width: max-content;
 
       display: flex;
@@ -31,6 +31,7 @@
       position: absolute;
       top: 130%;
       left: 50%;
+      z-index: 1000;
       transform: translateX(-50%) rotateX(-90deg);
       transform-origin: top center;
       transition: all 200ms ease-in;
@@ -38,7 +39,7 @@
       opacity: 0.1;
 
       &::after {
-        content: '';
+        content: "";
         border: 0.5rem solid transparent;
         position: absolute;
         top: -1rem;
