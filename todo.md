@@ -1,3 +1,5 @@
+- [] validar email no login e cadastro
+
 - ~~settings routes~~
 
   - [x] set account theme

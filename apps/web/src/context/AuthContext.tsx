@@ -149,6 +149,7 @@ export const AuthProvider: FC = ({ children }) => {
     storage.remove('@neo:access');
     storage.remove('@neo:refresh');
     storage.remove('@neo:authorization');
+    // storage.remove('@neo:logged');
 
     removeUser();
   }, [removeUser, storage]);
