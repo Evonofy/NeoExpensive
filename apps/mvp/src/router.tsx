@@ -1,5 +1,5 @@
 import { memo, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import Header from '@components/Header';
 import Footer from '@components/Footer';
@@ -24,7 +24,7 @@ const EmailConfirmation = lazy(() => import('@pages/email/email-confirmation'));
 
 function Router() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
 
       <Routes>
@@ -47,7 +47,7 @@ function Router() {
       </Routes>
 
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
