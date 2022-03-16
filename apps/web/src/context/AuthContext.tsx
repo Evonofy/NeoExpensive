@@ -114,6 +114,8 @@ export const AuthProvider: FC = ({ children }) => {
 
         setUser(user);
       }
+
+      console.log('something went wrong with the app');
     }
   }, [setUser, storage]);
 

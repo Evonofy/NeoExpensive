@@ -32,7 +32,10 @@ export const StorageProvider: FC = ({ children }) => {
     if (!option) {
       switch (defaultStorage) {
         case 'cookies': {
-          setCookie(undefined, storageKey, defaultStorage);
+          setCookie(undefined, storageKey, defaultStorage, {
+            sameSite: 'strict',
+            secure: true,
+          });
           break;
         }
         case 'localStorage': {
@@ -54,6 +57,7 @@ export const StorageProvider: FC = ({ children }) => {
           setCookie(undefined, key, value, {
             sameSite: 'strict',
             secure: true,
+            path: '/',
             ...options,
           });
           break;
@@ -66,6 +70,7 @@ export const StorageProvider: FC = ({ children }) => {
           setCookie(undefined, key, value, {
             sameSite: 'strict',
             secure: true,
+            path: '/',
             ...options,
           });
           break;

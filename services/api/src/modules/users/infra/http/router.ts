@@ -31,6 +31,7 @@ import { ListUserByUsername } from '../../use-cases/list-user-by-username';
 import { GetRefreshTokenData } from '../../use-cases/get-refresh-token-data';
 import { DeleteAuthenticatedUserAccount } from '../../use-cases/delete-authenticated-user-account';
 import { DeleteUserAccount } from '../../use-cases/delete-user-account';
+import { MagicLinkAuthentication } from '../../use-cases/magic-link-authentication';
 
 // eslint-disable-next-line new-cap
 export const authRouter = express.Router();
@@ -41,7 +42,7 @@ authRouter.delete('/refresh-token', auth, InvalidateRefreshTokenController);
 
 // eslint-disable-next-line new-cap
 export const usersRouter = express.Router();
-
+usersRouter.post('/login/magic', MagicLinkAuthentication);
 usersRouter.get('/', ListAllUsers);
 usersRouter.post('/username', ListUserByUsername);
 usersRouter.get('/:id', ListSpecificUser);
