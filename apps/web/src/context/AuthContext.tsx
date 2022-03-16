@@ -48,6 +48,7 @@ type AuthContextProps = {
   forgotPassword: (data: ForgotPasswordProps) => Promise<ForgotPasswordResponse>;
   logout: () => Promise<void>;
   disconnectAccount: () => Promise<void>;
+  refreshToken: () => Promise<void>;
 };
 
 export const AuthContext = createContext({} as AuthContextProps);
@@ -394,5 +395,33 @@ export const AuthProvider: FC = ({ children }) => {
     }
   });
 
-  return <AuthContext.Provider value={{ user, login, logout, register, forgotPassword, disconnectAccount }}>{children}</AuthContext.Provider>;
+  const refreshToken = useCallback(async () => {
+    const token = storage.get<string>('@neo:refresh');
+
+    const { data } = await api.post<{ accessToken: string; refreshToken?: string }>('/auth/refresh-token', {
+      refresh_token: token,
+    });
+
+    const { accessToken, refreshToken } = data;
+
+    storage.set('@neo:access', accessToken, {
+      maxAge: accessTokenExpireTime,
+    });
+
+    if (refreshToken) {
+      storage.set('@neo:refresh', refreshToken, {
+        maxAge: refreshTokenExpireTime,
+      });
+    }
+    console.log('refreshed token');
+
+    (api.defaults.headers as any)['authorization'] = `bearer ${accessToken}`;
+    const profile = await api.post('/users/profile');
+
+    const { data: user } = await api.get<User>(`/users/${profile.data.id}`);
+
+    setUser(user);
+  }, [setUser, storage]);
+
+  return <AuthContext.Provider value={{ user, login, logout, register, forgotPassword, disconnectAccount, refreshToken }}>{children}</AuthContext.Provider>;
 };

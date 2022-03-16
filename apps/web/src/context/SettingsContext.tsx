@@ -40,8 +40,6 @@ export const SettingsProvider: FC = ({ children }) => {
 
   const installTheme = useCallback(
     async ({ theme }: setThemeProps) => {
-      setTheme(theme);
-
       storage.set('@neo:theme', theme);
 
       try {
@@ -54,15 +52,17 @@ export const SettingsProvider: FC = ({ children }) => {
           push(`/login?redirect_to=${asPath}`);
         }
       }
+
+      setTheme(theme);
     },
     [asPath, push, setTheme, storage]
   );
 
   const installLanguage = useCallback(
     async ({ language }: setLanguageProps) => {
-      setLanguage(language);
-
       storage.set('@neo:theme', theme);
+
+      setLanguage(language);
 
       try {
         await api.post('/users/profile/settings/language', {
@@ -89,7 +89,6 @@ export const SettingsProvider: FC = ({ children }) => {
           api.defaults.headers['authorization'] = `bearer ${token}`;
 
           const { data } = await api.get<{ theme: string; language: string }>('/users/profile/settings');
-
           const { language, theme } = data;
 
           installLanguage({ language });

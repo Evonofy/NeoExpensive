@@ -27,7 +27,7 @@ export const StorageProvider: FC = ({ children }) => {
 
   useEffect(() => {
     const cookies = parseCookies();
-    const option = (localStorage.getItem(storageKey) || cookies[storageKey]) as Storage;
+    const option = cookies[storageKey] as Storage;
 
     if (!option) {
       switch (defaultStorage) {
@@ -63,7 +63,11 @@ export const StorageProvider: FC = ({ children }) => {
           break;
 
         default:
-          localStorage.setItem(key, value);
+          setCookie(undefined, key, value, {
+            sameSite: 'strict',
+            secure: true,
+            ...options,
+          });
           break;
       }
     },

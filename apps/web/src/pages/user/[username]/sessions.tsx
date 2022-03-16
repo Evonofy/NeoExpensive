@@ -5,13 +5,16 @@ import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
 import { StorageContext } from '../../../context/StorageContext';
+import { AuthContext } from '../../../context/AuthContext';
 import { RefreshToken } from '../../../types';
 import { api } from '../../../services/api';
+import { AxiosError } from 'axios';
 
 const SessionsPage = () => {
   // check if user in params is user logged in
   const queryClient = useQueryClient();
   const storageGet = useContextSelector(StorageContext, (context) => context.get);
+  const refreshToken = useContextSelector(AuthContext, (context) => context.refreshToken);
   const [localTokenInformation, setLocalTokenInformation] = useState<{ id: string } | null>(null);
 
   const { data, isLoading } = useQuery<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens', async () => {
@@ -64,6 +67,13 @@ const SessionsPage = () => {
               },
             });
           } catch (error) {
+            const { response } = error as AxiosError;
+            if (response?.data.error === 'jwt expired') {
+              // refresh token
+              refreshToken();
+              return;
+            }
+
             alert('failed to delete session, putting it back on the list');
             queryClient.setQueryData<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens', {
               refreshToken: previousRefreshTokens.refreshToken,
@@ -73,7 +83,7 @@ const SessionsPage = () => {
         }
       }
     },
-    [localTokenInformation?.id, queryClient]
+    [localTokenInformation?.id, queryClient, refreshToken]
   );
 
   if (isLoading) {
