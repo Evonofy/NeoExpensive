@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useContext, useContextSelector } from 'use-context-selector';
 import { AxiosError } from 'axios';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { SettingsContext } from '../../../context/SettingsContext';
 import { api } from '../../../services/api';
@@ -90,6 +90,11 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
   });
 
   function handleShowUserData() {
+    if (userData) {
+      setUserData(null);
+      return;
+    }
+
     const storageArray = Object.entries(storage.getAll());
 
     const descriptionTable: Record<string, string> = {
@@ -201,25 +206,29 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
             <button onClick={logout}>logout</button>
           </div>
           <div>
-            <button onClick={handleShowUserData}>see my data</button>
+            <button onClick={handleShowUserData}>{userData ? 'close my data' : 'see my data'}</button>
 
             <br />
             {userData && <button onClick={softLogoutUser}>delete all stored data but keep me logged in</button>}
 
             <ul>
-              <strong>deleting @neo:access and @neo:refresh will log you out</strong>
               {/* explain why each cookie is needed */}
-              {userData &&
-                userData.map(({ name, description, value }) => (
-                  <li key={name}>
-                    <strong>{name}</strong> {value}
-                    <br />
-                    <p>description: {description}</p>
-                    <button onClick={() => handleDeleteUserData(name!)}>delete</button>
-                    <br />
-                    <br />
-                  </li>
-                ))}
+              {userData && (
+                <React.Fragment>
+                  <strong>deleting @neo:access and @neo:refresh will log you out</strong>
+
+                  {userData.map(({ name, description, value }) => (
+                    <li key={name}>
+                      <strong>{name}</strong> {value}
+                      <br />
+                      <p>description: {description}</p>
+                      <button onClick={() => handleDeleteUserData(name!)}>delete</button>
+                      <br />
+                      <br />
+                    </li>
+                  ))}
+                </React.Fragment>
+              )}
             </ul>
           </div>
         </div>

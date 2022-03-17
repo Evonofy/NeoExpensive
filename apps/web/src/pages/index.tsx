@@ -18,9 +18,7 @@ const Home: NextPage = () => {
   }, [user]);
 
   const disconnectAccount = useContextSelector(AuthContext, (context) => context.disconnectAccount);
-  console.log({
-    user,
-  });
+
   return (
     <main>
       <h1 style={{ color: 'black' }}>This is a work in progress :)</h1>
@@ -31,6 +29,11 @@ const Home: NextPage = () => {
           <div>
             <Link href="/login">
               <a>Go to login</a>
+            </Link>
+          </div>
+          <div>
+            <Link href="/login/magic">
+              <a>Magic Link/passwordless authentication</a>
             </Link>
           </div>
           <div>

@@ -36,11 +36,17 @@ model User {
   @@map("users")
 }
 
+enum Storage {
+  cookies
+  localStorage
+}
+
 model Settings {
   id String @id
 
   language String? @default("string")
   theme    String? @default("dark")
+  storage  Storage @default(cookies)
   User     User[]
 
   createdAt DateTime @default(now())
