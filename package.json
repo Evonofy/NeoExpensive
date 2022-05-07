@@ -9,10 +9,12 @@
   "packageManager": "yarn@3.1.1",
   "workspaces": [
     "apps/**",
-    "libs/**",
     "packages/**",
     "services/**"
   ],
+  "resolutions": {
+    "webpack": "^5"
+  },
   "scripts": {
     "lint-staged": "lint-staged — config .lintstagedrc",
     "commit": "./node_modules/cz-customizable/standalone.js",

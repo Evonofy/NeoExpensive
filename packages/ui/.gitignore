@@ -1,7 +1,0 @@
-build
-*.js
-*.js.map
-*.d.ts
-
-!jest.config.js
-!rollup.config.js
