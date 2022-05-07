@@ -44,7 +44,7 @@ export async function RecoverUserPaswordController(request: Request<{}, {}, { em
       senderContact,
       mail: {
         body: `click this button and create a new password <a href="${process.env.CLIENT_URL}/recover-password">recover my password</a>`,
-        subject: 'NeoExpensive Password Recovery',
+        subject: 'NeoExpertise Password Recovery',
       },
     });
 

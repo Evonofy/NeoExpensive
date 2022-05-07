@@ -1,9 +1,9 @@
 {
   "name": "neo",
   "version": "0.0.0",
-  "description": "The Neo Expensive app source code",
-  "repository": "https://github.com/Neo-Florescence/neo-expensive",
-  "homepage": "https://neo-florescence.github.io/neo-expensive",
+  "description": "The Neo Expertise app source code",
+  "repository": "https://github.com/Neo-Florescence/neo-expertise",
+  "homepage": "https://neo-florescence.github.io/neo-expertise",
   "license": "MIT",
   "private": true,
   "packageManager": "yarn@3.1.1",

@@ -70,7 +70,7 @@ export async function SetUserNewPasswordController(request: Request<{}, {}, { ac
       senderContact,
       mail: {
         body: `your password was changed, if it was not you, cry and panic`,
-        subject: 'NeoExpensive Password Recovery',
+        subject: 'NeoExpertise Password Recovery',
       },
     });
 

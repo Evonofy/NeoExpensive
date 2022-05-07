@@ -191,7 +191,7 @@ jobs:
 
       - name: Build @neo/mvp
         working-directory: ./apps/mvp
-        run: yarn build --base /neo-expensive/mvp/
+        run: yarn build --base /neo-expertise/mvp/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2

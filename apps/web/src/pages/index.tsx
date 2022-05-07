@@ -22,8 +22,8 @@ const Home: NextPage = () => {
   return (
     <main>
       <h1 style={{ color: 'black' }}>This is a work in progress :)</h1>
-      <a href="/neo-expensive/old/index.html">Go to the old website</a>
-      <a href="/neo-expensive/mvp/index.html">Go to MVP</a>
+      <a href="/neo-expertise/old/index.html">Go to the old website</a>
+      <a href="/neo-expertise/mvp/index.html">Go to MVP</a>
       {!user && (
         <div>
           <div>
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           </div>
           <div>
             <Link href={`${process.env.NEXT_PUBLIC_API_URL}/users/login/oauth/neo`}>
-              <a>login with neo-expensive</a>
+              <a>login with neo-expertise</a>
             </Link>
           </div>
         </div>

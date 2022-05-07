@@ -166,7 +166,7 @@ export default function Register() {
       <section className="register--body--wrapper">
         <section className="register--illustration">
           <img src={UndrawAbstract} alt="" className="register--illustration--image" />
-          <h1 className="register--illustration--header">Entre para a Neo Expensive</h1>
+          <h1 className="register--illustration--header">Entre para a Neo Expertise</h1>
           <p className="register--illustration--paragraph">Aproveite milhares de ofertas, preços baixos e a melhor experiência.</p>
           <SpecialLink className="register--form--heading--link">
             <Link href="/login">
@@ -182,7 +182,7 @@ export default function Register() {
                 <img src={NeoDPad} alt="Neo DPad Logo" />
               </div>
 
-              <h1 className="register--form--heading--header">Explore a Neo Expensive</h1>
+              <h1 className="register--form--heading--header">Explore a Neo Expertise</h1>
             </div>
 
             <div className={`${styles.step} ${styles['step-0']}`}>
@@ -191,7 +191,7 @@ export default function Register() {
               </Margin>
 
               <Margin>
-                <Input required name="email" label="Enter your e-mail" placeholder="support@neo-expensive.com" icon={<FiMail />} onChange={handleCanProceed} />
+                <Input required name="email" label="Enter your e-mail" placeholder="support@neo-expertise.com" icon={<FiMail />} onChange={handleCanProceed} />
               </Margin>
 
               <Margin>

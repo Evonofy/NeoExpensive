@@ -28,7 +28,7 @@ export class Translation {
   // language = document.cookie.split('=')[1].split('/')[1];
   language = this.getStorageLang();
 
-  /* the default neo expensive language */
+  /* the default neo expertise language */
   defaultLanguague = 'pt';
 
   /* list of all available languages */

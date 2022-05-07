@@ -86,7 +86,7 @@ export default function Login() {
     <Container className="login--body">
       <div className="login--banner">
         <img src={UndrawAbstract} alt="Abstract logistics" className="login--banner--image" />
-        <h3 className="login--banner--h3">Bem-Vindo(a) Neo Expensive</h3>
+        <h3 className="login--banner--h3">Bem-Vindo(a) Neo Expertise</h3>
         <h2 className="login--banner--h2">Desejamos-te uma boa experiência</h2>
 
         <a href="#neo--explore">
@@ -101,11 +101,11 @@ export default function Login() {
           </div>
 
           <h1 id="neo--explore" className="login--form--h1">
-            Explore a Neo Expensive
+            Explore a Neo Expertise
           </h1>
 
           <Margin>
-            <Input name="login" type="email" label="Enter your e-mail" placeholder="support@neo-expensive.com" icon={<FiMail />} />
+            <Input name="login" type="email" label="Enter your e-mail" placeholder="support@neo-expertise.com" icon={<FiMail />} />
           </Margin>
 
           <Margin>

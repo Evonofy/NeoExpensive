@@ -100,7 +100,7 @@ const UserPage: NextPage<UserPageProps> = ({ username }) => {
     const descriptionTable: Record<string, string> = {
       '@neo:access': "makes sure you're authenticated to our server",
       '@neo:refresh': 'keeps you logged in the app',
-      '@neo:authorization': "knows wheter you've pressed the neo-expensive oauth button once",
+      '@neo:authorization': "knows wheter you've pressed the neo-expertise oauth button once",
       '@neo:theme': "the current theme you're using",
       '@neo:language': "the current language you're using",
     };

@@ -1,9 +1,9 @@
 {
   "name": "@neo/icons",
   "version": "0.0.1",
-  "description": "NeoExpensive's library.",
+  "description": "NeoExpertise's library.",
   "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
-  "repository": "https://github.com/Neo-Florescence/neo-expensive",
+  "repository": "https://github.com/Neo-Florescence/neo-expertise",
   "license": "MIT",
   "private": true,
   "main": "./dist/index.js",

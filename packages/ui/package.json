@@ -1,9 +1,9 @@
 {
   "name": "@neo/ui",
   "version": "0.0.1",
-  "description": "The UI from NeoExpensive.",
+  "description": "The UI from NeoExpertise.",
   "author": "Vitor Gouveia <vitorneves.gouveia10@gmail.com>",
-  "repository": "https://github.com/Neo-Florescence/neo-expensive",
+  "repository": "https://github.com/Neo-Florescence/neo-expertise",
   "license": "MIT",
   "private": true,
   "packageManager": "yarn@3.1.1",

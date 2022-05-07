@@ -1,4 +1,4 @@
-# Contributing to NeoExpensive
+# Contributing to NeoExpertise
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 - Reporting an issue
@@ -11,7 +11,7 @@ We love your input! We want to make contributing to this project as easy and tra
 The code of conduct is described in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 ## Our Development Process
-All changes happen through pull requests. Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly [here](https://github.com/atomicfeast/neo-expensive/pulls), and after review, these can be merged into the project.
+All changes happen through pull requests. Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly [here](https://github.com/atomicfeast/neo-expertise/pulls), and after review, these can be merged into the project.
 
 ## Using the Project's Standard Commit Messages
 This project is using the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) standard. Please follow these steps to ensure your
@@ -37,5 +37,5 @@ commit messages are standardized:
 </ol>
 
 ## License
-By contributing to NeoExpensive, you agree that your contributions will be licensed
+By contributing to NeoExpertise, you agree that your contributions will be licensed
 under the [LICENSE file](LICENSE).

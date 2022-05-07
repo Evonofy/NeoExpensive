@@ -23,7 +23,7 @@ if (!loggedIn) {
 
 const isDev = window.location.origin === 'http://localhost:3000';
 
-const apiURL = isDev ? 'http://localhost:3333' : 'https://neo-expensive-api.herokuapp.com';
+const apiURL = isDev ? 'http://localhost:3333' : 'https://neo-expertise-api.herokuapp.com';
 
 const main = async () => {
   try {
