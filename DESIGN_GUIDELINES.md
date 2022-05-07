@@ -1,6 +1,6 @@
 # Design Guidelines
 
-This document aims to specify and define the rules and patterns to follow when implementing and developing new features and components for NeoExpensive.
+This document aims to specify and define the rules and patterns to follow when implementing and developing new features and components for NeoExpertise.
 
 >This is a summary. For a more extensive version, components and UI Design, visit the publically available **[Figma file](https://www.figma.com/file/6Un7EU7SiFts19540phE7O/Neo?node-id=101%3A21)**.
 
@@ -70,7 +70,7 @@ font-weight: 600;
 ```
 
 
-![NeoExpensive typography](https://i.imgur.com/A1pz7UD.png)
+![NeoExpertise typography](https://i.imgur.com/A1pz7UD.png)
 
 Tag | Font Size | Line Height | Weight
 --- | --------- | ----------- | ------
@@ -85,4 +85,4 @@ Tag | Font Size | Line Height | Weight
 
 This is an approximation. On some circumstances other values will be used to ensure readability, consistency and visual balance, so make sure to also check the UI Design and the spacing used there.
 
-![NeoExpensive spacing](https://i.imgur.com/gRIJAXA.png)
+![NeoExpertise spacing](https://i.imgur.com/gRIJAXA.png)

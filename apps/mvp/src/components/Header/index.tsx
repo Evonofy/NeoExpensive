@@ -181,7 +181,7 @@ const Header: FC = () => {
 
       <header className="desktop--header">
         <div className="social--icons">
-          <Link data-reset href="https://www.facebook.com/Neo-Expensive-102995498833851/" target="_blank" rel="noreferrer">
+          <Link data-reset href="https://www.facebook.com/neo-expertise-102995498833851/" target="_blank" rel="noreferrer">
             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M25 43.75C35.3553 43.75 43.75 35.3553 43.75 25C43.75 14.6447 35.3553 6.25 25 6.25C14.6447 6.25 6.25 14.6447 6.25 25C6.25 35.3553 14.6447 43.75 25 43.75Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M32.8125 17.1877H29.6875C28.4443 17.1877 27.252 17.6816 26.3729 18.5607C25.4939 19.4398 25 20.632 25 21.8752V43.7502" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

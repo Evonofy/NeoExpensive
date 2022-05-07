@@ -79,8 +79,8 @@ export async function RegisterUserController(request: Request<{}, {}, { username
       contact: userContact,
       senderContact,
       mail: {
-        body: 'Welcome the NeoExpensive',
-        subject: 'NeoExpensive registration e-mail',
+        body: 'Welcome the NeoExpertise',
+        subject: 'NeoExpertise registration e-mail',
       },
     });
 

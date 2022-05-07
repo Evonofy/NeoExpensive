@@ -71,7 +71,7 @@ jobs:
         working-directory: ./apps/web
         run: touch ./dist/.nojekyll
 
-      - name: Create old folder for neo-expensive
+      - name: Create old folder for neo-expertise
         working-directory: ./apps/web/dist
         run: mkdir ./old
 

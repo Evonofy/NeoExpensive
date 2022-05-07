@@ -2,17 +2,17 @@ import { useFetch } from './useFetch.js';
 import { useCookie } from './useCookie.js';
 
 const clear = () => {
-  /* remove all tokens with neoexpensive prefix */
-  localStorage.removeItem('neoexpensive.token');
-  localStorage.removeItem('neoexpensive.user');
+  /* remove all tokens with NeoExpertise prefix */
+  localStorage.removeItem('NeoExpertise.token');
+  localStorage.removeItem('NeoExpertise.user');
 
-  document.cookie = `neoexpensive.token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
-  document.cookie = `neoexpensive.user=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+  document.cookie = `NeoExpertise.token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+  document.cookie = `NeoExpertise.user=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
 };
 
 export const useAuth = () => {
-  const token = useCookie('neoexpensive.token');
-  const user = useCookie('neoexpensive.user');
+  const token = useCookie('NeoExpertise.token');
+  const user = useCookie('NeoExpertise.user');
 
   if (!token || !user) {
     return null;

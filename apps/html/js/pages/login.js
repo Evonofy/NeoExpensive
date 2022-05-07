@@ -4,7 +4,7 @@ const isDev = window.location.origin === 'http://localhost:3000';
 
 const apiURL = isDev
   ? 'http://localhost:3333'
-  : 'https://neo-expensive-api.herokuapp.com';
+  : 'https://neo-expertise-api.herokuapp.com';
 
 form.addEventListener('submit', async function (event) {
   event.preventDefault();
@@ -50,7 +50,7 @@ form.addEventListener('submit', async function (event) {
     if (isDev2) {
       window.location.href = `${window.location.origin}/index.html`;
     } else {
-      window.location.href = `${window.location.origin}neo-expensive/old/index.html`;
+      window.location.href = `${window.location.origin}neo-expertise/old/index.html`;
     }
   } catch (error) {
     console.error(error);

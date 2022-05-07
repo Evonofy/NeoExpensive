@@ -22,11 +22,11 @@
     - [ ] facebook oauth
     - [ ] twitter oauth
     - [x] github oauth
-  - [ ] ~~create neo-expensive oauth routes like the current github implementation, maybe make it a different api and deploy together to api in heroku, just like the `old` folder~~
+  - [ ] ~~create neo-expertise oauth routes like the current github implementation, maybe make it a different api and deploy together to api in heroku, just like the `old` folder~~
 
 - oauth
 
-  - [x] add functionality to create oauth apps in neo-expensive developer platform, just like github does it
+  - [x] add functionality to create oauth apps in neo-expertise developer platform, just like github does it
   - [x] give the user an appId and appSecret
 
 - web

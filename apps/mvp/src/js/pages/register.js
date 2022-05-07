@@ -121,7 +121,7 @@ $('input[name="postal-code"]').inputmask({
 const handleSubmit = async () => {
   const { name, email, password } = inputsObj;
 
-  const apiURL = isDev ? 'http://localhost:3333' : 'https://neo-expensive-api.herokuapp.com';
+  const apiURL = isDev ? 'http://localhost:3333' : 'https://neo-expertise-api.herokuapp.com';
 
   try {
     const reponse = await fetch(`${apiURL}/users/register`, {
@@ -161,7 +161,7 @@ const handleSubmit = async () => {
     );
 
     setTimeout(() => {
-      window.location.href = `${window.location.origin}/neo-expensive/old`;
+      window.location.href = `${window.location.origin}/neo-expertise/old`;
       // redirect('/');
     }, 500);
   } catch (error) {

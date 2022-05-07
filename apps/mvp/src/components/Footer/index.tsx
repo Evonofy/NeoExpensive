@@ -4,10 +4,10 @@ export default function Footer() {
       <section className="footer--aboutus">
         <h2 className="footer--title">Sobre Nós</h2>
 
-        <p className="footer--paragraph">A Neo Expensive, empresa de venda dos mais diversos hardwares foi criada para satisfazer suas necessidades e lhe entregar produtos com o comprometimento de oferecê-los com a maior qualidade possível.</p>
+        <p className="footer--paragraph">A Neo Expertise, empresa de venda dos mais diversos hardwares foi criada para satisfazer suas necessidades e lhe entregar produtos com o comprometimento de oferecê-los com a maior qualidade possível.</p>
 
         <div className="footer--social--icons">
-          <a href="https://www.facebook.com/Neo-Expensive-102995498833851/" aria-label="Facebook">
+          <a href="https://www.facebook.com/neo-expertise-102995498833851/" aria-label="Facebook">
             <svg className="footer--social--svg" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M25 43.75C35.3553 43.75 43.75 35.3553 43.75 25C43.75 14.6447 35.3553 6.25 25 6.25C14.6447 6.25 6.25 14.6447 6.25 25C6.25 35.3553 14.6447 43.75 25 43.75Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M32.8125 17.1877H29.6875C28.4443 17.1877 27.252 17.6816 26.3729 18.5607C25.4939 19.4398 25 20.632 25 21.8752V43.7502" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -105,7 +105,7 @@ export default function Footer() {
       </div>
 
       <div className="footer--copyright">
-        <p className="footer--copyright--text">Copyright © 2021 NeoExpensive All Rights Reserved™</p>
+        <p className="footer--copyright--text">Copyright © 2021 NeoExpertise All Rights Reserved™</p>
       </div>
     </footer>
   );

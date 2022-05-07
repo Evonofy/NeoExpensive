@@ -2,7 +2,7 @@
 
 &nbsp;
 
-<a href="https://github.com/neo-florescence/neo-expensive">
+<a href="https://github.com/neo-florescence/neo-expertise">
   <div align="center">
     <img src=".github/assets/logo.png" height="37" />
     <img width="212px" src=".github/assets/custom_logo.svg" />
@@ -14,15 +14,15 @@
 <img src=".github/assets/rainbow_separator.svg" />
 
 <div align="center">
-  <img src="https://img.shields.io/github/repo-size/neo-florescence/neo-expensive?style=for-the-badge" />
-  <img src="https://img.shields.io/github/languages/count/neo-florescence/neo-expensive?style=for-the-badge" />
+  <img src="https://img.shields.io/github/repo-size/neo-florescence/neo-expertise?style=for-the-badge" />
+  <img src="https://img.shields.io/github/languages/count/neo-florescence/neo-expertise?style=for-the-badge" />
 
-  <a href="https://github.com/neo-florescence/neo-expensive/blob/master/LICENSE.md">
-    <img src="https://img.shields.io/github/license/neo-florescence/neo-expensive?style=for-the-badge" />
+  <a href="https://github.com/neo-florescence/neo-expertise/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/github/license/neo-florescence/neo-expertise?style=for-the-badge" />
   </a>
 
-  <a href="https://github.com/neo-florescence/neo-expensive/releases/latest">
-    <img src="https://img.shields.io/github/v/release/neo-florescence/neo-expensive?display_name=release&include_prereleases&sort=date&style=for-the-badge" />
+  <a href="https://github.com/neo-florescence/neo-expertise/releases/latest">
+    <img src="https://img.shields.io/github/v/release/neo-florescence/neo-expertise?display_name=release&include_prereleases&sort=date&style=for-the-badge" />
   </a>
 </div>
 
@@ -35,7 +35,7 @@
   <a href="#">Notion</a>
 </h3>
 
-> Neo Expensive is a gaming e-commerce
+> Neo Expertise is a gaming e-commerce
 > <img src=".github/assets/rainbow_separator.svg" />
 
 ## Table of contents
@@ -91,7 +91,7 @@
       What are we?
     </h2>
     <p>
-      Neo Expensive is an e-commerce for gamers, bringing exclusive and personalized content that only exists here
+      Neo Expertise is an e-commerce for gamers, bringing exclusive and personalized content that only exists here
     </p>
   </div>
 
@@ -122,7 +122,7 @@
     </strong>
   </h1>
 
-  <p>Before diving into how to develop for Neo Expensive, we'll need some gear first, let's get that ready.</p>
+  <p>Before diving into how to develop for Neo Expertise, we'll need some gear first, let's get that ready.</p>
 
   <br />
 
@@ -157,7 +157,7 @@
           <a href="https://yarnpkg.com/"><strong>Yarn</strong></a>
         </h3>
         <p>
-          Here at Neo Expensive we're using <a href="https://yarnpkg.com/">Yarn Berry (v3.1.1)</a> which is the more recent version of Yarn, Yarn berry gives us more flexibility on how to write software but also faster than <a href="https://www.npmjs.com/">npm</a>, yarn wrote a whole article on why and how you should <a href="https://yarnpkg.com/getting-started/migration">migrate</a>
+          Here at Neo Expertise we're using <a href="https://yarnpkg.com/">Yarn Berry (v3.1.1)</a> which is the more recent version of Yarn, Yarn berry gives us more flexibility on how to write software but also faster than <a href="https://www.npmjs.com/">npm</a>, yarn wrote a whole article on why and how you should <a href="https://yarnpkg.com/getting-started/migration">migrate</a>
           <ul>
             <li>Global caching of depencencies</li>
             <li><a href="#yarn-workspaces">Workspaces</a></li>
@@ -232,13 +232,13 @@
   </h1>
 </section>
 
-Before contributing to NeoExpensive it's important for you to understand how we like to manage and create stuff in here
+Before contributing to NeoExpertise it's important for you to understand how we like to manage and create stuff in here
 
 <section>
   <h2 id="branches">Branches</h2>
 </section>
 
-> This is a guide of how to manage your branches when contributing to NeoExpensive
+> This is a guide of how to manage your branches when contributing to NeoExpertise
 > This guide applies to any kind of contribution, be it a bug fix, feature, typo and etc, this highly increases the codebase security and and reduces incomplete or not tested features to get to the final codebase
 
 - **Create an Issue** <br />
@@ -311,7 +311,7 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
   </h1>
 
   <p>
-    After getting your <a href="#tools">tools</a> ready, let's dive into NeoExpensive's monorepo architecture and how things are planned before they're built
+    After getting your <a href="#tools">tools</a> ready, let's dive into NeoExpertise's monorepo architecture and how things are planned before they're built
   </p>
 
   <br />
@@ -329,7 +329,7 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
           <strong>Microservices</strong>
         </h3>
         <p>
-          Microservices is the idea of splitting a monolith application into small parts and then put all of those services together under a BFF of Data layer to talk to the front-end, here at NeoExpensive we're still thinking of how to implement this in a way fits our needs and pockets, so still a Work In Progress.
+          Microservices is the idea of splitting a monolith application into small parts and then put all of those services together under a BFF of Data layer to talk to the front-end, here at NeoExpertise we're still thinking of how to implement this in a way fits our needs and pockets, so still a Work In Progress.
         </p>
       </li>
       <li id="microfrontends">
@@ -337,7 +337,7 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
           <strong>Microfrontends</strong>
         </h3>
         <p>
-          Our team first discovered it at <a href="https://micro-frontends.org/">micro-frontends.org</a> and since we've been implementing it in a similar way, of course we can't afford to host 2/4 different apps for each and every occasion but we've recently created a pattern which really helped us develop faster and better. If you want to see the lead up to why we've chosen micro-frontends, there's a pretty long  changelog of everything that happened architecture-wise in NeoExpensive down <a href="#architecture-changelog">here</a>
+          Our team first discovered it at <a href="https://micro-frontends.org/">micro-frontends.org</a> and since we've been implementing it in a similar way, of course we can't afford to host 2/4 different apps for each and every occasion but we've recently created a pattern which really helped us develop faster and better. If you want to see the lead up to why we've chosen micro-frontends, there's a pretty long  changelog of everything that happened architecture-wise in NeoExpertise down <a href="#architecture-changelog">here</a>
         </p>
         <br />
         <p id="architecture-changelog">
@@ -349,10 +349,10 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
             </tr>
             <tr>
               <td>E-commerce</td>
-              <td>NeoExpensive's back-end repository</td>
+              <td>NeoExpertise's back-end repository</td>
             </tr>
             <tr>
-              <td>Neo-Expensive</td>
+              <td>neo-expertise</td>
               <td>The front-end, initially build with pure HTML, CSS and Javascript</td>
             </tr>
           </table>
@@ -385,7 +385,7 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
         </p>
         <br />
         <p>
-          After some months and some thinking about the direction we would like to go with this, we've changed out "services" to what would be the "final" version of NeoExpensive.
+          After some months and some thinking about the direction we would like to go with this, we've changed out "services" to what would be the "final" version of NeoExpertise.
           <table>
             <tr>
               <th>Codebase</th>
@@ -505,7 +505,7 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
       Technologies
     </h2>
     <p>
-      Here's a list of technologies that are fundamental to how NeoExpensive is developed and deployed
+      Here's a list of technologies that are fundamental to how NeoExpertise is developed and deployed
       <br />
       <br />
       <a href="https://yarnpkg.com">
@@ -555,7 +555,7 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
       Tests
     </h2>
     <p>
-      Here at NeoExpensive it's very important to have setup in all of our services so we be sure things are working at anytime, so we have jest setup in the root of the repo but also in each and every foler. Fell free to add plugins to jest if you want to or add another testing library if you thing jest is problematic.
+      Here at NeoExpertise it's very important to have setup in all of our services so we be sure things are working at anytime, so we have jest setup in the root of the repo but also in each and every foler. Fell free to add plugins to jest if you want to or add another testing library if you thing jest is problematic.
       <br />
       <br />
       <blockquote>Don't stress about code coverage, that metric is not important to us.</blockquote>
@@ -583,7 +583,7 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
       Accessibility
     </h2>
     <p>
-      Here at NeoExpensive we care a LOT, and I mean a LOT about accessibility, if you're building any UI elements/componentes, make sure that it's accessible by keyboard, hover effects work and etc
+      Here at NeoExpertise we care a LOT, and I mean a LOT about accessibility, if you're building any UI elements/componentes, make sure that it's accessible by keyboard, hover effects work and etc
       <br />
       <br />
       To help us build UI elements we really like to use <a href="https://www.radix-ui.com/">radix</a> and <a href="https://headlessui.dev/">headlessUI</a>, these come by default with accessibility features and are WAI-ARIA compliant
@@ -595,7 +595,7 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
 
 # What Are We?
 
-Neo Expensive is about the building of a brazilian e-commerce project for school. <br>
+Neo Expertise is about the building of a brazilian e-commerce project for school. <br>
 We as team aim to make a product that looks good and feel good to use, having what and everything a e-commerce needs to be successful!
 That includes a register and login system, aswell as a functioning grocery cart, support and institutional page with much more to yet show...
 
@@ -604,7 +604,7 @@ That includes a register and login system, aswell as a functioning grocery cart,
 # Insight Info
 
 <h2>
-  <a href="https://esquemaflorescer.github.io/neo-expensive/packages/web/">Neo Expensive Official Page</a>
+  <a href="https://esquemaflorescer.github.io/neo-expertise/packages/web/">Neo Expertise Official Page</a>
 </h2>
 
 <h3>
