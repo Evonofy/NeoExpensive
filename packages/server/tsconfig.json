@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "@core": ["./core"],
+      "@mail": ["./mail"],
+      "@users": ["./users"],
+    },
+    "outDir": "./dist"
+  },
+  "exclude": ["dist", "jest.config.js", "**/*.spec.ts"]
+}
