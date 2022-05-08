@@ -1,1 +1,0 @@
-web: yarn workspace @neo/api heroku
