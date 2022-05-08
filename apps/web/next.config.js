@@ -1,5 +1,5 @@
 const isGithubPages = process.env.GH_PAGES === 'true';
-const projectName = 'neo-expertise';
+const projectName = 'NeoExpertise';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

@@ -21,11 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Remove unused packages
-        run: |
-          rm apps/{html,mvp}/package.json
-          rm services/{mail,users,core,api}/package.json
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -55,27 +50,10 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Install dependencies
-        run: yarn workspaces focus --production --all
+        run: yarn workspaces focus @neo/web
 
-      - name: Build @neo/postcss
-        working-directory: ./libs/postcss
-        run: yarn build
-
-      - name: Build @neo/global
-        working-directory: ./packages/global
-        run: yarn build
-
-      - name: Build @neo/tokens
-        working-directory: ./packages/tokens
-        run: yarn build
-
-      - name: Build @neo/icons
-        working-directory: ./packages/icons
-        run: yarn build
-
-      - name: Build @neo/ui
-        working-directory: ./packages/ui
-        run: yarn build
+      - name: Build web design system
+        run: yarn workspace @neo/web build-storybook
 
       - name: Build @neo/web
         working-directory: ./apps/web
@@ -111,13 +89,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Remove unused packages
-        run: |
-          rm apps/{web,mvp}/package.json
-          rm libs/{postcss,lint}/package.json
-          rm packages/{global,icons,tokens,ui}/package.json
-          rm services/{mail,users,core,api}/package.json
-
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
@@ -132,7 +103,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn workspaces focus --production --all
+        run: yarn workspaces focus --production @neo/html
 
       - name: Build @neo/html
         working-directory: ./apps/html
@@ -156,13 +127,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Remove unused packages
-        run: |
-          rm apps/web/package.json
-          rm libs/postcss/package.json
-          rm packages/{global,icons,tokens,ui}/package.json
-          rm services/{mail,users,core,api}/package.json
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -183,15 +147,11 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn workspaces focus --production --all
-
-      - name: Build @neo/html
-        working-directory: ./apps/html
-        run: yarn css
+        run: yarn workspaces focus --production @neo/mvp
 
       - name: Build @neo/mvp
         working-directory: ./apps/mvp
-        run: yarn build --base /neo-expertise/mvp/
+        run: yarn build --base /NeoExpertise/mvp/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
