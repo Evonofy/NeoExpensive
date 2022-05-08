@@ -1,6 +1,6 @@
-import esbuild from 'esbuild';
-import { TsconfigPathsPlugin as tsconfigPaths } from '@esbuild-plugins/tsconfig-paths';
-import { nodeExternalsPlugin } from 'esbuild-node-externals';
+const esbuild = require( 'esbuild' )
+const { TsconfigPathsPlugin: tsconfigPaths } = require( '@esbuild-plugins/tsconfig-paths' )
+const { nodeExternalsPlugin } = require( 'esbuild-node-externals' )
 
 esbuild.build({
   entryPoints: ['./src/index.ts'],

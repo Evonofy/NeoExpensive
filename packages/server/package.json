@@ -10,7 +10,7 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
-    "build": "tsnd scripts/esbuild.build.ts",
+    "build": "node scripts/esbuild.build.js",
     "start": "node dist/index.js",
     "migrate": "prisma db push --accept-data-loss",
     "env": "gen-env-types -k -e . -o ./src/@types/env.d.ts"
