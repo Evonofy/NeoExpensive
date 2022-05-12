@@ -50,7 +50,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
 
       - name: Install dependencies
-        run: yarn workspaces focus @neo/web
+        run: yarn
 
       - name: Build web design system
         run: yarn workspace @neo/web build-storybook
