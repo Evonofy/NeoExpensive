@@ -4,7 +4,6 @@ import type { NextPage } from 'next';
 const Link = dynamic(() => import('next/link'));
 import { useContextSelector } from 'use-context-selector';
 
-import { Icon } from '@neo/icons/lib';
 import { useUser } from '../hooks/auth/user';
 import { useLogout } from '../hooks/auth/useLogout';
 import { AuthContext } from '../context/AuthContext';
@@ -22,8 +21,12 @@ const Home: NextPage = () => {
   return (
     <main>
       <h1 style={{ color: 'black' }}>This is a work in progress :)</h1>
-      <a href="/neo-expertise/old/index.html">Go to the old website</a>
-      <a href="/neo-expertise/mvp/index.html">Go to MVP</a>
+      <div>
+        <a href="/neo-expertise/old/index.html">Go to the old website</a>
+      </div>
+      <div>
+        <a href="/neo-expertise/mvp/index.html">Go to MVP</a>
+      </div>
       {!user && (
         <div>
           <div>
@@ -99,7 +102,6 @@ const Home: NextPage = () => {
           </div>
         </div>
       )}
-      <Icon />
     </main>
   );
 };

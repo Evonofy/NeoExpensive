@@ -8,8 +8,7 @@
   "private": true,
   "main": "./dist/index.js",
   "scripts": {
-    "watch": "tsc -w",
-    "dev": "nodemon dist/index.js",
+    "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --quiet --no-notify src/index.ts",
     "build": "node scripts/esbuild.build.js",
     "start": "node dist/index.js",
     "migrate": "prisma db push --accept-data-loss",
@@ -42,6 +41,7 @@
     "gen-env-types": "^1.3.2",
     "nodemon": "^2.0.15",
     "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^4.0.0",
     "typescript": "^4.3.5"
   }
 }

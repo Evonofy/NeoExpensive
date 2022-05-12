@@ -57,6 +57,10 @@ jobs:
 
       - name: Build @neo/web
         working-directory: ./apps/web
+        run: yarn build-storybook
+
+      - name: Build @neo/web
+        working-directory: ./apps/web
         run: yarn gh-build
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
@@ -147,7 +151,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn workspaces focus --production @neo/mvp
+        run: yarn
 
       - name: Build @neo/html
         working-directory: ./apps/html

@@ -2864,6 +2864,7 @@ __metadata:
     npm-run-all: ^4.1.5
     prisma: ^3.9.2
     ts-node-dev: ^1.1.8
+    tsconfig-paths: ^4.0.0
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -2969,6 +2970,8 @@ __metadata:
     gen-env-types: ^1.3.2
     next: ^12.1.0
     nookies: ^2.5.2
+    normalize.css: ^8.0.1
+    postcss-font-magician: ^3.0.0
     postcss-preset-env: ^7.4.0
     preact: ^10.6.6
     preact-render-to-string: ^5.1.20
@@ -2981,6 +2984,7 @@ __metadata:
     scheduler: ^0.20.2
     storybook-addon-next-router: ^3.1.1
     storybook-dark-mode: ^1.1.0
+    stylelint: ^14.5.0
     tsconfig-paths-webpack-plugin: ^3.5.2
     typescript: ^4.3.5
     use-context-selector: ^1.3.9
@@ -6054,6 +6058,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"amdefine@npm:>=0.0.4":
+  version: 1.0.1
+  resolution: "amdefine@npm:1.0.1"
+  checksum: 9d4e15b94641643a9385b2841b4cb2bcf4e8e2f741ea4bd475c93ad7bab261ad4ed827a32e9c549b38b98759c4526c173ae4e6dde8caeb75ee5cebedc9863762
+  languageName: node
+  linkType: hard
+
 "ansi-align@npm:^3.0.0":
   version: 3.0.1
   resolution: "ansi-align@npm:3.0.1"
@@ -6514,6 +6525,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"b3b@npm:0.0.1":
+  version: 0.0.1
+  resolution: "b3b@npm:0.0.1"
+  checksum: 07e29d663436b422a8d8a0131c486160caf47c1cf75cc394b0c0c06d185e17b30be728d3e369fd902affa422caa0b2e06ce1660d670ad39a57dabb06dc17b64d
+  languageName: node
+  linkType: hard
+
 "babel-jest@npm:^27.5.1":
   version: 27.5.1
   resolution: "babel-jest@npm:27.5.1"
@@ -6794,7 +6812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"base64-js@npm:^1.3.1":
+"base64-js@npm:^1.1.2, base64-js@npm:^1.3.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 669632eb3745404c2f822a18fc3a0122d2f9a7a13f7fb8b5823ee19d1d2ff9ee5b52c53367176ea4ad093c332fd5ab4bd0ebae5a8e27917a4105a4cfc86b1005
@@ -6922,6 +6940,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bootstrap-fonts-complete@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "bootstrap-fonts-complete@npm:1.0.0"
+  dependencies:
+    postcss: ^4.1.16
+  checksum: 9241e9f1089928cf2272a7328854bc10439cea6d85f30b49a268bf53b4a18c38a2bf6bde00ce05ad68cdc018bb2152afce64f84a8f50a268b04b2703b60e927a
+  languageName: node
+  linkType: hard
+
 "boxen@npm:^5.0.0, boxen@npm:^5.1.2":
   version: 5.1.2
   resolution: "boxen@npm:5.1.2"
@@ -6988,6 +7015,15 @@ __metadata:
     rimraf: 3.0.2
     unload: 2.2.0
   checksum: 803794c48dcce7f03aca69797430bd8b1c4cfd70b7de22079cd89567eeffaa126a1db98c7c2d86af8131d9bb41ed367c0fef96dfb446151c927b831572c621fc
+  languageName: node
+  linkType: hard
+
+"brotli@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "brotli@npm:1.3.2"
+  dependencies:
+    base64-js: ^1.1.2
+  checksum: d1b0ddcf67c0975aaa64ccce22a936d94dc815386f8205e6354f1bba676b8e760724185ff2d830552605de357c0fb55af8d5f3433a3d01709ce6b65a563ef4d8
   languageName: node
   linkType: hard
 
@@ -8884,6 +8920,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"directory-fonts-complete@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "directory-fonts-complete@npm:1.2.0"
+  dependencies:
+    brotli: ^1.3.2
+    is-eot: ^1.0.0
+    is-otf: ^0.1.1
+    is-ttf: ^0.2.1
+    is-woff: ^1.0.1
+    is-woff2: ^1.0.0
+  checksum: b4a29cf11e779b7e1f0bc3992cd847120db0fabf3ab4c1896240c9133f875619204060e636f05e003d4e3a5e9074a2df8bb56497bd8ca73358b15f2dce9ff9be
+  languageName: node
+  linkType: hard
+
 "doctrine@npm:^2.1.0":
   version: 2.1.0
   resolution: "doctrine@npm:2.1.0"
@@ -9377,6 +9427,13 @@ __metadata:
   version: 4.6.5
   resolution: "es5-shim@npm:4.6.5"
   checksum: 55556f800b80d6a875bc8342ea4ac99e678718e01f8e4e2744427061fb23de75a54edec8a6a3b0bb2a4a358103db73492d063b44c7938ea2cd2168ce500e4920
+  languageName: node
+  linkType: hard
+
+"es6-promise@npm:~2.3.0":
+  version: 2.3.0
+  resolution: "es6-promise@npm:2.3.0"
+  checksum: 4efbddb13a6b9563aa35ac13f7c74196e8ba2ad950c479f78d1203c93c60bc4c94289d4ddfda3d9db34cba6afc17fff383744b2a64c4617d661cf21042d4881f
   languageName: node
   linkType: hard
 
@@ -11259,6 +11316,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"google-fonts-complete@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "google-fonts-complete@npm:2.1.1"
+  dependencies:
+    postcss: ^7.0.18
+  checksum: 74dff8241f8a4de0fa336504bac5b9aab063498d6188c288e2ecaf4b62a22f7f6922c3ccc7a5553591a69ba30da593f103c6963d7dd57693b3f9d608dfbaede7
+  languageName: node
+  linkType: hard
+
 "got@npm:11.8.3":
   version: 11.8.3
   resolution: "got@npm:11.8.3"
@@ -12310,6 +12376,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-eot@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "is-eot@npm:1.0.0"
+  checksum: 1842674865e7735d19e0029a11a1db0b607aa49a93982f7b361ea62f94801888d4647f4dff5eb60a82283fbf38af8c273089a288958f12b5e131c87c76d0490b
+  languageName: node
+  linkType: hard
+
 "is-extendable@npm:^0.1.0, is-extendable@npm:^0.1.1":
   version: 0.1.1
   resolution: "is-extendable@npm:0.1.1"
@@ -12477,6 +12550,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-otf@npm:^0.1.1":
+  version: 0.1.2
+  resolution: "is-otf@npm:0.1.2"
+  dependencies:
+    b3b: 0.0.1
+  checksum: 27d3617009bfe1917d658e689e5cc56990fe9756799a9f6f9d7573a7b9bce97cad0635267f3b1098460421ec0264d8b51987bc2deb1144aba6800b8e9c1dbda7
+  languageName: node
+  linkType: hard
+
 "is-path-inside@npm:^3.0.2":
   version: 3.0.3
   resolution: "is-path-inside@npm:3.0.3"
@@ -12609,6 +12691,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-ttf@npm:^0.2.1":
+  version: 0.2.2
+  resolution: "is-ttf@npm:0.2.2"
+  dependencies:
+    b3b: 0.0.1
+  checksum: 911ad9e85a5885401f3eedeb2aa54b8014108a3809556a7f5b6b7881127589071023445611e9580d0672332a2d29ecf6871f7b70b0aeed6e407015b9cfd0cfde
+  languageName: node
+  linkType: hard
+
 "is-typedarray@npm:^1.0.0":
   version: 1.0.0
   resolution: "is-typedarray@npm:1.0.0"
@@ -12657,6 +12748,20 @@ __metadata:
   version: 1.0.2
   resolution: "is-windows@npm:1.0.2"
   checksum: 438b7e52656fe3b9b293b180defb4e448088e7023a523ec21a91a80b9ff8cdb3377ddb5b6e60f7c7de4fa8b63ab56e121b6705fe081b3cf1b828b0a380009ad7
+  languageName: node
+  linkType: hard
+
+"is-woff2@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "is-woff2@npm:1.0.0"
+  checksum: 33600632bcedf97eb357ce2eb8c2527c37dfb3e86fbbb8b54a60e967095e6d7f4fa8ac6c0a68f3870fa1d78cc792a69bfbf95ba9c20febe8954b4eb7c99a18e0
+  languageName: node
+  linkType: hard
+
+"is-woff@npm:^1.0.1":
+  version: 1.0.3
+  resolution: "is-woff@npm:1.0.3"
+  checksum: 8604d1fe5c7c5c83fe62e68dbfbe118358c0cffa7a2404d03396c91c53c41c000410a6e0f9d154492ed39b2e0192023ea6f70cc0951fb036b6e19f4292eda4b8
   languageName: node
   linkType: hard
 
@@ -13370,6 +13475,13 @@ __metadata:
   version: 1.4.0
   resolution: "jju@npm:1.4.0"
   checksum: 3790481bd2b7827dd6336e6e3dc2dcc6d425679ba7ebde7b679f61dceb4457ea0cda330972494de608571f4973c6dfb5f70fab6f3c5037dbab19ac449a60424f
+  languageName: node
+  linkType: hard
+
+"js-base64@npm:~2.1.8":
+  version: 2.1.9
+  resolution: "js-base64@npm:2.1.9"
+  checksum: 9a90987f413a361a9dbb9dd07bf7f1553339aa8640f7e7025d7ba652f31eb59ea4d7854f77b403a728026adc1ae9192c7139a10b3f9d9f8df10fac3ffec97f4e
   languageName: node
   linkType: hard
 
@@ -14747,6 +14859,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimist@npm:^1.2.6":
+  version: 1.2.6
+  resolution: "minimist@npm:1.2.6"
+  checksum: d15428cd1e11eb14e1233bcfb88ae07ed7a147de251441d61158619dfb32c4d7e9061d09cab4825fdee18ecd6fce323228c8c47b5ba7cd20af378ca4048fb3fb
+  languageName: node
+  linkType: hard
+
 "minipass-collect@npm:^1.0.2":
   version: 1.0.2
   resolution: "minipass-collect@npm:1.0.2"
@@ -15295,6 +15414,13 @@ __metadata:
   version: 6.1.0
   resolution: "normalize-url@npm:6.1.0"
   checksum: 4a4944631173e7d521d6b80e4c85ccaeceb2870f315584fa30121f505a6dfd86439c5e3fdd8cd9e0e291290c41d0c3599f0cb12ab356722ed242584c30348e50
+  languageName: node
+  linkType: hard
+
+"normalize.css@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "normalize.css@npm:8.0.1"
+  checksum: 4698cae88ec35e3f3e82f9f9402e6ffb906c27ccd6373cad88e6b3f5634fc7a043cb38702472299e5edb73825cf8b18d5fd9283f58829eddda79ea97453049a2
   languageName: node
   linkType: hard
 
@@ -16303,6 +16429,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-font-magician@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "postcss-font-magician@npm:3.0.0"
+  dependencies:
+    bootstrap-fonts-complete: ^1.0.0
+    directory-fonts-complete: ^1.2.0
+    google-fonts-complete: ^2.1.1
+  peerDependencies:
+    postcss: ^8.0.0
+  checksum: 693b498717a38158cffe4c8819fec5311cd6be0a12a1a6c6d8c3223bfe1601bf1a922619a46d964df84810bc57275c7f914fde5ef182881bd1da67febac76847
+  languageName: node
+  linkType: hard
+
 "postcss-font-variant@npm:^5.0.0":
   version: 5.0.0
   resolution: "postcss-font-variant@npm:5.0.0"
@@ -16671,7 +16810,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^7.0.14, postcss@npm:^7.0.26, postcss@npm:^7.0.32, postcss@npm:^7.0.36, postcss@npm:^7.0.5, postcss@npm:^7.0.6":
+"postcss@npm:^4.1.16":
+  version: 4.1.16
+  resolution: "postcss@npm:4.1.16"
+  dependencies:
+    es6-promise: ~2.3.0
+    js-base64: ~2.1.8
+    source-map: ~0.4.2
+  checksum: e6b952b5d6ca68f49bcb8ecb961327d69f1917bb7f3513c479ca986c02a2669ad1986262909031477aea219833c015a49d33f0f3379858254a86da6252a5ed59
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^7.0.14, postcss@npm:^7.0.18, postcss@npm:^7.0.26, postcss@npm:^7.0.32, postcss@npm:^7.0.36, postcss@npm:^7.0.5, postcss@npm:^7.0.6":
   version: 7.0.39
   resolution: "postcss@npm:7.0.39"
   dependencies:
@@ -18721,6 +18871,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-map@npm:~0.4.2":
+  version: 0.4.4
+  resolution: "source-map@npm:0.4.4"
+  dependencies:
+    amdefine: ">=0.0.4"
+  checksum: b31992fcb4a2a6c335617f187bd36f392896dfcc111830ebdb8b716923cf6554b665833b975fc998bdf3a63881b2c8b4c5c34fda0280357b8c18fe6aa5d148ea
+  languageName: node
+  linkType: hard
+
 "source-map@npm:~0.8.0-beta.0":
   version: 0.8.0-beta.0
   resolution: "source-map@npm:0.8.0-beta.0"
@@ -20072,6 +20231,17 @@ __metadata:
     minimist: ^1.2.0
     strip-bom: ^3.0.0
   checksum: 4999ec6cd1c7cc06750a460dbc0d39fe3595a4308cb5f1d0d0a8283009cf9c0a30d5a156508c28fe3a47760508af5263ab288fc23d71e9762779674257a95d3b
+  languageName: node
+  linkType: hard
+
+"tsconfig-paths@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "tsconfig-paths@npm:4.0.0"
+  dependencies:
+    json5: ^2.2.1
+    minimist: ^1.2.6
+    strip-bom: ^3.0.0
+  checksum: a8cf746ffe438513a71c70c1bcdee8da7d62ab2af286efbe2728ff55c4d4c92c2aea80a0822982ded6d0a13c7686c24632934d7c0f4f564be9e1b2cdc3d65eea
   languageName: node
   linkType: hard
 

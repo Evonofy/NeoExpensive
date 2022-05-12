@@ -1,6 +1,7 @@
 module.exports = {
   plugins: [
     'autoprefixer',
+    'stylelint',
     [
       '@fullhuman/postcss-purgecss',
       {
@@ -19,6 +20,19 @@ module.exports = {
         features: {
           'custom-properties': false,
         },
+      },
+    ],
+    [
+      'postcss-font-magician',
+      {
+        variants: {
+          Inter: {
+            300: [],
+            400: [],
+            700: [],
+          },
+        },
+        foundries: ['google'],
       },
     ],
   ],
