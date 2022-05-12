@@ -6,7 +6,6 @@ import { StorageProvider } from '../context/StorageContext';
 import { AuthProvider } from '../context/AuthContext';
 import { SettingsProvider } from '../context/SettingsContext';
 
-import 'normalize.css';
 import '../styles/global.scss';
 
 const queryClient = new QueryClient();
