@@ -149,6 +149,10 @@ jobs:
       - name: Install dependencies
         run: yarn workspaces focus --production @neo/mvp
 
+      - name: Build @neo/html
+        working-directory: ./apps/html
+        run: yarn css
+
       - name: Build @neo/mvp
         working-directory: ./apps/mvp
         run: yarn build --base /NeoExpertise/mvp/
