@@ -2,7 +2,7 @@
 
 &nbsp;
 
-<a href="https://github.com/neo-florescence/neo-expertise">
+<a href="https://github.com/neo-florescence/NeoExpertise">
   <div align="center">
     <img src=".github/assets/logo.png" height="37" />
     <img width="212px" src=".github/assets/custom_logo.svg" />
@@ -14,28 +14,28 @@
 <img src=".github/assets/rainbow_separator.svg" />
 
 <div align="center">
-  <img src="https://img.shields.io/github/repo-size/neo-florescence/neo-expertise?style=for-the-badge" />
-  <img src="https://img.shields.io/github/languages/count/neo-florescence/neo-expertise?style=for-the-badge" />
+  <img src="https://img.shields.io/github/repo-size/neo-florescence/NeoExpertise?style=for-the-badge" />
+  <img src="https://img.shields.io/github/languages/count/neo-florescence/NeoExpertise?style=for-the-badge" />
 
-  <a href="https://github.com/neo-florescence/neo-expertise/blob/master/LICENSE.md">
-    <img src="https://img.shields.io/github/license/neo-florescence/neo-expertise?style=for-the-badge" />
+  <a href="https://github.com/neo-florescence/NeoExpertise/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/github/license/neo-florescence/NeoExpertise?style=for-the-badge" />
   </a>
 
-  <a href="https://github.com/neo-florescence/neo-expertise/releases/latest">
-    <img src="https://img.shields.io/github/v/release/neo-florescence/neo-expertise?display_name=release&include_prereleases&sort=date&style=for-the-badge" />
+  <a href="https://github.com/neo-florescence/NeoExpertise/releases/latest">
+    <img src="https://img.shields.io/github/v/release/neo-florescence/NeoExpertise?display_name=release&include_prereleases&sort=date&style=for-the-badge" />
   </a>
 </div>
 
 <br />
 
-<img src=".github/assets/social_preview.jpg" alt="repository social preview" />
+<img src=".github/assets/social-preview.jpg" alt="repository social preview" />
 
 <h3 align="center">
   <a href="https://www.figma.com/file/FPDU6Ekw6eKzZlmiB6OhrB/Layout?node-id=315%3A77">Figma</a> &nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#">Notion</a>
 </h3>
 
-> Neo Expertise is a gaming e-commerce
+> NeoExpertise is a gaming e-commerce
 > <img src=".github/assets/rainbow_separator.svg" />
 
 ## Table of contents
@@ -53,10 +53,8 @@
 - [Git Workflow](#git-workflow)
   - [branches](#branches)
   - [commits](#commits)
-  - releases
-  - QA
-  - contributing
-    - Getting Started
+  - [releases](#releases)
+  - [QA](#QA)
 - [Architecture](#architecture)
   - [monorepo](#monorepo)
     - [microservices](#microservices)
@@ -64,11 +62,20 @@
   - [technologies](#technologies)
   - [tests](#tests)
   - [accessibility](#accessibility)
-- Roadmap
-- License
-- Support
+- [Figma](#Figma)
+  - [Style Guide](#Style-Guide)
+  - [Design System](#Design-System)
+  - [UI Kit](#UI-Kit)
+- [Notion](#Notion)
+- [Roadmap](#Roadmap)
+  - Plugins Marketplace
+  - Microservices?
+  - Own packages?
+- Challenges
+- [License](#license)
+- [Support](#support)
 - You may also like
-- Contributors
+- [Contributors](#contributors)
 
 <img src=".github/assets/rainbow_separator.svg" />
 
@@ -262,7 +269,7 @@ Before contributing to NeoExpertise it's important for you to understand how we 
   > <sup><sub>Note that the '<' and '>' should not be in the final script</sub>
 
   <section>
-    <h2 id="branches">
+    <h2 id="commits">
       Commits
     </h2>
   </section>
@@ -294,6 +301,30 @@ git commit --no-edit
 ```
 
 Using the `--no-edit` flag on the commit script will prevent git from making any changes to your commit
+<img src=".github/assets/rainbow_separator.svg" />
+<br />
+<br />
+
+<section>
+  <h2 id="releases">
+      Releases
+  </h2>
+</section>
+
+we still don't have a release system in place, so our team will launch new releases of the app whenever there is a new feature or a major bug fix
+
+<img src=".github/assets/rainbow_separator.svg" />
+<br />
+<br />
+
+<section>
+  <h2 id="QA">
+      QA - Quality Assurance
+  </h2>
+</section>
+
+here at NeoExpertise we build some guidelines regarding the QA process and how you should test our prototypes, today the prototypes are located [in here](https://www.figma.com/file/OQxRg1s4Gf2XYVgt1WnzaA/Neo-Expertise---Wireframe%2FLayout-E-Outros?node-id=3636%3A969), you can test them using the guidelines given on notion, whenever you find a problem, you can create a [issue here on github](https://github.com/Neo-Florescence/NeoExpertise/issues)
+
 <img src=".github/assets/rainbow_separator.svg" />
 <br />
 <br />
@@ -352,7 +383,7 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
               <td>NeoExpertise's back-end repository</td>
             </tr>
             <tr>
-              <td>neo-expertise</td>
+              <td>neo-expensive</td>
               <td>The front-end, initially build with pure HTML, CSS and Javascript</td>
             </tr>
           </table>
@@ -591,59 +622,129 @@ Using the `--no-edit` flag on the commit script will prevent git from making any
   </div>
 </section>
 
+<img src=".github/assets/rainbow_separator.svg" />
+<br />
 <br />
 
-# What Are We?
+<section>
+  <h1 id="Figma">
+    <strong>
+      Figma
+    </strong>
+  </h1>
 
-Neo Expertise is about the building of a brazilian e-commerce project for school. <br>
-We as team aim to make a product that looks good and feel good to use, having what and everything a e-commerce needs to be successful!
-That includes a register and login system, aswell as a functioning grocery cart, support and institutional page with much more to yet show...
+  <p>
+    It's important for you to understand how our figma file works, since it there that we built all of our components and layouts.
+  </p>
 
+  <br />
+
+  <div>
+    <h2 id="Design-System">
+      Design System
+    </h2>
+    <p>
+      Our design system contains a whole set of tools, documentation and principles that together have the objective to complete the company's goal. It's composed of Style Guide, Sketch Library, Pattern Library and other building blocks. Here's and example of how it works
+    </p>
+    <img src=".github/assets/design-system-structure.png" alt="Our design system structure">
+    <blockquote>“Um sistema de design não é um projeto, é um produto que serve produtos”. Nathan Curtis</blockquote>
+    <br />
+    <p>
+      Our design can be broken down in 3 parts:
+    </p>
+    <ul>
+      <li>Atoms - Simple elements, such as colors and font tokens</li>
+      <li>Molecules - Groups of combined elements and common resources, such as input fields, textareas, headers and etc.</li>
+      <li>Organisms - Templates made of molecules and atoms such as entire web pages or just large sections</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2 id="Style-Guide">
+      Style Guide
+    </h2>
+    <p>
+      It's a subclass in the design chain. A documentation that should describe the design and padronize the style between all components, so in the style guide there should be rules for how big would the fonts be, size of paddings and margins, colors, border radius and etc.
+    </p>
+  </div>
+
+  <div>
+    <h2 id="UI-Kit">
+      UI Kit
+    </h2>
+    <p>
+      The UI Kit should contain a relative small number of components that are shared between pages in the layout, they help the front-end engineer to faster develop pages in the same "logical" group
+    </p>
+  </div>
+</section>
+
+<img src=".github/assets/rainbow_separator.svg" />
+<br />
 <br />
 
-# Insight Info
+<section>
+  <h1 id="Notion">
+    <strong>
+      Notion
+    </strong>
+  </h1>
 
-<h2>
-  <a href="https://esquemaflorescer.github.io/neo-expertise/packages/web/">Neo Expertise Official Page</a>
-</h2>
+  <div>
+    <h2>Sprints</h2>
+    <p>
+      If you get into the NeoExpertise team, you will have you tasks listed at the sprints section of Notion<br />
+      There we will assign you sprints that will have some tasks to be done, they have a starting and ending date.
+    </p>
+  </div>
+</section>
 
-<h3>
-  <a href="https://lucid.app/lucidchart/invitations/accept/inv_ebc6cbe7-7c47-4d54-b51c-5c2f5d29ea1f">SiteMap</a>
-</h3>
-<sup>You'll have to login to see this one.</sup>
-
-<h3>
-   <a href="https://www.figma.com/file/QyGjS7EPhR3LkcinvEafvM/Wireframe?node-id=0%3A1">Wireframe</a>
-</h3>
-<h3>
-   <a href="https://www.figma.com/file/FPDU6Ekw6eKzZlmiB6OhrB/Layout?node-id=0%3A1">Layout</a>
-</h3>
-
-### Database Structure
-
-![Neo](https://user-images.githubusercontent.com/61664367/131562240-27b253fd-9391-44bd-a51e-ad3b959601ac.png)
-
-### Folder Structure
-
-| Codebase | Description |
-
-| :----------------------------- | :--------------------: |
-| [next](packages/next) | Main Web App |
-| [web](packages/web) | HTML Prototype Web App |
-| [server](packages/server) | The Node.js API |
-| [workflows](.github/workflows) | Workflows |
-
+<img src=".github/assets/rainbow_separator.svg" />
+<br />
 <br />
 
-# ⚖️ License
+<section>
+  <h1 id="license">
+    <strong>
+      License
+    </strong>
+  </h1>
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+  <div>
+    This project is licensed under the MIT License
+    So feel free to do anything you want with it.<br />
+    see the <a href="LICENSE">LICENSE</a> file for details.
+  </div>
+</section>
 
+<img src=".github/assets/rainbow_separator.svg" />
+<br />
 <br />
 
-# Code Reviewers
+<section>
+  <h1 id="support">
+    <strong>
+      Support
+    </strong>
+  </h1>
 
-Contributors helping to review/merge pull requests:
+  <div>
+    If you ever notice any major bug or loophole, or have experienced some problem in our platform, please create a issue here at github so all of our contributors get notificated. 
+  </div>
+</section>
 
-- [@VitorGouveia](https://github.com/vitorgouveia)
-- [@Thiago](https://github.com/atomicfeast)
+<img src=".github/assets/rainbow_separator.svg" />
+<br />
+<br />
+
+<section>
+  <h1 id="contributors">
+    <strong>
+      Contributors
+    </strong>
+  </h1>
+
+  <div>
+    <a href="https://github.com/VitorGouveia">@VitorGouveia</a>
+    <a href="https://github.com/atomicfeast">@Thiago</a>
+  </div>
+</section>
