@@ -5,6 +5,9 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 
 const Home = lazy(() => import('@pages/home'));
+const About = lazy(() => import('@pages/about'));
+const Support = lazy(() => import('@pages/support'));
+
 const Login = lazy(() => import('@pages/auth/login'));
 const Register = lazy(() => import('@pages/auth/register'));
 const ForgotPassword = lazy(() => import('@pages/auth/forgot-password'));
@@ -29,6 +32,10 @@ function Router() {
 
       <Routes>
         <Route index element={<Home />} />
+
+        <Route path="/about" element={<About />} />
+        <Route path="/support" element={<Support />} />
+
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/password/forgot" element={<ForgotPassword />} />

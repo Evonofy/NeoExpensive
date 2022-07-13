@@ -1,8 +1,6 @@
 import { useSelector } from '../hooks/useSelector.js';
 
-const allModalWrapperButtons = useSelector('.support--card--button', {
-  querySelectorAll: true,
-});
+const allModalWrapperButtons = document.querySelectorAll('.support--card--button');
 
 const closeModal = (modal, overlay, body) => {
   overlay.style.display = 'none';

@@ -13,15 +13,15 @@
   cursor: pointer;
   transition: all 200ms;
 
-  &:hover,
-  &:focus,
-  &:active {
-    filter: brightness(0.8);
-  }
-
   &:disabled {
     cursor: not-allowed;
     filter: opacity(0.5);
+  }
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus,
+  &:not(:disabled):active {
+    filter: brightness(0.8);
   }
 
   &[data-state="loading"] {

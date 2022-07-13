@@ -37,42 +37,50 @@ type ProductsContextProps = {
 export const ProductsContext = createContext({} as ProductsContextProps);
 
 export const ProductsProvider: FC = ({ children }) => {
-  const { pushToCart, user, popFromCart, removeOneProductQuantityFromCart, removeAllProductsFromCart, addAddress: addStoreAddress, removeAddress: removeStoreAddress, addCard: addStoreCard, removeCard: removeStoreCard, addOrder } = useAuthStore();
+  const {
+    pushToCart,
+    user,
+    popFromCart,
+    removeOneProductQuantityFromCart,
+    removeAllProductsFromCart,
+    addAddress: addStoreAddress,
+    removeAddress: removeStoreAddress,
+    addCard: addStoreCard,
+    removeCard: removeStoreCard,
+    addOrder,
+  } = useAuthStore();
   const { products, categories } = useProductsStore();
 
-  const addProductToCart = useCallback(
-    (id: string) => {
-      const users = JSON.parse(localStorage.getItem('@neo:user') || '[]') as User[];
-      const loggedUser = localStorage.getItem('@neo:logged');
+  const addProductToCart = (id: string) => {
+    const users = JSON.parse(localStorage.getItem('@neo:user') || '[]') as User[];
+    const loggedUser = localStorage.getItem('@neo:logged');
 
-      const product = products.find((product) => id === product.id);
+    const product = products.find((product) => id === product.id);
+    console.log({ products, product });
+    if (product) {
+      pushToCart(product);
+    }
 
-      if (product) {
-        pushToCart(product);
-      }
+    if (user?.cart?.find(({ productId }) => id === productId)) {
+      localStorage.setItem(
+        '@neo:user',
+        JSON.stringify([
+          ...users.filter((user) => user.id !== loggedUser),
+          {
+            ...user,
+            cart: user.cart.map(({ quantity, productId, ...rest }) => ({
+              ...rest,
+              quantity: productId === id ? quantity + 1 : quantity,
+            })),
+          },
+        ])
+      );
 
-      if (user?.cart?.find(({ productId }) => id === productId)) {
-        localStorage.setItem(
-          '@neo:user',
-          JSON.stringify([
-            ...users.filter((user) => user.id !== loggedUser),
-            {
-              ...user,
-              cart: user.cart.map(({ quantity, productId, ...rest }) => ({
-                ...rest,
-                quantity: productId === id ? quantity + 1 : quantity,
-              })),
-            },
-          ])
-        );
+      return;
+    }
 
-        return;
-      }
-
-      localStorage.setItem('@neo:user', JSON.stringify([...users.filter((user) => user.id !== loggedUser), user]));
-    },
-    [products, pushToCart, user]
-  );
+    localStorage.setItem('@neo:user', JSON.stringify([...users.filter((user) => user.id !== loggedUser), user]));
+  };
 
   const removeProductFromCart = useCallback(
     (id: string) => {
@@ -269,5 +277,11 @@ export const ProductsProvider: FC = ({ children }) => {
     [addOrder, user]
   );
 
-  return <ProductsContext.Provider value={{ products, addProductToCart, removeProductFromCart, removeOneProductQuantity, clearCart, addAddress, removeAddress, addCard, removeCard, createOrder, categories }}>{children}</ProductsContext.Provider>;
+  return (
+    <ProductsContext.Provider
+      value={{ products, addProductToCart, removeProductFromCart, removeOneProductQuantity, clearCart, addAddress, removeAddress, addCard, removeCard, createOrder, categories }}
+    >
+      {children}
+    </ProductsContext.Provider>
+  );
 };

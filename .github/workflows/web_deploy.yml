@@ -184,37 +184,37 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: web-build
-          path: apps/web/dist
+          path: new
 
       - name: Download @neo/html
         uses: actions/download-artifact@v2
         with:
           name: html-build
-          path: html
+          path: old
 
       - name: Download @neo/mvp
         uses: actions/download-artifact@v2
         with:
           name: mvp-build
-          path: mvp
+          path: apps/web/dist
 
       - name: Create old folder for @neo/html
         working-directory: ./apps/web/dist
         run: mkdir ./old
 
-      - name: Create old folder for @neo/mvp
+      - name: Create new folder for @neo/web
         working-directory: ./apps/web/dist
-        run: mkdir ./mvp
+        run: mkdir ./new
 
       - name: Copy @neo/html into old folder
         run: |
-          cp -r ./html/* ./apps/web/dist/old
-          rm -rf html
+          cp -r ./old/* ./apps/web/dist/old
+          rm -rf old
 
-      - name: Copy @neo/mvp into mvp folder
+      - name: Copy @neo/web into mvp folder
         run: |
-          cp -r ./mvp/* ./apps/web/dist/mvp
-          rm -rf mvp
+          cp -r ./new/* ./apps/web/dist/new
+          rm -rf new
 
       - name: Show structure
         working-directory: ./apps/web/dist

@@ -19,13 +19,6 @@ function Home() {
   const categories = useContextSelector(ProductsContext, (context) => context.categories);
   const addProductToCart = useContextSelector(ProductsContext, (context) => context.addProductToCart);
 
-  const handleAddProductToCart = useCallback(
-    (id: string) => {
-      addProductToCart(id);
-    },
-    [addProductToCart]
-  );
-
   const { data: brands } = useQuery('brands', async () => {
     const { brands } = await getBrandsRequest();
 
@@ -96,7 +89,13 @@ function Home() {
                       Comprar
                     </button>
 
-                    <button onClick={() => handleAddProductToCart(id)} className="product--card--cart">
+                    <button
+                      onClick={() => {
+                        console.log(id);
+                        addProductToCart(id);
+                      }}
+                      className="product--card--cart"
+                    >
                       <img src={shoppingCart} alt="" className="product--card--label" />
                     </button>
                   </div>
@@ -172,7 +171,7 @@ function Home() {
                     Comprar
                   </button>
 
-                  <button onClick={() => handleAddProductToCart(id)} className="product--card--cart">
+                  <button onClick={() => addProductToCart(id)} className="product--card--cart">
                     <img src={shoppingCart} alt="" className="product--card--label" />
                   </button>
                 </div>
@@ -211,7 +210,7 @@ function Home() {
                           Comprar
                         </button>
 
-                        <button onClick={() => handleAddProductToCart(id)} className="product--card--cart">
+                        <button onClick={() => addProductToCart(id)} className="product--card--cart">
                           <img src={shoppingCart} alt="" className="product--card--label" />
                         </button>
                       </div>

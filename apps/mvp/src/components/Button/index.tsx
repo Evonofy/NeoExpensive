@@ -23,10 +23,11 @@ const Loading = styled('div', {
 type ButtonProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
   variant?: 'primary' | 'secondary' | 'tertiary' | '3D' | 'outlined';
   color?: string;
+  disabled?: boolean;
   noload?: boolean;
 };
 
-export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', color, noload = false, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', color, noload = false, disabled, ...rest }) => {
   const [isLoading, setIsLoading] = useState(false);
   const state = (): 'loading' | 'idle' => {
     if (isLoading) {
@@ -55,7 +56,7 @@ export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', c
 
   return (
     // @ts-ignore
-    <button data-variant={variant} style={color && { backgroundColor: color }} className={styles.container} data-state={state()} ref={buttonRef} {...rest}>
+    <button data-variant={variant} style={color && { backgroundColor: color }} className={styles.container} data-state={state()} ref={buttonRef} disabled={disabled} {...rest}>
       {isLoading ? (
         <Loading>
           <CgSpinnerAlt />
