@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Gives parameters to all information to data that must be applied -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Vitor Neves, Vinicius Oliveira e Thiago Lisboa">
-    <meta name="description" content="Neo Expertise E-Commerce">
+    <meta name="description" content="Evo Expensive E-Commerce">
     
     <!-- Favicon, stylesheet links and script link to HTML -->
-    <link rel="icon" href="./src/images/general/logos/neo-dpad-logo.svg" sizes="any" type="image/svg+xml">
+    <link rel="icon" href="/logo/neo-dpad-logo.svg" sizes="any" type="image/svg+xml">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +21,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Bebas Neue | Regular 400 -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-    <title>NeoExpertise</title>
+    
+    <title>Neo Expertise</title>
+    
     <script>
       function googleTranslateElementInit2() {
         new google.translate.TranslateElement(
@@ -37,7 +39,10 @@
       eval(
         (function (p, a, c, k, e, r) {
           e = function (c) {
-            return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36));
+            return (
+              (c < a ? '' : e(parseInt(c / a))) +
+              ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+            );
           };
           if (!''.replace(/^/, String)) {
             while (c--) r[e(c)] = k[c] || e(c);
@@ -51,7 +56,8 @@
             };
             c = 1;
           }
-          while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+          while (c--)
+            if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
           return p;
         })(
           "6 7(a,b){n{4(2.9){3 c=2.9(\"o\");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s('t'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a=='')v;3 b=a.w('|')[1];3 c;3 d=2.x('y');z(3 i=0;i<d.5;i++)4(d[i].A=='B-C-D')c=d[i];4(2.j('k')==E||2.j('k').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,'m');7(c,'m')}}",
@@ -64,18 +70,14 @@
           {}
         )
       );
-                /* ]]> */
+      /* ]]> */
     </script>
+
+
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
   </head>
-  <body>
-    <div id="google_translate_element2"></div>
-    <div id="app"></div>
-
-    <script type="module" src="./src/main.tsx"></script>
-    <script defer type="module" src="./src/js/index.js"></script>
-    <script defer type="module" src="./src/js/index.js"></script>
-    <script defer type="module" src="./src/js/functions/modal.js"></script>
-    <script defer type="module" src="./src/js/functions/accordion.js"></script>
+  <body data-theme="default">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

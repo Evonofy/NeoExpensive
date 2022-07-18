@@ -7,13 +7,12 @@ const loggedIn = !!localStorage.getItem('user');
 const user = JSON.parse(localStorage.getItem('user'));
 
 if (!loggedIn) {
-  const isDev = window.location.origin === 'http://localhost:3000';
-
-  if (isDev) {
-    window.location.href = `${window.location.origin}/pages/login/index.html`;
-  } else {
-    window.location.href = `${window.location.origin}/old/pages/login/index.html`;
-  }
+  // const isDev = window.location.origin === 'http://localhost:3000';
+  // if (isDev) {
+  //   window.location.href = `${window.location.origin}/pages/login/index.html`;
+  // } else {
+  //   window.location.href = `${window.location.origin}/old/pages/login/index.html`;
+  // }
 } else {
   userName.innerHTML = user.name;
 

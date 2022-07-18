@@ -8,6 +8,7 @@
   "scripts": {
     "commit": "cz",
     "css": "sass --no-stop-on-error scss/main.scss:css/main.css",
+    "css:mvp": "sass --no-stop-on-error scss/main.scss:../mvp/src/main.css",
     "css:mini": "sass --watch --no-stop-on-error scss/main.scss:css/main.min.css --style compressed",
     "purge:home": "yarn purgecss --css css/main.css --content index.html --output css/pages/main.css",
     "purge:about": "yarn purgecss --css css/main.css --content /pages/about/index.html --output css/pages/about.css",
