@@ -9,78 +9,6 @@ on:
       - '.github/workflows/web_deploy.yml'
 
 jobs:
-  web:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [14.x]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Cache yarn.lock
-        uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Cache Next.js Build
-        uses: actions/cache@v2
-        id: next-cache
-        with:
-          path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
-
-      - name: Install dependencies
-        run: yarn
-
-      - name: Build web design system
-        run: yarn workspace @neo/web build-storybook
-
-      - name: Build @neo/web
-        working-directory: ./apps/web
-        run: yarn build-storybook
-
-      - name: Build @neo/web
-        working-directory: ./apps/web
-        run: yarn gh-build
-        env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-
-      - name: Export static files
-        working-directory: ./apps/web
-        run: yarn export
-        env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-
-      - name: Add .nojekyll file
-        working-directory: ./apps/web
-        run: touch ./dist/.nojekyll
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: web-build
-          path: ./apps/web/dist
-
   html:
     runs-on: ${{ matrix.os }}
 
@@ -179,13 +107,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Download @neo/web
-        uses: actions/download-artifact@v2
-        with:
-          name: web-build
-          path: new
-
+        
       - name: Download @neo/html
         uses: actions/download-artifact@v2
         with:
@@ -202,19 +124,10 @@ jobs:
         working-directory: ./apps/web/dist
         run: mkdir ./old
 
-      - name: Create new folder for @neo/web
-        working-directory: ./apps/web/dist
-        run: mkdir ./new
-
       - name: Copy @neo/html into old folder
         run: |
           cp -r ./old/* ./apps/web/dist/old
           rm -rf old
-
-      - name: Copy @neo/web into mvp folder
-        run: |
-          cp -r ./new/* ./apps/web/dist/new
-          rm -rf new
 
       - name: Show structure
         working-directory: ./apps/web/dist
