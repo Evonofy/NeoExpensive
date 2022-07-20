@@ -97,7 +97,7 @@ jobs:
 
   download:
     runs-on: ${{ matrix.os }}
-    needs: [web, html, mvp]
+    needs: [html, mvp]
 
     strategy:
       matrix:

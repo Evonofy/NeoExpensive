@@ -1,17 +1,21 @@
-import React, { useCallback, useMemo, useState, useRef } from 'react';
+import React, { useCallback, useMemo, useState, useRef, useContext, useEffect } from 'react';
 import { FiTag } from 'react-icons/fi';
 import { AiOutlineQrcode } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import { produce } from 'immer';
 
 import { z } from 'zod';
-import { api, promise } from '@/services/api';
+import { api, promise, post } from '@/services/api';
 
-import Vengeance from '../images/pages/checkout/Vengeance.webp';
+import { CartContext, CartProduct } from '@/context/cart';
+
+// import Vengeance from '../images/pages/checkout/Vengeance.webp';
 import ShoppingCart from '../images/components/header/user-controls/shopping-cart.svg';
 import PackageArrived from '../images/pages/checkout/undraw_package_arrived.svg';
 
 import Modal, { ModalHandles } from '@/components/modal';
 import { CreateAddress } from '@/forms/create-address';
+// import { useQuery } from 'react-query';
 
 function round(value: number, step: number) {
   step ||= 1;
@@ -46,19 +50,8 @@ export default function Checkout() {
   const [currentCoupon, setCurrentCoupon] = useState('');
   const [coupons, setCoupons] = useState<Coupon[]>([]);
 
-  const [cart, setCart] = useState([
-    {
-      id: '1',
-      name: 'razer',
-      description: 'razer mouse gamer',
-      image: Vengeance,
-      price: 90,
-      cardPrice: 100,
-      parts: 42,
-      quantity: 1,
-      numInStock: 3,
-    },
-  ]);
+  const { cart: userCart, actions: cartContext } = useContext(CartContext);
+  const [cart, setCart] = useState<CartProduct[]>(userCart);
   const [addresses, setAddresses] = useState([
     {
       id: '1',
@@ -88,6 +81,10 @@ export default function Checkout() {
   const cardExpirationInput = useRef<HTMLInputElement>(null);
   const cardCVVInput = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    setCart(userCart);
+  }, [userCart]);
+
   const [paymentMode, setPaymentMode] = useState<'card' | 'cash'>('card');
 
   const [shipping, setShipping] = useState(0);
@@ -95,14 +92,17 @@ export default function Checkout() {
   const handleAddCoupon = useCallback(
     async (coupon: string) => {
       // hit the api to check coupon
-      const [checkCouponResponse, couponError] = await promise<Coupon>(() =>
-        api.post<z.infer<typeof couponValidator>>('/coupons/check', {
+      // using fetch API here instead of axios because of how axios treats errors
+      // whenever my API returns anything that is not 2xx status code it throws an error
+      // i just want errors to be thrown when api is offline
+      const [checkCouponResponse, couponError] = await promise(() =>
+        post<z.infer<typeof couponValidator>>('/coupons/check', {
           coupon,
         })
       );
 
       if (couponError || !checkCouponResponse) {
-        console.log('check coupon request failed');
+        console.log('server is dead.');
         return;
       }
 
@@ -120,7 +120,11 @@ export default function Checkout() {
         return;
       }
 
-      setCoupons((coupons) => [isCouponValid, ...coupons]);
+      setCoupons(
+        produce(coupons, (draft) => {
+          draft.unshift(isCouponValid);
+        })
+      );
 
       setCurrentCoupon('');
     },
@@ -142,9 +146,27 @@ export default function Checkout() {
         return;
       }
 
-      setCart((cart) => [...cart.filter(({ id }) => id !== itemId), { ...item, quantity: item.quantity + 1 }]);
+      // increase item quantity in API
+      // const [] = await promise(() => api.post(`/cart/${}`))
+      const newQuantity = item.quantity + 1;
+
+      cartContext.updateItemQuantity(itemId, newQuantity);
+
+      setCart(
+        produce(cart, (draft) => {
+          // achar o index do item baseado no ID e o remover do array
+          const itemIndex = draft.findIndex((item) => item.id === itemId);
+
+          draft.splice(itemIndex, 1);
+
+          draft.push({
+            ...item,
+            quantity: newQuantity,
+          });
+        })
+      );
     },
-    [cart]
+    [cart, cartContext]
   );
 
   const decreaseItemQuantity = useCallback(
@@ -155,33 +177,57 @@ export default function Checkout() {
         return;
       }
 
-      setCart((cart) => [...cart.filter(({ id }) => id !== itemId), { ...item, quantity: item.quantity - 1 }]);
+      const newQuantity = item.quantity - 1;
+
+      cartContext.updateItemQuantity(itemId, newQuantity);
+
+      setCart(
+        produce(cart, (draft) => {
+          // achar o index do item baseado no ID e o remover do array
+          const itemIndex = draft.findIndex((item) => item.id === itemId);
+
+          draft.splice(itemIndex, 1);
+
+          draft.push({
+            ...item,
+            quantity: newQuantity,
+          });
+        })
+      );
     },
-    [cart]
+    [cart, cartContext]
   );
 
-  const removeItemFromCart = useCallback((itemId: string) => {
-    setCart((cart) => cart.filter((item) => item.id !== itemId));
-  }, []);
+  const removeItemFromCart = useCallback(
+    (itemId: string) => {
+      cartContext.removeItem(itemId);
+
+      setCart(
+        produce(cart, (draft) => {
+          // achar o index do item baseado no ID e o remover do array
+          const itemIndex = draft.findIndex((item) => item.id === itemId);
+
+          draft.splice(itemIndex, 1);
+        })
+      );
+    },
+    [cart, cartContext]
+  );
 
   const total = useMemo(() => {
+    const sum = (accumulator: number, current: number) => accumulator + current;
+
     return {
-      rawCardPrice: cart
-        .map(({ cardPrice, quantity }) => cardPrice * quantity)
-        .reduce((accumulator, current) => accumulator + current, 0),
-      rawNowPrice: cart
-        .map(({ price, quantity }) => price * quantity)
-        .reduce((accumulator, current) => accumulator + current, 0),
+      rawCardPrice: cart.map(({ product, quantity }) => product.cardPrice * quantity).reduce(sum, 0),
+      rawNowPrice: cart.map(({ product, quantity }) => product.price * quantity).reduce(sum, 0),
       card: Math.max(
-        cart
-          .map(({ cardPrice, quantity }) => cardPrice * quantity)
-          .reduce((accumulator, current) => accumulator + current, 0) +
-          shipping -
-          totalCouponPrice,
+        cart.map(({ product, quantity }) => product.cardPrice * quantity).reduce(sum, 0) + shipping - totalCouponPrice,
         0
       ),
       now: Math.max(
-        cart.map(({ price, quantity }) => price * quantity).reduce((accumulator, current) => accumulator + current, 0) +
+        cart
+          .map(({ product, quantity }) => product.price * quantity)
+          .reduce((accumulator, current) => accumulator + current, 0) +
           shipping -
           totalCouponPrice,
         0
@@ -209,9 +255,9 @@ export default function Checkout() {
       </article>
 
       {step === 0 &&
-        cart.map(({ id, name, description, price, image, parts, quantity, numInStock }) => (
-          <section key={id} className="checkout--content checkout1--products--wrapper">
-            <img src={image} alt="" className="checkout1--image" />
+        cart.map(({ id: cartProductId, product: { name, description, price, parts, imageUrl, inStock }, quantity }) => (
+          <section key={cartProductId} className="checkout--content checkout1--products--wrapper">
+            <img src={imageUrl} alt="" className="checkout1--image" />
 
             <div className="checkout1--details">
               <h2 className="checkout1--title--h2">{name}</h2>
@@ -221,8 +267,8 @@ export default function Checkout() {
             <div className="checkout1--quantity">
               <button
                 style={{ width: '30px', height: '30px', margin: 0 }}
-                disabled={quantity === numInStock}
-                onClick={() => increaseItemQuantity(id)}
+                disabled={quantity === inStock}
+                onClick={() => increaseItemQuantity(cartProductId)}
                 className="checkout1--button"
               >
                 +
@@ -233,7 +279,7 @@ export default function Checkout() {
               <button
                 style={{ width: '30px', height: '30px', margin: 0 }}
                 disabled={quantity <= 1}
-                onClick={() => decreaseItemQuantity(id)}
+                onClick={() => decreaseItemQuantity(cartProductId)}
                 className="checkout1--button"
               >
                 -
@@ -247,7 +293,7 @@ export default function Checkout() {
               </h2>
             </div>
 
-            <button onClick={() => removeItemFromCart(id)} className="checkout1--button">
+            <button onClick={() => removeItemFromCart(cartProductId)} className="checkout1--button">
               x
             </button>
           </section>
@@ -295,7 +341,15 @@ export default function Checkout() {
                     setSelectedAddress(null);
                   }
 
-                  setAddresses((addresses) => addresses.filter((address) => address.id !== id));
+                  setAddresses(
+                    produce(addresses, (draft) => {
+                      // achar o index do item baseado no ID e o remover do array
+                      const itemIndex = draft.findIndex((address) => address.id === id);
+
+                      draft.splice(itemIndex, 1);
+                    })
+                  );
+                  // setAddresses((addresses) => addresses.filter((address) => address.id !== id));
                 }}
               >
                 X
@@ -318,15 +372,26 @@ export default function Checkout() {
                   return;
                 }
 
-                setAddresses((addresses) => [
-                  ...addresses,
-                  {
-                    id: (addresses.length + 1).toString(),
-                    zipcode,
-                    street,
-                    neighborhood,
-                  },
-                ]);
+                setAddresses(
+                  produce(addresses, (draft) => {
+                    draft.push({
+                      id: (addresses.length + 1).toString(),
+                      zipcode,
+                      street,
+                      neighborhood,
+                    });
+                  })
+                );
+
+                // setAddresses((addresses) => [
+                //   ...addresses,
+                //   {
+                //     id: (addresses.length + 1).toString(),
+                //     zipcode,
+                //     street,
+                //     neighborhood,
+                //   },
+                // ]);
 
                 addressModal.current?.handleCloseModal();
               }}
@@ -400,7 +465,15 @@ export default function Checkout() {
                         setSelectedCard(null);
                       }
 
-                      setCards((cards) => cards.filter((card) => card.id !== id));
+                      setCards(
+                        produce(cards, (draft) => {
+                          // achar o index do item baseado no ID e o remover do array
+                          const itemIndex = draft.findIndex((item) => item.id === id);
+
+                          draft.splice(itemIndex, 1);
+                        })
+                      );
+                      // setCards((cards) => cards.filter((card) => card.id !== id));
                     }}
                   >
                     x
@@ -436,15 +509,26 @@ export default function Checkout() {
 
                 <button
                   onClick={() => {
-                    setCards((cards) => [
-                      ...cards,
-                      {
-                        id: (cards.length + 1).toString(),
-                        cvv: cardCVVInput.current?.value || '',
-                        expiration: cardExpirationInput.current?.value || '',
-                        number: cardNumberInput.current?.value || '',
-                      },
-                    ]);
+                    setCards(
+                      produce(cards, (draft) => {
+                        draft.push({
+                          id: (cards.length + 1).toString(),
+                          cvv: cardCVVInput.current?.value || '',
+                          expiration: cardExpirationInput.current?.value || '',
+                          number: cardNumberInput.current?.value || '',
+                        });
+                      })
+                    );
+
+                    // setCards((cards) => [
+                    //   ...cards,
+                    //   {
+                    //     id: (cards.length + 1).toString(),
+                    //     cvv: cardCVVInput.current?.value || '',
+                    //     expiration: cardExpirationInput.current?.value || '',
+                    //     number: cardNumberInput.current?.value || '',
+                    //   },
+                    // ]);
 
                     // only runs after the stack is empty
                     queueMicrotask(() => {
@@ -504,7 +588,7 @@ export default function Checkout() {
               <span className="checkout--discount">
                 R${' '}
                 {cart
-                  .map(({ price, quantity }) => price * quantity)
+                  .map(({ product, quantity }) => product.price * quantity)
                   .reduce((accumulator, current) => accumulator + current, 0)
                   .toFixed(2)}
               </span>
@@ -516,14 +600,24 @@ export default function Checkout() {
             <hr className="checkout--info--hr" />
 
             <h4 className="checkout--info--h4">
-              {coupons.map((coupon) => (
-                <div key={coupon.id}>
+              {coupons.map(({ id, name, value }) => (
+                <div key={id}>
                   <button
-                    onClick={() => setCoupons((coupons) => coupons.filter((_coupon) => _coupon.id !== coupon.id))}
+                    onClick={() => {
+                      setCoupons(
+                        produce(coupons, (draft) => {
+                          // achar o index do item baseado no ID e o remover do array
+                          const itemIndex = draft.findIndex((coupon) => coupon.id === id);
+
+                          draft.splice(itemIndex, 1);
+                        })
+                      );
+                      // setCoupons((coupons) => coupons.filter((_coupon) => _coupon.id !== coupon.id));
+                    }}
                   >
                     x
                   </button>
-                  {coupon.name}: R$ {coupon.value.toFixed(2)}
+                  {name}: R$ {value.toFixed(2)}
                 </div>
               ))}
               Cupons de Disconto: <span className="checkout--discount">R$ {totalCouponPrice.toFixed(2)}</span>
