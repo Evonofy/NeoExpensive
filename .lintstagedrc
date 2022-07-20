@@ -1,4 +1,4 @@
 {
-  "./**/*.{js,ts,json,md}": ["prettier --write"],
-  "./**/*.{css,scss}": ["stylelint --fix"],
+  "./apps/**/*.{js,ts,tsx,json,md}": ["prettier --write"],
+  "./**/*.{css,scss}": ["stylelint --fix"]
 }

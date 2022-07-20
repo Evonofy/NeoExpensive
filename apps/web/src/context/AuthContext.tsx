@@ -425,5 +425,9 @@ export const AuthProvider: FC = ({ children }) => {
     setUser(user);
   }, [setUser, storage]);
 
-  return <AuthContext.Provider value={{ user, login, logout, register, forgotPassword, disconnectAccount, refreshToken }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ user, login, logout, register, forgotPassword, disconnectAccount, refreshToken }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

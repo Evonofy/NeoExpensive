@@ -65,7 +65,9 @@ const RecoverPasswordPage: NextPage = () => {
       ) : (
         <form onSubmit={handleSubmit(handleRecoverPassword)}>
           <input type="text" placeholder="type a new password" {...register('password')} />
-          {errors.password && <span style={{ color: 'red' }}>your time has expired, please make another attempt to redeem password</span>}
+          {errors.password && (
+            <span style={{ color: 'red' }}>your time has expired, please make another attempt to redeem password</span>
+          )}
 
           <button type="submit">Use new password</button>
         </form>

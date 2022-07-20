@@ -12,7 +12,7 @@ import WorkingLate from '../images/pages/about-us/undraw_working_late.svg';
 
 import User from '@/components/about/user';
 
-export const contributorValidator = z.object({
+export const userValidator = z.object({
   id: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
@@ -22,17 +22,18 @@ export const contributorValidator = z.object({
   username: z.string(),
   role: z.string(),
   github: z.string(),
+  imgUrl: z.string(),
 });
 
-const contributorsValidator = z.array(contributorValidator);
+const usersValidator = z.array(userValidator);
 
 const getContributors = () => {
   return useQuery(
     ['contributors'],
     async () => {
-      const data = await api<z.infer<typeof contributorsValidator>>('/users?contributor=true');
+      const data = await api<z.infer<typeof usersValidator>>('/users?contributor=true');
 
-      return contributorsValidator.parse(data);
+      return usersValidator.parse(data);
     },
     {
       onError: (error) => console.error(`[react-query/contributors] ERROR \t`, error),
@@ -141,13 +142,19 @@ const about: FC = () => {
           <hr className="aboutus--section--divider" />
         </div>
 
-        <div className="aboutus--section--center">
-          <h2 className="aboutus--section--center--h2">Desenvolvedores</h2>
+        {!!contributors && isLoading ? (
+          'loading contributors...'
+        ) : (
+          <div className="aboutus--section--center">
+            <h2 className="aboutus--section--center--h2">Desenvolvedores</h2>
 
-          <div className="aboutus--section--profile--wrapper">
-            {isLoading ? 'loading contributors...' : contributors?.map((user) => <User key={user.id} {...user} />)}
+            <div className="aboutus--section--profile--wrapper">
+              {contributors?.map((user) => (
+                <User key={user.id} {...user} />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </main>
     </React.Fragment>
   );

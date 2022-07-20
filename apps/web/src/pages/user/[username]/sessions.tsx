@@ -47,7 +47,9 @@ const SessionsPage = () => {
       }
 
       if (proceed) {
-        const previousRefreshTokens = queryClient.getQueryData<{ refreshToken: RefreshToken[] }>('fetch-refresh-tokens');
+        const previousRefreshTokens = queryClient.getQueryData<{ refreshToken: RefreshToken[] }>(
+          'fetch-refresh-tokens'
+        );
         if (previousRefreshTokens) {
           // all the tokens without this one
           const filteredRefreshTokens = previousRefreshTokens.refreshToken.filter((token) => token.id !== id);

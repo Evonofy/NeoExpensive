@@ -17,7 +17,12 @@ type loginInRequestResponse = {
   refreshToken?: string;
 };
 
-export async function loginInRequest({ login, password, language, platform }: loginInRequestProps): Promise<loginInRequestResponse> {
+export async function loginInRequest({
+  login,
+  password,
+  language,
+  platform,
+}: loginInRequestProps): Promise<loginInRequestResponse> {
   type APILoginResponse = {
     user: {
       _id: string;
@@ -93,7 +98,14 @@ type registerRequestResponse = {
   refreshToken?: string;
 };
 
-export async function registerRequest({ name, email, password, language, platform, username }: registerRequestProps): Promise<registerRequestResponse> {
+export async function registerRequest({
+  name,
+  email,
+  password,
+  language,
+  platform,
+  username,
+}: registerRequestProps): Promise<registerRequestResponse> {
   type APIRegisterResponse = {
     user: {
       _id: string;
@@ -144,7 +156,9 @@ type recoverUserInformationResponse = {
   error?: 'Expired refresh token.';
 };
 
-export async function recoverUserInformation({ id }: recoverUserInformationProps): Promise<recoverUserInformationResponse> {
+export async function recoverUserInformation({
+  id,
+}: recoverUserInformationProps): Promise<recoverUserInformationResponse> {
   try {
     const { data } = await api.get<{ user: User }>(`/users/${id}`);
     const { user } = data;
@@ -168,7 +182,9 @@ type forgotPasswordInformationResponse = {
   errors?: _Error<'email'>[];
 };
 
-export async function forgotPasswordRequest({ email }: forgotPasswordInformationProps): Promise<forgotPasswordInformationResponse> {
+export async function forgotPasswordRequest({
+  email,
+}: forgotPasswordInformationProps): Promise<forgotPasswordInformationResponse> {
   try {
     type APIForgotPasswordResponse = {
       accessToken: string;
@@ -204,7 +220,10 @@ type setNewPasswordResponse = {
   errors?: _Error<'password'>[];
 };
 
-export async function setNewPasswordRequest({ accessToken, password }: setNewPasswordProps): Promise<setNewPasswordResponse> {
+export async function setNewPasswordRequest({
+  accessToken,
+  password,
+}: setNewPasswordProps): Promise<setNewPasswordResponse> {
   try {
     await api.post('/users/set-new-password', {
       accessToken,

@@ -120,5 +120,9 @@ export const SettingsProvider: FC = ({ children }) => {
     });
   }, [installLanguage, installTheme, storage]);
 
-  return <SettingsContext.Provider value={{ theme, language, installTheme, installLanguage, resetDefault }}>{children}</SettingsContext.Provider>;
+  return (
+    <SettingsContext.Provider value={{ theme, language, installTheme, installLanguage, resetDefault }}>
+      {children}
+    </SettingsContext.Provider>
+  );
 };

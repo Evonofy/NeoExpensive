@@ -3,6 +3,9 @@ import { FiTag } from 'react-icons/fi';
 import { AiOutlineQrcode } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
+import { z } from 'zod';
+import { api, promise } from '@/services/api';
+
 import Vengeance from '../images/pages/checkout/Vengeance.webp';
 import ShoppingCart from '../images/components/header/user-controls/shopping-cart.svg';
 import PackageArrived from '../images/pages/checkout/undraw_package_arrived.svg';
@@ -22,24 +25,26 @@ function findPercentageBetweenNumbers(numberA: number, numberB: number) {
   return (numberA / numberB) * 100;
 }
 
-const AVAILABLE_COUPONS: Record<string, number> = {
-  '10OFF': 10,
-  '20OFF': 20,
-  '30OFF': 30,
-  '40OFF': 40,
-  '50OFF': 50,
-};
+const couponValidator = z.object({
+  id: z.string(),
+  name: z.string(),
+  value: z.number(),
+  percentage: z.boolean().optional(),
+});
+
+type Coupon = z.infer<typeof couponValidator>;
 
 const parts = 12;
 
 export default function Checkout() {
-  const addressModal = useRef<ModalHandles>(null);
   const navigate = useNavigate();
+  const addressModal = useRef<ModalHandles>(null);
 
   const [step, setStep] = useState(0);
+  const [canProceed, setCanProceed] = useState(true);
 
-  const [coupons, setCoupons] = useState<string[]>([]);
-  const [coupon, setCoupon] = useState('');
+  const [currentCoupon, setCurrentCoupon] = useState('');
+  const [coupons, setCoupons] = useState<Coupon[]>([]);
 
   const [cart, setCart] = useState([
     {
@@ -88,34 +93,42 @@ export default function Checkout() {
   const [shipping, setShipping] = useState(0);
 
   const handleAddCoupon = useCallback(
-    (coupon: string) => {
-      const couponExists = AVAILABLE_COUPONS[coupon];
+    async (coupon: string) => {
+      // hit the api to check coupon
+      const [checkCouponResponse, couponError] = await promise<Coupon>(() =>
+        api.post<z.infer<typeof couponValidator>>('/coupons/check', {
+          coupon,
+        })
+      );
 
-      if (!couponExists) {
+      if (couponError || !checkCouponResponse) {
+        console.log('check coupon request failed');
+        return;
+      }
+
+      const [isCouponValid, couponValidError] = await promise(() => couponValidator.parseAsync(checkCouponResponse));
+
+      if (couponValidError || !isCouponValid) {
         alert('coupon doesnt exist');
         return;
       }
 
-      const couponAlreadyInUse = coupons.includes(coupon);
+      const couponAlreadyInUse = coupons.find((coupon) => coupon.id === isCouponValid.id);
 
       if (couponAlreadyInUse) {
         alert('already in use');
         return;
       }
 
-      setCoupons((coupons) => [coupon, ...coupons]);
+      setCoupons((coupons) => [isCouponValid, ...coupons]);
 
-      setCoupon('');
+      setCurrentCoupon('');
     },
     [coupons]
   );
 
-  const [canProceed, setCanProceed] = useState(true);
-
   const totalCouponPrice = useMemo(() => {
-    const priceMap = Object.entries(AVAILABLE_COUPONS)
-      .filter(([name]) => coupons.includes(name))
-      .map(([_, price]) => price);
+    const priceMap = coupons.map(({ value }) => value);
 
     return priceMap.reduce((accumulator, current) => accumulator + current, 0);
   }, [coupons]);
@@ -469,15 +482,15 @@ export default function Checkout() {
             onSubmit={(event) => {
               event.preventDefault();
 
-              handleAddCoupon(coupon);
+              handleAddCoupon(currentCoupon);
             }}
             className="checkout--zip"
           >
             <input
               type="text"
               className="checkout--info--input"
-              value={coupon}
-              onChange={(event) => setCoupon(event.target.value)}
+              value={currentCoupon}
+              onChange={(event) => setCurrentCoupon(event.target.value)}
             />
 
             <button className="checkout--info--button">Aplicar</button>
@@ -504,11 +517,13 @@ export default function Checkout() {
 
             <h4 className="checkout--info--h4">
               {coupons.map((coupon) => (
-                <div key={coupon}>
-                  <button onClick={() => setCoupons((coupons) => coupons.filter((_coupon) => _coupon !== coupon))}>
+                <div key={coupon.id}>
+                  <button
+                    onClick={() => setCoupons((coupons) => coupons.filter((_coupon) => _coupon.id !== coupon.id))}
+                  >
                     x
-                  </button>{' '}
-                  {coupon}: R$ {AVAILABLE_COUPONS[coupon].toFixed(2)}
+                  </button>
+                  {coupon.name}: R$ {coupon.value.toFixed(2)}
                 </div>
               ))}
               Cupons de Disconto: <span className="checkout--discount">R$ {totalCouponPrice.toFixed(2)}</span>

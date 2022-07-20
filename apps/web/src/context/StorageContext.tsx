@@ -159,5 +159,9 @@ export const StorageProvider: FC = ({ children }) => {
     });
   }, [set, setStorage, storageKey]);
 
-  return <StorageContext.Provider value={{ storage, get, set, remove, getAll, changeToCookies, changeToLocalStorage }}>{children}</StorageContext.Provider>;
+  return (
+    <StorageContext.Provider value={{ storage, get, set, remove, getAll, changeToCookies, changeToLocalStorage }}>
+      {children}
+    </StorageContext.Provider>
+  );
 };

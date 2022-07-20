@@ -17,7 +17,7 @@
   },
   "scripts": {
     "lint-staged": "lint-staged — config .lintstagedrc",
-    "commit": "./node_modules/cz-customizable/standalone.js",
+    "commit": "./node_modules/cz-customizable/standalone.js && prettier --write ./apps/**/*.{js,ts,tsx}",
     "release": "HUSKY_SKIP_HOOKS=1 dotenv release-it --",
     "setup-husky": "husky install",
     "lint:styles": "stylelint \"packages/**/*.css\" --fix --config stylelint.config.js",
